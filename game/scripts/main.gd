@@ -410,7 +410,7 @@ func enemy_pool_for_biome(which: String) -> Array:
 
 func make_enemy(kind: String, p: Vector2) -> Dictionary:
 	var life: int = monster_health(kind)
-	return {"pos": p, "hp": life, "max_hp": life, "kind": kind, "cool": 0.0, "flash": 0.0, "state": "idle", "state_time": 0.0, "action_time": 0.0, "dead": false}
+	return {"pos": p, "hp": life, "max_hp": life, "kind": kind, "cool": 0.0, "flash": 0.0, "state": "idle", "state_time": 0.0, "action_time": 0.0, "dead": false, "special_cool": 1.8 if kind == "Guardião" else 0.0, "boss_pattern": -1, "boss_action": "", "boss_hit_done": false}
 
 func set_enemy_state(enemy: Dictionary, state: String) -> void:
 	if str(enemy.get("state", "idle")) != state:
@@ -556,6 +556,42 @@ func update_enemies(delta: float) -> void:
 			continue
 		var dist: float = (enemy["pos"] as Vector2).distance_to(player)
 		var moved: bool = false
+		if str(enemy["kind"]) == "Guardião":
+			enemy["special_cool"] = maxf(0.0, float(enemy.get("special_cool", 0.0)) - delta)
+			var boss_action: String = str(enemy.get("boss_action", ""))
+			if boss_action == "charge" and float(enemy.get("action_time", 0.0)) > 0:
+				var charge_dir: Vector2 = (player - (enemy["pos"] as Vector2)).normalized()
+				var charge_next: Vector2 = (enemy["pos"] as Vector2) + charge_dir * 132.0 * delta
+				if walkable(charge_next):
+					enemy["pos"] = charge_next
+					moved = true
+				set_enemy_state(enemy, "attack")
+			elif boss_action == "shockwave" and float(enemy.get("action_time", 0.0)) > 0:
+				set_enemy_state(enemy, "attack")
+				if float(enemy.get("action_time", 0.0)) < .28 and not bool(enemy.get("boss_hit_done", false)):
+					enemy["boss_hit_done"] = true
+					if dist < 118.0 and invulnerable <= 0:
+						var wave_taken: int = maxi(1, 12 - armor - int(equipped_armor.get("def", 0)))
+						hp = maxi(0, hp - wave_taken)
+						invulnerable = .8
+						floaters.append({"pos": player + Vector2(0, -52), "text": "-%d" % wave_taken, "t": .7, "color": Color(1, .48, .72)})
+						if hp <= 0:
+							gold = maxi(0, gold - 8)
+							hp = max_hp
+							change_zone("cidade", MAP.TOWN + Vector2(884, 696))
+							message("Você desmaiou diante do Guardião. A guilda o resgatou.")
+							return
+			elif float(enemy.get("action_time", 0.0)) <= 0:
+				enemy["boss_action"] = ""
+				if float(enemy.get("special_cool", 0.0)) <= 0 and dist < 260.0:
+					var next_pattern: int = (int(enemy.get("boss_pattern", -1)) + 1) % 2
+					enemy["boss_pattern"] = next_pattern
+					enemy["special_cool"] = 3.0
+					enemy["action_time"] = .74 if next_pattern == 0 else .62
+					enemy["boss_action"] = "charge" if next_pattern == 0 else "shockwave"
+					enemy["boss_hit_done"] = false
+					set_enemy_state(enemy, "attack")
+					continue
 		if float(enemy.get("action_time", 0.0)) <= 0 and dist < 180 and dist > 23:
 			var movement: Vector2 = (player - enemy["pos"]).normalized() * monster_speed(str(enemy["kind"])) * delta
 			var next: Vector2 = enemy["pos"] + movement
@@ -926,6 +962,7 @@ func _draw() -> void:
 			draw_arc(ruins, 30, 0, TAU, 25, Color(.64, .48, .99), 4)
 			draw_label("RUÍNAS • E", ruins + Vector2(-76, -42))
 		draw_animals(camera)
+		draw_ambient_life(camera)
 	elif zone == "masmorra":
 		draw_dungeon()
 	elif zone in ["loja", "alquimia", "guilda"]:
@@ -1074,14 +1111,39 @@ func draw_world_structure(entry: Dictionary) -> void:
 	draw_label(str(entry["label"]), center + Vector2(-90, -sz.y + 1), Color(1, .9, .65))
 
 func draw_settlement(center: Vector2, label: String, roof_color: Color) -> void:
-	for index in 3:
-		var p: Vector2 = center + Vector2((index - 1) * 112, (index % 2) * 58)
-		draw_shadow_oval(p + Vector2(15, 28), Vector2(39, 14), Color(0, 0, 0, .22))
-		draw_rect(Rect2(p - Vector2(28, 19), Vector2(56, 48)), Color(.6, .47, .33))
-		draw_colored_polygon(PackedVector2Array([p + Vector2(-36, -15), p + Vector2(0, -51), p + Vector2(36, -15)]), roof_color)
-		draw_rect(Rect2(p + Vector2(-7, 3), Vector2(14, 26)), Color(.29, .2, .16))
-		draw_rect(Rect2(p + Vector2(-22, -4), Vector2(11, 9)), Color(.47, .76, .85))
-	draw_label(label, center + Vector2(-90, -82))
+	# Pequenos assentamentos agora têm casas, cercas, poço e jardim em vez de três blocos simples.
+	var house_positions: Array[Vector2] = [Vector2(-118, 14), Vector2(0, -26), Vector2(118, 20)]
+	for index in range(house_positions.size()):
+		var p: Vector2 = center + house_positions[index]
+		draw_shadow_oval(p + Vector2(10, 31), Vector2(42, 13), Color(0, 0, 0, .24))
+		draw_rect(Rect2(p - Vector2(31, 17), Vector2(62, 48)), Color(.67, .54, .38))
+		draw_rect(Rect2(p - Vector2(31, 17), Vector2(62, 5)), Color(.45, .31, .22))
+		draw_line(p + Vector2(-22, -12), p + Vector2(-22, 25), Color(.38, .25, .18), 3)
+		draw_line(p + Vector2(22, -12), p + Vector2(22, 25), Color(.38, .25, .18), 3)
+		draw_colored_polygon(PackedVector2Array([p + Vector2(-41, -14), p + Vector2(0, -55), p + Vector2(41, -14)]), roof_color.darkened(.22))
+		draw_colored_polygon(PackedVector2Array([p + Vector2(-36, -16), p + Vector2(0, -50), p + Vector2(36, -16)]), roof_color)
+		draw_line(p + Vector2(-25, -22), p + Vector2(0, -47), roof_color.lightened(.28), 2)
+		draw_rect(Rect2(p + Vector2(-8, 2), Vector2(16, 29)), Color(.3, .2, .15))
+		draw_rect(Rect2(p + Vector2(-25, -3), Vector2(12, 10)), Color(.31, .68, .76))
+		draw_line(p + Vector2(-19, -2), p + Vector2(-19, 6), Color(.9, .86, .62), 1)
+		if index != 1:
+			draw_rect(Rect2(p + Vector2(21, -43), Vector2(8, 20)), Color(.43, .3, .25))
+	# Cerca baixa e jardim deixam o assentamento integrado ao terreno.
+	for side in [-1.0, 1.0]:
+		var fx: float = center.x + side * 176.0
+		draw_line(Vector2(fx, center.y + 16), Vector2(fx, center.y + 94), Color(.46, .31, .19), 3)
+		for fy in range(24, 95, 18):
+			draw_line(Vector2(fx - 7, center.y + fy), Vector2(fx + 7, center.y + fy), Color(.66, .46, .26), 2)
+	var well: Vector2 = center + Vector2(0, 75)
+	draw_shadow_oval(well + Vector2(2, 6), Vector2(20, 7), Color(0, 0, 0, .18))
+	draw_circle(well, 17, Color(.38, .34, .32))
+	draw_circle(well, 12, Color(.52, .49, .43))
+	draw_circle(well, 8, Color(.18, .43, .55))
+	for flower_index in 10:
+		var angle: float = TAU * float(flower_index) / 10.0
+		var fp: Vector2 = center + Vector2(cos(angle) * 82.0, 70.0 + sin(angle) * 23.0)
+		draw_circle(fp, 2.0, Color(1, .8 if flower_index % 2 == 0 else .55, .72))
+	draw_label(label, center + Vector2(-90, -100))
 
 func draw_animals(camera: Vector2) -> void:
 	for creature in animals:
@@ -1100,6 +1162,28 @@ func draw_animals(camera: Vector2) -> void:
 		else:
 			draw_texture_rect(textures[kind], Rect2(Vector2(-16, -16 - bob), Vector2(32, 32)), false)
 		draw_set_transform(-camera)
+
+
+func draw_ambient_life(camera: Vector2) -> void:
+	# Partículas ambientais baratas reforçam a identidade de cada bioma sem nós extras.
+	var biome_name: String = MAP.biome(player)
+	for i in 12:
+		var seed: int = MAP.cell_hash(i + int(camera.x / 64.0) * 3, i * 11 + int(camera.y / 64.0) * 5)
+		var lx: float = fposmod(float(seed % 941) + time_acc * float(8 + seed % 9), VIEW_SIZE.x)
+		var ly: float = fposmod(float((seed / 13) % 521) + sin(time_acc * .8 + i) * 18.0, VIEW_SIZE.y)
+		var wp: Vector2 = camera + Vector2(lx, ly)
+		if biome_name in ["floresta", "campos", "vale", "pradaria"]:
+			var wing: float = sin(time_acc * 7.0 + i) * 2.0
+			var c: Color = Color(1, .88, .42, .72) if i % 3 else Color(.66, .9, 1, .7)
+			draw_circle(wp + Vector2(-2 - wing, 0), 1.5, c)
+			draw_circle(wp + Vector2(2 + wing, 0), 1.5, c)
+			draw_circle(wp, .8, Color(.24, .18, .16, .85))
+		elif biome_name == "gelo":
+			var snow: float = fposmod(ly + time_acc * 22.0 + i * 9.0, VIEW_SIZE.y)
+			draw_circle(camera + Vector2(lx, snow), 1.4 + float(i % 2), Color(.94, .99, 1, .72))
+		elif biome_name == "deserto":
+			var drift: float = fposmod(lx + time_acc * 32.0, VIEW_SIZE.x)
+			draw_line(camera + Vector2(drift, ly), camera + Vector2(drift + 13, ly - 2), Color(.94, .82, .55, .24), 1)
 
 func draw_world_minimap() -> void:
 	var origin: Vector2 = Vector2(353, 145)
@@ -1139,6 +1223,7 @@ func draw_label(text: String, p: Vector2, color: Color = Color(1, .88, .64)) -> 
 	draw_string(ui_font, p, text, HORIZONTAL_ALIGNMENT_CENTER, 180, 16, color)
 
 func draw_dungeon() -> void:
+	# Ruínas compactas, com arena central legível e iluminação ritual.
 	for x in range(0, 30):
 		for y in [0, 1, 26, 27]:
 			draw_texture_rect(textures["wall"], Rect2(x * 32, y * 32, 32, 32), false)
@@ -1147,10 +1232,32 @@ func draw_dungeon() -> void:
 			draw_texture_rect(textures["wall"], Rect2(x * 32, y * 32, 32, 32), false)
 	for x in [6, 11, 18, 24]:
 		for y in [8, 13, 19]:
+			var pillar: Vector2 = Vector2(x * 32 + 16, y * 32 + 16)
+			draw_shadow_oval(pillar + Vector2(4, 13), Vector2(20, 6), Color(0, 0, 0, .25))
 			draw_texture_rect(textures["wall"], Rect2(x * 32, y * 32, 32, 32), false)
+			draw_rect(Rect2(pillar + Vector2(-11, -18), Vector2(22, 5)), Color(.49, .45, .58))
+	# Fissuras e pedras quebradas no piso.
+	for crack in [Vector2(123, 310), Vector2(330, 610), Vector2(650, 360), Vector2(784, 690), Vector2(515, 530), Vector2(260, 450)]:
+		draw_line(crack, crack + Vector2(17, 8), Color(.18, .16, .24, .7), 2)
+		draw_line(crack + Vector2(9, 4), crack + Vector2(5, 17), Color(.18, .16, .24, .6), 1)
+	# Arena do Guardião.
+	var arena: Vector2 = Vector2(485, 240)
+	draw_circle(arena, 112, Color(.18, .12, .28, .34))
+	draw_arc(arena, 112, 0, TAU, 56, Color(.52, .38, .72, .75), 4)
+	draw_arc(arena, 86, 0, TAU, 48, Color(.34, .24, .52, .65), 2)
+	for rune_index in 8:
+		var angle: float = TAU * float(rune_index) / 8.0
+		var rp: Vector2 = arena + Vector2(cos(angle), sin(angle)) * 96.0
+		draw_colored_polygon(PackedVector2Array([rp + Vector2(0, -6), rp + Vector2(5, 4), rp + Vector2(-5, 4)]), Color(.72, .5, 1, .72))
+	# Tochas com flicker e luz local.
 	for p in [Vector2(225, 185), Vector2(745, 185), Vector2(225, 629), Vector2(745, 629)]:
-		draw_circle(p, 14, Color(.92, .38, .12, .7))
-		draw_circle(p, 6, Color(1, .82, .31))
+		draw_circle(p, 22, Color(.95, .32, .08, .08))
+		draw_rect(Rect2(p + Vector2(-2, 5), Vector2(4, 15)), Color(.37, .23, .15))
+		var flame: float = 6.0 + sin(time_acc * 8.0 + p.x) * 1.5
+		draw_circle(p, flame + 5, Color(.92, .38, .12, .58))
+		draw_circle(p + Vector2(0, -2), flame, Color(1, .82, .31, .9))
+		draw_circle(p + Vector2(-1, -4), 3, Color(1, .96, .66))
+	draw_label("CÂMARA DO GUARDIÃO", Vector2(395, 92), Color(.86, .7, 1))
 	draw_label("↓ SAÍDA", Vector2(409, 805))
 
 func draw_interior() -> void:
@@ -1174,14 +1281,44 @@ func draw_interior() -> void:
 			draw_line(Vector2(335, 383 + n * 20), Vector2(625, 383 + n * 20), Color(.52, .35, .22), 3)
 		for n in 4:
 			draw_line(Vector2(355, 400 + n * 17), Vector2(566, 394 + n * 17), Color(.74, .78, .75), 4)
+		draw_circle(Vector2(805, 425), 72, Color(.98, .33, .08, .08))
 		draw_circle(Vector2(805, 425), 65, Color(.18, .19, .20))
 		draw_circle(Vector2(805, 425), 33, Color(.97, .4, .10))
 		draw_circle(Vector2(805, 425), 16, Color(1, .8, .26))
-	else:
-		for p in [Vector2(186, 197), Vector2(697, 197), Vector2(363, 460)]:
-			draw_rect(Rect2(p, Vector2(114, 65)), Color(.29, .18, .12))
-			draw_rect(Rect2(p + Vector2(8, 8), Vector2(98, 49)), Color(.57, .39, .22))
-			draw_circle(p + Vector2(54, 31), 17, Color(.28, .48, .5) if zone == "alquimia" else Color(.73, .69, .53))
+	elif zone == "guilda":
+		# Mesa de mapas, quadro de contratos, troféus e estandartes.
+		draw_rect(Rect2(322, 294, 316, 166), Color(.31, .19, .12))
+		draw_rect(Rect2(340, 310, 280, 130), Color(.73, .58, .35))
+		draw_line(Vector2(362, 335), Vector2(590, 400), Color(.35, .55, .6), 4)
+		draw_line(Vector2(410, 420), Vector2(565, 330), Color(.57, .38, .23), 3)
+		draw_rect(Rect2(102, 135, 185, 160), Color(.25, .16, .12))
+		for row in 4:
+			draw_rect(Rect2(120, 153 + row * 32, 148, 22), Color(.82, .73, .53))
+			draw_line(Vector2(132, 165 + row * 32), Vector2(245, 165 + row * 32), Color(.4, .28, .2), 2)
+		for bx in [690.0, 790.0]:
+			draw_colored_polygon(PackedVector2Array([Vector2(bx, 130), Vector2(bx + 55, 130), Vector2(bx + 48, 245), Vector2(bx + 27, 224), Vector2(bx + 7, 245)]), Color(.42, .23, .58))
+	elif zone == "loja":
+		for shelf_y in [170.0, 300.0]:
+			draw_rect(Rect2(120, shelf_y, 710, 24), Color(.35, .21, .13))
+			for item_index in 9:
+				var ix: float = 145.0 + item_index * 76.0
+				draw_rect(Rect2(ix, shelf_y - 35, 34, 34), Color(.58, .42, .27))
+				draw_circle(Vector2(ix + 17, shelf_y - 18), 8, Color(.8, .64, .38))
+		for crate in [Vector2(145, 525), Vector2(215, 545), Vector2(710, 535)]:
+			draw_rect(Rect2(crate, Vector2(58, 48)), Color(.49, .31, .18))
+			draw_line(crate + Vector2(5, 5), crate + Vector2(53, 43), Color(.68, .46, .25), 2)
+	elif zone == "alquimia":
+		for table_x in [145.0, 560.0]:
+			draw_rect(Rect2(table_x, 350, 255, 58), Color(.33, .2, .14))
+			for bottle_index in 5:
+				var bp: Vector2 = Vector2(table_x + 34 + bottle_index * 43, 338 - (bottle_index % 2) * 7)
+				draw_circle(bp, 11, Color(.82 if bottle_index % 2 else .46, .35, .8, .82))
+				draw_rect(Rect2(bp + Vector2(-3, -18), Vector2(6, 8)), Color(.75, .82, .8))
+		for herb_index in 7:
+			var hp2: Vector2 = Vector2(150 + herb_index * 103, 190 + (herb_index % 2) * 35)
+			draw_line(hp2, hp2 + Vector2(0, 30), Color(.31, .53, .27), 3)
+			draw_circle(hp2 + Vector2(-6, 8), 6, Color(.38, .68, .33))
+			draw_circle(hp2 + Vector2(7, 16), 6, Color(.48, .76, .39))
 	draw_label(zone.to_upper(), Vector2(400, 113))
 	draw_label("E conversar  •  ↓ sair", Vector2(386, 637), Color.WHITE)
 
@@ -1196,6 +1333,16 @@ func draw_enemy(enemy: Dictionary, camera: Vector2) -> void:
 	if not ENEMY_STATE_ROW.has(state):
 		state = "idle"
 	draw_shadow_oval(p + Vector2(0, 11), Vector2(24, 7) if boss else Vector2(15, 5), Color(0, 0, 0, .35 if not dead else .18))
+	if boss and not dead:
+		var boss_action: String = str(enemy.get("boss_action", ""))
+		if boss_action == "shockwave":
+			var pulse: float = 86.0 + sin(time_acc * 9.0) * 10.0
+			draw_arc(p, pulse, 0, TAU, 40, Color(.85, .32, .92, .72), 4)
+			draw_arc(p, 118.0, 0, TAU, 48, Color(.55, .24, .72, .36), 2)
+		elif boss_action == "charge":
+			var dir: Vector2 = (player - p).normalized()
+			draw_line(p + dir * 24.0, p + dir * 92.0, Color(1, .42, .3, .75), 4)
+			draw_circle(p + dir * 100.0, 6, Color(1, .72, .34, .78))
 	var state_time: float = float(enemy.get("state_time", 0.0))
 	var frame: int = 0
 	if state == "death":
