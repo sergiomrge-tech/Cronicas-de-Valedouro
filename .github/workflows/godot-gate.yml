@@ -164,18 +164,10 @@ jobs:
           path: game/ci_output/*.png
           if-no-files-found: error
 
-      - name: Commit expanded reproducible project
+      - name: Final CI cleanup
         shell: bash
         run: |
           set -e
           rm -rf game/.godot game/ci_output game/tools/__pycache__
           rm -f game/tests/visual_capture.gd
-          git config user.name "Valedouro CI"
-          git config user.email "actions@users.noreply.github.com"
-          git add CLAUDE.md .gitignore docs handoffs game
-          if git diff --cached --quiet; then
-            echo "Expanded source already up to date."
-          else
-            git commit -m "Expand reproducible Godot project [skip ci]"
-            git push
-          fi
+          echo "CI is read-only: generated runtime assets and QA captures are not pushed back to main."
