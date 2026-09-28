@@ -1,0 +1,8 @@
+.godot/
+.import/
+*.tmp
+*.bak
+__pycache__/
+*.pyc
+artifacts/
+ci_output/

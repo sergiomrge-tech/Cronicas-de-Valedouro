@@ -1,0 +1,970 @@
+{
+  "schema_version": 1,
+  "catalog_id": "CAT_ASSETS_V06_001",
+  "source_build": "v0.6.0",
+  "policy": {
+    "ids_are_persistent": true,
+    "visual_status_is_not_claude_gate": true,
+    "claude_lote01_integrated": false
+  },
+  "counts": {
+    "total": 119,
+    "legacy_runtime": 119,
+    "source_only": 0,
+    "unreferenced_legacy": 0
+  },
+  "assets": [
+    {
+      "id": "AST_V06_AMBER_BEETLE_FULL",
+      "path": "res://assets/amber_beetle_full.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BIRD",
+      "path": "res://assets/bird.png",
+      "category": "fauna",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BIRD_ANIM",
+      "path": "res://assets/bird_anim.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BOAR_FULL",
+      "path": "res://assets/boar_full.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BOSS",
+      "path": "res://assets/boss.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BOSS_ANIM",
+      "path": "res://assets/boss_anim.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BOSS_FULL",
+      "path": "res://assets/boss_full.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BRIDGE",
+      "path": "res://assets/bridge.png",
+      "category": "structure",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BTN_ATTACK",
+      "path": "res://assets/btn_attack.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BTN_BAG",
+      "path": "res://assets/btn_bag.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BTN_INTERACT",
+      "path": "res://assets/btn_interact.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BTN_MAP",
+      "path": "res://assets/btn_map.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BTN_POTION",
+      "path": "res://assets/btn_potion.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_BUSH",
+      "path": "res://assets/bush.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_CACTUS",
+      "path": "res://assets/cactus.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_CAMEL",
+      "path": "res://assets/camel.png",
+      "category": "fauna",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_DEAD_BUSH",
+      "path": "res://assets/dead_bush.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_DEER",
+      "path": "res://assets/deer.png",
+      "category": "fauna",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_DESERT_DUNE",
+      "path": "res://assets/desert_dune.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_DESERT_OUTPOST",
+      "path": "res://assets/desert_outpost.png",
+      "category": "structure",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_ARMOR_1",
+      "path": "res://assets/equip_armor_1.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_ARMOR_2",
+      "path": "res://assets/equip_armor_2.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_ARMOR_3",
+      "path": "res://assets/equip_armor_3.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_ARMOR_4",
+      "path": "res://assets/equip_armor_4.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_BOW_0",
+      "path": "res://assets/equip_bow_0.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_BOW_1",
+      "path": "res://assets/equip_bow_1.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_BOW_2",
+      "path": "res://assets/equip_bow_2.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_BOW_3",
+      "path": "res://assets/equip_bow_3.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_STAFF_0",
+      "path": "res://assets/equip_staff_0.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_STAFF_1",
+      "path": "res://assets/equip_staff_1.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_STAFF_2",
+      "path": "res://assets/equip_staff_2.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_STAFF_3",
+      "path": "res://assets/equip_staff_3.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_SWORD_0",
+      "path": "res://assets/equip_sword_0.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_SWORD_1",
+      "path": "res://assets/equip_sword_1.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_SWORD_2",
+      "path": "res://assets/equip_sword_2.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_EQUIP_SWORD_3",
+      "path": "res://assets/equip_sword_3.png",
+      "category": "equipment_icon",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_FISH",
+      "path": "res://assets/fish.png",
+      "category": "fauna",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_FLOWER",
+      "path": "res://assets/flower.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_FLOWER_BEAST_FULL",
+      "path": "res://assets/flower_beast_full.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_FONTS_PIXELIFYSANS",
+      "path": "res://assets/fonts/PixelifySans.ttf",
+      "category": "font",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_FOREST_ART",
+      "path": "res://assets/forest_art.png",
+      "category": "environment_art",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_FORGE_ART",
+      "path": "res://assets/forge_art.png",
+      "category": "environment_art",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_FOX",
+      "path": "res://assets/fox.png",
+      "category": "fauna",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_FROST_TREE",
+      "path": "res://assets/frost_tree.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_GOAT",
+      "path": "res://assets/goat.png",
+      "category": "fauna",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_GRASS",
+      "path": "res://assets/grass.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_GRASS2",
+      "path": "res://assets/grass2.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HARE",
+      "path": "res://assets/hare.png",
+      "category": "fauna",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO",
+      "path": "res://assets/hero.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_ARMOR_1",
+      "path": "res://assets/hero_armor_1.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_ARMOR_2",
+      "path": "res://assets/hero_armor_2.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_ARMOR_3",
+      "path": "res://assets/hero_armor_3.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_ARMOR_4",
+      "path": "res://assets/hero_armor_4.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_BODY",
+      "path": "res://assets/hero_body.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_BOW_0",
+      "path": "res://assets/hero_bow_0.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_BOW_1",
+      "path": "res://assets/hero_bow_1.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_BOW_2",
+      "path": "res://assets/hero_bow_2.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_BOW_3",
+      "path": "res://assets/hero_bow_3.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_STAFF_0",
+      "path": "res://assets/hero_staff_0.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_STAFF_1",
+      "path": "res://assets/hero_staff_1.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_STAFF_2",
+      "path": "res://assets/hero_staff_2.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_STAFF_3",
+      "path": "res://assets/hero_staff_3.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_SWORD_0",
+      "path": "res://assets/hero_sword_0.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_SWORD_1",
+      "path": "res://assets/hero_sword_1.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_SWORD_2",
+      "path": "res://assets/hero_sword_2.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_SWORD_3",
+      "path": "res://assets/hero_sword_3.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_ICE_CRYSTAL",
+      "path": "res://assets/ice_crystal.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_ICE_GOLEM_FULL",
+      "path": "res://assets/ice_golem_full.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_ICE_LODGE",
+      "path": "res://assets/ice_lodge.png",
+      "category": "structure",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_ICE_ROCK",
+      "path": "res://assets/ice_rock.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_ICE_WOLF",
+      "path": "res://assets/ice_wolf.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_ICE_WOLF_ANIM",
+      "path": "res://assets/ice_wolf_anim.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_ICE_WOLF_FULL",
+      "path": "res://assets/ice_wolf_full.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_ICON_COIN",
+      "path": "res://assets/icon_coin.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_ICON_HEART",
+      "path": "res://assets/icon_heart.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_ICON_POTION",
+      "path": "res://assets/icon_potion.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_ICON_XP",
+      "path": "res://assets/icon_xp.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_MEADOW",
+      "path": "res://assets/meadow.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_OUTSKIRTS_GROUND",
+      "path": "res://assets/outskirts_ground.png",
+      "category": "environment_art",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_PATH",
+      "path": "res://assets/path.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_PATH_GROUND",
+      "path": "res://assets/path_ground.png",
+      "category": "environment_art",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_PINE",
+      "path": "res://assets/pine.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_PLANK",
+      "path": "res://assets/plank.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_REED",
+      "path": "res://assets/reed.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_RIVER",
+      "path": "res://assets/river.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_RIVERBANK",
+      "path": "res://assets/riverbank.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_ROOF",
+      "path": "res://assets/roof.png",
+      "category": "structure",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_RUIN_ARCH",
+      "path": "res://assets/ruin_arch.png",
+      "category": "structure",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SAND",
+      "path": "res://assets/sand.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SAND2",
+      "path": "res://assets/sand2.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SAND_ROCK",
+      "path": "res://assets/sand_rock.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SCORPION",
+      "path": "res://assets/scorpion.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SCORPION_ANIM",
+      "path": "res://assets/scorpion_anim.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SCORPION_FULL",
+      "path": "res://assets/scorpion_full.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SHALLOW_WATER",
+      "path": "res://assets/shallow_water.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SHRINE",
+      "path": "res://assets/shrine.png",
+      "category": "structure",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SLIME",
+      "path": "res://assets/slime.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SLIME_ANIM",
+      "path": "res://assets/slime_anim.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SLIME_FULL",
+      "path": "res://assets/slime_full.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SNOW",
+      "path": "res://assets/snow.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SNOW2",
+      "path": "res://assets/snow2.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_SPIDER_FULL",
+      "path": "res://assets/spider_full.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_STONE",
+      "path": "res://assets/stone.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_TREE",
+      "path": "res://assets/tree.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_UI_PORTRAIT",
+      "path": "res://assets/ui_portrait.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_UI_ROUND_BUTTON",
+      "path": "res://assets/ui_round_button.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_UI_WOOD_BUTTON",
+      "path": "res://assets/ui_wood_button.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_UI_WOOD_PANEL",
+      "path": "res://assets/ui_wood_panel.png",
+      "category": "ui",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_VALEDOURO_ART",
+      "path": "res://assets/valedouro_art.png",
+      "category": "environment_art",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_VALEDOURO_BLENDED",
+      "path": "res://assets/valedouro_blended.png",
+      "category": "environment_art",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_VALLEY_GRASS",
+      "path": "res://assets/valley_grass.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_VALLEY_ROCK",
+      "path": "res://assets/valley_rock.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_WALL",
+      "path": "res://assets/wall.png",
+      "category": "structure",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_WATCHTOWER",
+      "path": "res://assets/watchtower.png",
+      "category": "structure",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_WATER",
+      "path": "res://assets/water.png",
+      "category": "terrain_prop",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_WINDMILL",
+      "path": "res://assets/windmill.png",
+      "category": "structure",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_WOLF",
+      "path": "res://assets/wolf.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_WOLF_ANIM",
+      "path": "res://assets/wolf_anim.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_WOLF_FULL",
+      "path": "res://assets/wolf_full.png",
+      "category": "enemy",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.0"
+    }
+  ]
+}

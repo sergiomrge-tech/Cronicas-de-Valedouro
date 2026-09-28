@@ -3,26 +3,33 @@
 Este repositório é a fonte técnica colaborativa de **Crônicas de Valedouro**.
 
 ## Regras obrigatórias
-- Engine oficial: **Godot 4.7.2**; manter compatibilidade Godot 4.x quando possível.
+- Engine oficial: Godot 4.7.2; manter compatibilidade Godot 4.x quando possível.
 - Android/mobile-first, orientação horizontal, alvo de 60 FPS.
 - Nunca afirmar PASS de runtime sem executar o Godot Gate.
-- Preservar a direção visual aprovada: pixel art detalhada/coesa, HUD fantasia/madeira, animações ricas e cenários densos.
+- Nunca substituir a direção visual aprovada sem autorização do Diretor.
+- Visual: pixel art detalhada e coesa, HUD fantasia/madeira, personagens com animações ricas, cenários densos e integrados.
 - Um único protagonista, sem classes rígidas; builds por armas, equipamentos, skills e passivas.
-- Conteúdo por IDs persistentes; evitar nomes exibidos ou inteiros mágicos como chaves.
-- REG_001 usa mapa híbrido: cidade, rotas, landmarks, quests, dungeons e bosses manuais; vegetação/props naturais procedural controlados por seed.
-- Vegetação procedural não pode bloquear estradas, portas, pontes, NPCs, triggers, arenas ou caminhos mínimos.
-- Árvores finais precisam ter volume de copa, luz/sombra e sombra de contato no chão. Não usar árvores chapadas/genéricas.
-- Assets Claude marcados REWORKED/HOLD não entram em produção sem novo gate visual. APPROVED é candidato à integração.
-- Antes de ZIP jogável: parser/runtime Godot 4.7.2, smoke test, referências, higiene e fluxo crítico.
+- Conteúdo por IDs persistentes; nada crítico deve depender de nomes exibidos ou inteiros mágicos.
+- Mapa REG_001 usa abordagem híbrida: cidade, rotas, landmarks, quests, dungeons e bosses manuais; vegetação/props naturais procedural controlados por seed.
+- Vegetação procedural deve respeitar exclusões de estradas, portas, pontes, NPCs, triggers, arenas e caminhos mínimos.
+- Árvores finais precisam ser refinadas, com volume de copa, luz/sombra e sombra de contato no chão; não aceitar árvores chapadas ou genéricas.
+- Não usar os assets Claude `REWORKED`/`HOLD` em produção sem novo gate visual. Apenas `APPROVED` pode ser candidato à integração.
+- Antes de liberar ZIP jogável: parser/runtime Godot 4.7.2, smoke test, referências, higiene, CRC/SHA e fluxo crítico.
 
 ## Estado atual
-- Base: v0.6.x, com refinamento de mapa e vegetação procedural.
-- Execução real já confirmada no Godot 4.7.2 Android do Diretor.
-- O mapa precisa de auditoria visual ampla para aproximar arredores do nível de detalhe da vila.
-- Próximo marco: Vertical Slice realmente jogável.
+- Base técnica: v0.6.2 de refinamento de mapa, derivada da v0.6.1 candidate.
+- O projeto abre e executa no Godot 4.7.2 no Android do Diretor.
+- Problema visual identificado: arredores ainda precisam ganhar densidade e coerência com a vila.
+- Vegetação procedural e árvores sombreadas/refinadas são prioridade.
+- Próximo objetivo de gameplay: primeiro Vertical Slice realmente jogável.
 
 ## Loop mínimo para chamar de jogável
 Cidade → Campo → Combate → Loot → Equipar → Dungeon → Elite/Boss → Save/Load.
 
-## Antes de editar
-Leia este arquivo, `docs/README_CONTINUE_AQUI.md` e os documentos em `docs/planning/`. Rode o CI. Não altere cânone/direção visual sem registrar proposta.
+## Colaboração
+Antes de editar:
+1. leia este arquivo;
+2. leia `docs/README_CONTINUE_AQUI.md` e documentos em `docs/planning/`;
+3. rode o CI/Godot Gate;
+4. evite alterar arquivos fora da tarefa;
+5. documente mudanças em `docs/checkpoints/` ou no PR.

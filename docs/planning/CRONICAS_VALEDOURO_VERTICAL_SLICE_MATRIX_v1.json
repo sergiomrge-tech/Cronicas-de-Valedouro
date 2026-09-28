@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "matrix_id": "MATRIX_REG001_VERTICAL_SLICE_001",
+  "region_id": "REG_001",
+  "status": "PROPOSED_IMPLEMENTATION_MATRIX",
+  "first_user_test_gate": "city_field_combat_loot_equip_dungeon_boss_save_load",
+  "subzones": [
+    {
+      "id": "SUB_REG001_HUB",
+      "priority": "MUST"
+    },
+    {
+      "id": "SUB_REG001_FIELDS",
+      "priority": "MUST"
+    },
+    {
+      "id": "SUB_REG001_WOODS",
+      "priority": "MUST"
+    },
+    {
+      "id": "SUB_REG001_DUNGEON_ENTRY",
+      "priority": "MUST"
+    },
+    {
+      "id": "SUB_REG001_GUARDIAN_DUNGEON",
+      "priority": "MUST"
+    },
+    {
+      "id": "SUB_REG001_RUINS",
+      "priority": "VSLICE_PLUS"
+    },
+    {
+      "id": "SUB_REG001_ELITE_GROVE",
+      "priority": "VSLICE_PLUS"
+    }
+  ],
+  "enemies": [
+    {
+      "id": "MON_REG001_WOLF_001",
+      "priority": "MUST",
+      "role": "melee_chaser"
+    },
+    {
+      "id": "MON_REG001_SPIDER_001",
+      "priority": "MUST",
+      "role": "ambush_second_archetype"
+    },
+    {
+      "id": "ELITE_REG001_FOREST_001",
+      "priority": "VSLICE_PLUS",
+      "role": "optional_elite"
+    },
+    {
+      "id": "BOSS_REG001_GUARDIAN_001",
+      "priority": "MUST",
+      "role": "boss_two_patterns"
+    }
+  ],
+  "quests": [
+    {
+      "id": "QUEST_A01_REG001_001",
+      "priority": "MUST"
+    },
+    {
+      "id": "QUEST_A01_REG001_002",
+      "priority": "MUST"
+    },
+    {
+      "id": "QUEST_A01_REG001_003",
+      "priority": "MUST"
+    },
+    {
+      "id": "QUEST_A01_REG001_004",
+      "priority": "VSLICE_PLUS"
+    },
+    {
+      "id": "QUEST_A01_REG001_005",
+      "priority": "VSLICE_PLUS"
+    },
+    {
+      "id": "QUEST_A01_REG001_006",
+      "priority": "MUST"
+    },
+    {
+      "id": "QUEST_A01_REG001_007",
+      "priority": "MUST"
+    },
+    {
+      "id": "QUEST_A01_REG001_008",
+      "priority": "MUST"
+    }
+  ],
+  "approved_claude_assets": [
+    "city/floor_stone_clean",
+    "city/floor_stone_worn",
+    "city/floor_stone_moss",
+    "city/water_edge",
+    "city/wall_straight",
+    "city/wall_vegetation",
+    "city/gate_large",
+    "city/house_door",
+    "city/house_window",
+    "city/roof_blue",
+    "city/roof_red",
+    "city/roof_wood",
+    "city/store",
+    "city/tree_green",
+    "city/tree_autumn",
+    "dungeon/floor_stone",
+    "dungeon/floor_broken",
+    "dungeon/wall_straight",
+    "dungeon/corner_inside",
+    "dungeon/arch",
+    "dungeon/door",
+    "dungeon/rail_straight",
+    "dungeon/crystal_blue",
+    "dungeon/crystal_purple",
+    "dungeon/torch",
+    "dungeon/emissive_crystal",
+    "dungeon/spikes",
+    "dungeon/corridor_straight"
+  ],
+  "blocked_claude_dependencies": [
+    "city/blacksmith",
+    "city/guild",
+    "city/tavern",
+    "dungeon/entrance",
+    "dungeon/branch",
+    "dungeon/curve",
+    "dungeon/crossing",
+    "dungeon/secret_passage"
+  ]
+}
