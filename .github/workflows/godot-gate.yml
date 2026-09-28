@@ -37,6 +37,17 @@ jobs:
           # Reproducible GitHub build catalogs runtime assets only; three legacy source-only images are intentionally absent.
           sed -i 's/assert(entries.size() >= 122)/assert(entries.size() >= 119)/' game/tests/asset_catalog.gd
 
+      - name: Install APPROVED visual assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat approved_assets_bundle/part*.b64 | tr -d '\n\r' | base64 -d > /tmp/approved_assets_bundle.zip
+          echo "75c7168b581ae48efb655edcc20cc3fc2b0721801905ad01017b87f5f4a3025f  /tmp/approved_assets_bundle.zip" | sha256sum -c -
+          mkdir -p game/assets
+          unzip -q -o /tmp/approved_assets_bundle.zip -d game/assets
+          test "$(find game/assets/approved -type f -name '*.png' | wc -l)" -eq 28
+          echo "APPROVED asset set: 28/28"
+
       - name: Python + Pillow
         run: |
           python3 -m pip install --user pillow
@@ -77,7 +88,7 @@ jobs:
         shell: bash
         run: |
           set -e
-          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog vertical_slice boss_patterns mobile_input; do
+          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog approved_visuals vertical_slice boss_patterns mobile_input; do
             echo "===== TEST: $t ====="
             timeout 25s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd"
           done

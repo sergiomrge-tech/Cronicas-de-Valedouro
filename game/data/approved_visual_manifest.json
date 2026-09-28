@@ -1,0 +1,41 @@
+{
+  "policy": "APPROVED_ONLY",
+  "count": 28,
+  "source": "Valedouro_Producao_Assets_Lote01_QA_Visual_Claude",
+  "city": [
+    "city/floor_stone_clean",
+    "city/floor_stone_worn",
+    "city/floor_stone_moss",
+    "city/water_edge",
+    "city/wall_straight",
+    "city/wall_vegetation",
+    "city/gate_large",
+    "city/house_door",
+    "city/house_window",
+    "city/roof_blue",
+    "city/roof_red",
+    "city/roof_wood",
+    "city/store",
+    "city/tree_green",
+    "city/tree_autumn"
+  ],
+  "dungeon": [
+    "dungeon/floor_stone",
+    "dungeon/floor_broken",
+    "dungeon/wall_straight",
+    "dungeon/corner_inside",
+    "dungeon/arch",
+    "dungeon/door",
+    "dungeon/rail_straight",
+    "dungeon/crystal_blue",
+    "dungeon/crystal_purple",
+    "dungeon/torch",
+    "dungeon/emissive_crystal",
+    "dungeon/spikes",
+    "dungeon/corridor_straight"
+  ],
+  "excluded": {
+    "REWORKED": 61,
+    "HOLD": 22
+  }
+}

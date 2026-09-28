@@ -53,6 +53,7 @@ var dialog_choices: VBoxContainer
 var controller: Control
 var hero: Texture2D
 var textures: Dictionary = {}
+var approved_visuals: Dictionary = {}
 var animals: Array = []
 var map_visible: bool = false
 var ui_font: Font
@@ -62,6 +63,36 @@ const ENEMY_SHEETS: Dictionary = {"Lobo": "wolf", "Limo": "slime", "Aranha Sombr
 const ENEMY_FRAME_SIZE: Dictionary = {"Golem de Geada": 40.0, "Guardião": 64.0}
 const ENEMY_STATE_ROW: Dictionary = {"idle": 0, "walk": 1, "attack": 2, "hurt": 3, "death": 4}
 const ENEMY_DEATH_TIME: float = .72
+const APPROVED_VISUAL_PATHS: Dictionary = {
+	"city_floor_clean": "res://assets/approved/city/floors/floor_stone_clean.png",
+	"city_floor_worn": "res://assets/approved/city/floors/floor_stone_worn.png",
+	"city_floor_moss": "res://assets/approved/city/floors/floor_stone_moss.png",
+	"city_water_edge": "res://assets/approved/city/water/water_edge.png",
+	"city_wall": "res://assets/approved/city/walls/wall_straight.png",
+	"city_wall_vegetation": "res://assets/approved/city/walls/wall_vegetation.png",
+	"city_gate": "res://assets/approved/city/walls/gate_large.png",
+	"city_house_door": "res://assets/approved/city/buildings/house_door.png",
+	"city_house_window": "res://assets/approved/city/buildings/house_window.png",
+	"city_roof_blue": "res://assets/approved/city/buildings/roof_blue.png",
+	"city_roof_red": "res://assets/approved/city/buildings/roof_red.png",
+	"city_roof_wood": "res://assets/approved/city/buildings/roof_wood.png",
+	"city_store": "res://assets/approved/city/special/store.png",
+	"city_tree_green": "res://assets/approved/city/props/tree_green.png",
+	"city_tree_autumn": "res://assets/approved/city/props/tree_autumn.png",
+	"dungeon_floor_stone": "res://assets/approved/dungeon/floors/floor_stone.png",
+	"dungeon_floor_broken": "res://assets/approved/dungeon/floors/floor_broken.png",
+	"dungeon_wall": "res://assets/approved/dungeon/walls/wall_straight.png",
+	"dungeon_corner": "res://assets/approved/dungeon/walls/corner_inside.png",
+	"dungeon_arch": "res://assets/approved/dungeon/walls/arch.png",
+	"dungeon_door": "res://assets/approved/dungeon/walls/door.png",
+	"dungeon_rail": "res://assets/approved/dungeon/mine/rail_straight.png",
+	"dungeon_crystal_blue": "res://assets/approved/dungeon/natural/crystal_blue.png",
+	"dungeon_crystal_purple": "res://assets/approved/dungeon/natural/crystal_purple.png",
+	"dungeon_torch": "res://assets/approved/dungeon/lighting/torch.png",
+	"dungeon_emissive_crystal": "res://assets/approved/dungeon/lighting/emissive_crystal.png",
+	"dungeon_spikes": "res://assets/approved/dungeon/traps/spikes.png",
+	"dungeon_corridor": "res://assets/approved/dungeon/tunnels/corridor_straight.png"
+}
 
 func _ready() -> void:
 	rng.seed = 27109
@@ -78,6 +109,7 @@ func _ready() -> void:
 	for family in ["sword", "bow", "staff"]:
 		for tier in 4:
 			textures["hero_%s_%d" % [family, tier]] = load("res://assets/hero_%s_%d.png" % [family, tier])
+	load_approved_visuals()
 	hero = textures["hero"]
 	ui_font = load("res://assets/fonts/PixelifySans.ttf")
 	if ui_font is FontFile:
@@ -92,6 +124,17 @@ func _ready() -> void:
 	make_ui()
 	populate()
 	queue_redraw()
+
+func load_approved_visuals() -> void:
+	approved_visuals.clear()
+	for key_value in APPROVED_VISUAL_PATHS.keys():
+		var key: String = str(key_value)
+		var path: String = str(APPROVED_VISUAL_PATHS[key])
+		assert(ResourceLoader.exists(path), "Asset visual APPROVED ausente: %s" % path)
+		var texture: Resource = load(path)
+		assert(texture is Texture2D, "Asset APPROVED não é Texture2D: %s" % path)
+		approved_visuals[key] = texture
+	assert(approved_visuals.size() == 28)
 
 func make_ui() -> void:
 	controller = Control.new()
@@ -924,7 +967,7 @@ func _draw() -> void:
 	if zone == "floresta":
 		draw_texture(textures["forest_art"], Vector2.ZERO)
 	elif zone == "ferreiro":
-		draw_texture(textures["forge_art"], Vector2.ZERO)
+		pass
 	else:
 		if zone == "cidade":
 			# Repeated painterly ground replaces the flat 32px grass around Valedouro.
@@ -951,10 +994,10 @@ func _draw() -> void:
 				draw_texture_rect(tex, Rect2(x * TILE, y * TILE, TILE, TILE), false)
 	if zone == "cidade":
 		draw_overworld(camera, x_start, x_end, y_start, y_end)
-		if Rect2(camera, VIEW_SIZE).intersects(MAP.TOWN_BOUNDS.grow(150.0)):
-			draw_town_transition(camera)
+		if Rect2(camera, VIEW_SIZE).intersects(MAP.TOWN_BOUNDS.grow(180.0)):
+			draw_approved_town_border(camera)
 		if Rect2(camera, VIEW_SIZE).intersects(MAP.TOWN_BOUNDS):
-			draw_texture(textures["valedouro_blended"], MAP.TOWN)
+			draw_approved_town(camera)
 			draw_town_life(camera)
 			var gate: Vector2 = MAP.TOWN + Vector2(883, 65)
 			draw_arc(gate, 28, 0, TAU, 26, Color(.71, .94, .56, .86), 4)
@@ -969,7 +1012,7 @@ func _draw() -> void:
 		draw_region_story_props(camera)
 	elif zone == "masmorra":
 		draw_dungeon()
-	elif zone in ["loja", "alquimia", "guilda"]:
+	elif zone in ["ferreiro", "loja", "alquimia", "guilda"]:
 		draw_interior()
 	for enemy in enemies:
 		draw_enemy(enemy, camera)
@@ -1035,29 +1078,12 @@ func draw_overworld(camera: Vector2, x_start: int, x_end: int, y_start: int, y_e
 			var jitter_x: float = float((visual_seed % 7) - 3)
 			var jitter_y: float = float((int(visual_seed / 7) % 5) - 2)
 			var pp: Vector2 = p + Vector2(jitter_x, jitter_y)
-			if prop == "flower":
-				draw_texture_rect(textures["flower"], Rect2(pp - Vector2(16, 16), Vector2(32, 32)), false)
-			elif prop in ["pine", "tree", "frost_tree"]:
-				var shadow_w: float = 18.0 + float(visual_seed % 5)
-				draw_shadow_oval(pp + Vector2(5, 13), Vector2(shadow_w, 7), Color(0, 0, 0, .13))
-				draw_shadow_oval(pp + Vector2(2, 15), Vector2(14, 5), Color(0, 0, 0, .29))
-				var tone: Color = Color.WHITE
-				if visual_seed % 3 == 1:
-					tone = Color(.95, 1.0, .95, 1.0)
-				elif visual_seed % 3 == 2:
-					tone = Color(1.0, .96, .91, 1.0)
-				draw_texture_rect(textures[prop], Rect2(pp - Vector2(32, 52), Vector2(64, 64)), false, tone)
-			elif prop == "bush":
-				draw_shadow_oval(pp + Vector2(2, 8), Vector2(11, 4), Color(0, 0, 0, .19))
-				draw_texture_rect(textures[prop], Rect2(pp - Vector2(16, 16), Vector2(32, 32)), false)
-			elif prop == "cactus":
-				draw_shadow_oval(pp + Vector2(2, 13), Vector2(9, 3), Color(0, 0, 0, .16))
-				draw_texture_rect(textures[prop], Rect2(pp - Vector2(16, 32), Vector2(32, 48)), false)
-			elif prop == "ice_crystal":
-				draw_shadow_oval(pp + Vector2(2, 10), Vector2(9, 3), Color(.1, .25, .35, .16))
-				draw_texture_rect(textures[prop], Rect2(pp - Vector2(16, 28), Vector2(32, 40)), false)
-			else:
-				draw_texture_rect(textures[prop], Rect2(pp - Vector2(16, 16), Vector2(32, 32)), false)
+			# Regra artística: apenas assets explicitamente APPROVED entram no renderer final.
+			if prop in ["tree", "pine"]:
+				var tree_key: String = "city_tree_autumn" if visual_seed % 9 == 0 else "city_tree_green"
+				draw_shadow_oval(pp + Vector2(4, 13), Vector2(31, 10), Color(0, 0, 0, .22))
+				draw_approved_visual(tree_key, pp + Vector2(0, 15), .50)
+			# Frost tree, bush, cactus, rocks, flowers etc. permanecem ocultos até terem asset APPROVED.
 
 	# Três travessias reutilizam a mesma linguagem de madeira/pedra, mas com silhuetas próprias.
 	for index in range(MAP.BRIDGE_YS.size()):
@@ -1120,46 +1146,100 @@ func draw_biome_transition_detail(p: Vector2, x: int, y: int) -> void:
 		draw_line(p + Vector2(-9, 10), p + Vector2(-6, 1), Color(.31, .5, .24, .5), 1)
 		draw_line(p + Vector2(7, 9), p + Vector2(5, 2), Color(.43, .62, .29, .45), 1)
 
-func draw_town_transition(camera: Vector2) -> void:
-	# Cinturão verde/pedra entre a pintura da vila e o mundo procedural.
+func draw_approved_visual(key: String, ground: Vector2, scale_factor: float = .58, tint: Color = Color.WHITE) -> void:
+	if not approved_visuals.has(key):
+		return
+	var texture: Texture2D = approved_visuals[key] as Texture2D
+	var scaled: Vector2 = texture.get_size() * scale_factor
+	var rect: Rect2 = Rect2(ground - Vector2(scaled.x * .5, scaled.y), scaled)
+	draw_texture_rect(texture, rect, false, tint)
+
+func draw_approved_tree(ground: Vector2, autumn: bool = false, scale_factor: float = .50) -> void:
+	draw_shadow_oval(ground + Vector2(4, 4), Vector2(33, 10), Color(0, 0, 0, .24))
+	draw_approved_visual("city_tree_autumn" if autumn else "city_tree_green", ground, scale_factor)
+
+func draw_approved_house(ground: Vector2, roof_key: String) -> void:
+	# Composição feita exclusivamente com módulos APPROVED.
+	draw_shadow_oval(ground + Vector2(0, 5), Vector2(72, 14), Color(0, 0, 0, .22))
+	draw_approved_visual("city_house_door", ground + Vector2(-42, 0), .52)
+	draw_approved_visual("city_house_window", ground + Vector2(43, 0), .52)
+	draw_approved_visual(roof_key, ground + Vector2(0, -78), .52)
+
+func draw_approved_town(camera: Vector2) -> void:
+	var visible_area: Rect2 = Rect2(camera - Vector2(170, 170), VIEW_SIZE + Vector2(340, 340))
+	# Pavimentação inteira usa somente os três pisos APPROVED.
+	for row in 25:
+		for column in 26:
+			var ground: Vector2 = MAP.TOWN + Vector2(35.0 + column * 70.0 + float(row % 2) * 35.0, 86.0 + row * 35.0)
+			if not MAP.TOWN_BOUNDS.has_point(ground) or not visible_area.has_point(ground):
+				continue
+			var tile_seed: int = MAP.cell_hash(column + 400, row + 600)
+			var floor_key: String = "city_floor_clean"
+			if tile_seed % 7 == 0:
+				floor_key = "city_floor_moss"
+			elif tile_seed % 3 == 0:
+				floor_key = "city_floor_worn"
+			draw_approved_visual(floor_key, ground, .58)
+
+	# Muralha norte e portão principal.
+	for wall_index in 13:
+		var wall_ground: Vector2 = MAP.TOWN + Vector2(150.0 + wall_index * 120.0, 180.0)
+		if absf(wall_ground.x - (MAP.TOWN.x + 883.0)) < 175.0:
+			continue
+		if visible_area.has_point(wall_ground):
+			draw_approved_visual("city_wall_vegetation" if wall_index % 4 == 0 else "city_wall", wall_ground, .58)
+	var gate_ground: Vector2 = MAP.TOWN + Vector2(883, 184)
+	if visible_area.has_point(gate_ground):
+		draw_approved_visual("city_gate", gate_ground, .58)
+
+	# Quatro conjuntos arquitetônicos, sempre formados por peças APPROVED.
+	var houses: Array = [
+		[Vector2(485, 330), "city_roof_blue"],
+		[Vector2(1245, 340), "city_roof_red"],
+		[Vector2(470, 615), "city_roof_wood"],
+		[Vector2(1280, 625), "city_roof_blue"]
+	]
+	for house_value in houses:
+		var house_data: Array = house_value as Array
+		var house_ground: Vector2 = MAP.TOWN + (house_data[0] as Vector2)
+		if visible_area.has_point(house_ground):
+			draw_approved_house(house_ground, str(house_data[1]))
+
+	var store_ground: Vector2 = MAP.TOWN + Vector2(1570, 630)
+	if visible_area.has_point(store_ground):
+		draw_shadow_oval(store_ground + Vector2(4, 5), Vector2(63, 13), Color(0, 0, 0, .22))
+		draw_approved_visual("city_store", store_ground, .58)
+
+	# Árvores APPROVED integram a arquitetura e dão profundidade consistente.
+	var tree_positions: Array[Vector2] = [
+		Vector2(175, 300), Vector2(760, 330), Vector2(1010, 300), Vector2(1600, 315),
+		Vector2(180, 735), Vector2(700, 735), Vector2(1035, 745), Vector2(1570, 760)
+	]
+	for tree_index in range(tree_positions.size()):
+		var tree_ground: Vector2 = MAP.TOWN + tree_positions[tree_index]
+		if visible_area.has_point(tree_ground):
+			draw_approved_tree(tree_ground, tree_index % 5 == 0, .50)
+
+func draw_approved_town_border(camera: Vector2) -> void:
+	var visible_area: Rect2 = Rect2(camera - Vector2(180, 180), VIEW_SIZE + Vector2(360, 360))
 	var bounds: Rect2 = MAP.TOWN_BOUNDS
-	var points: Array[Vector2] = []
-	for i in 18:
-		var t: float = float(i) / 17.0
-		points.append(Vector2(bounds.position.x + t * bounds.size.x, bounds.position.y - 28.0 - sin(i * 1.7) * 10.0))
-		points.append(Vector2(bounds.position.x + t * bounds.size.x, bounds.end.y + 26.0 + cos(i * 1.3) * 10.0))
-	for i in 9:
-		var t2: float = float(i) / 8.0
-		points.append(Vector2(bounds.position.x - 28.0 - sin(i * 1.4) * 9.0, bounds.position.y + t2 * bounds.size.y))
-		points.append(Vector2(bounds.end.x + 28.0 + cos(i * 1.1) * 9.0, bounds.position.y + t2 * bounds.size.y))
-	for index in range(points.size()):
-		var p: Vector2 = points[index]
-		if not Rect2(camera - Vector2(64, 64), VIEW_SIZE + Vector2(128, 128)).has_point(p):
+	var border_points: Array[Vector2] = []
+	for index in 14:
+		var ratio: float = float(index) / 13.0
+		border_points.append(Vector2(bounds.position.x + ratio * bounds.size.x, bounds.position.y - 30.0))
+		border_points.append(Vector2(bounds.position.x + ratio * bounds.size.x, bounds.end.y + 28.0))
+	for index in 7:
+		var ratio_side: float = float(index) / 6.0
+		border_points.append(Vector2(bounds.position.x - 28.0, bounds.position.y + ratio_side * bounds.size.y))
+		border_points.append(Vector2(bounds.end.x + 28.0, bounds.position.y + ratio_side * bounds.size.y))
+	for point_index in range(border_points.size()):
+		var point: Vector2 = border_points[point_index]
+		if not visible_area.has_point(point):
 			continue
-		# abre clareiras nos quatro acessos principais.
-		var local: Vector2 = p - MAP.TOWN
-		if absf(local.x - 890.0) < 125.0 or absf(local.y - 478.0) < 105.0:
+		var local: Vector2 = point - MAP.TOWN
+		if absf(local.x - 890.0) < 150.0 or absf(local.y - 478.0) < 125.0:
 			continue
-		var seed: int = MAP.cell_hash(index * 13 + 7, index * 29 + 3)
-		if index % 3 == 0:
-			draw_shadow_oval(p + Vector2(3, 7), Vector2(15, 5), Color(0, 0, 0, .12))
-			draw_texture_rect(textures["bush"], Rect2(p - Vector2(16, 16), Vector2(32, 32)), false, Color(.94, 1, .92, 1))
-		elif index % 3 == 1:
-			draw_texture_rect(textures["flower"], Rect2(p - Vector2(16, 16), Vector2(32, 32)), false)
-		else:
-			var stone: Color = Color(.46, .45, .4)
-			draw_shadow_oval(p + Vector2(2, 6), Vector2(12, 4), Color(0, 0, 0, .12))
-			draw_circle(p, 7.0 + float(seed % 4), stone)
-			draw_circle(p + Vector2(-2, -2), 3.0, stone.lightened(.22))
-	# marcos baixos de pedra nas entradas dão continuidade à muralha.
-	for gate in [MAP.TOWN + Vector2(890, -18), MAP.TOWN + Vector2(890, 905), MAP.TOWN + Vector2(-18, 478), MAP.TOWN + Vector2(1792, 478)]:
-		if Rect2(camera - Vector2(60, 60), VIEW_SIZE + Vector2(120, 120)).has_point(gate):
-			for side in [-1.0, 1.0]:
-				var offset: Vector2 = Vector2(54.0 * side, 0) if absf(gate.y - (MAP.TOWN.y + 478.0)) > 100.0 else Vector2(0, 54.0 * side)
-				var marker: Vector2 = gate + offset
-				draw_rect(Rect2(marker - Vector2(7, 13), Vector2(14, 26)), Color(.38, .37, .35))
-				draw_rect(Rect2(marker - Vector2(5, 11), Vector2(10, 20)), Color(.57, .55, .49))
-				draw_circle(marker + Vector2(0, -13), 8, Color(.67, .64, .55))
+		draw_approved_tree(point, point_index % 7 == 0, .42)
 
 func draw_bridge_details(center: Vector2, variant: int) -> void:
 	var rail: Color = Color(.38, .25, .18) if variant != 0 else Color(.42, .43, .48)
@@ -1378,168 +1458,66 @@ func draw_label(text: String, p: Vector2, color: Color = Color(1, .88, .64)) -> 
 	draw_string(ui_font, p, text, HORIZONTAL_ALIGNMENT_CENTER, 180, 16, color)
 
 func draw_dungeon() -> void:
-	# Ruínas compactas, com arena central legível e iluminação ritual.
-	# Faixas de sombra e piso quebrado retiram o aspecto de um único tile repetido.
-	draw_rect(Rect2(64, 96, 832, 690), Color(.12, .09, .18, .13))
-	for stripe_y in range(124, 760, 96):
-		draw_rect(Rect2(72, stripe_y, 816, 18), Color(.08, .06, .14, .11))
-	for patch in [Rect2(90, 260, 115, 70), Rect2(710, 260, 120, 80), Rect2(300, 540, 150, 75), Rect2(565, 555, 135, 72)]:
-		draw_rect(patch, Color(.08, .06, .13, .16))
-		for crack_index in 4:
-			var cp: Vector2 = patch.position + Vector2(18 + crack_index * 27, 18 + (crack_index % 2) * 16)
-			draw_line(cp, cp + Vector2(12, 7), Color(.55, .48, .66, .30), 1)
-	for x in range(0, 30):
-		for y in [0, 1, 26, 27]:
-			draw_texture_rect(textures["wall"], Rect2(x * 32, y * 32, 32, 32), false)
-	for y in 28:
-		for x in [0, 1, 28, 29]:
-			draw_texture_rect(textures["wall"], Rect2(x * 32, y * 32, 32, 32), false)
-	for x in [6, 11, 18, 24]:
-		for y in [8, 13, 19]:
-			var pillar: Vector2 = Vector2(x * 32 + 16, y * 32 + 16)
-			draw_shadow_oval(pillar + Vector2(4, 13), Vector2(20, 6), Color(0, 0, 0, .25))
-			draw_texture_rect(textures["wall"], Rect2(x * 32, y * 32, 32, 32), false)
-			draw_rect(Rect2(pillar + Vector2(-11, -18), Vector2(22, 5)), Color(.49, .45, .58))
-	# Fissuras e pedras quebradas no piso.
-	for crack in [Vector2(123, 310), Vector2(330, 610), Vector2(650, 360), Vector2(784, 690), Vector2(515, 530), Vector2(260, 450)]:
-		draw_line(crack, crack + Vector2(17, 8), Color(.18, .16, .24, .7), 2)
-		draw_line(crack + Vector2(9, 4), crack + Vector2(5, 17), Color(.18, .16, .24, .6), 1)
-	# Arena do Guardião.
-	var arena: Vector2 = Vector2(485, 240)
-	draw_circle(arena, 112, Color(.18, .12, .28, .34))
-	draw_arc(arena, 112, 0, TAU, 56, Color(.52, .38, .72, .75), 4)
-	draw_arc(arena, 86, 0, TAU, 48, Color(.34, .24, .52, .65), 2)
-	for rune_index in 8:
-		var angle: float = TAU * float(rune_index) / 8.0
-		var rp: Vector2 = arena + Vector2(cos(angle), sin(angle)) * 96.0
-		draw_colored_polygon(PackedVector2Array([rp + Vector2(0, -6), rp + Vector2(5, 4), rp + Vector2(-5, 4)]), Color(.72, .5, 1, .72))
-	# Tochas com flicker e luz local.
-	for p in [Vector2(225, 185), Vector2(745, 185), Vector2(225, 629), Vector2(745, 629)]:
-		draw_circle(p, 22, Color(.95, .32, .08, .08))
-		draw_rect(Rect2(p + Vector2(-2, 5), Vector2(4, 15)), Color(.37, .23, .15))
-		var flame: float = 6.0 + sin(time_acc * 8.0 + p.x) * 1.5
-		draw_circle(p, flame + 5, Color(.92, .38, .12, .58))
-		draw_circle(p + Vector2(0, -2), flame, Color(1, .82, .31, .9))
-		draw_circle(p + Vector2(-1, -4), 3, Color(1, .96, .66))
-	# Alcovas laterais com relíquias e ossadas criam narrativa ambiental.
-	for alcove in [Vector2(100, 420), Vector2(860, 420)]:
-		draw_rect(Rect2(alcove + Vector2(-42, -55), Vector2(84, 108)), Color(.10, .08, .16, .45))
-		draw_arc(alcove + Vector2(0, -18), 37, PI, TAU, 24, Color(.46, .40, .57, .8), 4)
-		draw_rect(Rect2(alcove + Vector2(-31, -18), Vector2(62, 63)), Color(.17, .14, .23, .65))
-		draw_circle(alcove + Vector2(0, 18), 8, Color(.66, .58, .45))
-		draw_line(alcove + Vector2(-18, 28), alcove + Vector2(17, 7), Color(.73, .68, .56), 3)
-		draw_line(alcove + Vector2(-14, 6), alcove + Vector2(18, 30), Color(.73, .68, .56), 3)
-	# Colunas quebradas, estátuas e portão ritual fecham os vazios da sala.
-	for rubble in [Vector2(120, 250), Vector2(350, 350), Vector2(635, 510), Vector2(820, 315), Vector2(155, 690), Vector2(730, 700)]:
-		draw_shadow_oval(rubble + Vector2(3, 5), Vector2(20, 6), Color(0, 0, 0, .2))
-		for r in 4:
-			var rp: Vector2 = rubble + Vector2((r - 2) * 9, (r % 2) * 6)
-			draw_circle(rp, 6 + float(r % 2) * 2.0, Color(.38, .35, .48))
-			draw_circle(rp + Vector2(-2, -2), 3, Color(.55, .52, .65))
-	for statue in [Vector2(120, 115), Vector2(850, 115)]:
-		draw_rect(Rect2(statue + Vector2(-15, 10), Vector2(30, 45)), Color(.34, .32, .42))
-		draw_circle(statue, 16, Color(.48, .45, .58))
-		draw_circle(statue + Vector2(-5, -4), 3, Color(.72, .55, 1, .65))
-		draw_circle(statue + Vector2(5, -4), 3, Color(.72, .55, 1, .65))
-	var gate_top: Vector2 = Vector2(485, 72)
-	draw_rect(Rect2(gate_top + Vector2(-76, -22), Vector2(152, 34)), Color(.21, .18, .29))
-	for bar_x in range(-60, 61, 20):
-		draw_line(gate_top + Vector2(bar_x, -20), gate_top + Vector2(bar_x, 12), Color(.49, .44, .59), 4)
-	for crystal in [Vector2(340, 205), Vector2(630, 205), Vector2(350, 645), Vector2(620, 645)]:
-		draw_colored_polygon(PackedVector2Array([crystal + Vector2(0, -16), crystal + Vector2(9, 7), crystal + Vector2(0, 13), crystal + Vector2(-9, 7)]), Color(.58, .35, .9, .8))
-		draw_circle(crystal, 15, Color(.56, .28, .88, .08))
+	# Dungeon final: somente os 13 módulos que passaram QA como APPROVED.
+	for row in 28:
+		for column in 16:
+			var ground: Vector2 = Vector2(35.0 + column * 70.0 + float(row % 2) * 35.0, 74.0 + row * 35.0)
+			var seed: int = MAP.cell_hash(column + 900, row + 1200)
+			draw_approved_visual("dungeon_floor_broken" if seed % 7 == 0 else "dungeon_floor_stone", ground, .58)
+
+	for wall_index in 7:
+		var wall_ground: Vector2 = Vector2(120.0 + wall_index * 120.0, 188.0)
+		if wall_index == 3:
+			continue
+		draw_approved_visual("dungeon_wall", wall_ground, .58)
+	draw_approved_visual("dungeon_arch", Vector2(480, 194), .62)
+	draw_approved_visual("dungeon_door", Vector2(480, 196), .54)
+	draw_approved_visual("dungeon_corner", Vector2(110, 340), .52)
+	draw_approved_visual("dungeon_corner", Vector2(850, 340), .52)
+
+	# Corredor, trilho e armadilhas aprovados formam rotas legíveis.
+	draw_approved_visual("dungeon_corridor", Vector2(480, 720), .58)
+	draw_approved_visual("dungeon_rail", Vector2(480, 770), .58)
+	draw_approved_visual("dungeon_spikes", Vector2(335, 515), .48)
+	draw_approved_visual("dungeon_spikes", Vector2(625, 515), .48)
+
+	# Cristais e tochas são os únicos elementos luminosos da sala.
+	for crystal_value in [
+		[Vector2(190, 430), "dungeon_crystal_blue"],
+		[Vector2(785, 430), "dungeon_crystal_purple"],
+		[Vector2(255, 665), "dungeon_emissive_crystal"],
+		[Vector2(705, 665), "dungeon_crystal_blue"]
+	]:
+		var crystal_data: Array = crystal_value as Array
+		draw_approved_visual(str(crystal_data[1]), crystal_data[0] as Vector2, .48)
+	for torch_pos in [Vector2(285, 275), Vector2(675, 275), Vector2(205, 620), Vector2(755, 620)]:
+		draw_approved_visual("dungeon_torch", torch_pos, .44)
 	draw_label("CÂMARA DO GUARDIÃO", Vector2(395, 92), Color(.86, .7, 1))
 	draw_label("↓ SAÍDA", Vector2(409, 805))
 
 func draw_interior() -> void:
-	for x in 30:
-		for y in [0, 1, 2, 25, 26, 27]:
-			draw_texture_rect(textures["wall"], Rect2(x * 32, y * 32, 32, 32), false)
-	for y in 28:
-		for x in [0, 1, 28, 29]:
-			draw_texture_rect(textures["wall"], Rect2(x * 32, y * 32, 32, 32), false)
-	for x in 30:
-		for y in 25:
-			if (x + y) % 5 == 0:
-				draw_line(Vector2(x * 32 + 5, y * 32 + 29), Vector2(x * 32 + 23, y * 32 + 29), Color(.26, .16, .12, .4), 1)
-	# Iluminação quente, tapete central e rodapés conectam os interiores à linguagem do HUD de madeira.
-	for light in [Vector2(220, 145), Vector2(480, 145), Vector2(740, 145)]:
-		draw_circle(light, 34, Color(1, .72, .28, .04))
-		draw_circle(light, 17, Color(1, .76, .3, .07))
-		draw_line(light, light + Vector2(0, 24), Color(.27, .18, .13), 3)
-		draw_circle(light, 5, Color(1, .8, .34, .85))
-	draw_rect(Rect2(250, 650, 460, 54), Color(.25, .12, .18, .65))
-	draw_rect(Rect2(262, 659, 436, 36), Color(.49, .22, .29, .72))
-	for rug_x in range(280, 690, 38):
-		draw_line(Vector2(rug_x, 662), Vector2(rug_x + 18, 692), Color(.73, .45, .32, .42), 2)
-	for shelf_x in [88.0, 815.0]:
-		draw_rect(Rect2(shelf_x, 320, 58, 230), Color(.24, .14, .10))
-		for shelf_y in [342.0, 402.0, 462.0, 522.0]:
-			draw_rect(Rect2(shelf_x + 5, shelf_y, 48, 6), Color(.52, .31, .17))
-	if zone == "ferreiro":
-		for p in [Vector2(150, 165), Vector2(480, 165), Vector2(770, 165)]:
-			draw_rect(Rect2(p, Vector2(155, 58)), Color(.19, .13, .1))
-			for n in 3:
-				draw_line(p + Vector2(23 + n * 44, 9), p + Vector2(27 + n * 44, 43), Color(.7, .77, .77), 5)
-		draw_rect(Rect2(312, 362, 340, 120), Color(.26, .16, .11))
-		for n in 5:
-			draw_line(Vector2(335, 383 + n * 20), Vector2(625, 383 + n * 20), Color(.52, .35, .22), 3)
-		for n in 4:
-			draw_line(Vector2(355, 400 + n * 17), Vector2(566, 394 + n * 17), Color(.74, .78, .75), 4)
-		draw_circle(Vector2(805, 425), 72, Color(.98, .33, .08, .08))
-		draw_circle(Vector2(805, 425), 65, Color(.18, .19, .20))
-		draw_circle(Vector2(805, 425), 33, Color(.97, .4, .10))
-		draw_circle(Vector2(805, 425), 16, Color(1, .8, .26))
+	var room_size: Vector2 = FORGE_SIZE if zone == "ferreiro" else SIZE
+	for row in 31:
+		for column in 23:
+			var ground: Vector2 = Vector2(35.0 + column * 70.0 + float(row % 2) * 35.0, 72.0 + row * 35.0)
+			if ground.x > room_size.x + 90.0 or ground.y > room_size.y + 90.0:
+				continue
+			var seed: int = MAP.cell_hash(column + 1300, row + 1500)
+			draw_approved_visual("city_floor_moss" if seed % 13 == 0 else "city_floor_worn" if seed % 4 == 0 else "city_floor_clean", ground, .58)
+	for wall_index in 9:
+		draw_approved_visual("city_wall_vegetation" if wall_index % 4 == 0 else "city_wall", Vector2(120.0 + wall_index * 110.0, 190), .52)
+	if zone == "loja":
+		draw_approved_visual("city_store", Vector2(480, 475), .72)
 	elif zone == "guilda":
-		# Mesa de mapas, quadro de contratos, troféus e estandartes.
-		draw_rect(Rect2(322, 294, 316, 166), Color(.31, .19, .12))
-		draw_rect(Rect2(340, 310, 280, 130), Color(.73, .58, .35))
-		draw_line(Vector2(362, 335), Vector2(590, 400), Color(.35, .55, .6), 4)
-		draw_line(Vector2(410, 420), Vector2(565, 330), Color(.57, .38, .23), 3)
-		draw_rect(Rect2(102, 135, 185, 160), Color(.25, .16, .12))
-		for row in 4:
-			draw_rect(Rect2(120, 153 + row * 32, 148, 22), Color(.82, .73, .53))
-			draw_line(Vector2(132, 165 + row * 32), Vector2(245, 165 + row * 32), Color(.4, .28, .2), 2)
-		for bx in [690.0, 790.0]:
-			draw_colored_polygon(PackedVector2Array([Vector2(bx, 130), Vector2(bx + 55, 130), Vector2(bx + 48, 245), Vector2(bx + 27, 224), Vector2(bx + 7, 245)]), Color(.42, .23, .58))
-		draw_interior_person(Vector2(176, 350), Color(.78, .68, .9), 4)
-		draw_interior_person(Vector2(760, 350), Color(.65, .82, .7), 4)
-		for trophy_x in [360.0, 450.0, 540.0]:
-			draw_circle(Vector2(trophy_x, 150), 13, Color(.62, .55, .39))
-			draw_line(Vector2(trophy_x, 163), Vector2(trophy_x, 185), Color(.38, .27, .19), 3)
-	elif zone == "loja":
-		for shelf_y in [170.0, 300.0]:
-			draw_rect(Rect2(120, shelf_y, 710, 24), Color(.35, .21, .13))
-			for item_index in 9:
-				var ix: float = 145.0 + item_index * 76.0
-				draw_rect(Rect2(ix, shelf_y - 35, 34, 34), Color(.58, .42, .27))
-				draw_circle(Vector2(ix + 17, shelf_y - 18), 8, Color(.8, .64, .38))
-		for crate in [Vector2(145, 525), Vector2(215, 545), Vector2(710, 535)]:
-			draw_rect(Rect2(crate, Vector2(58, 48)), Color(.49, .31, .18))
-			draw_line(crate + Vector2(5, 5), crate + Vector2(53, 43), Color(.68, .46, .25), 2)
-		draw_rect(Rect2(330, 465, 300, 68), Color(.34, .21, .13))
-		draw_interior_person(Vector2(480, 448), Color(.9, .72, .52), 0)
+		draw_approved_visual("city_gate", Vector2(480, 350), .58)
+		draw_interior_person(Vector2(335, 500), Color(.78, .68, .9), 4)
+		draw_interior_person(Vector2(625, 500), Color(.65, .82, .7), 4)
+	elif zone == "ferreiro":
+		# O prédio de ferreiro do lote está HOLD; não é renderizado.
+		draw_interior_person(Vector2(480, 480), Color(.82, .68, .55), 0)
 	elif zone == "alquimia":
-		for table_x in [145.0, 560.0]:
-			draw_rect(Rect2(table_x, 350, 255, 58), Color(.33, .2, .14))
-			for bottle_index in 5:
-				var bp: Vector2 = Vector2(table_x + 34 + bottle_index * 43, 338 - (bottle_index % 2) * 7)
-				draw_circle(bp, 11, Color(.82 if bottle_index % 2 else .46, .35, .8, .82))
-				draw_rect(Rect2(bp + Vector2(-3, -18), Vector2(6, 8)), Color(.75, .82, .8))
-		for herb_index in 7:
-			var hp2: Vector2 = Vector2(150 + herb_index * 103, 190 + (herb_index % 2) * 35)
-			draw_line(hp2, hp2 + Vector2(0, 30), Color(.31, .53, .27), 3)
-			draw_circle(hp2 + Vector2(-6, 8), 6, Color(.38, .68, .33))
-			draw_circle(hp2 + Vector2(7, 16), 6, Color(.48, .76, .39))
-		# Caldeirão, tapete e alquimista.
-		draw_circle(Vector2(480, 500), 46, Color(.23, .12, .29, .35))
-		draw_circle(Vector2(480, 500), 25, Color(.18, .2, .22))
-		draw_circle(Vector2(480, 494), 19, Color(.43, .78, .62, .78))
-		for bubble_index in 5:
-			var bubble: Vector2 = Vector2(462 + bubble_index * 9, 487 - (bubble_index % 2) * 7)
-			draw_circle(bubble, 3 + float(bubble_index % 2), Color(.72, 1, .76, .76))
-		draw_interior_person(Vector2(480, 440), Color(.64, .52, .86), 0)
-		draw_rect(Rect2(330, 560, 300, 84), Color(.36, .18, .42, .35))
+		# Props de alquimia aguardam aprovação; ambiente usa apenas arquitetura aprovada.
+		draw_interior_person(Vector2(480, 480), Color(.64, .52, .86), 0)
 	draw_label(zone.to_upper(), Vector2(400, 113))
 	draw_label("E conversar  •  ↓ sair", Vector2(386, 637), Color.WHITE)
 
