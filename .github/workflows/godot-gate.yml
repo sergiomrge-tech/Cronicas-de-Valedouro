@@ -145,6 +145,7 @@ jobs:
         run: |
           set -e
           rm -rf game/.godot game/ci_output game/tools/__pycache__
+          rm -f game/tests/visual_capture.gd
           git config user.name "Valedouro CI"
           git config user.email "actions@users.noreply.github.com"
           git add CLAUDE.md .gitignore docs handoffs game
