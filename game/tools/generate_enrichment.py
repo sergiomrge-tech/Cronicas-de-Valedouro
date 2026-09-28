@@ -53,7 +53,7 @@ def shallow_tile():
 
 
 def valley_tile():
-    pal = P('#d1db79', '#90b45c', '#5f8e4d', '#3a653d')
+    pal = P('#d5ef8b', '#9bd16a', '#67ad52', '#3f7842')
     im = W.noise_tile(32, pal, 372, tufts=5, flowers=1, pebbles=1)
     d = ImageDraw.Draw(im)
     for x, y in ((6,8),(25,12),(18,26)):

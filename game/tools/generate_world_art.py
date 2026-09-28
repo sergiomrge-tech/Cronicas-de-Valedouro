@@ -149,58 +149,62 @@ def roof(size):
 # ------------------------------------------------------------------ objetos
 
 def tree(kind='leaf'):
-    """Árvore 64x64 com leitura de volume, sombras internas e tronco integrado.
-    A sombra projetada no chão é desenhada pelo Godot para seguir a mesma luz do mapa.
-    """
+    """Árvore 64x64 refinada: silhueta irregular, 4 níveis tonais e tronco enraizado."""
     im, d = canvas(64, 64)
-    trunk_dark = hexc('#58341c')
-    trunk_mid = hexc('#764a24')
-    trunk_light = hexc('#9a6a38')
-    rect(d, 28, 35, 36, 56, trunk_dark)
-    rect(d, 29, 34, 35, 54, trunk_mid)
-    rect(d, 31, 34, 33, 52, trunk_light)
-    d.polygon([(28, 51), (24, 58), (30, 58), (31, 54)], fill=trunk_dark)
-    d.polygon([(36, 51), (40, 58), (34, 58), (33, 54)], fill=trunk_dark)
-    d.polygon([(30, 40), (25, 36), (28, 34), (31, 37)], fill=trunk_mid)
-    d.polygon([(34, 42), (39, 38), (37, 35), (33, 39)], fill=trunk_mid)
+    trunk_dark = hexc('#4b2c1d'); trunk_mid = hexc('#754823'); trunk_light = hexc('#b0783f')
+    d.polygon([(27,57),(29,34),(36,34),(38,57),(34,53),(31,53)], fill=trunk_dark)
+    d.polygon([(30,54),(31,34),(35,35),(35,52)], fill=trunk_mid)
+    d.line((32,36,32,50),fill=trunk_light,width=1)
+    d.polygon([(29,50),(22,58),(31,56)],fill=trunk_dark)
+    d.polygon([(36,50),(43,58),(34,56)],fill=trunk_dark)
 
     if kind == 'leaf':
-        dark, mid, light, hi = map(hexc, ('#173f1f', '#2e7437', '#5faa50', '#b1e76a'))
-        clusters = [(23,17,15),(38,16,16),(16,27,14),(30,25,16),(45,27,14),(24,35,12),(39,34,12)]
-        for cx, cy, r in clusters:
-            d.ellipse((cx-r, cy-r, cx+r, cy+r), fill=dark)
-            d.ellipse((cx-r+2, cy-r+3, cx+r-1, cy+r), fill=mid)
-            d.ellipse((cx-r+7, cy-r+5, cx+r-6, cy+r-4), fill=light)
-        for cx, cy in [(15,25),(25,30),(40,30),(48,21),(29,16)]:
-            d.ellipse((cx-4,cy-3,cx+4,cy+4), fill=dark)
-        for pts in [((17,15),(25,13),(30,16)),((34,13),(42,12),(47,17)),((18,27),(26,24),(30,28)),((34,26),(43,24),(47,28))]:
-            d.polygon(pts, fill=hi)
-        for x,y in [(12,20),(50,22),(19,38),(43,38)]:
-            dot(d,x,y,hexc('#f5f6e8')); dot(d,x+1,y+1,WHITE)
+        dark, mid, light, hi = map(hexc, ('#123a22','#226b32','#4ea148','#a6df67'))
+        clusters=[(20,18,14,12),(36,15,15,13),(49,24,11,12),(14,30,12,12),(29,29,17,15),(44,34,14,13),(23,40,13,11)]
+        for i,(cx,cy,rx,ry) in enumerate(clusters):
+            d.ellipse((cx-rx,cy-ry,cx+rx,cy+ry),fill=dark)
+            d.ellipse((cx-rx+2,cy-ry+3,cx+rx-2,cy+ry-2),fill=mid)
+            if i in (0,1,4,5):
+                d.ellipse((cx-rx+7,cy-ry+5,cx+rx-6,cy+ry-6),fill=light)
+        for box in [(13,11,25,17),(31,7,43,13),(39,20,51,25),(18,28,28,33)]:
+            d.ellipse(box,fill=hi)
+        # recortes escuros quebram a copa redonda e criam profundidade
+        for box in [(9,24,17,31),(24,20,32,27),(39,29,48,36),(25,39,34,44)]:
+            d.ellipse(box,fill=dark)
+        for x,y in [(18,13),(38,11),(48,22),(22,31),(41,24)]:
+            dot(d,x,y,hexc('#d9f18a'))
     else:
         snowy = kind == 'frost'
         if snowy:
-            dark, mid, light, hi = map(hexc, ('#405c72','#6e91a0','#a8d1d5','#e0f6f3'))
+            dark, mid, light, hi = map(hexc, ('#35536c','#628b9c','#a6ced2','#edfafa'))
         else:
-            dark, mid, light, hi = map(hexc, ('#163a2e','#28694e','#499c77','#75cc9d'))
-        for cx,cy,half in [(32,9,12),(32,18,17),(32,28,20),(32,38,16)]:
-            d.polygon([(cx,cy-half),(cx-half,cy+half*.55),(cx+half,cy+half*.55)], fill=dark)
-            d.polygon([(cx,cy-half+2),(cx-half+3,cy+half*.4),(cx+half-2,cy+half*.4)], fill=mid)
-            d.polygon([(cx-1,cy-half+4),(cx-half//2,cy+half*.1),(cx+half//2,cy+half*.1)], fill=light)
-            d.line((cx-half+4,cy,cx+half-6,cy-2), fill=hi, width=1)
-    return outline(im, .75)
+            dark, mid, light, hi = map(hexc, ('#10382e','#1f664a','#3f956e','#86cfa0'))
+        # pinheiro menos geométrico: ramos alternados e quatro níveis de profundidade
+        tiers=[(32,10,11),(30,19,16),(34,29,20),(31,39,18)]
+        for i,(cx,cy,half) in enumerate(tiers):
+            d.polygon([(cx,cy-half),(cx-half-2,cy+half*.55),(cx+half,cy+half*.52)],fill=dark)
+            d.polygon([(cx,cy-half+3),(cx-half+2,cy+half*.36),(cx+half-4,cy+half*.34)],fill=mid)
+            d.polygon([(cx-2,cy-half+5),(cx-half//2,cy+half*.08),(cx+half//2-2,cy+half*.06)],fill=light)
+            d.line((cx-half+5,cy-2,cx+half-7,cy-4),fill=hi,width=1)
+            if snowy and i>0:
+                d.line((cx-half+4,cy+1,cx+half-8,cy-1),fill=hexc('#ffffff'),width=2)
+    return outline(im, .78)
 
 
 def bush():
     im, d = canvas(32, 32)
-    dark, mid, light, hi = map(hexc, ('#184b26','#30803a','#61b45a','#b4e97a'))
-    for cx,cy,r in [(9,17,7),(16,14,8),(23,17,7),(14,21,6),(20,22,5)]:
-        d.ellipse((cx-r,cy-r,cx+r,cy+r), fill=dark)
-        d.ellipse((cx-r+1,cy-r+2,cx+r-1,cy+r), fill=mid)
-        d.ellipse((cx-r+3,cy-r+4,cx+r-3,cy+r-2), fill=light)
-    for pts in [((7,14),(12,12),(15,14)),((16,11),(20,10),(24,13)),((10,19),(15,17),(20,19))]:
-        d.polygon(pts, fill=hi)
-    return outline(im, .75)
+    dark, mid, light, hi = map(hexc, ('#123b20','#267236','#55aa50','#a7df70'))
+    clusters=[(7,19,6),(13,14,7),(20,13,7),(25,19,6),(16,21,8)]
+    for i,(cx,cy,r) in enumerate(clusters):
+        d.ellipse((cx-r,cy-r,cx+r,cy+r),fill=dark)
+        d.ellipse((cx-r+2,cy-r+2,cx+r-1,cy+r-2),fill=mid)
+        if i in (1,2,4):
+            d.ellipse((cx-r+4,cy-r+4,cx+r-4,cy+r-4),fill=light)
+    for x,y in [(10,11),(18,9),(22,15),(14,18)]:
+        d.ellipse((x-2,y-1,x+2,y+2),fill=hi)
+    for x,y in [(7,22),(21,23),(27,19)]:
+        d.ellipse((x-2,y-1,x+2,y+2),fill=dark)
+    return outline(im, .78)
 
 def flower_patch():
     im, d = canvas(32, 32)

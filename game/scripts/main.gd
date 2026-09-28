@@ -989,21 +989,33 @@ func draw_overworld(camera: Vector2, x_start: int, x_end: int, y_start: int, y_e
 			var prop: String = MAP.prop_at(x, y)
 			if prop.is_empty():
 				continue
+			var visual_seed: int = MAP.cell_hash(x + 113, y + 197)
+			var jitter_x: float = float((visual_seed % 7) - 3)
+			var jitter_y: float = float((int(visual_seed / 7) % 5) - 2)
+			var pp: Vector2 = p + Vector2(jitter_x, jitter_y)
 			if prop == "flower":
-				draw_texture_rect(textures["flower"], Rect2(p - Vector2(16, 16), Vector2(32, 32)), false)
+				draw_texture_rect(textures["flower"], Rect2(pp - Vector2(16, 16), Vector2(32, 32)), false)
 			elif prop in ["pine", "tree", "frost_tree"]:
-				draw_shadow_oval(p + Vector2(3, 12), Vector2(20, 7), Color(0, 0, 0, .14))
-				draw_shadow_oval(p + Vector2(2, 14), Vector2(15, 5), Color(0, 0, 0, .24))
-				draw_texture_rect(textures[prop], Rect2(p - Vector2(32, 52), Vector2(64, 64)), false)
+				var shadow_w: float = 18.0 + float(visual_seed % 5)
+				draw_shadow_oval(pp + Vector2(5, 13), Vector2(shadow_w, 7), Color(0, 0, 0, .13))
+				draw_shadow_oval(pp + Vector2(2, 15), Vector2(14, 5), Color(0, 0, 0, .29))
+				var tone: Color = Color.WHITE
+				if visual_seed % 3 == 1:
+					tone = Color(.95, 1.0, .95, 1.0)
+				elif visual_seed % 3 == 2:
+					tone = Color(1.0, .96, .91, 1.0)
+				draw_texture_rect(textures[prop], Rect2(pp - Vector2(32, 52), Vector2(64, 64)), false, tone)
 			elif prop == "bush":
-				draw_shadow_oval(p + Vector2(1, 8), Vector2(10, 4), Color(0, 0, 0, .15))
-				draw_texture_rect(textures[prop], Rect2(p - Vector2(16, 16), Vector2(32, 32)), false)
+				draw_shadow_oval(pp + Vector2(2, 8), Vector2(11, 4), Color(0, 0, 0, .19))
+				draw_texture_rect(textures[prop], Rect2(pp - Vector2(16, 16), Vector2(32, 32)), false)
 			elif prop == "cactus":
-				draw_texture_rect(textures[prop], Rect2(p - Vector2(16, 32), Vector2(32, 48)), false)
+				draw_shadow_oval(pp + Vector2(2, 13), Vector2(9, 3), Color(0, 0, 0, .16))
+				draw_texture_rect(textures[prop], Rect2(pp - Vector2(16, 32), Vector2(32, 48)), false)
 			elif prop == "ice_crystal":
-				draw_texture_rect(textures[prop], Rect2(p - Vector2(16, 28), Vector2(32, 40)), false)
+				draw_shadow_oval(pp + Vector2(2, 10), Vector2(9, 3), Color(.1, .25, .35, .16))
+				draw_texture_rect(textures[prop], Rect2(pp - Vector2(16, 28), Vector2(32, 40)), false)
 			else:
-				draw_texture_rect(textures[prop], Rect2(p - Vector2(16, 16), Vector2(32, 32)), false)
+				draw_texture_rect(textures[prop], Rect2(pp - Vector2(16, 16), Vector2(32, 32)), false)
 
 	# Três travessias reutilizam a mesma linguagem de madeira/pedra, mas com silhuetas próprias.
 	for index in range(MAP.BRIDGE_YS.size()):
