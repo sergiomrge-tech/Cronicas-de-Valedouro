@@ -951,6 +951,8 @@ func _draw() -> void:
 				draw_texture_rect(tex, Rect2(x * TILE, y * TILE, TILE, TILE), false)
 	if zone == "cidade":
 		draw_overworld(camera, x_start, x_end, y_start, y_end)
+		if Rect2(camera, VIEW_SIZE).intersects(MAP.TOWN_BOUNDS.grow(150.0)):
+			draw_town_transition(camera)
 		if Rect2(camera, VIEW_SIZE).intersects(MAP.TOWN_BOUNDS):
 			draw_texture(textures["valedouro_blended"], MAP.TOWN)
 			draw_town_life(camera)
@@ -1011,6 +1013,7 @@ func draw_overworld(camera: Vector2, x_start: int, x_end: int, y_start: int, y_e
 			elif name == "bridge":
 				draw_line(p + Vector2(-14, -12), p + Vector2(14, -12), Color(.48, .34, .25), 2)
 				draw_line(p + Vector2(-14, 10), p + Vector2(14, 10), Color(.48, .34, .25), 2)
+			draw_biome_transition_detail(p, x, y)
 			# Decorative vegetation layer: procedural but deterministic, and never over roads or water.
 			var detail_seed: int = MAP.cell_hash(x + 91, y + 47)
 			if not MAP.path_at(p) and not MAP.river_at(p) and not MAP.shallow_at(p) and not MAP.bridge_at(p) and not MAP.town_area(p):
@@ -1086,6 +1089,77 @@ func draw_overworld(camera: Vector2, x_start: int, x_end: int, y_start: int, y_e
 	for settlement in [[Vector2(535, 1880), "VILA DOS CAMPOS", Color(.39, .53, .39)], [Vector2(1430, 1760), "ALDEIA DO VALE", Color(.46, .52, .34)], [Vector2(2520, 1580), "CARAVANA DE ÂMBAR", Color(.62, .43, .24)], [Vector2(2460, 560), "POUSO DA GEADA", Color(.48, .58, .69)]]:
 		if camera.distance_to(settlement[0]) < 580:
 			draw_settlement(settlement[0], settlement[1], settlement[2])
+
+func draw_biome_transition_detail(p: Vector2, x: int, y: int) -> void:
+	# Borda orgânica barata entre biomas: nunca cobre estrada, água ou cidade.
+	if MAP.path_at(p) or MAP.river_at(p) or MAP.shallow_at(p) or MAP.bridge_at(p) or MAP.town_area(p):
+		return
+	var here: String = MAP.biome(p)
+	var neighbors: Array[Vector2] = [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector2(0, -32)]
+	var edge: bool = false
+	for delta: Vector2 in neighbors:
+		if MAP.biome(p + delta) != here:
+			edge = true
+			break
+	if not edge:
+		return
+	var seed: int = MAP.cell_hash(x + 211, y + 307)
+	var base_color: Color = Color(.36, .58, .30, .26)
+	match here:
+		"gelo": base_color = Color(.82, .94, .95, .34)
+		"deserto": base_color = Color(.78, .62, .34, .28)
+		"campos": base_color = Color(.58, .72, .35, .25)
+		"vale": base_color = Color(.45, .64, .31, .26)
+		"floresta": base_color = Color(.18, .39, .22, .28)
+	for dot_index in 5:
+		var dx: float = float((seed >> (dot_index * 2)) % 23) - 11.0
+		var dy: float = float((seed >> (dot_index * 3 + 1)) % 19) - 9.0
+		var rr: float = 2.0 + float((seed + dot_index * 7) % 4)
+		draw_circle(p + Vector2(dx, dy), rr, base_color)
+	if here in ["floresta", "campos", "vale"]:
+		draw_line(p + Vector2(-9, 10), p + Vector2(-6, 1), Color(.31, .5, .24, .5), 1)
+		draw_line(p + Vector2(7, 9), p + Vector2(5, 2), Color(.43, .62, .29, .45), 1)
+
+func draw_town_transition(camera: Vector2) -> void:
+	# Cinturão verde/pedra entre a pintura da vila e o mundo procedural.
+	var bounds: Rect2 = MAP.TOWN_BOUNDS
+	var points: Array[Vector2] = []
+	for i in 18:
+		var t: float = float(i) / 17.0
+		points.append(Vector2(bounds.position.x + t * bounds.size.x, bounds.position.y - 28.0 - sin(i * 1.7) * 10.0))
+		points.append(Vector2(bounds.position.x + t * bounds.size.x, bounds.end.y + 26.0 + cos(i * 1.3) * 10.0))
+	for i in 9:
+		var t2: float = float(i) / 8.0
+		points.append(Vector2(bounds.position.x - 28.0 - sin(i * 1.4) * 9.0, bounds.position.y + t2 * bounds.size.y))
+		points.append(Vector2(bounds.end.x + 28.0 + cos(i * 1.1) * 9.0, bounds.position.y + t2 * bounds.size.y))
+	for index in range(points.size()):
+		var p: Vector2 = points[index]
+		if not Rect2(camera - Vector2(64, 64), VIEW_SIZE + Vector2(128, 128)).has_point(p):
+			continue
+		# abre clareiras nos quatro acessos principais.
+		var local: Vector2 = p - MAP.TOWN
+		if absf(local.x - 890.0) < 125.0 or absf(local.y - 478.0) < 105.0:
+			continue
+		var seed: int = MAP.cell_hash(index * 13 + 7, index * 29 + 3)
+		if index % 3 == 0:
+			draw_shadow_oval(p + Vector2(3, 7), Vector2(15, 5), Color(0, 0, 0, .12))
+			draw_texture_rect(textures["bush"], Rect2(p - Vector2(16, 16), Vector2(32, 32)), false, Color(.94, 1, .92, 1))
+		elif index % 3 == 1:
+			draw_texture_rect(textures["flower"], Rect2(p - Vector2(16, 16), Vector2(32, 32)), false)
+		else:
+			var stone: Color = Color(.46, .45, .4)
+			draw_shadow_oval(p + Vector2(2, 6), Vector2(12, 4), Color(0, 0, 0, .12))
+			draw_circle(p, 7.0 + float(seed % 4), stone)
+			draw_circle(p + Vector2(-2, -2), 3.0, stone.lightened(.22))
+	# marcos baixos de pedra nas entradas dão continuidade à muralha.
+	for gate in [MAP.TOWN + Vector2(890, -18), MAP.TOWN + Vector2(890, 905), MAP.TOWN + Vector2(-18, 478), MAP.TOWN + Vector2(1792, 478)]:
+		if Rect2(camera - Vector2(60, 60), VIEW_SIZE + Vector2(120, 120)).has_point(gate):
+			for side in [-1.0, 1.0]:
+				var offset: Vector2 = Vector2(54.0 * side, 0) if absf(gate.y - (MAP.TOWN.y + 478.0)) > 100.0 else Vector2(0, 54.0 * side)
+				var marker: Vector2 = gate + offset
+				draw_rect(Rect2(marker - Vector2(7, 13), Vector2(14, 26)), Color(.38, .37, .35))
+				draw_rect(Rect2(marker - Vector2(5, 11), Vector2(10, 20)), Color(.57, .55, .49))
+				draw_circle(marker + Vector2(0, -13), 8, Color(.67, .64, .55))
 
 func draw_bridge_details(center: Vector2, variant: int) -> void:
 	var rail: Color = Color(.38, .25, .18) if variant != 0 else Color(.42, .43, .48)
@@ -1305,6 +1379,15 @@ func draw_label(text: String, p: Vector2, color: Color = Color(1, .88, .64)) -> 
 
 func draw_dungeon() -> void:
 	# Ruínas compactas, com arena central legível e iluminação ritual.
+	# Faixas de sombra e piso quebrado retiram o aspecto de um único tile repetido.
+	draw_rect(Rect2(64, 96, 832, 690), Color(.12, .09, .18, .13))
+	for stripe_y in range(124, 760, 96):
+		draw_rect(Rect2(72, stripe_y, 816, 18), Color(.08, .06, .14, .11))
+	for patch in [Rect2(90, 260, 115, 70), Rect2(710, 260, 120, 80), Rect2(300, 540, 150, 75), Rect2(565, 555, 135, 72)]:
+		draw_rect(patch, Color(.08, .06, .13, .16))
+		for crack_index in 4:
+			var cp: Vector2 = patch.position + Vector2(18 + crack_index * 27, 18 + (crack_index % 2) * 16)
+			draw_line(cp, cp + Vector2(12, 7), Color(.55, .48, .66, .30), 1)
 	for x in range(0, 30):
 		for y in [0, 1, 26, 27]:
 			draw_texture_rect(textures["wall"], Rect2(x * 32, y * 32, 32, 32), false)
@@ -1338,6 +1421,14 @@ func draw_dungeon() -> void:
 		draw_circle(p, flame + 5, Color(.92, .38, .12, .58))
 		draw_circle(p + Vector2(0, -2), flame, Color(1, .82, .31, .9))
 		draw_circle(p + Vector2(-1, -4), 3, Color(1, .96, .66))
+	# Alcovas laterais com relíquias e ossadas criam narrativa ambiental.
+	for alcove in [Vector2(100, 420), Vector2(860, 420)]:
+		draw_rect(Rect2(alcove + Vector2(-42, -55), Vector2(84, 108)), Color(.10, .08, .16, .45))
+		draw_arc(alcove + Vector2(0, -18), 37, PI, TAU, 24, Color(.46, .40, .57, .8), 4)
+		draw_rect(Rect2(alcove + Vector2(-31, -18), Vector2(62, 63)), Color(.17, .14, .23, .65))
+		draw_circle(alcove + Vector2(0, 18), 8, Color(.66, .58, .45))
+		draw_line(alcove + Vector2(-18, 28), alcove + Vector2(17, 7), Color(.73, .68, .56), 3)
+		draw_line(alcove + Vector2(-14, 6), alcove + Vector2(18, 30), Color(.73, .68, .56), 3)
 	# Colunas quebradas, estátuas e portão ritual fecham os vazios da sala.
 	for rubble in [Vector2(120, 250), Vector2(350, 350), Vector2(635, 510), Vector2(820, 315), Vector2(155, 690), Vector2(730, 700)]:
 		draw_shadow_oval(rubble + Vector2(3, 5), Vector2(20, 6), Color(0, 0, 0, .2))
@@ -1371,6 +1462,20 @@ func draw_interior() -> void:
 		for y in 25:
 			if (x + y) % 5 == 0:
 				draw_line(Vector2(x * 32 + 5, y * 32 + 29), Vector2(x * 32 + 23, y * 32 + 29), Color(.26, .16, .12, .4), 1)
+	# Iluminação quente, tapete central e rodapés conectam os interiores à linguagem do HUD de madeira.
+	for light in [Vector2(220, 145), Vector2(480, 145), Vector2(740, 145)]:
+		draw_circle(light, 34, Color(1, .72, .28, .04))
+		draw_circle(light, 17, Color(1, .76, .3, .07))
+		draw_line(light, light + Vector2(0, 24), Color(.27, .18, .13), 3)
+		draw_circle(light, 5, Color(1, .8, .34, .85))
+	draw_rect(Rect2(250, 650, 460, 54), Color(.25, .12, .18, .65))
+	draw_rect(Rect2(262, 659, 436, 36), Color(.49, .22, .29, .72))
+	for rug_x in range(280, 690, 38):
+		draw_line(Vector2(rug_x, 662), Vector2(rug_x + 18, 692), Color(.73, .45, .32, .42), 2)
+	for shelf_x in [88.0, 815.0]:
+		draw_rect(Rect2(shelf_x, 320, 58, 230), Color(.24, .14, .10))
+		for shelf_y in [342.0, 402.0, 462.0, 522.0]:
+			draw_rect(Rect2(shelf_x + 5, shelf_y, 48, 6), Color(.52, .31, .17))
 	if zone == "ferreiro":
 		for p in [Vector2(150, 165), Vector2(480, 165), Vector2(770, 165)]:
 			draw_rect(Rect2(p, Vector2(155, 58)), Color(.19, .13, .1))
