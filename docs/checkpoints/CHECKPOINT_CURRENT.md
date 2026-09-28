@@ -1,39 +1,78 @@
-# CHECKPOINT ATUAL — AI-FIRST v12 ACT8
+# CHECKPOINT ATUAL — Vertical Slice / Refinamento 95
 
 **Data:** 2026-09-28  
-**Diretor do Jogo:** Sergio  
-**Estado:** campanha principal completa em planejamento; Q001–Q091 detalhadas.
+**Diretor:** Sergio  
+**Engine:** Godot 4.7.2  
+**Repositório:** sergiomrge-tech/Cronicas-de-Valedouro  
+**Estado:** primeiro loop jogável técnico validado; refinamento visual/sistêmico em andamento.
 
-## Fechado nesta etapa
-- Ato VIII — **A Última Marcha** detalhado (~5h30).
-- Q081 renomeada para **O Mandato Final**; Q080 já possui o Sétimo Sigilo.
-- Q084 passa a ser **Os Cinco Estandartes** e encerra os cinco Generais remanescentes.
-- `DNG_015` Fornalha da Coroa e `DNG_016` Palácio de Nhal-Khar integradas ao arco final.
-- Veyr vira boss final de rivalidade; Cidadela Andante adicionada como boss de dungeon.
-- Azharel morre canonicamente em Q089.
-- Q090 estabiliza o Coração e cria **Antes da Travessia**.
-- Q091 encerra com retorno canônico à Terra.
-- 15 secundárias finais detalhadas; `SIDECHAIN_HOL_04` corrigida para **Marechal sem Nome**, evitando oitavo General.
-- sistema `SYS_FINAL_WAR_CONTRIBUTION_001` criado.
-- campanha detalhada consolidada em ~39h02.
+## Confirmado no GitHub/Godot
 
-## Regras preservadas
-- Rank S é requisito de entrada no Ato VIII e não é concedido pela campanha.
-- secundárias não têm gate de Rank.
-- conteúdo opcional melhora apoio/epílogo, mas não bloqueia vitória.
-- final canônico é voltar à Terra.
+O Run 10 do workflow `Godot 4.7.2 Gate + Visual QA` concluiu com sucesso.
 
-## Próximo pacote de planejamento
-Consolidar **Matriz de Produção do Vertical Slice / Ato I**: assets, inimigos, itens, skills, NPCs, mapas e sistemas mínimos necessários por ID.
+Passam atualmente:
+- import/parser Godot 4.7.2;
+- static validators;
+- smoke;
+- world travel;
+- hero animation;
+- monster animation;
+- loot progression;
+- asset catalog;
+- vertical slice gate;
+- 14 capturas visuais reais.
 
-## Próximo pacote técnico obrigatório
-Corrigir `game/scripts/main.gd`, depois `world_map.gd`, e executar Godot Gate antes de qualquer novo ZIP jogável.
+O loop técnico já cobre:
+Cidade -> Guilda -> Bosque -> Combate -> Loot -> Equipamento -> Dungeon -> Guardião -> Save/Load.
 
-## Retomada mínima
-1. `README_CONTINUE_AQUI.md`
-2. este checkpoint
-3. `production/decisions/DECISIONS_LOCKED.md`
-4. `design/lore/CANON_SOURCE_OF_TRUTH.md`
-5. `design/campaign/ACT_08_IMPLEMENTATION_OUTLINE.md`
-6. `design/world/NHAL_KHAR_REGION_IMPLEMENTATION_BIBLE.md`
-7. `ai_studio/context_packs/current/CONTEXT_PACKET.md`
+## Evolução visual atual
+
+Implementado:
+- vegetação procedural determinística;
+- árvores com maior volume e sombra de contato;
+- jitter visual para reduzir grade procedural;
+- fauna por região;
+- partículas ambientais por bioma;
+- assentamentos secundários enriquecidos;
+- dungeon com arena/runa/tochas;
+- guilda, ferreiro e alquimia com dressing adicional;
+- Guardião com carga e onda circular.
+
+Ainda abaixo do padrão final:
+- interiores ainda precisam de arte mais refinada;
+- dungeon precisa de modularidade visual real;
+- vila/arredores precisam de equalização artística;
+- gelo/deserto precisam de maior densidade;
+- vilarejos secundários ainda precisam de assets próprios;
+- Player continua concentrado em main.gd;
+- quest prototype ainda usa integer;
+- save ainda precisa migrar para schema v5/IDs;
+- performance Android ainda precisa de profiling/chunks.
+
+## Fonte de verdade operacional
+
+Ler nesta ordem:
+1. CLAUDE.md
+2. docs/README_CONTINUE_AQUI.md
+3. docs/checkpoints/CHECKPOINT_CURRENT.md
+4. docs/QUALITY_GATE_95.md
+5. docs/roadmap/ROADMAP_REFINAMENTO_95_v1.md
+6. docs/planning/CRONICAS_VALEDOURO_VERTICAL_SLICE_MATRIX_v1.md
+
+## Próxima execução
+
+Prioridade imediata:
+- R95-20 interiors/dungeon;
+- R95-01 vila/arredores;
+- R95-02/R95-03 vegetação/transições.
+
+Depois:
+- modularização do Player;
+- quest IDs;
+- save v5;
+- performance Android;
+- novo Visual QA.
+
+## Regra de teste do Diretor
+
+Não pedir teste manual a cada lote. Enviar screenshots reais quando houver evolução visual significativa. Entregar novo ZIP apenas quando o candidato estiver substancialmente mais refinado e após Godot Gate + varredura + integridade do pacote.
