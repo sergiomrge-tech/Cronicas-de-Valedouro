@@ -20,8 +20,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat bootstrap/source.part* | base64 -d > /tmp/valedouro-source.tar.gz
-          tar -xzf /tmp/valedouro-source.tar.gz -C .
+          if [ ! -f game/project.godot ]; then
+            echo "Expanded game tree not present; reconstructing bootstrap snapshot."
+            cat bootstrap/source.part* | base64 -d > /tmp/valedouro-source.tar.gz
+            tar -xzf /tmp/valedouro-source.tar.gz -C .
+          else
+            echo "Using expanded game tree from repository."
+          fi
           test -f game/project.godot
           test -f CLAUDE.md
           # Smoke v0.6 used y=1800, which is inside the 100px south-bridge corridor centered at y=1840.
