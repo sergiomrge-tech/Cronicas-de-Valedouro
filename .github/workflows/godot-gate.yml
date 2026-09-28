@@ -77,7 +77,7 @@ jobs:
         shell: bash
         run: |
           set -e
-          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog vertical_slice; do
+          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog vertical_slice boss_patterns mobile_input; do
             echo "===== TEST: $t ====="
             timeout 25s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd"
           done
@@ -115,7 +115,13 @@ jobs:
                   {"name":"11_ferreiro", "zone":"ferreiro", "pos":Vector2(760,730)},
                   {"name":"12_alquimia", "zone":"alquimia", "pos":Vector2(480,420)},
                   {"name":"13_combate_bosque", "zone":"floresta", "pos":Vector2(920,570)},
-                  {"name":"14_inventario", "zone":"cidade", "pos":WORLD.TOWN + Vector2(884,696)}
+                  {"name":"14_inventario", "zone":"cidade", "pos":WORLD.TOWN + Vector2(884,696)},
+                  {"name":"15_equipamento_visual", "zone":"cidade", "pos":WORLD.TOWN + Vector2(884,696)},
+                  {"name":"16_guardiao_carga", "zone":"masmorra", "pos":Vector2(485,420)},
+                  {"name":"17_guardiao_onda", "zone":"masmorra", "pos":Vector2(485,420)},
+                  {"name":"18_loot_feedback", "zone":"floresta", "pos":Vector2(920,570)},
+                  {"name":"19_respawn", "zone":"cidade", "pos":WORLD.TOWN + Vector2(884,696)},
+                  {"name":"20_save_carregado", "zone":"cidade", "pos":WORLD.TOWN + Vector2(884,696)}
               ]
               for spot: Dictionary in spots:
                   game.zone = str(spot["zone"])
@@ -136,8 +142,45 @@ jobs:
                           {"name":"Gibão de Couro","kind":"armor","tier":1,"req":1,"chapter":0,"atk":0,"def":2}
                       ]
                       game.show_inventory()
-                  game.hint_timer = 0.0
-                  game.hint = ""
+                  elif shot_name == "15_equipamento_visual":
+                      game.equipped_weapon = {"name":"Arco do Sol","kind":"bow","tier":2,"req":1,"chapter":0,"atk":8,"def":0}
+                      game.equipped_armor = {"name":"Armadura de Bronze","kind":"armor","tier":2,"req":1,"chapter":0,"atk":0,"def":4}
+                      game.level = 6
+                  elif shot_name == "16_guardiao_carga":
+                      game.quest = 3
+                      var boss_charge: Dictionary = game.make_enemy("Guardião", Vector2(485,240))
+                      boss_charge["boss_action"] = "charge"
+                      boss_charge["action_time"] = .6
+                      game.enemies.append(boss_charge)
+                  elif shot_name == "17_guardiao_onda":
+                      game.quest = 3
+                      var boss_wave: Dictionary = game.make_enemy("Guardião", Vector2(485,240))
+                      boss_wave["boss_action"] = "shockwave"
+                      boss_wave["action_time"] = .42
+                      game.enemies.append(boss_wave)
+                  elif shot_name == "18_loot_feedback":
+                      game.stored_items = [{"name":"Arco do Bosque","kind":"bow","tier":1,"req":1,"chapter":0,"atk":4,"def":0}]
+                      game.hint = "Equipamento raro encontrado: Arco do Bosque!"
+                      game.hint_timer = 4.0
+                  elif shot_name == "19_respawn":
+                      game.gold = 27
+                      game.hp = game.max_hp
+                      game.hint = "A guilda resgatou você. Retorno seguro a Valedouro."
+                      game.hint_timer = 4.0
+                  elif shot_name == "20_save_carregado":
+                      game.level = 7
+                      game.gold = 143
+                      game.quest = 4
+                      game.equipped_weapon = {"name":"Espada dos Ecos","kind":"sword","tier":2,"req":1,"chapter":0,"atk":8,"def":0}
+                      game.save_game()
+                      game.gold = 0
+                      game.level = 1
+                      game.load_game()
+                      game.hint = "Progresso restaurado do save v4."
+                      game.hint_timer = 4.0
+                  if not shot_name in ["18_loot_feedback", "19_respawn", "20_save_carregado"]:
+                      game.hint_timer = 0.0
+                      game.hint = ""
                   game.refresh_ui()
                   game.queue_redraw()
                   await process_frame
