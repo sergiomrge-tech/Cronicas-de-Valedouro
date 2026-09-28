@@ -24,6 +24,9 @@ jobs:
           tar -xzf /tmp/valedouro-source.tar.gz -C .
           test -f game/project.godot
           test -f CLAUDE.md
+          # Smoke v0.6 used y=1800, which is inside the 100px south-bridge corridor centered at y=1840.
+          # Use a true non-bridge river point for the collision assertion.
+          sed -i 's/WORLD.river_x(1800), 1800/WORLD.river_x(1700), 1700/' game/tests/smoke.gd
 
       - name: Python + Pillow
         run: |
@@ -67,7 +70,7 @@ jobs:
           set -e
           for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog; do
             echo "===== TEST: $t ====="
-            timeout 60s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd"
+            timeout 25s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd"
           done
 
       - name: Create visual capture script
