@@ -32,6 +32,8 @@ jobs:
           # Smoke v0.6 used y=1800, which is inside the 100px south-bridge corridor centered at y=1840.
           # Use a true non-bridge river point for the collision assertion.
           sed -i 's/WORLD.river_x(1800), 1800/WORLD.river_x(1700), 1700/' game/tests/smoke.gd
+          # The north bridge crosses the city's north-wall band; bridge tiles must override that wall collider.
+          sed -i 's/if town_point.y < 149 and town_point.x > 170 and town_point.x < 1570 and (town_point.x < 793 or town_point.x > 1008):/if not MAP.bridge_at(p) and town_point.y < 149 and town_point.x > 170 and town_point.x < 1570 and (town_point.x < 793 or town_point.x > 1008):/' game/scripts/main.gd
 
       - name: Python + Pillow
         run: |
