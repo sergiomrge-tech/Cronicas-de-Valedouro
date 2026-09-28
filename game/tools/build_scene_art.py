@@ -207,6 +207,24 @@ def make_forge():
     d.rectangle((300,260,690,340),fill=(102,65,39,255),outline=(49,33,25,255),width=5)
     d.polygon([(720,510),(835,500),(860,540),(800,570),(735,558)],fill=(75,82,85,255))
     d.rectangle((770,560,815,655),fill=(78,52,34,255))
+    # zona de trabalho inferior: racks, caixas, carvão, bancada e segundo bigorna
+    for rx in (330, 760, 1040):
+        d.rectangle((rx,650,rx+150,690),fill=(81,50,32,255),outline=(42,31,26,255),width=4)
+        for k in range(3):
+            d.line((rx+25+k*45,654,rx+30+k*45,684),fill=(172,184,184,255),width=5)
+    for cx,cy in ((245,770),(330,790),(1180,760),(1240,805)):
+        d.ellipse((cx-24,cy-14,cx+24,cy+14),fill=(43,39,36,255))
+        d.ellipse((cx-18,cy-10,cx+18,cy+10),fill=(72,66,57,255))
+    d.rectangle((560,720,900,790),fill=(88,55,34,255),outline=(46,32,26,255),width=5)
+    for x in range(580,890,38):
+        d.line((x,730,x+20,780),fill=(126,82,46,255),width=2)
+    d.polygon([(945,760),(1040,752),(1060,785),(1010,815),(955,805)],fill=(72,78,80,255))
+    d.rectangle((990,810,1025,900),fill=(74,49,32,255))
+    # lanternas laterais e faíscas congeladas no quadro
+    for lx,ly in ((220,600),(1180,600),(510,610)):
+        d.rectangle((lx-2,ly,lx+2,ly+24),fill=(54,38,30,255))
+        d.ellipse((lx-10,ly-10,lx+10,ly+8),fill=(242,125,47,255))
+        d.ellipse((lx-5,ly-8,lx+5,ly+3),fill=(255,212,91,255))
     # luz quente local
     glow=Image.new('RGBA',(w,h),(0,0,0,0)); gd=ImageDraw.Draw(glow,'RGBA')
     for r,a in [(300,16),(220,24),(150,35),(90,55)]: gd.ellipse((1120-r,420-r*.55,1120+r,420+r*.55),fill=(255,145,60,a))

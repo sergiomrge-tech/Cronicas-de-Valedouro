@@ -953,6 +953,7 @@ func _draw() -> void:
 		draw_overworld(camera, x_start, x_end, y_start, y_end)
 		if Rect2(camera, VIEW_SIZE).intersects(MAP.TOWN_BOUNDS):
 			draw_texture(textures["valedouro_blended"], MAP.TOWN)
+			draw_town_life(camera)
 			var gate: Vector2 = MAP.TOWN + Vector2(883, 65)
 			draw_arc(gate, 28, 0, TAU, 26, Color(.71, .94, .56, .86), 4)
 			draw_label("BOSQUE • E", gate + Vector2(-88, -42))
@@ -963,6 +964,7 @@ func _draw() -> void:
 			draw_label("RUÍNAS • E", ruins + Vector2(-76, -42))
 		draw_animals(camera)
 		draw_ambient_life(camera)
+		draw_region_story_props(camera)
 	elif zone == "masmorra":
 		draw_dungeon()
 	elif zone in ["loja", "alquimia", "guilda"]:
@@ -1185,6 +1187,85 @@ func draw_ambient_life(camera: Vector2) -> void:
 			var drift: float = fposmod(lx + time_acc * 32.0, VIEW_SIZE.x)
 			draw_line(camera + Vector2(drift, ly), camera + Vector2(drift + 13, ly - 2), Color(.94, .82, .55, .24), 1)
 
+func draw_town_life(camera: Vector2) -> void:
+	# Pessoas, banca de mercado, iluminação e pequenos props tornam a cidade habitada.
+	var npc_local: Array[Vector2] = [
+		Vector2(705, 310), Vector2(1010, 315), Vector2(600, 520), Vector2(1165, 525),
+		Vector2(760, 675), Vector2(1035, 650), Vector2(520, 735), Vector2(1290, 730),
+		Vector2(835, 430), Vector2(980, 470)
+	]
+	for i in range(npc_local.size()):
+		var base: Vector2 = MAP.TOWN + npc_local[i]
+		var walk: Vector2 = Vector2(sin(time_acc * (.45 + i * .03) + i) * 18.0, cos(time_acc * (.31 + i * .02) + i * .7) * 8.0)
+		var p: Vector2 = base + walk
+		if not Rect2(camera - Vector2(48, 64), VIEW_SIZE + Vector2(96, 128)).has_point(p):
+			continue
+		draw_shadow_oval(p + Vector2(0, 4), Vector2(11, 4), Color(0, 0, 0, .28))
+		var frame: int = int(time_acc * 5.0 + i * 2) % 8
+		var direction: int = 2 if sin(time_acc + i) > 0 else 6
+		var src: Rect2 = Rect2(Vector2(frame * 48, direction * 56), Vector2(48, 56))
+		var tint: Color = [Color(.9, .75, .65), Color(.68, .86, .76), Color(.76, .72, .95), Color(.95, .8, .55)][i % 4]
+		draw_texture_rect_region(textures["hero_body"], Rect2(p - Vector2(17, 37), Vector2(34, 40)), src, tint)
+	# Mercado pequeno junto ao eixo principal.
+	for stall_data in [
+		[MAP.TOWN + Vector2(735, 570), Color(.62, .24, .3)],
+		[MAP.TOWN + Vector2(1070, 570), Color(.23, .42, .62)]
+	]:
+		var stall: Vector2 = stall_data[0] as Vector2
+		var cloth: Color = stall_data[1] as Color
+		draw_shadow_oval(stall + Vector2(0, 19), Vector2(38, 10), Color(0, 0, 0, .22))
+		draw_rect(Rect2(stall + Vector2(-34, -2), Vector2(68, 30)), Color(.48, .3, .18))
+		draw_colored_polygon(PackedVector2Array([stall + Vector2(-42, -2), stall + Vector2(-31, -27), stall + Vector2(31, -27), stall + Vector2(42, -2)]), cloth)
+		for item_index in 4:
+			draw_circle(stall + Vector2(-24 + item_index * 16, 5), 4, Color(1, .72 if item_index % 2 else .4, .28))
+	# Lampiões na avenida.
+	for local_y in [220.0, 390.0, 610.0, 770.0]:
+		for local_x in [810.0, 970.0]:
+			var lamp: Vector2 = MAP.TOWN + Vector2(local_x, local_y)
+			draw_line(lamp, lamp + Vector2(0, 24), Color(.28, .2, .16), 3)
+			draw_circle(lamp, 8, Color(1, .72, .25, .15))
+			draw_circle(lamp, 4, Color(1, .78, .3, .85))
+
+func draw_region_story_props(camera: Vector2) -> void:
+	var biome_name: String = MAP.biome(player)
+	if biome_name in ["campos", "vale"]:
+		for bale in [Vector2(430, 1910), Vector2(615, 2035), Vector2(1510, 1950), Vector2(1750, 2110)]:
+			if Rect2(camera - Vector2(30, 30), VIEW_SIZE + Vector2(60, 60)).has_point(bale):
+				draw_shadow_oval(bale + Vector2(2, 7), Vector2(15, 5), Color(0, 0, 0, .16))
+				draw_rect(Rect2(bale - Vector2(15, 9), Vector2(30, 18)), Color(.75, .58, .24))
+				draw_line(bale + Vector2(-13, -3), bale + Vector2(13, -3), Color(.96, .78, .34), 2)
+		for cart in [Vector2(760, 1870), Vector2(1320, 2100)]:
+			if Rect2(camera - Vector2(60, 40), VIEW_SIZE + Vector2(120, 80)).has_point(cart):
+				draw_rect(Rect2(cart - Vector2(28, 13), Vector2(56, 24)), Color(.45, .28, .16))
+				draw_circle(cart + Vector2(-20, 16), 9, Color(.22, .16, .13))
+				draw_circle(cart + Vector2(20, 16), 9, Color(.22, .16, .13))
+				draw_line(cart + Vector2(28, 0), cart + Vector2(54, -10), Color(.45, .28, .16), 4)
+	elif biome_name == "gelo":
+		for drift in [Vector2(2500, 330), Vector2(2780, 430), Vector2(2460, 690)]:
+			if Rect2(camera - Vector2(40, 40), VIEW_SIZE + Vector2(80, 80)).has_point(drift):
+				draw_colored_polygon(PackedVector2Array([drift + Vector2(-28, 9), drift + Vector2(-7, -8), drift + Vector2(15, -3), drift + Vector2(31, 9)]), Color(.9, .97, 1, .8))
+		var camp: Vector2 = Vector2(2685, 690)
+		if Rect2(camera - Vector2(60, 60), VIEW_SIZE + Vector2(120, 120)).has_point(camp):
+			draw_circle(camp, 14, Color(.98, .33, .08, .12))
+			draw_line(camp + Vector2(-10, 7), camp + Vector2(10, -7), Color(.35, .23, .16), 4)
+			draw_line(camp + Vector2(-10, -7), camp + Vector2(10, 7), Color(.35, .23, .16), 4)
+			draw_circle(camp + Vector2(0, -5), 7 + sin(time_acc * 7.0), Color(1, .55, .16, .85))
+	elif biome_name == "deserto":
+		for bones in [Vector2(2520, 1750), Vector2(2830, 2010), Vector2(2380, 1920)]:
+			if Rect2(camera - Vector2(50, 50), VIEW_SIZE + Vector2(100, 100)).has_point(bones):
+				draw_line(bones + Vector2(-12, -3), bones + Vector2(12, 3), Color(.85, .78, .61), 3)
+				draw_line(bones + Vector2(-8, 7), bones + Vector2(9, -8), Color(.85, .78, .61), 3)
+		var camp2: Vector2 = Vector2(2760, 1690)
+		if Rect2(camera - Vector2(80, 80), VIEW_SIZE + Vector2(160, 160)).has_point(camp2):
+			draw_colored_polygon(PackedVector2Array([camp2 + Vector2(-50, 25), camp2 + Vector2(0, -32), camp2 + Vector2(50, 25)]), Color(.7, .29, .27))
+			draw_colored_polygon(PackedVector2Array([camp2 + Vector2(-36, 21), camp2 + Vector2(0, -20), camp2 + Vector2(36, 21)]), Color(.92, .63, .35))
+	elif biome_name == "floresta":
+		for log in [Vector2(250, 620), Vector2(630, 920), Vector2(470, 1180)]:
+			if Rect2(camera - Vector2(60, 60), VIEW_SIZE + Vector2(120, 120)).has_point(log):
+				draw_shadow_oval(log + Vector2(3, 8), Vector2(28, 7), Color(0, 0, 0, .16))
+				draw_line(log + Vector2(-26, 2), log + Vector2(27, -4), Color(.37, .23, .15), 11)
+				draw_circle(log + Vector2(-26, 2), 7, Color(.59, .38, .2))
+
 func draw_world_minimap() -> void:
 	var origin: Vector2 = Vector2(353, 145)
 	var scale: Vector2 = Vector2(240.0 / MAP.SIZE.x, 179.0 / MAP.SIZE.y)
@@ -1257,6 +1338,25 @@ func draw_dungeon() -> void:
 		draw_circle(p, flame + 5, Color(.92, .38, .12, .58))
 		draw_circle(p + Vector2(0, -2), flame, Color(1, .82, .31, .9))
 		draw_circle(p + Vector2(-1, -4), 3, Color(1, .96, .66))
+	# Colunas quebradas, estátuas e portão ritual fecham os vazios da sala.
+	for rubble in [Vector2(120, 250), Vector2(350, 350), Vector2(635, 510), Vector2(820, 315), Vector2(155, 690), Vector2(730, 700)]:
+		draw_shadow_oval(rubble + Vector2(3, 5), Vector2(20, 6), Color(0, 0, 0, .2))
+		for r in 4:
+			var rp: Vector2 = rubble + Vector2((r - 2) * 9, (r % 2) * 6)
+			draw_circle(rp, 6 + float(r % 2) * 2.0, Color(.38, .35, .48))
+			draw_circle(rp + Vector2(-2, -2), 3, Color(.55, .52, .65))
+	for statue in [Vector2(120, 115), Vector2(850, 115)]:
+		draw_rect(Rect2(statue + Vector2(-15, 10), Vector2(30, 45)), Color(.34, .32, .42))
+		draw_circle(statue, 16, Color(.48, .45, .58))
+		draw_circle(statue + Vector2(-5, -4), 3, Color(.72, .55, 1, .65))
+		draw_circle(statue + Vector2(5, -4), 3, Color(.72, .55, 1, .65))
+	var gate_top: Vector2 = Vector2(485, 72)
+	draw_rect(Rect2(gate_top + Vector2(-76, -22), Vector2(152, 34)), Color(.21, .18, .29))
+	for bar_x in range(-60, 61, 20):
+		draw_line(gate_top + Vector2(bar_x, -20), gate_top + Vector2(bar_x, 12), Color(.49, .44, .59), 4)
+	for crystal in [Vector2(340, 205), Vector2(630, 205), Vector2(350, 645), Vector2(620, 645)]:
+		draw_colored_polygon(PackedVector2Array([crystal + Vector2(0, -16), crystal + Vector2(9, 7), crystal + Vector2(0, 13), crystal + Vector2(-9, 7)]), Color(.58, .35, .9, .8))
+		draw_circle(crystal, 15, Color(.56, .28, .88, .08))
 	draw_label("CÂMARA DO GUARDIÃO", Vector2(395, 92), Color(.86, .7, 1))
 	draw_label("↓ SAÍDA", Vector2(409, 805))
 
@@ -1297,6 +1397,11 @@ func draw_interior() -> void:
 			draw_line(Vector2(132, 165 + row * 32), Vector2(245, 165 + row * 32), Color(.4, .28, .2), 2)
 		for bx in [690.0, 790.0]:
 			draw_colored_polygon(PackedVector2Array([Vector2(bx, 130), Vector2(bx + 55, 130), Vector2(bx + 48, 245), Vector2(bx + 27, 224), Vector2(bx + 7, 245)]), Color(.42, .23, .58))
+		draw_interior_person(Vector2(176, 350), Color(.78, .68, .9), 4)
+		draw_interior_person(Vector2(760, 350), Color(.65, .82, .7), 4)
+		for trophy_x in [360.0, 450.0, 540.0]:
+			draw_circle(Vector2(trophy_x, 150), 13, Color(.62, .55, .39))
+			draw_line(Vector2(trophy_x, 163), Vector2(trophy_x, 185), Color(.38, .27, .19), 3)
 	elif zone == "loja":
 		for shelf_y in [170.0, 300.0]:
 			draw_rect(Rect2(120, shelf_y, 710, 24), Color(.35, .21, .13))
@@ -1307,6 +1412,8 @@ func draw_interior() -> void:
 		for crate in [Vector2(145, 525), Vector2(215, 545), Vector2(710, 535)]:
 			draw_rect(Rect2(crate, Vector2(58, 48)), Color(.49, .31, .18))
 			draw_line(crate + Vector2(5, 5), crate + Vector2(53, 43), Color(.68, .46, .25), 2)
+		draw_rect(Rect2(330, 465, 300, 68), Color(.34, .21, .13))
+		draw_interior_person(Vector2(480, 448), Color(.9, .72, .52), 0)
 	elif zone == "alquimia":
 		for table_x in [145.0, 560.0]:
 			draw_rect(Rect2(table_x, 350, 255, 58), Color(.33, .2, .14))
@@ -1319,8 +1426,23 @@ func draw_interior() -> void:
 			draw_line(hp2, hp2 + Vector2(0, 30), Color(.31, .53, .27), 3)
 			draw_circle(hp2 + Vector2(-6, 8), 6, Color(.38, .68, .33))
 			draw_circle(hp2 + Vector2(7, 16), 6, Color(.48, .76, .39))
+		# Caldeirão, tapete e alquimista.
+		draw_circle(Vector2(480, 500), 46, Color(.23, .12, .29, .35))
+		draw_circle(Vector2(480, 500), 25, Color(.18, .2, .22))
+		draw_circle(Vector2(480, 494), 19, Color(.43, .78, .62, .78))
+		for bubble_index in 5:
+			var bubble: Vector2 = Vector2(462 + bubble_index * 9, 487 - (bubble_index % 2) * 7)
+			draw_circle(bubble, 3 + float(bubble_index % 2), Color(.72, 1, .76, .76))
+		draw_interior_person(Vector2(480, 440), Color(.64, .52, .86), 0)
+		draw_rect(Rect2(330, 560, 300, 84), Color(.36, .18, .42, .35))
 	draw_label(zone.to_upper(), Vector2(400, 113))
 	draw_label("E conversar  •  ↓ sair", Vector2(386, 637), Color.WHITE)
+
+func draw_interior_person(p: Vector2, tint: Color, facing_index: int = 0) -> void:
+	draw_shadow_oval(p + Vector2(0, 4), Vector2(11, 4), Color(0, 0, 0, .28))
+	var frame: int = int(time_acc * 4.0 + p.x * .01) % 8
+	var src: Rect2 = Rect2(Vector2(frame * 48, facing_index * 56), Vector2(48, 56))
+	draw_texture_rect_region(textures["hero_body"], Rect2(p - Vector2(18, 38), Vector2(36, 42)), src, tint)
 
 func draw_enemy(enemy: Dictionary, camera: Vector2) -> void:
 	# v0.6: folha completa de 40 quadros = idle, caminhada, ataque, dano e morte.
