@@ -17,10 +17,10 @@ MANIFEST = json.loads((GAME / 'data' / 'modeled_assets_manifest.json').read_text
 ASSETS = {e['id']: e for e in MANIFEST['assets']}
 APPROVED_KEYS = set(json.loads((GAME / 'data' / 'approved_visual_manifest.json').read_text(encoding='utf-8'))['city'] +
                     json.loads((GAME / 'data' / 'approved_visual_manifest.json').read_text(encoding='utf-8'))['dungeon'])
-# chave curta usada no renderer (main.gd APPROVED_VISUAL_PATHS)
+# chave curta usada no renderer (main.gd APPROVED_VISUAL_PATHS).
+# A arquitetura antiga da cidade foi aposentada; somente os 19 itens ativos do manifesto podem usar APP:.
 APP_KEYS = {
-    'city_house_door', 'city_house_window', 'city_roof_blue', 'city_roof_red', 'city_roof_wood', 'city_wall', 'city_wall_vegetation',
-    'city_gate', 'city_store', 'city_tree_green', 'city_tree_autumn', 'city_water_edge', 'city_floor_clean', 'city_floor_worn', 'city_floor_moss',
+    'city_tree_green', 'city_tree_autumn', 'city_water_edge', 'city_floor_clean', 'city_floor_worn', 'city_floor_moss',
     'dungeon_floor_stone', 'dungeon_floor_broken', 'dungeon_wall', 'dungeon_corner', 'dungeon_arch', 'dungeon_door', 'dungeon_rail',
     'dungeon_crystal_blue', 'dungeon_crystal_purple', 'dungeon_torch', 'dungeon_emissive_crystal', 'dungeon_spikes', 'dungeon_corridor',
 }
@@ -134,7 +134,7 @@ class World:
 
     def house(self, x, y, roof, group, poi=None, zone='cidade', ruined=False):
         """Casa da cidade: UMA peça modelada inteira (corpo, porta, janela, madeiramento e telhado ancorado nas paredes), com colisão de base."""
-        asset = {'city_roof_blue': 'val_town_house_blue', 'city_roof_red': 'val_town_house_red', 'city_roof_wood': 'val_town_house_wood'}.get(roof, 'val_town_house_wood')
+        asset = {'blue': 'val_town_house_blue', 'red': 'val_town_house_red', 'wood': 'val_town_house_wood'}.get(roof, 'val_town_house_wood')
         self.obj(asset, x, y, group, zone=zone, poi=poi, solid=False, check=False)
         self.collider('rect', x - 80, y - 42, 160, 48, zone=zone, poi=poi)      # planta vista em 3/4
 
