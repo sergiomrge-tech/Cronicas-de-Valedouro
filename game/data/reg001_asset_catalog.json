@@ -15,12 +15,12 @@
    "REWORKED": 61,
    "HOLD": 22
   },
-  "note": "APPROVED inclui o bundle base e assets modelados promovidos pelo Diretor; MODELED_PENDING_GATE ainda aguarda gate visual."
+  "note": "APPROVED inclui apenas assets vigentes; assets substituídos foram removidos do banco. MODELED_PENDING_GATE ainda aguarda gate visual."
  },
  "counts": {
   "APPROVED": {
-   "INTEGRATED": 47,
-   "NOT_USED": 219
+   "INTEGRATED": 42,
+   "NOT_USED": 214
   },
   "MODELED_PENDING_GATE": {
    "INTEGRATED": 240,
@@ -259,78 +259,6 @@
    "group": "city",
    "approval": "APPROVED",
    "usage": "INTEGRATED",
-   "source": "approved_assets_bundle (Lote 01, QA Claude)"
-  },
-  {
-   "id": "APP_CITY_WALL_STRAIGHT",
-   "key": "city_wall",
-   "group": "city",
-   "approval": "APPROVED",
-   "usage": "INTEGRATED",
-   "source": "approved_assets_bundle (Lote 01, QA Claude)"
-  },
-  {
-   "id": "APP_CITY_WALL_VEGETATION",
-   "key": "city_wall_vegetation",
-   "group": "city",
-   "approval": "APPROVED",
-   "usage": "INTEGRATED",
-   "source": "approved_assets_bundle (Lote 01, QA Claude)"
-  },
-  {
-   "id": "APP_CITY_GATE_LARGE",
-   "key": "city_gate",
-   "group": "city",
-   "approval": "APPROVED",
-   "usage": "NOT_USED",
-   "source": "approved_assets_bundle (Lote 01, QA Claude)"
-  },
-  {
-   "id": "APP_CITY_HOUSE_DOOR",
-   "key": "city_house_door",
-   "group": "city",
-   "approval": "APPROVED",
-   "usage": "NOT_USED",
-   "source": "approved_assets_bundle (Lote 01, QA Claude)"
-  },
-  {
-   "id": "APP_CITY_HOUSE_WINDOW",
-   "key": "city_house_window",
-   "group": "city",
-   "approval": "APPROVED",
-   "usage": "NOT_USED",
-   "source": "approved_assets_bundle (Lote 01, QA Claude)"
-  },
-  {
-   "id": "APP_CITY_ROOF_BLUE",
-   "key": "city_roof_blue",
-   "group": "city",
-   "approval": "APPROVED",
-   "usage": "INTEGRATED",
-   "source": "approved_assets_bundle (Lote 01, QA Claude)"
-  },
-  {
-   "id": "APP_CITY_ROOF_RED",
-   "key": "city_roof_red",
-   "group": "city",
-   "approval": "APPROVED",
-   "usage": "INTEGRATED",
-   "source": "approved_assets_bundle (Lote 01, QA Claude)"
-  },
-  {
-   "id": "APP_CITY_ROOF_WOOD",
-   "key": "city_roof_wood",
-   "group": "city",
-   "approval": "APPROVED",
-   "usage": "INTEGRATED",
-   "source": "approved_assets_bundle (Lote 01, QA Claude)"
-  },
-  {
-   "id": "APP_CITY_STORE",
-   "key": "city_store",
-   "group": "city",
-   "approval": "APPROVED",
-   "usage": "NOT_USED",
    "source": "approved_assets_bundle (Lote 01, QA Claude)"
   },
   {
@@ -5923,15 +5851,6 @@
    "approval": "APPROVED",
    "usage": "INTEGRATED",
    "placed": 1,
-   "source": "game/tools/art_pipeline/pro_landmarks.py"
-  },
-  {
-   "id": "MOD_VAL_HOUSE_BODY",
-   "key": "val_house_body",
-   "group": "city",
-   "approval": "APPROVED",
-   "usage": "NOT_USED",
-   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
