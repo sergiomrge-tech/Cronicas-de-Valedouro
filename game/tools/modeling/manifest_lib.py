@@ -42,13 +42,22 @@ def merge():
     old = {}
     if MANIFEST.exists():
         for e in json.loads(MANIFEST.read_text(encoding='utf-8')).get('assets', []):
-            old[e['id']] = e.get('status', DEFAULT_STATUS)
+            old[e['id']] = {
+                'status': e.get('status', DEFAULT_STATUS),
+                'approved_by': e.get('approved_by'),
+                'approval_date': e.get('approval_date'),
+                'approval_reason': e.get('approval_reason'),
+            }
     entries = {}
     for part in sorted(PARTS.glob('*.json')):
         for e in json.loads(part.read_text(encoding='utf-8')):
             if e['id'] in entries:
                 raise SystemExit('id duplicado entre partes: %s' % e['id'])
-            e['status'] = old.get(e['id'], e.get('status', DEFAULT_STATUS))
+            previous = old.get(e['id'], {})
+            e['status'] = previous.get('status', e.get('status', DEFAULT_STATUS))
+            for field in ('approved_by', 'approval_date', 'approval_reason'):
+                if previous.get(field):
+                    e[field] = previous[field]
             e.setdefault('rows', 1)
             entries[e['id']] = e
     doc = {
