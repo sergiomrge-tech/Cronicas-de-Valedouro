@@ -1,0 +1,3441 @@
+{
+ "schema_version": 1,
+ "manifest_id": "MAN_MODELED_ASSETS_001",
+ "policy": {
+  "ids_are_persistent": true,
+  "renderer_uses_statuses": [
+   "APPROVED",
+   "MODELED_PENDING_GATE"
+  ],
+  "note": "MODELED_PENDING_GATE = modelado no estilo dos 28 APPROVED, aguardando gate visual do Diretor. Mude o status de um asset para REJECTED/HOLD para removê-lo do renderer."
+ },
+ "counts": {
+  "total": 136
+ },
+ "assets": [
+  {
+   "id": "city_banner_blue",
+   "path": "res://assets/modeled/city/props/city_banner_blue.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    130,
+    250
+   ],
+   "frames": 1,
+   "foot": [
+    65,
+    226
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 5.0,
+   "footprint": 8.0,
+   "tags": [
+    "vila",
+    "bandeira"
+   ],
+   "sha256": "164c2edae32026f27efda217e8157641a3ebd62db7c4eb2744072756dfcf9a7c",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_banner_red",
+   "path": "res://assets/modeled/city/props/city_banner_red.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    130,
+    250
+   ],
+   "frames": 1,
+   "foot": [
+    65,
+    226
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 5.0,
+   "footprint": 8.0,
+   "tags": [
+    "vila",
+    "bandeira"
+   ],
+   "sha256": "2851ee231bc250560361ed7ad4fabab338642f6764082263d48048fb33fe82bb",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_barrels",
+   "path": "res://assets/modeled/city/props/city_barrels.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    170,
+    150
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    118
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 16.0,
+   "tags": [
+    "vila",
+    "porto",
+    "barris"
+   ],
+   "sha256": "83d80d1efae0d1521ffce55bfb6cb4a8134e8d3784970592f09346dfff2e0df6",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_bench",
+   "path": "res://assets/modeled/city/props/city_bench.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    170,
+    120
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    96
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 10.0,
+   "footprint": 12.0,
+   "tags": [
+    "vila",
+    "banco"
+   ],
+   "sha256": "026be90074fbed3794fb2186ddb32cad902d164fff7b218d5b0adf7434ac0ca5",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_cart_market",
+   "path": "res://assets/modeled/city/props/city_cart_market.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    210,
+    160
+   ],
+   "frames": 1,
+   "foot": [
+    105,
+    128
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 16.0,
+   "footprint": 20.0,
+   "tags": [
+    "vila",
+    "mercado"
+   ],
+   "sha256": "e5267dab236833bd1cc68cfd4dc8f0608288eda1d4ef2a84e4750412c48a5c55",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_crates",
+   "path": "res://assets/modeled/city/props/city_crates.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    170,
+    150
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    118
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 15.0,
+   "footprint": 18.0,
+   "tags": [
+    "vila",
+    "porto",
+    "caixas"
+   ],
+   "sha256": "c7fbb5fc5c3bc09fb80e343a839869b9423b669faaf714ef0bcb506cc0c54b4c",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_fountain",
+   "path": "res://assets/modeled/city/props/city_fountain.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    280,
+    260
+   ],
+   "frames": 4,
+   "foot": [
+    140,
+    214
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 30.0,
+   "footprint": 40.0,
+   "tags": [
+    "vila",
+    "fonte"
+   ],
+   "sha256": "7126cb1b6fa358f265e8300bb5c7b5c40f667a645aef6e79cd9518480bbf73d2",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_lamp_post_a",
+   "path": "res://assets/modeled/city/props/city_lamp_post_a.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    120,
+    220
+   ],
+   "frames": 1,
+   "foot": [
+    60,
+    196
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 5.0,
+   "footprint": 8.0,
+   "tags": [
+    "vila",
+    "luz"
+   ],
+   "sha256": "8d1677aab27e5eb0b11f3516ac7cb6921d1de2da103faaed3a2a94d0523fd728",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_lamp_post_b",
+   "path": "res://assets/modeled/city/props/city_lamp_post_b.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    200,
+    220
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    196
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 5.0,
+   "footprint": 8.0,
+   "tags": [
+    "vila",
+    "luz"
+   ],
+   "sha256": "1b1c719cddd1b66e55bf0fa6234bd2bb7189d0e7b6bbdbdfe519941f3de62fd6",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_monument",
+   "path": "res://assets/modeled/city/props/city_monument.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    170,
+    320
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    282
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 22.0,
+   "tags": [
+    "vila",
+    "monumento"
+   ],
+   "sha256": "f822b4978c346afa47b2cd31dbb2fc3dff30622cccb21369be36ff1913eb6915",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_planter",
+   "path": "res://assets/modeled/city/props/city_planter.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    150,
+    120
+   ],
+   "frames": 1,
+   "foot": [
+    75,
+    96
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 11.0,
+   "footprint": 14.0,
+   "tags": [
+    "vila",
+    "jardim"
+   ],
+   "sha256": "2ad6f670473bd5440c27747670bf973fff5fb4390592e213282677e5f833c6bd",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_sign_hanging",
+   "path": "res://assets/modeled/city/props/city_sign_hanging.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    200,
+    170
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    140
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 6.0,
+   "tags": [
+    "vila",
+    "placa"
+   ],
+   "sha256": "98134ca1d7781ebc63f04a3a767a47ad3dc913e4264982363983bcd7d3137467",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_stairs",
+   "path": "res://assets/modeled/city/props/city_stairs.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    230,
+    170
+   ],
+   "frames": 1,
+   "foot": [
+    115,
+    136
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 20.0,
+   "tags": [
+    "vila",
+    "escada"
+   ],
+   "sha256": "15772f56d5f2670e6f2824ea0b8eee9a6e33471653995dbd5d404ff9c63686a8",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_stall_blue",
+   "path": "res://assets/modeled/city/props/city_stall_blue.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    230,
+    250
+   ],
+   "frames": 1,
+   "foot": [
+    115,
+    204
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 20.0,
+   "footprint": 26.0,
+   "tags": [
+    "vila",
+    "mercado"
+   ],
+   "sha256": "7f5cc555c0d205ea519342330d1d0faa04e7894c8cc4f0a7e5f19e0cce35dae1",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "city_stall_striped",
+   "path": "res://assets/modeled/city/props/city_stall_striped.png",
+   "group": "city",
+   "folder": "props",
+   "frame_size": [
+    230,
+    250
+   ],
+   "frames": 1,
+   "foot": [
+    115,
+    204
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 20.0,
+   "footprint": 26.0,
+   "tags": [
+    "vila",
+    "mercado"
+   ],
+   "sha256": "849ac0d26440f4b44e7d7df7340052683a448e08b805799a83568d758d38afe7",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_altar_dark",
+   "path": "res://assets/modeled/dungeon/props/dg_altar_dark.png",
+   "group": "dungeon",
+   "folder": "props",
+   "frame_size": [
+    200,
+    190
+   ],
+   "frames": 2,
+   "foot": [
+    100,
+    156
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 16.0,
+   "footprint": 26.0,
+   "tags": [
+    "dungeon",
+    "altar"
+   ],
+   "sha256": "7828cced020d5fa26edd18a5a39b7b93bd224f1bedb9fb69aefcb6d6d83038d3",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_barrel_old",
+   "path": "res://assets/modeled/dungeon/props/dg_barrel_old.png",
+   "group": "dungeon",
+   "folder": "props",
+   "frame_size": [
+    130,
+    130
+   ],
+   "frames": 1,
+   "foot": [
+    65,
+    104
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 10.0,
+   "footprint": 12.0,
+   "tags": [
+    "dungeon",
+    "barril"
+   ],
+   "sha256": "d56d6bf0fbca17b800e8a887ae78305a396edc896535fe9aa022a63e3573138e",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_bones_pile",
+   "path": "res://assets/modeled/dungeon/props/dg_bones_pile.png",
+   "group": "dungeon",
+   "folder": "props",
+   "frame_size": [
+    150,
+    110
+   ],
+   "frames": 1,
+   "foot": [
+    75,
+    82
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 10.0,
+   "tags": [
+    "dungeon",
+    "ossos"
+   ],
+   "sha256": "7a9b161050d229651e4793fec2f20999d16f3808f0affb4b32c7d165e2dee6e1",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_boss_gate",
+   "path": "res://assets/modeled/dungeon/walls/dg_boss_gate.png",
+   "group": "dungeon",
+   "folder": "walls",
+   "frame_size": [
+    300,
+    300
+   ],
+   "frames": 2,
+   "foot": [
+    150,
+    256
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 26.0,
+   "footprint": 36.0,
+   "tags": [
+    "dungeon",
+    "boss",
+    "portao"
+   ],
+   "sha256": "3d0c4b3423818a20035a3b3062dd9272247ce93f29edbfb46c801d7b9e46c02f",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_brazier",
+   "path": "res://assets/modeled/dungeon/lighting/dg_brazier.png",
+   "group": "dungeon",
+   "folder": "lighting",
+   "frame_size": [
+    150,
+    200
+   ],
+   "frames": 4,
+   "foot": [
+    75,
+    172
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 9.0,
+   "footprint": 14.0,
+   "tags": [
+    "dungeon",
+    "fogo"
+   ],
+   "sha256": "0e5dc127ec6452777e8b0ba84571efbdc427344ffd6ba1e602a6e34135f2011a",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_crate_old",
+   "path": "res://assets/modeled/dungeon/props/dg_crate_old.png",
+   "group": "dungeon",
+   "folder": "props",
+   "frame_size": [
+    130,
+    120
+   ],
+   "frames": 1,
+   "foot": [
+    65,
+    98
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 10.0,
+   "footprint": 12.0,
+   "tags": [
+    "dungeon",
+    "caixa"
+   ],
+   "sha256": "ce5e5fe685062ba5155d686337c5c1f7f854a7502e00ecb22396391efdad1580",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_crystal_checkpoint",
+   "path": "res://assets/modeled/dungeon/lighting/dg_crystal_checkpoint.png",
+   "group": "dungeon",
+   "folder": "lighting",
+   "frame_size": [
+    170,
+    260
+   ],
+   "frames": 2,
+   "foot": [
+    85,
+    226
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 22.0,
+   "tags": [
+    "dungeon",
+    "checkpoint",
+    "cristal"
+   ],
+   "sha256": "4184e0ae66487a58ee728ec241a0de8953a08f2d116fc14ad0beb54a65a651ff",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_mushroom_glow",
+   "path": "res://assets/modeled/dungeon/natural/dg_mushroom_glow.png",
+   "group": "dungeon",
+   "folder": "natural",
+   "frame_size": [
+    130,
+    130
+   ],
+   "frames": 2,
+   "foot": [
+    65,
+    100
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 10.0,
+   "tags": [
+    "dungeon",
+    "cogumelo"
+   ],
+   "sha256": "dc3352a3fe74ab1d88b10d0b9014336ac3647d9ea26d2bea0cea2564f1d6286c",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_pillar",
+   "path": "res://assets/modeled/dungeon/walls/dg_pillar.png",
+   "group": "dungeon",
+   "folder": "walls",
+   "frame_size": [
+    150,
+    250
+   ],
+   "frames": 1,
+   "foot": [
+    75,
+    222
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 11.0,
+   "footprint": 18.0,
+   "tags": [
+    "dungeon",
+    "coluna"
+   ],
+   "sha256": "3ed5021d546a33103b47cea7e03c96b0f7ec0f61199e131a3678e07cc135c828",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_pillar_broken",
+   "path": "res://assets/modeled/dungeon/walls/dg_pillar_broken.png",
+   "group": "dungeon",
+   "folder": "walls",
+   "frame_size": [
+    170,
+    170
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    142
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 11.0,
+   "footprint": 18.0,
+   "tags": [
+    "dungeon",
+    "coluna"
+   ],
+   "sha256": "c5f30840d72de35ba71d8d6909b002338a35bd6580ae10a9e2cdc21b4042e1d0",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_portcullis",
+   "path": "res://assets/modeled/dungeon/walls/dg_portcullis.png",
+   "group": "dungeon",
+   "folder": "walls",
+   "frame_size": [
+    240,
+    260
+   ],
+   "frames": 1,
+   "foot": [
+    120,
+    220
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 20.0,
+   "footprint": 24.0,
+   "tags": [
+    "dungeon",
+    "grade",
+    "portao"
+   ],
+   "sha256": "aad3a19e0c96ac34866f5f2255465a8c87b22859d25b1b03a7703ebfc9358e20",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_rune_circle",
+   "path": "res://assets/modeled/dungeon/floors/dg_rune_circle.png",
+   "group": "dungeon",
+   "folder": "floors",
+   "frame_size": [
+    248,
+    140
+   ],
+   "frames": 2,
+   "foot": [
+    124,
+    70
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "dungeon",
+    "runa",
+    "chao"
+   ],
+   "sha256": "d56af36bb579ebc6864f7d8a5a7e93cc4e723caee7e8b8a8aec566d6f9450602",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_sarcophagus",
+   "path": "res://assets/modeled/dungeon/props/dg_sarcophagus.png",
+   "group": "dungeon",
+   "folder": "props",
+   "frame_size": [
+    210,
+    160
+   ],
+   "frames": 1,
+   "foot": [
+    105,
+    128
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 16.0,
+   "footprint": 22.0,
+   "tags": [
+    "dungeon",
+    "sarcofago"
+   ],
+   "sha256": "b2eabca77b5dfd728b8699e4c13ad467a5714ae3a9be7c5ce827ec7abf0e737d",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_stairs",
+   "path": "res://assets/modeled/dungeon/floors/dg_stairs.png",
+   "group": "dungeon",
+   "folder": "floors",
+   "frame_size": [
+    260,
+    200
+   ],
+   "frames": 1,
+   "foot": [
+    130,
+    160
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 16.0,
+   "footprint": 24.0,
+   "tags": [
+    "dungeon",
+    "escada"
+   ],
+   "sha256": "71d352b3e37f2eced1babb7ca47cbe0ec4ef88bc466856e42050a73964790de8",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "dg_stalagmites",
+   "path": "res://assets/modeled/dungeon/natural/dg_stalagmites.png",
+   "group": "dungeon",
+   "folder": "natural",
+   "frame_size": [
+    170,
+    200
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    170
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 16.0,
+   "tags": [
+    "dungeon",
+    "caverna"
+   ],
+   "sha256": "3c4e23597f9e4c3ad71e088a9ba1d99ddc0d4d6aac4d79c9a3d73b1f09958384",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_alchemy_table",
+   "path": "res://assets/modeled/interior/furniture/int_alchemy_table.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    230,
+    190
+   ],
+   "frames": 1,
+   "foot": [
+    115,
+    156
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 18.0,
+   "footprint": 22.0,
+   "tags": [
+    "alquimia",
+    "mesa"
+   ],
+   "sha256": "7b0db4d61adf68a65df4fd08f1ac78751f19c0d4c70499c0d976c98df2d23599",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_anvil",
+   "path": "res://assets/modeled/interior/furniture/int_anvil.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    150,
+    150
+   ],
+   "frames": 1,
+   "foot": [
+    75,
+    122
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 16.0,
+   "tags": [
+    "ferreiro",
+    "bigorna"
+   ],
+   "sha256": "dbc15e68da94fde59ce6731e163082a8777bacfe2e54b203d7d33084a9d2fe11",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_armor_stand",
+   "path": "res://assets/modeled/interior/furniture/int_armor_stand.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    150,
+    220
+   ],
+   "frames": 1,
+   "foot": [
+    75,
+    192
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 9.0,
+   "footprint": 12.0,
+   "tags": [
+    "ferreiro",
+    "armadura"
+   ],
+   "sha256": "e7aa336370ca1c8ee7d732072df954e2b3742adc959dd501f42da6cb64b62533",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_bed",
+   "path": "res://assets/modeled/interior/furniture/int_bed.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    200,
+    170
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    138
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 18.0,
+   "footprint": 22.0,
+   "tags": [
+    "estalagem",
+    "cama"
+   ],
+   "sha256": "225526b3228082827ec73f8bce65b25b4f5f99eae78ccb2448e79af1a2793adc",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_bookshelf",
+   "path": "res://assets/modeled/interior/furniture/int_bookshelf.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    170,
+    230
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    192
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 18.0,
+   "tags": [
+    "guilda",
+    "estante"
+   ],
+   "sha256": "f813da9bdf197c0355bfb1ba22a3c50dff2ed5ba4806efa84f083b73274e7b63",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_candle_stand",
+   "path": "res://assets/modeled/interior/furniture/int_candle_stand.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    100,
+    200
+   ],
+   "frames": 4,
+   "foot": [
+    50,
+    178
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 6.0,
+   "footprint": 8.0,
+   "tags": [
+    "interior",
+    "luz"
+   ],
+   "sha256": "6c6d0bf0131ee91c575303bdcba3de6cec25eb2b4be08b477dd43b72e3292ed4",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_cauldron",
+   "path": "res://assets/modeled/interior/furniture/int_cauldron.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    170,
+    160
+   ],
+   "frames": 4,
+   "foot": [
+    85,
+    128
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 18.0,
+   "tags": [
+    "alquimia",
+    "caldeirao"
+   ],
+   "sha256": "4bc4bcf232d4b8fe152053421549e07ecf06f6eeca12e0d31505fdf2dcf0ee60",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_chair",
+   "path": "res://assets/modeled/interior/furniture/int_chair.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    110,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    55,
+    112
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 7.0,
+   "footprint": 9.0,
+   "tags": [
+    "taverna",
+    "cadeira"
+   ],
+   "sha256": "2e05673fa79dacc46ea8d8b403ad6c5a30346cd0e56834ee5ca7c8001cb69937",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_counter",
+   "path": "res://assets/modeled/interior/furniture/int_counter.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    230,
+    170
+   ],
+   "frames": 1,
+   "foot": [
+    115,
+    138
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 20.0,
+   "footprint": 24.0,
+   "tags": [
+    "loja",
+    "guilda",
+    "balcao"
+   ],
+   "sha256": "5d1a30657c0637bea21a62320f8540aa9175dc23c89e5b98a49009724b6ffeea",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_desk_guild",
+   "path": "res://assets/modeled/interior/furniture/int_desk_guild.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    230,
+    170
+   ],
+   "frames": 1,
+   "foot": [
+    115,
+    138
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 18.0,
+   "footprint": 22.0,
+   "tags": [
+    "guilda",
+    "mesa"
+   ],
+   "sha256": "0c625fab1821326dfbe20389902cd2d31f020bce21367bcb89ff54e3dcca9198",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_fireplace",
+   "path": "res://assets/modeled/interior/furniture/int_fireplace.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    230,
+    260
+   ],
+   "frames": 4,
+   "foot": [
+    115,
+    206
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 20.0,
+   "footprint": 26.0,
+   "tags": [
+    "taverna",
+    "lareira"
+   ],
+   "sha256": "87f5505a704db41c8dbcbc3a0561240ed622f9d559bffffc26922480a021dc53",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_floor_carpet",
+   "path": "res://assets/modeled/interior/floors/int_floor_carpet.png",
+   "group": "interior",
+   "folder": "floors",
+   "frame_size": [
+    248,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    124,
+    70
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "interior",
+    "chao"
+   ],
+   "sha256": "5e7415b70a34adf65841b6499f823dafb88b1943593b27f1f953611904d94b3a",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_floor_stone",
+   "path": "res://assets/modeled/interior/floors/int_floor_stone.png",
+   "group": "interior",
+   "folder": "floors",
+   "frame_size": [
+    248,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    124,
+    70
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "interior",
+    "chao",
+    "ferreiro"
+   ],
+   "sha256": "d770666abca49d0da1815b6a624b9ef3bf36ee239c6f967b8578daeb916f9247",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_floor_wood",
+   "path": "res://assets/modeled/interior/floors/int_floor_wood.png",
+   "group": "interior",
+   "folder": "floors",
+   "frame_size": [
+    248,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    124,
+    70
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "interior",
+    "chao"
+   ],
+   "sha256": "031edb470b676490c0e0374adf09e08ad6751116816bfd43e21f5ec5a64f92ea",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_floor_wood_dark",
+   "path": "res://assets/modeled/interior/floors/int_floor_wood_dark.png",
+   "group": "interior",
+   "folder": "floors",
+   "frame_size": [
+    248,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    124,
+    70
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "interior",
+    "chao"
+   ],
+   "sha256": "5241a3d79fb25f91268231ba413470f8b62e623ce1908b3cc7b745d33d743a04",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_forge",
+   "path": "res://assets/modeled/interior/furniture/int_forge.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    250,
+    280
+   ],
+   "frames": 4,
+   "foot": [
+    125,
+    226
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 24.0,
+   "footprint": 30.0,
+   "tags": [
+    "ferreiro",
+    "forja"
+   ],
+   "sha256": "ae5e549a29a679699e15787bdd56d3ce8df9507d1ea3bc58c2794e7bf0e6a98a",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_quest_board",
+   "path": "res://assets/modeled/interior/furniture/int_quest_board.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    200,
+    220
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    186
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 18.0,
+   "tags": [
+    "guilda",
+    "quadro"
+   ],
+   "sha256": "a7a4e0c87d073aa9e03448c115ee349145ebdf0dc80cd52eb23f1dccde970812",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_rug_round",
+   "path": "res://assets/modeled/interior/furniture/int_rug_round.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    200,
+    110
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    60
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "interior",
+    "tapete"
+   ],
+   "sha256": "dc2a2a72dc2d08036d7dfd4c4dbb7492ff29b0212abfd1deaacee1d46c417d8c",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_sacks",
+   "path": "res://assets/modeled/interior/furniture/int_sacks.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    140,
+    120
+   ],
+   "frames": 1,
+   "foot": [
+    70,
+    96
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 14.0,
+   "tags": [
+    "loja",
+    "saco"
+   ],
+   "sha256": "e061d747797cfafbddeadeba676ec5ed3be616ef211dc3a3b9b570a98f77b0fe",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_shelf_goods",
+   "path": "res://assets/modeled/interior/furniture/int_shelf_goods.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    170,
+    230
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    192
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 18.0,
+   "tags": [
+    "loja",
+    "estante"
+   ],
+   "sha256": "542ac21afdbe2baa867880dffa1cef976f2b7eaca3a69e2f8fd7004c8fbc20cf",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_shelf_potions",
+   "path": "res://assets/modeled/interior/furniture/int_shelf_potions.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    170,
+    230
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    192
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 18.0,
+   "tags": [
+    "alquimia",
+    "estante"
+   ],
+   "sha256": "2b02bee30311db5cd6fbad0c6a6a4dffc2b16c9fb8eb7ac7d57907ceccd4bf54",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_stool",
+   "path": "res://assets/modeled/interior/furniture/int_stool.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    90,
+    100
+   ],
+   "frames": 1,
+   "foot": [
+    45,
+    80
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 6.0,
+   "footprint": 8.0,
+   "tags": [
+    "taverna",
+    "banco"
+   ],
+   "sha256": "58485ab0a5030419681479cca2171d70e9fb8059de4d653a1bd4b346cdf65ba1",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_table_long",
+   "path": "res://assets/modeled/interior/furniture/int_table_long.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    250,
+    160
+   ],
+   "frames": 1,
+   "foot": [
+    125,
+    130
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 18.0,
+   "footprint": 22.0,
+   "tags": [
+    "taverna",
+    "mesa"
+   ],
+   "sha256": "9562daef535092697e49bfabcd63716052017e665a0bb0258f98de8484c2cf13",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_table_round",
+   "path": "res://assets/modeled/interior/furniture/int_table_round.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    170,
+    150
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    122
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 18.0,
+   "tags": [
+    "taverna",
+    "mesa"
+   ],
+   "sha256": "4ef74834734a48b977106dc1d12147ff636f301e822adfadaf35251ec9c40a32",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_wall_door_a",
+   "path": "res://assets/modeled/interior/walls/int_wall_door_a.png",
+   "group": "interior",
+   "folder": "walls",
+   "frame_size": [
+    200,
+    230
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    196
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
+   "tags": [
+    "interior",
+    "parede"
+   ],
+   "sha256": "9c9c167b00c5a921abae365fa7e9850f7e2b1d05d99bb1a252ac616ea4679f89",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_wall_door_b",
+   "path": "res://assets/modeled/interior/walls/int_wall_door_b.png",
+   "group": "interior",
+   "folder": "walls",
+   "frame_size": [
+    200,
+    230
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    196
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
+   "tags": [
+    "interior",
+    "parede"
+   ],
+   "sha256": "c5dcffed881fd7413084bf5980a7aeebb2675f2e1e5c7506c6f2cffce600c5ef",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_wall_plain_a",
+   "path": "res://assets/modeled/interior/walls/int_wall_plain_a.png",
+   "group": "interior",
+   "folder": "walls",
+   "frame_size": [
+    200,
+    230
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    196
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
+   "tags": [
+    "interior",
+    "parede"
+   ],
+   "sha256": "5bb1b73cd31e4b529520b680bb0c5549926bd0bbb027f572bbb4b49dbe9ff4b5",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_wall_plain_b",
+   "path": "res://assets/modeled/interior/walls/int_wall_plain_b.png",
+   "group": "interior",
+   "folder": "walls",
+   "frame_size": [
+    200,
+    230
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    196
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
+   "tags": [
+    "interior",
+    "parede"
+   ],
+   "sha256": "0fdcfc14065e6dfadb19579290c3549053c4d87b1f618623a9d3e0bbcb967f69",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_wall_window_a",
+   "path": "res://assets/modeled/interior/walls/int_wall_window_a.png",
+   "group": "interior",
+   "folder": "walls",
+   "frame_size": [
+    200,
+    230
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    196
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
+   "tags": [
+    "interior",
+    "parede"
+   ],
+   "sha256": "b3d7f7df7b1af2f53106fb7d199680dced3feffbe6148512e5f3fa8de90fa8f2",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_wall_window_b",
+   "path": "res://assets/modeled/interior/walls/int_wall_window_b.png",
+   "group": "interior",
+   "folder": "walls",
+   "frame_size": [
+    200,
+    230
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    196
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
+   "tags": [
+    "interior",
+    "parede"
+   ],
+   "sha256": "0a45f669da698fb8910f6207917db63721ba5935281d0488d7080689b56e3e18",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_weapon_rack",
+   "path": "res://assets/modeled/interior/furniture/int_weapon_rack.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    200,
+    200
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    170
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 18.0,
+   "tags": [
+    "ferreiro",
+    "armas"
+   ],
+   "sha256": "9482bc0db12b7fab525f337c1e4a5537dd430085d47a4f61a7a3a809997eff18",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "int_workbench",
+   "path": "res://assets/modeled/interior/furniture/int_workbench.png",
+   "group": "interior",
+   "folder": "furniture",
+   "frame_size": [
+    220,
+    160
+   ],
+   "frames": 1,
+   "foot": [
+    110,
+    130
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 18.0,
+   "footprint": 22.0,
+   "tags": [
+    "ferreiro",
+    "bancada"
+   ],
+   "sha256": "a4278812d8c22e02d6bd2e74880ce71ef4df8de013e4ced4cd23b490267b9388",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_altar_ancient",
+   "path": "res://assets/modeled/nature/ruins/nat_altar_ancient.png",
+   "group": "nature",
+   "folder": "ruins",
+   "frame_size": [
+    200,
+    190
+   ],
+   "frames": 2,
+   "foot": [
+    100,
+    158
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 16.0,
+   "footprint": 28.0,
+   "tags": [
+    "ruinas",
+    "altar"
+   ],
+   "sha256": "b41bb811a643ad59e405dd1221fa5da8901ae9bd59c94665fe866ceea5808716",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_bedroll",
+   "path": "res://assets/modeled/nature/camp/nat_bedroll.png",
+   "group": "nature",
+   "folder": "camp",
+   "frame_size": [
+    140,
+    100
+   ],
+   "frames": 1,
+   "foot": [
+    70,
+    78
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 8.0,
+   "tags": [
+    "acampamento"
+   ],
+   "sha256": "37ed629ec1083556aa3b42a5a625ce5978778b85d446b6e26161b402f3ee271a",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_bones_desert",
+   "path": "res://assets/modeled/nature/desert/nat_bones_desert.png",
+   "group": "nature",
+   "folder": "desert",
+   "frame_size": [
+    170,
+    120
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    92
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 10.0,
+   "tags": [
+    "deserto",
+    "ossos"
+   ],
+   "sha256": "56f161c5951de16d2e6436f4e6f3078837add6e51490a5388199841d2079381b",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_boulder_ice",
+   "path": "res://assets/modeled/nature/rocks/nat_boulder_ice.png",
+   "group": "nature",
+   "folder": "rocks",
+   "frame_size": [
+    230,
+    190
+   ],
+   "frames": 1,
+   "foot": [
+    115,
+    152
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 24.0,
+   "footprint": 24.0,
+   "tags": [
+    "gelo",
+    "obstaculo",
+    "pedra"
+   ],
+   "sha256": "ba7238e9ee974f321a810530f2960a4822916d680b2e30ef81c1961a6144df27",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_boulder_sand",
+   "path": "res://assets/modeled/nature/rocks/nat_boulder_sand.png",
+   "group": "nature",
+   "folder": "rocks",
+   "frame_size": [
+    230,
+    190
+   ],
+   "frames": 1,
+   "foot": [
+    115,
+    152
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 24.0,
+   "footprint": 24.0,
+   "tags": [
+    "deserto",
+    "obstaculo",
+    "pedra"
+   ],
+   "sha256": "e717e3bc7311700a2ac27263c7d75996fd494c3602b5b0d5ceb4e042de1ba84b",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_bush_berry",
+   "path": "res://assets/modeled/nature/bushes/nat_bush_berry.png",
+   "group": "nature",
+   "folder": "bushes",
+   "frame_size": [
+    140,
+    110
+   ],
+   "frames": 1,
+   "foot": [
+    70,
+    82
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 14.0,
+   "tags": [
+    "floresta",
+    "recurso",
+    "arbusto"
+   ],
+   "sha256": "bc120e0bf022832fd2d614796a898c7a1ea6c4cbfb31aa4b972e48b9626404a9",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_bush_dry",
+   "path": "res://assets/modeled/nature/bushes/nat_bush_dry.png",
+   "group": "nature",
+   "folder": "bushes",
+   "frame_size": [
+    140,
+    110
+   ],
+   "frames": 1,
+   "foot": [
+    70,
+    82
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 12.0,
+   "tags": [
+    "deserto",
+    "arbusto"
+   ],
+   "sha256": "8a7aa065210700c8ad91ff0490925fc6d9564cb3f621479c44226a8f6a969d70",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_bush_flowering",
+   "path": "res://assets/modeled/nature/bushes/nat_bush_flowering.png",
+   "group": "nature",
+   "folder": "bushes",
+   "frame_size": [
+    140,
+    110
+   ],
+   "frames": 1,
+   "foot": [
+    70,
+    82
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 14.0,
+   "tags": [
+    "campos",
+    "vale",
+    "arbusto"
+   ],
+   "sha256": "7ee9f1c53aad826a3c08cd89f9e8be10125626176f6bdfb54a9bcd7929b4d896",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_bush_frost",
+   "path": "res://assets/modeled/nature/bushes/nat_bush_frost.png",
+   "group": "nature",
+   "folder": "bushes",
+   "frame_size": [
+    140,
+    110
+   ],
+   "frames": 1,
+   "foot": [
+    70,
+    82
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 12.0,
+   "tags": [
+    "gelo",
+    "arbusto"
+   ],
+   "sha256": "111be6c3b5c2c3e12eea2db5a115794bc38d2bb28098c40f2002290d521ece8f",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_bush_green",
+   "path": "res://assets/modeled/nature/bushes/nat_bush_green.png",
+   "group": "nature",
+   "folder": "bushes",
+   "frame_size": [
+    140,
+    110
+   ],
+   "frames": 1,
+   "foot": [
+    70,
+    82
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 14.0,
+   "tags": [
+    "todos",
+    "arbusto"
+   ],
+   "sha256": "7f2e65b9863b2cda06867c73bc59dfdbe3fdd23b57b1edf8fa7ee1edcc3a5d00",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_cactus_round",
+   "path": "res://assets/modeled/nature/desert/nat_cactus_round.png",
+   "group": "nature",
+   "folder": "desert",
+   "frame_size": [
+    130,
+    120
+   ],
+   "frames": 1,
+   "foot": [
+    65,
+    92
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 8.0,
+   "footprint": 12.0,
+   "tags": [
+    "deserto",
+    "cacto"
+   ],
+   "sha256": "0824e37b599635551cba376ca96629c94f0a610eb2c376c7d9435fc4a6a946b1",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_cactus_tall",
+   "path": "res://assets/modeled/nature/desert/nat_cactus_tall.png",
+   "group": "nature",
+   "folder": "desert",
+   "frame_size": [
+    170,
+    240
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    212
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 9.0,
+   "footprint": 14.0,
+   "tags": [
+    "deserto",
+    "cacto"
+   ],
+   "sha256": "b3b339976875a7e88bb94c26470f2235c1909c7184900ac53d461bc249fc3f74",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_campfire",
+   "path": "res://assets/modeled/nature/camp/nat_campfire.png",
+   "group": "nature",
+   "folder": "camp",
+   "frame_size": [
+    150,
+    150
+   ],
+   "frames": 4,
+   "foot": [
+    75,
+    112
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 18.0,
+   "tags": [
+    "acampamento",
+    "fogo"
+   ],
+   "sha256": "2cefee26e9b2dbffdaebad302e71a9f4a21eaa01522b2631c00bbf3d577aa0ad",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_cart_wood",
+   "path": "res://assets/modeled/nature/farm/nat_cart_wood.png",
+   "group": "nature",
+   "folder": "farm",
+   "frame_size": [
+    190,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    95,
+    108
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 16.0,
+   "footprint": 16.0,
+   "tags": [
+    "campos",
+    "vila",
+    "carroca"
+   ],
+   "sha256": "cd9b7d6fd01838f18b8e313ddeb54926304ca07e4689b51b06b29e302d4d424b",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_chest_closed",
+   "path": "res://assets/modeled/nature/props/nat_chest_closed.png",
+   "group": "nature",
+   "folder": "props",
+   "frame_size": [
+    150,
+    130
+   ],
+   "frames": 1,
+   "foot": [
+    75,
+    100
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 13.0,
+   "footprint": 14.0,
+   "tags": [
+    "bau"
+   ],
+   "sha256": "c7996f321117f060ba0cc1980156e2606e0abc3ac03cab44f212ede652c4e4a8",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_chest_open",
+   "path": "res://assets/modeled/nature/props/nat_chest_open.png",
+   "group": "nature",
+   "folder": "props",
+   "frame_size": [
+    150,
+    130
+   ],
+   "frames": 1,
+   "foot": [
+    75,
+    100
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 13.0,
+   "footprint": 14.0,
+   "tags": [
+    "bau"
+   ],
+   "sha256": "945311a0465440c19c8752ddc60e109a332da0841cef19cde836ce3a37759ed3",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_chest_rare",
+   "path": "res://assets/modeled/nature/props/nat_chest_rare.png",
+   "group": "nature",
+   "folder": "props",
+   "frame_size": [
+    150,
+    130
+   ],
+   "frames": 1,
+   "foot": [
+    75,
+    100
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 13.0,
+   "footprint": 14.0,
+   "tags": [
+    "bau",
+    "raro"
+   ],
+   "sha256": "61d691c12a74084599f81eb0f2b7840e03cf4ff117ddfea7267c1fc0a1307cef",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_dune_large",
+   "path": "res://assets/modeled/nature/desert/nat_dune_large.png",
+   "group": "nature",
+   "folder": "desert",
+   "frame_size": [
+    500,
+    270
+   ],
+   "frames": 1,
+   "foot": [
+    250,
+    160
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 40.0,
+   "footprint": 40.0,
+   "tags": [
+    "deserto",
+    "duna",
+    "obstaculo"
+   ],
+   "sha256": "88bd041df789065f917a9f77adb3b98ee49703965f1fc6641489babefc3c4ba7",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_dune_small",
+   "path": "res://assets/modeled/nature/desert/nat_dune_small.png",
+   "group": "nature",
+   "folder": "desert",
+   "frame_size": [
+    330,
+    190
+   ],
+   "frames": 1,
+   "foot": [
+    165,
+    112
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "deserto",
+    "duna"
+   ],
+   "sha256": "624e047fcf324d53ed60775d5f6cbfa5b636818cabf6b610c998932b684cb715",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_fence_broken_a",
+   "path": "res://assets/modeled/nature/fences/nat_fence_broken_a.png",
+   "group": "nature",
+   "folder": "fences",
+   "frame_size": [
+    170,
+    110
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    88
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 8.0,
+   "footprint": 8.0,
+   "tags": [
+    "ruinas",
+    "cerca"
+   ],
+   "sha256": "2588303875dfab71dd620ea1876164f12fbbfda25d09817776e35ee432f6c679",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_fence_broken_b",
+   "path": "res://assets/modeled/nature/fences/nat_fence_broken_b.png",
+   "group": "nature",
+   "folder": "fences",
+   "frame_size": [
+    170,
+    110
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    88
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 8.0,
+   "footprint": 8.0,
+   "tags": [
+    "ruinas",
+    "cerca"
+   ],
+   "sha256": "d991d1c2b399ca2ff8e82eb9fc6e3d1648d580cf2c0a0b4668d546f3a7464f57",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_fence_wood_a",
+   "path": "res://assets/modeled/nature/fences/nat_fence_wood_a.png",
+   "group": "nature",
+   "folder": "fences",
+   "frame_size": [
+    170,
+    110
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    88
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 10.0,
+   "footprint": 10.0,
+   "tags": [
+    "campos",
+    "vila",
+    "cerca"
+   ],
+   "sha256": "c49009e0ee6a14bf0cf119104145b8cf646c95d36b63c28bb469a335bc1c8d1e",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_fence_wood_b",
+   "path": "res://assets/modeled/nature/fences/nat_fence_wood_b.png",
+   "group": "nature",
+   "folder": "fences",
+   "frame_size": [
+    170,
+    110
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    88
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 10.0,
+   "footprint": 10.0,
+   "tags": [
+    "campos",
+    "vila",
+    "cerca"
+   ],
+   "sha256": "eee5b37e9988ace77bf6d90e4e9259dbf79643072804379553a3eb853cbd1156",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_fissure",
+   "path": "res://assets/modeled/nature/traps/nat_fissure.png",
+   "group": "nature",
+   "folder": "traps",
+   "frame_size": [
+    240,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    120,
+    100
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 20.0,
+   "footprint": 20.0,
+   "tags": [
+    "fenda",
+    "obstaculo"
+   ],
+   "sha256": "66c3bfc69c9ab7daf1fc7e7d379414e3b32635741572e97f9396a8dbb64a73c5",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_flag_blue",
+   "path": "res://assets/modeled/nature/props/nat_flag_blue.png",
+   "group": "nature",
+   "folder": "props",
+   "frame_size": [
+    150,
+    240
+   ],
+   "frames": 4,
+   "foot": [
+    75,
+    214
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 6.0,
+   "footprint": 10.0,
+   "tags": [
+    "bandeira"
+   ],
+   "sha256": "057850d754f08f4dc7465b0ec28f6539d58e0710c274ef77ce682d9021f26a5c",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_flag_red",
+   "path": "res://assets/modeled/nature/props/nat_flag_red.png",
+   "group": "nature",
+   "folder": "props",
+   "frame_size": [
+    150,
+    240
+   ],
+   "frames": 4,
+   "foot": [
+    75,
+    214
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 6.0,
+   "footprint": 10.0,
+   "tags": [
+    "bandeira"
+   ],
+   "sha256": "92c7a22644527cb232407e651fa5ddd7343354792b6a6bb96be669652e7d00d5",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_flowers_blue",
+   "path": "res://assets/modeled/nature/flora/nat_flowers_blue.png",
+   "group": "nature",
+   "folder": "flora",
+   "frame_size": [
+    110,
+    90
+   ],
+   "frames": 1,
+   "foot": [
+    55,
+    66
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "vale",
+    "flor"
+   ],
+   "sha256": "40b89883750ece1c3940ba8ffaf1af84f956ba7de4777d85c23595ec324249c7",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_flowers_meadow",
+   "path": "res://assets/modeled/nature/flora/nat_flowers_meadow.png",
+   "group": "nature",
+   "folder": "flora",
+   "frame_size": [
+    110,
+    90
+   ],
+   "frames": 1,
+   "foot": [
+    55,
+    66
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "campos",
+    "pradaria",
+    "flor"
+   ],
+   "sha256": "0da8790a8106508d7bf24668057c419d9ccd5bcc60f849f9fa91d7ac0f8afb49",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_flowers_red",
+   "path": "res://assets/modeled/nature/flora/nat_flowers_red.png",
+   "group": "nature",
+   "folder": "flora",
+   "frame_size": [
+    110,
+    90
+   ],
+   "frames": 1,
+   "foot": [
+    55,
+    66
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "floresta",
+    "flor"
+   ],
+   "sha256": "bf2c4cd0ef35da8f21b52b140738c971dc8ba722ec7eb4e0be032fb3f3a870cb",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_ford_stones",
+   "path": "res://assets/modeled/nature/rocks/nat_ford_stones.png",
+   "group": "nature",
+   "folder": "rocks",
+   "frame_size": [
+    220,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    110,
+    100
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "rio",
+    "travessia",
+    "vau"
+   ],
+   "sha256": "fe65c689294d41b52404a70618d01fb0202b4a8f67403760f13fd9a15e2df9ef",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_gate_wood",
+   "path": "res://assets/modeled/nature/fences/nat_gate_wood.png",
+   "group": "nature",
+   "folder": "fences",
+   "frame_size": [
+    190,
+    130
+   ],
+   "frames": 1,
+   "foot": [
+    95,
+    104
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 10.0,
+   "footprint": 10.0,
+   "tags": [
+    "campos",
+    "portao"
+   ],
+   "sha256": "19539c4ee94c395a50cc0a346ef3c71f7e29d697c54d58533f1c15e192e94b48",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_grass_dry",
+   "path": "res://assets/modeled/nature/flora/nat_grass_dry.png",
+   "group": "nature",
+   "folder": "flora",
+   "frame_size": [
+    110,
+    100
+   ],
+   "frames": 1,
+   "foot": [
+    55,
+    76
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "deserto",
+    "capim"
+   ],
+   "sha256": "392911d34e6497bcda488b9db04662f156b698b5ec86520ebc477f5202a95989",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_grass_tall",
+   "path": "res://assets/modeled/nature/flora/nat_grass_tall.png",
+   "group": "nature",
+   "folder": "flora",
+   "frame_size": [
+    110,
+    100
+   ],
+   "frames": 1,
+   "foot": [
+    55,
+    76
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "todos",
+    "capim"
+   ],
+   "sha256": "d33e1df4f9531d51a2a758aa571af4b54668bcb0c00d8a46a69bfb8624f56278",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_hay_bale",
+   "path": "res://assets/modeled/nature/farm/nat_hay_bale.png",
+   "group": "nature",
+   "folder": "farm",
+   "frame_size": [
+    130,
+    100
+   ],
+   "frames": 1,
+   "foot": [
+    65,
+    76
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 11.0,
+   "footprint": 11.0,
+   "tags": [
+    "campos",
+    "fazenda"
+   ],
+   "sha256": "a43376c048de204efe6f4eb11e7f44c6cca2e3d8f6b091121520c8004556490a",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_hay_stack",
+   "path": "res://assets/modeled/nature/farm/nat_hay_stack.png",
+   "group": "nature",
+   "folder": "farm",
+   "frame_size": [
+    150,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    75,
+    112
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 14.0,
+   "tags": [
+    "campos",
+    "fazenda"
+   ],
+   "sha256": "a4364dc603466f6c2695d2f99eb796ef514b391a2df8f189a8751ad24cf89d88",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_ice_spire",
+   "path": "res://assets/modeled/nature/ice/nat_ice_spire.png",
+   "group": "nature",
+   "folder": "ice",
+   "frame_size": [
+    170,
+    230
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    194
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 18.0,
+   "tags": [
+    "gelo",
+    "cristal"
+   ],
+   "sha256": "08058ace096f2ab716700a22347c5893e0eda340ecea3e4d4b0929c9289895a8",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_ice_stones",
+   "path": "res://assets/modeled/nature/ice/nat_ice_stones.png",
+   "group": "nature",
+   "folder": "ice",
+   "frame_size": [
+    200,
+    130
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    100
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "gelo",
+    "rio",
+    "travessia"
+   ],
+   "sha256": "078fd9050295cdb1f0771f5d5c4d3afd1b480c6281f3386fc38563881ef0f17f",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_log_fallen",
+   "path": "res://assets/modeled/nature/wood/nat_log_fallen.png",
+   "group": "nature",
+   "folder": "wood",
+   "frame_size": [
+    230,
+    130
+   ],
+   "frames": 1,
+   "foot": [
+    115,
+    96
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 16.0,
+   "footprint": 16.0,
+   "tags": [
+    "floresta",
+    "obstaculo",
+    "tronco"
+   ],
+   "sha256": "770b64c9fa6c1ba81f389cb9fb5ddbf7e418c165b554d3cd4b6c16902bd57b10",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_log_pile",
+   "path": "res://assets/modeled/nature/wood/nat_log_pile.png",
+   "group": "nature",
+   "folder": "wood",
+   "frame_size": [
+    170,
+    130
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    100
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 14.0,
+   "tags": [
+    "vila",
+    "floresta",
+    "tronco"
+   ],
+   "sha256": "e7241beb52ebf7a424986b749ff47117cff30886fba995aae4f8108a41f2b9eb",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_mushrooms",
+   "path": "res://assets/modeled/nature/flora/nat_mushrooms.png",
+   "group": "nature",
+   "folder": "flora",
+   "frame_size": [
+    110,
+    90
+   ],
+   "frames": 1,
+   "foot": [
+    55,
+    68
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "floresta",
+    "cogumelo"
+   ],
+   "sha256": "58d3808578068833525d3dd75f8415aa408411f1dab534bd9fa72588c9c6688f",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_obelisk_rune",
+   "path": "res://assets/modeled/nature/ruins/nat_obelisk_rune.png",
+   "group": "nature",
+   "folder": "ruins",
+   "frame_size": [
+    150,
+    290
+   ],
+   "frames": 2,
+   "foot": [
+    75,
+    256
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 10.0,
+   "footprint": 20.0,
+   "tags": [
+    "ruinas",
+    "obelisco"
+   ],
+   "sha256": "2aeca5dbbd52a35897542e3f114c8704511a6eef9a34187a5b2a61c854359489",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_pit_trap",
+   "path": "res://assets/modeled/nature/traps/nat_pit_trap.png",
+   "group": "nature",
+   "folder": "traps",
+   "frame_size": [
+    200,
+    130
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    96
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 16.0,
+   "tags": [
+    "armadilha"
+   ],
+   "sha256": "801952ab6cd6de8d70d75cb900f687c6915ba539e5791c852654b14837576063",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_reeds",
+   "path": "res://assets/modeled/nature/flora/nat_reeds.png",
+   "group": "nature",
+   "folder": "flora",
+   "frame_size": [
+    110,
+    130
+   ],
+   "frames": 1,
+   "foot": [
+    55,
+    108
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "rio",
+    "junco"
+   ],
+   "sha256": "a279e86d4a2a439e730118d586dd2b6916fb538bb6612131f6fd7fb3fa5a3c10",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_res_crystal",
+   "path": "res://assets/modeled/nature/resources/nat_res_crystal.png",
+   "group": "nature",
+   "folder": "resources",
+   "frame_size": [
+    150,
+    150
+   ],
+   "frames": 1,
+   "foot": [
+    75,
+    118
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 14.0,
+   "tags": [
+    "recurso",
+    "cristal"
+   ],
+   "sha256": "23f28fb6d6a9e878ee7b05f68f9d4a35502c08cbaae4cc29873f00bc488a5bb7",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_res_herb",
+   "path": "res://assets/modeled/nature/resources/nat_res_herb.png",
+   "group": "nature",
+   "folder": "resources",
+   "frame_size": [
+    130,
+    130
+   ],
+   "frames": 1,
+   "foot": [
+    65,
+    100
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 10.0,
+   "tags": [
+    "recurso",
+    "erva"
+   ],
+   "sha256": "f8cd869a67261505e5493cd53d20c942595d6ca84dbacf8885dc05f5e4432a02",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_res_ore",
+   "path": "res://assets/modeled/nature/resources/nat_res_ore.png",
+   "group": "nature",
+   "folder": "resources",
+   "frame_size": [
+    150,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    75,
+    108
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 14.0,
+   "tags": [
+    "recurso",
+    "minerio"
+   ],
+   "sha256": "43507949e8f60587ec319500637949400112ae3242791688d286d3a5681a17dc",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_rock_boulder",
+   "path": "res://assets/modeled/nature/rocks/nat_rock_boulder.png",
+   "group": "nature",
+   "folder": "rocks",
+   "frame_size": [
+    230,
+    190
+   ],
+   "frames": 1,
+   "foot": [
+    115,
+    152
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 24.0,
+   "footprint": 24.0,
+   "tags": [
+    "obstaculo",
+    "pedra"
+   ],
+   "sha256": "1a685bdf54bca870d6e49ba40e34c4802798a788c361f985a152cc78c4032164",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_rock_ice",
+   "path": "res://assets/modeled/nature/rocks/nat_rock_ice.png",
+   "group": "nature",
+   "folder": "rocks",
+   "frame_size": [
+    170,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    108
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 14.0,
+   "tags": [
+    "gelo",
+    "pedra"
+   ],
+   "sha256": "b935246f12c865c1e0d4d62b57319b8bbc203feeb35283201efad60d4d588882",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_rock_medium",
+   "path": "res://assets/modeled/nature/rocks/nat_rock_medium.png",
+   "group": "nature",
+   "folder": "rocks",
+   "frame_size": [
+    160,
+    130
+   ],
+   "frames": 1,
+   "foot": [
+    80,
+    100
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 13.0,
+   "footprint": 13.0,
+   "tags": [
+    "todos",
+    "pedra"
+   ],
+   "sha256": "990c9bfeaa57ef5d97f5860ca2248bb83c30992971c972b8ecfba95a62b0cca9",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_rock_mossy",
+   "path": "res://assets/modeled/nature/rocks/nat_rock_mossy.png",
+   "group": "nature",
+   "folder": "rocks",
+   "frame_size": [
+    170,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    108
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 14.0,
+   "tags": [
+    "floresta",
+    "vale",
+    "pedra"
+   ],
+   "sha256": "60d13fb440c65d18dc4cb616ff3eda3f65a159bf58db7c7d929d09c0b90500fc",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_rock_sand",
+   "path": "res://assets/modeled/nature/rocks/nat_rock_sand.png",
+   "group": "nature",
+   "folder": "rocks",
+   "frame_size": [
+    170,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    108
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 14.0,
+   "tags": [
+    "deserto",
+    "pedra"
+   ],
+   "sha256": "d60271204e1aad67415d1f470cded44ac82feb92d84a774801bade381b1b1470",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_rock_small",
+   "path": "res://assets/modeled/nature/rocks/nat_rock_small.png",
+   "group": "nature",
+   "folder": "rocks",
+   "frame_size": [
+    110,
+    90
+   ],
+   "frames": 1,
+   "foot": [
+    55,
+    68
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "todos",
+    "pedra"
+   ],
+   "sha256": "4696d095de0e16e9b1ace0f50a84f2d840d92037cb8ec4c5866c6aded574f149",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_rock_snow",
+   "path": "res://assets/modeled/nature/rocks/nat_rock_snow.png",
+   "group": "nature",
+   "folder": "rocks",
+   "frame_size": [
+    170,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    108
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 14.0,
+   "tags": [
+    "gelo",
+    "pedra"
+   ],
+   "sha256": "055949ecc35c6f7abf98a16658598cff61d76ea9605039c291fdd8a28502a28c",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_ruin_arch",
+   "path": "res://assets/modeled/nature/ruins/nat_ruin_arch.png",
+   "group": "nature",
+   "folder": "ruins",
+   "frame_size": [
+    260,
+    260
+   ],
+   "frames": 1,
+   "foot": [
+    130,
+    232
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 14.0,
+   "footprint": 30.0,
+   "tags": [
+    "ruinas",
+    "arco"
+   ],
+   "sha256": "e1241050c7086d7a3f730b1fc4f55529653e2509f487a907c0ebe510e0a68656",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_ruin_column",
+   "path": "res://assets/modeled/nature/ruins/nat_ruin_column.png",
+   "group": "nature",
+   "folder": "ruins",
+   "frame_size": [
+    150,
+    250
+   ],
+   "frames": 1,
+   "foot": [
+    75,
+    220
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 11.0,
+   "footprint": 18.0,
+   "tags": [
+    "ruinas",
+    "coluna"
+   ],
+   "sha256": "f136ba794f9799753fb411477867b1817f075af1a9c31f77c71e281269174605",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_ruin_column_broken",
+   "path": "res://assets/modeled/nature/ruins/nat_ruin_column_broken.png",
+   "group": "nature",
+   "folder": "ruins",
+   "frame_size": [
+    170,
+    170
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    142
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 11.0,
+   "footprint": 18.0,
+   "tags": [
+    "ruinas",
+    "coluna"
+   ],
+   "sha256": "a68557ebf878128bcf5637fb70599609db03f034265ad20c423add6faaa904f2",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_ruin_wall",
+   "path": "res://assets/modeled/nature/ruins/nat_ruin_wall.png",
+   "group": "nature",
+   "folder": "ruins",
+   "frame_size": [
+    240,
+    190
+   ],
+   "frames": 1,
+   "foot": [
+    120,
+    156
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 16.0,
+   "footprint": 24.0,
+   "tags": [
+    "ruinas",
+    "muro"
+   ],
+   "sha256": "5a1e0732b586a2b48c28e4759a192c301b55ec513e91323b8e59478a01e8a139",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_scarecrow",
+   "path": "res://assets/modeled/nature/farm/nat_scarecrow.png",
+   "group": "nature",
+   "folder": "farm",
+   "frame_size": [
+    140,
+    190
+   ],
+   "frames": 1,
+   "foot": [
+    70,
+    166
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 7.0,
+   "footprint": 7.0,
+   "tags": [
+    "campos",
+    "fazenda",
+    "espantalho"
+   ],
+   "sha256": "90f6b39732b6261166ee544bdb8a9c9a371a94d7f81d948e56d2996b0d6ae95c",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_signpost",
+   "path": "res://assets/modeled/nature/props/nat_signpost.png",
+   "group": "nature",
+   "folder": "props",
+   "frame_size": [
+    120,
+    140
+   ],
+   "frames": 1,
+   "foot": [
+    60,
+    116
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 6.0,
+   "footprint": 6.0,
+   "tags": [
+    "rota",
+    "placa"
+   ],
+   "sha256": "e0941cd389b85a2dc3d11245fd0ebdcf82eb296997f57c40d5441cd7d311e918",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_snow_mound",
+   "path": "res://assets/modeled/nature/ice/nat_snow_mound.png",
+   "group": "nature",
+   "folder": "ice",
+   "frame_size": [
+    250,
+    150
+   ],
+   "frames": 1,
+   "foot": [
+    125,
+    90
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "gelo",
+    "neve"
+   ],
+   "sha256": "21b86a5ec3d290c7823eed17e89be8233f8843632055540d95dfe26e91a41b90",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_statue_guardian",
+   "path": "res://assets/modeled/nature/ruins/nat_statue_guardian.png",
+   "group": "nature",
+   "folder": "ruins",
+   "frame_size": [
+    170,
+    270
+   ],
+   "frames": 1,
+   "foot": [
+    85,
+    236
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 20.0,
+   "tags": [
+    "ruinas",
+    "estatua"
+   ],
+   "sha256": "34d0c6a723283c161c71184d86d5ff86392216343128ade359adc1688c6f1dbc",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_stump",
+   "path": "res://assets/modeled/nature/wood/nat_stump.png",
+   "group": "nature",
+   "folder": "wood",
+   "frame_size": [
+    130,
+    110
+   ],
+   "frames": 1,
+   "foot": [
+    65,
+    84
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 9.0,
+   "footprint": 9.0,
+   "tags": [
+    "floresta",
+    "tronco"
+   ],
+   "sha256": "20abea9779500a86125c39b75d6b9adc618452086fcfd2c731f093f15ccd540e",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_tent_frost",
+   "path": "res://assets/modeled/nature/camp/nat_tent_frost.png",
+   "group": "nature",
+   "folder": "camp",
+   "frame_size": [
+    200,
+    170
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    138
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 16.0,
+   "footprint": 26.0,
+   "tags": [
+    "acampamento",
+    "tenda",
+    "gelo"
+   ],
+   "sha256": "52e43eab06a423118deede33eaa38db67e05f3acf6b56fa4492228181238e7c7",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_tent_red",
+   "path": "res://assets/modeled/nature/camp/nat_tent_red.png",
+   "group": "nature",
+   "folder": "camp",
+   "frame_size": [
+    220,
+    190
+   ],
+   "frames": 1,
+   "foot": [
+    110,
+    152
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 18.0,
+   "footprint": 30.0,
+   "tags": [
+    "acampamento",
+    "tenda",
+    "deserto"
+   ],
+   "sha256": "01e7737a5a6aed8e5dcc62a649687f2ddf5829c442ef51246f17f89116bb31e7",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_tent_small",
+   "path": "res://assets/modeled/nature/camp/nat_tent_small.png",
+   "group": "nature",
+   "folder": "camp",
+   "frame_size": [
+    200,
+    170
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    138
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 16.0,
+   "footprint": 26.0,
+   "tags": [
+    "acampamento",
+    "tenda"
+   ],
+   "sha256": "5324fd16d19b34ef45e02705a8b91faf001bd2dab49de7db2d908126f733c5f7",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_trap_plate",
+   "path": "res://assets/modeled/nature/traps/nat_trap_plate.png",
+   "group": "nature",
+   "folder": "traps",
+   "frame_size": [
+    160,
+    100
+   ],
+   "frames": 2,
+   "foot": [
+    80,
+    72
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 10.0,
+   "tags": [
+    "armadilha"
+   ],
+   "sha256": "f87b45a09f0b9c556339d174d4eac3417e810665f54a615b46304a9cdc8500c1",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_tree_birch",
+   "path": "res://assets/modeled/nature/trees/nat_tree_birch.png",
+   "group": "nature",
+   "folder": "trees",
+   "frame_size": [
+    200,
+    260
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    228
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 13.0,
+   "footprint": 13.0,
+   "tags": [
+    "campos",
+    "vale",
+    "arvore"
+   ],
+   "sha256": "55d61f979af4bccfdf782f270acf4f99752306181eb62e0ef10156bee10ec3d7",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_tree_dead",
+   "path": "res://assets/modeled/nature/trees/nat_tree_dead.png",
+   "group": "nature",
+   "folder": "trees",
+   "frame_size": [
+    200,
+    260
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    232
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
+   "tags": [
+    "ruinas",
+    "deserto",
+    "arvore"
+   ],
+   "sha256": "a5aa43349d203feac3a8776b5d2156dc326832dfb2e168ac6776f7c5305705b4",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_tree_palm",
+   "path": "res://assets/modeled/nature/trees/nat_tree_palm.png",
+   "group": "nature",
+   "folder": "trees",
+   "frame_size": [
+    220,
+    270
+   ],
+   "frames": 1,
+   "foot": [
+    110,
+    242
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
+   "tags": [
+    "deserto",
+    "oasis",
+    "arvore"
+   ],
+   "sha256": "47d376f751aa554351bdc6ad27fd3092772230016450cbbfff98aed31511dab7",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_tree_pine",
+   "path": "res://assets/modeled/nature/trees/nat_tree_pine.png",
+   "group": "nature",
+   "folder": "trees",
+   "frame_size": [
+    200,
+    270
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    238
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 15.0,
+   "footprint": 15.0,
+   "tags": [
+    "floresta",
+    "vale",
+    "arvore"
+   ],
+   "sha256": "b28bfc8ff9681639e41c46cdef87727c97310d5702ecfc9e6f3b050406f9eb27",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_tree_pine_snow",
+   "path": "res://assets/modeled/nature/trees/nat_tree_pine_snow.png",
+   "group": "nature",
+   "folder": "trees",
+   "frame_size": [
+    200,
+    270
+   ],
+   "frames": 1,
+   "foot": [
+    100,
+    238
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 15.0,
+   "footprint": 15.0,
+   "tags": [
+    "gelo",
+    "arvore"
+   ],
+   "sha256": "d1c23a94b4069423c2793b9f8e212c7ee78120524c24c7bd56bd24fe2be284c7",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_wall_low_a",
+   "path": "res://assets/modeled/nature/fences/nat_wall_low_a.png",
+   "group": "nature",
+   "folder": "fences",
+   "frame_size": [
+    180,
+    120
+   ],
+   "frames": 1,
+   "foot": [
+    90,
+    96
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
+   "tags": [
+    "campos",
+    "ruinas",
+    "muro"
+   ],
+   "sha256": "96d7c62500eb4476bd26c73f30d7f281947a129eeb3daeb9fe4e6141bef42a2a",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_wall_low_b",
+   "path": "res://assets/modeled/nature/fences/nat_wall_low_b.png",
+   "group": "nature",
+   "folder": "fences",
+   "frame_size": [
+    180,
+    120
+   ],
+   "frames": 1,
+   "foot": [
+    90,
+    96
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
+   "tags": [
+    "campos",
+    "ruinas",
+    "muro"
+   ],
+   "sha256": "8b2d2ce2919333fe63b3fb2f1551d4132e595e17efa01f4230e6db33e0680d77",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "nat_well_stone",
+   "path": "res://assets/modeled/nature/props/nat_well_stone.png",
+   "group": "nature",
+   "folder": "props",
+   "frame_size": [
+    190,
+    220
+   ],
+   "frames": 1,
+   "foot": [
+    95,
+    184
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 18.0,
+   "footprint": 26.0,
+   "tags": [
+    "vila",
+    "poco"
+   ],
+   "sha256": "548554ef9be9a42588ffd8592fe5a85db992951f2544635918c429f23c3da5ec",
+   "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  }
+ ]
+}
