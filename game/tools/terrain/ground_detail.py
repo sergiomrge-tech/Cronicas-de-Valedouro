@@ -210,3 +210,75 @@ def blend_regions(ter, IDX, names, blob, blur_px=20, wobble=.55, salt=0):
     best = np.argmax(np.stack(scores, 0), axis=0)
     out = np.array(ids, dtype=ter.dtype)[best]
     return np.where(region, out, ter).astype(ter.dtype)
+
+
+# ------------------------------------------------------------------ famílias visuais, cor harmônica e grade de bioma
+FAMILY = {'forest_floor': 1, 'grass_a': 2, 'grass_b': 2, 'meadow': 2, 'valley': 3, 'sand': 4, 'sand_dune': 4, 'snow': 5, 'ice': 5, 'stone': 5}
+FAM_LETTER = {0: 'O', 1: 'F', 2: 'G', 3: 'V', 4: 'D', 5: 'S', 6: 'T'}
+
+
+def family_map(ter, IDX):
+    fam = np.zeros(ter.shape, dtype=np.int8)
+    for name, k in FAMILY.items():
+        fam[ter == IDX[name]] = k
+    fam[ter == IDX['cobble']] = 6
+    return fam
+
+
+def harmonize(img, ter, IDX, sigma_fine=5, sigma_wide=60, prox_sigma=90):
+    """Cor harmônica entre biomas: perto de uma fronteira, a componente de baixa frequência da cor é misturada entre os dois lados
+    (gradiente largo), preservando o detalhe fino (grão/tufos) de cada terreno. Só em terrenos naturais (não estrada/água/pontes/cidade)."""
+    from PIL import ImageFilter
+    fam = family_map(ter, IDX)
+    natural = (fam >= 1) & (fam <= 5)
+    if not natural.any():
+        return img
+    # proximidade de fronteira: 1 - (maior pertencimento suavizado)
+    pmax = np.zeros(ter.shape, dtype=np.float32)
+    for k in range(1, 6):
+        m = (fam == k)
+        if not m.any():
+            continue
+        p = np.asarray(Image.fromarray((m * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(prox_sigma)), dtype=np.float32) / 255.0
+        pmax = np.maximum(pmax, p)
+    s = np.clip((1.0 - pmax) * 2.2, 0, 1)
+    s = s * s * (3 - 2 * s)                                   # smoothstep
+    nat_f = natural.astype(np.float32)
+    def masked_blur(sig):
+        out = np.zeros(img.shape, dtype=np.float32)
+        wm = np.asarray(Image.fromarray((nat_f * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(sig)), dtype=np.float32) / 255.0
+        for c in range(3):
+            ch = (img[..., c].astype(np.float32) * nat_f).clip(0, 255).astype(np.uint8)
+            b = np.asarray(Image.fromarray(ch).filter(ImageFilter.GaussianBlur(sig)), dtype=np.float32) / 255.0
+            out[..., c] = np.where(wm > 1e-3, b / np.maximum(wm, 1e-3), img[..., c] / 255.0) * 255.0
+        return out
+    Lf = masked_blur(sigma_fine)
+    Lw = masked_blur(sigma_wide)
+    detail = img.astype(np.float32) - Lf
+    target = Lf + (Lw - Lf) * s[..., None]
+    out = np.where(natural[..., None], np.clip(target + detail, 0, 255), img)
+    return out.astype(np.uint8)
+
+
+def biome_grid(ter, IDX, cell=32, max_d=6):
+    """Grade visual por célula de 32 px: família dominante, família vizinha mais próxima e distância (0..max_d) até ela."""
+    h, w = ter.shape
+    fam = family_map(ter, IDX)
+    gh, gw = (h + cell - 1) // cell, (w + cell - 1) // cell
+    dom = np.zeros((gh, gw), dtype=np.int8)
+    for gy in range(gh):
+        for gx in range(gw):
+            blk = fam[gy * cell:(gy + 1) * cell, gx * cell:(gx + 1) * cell]
+            cnt = np.bincount(blk.ravel(), minlength=7)
+            cnt[0] = 0 if cnt[1:].sum() else cnt[0]
+            dom[gy, gx] = int(np.argmax(cnt))
+    nb = np.zeros_like(dom)
+    dist = np.full(dom.shape, max_d, dtype=np.int8)
+    natural = (dom >= 1) & (dom <= 5)
+    for d in range(1, max_d + 1):
+        for dx, dy in ((d, 0), (-d, 0), (0, d), (0, -d), (d, d), (-d, d), (d, -d), (-d, -d)):
+            o = shift(dom, dx, dy, fill=0)
+            hit = natural & (o >= 1) & (o <= 5) & (o != dom) & (dist == max_d) & (nb == 0)
+            nb = np.where(hit, o, nb)
+            dist = np.where(hit, d - 1, dist)
+    return dom, nb, dist

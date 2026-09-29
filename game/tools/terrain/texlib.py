@@ -287,7 +287,7 @@ LIB = {
     'stone': lambda: make_stone(51),
     'cobble': lambda: make_cobble(52),
     'road_sand': lambda: make_dirt(24, ramp('#8a5a30', '#a87440', '#c4924e', '#dcae68', '#eec686', '#fadea4'), pebbles=60, ruts=True),
-    'road_snow': lambda: make_dirt(25, ramp('#6e7a98', '#8a97b2', '#a6b2c8', '#c2cddd', '#dde5f0', '#f4f8fd'), pebbles=40, ruts=True),
+    'road_snow': lambda: make_dirt(25, ramp('#9aa6c0', '#aebacf', '#c2ccdd', '#d4dce8', '#e6ecf4', '#f4f8fd'), pebbles=40, ruts=True),
     'water_deep': lambda: make_water(61, WATER_DEEP),
     'water_shallow': lambda: make_water(62, WATER_SH, shallow=True),
     'riverbed': lambda: make_bed(63),

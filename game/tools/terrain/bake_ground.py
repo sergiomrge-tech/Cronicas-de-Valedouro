@@ -348,6 +348,7 @@ def detail_fields(w, h, seed):
 
 def finish_ground(img, ter, seeds, w, h, world_seed=0):
     bay = bayer(h, w)
+    img = GD.harmonize(img, ter, IDX)
     img = GD.macro_shade(img, ter, IDX, seeds['height'], bay)
     img = GD.rims(img, ter, IDX)
     img, n = GD.scatter(img, ter, IDX, GD.WORLD_RULES, seeds, w, h)
@@ -369,6 +370,11 @@ def bake_world(textures, world):
     img = colorize(ter, textures, 0, 0, seeds)
     img = draw_bridge_rails(img, 0, 0)
     img = finish_ground(img, ter, seeds, W, H)
+    dom, nb, dist = GD.biome_grid(ter, IDX)
+    rows = [''.join(GD.FAM_LETTER[int(v)] for v in r) for r in dom]
+    nbs = [''.join(GD.FAM_LETTER[int(v)] for v in r) for r in nb]
+    dts = [''.join(str(int(v)) for v in r) for r in dist]
+    (GAME / 'data' / 'reg001_biome_grid.json').write_text(json.dumps({'cell': 32, 'w': len(rows[0]), 'h': len(rows), 'dom': rows, 'nb': nbs, 'dist': dts, 'note': 'gerado por tools/terrain/bake_ground.py; F floresta G grama V vale D deserto S neve T cidade O outro'}, separators=(',', ':')) + '\n', encoding='utf-8')
     return img, ter
 
 
