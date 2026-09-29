@@ -24,3 +24,9 @@ Elyndor vive a Guerra da Coroa Oca há 23 anos. O protagonista é um humano da T
 
 ## Próximo marco
 Primeira build jogável: cidade, área externa, 2 inimigos, loot, inventário/equipamento, dungeon curta, Guardião e save/load.
+
+## Fechamento visual profissional (pré-Etapa 2)
+- Pipeline executável em `game/tools/art_pipeline/` (Blender headless via `bpy`; `README_VK.md`) e skill em `docs/art/VALEDOURO_PRO_ART_MODELING_SKILL.md`.
+- 147 assets remodelados (landmarks, elevações, natureza, NPCs, fauna, interiores, props) + 6 FX; todos `MODELED_PENDING_GATE`.
+- Relatório: `docs/checkpoints/CHECKPOINT_PRO_ART_ETAPA1B.md`; revisão A/B/C/D: `docs/art/PRO_ART_REVIEW_MODELED.md`; capturas: `docs/visual_qa/pro/`.
+- Não iniciar a Etapa 2 (combate) sem nova ordem do Diretor.

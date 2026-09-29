@@ -33,6 +33,7 @@ B = {
 D = {
     **{f'nat_decal_{n}': 'manchas planas: aposentado (chão assado e props já cobrem a transição)' for n in ('dirt_a', 'dry_a', 'grass_a', 'grass_b', 'mud_bank', 'sand_a', 'sand_b', 'snow_a', 'snow_b')},
     'int_floor_carpet': 'substituído por rugs modelados', 'nat_scarecrow': 'substituído por str_scarecrow',
+    **{f'int_wall_{k}_{v}': 'substituído pelas baias modulares int_wall_* (Blender)' for k in ('door', 'plain', 'window') for v in ('a', 'b')},
 }
 
 

@@ -82,3 +82,7 @@ Depois:
 ## Regra de teste do Diretor
 
 Não pedir teste manual a cada lote. Enviar screenshots reais quando houver evolução visual significativa. Entregar novo ZIP apenas quando o candidato estiver substancialmente mais refinado e após Godot Gate + varredura + integridade do pacote.
+
+
+## Atualização — fechamento visual profissional (REG_001)
+Ver `docs/checkpoints/CHECKPOINT_PRO_ART_ETAPA1B.md`: 13/13 testes Godot 4.7.2 PASS, 147 assets Blender + 6 FX, 58 capturas reais, revisão A/B/C/D.

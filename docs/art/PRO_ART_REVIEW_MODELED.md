@@ -6,8 +6,7 @@ Nenhum asset foi promovido a APPROVED. PRO = remodelado no pipeline profissional
 |---|---|
 | A | 35 |
 | B | 25 |
-| C | 6 |
-| D | 11 |
+| D | 17 |
 | PRO | 215 |
 
 ## PRO (215)
@@ -80,18 +79,15 @@ city_banner_blue, city_banner_red, city_barrels, city_bench, city_cart_market, c
 - `nat_reeds` — juncos finos: adensar
 - `nat_trap_plate` — placa de pressão simples
 
-## C (6)
-
-- `int_wall_door_a` — primitivas visíveis / detalhe insuficiente: remodelar
-- `int_wall_door_b` — primitivas visíveis / detalhe insuficiente: remodelar
-- `int_wall_plain_a` — primitivas visíveis / detalhe insuficiente: remodelar
-- `int_wall_plain_b` — primitivas visíveis / detalhe insuficiente: remodelar
-- `int_wall_window_a` — primitivas visíveis / detalhe insuficiente: remodelar
-- `int_wall_window_b` — primitivas visíveis / detalhe insuficiente: remodelar
-
-## D (11)
+## D (17)
 
 - `int_floor_carpet` — substituído por rugs modelados
+- `int_wall_door_a` — substituído pelas baias modulares int_wall_* (Blender)
+- `int_wall_door_b` — substituído pelas baias modulares int_wall_* (Blender)
+- `int_wall_plain_a` — substituído pelas baias modulares int_wall_* (Blender)
+- `int_wall_plain_b` — substituído pelas baias modulares int_wall_* (Blender)
+- `int_wall_window_a` — substituído pelas baias modulares int_wall_* (Blender)
+- `int_wall_window_b` — substituído pelas baias modulares int_wall_* (Blender)
 - `nat_decal_dirt_a` — manchas planas: aposentado (chão assado e props já cobrem a transição)
 - `nat_decal_dry_a` — manchas planas: aposentado (chão assado e props já cobrem a transição)
 - `nat_decal_grass_a` — manchas planas: aposentado (chão assado e props já cobrem a transição)
