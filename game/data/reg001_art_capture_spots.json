@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "purpose": "Professional art gate capture targets; real Godot renders only",
+  "spots": [
+    {
+      "name": "ART_01_watchtower_west",
+      "zone": "cidade",
+      "pos": [
+        360,
+        1112
+      ]
+    },
+    {
+      "name": "ART_02_watchtower_north",
+      "zone": "cidade",
+      "pos": [
+        1320,
+        347
+      ]
+    },
+    {
+      "name": "ART_03_windmill",
+      "zone": "cidade",
+      "pos": [
+        1110,
+        1882
+      ]
+    },
+    {
+      "name": "ART_04_shrine",
+      "zone": "cidade",
+      "pos": [
+        1660,
+        2022
+      ]
+    },
+    {
+      "name": "ART_05_outpost_amber",
+      "zone": "cidade",
+      "pos": [
+        2690,
+        1800
+      ]
+    },
+    {
+      "name": "ART_06_lodge_ice",
+      "zone": "cidade",
+      "pos": [
+        2700,
+        604
+      ]
+    },
+    {
+      "name": "ART_07_watchtower_frost",
+      "zone": "cidade",
+      "pos": [
+        2905,
+        655
+      ]
+    },
+    {
+      "name": "ART_08_cave_entrance",
+      "zone": "cidade",
+      "pos": [
+        3010,
+        118
+      ],
+      "found": [
+        "REG001_POI_SEGREDO_GELO"
+      ]
+    },
+    {
+      "name": "ART_09_waterfall",
+      "zone": "cidade",
+      "pos": [
+        2289.1,
+        480
+      ]
+    },
+    {
+      "name": "ART_10_dock_boats_north",
+      "zone": "cidade",
+      "pos": [
+        2145,
+        1020
+      ]
+    },
+    {
+      "name": "ART_11_ice_elevation",
+      "zone": "cidade",
+      "pos": [
+        2700,
+        300
+      ]
+    },
+    {
+      "name": "ART_12_ice_transition",
+      "zone": "cidade",
+      "pos": [
+        2800,
+        900
+      ]
+    },
+    {
+      "name": "ART_13_sand_elevation",
+      "zone": "cidade",
+      "pos": [
+        2588,
+        2008
+      ]
+    },
+    {
+      "name": "ART_14_desert_transition",
+      "zone": "cidade",
+      "pos": [
+        1990,
+        1900
+      ]
+    },
+    {
+      "name": "ART_15_earth_elevation",
+      "zone": "cidade",
+      "pos": [
+        2708,
+        900
+      ]
+    },
+    {
+      "name": "ART_16_forest_cliffs",
+      "zone": "cidade",
+      "pos": [
+        300,
+        1350
+      ]
+    },
+    {
+      "name": "ART_17_city_market_npc",
+      "zone": "cidade",
+      "pos": [
+        1550,
+        1250
+      ]
+    },
+    {
+      "name": "ART_18_guild_npc",
+      "zone": "guilda",
+      "pos": [
+        480,
+        430
+      ]
+    },
+    {
+      "name": "ART_19_blacksmith_npc",
+      "zone": "ferreiro",
+      "pos": [
+        760,
+        700
+      ]
+    },
+    {
+      "name": "ART_20_alchemist_npc",
+      "zone": "alquimia",
+      "pos": [
+        480,
+        440
+      ]
+    },
+    {
+      "name": "ART_21_fields_fauna",
+      "zone": "cidade",
+      "pos": [
+        500,
+        2000
+      ]
+    },
+    {
+      "name": "ART_22_forest_fauna",
+      "zone": "cidade",
+      "pos": [
+        300,
+        900
+      ]
+    },
+    {
+      "name": "ART_23_desert_fauna",
+      "zone": "cidade",
+      "pos": [
+        2700,
+        1900
+      ]
+    },
+    {
+      "name": "ART_24_ice_fauna",
+      "zone": "cidade",
+      "pos": [
+        2700,
+        500
+      ]
+    },
+    {
+      "name": "ART_25_river_ground",
+      "zone": "cidade",
+      "pos": [
+        2210,
+        1250
+      ]
+    },
+    {
+      "name": "ART_26_snow_ground",
+      "zone": "cidade",
+      "pos": [
+        2500,
+        700
+      ]
+    },
+    {
+      "name": "ART_27_sand_ground",
+      "zone": "cidade",
+      "pos": [
+        2500,
+        1600
+      ]
+    },
+    {
+      "name": "ART_28_grass_valley_ground",
+      "zone": "cidade",
+      "pos": [
+        1500,
+        1750
+      ]
+    }
+  ]
+}
