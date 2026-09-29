@@ -22,8 +22,8 @@
    "INTEGRATED": 28
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 190,
-   "NOT_USED": 147
+   "INTEGRATED": 197,
+   "NOT_USED": 146
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -220,7 +220,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 917
+  "object_count": 952
  },
  "entries": [
   {
@@ -1002,7 +1002,7 @@
    "group": "interior",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1362,7 +1362,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1641,7 +1641,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 16,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1825,6 +1825,24 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_NAT_ICE_LETTERS",
+   "key": "nat_ice_letters",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_ICE_MONOLITH_ADRIAN",
+   "key": "nat_ice_monolith_adrian",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_NAT_ICE_SPIRE",
    "key": "nat_ice_spire",
    "group": "nature",
@@ -1866,7 +1884,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 8,
+   "placed": 10,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1875,7 +1893,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 5,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2153,7 +2171,7 @@
    "key": "nat_rock_pillars",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
+   "usage": "INTEGRATED",
    "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
@@ -2217,7 +2235,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 7,
+   "placed": 5,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2248,6 +2266,15 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_NAT_SARCOPHAGUS_OPEN",
+   "key": "nat_sarcophagus_open",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_NAT_SCARECROW",
    "key": "nat_scarecrow",
    "group": "nature",
@@ -2263,6 +2290,15 @@
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
    "placed": 5,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_SILK_TREE",
+   "key": "nat_silk_tree",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 7,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2290,6 +2326,15 @@
    "approval": "MODELED_PENDING_GATE",
    "usage": "NOT_USED",
    "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_STONE_CIRCLE",
+   "key": "nat_stone_circle",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2352,7 +2397,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2461,6 +2506,15 @@
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
    "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WEB_GROUND",
+   "key": "nat_web_ground",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 7,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {

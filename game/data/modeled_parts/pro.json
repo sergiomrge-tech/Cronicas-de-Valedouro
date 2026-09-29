@@ -3539,6 +3539,78 @@
   "pipeline": "blender-pro"
  },
  {
+  "id": "nat_ice_letters",
+  "path": "res://assets/modeled/nature/nature/nat_ice_letters.png",
+  "group": "nature",
+  "folder": "nature",
+  "frame_size": [
+   292,
+   252
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   146.0,
+   176.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 14.0,
+  "tags": [
+   "lore",
+   "cartas",
+   "gelo",
+   "gruta"
+  ],
+  "sha256": "7d7e089f7eb56acf1950f2d9c42d72d5e094ad6f9d5e0e9b11d206f671feabd5",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ice_monolith_adrian",
+  "path": "res://assets/modeled/nature/nature/nat_ice_monolith_adrian.png",
+  "group": "nature",
+  "folder": "nature",
+  "frame_size": [
+   352,
+   472
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   176.0,
+   376.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 28.0,
+  "tags": [
+   "lore",
+   "adrian_vale",
+   "gelo",
+   "circulo"
+  ],
+  "sha256": "dbe460743b39acde6ef12096f6b5a14818f1a63fbca1bb5a40df15506ad835c8",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    12
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
   "id": "nat_ice_spire",
   "path": "res://assets/modeled/nature/ice/nat_ice_spire.png",
   "group": "nature",
@@ -5932,6 +6004,47 @@
   "pipeline": "blender-pro"
  },
  {
+  "id": "nat_sarcophagus_open",
+  "path": "res://assets/modeled/nature/nature/nat_sarcophagus_open.png",
+  "group": "nature",
+  "folder": "nature",
+  "frame_size": [
+   372,
+   292
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   186.0,
+   196.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 30.0,
+  "tags": [
+   "lore",
+   "sarcofago",
+   "deserto",
+   "camara"
+  ],
+  "sha256": "df749c1e7908c0bb0735cc2a35a4303e5ec449f563d6e80abd8d85962f4129aa",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    8.5,
+    -4.2,
+    10
+   ],
+   [
+    -8.5,
+    4.2,
+    10
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
   "id": "nat_signpost",
   "path": "res://assets/modeled/nature/props/nat_signpost.png",
   "group": "nature",
@@ -5956,6 +6069,42 @@
   "sha256": "cdb3aacbc847eb346db627ca571724214e0a77e771d77c59f0efa0cb8a4f04f6",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_silk_tree",
+  "path": "res://assets/modeled/nature/nature/nat_silk_tree.png",
+  "group": "nature",
+  "folder": "nature",
+  "frame_size": [
+   392,
+   552
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   196.0,
+   456.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 24.0,
+  "tags": [
+   "lore",
+   "aranha",
+   "bosque",
+   "corrompido"
+  ],
+  "sha256": "fe6aef393ef3651d19fc2aaef9b8a64f5a7b5b9c82861ac0b9b8a9ed3b9c7e2c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10
+   ]
+  ],
   "pipeline": "blender-pro"
  },
  {
@@ -6037,6 +6186,72 @@
   "sha256": "2ec858b875f5597af5d2269160e1a60985715e7836de3d9dca4dc133bca06ebc",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_stone_circle",
+  "path": "res://assets/modeled/nature/nature/nat_stone_circle.png",
+  "group": "nature",
+  "folder": "nature",
+  "frame_size": [
+   572,
+   452
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   286.0,
+   266.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 80.0,
+  "tags": [
+   "lore",
+   "circulo_de_pedras",
+   "ancião",
+   "runas"
+  ],
+  "sha256": "1556abcf60665b28ff207dad72d9995e03dbe6e2244e27ff6d33c986ad24e2d0",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -32.2,
+    30.5,
+    8
+   ],
+   [
+    27.6,
+    31.6,
+    8
+   ],
+   [
+    66.7,
+    8.9,
+    8
+   ],
+   [
+    55.5,
+    -20.5,
+    8
+   ],
+   [
+    2.5,
+    -34.5,
+    8
+   ],
+   [
+    -52.3,
+    -22.5,
+    8
+   ],
+   [
+    -67.8,
+    6.4,
+    8
+   ]
+  ],
   "pipeline": "blender-pro"
  },
  {
@@ -6872,6 +7087,35 @@
     34
    ]
   ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_web_ground",
+  "path": "res://assets/modeled/nature/nature/nat_web_ground.png",
+  "group": "nature",
+  "folder": "nature",
+  "frame_size": [
+   352,
+   252
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   176.0,
+   126.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "lore",
+   "aranha",
+   "teia",
+   "mapa"
+  ],
+  "sha256": "d4e365f535ec40b9c4fd0b934cfefd627bc40cc95b440271fe5b287c19e4455c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
  },
  {

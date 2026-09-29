@@ -411,6 +411,140 @@
    ]
   },
   {
+   "site": "LORE_03 Clareira do Ancião: pedras em círculo com símbolos gastos",
+   "pos": [
+    300,
+    420
+   ],
+   "why": "o círculo de pedras rúnico no centro; o Lobo Ancião guarda o lugar desde antes da guerra",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "1× nat_stone_circle em 70 px (mín 1)"
+    }
+   ]
+  },
+  {
+   "site": "LORE_06 Clareira da Tecelã: teia antiga com resto de mapa",
+   "pos": [
+    1180,
+    200
+   ],
+   "why": "árvores cobertas de seda, casulos e teias no chão",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "4× nat_silk_tree em 200 px (mín 3)"
+    },
+    {
+     "ok": true,
+     "msg": "4× nat_web_ground em 200 px (mín 3)"
+    }
+   ]
+  },
+  {
+   "site": "LORE_07 Santuário: erguido por quem cruzou o Limiar",
+   "pos": [
+    1660,
+    2010
+   ],
+   "why": "obeliscos com a runa do Limiar ladeando o santuário",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "2× nat_obelisk_rune em 150 px (mín 2)"
+    }
+   ]
+  },
+  {
+   "site": "LORE_08 Círculo de gelo: reflexo de Adrian Vale",
+   "pos": [
+    2800,
+    250
+   ],
+   "why": "Adrian Vale, de casaco azul, preso no gelo no centro do círculo",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "1× nat_ice_monolith_adrian em 60 px (mín 1)"
+    }
+   ]
+  },
+  {
+   "site": "LORE_09 Gruta congelada: cartas seladas em gelo",
+   "pos": [
+    3010,
+    120
+   ],
+   "why": "blocos de gelo com cartas seladas ao lado do baú (aparecem com o segredo)",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "2× nat_ice_letters em 120 px (mín 2)"
+    }
+   ]
+  },
+  {
+   "site": "LORE_10 Ruínas das dunas: a mesma runa do bosque",
+   "pos": [
+    2420,
+    2070
+   ],
+   "why": "obelisco rúnico igual ao do Primeiro Vento junto ao altar de areia",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "1× nat_obelisk_rune em 140 px (mín 1)"
+    },
+    {
+     "ok": true,
+     "msg": "1× nat_altar_sand em 120 px (mín 1)"
+    }
+   ]
+  },
+  {
+   "site": "LORE_11 Câmara enterrada: sarcófagos vazios",
+   "pos": [
+    3000,
+    1500
+   ],
+   "why": "sarcófagos abertos e vazios (aparecem com o segredo)",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "2× nat_sarcophagus_open em 140 px (mín 2)"
+    }
+   ]
+  },
+  {
+   "site": "QUEST 03 Contrato dos Lobos: quadro de contratos da Guilda",
+   "pos": [
+    1195,
+    1085
+   ],
+   "why": "quadro de contratos ao ar livre junto da guilda",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "1× int_quest_board em 220 px (mín 1)"
+    }
+   ]
+  },
+  {
+   "site": "Ruan: bandeiras marcam os caminhos seguros",
+   "pos": [
+    2520,
+    1590
+   ],
+   "why": "bandeiras vermelhas ao longo dos ramais do leste",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "13× nat_flag_red em 600 px (mín 6)"
+    }
+   ]
+  },
+  {
    "site": "Poço da cidade",
    "pos": [
     2050,

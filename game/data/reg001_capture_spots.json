@@ -635,5 +635,101 @@
    395
   ],
   "time": 3.7
+ },
+ {
+  "name": "75_lore_clareira_anciao",
+  "zone": "cidade",
+  "pos": [
+   300,
+   480
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "76_lore_tecela_teia",
+  "zone": "cidade",
+  "pos": [
+   1180,
+   262
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "77_lore_adrian_gelo",
+  "zone": "cidade",
+  "pos": [
+   2800,
+   300
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "78_lore_gruta_cartas",
+  "zone": "cidade",
+  "pos": [
+   3010,
+   180
+  ],
+  "time": 3.7,
+  "found": [
+   "REG001_POI_SEGREDO_GELO"
+  ]
+ },
+ {
+  "name": "79_lore_camara_sarcofagos",
+  "zone": "cidade",
+  "pos": [
+   3000,
+   1590
+  ],
+  "time": 3.7,
+  "found": [
+   "REG001_POI_SEGREDO_DUNA"
+  ]
+ },
+ {
+  "name": "80_lore_runa_dunas",
+  "zone": "cidade",
+  "pos": [
+   2440,
+   2170
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "81_lore_santuario_runas",
+  "zone": "cidade",
+  "pos": [
+   1660,
+   2085
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "82_quest_quadro_contratos",
+  "zone": "cidade",
+  "pos": [
+   1190,
+   1120
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "83_bosque_area_corrompida",
+  "zone": "floresta",
+  "pos": [
+   1080,
+   400
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "84_bandeiras_estacao",
+  "zone": "cidade",
+  "pos": [
+   2600,
+   1220
+  ],
+  "time": 3.7
  }
 ]

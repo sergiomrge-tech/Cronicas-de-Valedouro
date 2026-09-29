@@ -89,9 +89,11 @@ for i in range(9):
     if abs(math.sin(a - 1.57)) > .93 and math.cos(a) > 0:
         continue
     W.obj('nat_rock_boulder' if i % 2 == 0 else 'nat_rock_mossy', 300 + math.cos(a) * 185, 420 + math.sin(a) * 140, 'ANCIAO')
-for i in range(5):
-    a = i / 5 * 2 * math.pi + .6
-    W.obj('nat_ruin_column_broken', 300 + math.cos(a) * 96, 424 + math.sin(a) * 66, 'ANCIAO')
+# LORE_03: "as pedras formam um círculo com símbolos gastos pelo tempo" — o círculo de pedras rúnico no centro da clareira
+W.obj('nat_stone_circle', 300, 432, 'ANCIAO', check=False)
+for i in range(3):
+    a = i / 3 * 2 * math.pi + .9
+    W.obj('nat_ruin_column_broken', 300 + math.cos(a) * 168, 432 + math.sin(a) * 118, 'ANCIAO')
 W.obj('nat_chest_rare', 300, 330, 'ANCIAO', poi='REG001_POI_CHEST_ANCIAO')
 W.obj('nat_mushrooms', 250, 470, 'ANCIAO')
 W.obj('nat_bones_desert', 350, 478, 'ANCIAO', solid=False)
@@ -163,6 +165,12 @@ for i in range(8):
 W.obj('nat_chest_rare', 1180, 140, 'ELITE_B', poi='REG001_POI_CHEST_ELITE_BOSQUE')
 W.obj('nat_log_fallen', 1120, 235, 'ELITE_B')
 W.obj('nat_mushrooms', 1250, 240, 'ELITE_B')
+# LORE_06 (Teia antiga): a Tecelã domina a clareira — árvores cobertas de seda e casulos; uma teia no chão guarda restos de um mapa
+for _x, _y in ((1092, 158), (1268, 152), (1108, 262), (1262, 256)):
+    W.obj('nat_silk_tree', _x, _y, 'ELITE_B')
+for _x, _y, _s in ((1180, 214, 1.0), (1112, 208, .8), (1250, 212, .8), (1180, 266, .7)):
+    W.obj('nat_web_ground', _x, _y, 'ELITE_B', scale=_s, solid=False, check=False)
+W.obj('nat_mushrooms', 1130, 148, 'ELITE_B')
 P('REG001_POI_CHEST_ELITE_BOSQUE', 'chest', 'BAÚ DA TECELÃ', 1180, 140, tier=2, layer='secondary', radius=52, region='floresta', show_label=False,
   data={'requires_elite': 'REG001_POI_ELITE_BOSQUE', 'loot': {'gold': 110, 'materials': {'Seda sombria': 4, 'Seiva voraz': 2}, 'item': item('Gibão do Bosque', 'armor', 1, 4, 0, 0, 3), 'potions': 2}})
 
@@ -294,7 +302,7 @@ trail('REG001_TRAIL_ABRIGO', [(2510, 640), (2600, 640), (2660, 610)], note='rama
 
 # --- Pouso da Geada (assentamento de tendas)
 P('REG001_POI_POUSO_GEADA', 'settlement', 'POUSO DA GEADA', 2460, 560, tier=2, layer='main', radius=190, region='gelo',
-  data={'npc': 'hunter', 'name': 'Kaya, Caçadora', 'family': 'hunter', 'lines': ['O golem dorme no círculo de gelo ao norte.', 'Cristais raros crescem onde o vento não chega.']})
+  data={'npc': 'hunter', 'name': 'Kaya, Caçadora', 'family': 'hunter', 'lines': ['O Lobo Boreal guarda o círculo de gelo ao norte. Dizem que o gelo ali guarda também um rosto.', 'Cristais raros crescem onde o vento não chega.']})
 W.obj('nat_tent_frost', 2400, 540, 'POUSO', poi='REG001_POI_POUSO_GEADA')
 W.obj('nat_tent_frost', 2440, 620, 'POUSO')
 W.obj('nat_tent_small', 2380, 610, 'POUSO')
@@ -313,7 +321,7 @@ W.obj('nat_ice_spire', 2440, 470, 'CANYON')
 W.obj('nat_ice_spire', 2660, 480, 'CANYON')
 P('REG001_POI_CANYON_GELO', 'landmark', 'PASSAGEM ESTREITA', 2510, 365, tier=1, layer='secondary', radius=80, region='gelo', data={'hint': 'Uma passagem estreita entre rochas de gelo.'}, show_label=False, clear=60)
 
-# --- Círculo de gelo: elite Golem Ancião
+# --- Círculo de gelo: elite Lobo Boreal (LORE_08: o gelo guarda o reflexo de Adrian Vale)
 P('REG001_POI_ELITE_GELO', 'elite', 'CÍRCULO DE GELO', 2800, 250, tier=3, layer='secondary', radius=180, region='gelo',
   data={'enemy': 'Lobo de Gelo', 'name': 'Lobo Boreal', 'hp_mult': 3.2, 'dmg_mult': 1.4, 'xp_mult': 4.0, 'gold_mult': 4.0, 'trigger': 220,
         'drop': {'materials': {'Cristal gelado': 3}}, 'chest': 'REG001_POI_CHEST_ELITE_GELO', 'lore': 'REG001_LORE_08'})
@@ -322,7 +330,8 @@ for i in range(10):
     if i == 5:
         continue
     W.obj('nat_ice_spire' if i % 2 else 'nat_boulder_ice', 2800 + math.cos(a) * 180, 250 + math.sin(a) * 120, 'ELITE_G')
-W.obj('APP:dungeon_crystal_blue', 2800, 218, 'ELITE_G', scale=.5, solid=False)
+W.obj('nat_ice_monolith_adrian', 2800, 226, 'ELITE_G', check=False)
+W.obj('APP:dungeon_crystal_blue', 2730, 262, 'ELITE_G', scale=.5, solid=False)
 W.obj('nat_chest_rare', 2800, 300, 'ELITE_G', poi='REG001_POI_CHEST_ELITE_GELO')
 W.obj('nat_snow_mound', 2700, 300, 'ELITE_G', solid=False)
 W.emitter('sparkle', 2800, 250, 90)
@@ -399,6 +408,7 @@ W.obj('nat_ruin_arch_sand', 2420, 2040, 'DUNAS_R', solid=False)
 W.collider('circle', 2378, 2044, 16)
 W.collider('circle', 2462, 2044, 16)
 W.obj('nat_altar_sand', 2420, 2120, 'DUNAS_R', poi='REG001_POI_RUINAS_DUNAS', anim=1)
+W.obj('nat_obelisk_rune', 2470, 2126, 'DUNAS_R', anim=1, scale=.8)      # LORE_10: a mesma runa vista no bosque
 W.obj('nat_ruin_column_sand', 2340, 2110, 'DUNAS_R')
 W.obj('nat_ruin_column_sand', 2500, 2100, 'DUNAS_R')
 W.obj('nat_ruin_wall_sand', 2330, 2010, 'DUNAS_R')
@@ -434,6 +444,8 @@ W.obj('nat_dune_large', 3000, 1495, 'SEG_DUNA', hide_when='REG001_POI_SEGREDO_DU
 W.obj('nat_ruin_column_sand', 2965, 1495, 'SEG_DUNA', show_when='REG001_POI_SEGREDO_DUNA', layer='secret_show')
 W.obj('nat_ruin_column_sand', 3035, 1495, 'SEG_DUNA', show_when='REG001_POI_SEGREDO_DUNA', layer='secret_show')
 W.obj('nat_chest_rare', 3000, 1520, 'SEG_DUNA', poi='REG001_POI_CHEST_SEGREDO_DUNA', show_when='REG001_POI_SEGREDO_DUNA', layer='secret_show')
+for _x in (2950, 3055):    # LORE_11: sarcófagos vazios — quem dormia aqui já acordou
+    W.obj('nat_sarcophagus_open', _x, 1548, 'SEG_DUNA', show_when='REG001_POI_SEGREDO_DUNA', layer='secret_show', flip=_x > 3000)
 P('REG001_POI_CHEST_SEGREDO_DUNA', 'chest', 'BAÚ ENTERRADO', 3000, 1520, tier=3, layer='secret', radius=52, region='deserto', show_label=False,
   data={'requires_secret': 'REG001_POI_SEGREDO_DUNA', 'loot': {'gold': 140, 'materials': {'Quitina âmbar': 4}, 'item': item('Espada do Deserto Antigo', 'sword', 2, 8, 3, 10, 0)}})
 
@@ -499,6 +511,7 @@ town('city_bench', 780, 545)
 town('city_bench', 990, 545)
 town('city_monument', 875, 330)
 town('city_sign_hanging', 400, 388)
+town('int_quest_board', 545, 405, scale=.85)          # QUEST 03: quadro de contratos da Guilda (Contrato dos Lobos)
 town('city_sign_hanging', 1160, 388)
 town('city_sign_hanging', 1360, 676)
 town('city_sign_hanging', 396, 682)
@@ -652,6 +665,13 @@ for asset, x, y in [('nat_mushrooms', 300, 650), ('nat_flowers_red', 620, 500), 
                     ('nat_mushrooms', 1350, 700), ('nat_log_fallen', 900, 300), ('nat_stump', 1220, 420), ('nat_rock_mossy', 700, 240),
                     ('nat_flowers_blue', 1600, 720), ('nat_bush_flowering', 220, 420), ('nat_grass_tall', 540, 700), ('nat_grass_tall', 1440, 560)]:
     fo(asset, x, y)
+# QUEST 04 — Sinais no Bosque: a área corrompida (seda, casulos, cogumelos, árvores secas) na bifurcação para a clareira do javali
+for _x, _y in ((1030, 372), (1130, 236), (1190, 372)):
+    fo('nat_silk_tree', _x, _y, solid=None)
+for _x, _y, _s in ((1080, 318, 1.0), (1160, 330, .8), (1000, 300, .7)):
+    fo('nat_web_ground', _x, _y, scale=_s)
+fo('nat_mushrooms', 1050, 340)
+fo('nat_tree_dead', 1110, 380, solid=None)
 fo('nat_campfire', 900, 520, anim=1, solid=None)
 fo('nat_bedroll', 950, 500)
 fo('nat_log_pile', 850, 500)
@@ -860,10 +880,14 @@ W.obj('str_watchtower_stone', 360, 1112, 'MARCO', poi='REG001_POI_MIRANTE_OESTE'
 W.obj('str_watchtower_stone', 1320, 347, 'MARCO', poi='REG001_POI_MIRANTE_NORTE', check=False)
 W.obj('str_windmill', 1110, 1882, 'MARCO', anim=1, check=False)
 W.obj('str_shrine_stone', 1660, 2022, 'MARCO', anim=1, poi='REG001_POI_SANTUARIO_VALE', check=False)
+W.obj('nat_obelisk_rune', 1608, 2062, 'MARCO', anim=1, scale=.7)      # LORE_07: erguido por quem cruzou o Limiar
+W.obj('nat_obelisk_rune', 1712, 2062, 'MARCO', anim=1, scale=.7)
 W.obj('str_outpost_amber', 2690, 1800, 'MARCO', check=False)
 W.obj('str_lodge_ice', 2700, 604, 'MARCO', check=False)
 W.obj('str_watchtower_frost', 2905, 655, 'MARCO', poi='REG001_POI_MIRANTE_GELO', check=False)
 W.obj('str_cave_entrance', 3010, 118, 'SEG_GELO', show_when='REG001_POI_SEGREDO_GELO', layer='secret_show', solid=False, check=False)
+W.obj('nat_ice_letters', 2972, 132, 'SEG_GELO', scale=1.3, show_when='REG001_POI_SEGREDO_GELO', layer='secret_show', solid=False, check=False)
+W.obj('nat_ice_letters', 3052, 138, 'SEG_GELO', scale=1.1, show_when='REG001_POI_SEGREDO_GELO', layer='secret_show', solid=False, check=False, flip=True)
 
 # cachoeira frontal na cabeceira do rio (rochas laterais colidem; a água central já é intransitável)
 W.obj('nat_waterfall_front', geo.river_x(471), 480, 'CACHOEIRA', anim=1, check=False)
@@ -897,6 +921,20 @@ W.obj('str_boat_row', geo.river_x(1400) + 4, 1428, 'CAIS', solid=False, anim=1, 
 W.obj('str_boat_sail', geo.river_x(990) + 20, 1030, 'CAIS', solid=False, anim=1, check=False)
 W.obj('str_boat_row', geo.river_x(2000) + 6, 2040, 'CAIS', solid=False, anim=1, check=False)
 
+
+# Ruan (Estação das Colinas): "siga as bandeiras: elas marcam os caminhos seguros" — bandeiras ao longo dos ramais do leste
+for _t in TRAILS:
+    if _t['id'] in ('REG001_TRAIL_COLINAS', 'REG001_TRAIL_CARAVANA', 'REG001_TRAIL_DUNAS', 'REG001_TRAIL_OASIS'):
+        _acc = 0.0
+        for _a, _b in zip(_t['pts'], _t['pts'][1:]):
+            _L = math.hypot(_b[0] - _a[0], _b[1] - _a[1])
+            _nx, _ny = -(_b[1] - _a[1]) / _L, (_b[0] - _a[0]) / _L
+            _d = 40.0 - _acc
+            while _d < _L:
+                _fx, _fy = _a[0] + (_b[0] - _a[0]) * _d / _L + _nx * (_t['half'] + 14), _a[1] + (_b[1] - _a[1]) * _d / _L + _ny * (_t['half'] + 14)
+                W.obj('nat_flag_red', _fx, _fy, 'BANDEIRAS', anim=1, solid=False, check=False)
+                _d += 150.0
+            _acc = (_acc + _L) % 150.0
 
 # ── RELEVO E LEVEL DESIGN DAS FORMAÇÕES ─────────────────────────────────────────────────────────────
 # Cada formação é composta (cristas, paredões, colinas de pé, platôs com degraus) e colocada peça a peça com
