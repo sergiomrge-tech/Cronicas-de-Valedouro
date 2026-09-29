@@ -2027,5 +2027,451 @@
    0.06
   ],
   "vignette": 0.5
+ },
+ {
+  "id": "LOC_HOLLOW_ROOT_ARENA",
+  "name": "Coração da Raiz Oca — arena",
+  "origin": [
+   380,
+   130
+  ],
+  "story": "Arena feita para o boss: piso com anéis e cunhas de telegráfico, raízes gigantes delimitando o campo, núcleo ao fundo; circulação livre no campo. Ativa até a primeira derrota; depois dormente/purificada; a revanche reativa só a apresentação.",
+  "ground_tint": [
+   0.03,
+   0.04,
+   0.08,
+   0.3
+  ],
+  "water": [],
+  "objects": [
+   {
+    "asset": "flo_hollow_wall_active",
+    "x": 450,
+    "y": 346.0,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant",
+    "x": 450,
+    "y": 346.0,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active",
+    "x": 544,
+    "y": 336.6,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant",
+    "x": 544,
+    "y": 336.6,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active",
+    "x": 638,
+    "y": 327.2,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant",
+    "x": 638,
+    "y": 327.2,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active",
+    "x": 732,
+    "y": 317.8,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant",
+    "x": 732,
+    "y": 317.8,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active",
+    "x": 826,
+    "y": 308.4,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant",
+    "x": 826,
+    "y": 308.4,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active",
+    "x": 920,
+    "y": 311.0,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant",
+    "x": 920,
+    "y": 311.0,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active",
+    "x": 1014,
+    "y": 320.4,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant",
+    "x": 1014,
+    "y": 320.4,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active",
+    "x": 1108,
+    "y": 329.8,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant",
+    "x": 1108,
+    "y": 329.8,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active",
+    "x": 1202,
+    "y": 339.2,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant",
+    "x": 1202,
+    "y": 339.2,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_floor_active",
+    "x": 860,
+    "y": 480,
+    "layer": "ground",
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_floor_dormant",
+    "x": 860,
+    "y": 480,
+    "layer": "ground",
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_core_active",
+    "x": 860,
+    "y": 380,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_core_dormant",
+    "x": 860,
+    "y": 380,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_root_spike",
+    "x": 470,
+    "y": 460,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_root_spike",
+    "x": 1240,
+    "y": 470,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_root_spike",
+    "x": 520,
+    "y": 590,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_root_spike",
+    "x": 1210,
+    "y": 600,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   }
+  ],
+  "captures": [
+   {
+    "name": "FLO_2D_ARENA_PRE_BOSS",
+    "flags": []
+   },
+   {
+    "name": "FLO_2D_ARENA_POS_PRIMEIRA_DERROTA",
+    "flags": [
+     "elites:BOSS_RAIZ_OCA_001"
+    ]
+   },
+   {
+    "name": "FLO_2D_ARENA_REVANCHE_ATIVA",
+    "flags": [
+     "elites:BOSS_RAIZ_OCA_001",
+     "rematch:BOSS_RAIZ_OCA_001"
+    ]
+   }
+  ],
+  "light_shafts": [],
+  "exclusions": [
+   {
+    "circle": [
+     480,
+     340,
+     250
+    ]
+   }
+  ],
+  "ground_solid": [
+   0.06,
+   0.05,
+   0.09
+  ],
+  "vignette": 0.5
+ },
+ {
+  "id": "LOC_HOLLOW_ROOT_ARENA",
+  "name": "Coração da Raiz Oca — aproximação e ferida",
+  "origin": [
+   500,
+   200
+  ],
+  "story": "Acesso: uma ferida aberta na floresta sob/atrás da Árvore-Memória; a corrupção aumenta no caminho (solo escurecido, veios, espinhos). Depois da derrota a ferida cicatriza.",
+  "ground_tint": [
+   0.05,
+   0.1,
+   0.09,
+   0.22
+  ],
+  "water": [],
+  "objects": [
+   {
+    "asset": "flo_hollow_wound_open",
+    "x": 1260,
+    "y": 550,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wound_healing",
+    "x": 1260,
+    "y": 550,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_ground_light",
+    "x": 900,
+    "y": 600,
+    "layer": "ground",
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_ground_light",
+    "x": 980,
+    "y": 610,
+    "layer": "ground",
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_ground_light",
+    "x": 850,
+    "y": 580,
+    "layer": "ground",
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_ground_heavy",
+    "x": 1080,
+    "y": 585,
+    "layer": "ground",
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_ground_heavy",
+    "x": 1140,
+    "y": 570,
+    "layer": "ground",
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_ground_heavy",
+    "x": 1060,
+    "y": 540,
+    "layer": "ground",
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_ground_heavy",
+    "x": 1180,
+    "y": 600,
+    "layer": "ground",
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_root_spike",
+    "x": 1060,
+    "y": 630,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_root_spike",
+    "x": 1190,
+    "y": 500,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_corrupt_root_spike",
+    "x": 1120,
+    "y": 655,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "nat_tree_dead",
+    "x": 1110,
+    "y": 460,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "nat_tree_dead",
+    "x": 970,
+    "y": 450,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_ancient_tree_a",
+    "x": 610,
+    "y": 430,
+    "scale": 0.7
+   },
+   {
+    "asset": "flo_ancient_tree_b",
+    "x": 800,
+    "y": 370,
+    "scale": 0.6
+   },
+   {
+    "asset": "flo_ancient_tree_a",
+    "x": 1400,
+    "y": 410,
+    "scale": 0.7,
+    "flip": true
+   },
+   {
+    "asset": "flo_stone_moss",
+    "x": 730,
+    "y": 640
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 667.1,
+    "y": 514.7,
+    "flip": true
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 601.1,
+    "y": 273.7
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 748.2,
+    "y": 537.8
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 621.8,
+    "y": 334.8,
+    "flip": true
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 554.1,
+    "y": 710.7
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 691.4,
+    "y": 349.6,
+    "flip": true
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 677.1,
+    "y": 277.8
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 574.2,
+    "y": 487.2
+   }
+  ],
+  "captures": [
+   {
+    "name": "FLO_2D_FERIDA_PRE_BOSS",
+    "flags": []
+   },
+   {
+    "name": "FLO_2D_FERIDA_POS_PRIMEIRA_DERROTA",
+    "flags": [
+     "elites:BOSS_RAIZ_OCA_001"
+    ]
+   }
+  ],
+  "light_shafts": [],
+  "exclusions": [
+   {
+    "rect": [
+     0,
+     400,
+     700,
+     50
+    ]
+   },
+   {
+    "circle": [
+     740,
+     330,
+     130
+    ]
+   }
+  ],
+  "trails": [
+   {
+    "pts": [
+     [
+      480,
+      630
+     ],
+     [
+      700,
+      620
+     ],
+     [
+      900,
+      610
+     ],
+     [
+      1100,
+      590
+     ],
+     [
+      1200,
+      550
+     ]
+    ],
+    "half": 18,
+    "seed": 6
+   }
+  ],
+  "vignette": 0.35
  }
 ]

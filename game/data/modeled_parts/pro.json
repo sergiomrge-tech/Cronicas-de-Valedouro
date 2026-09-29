@@ -843,6 +843,105 @@
   "pipeline": "blender-pro"
  },
  {
+  "id": "flo_corrupt_ground_heavy",
+  "path": "res://assets/modeled/nature/ato2/flo_corrupt_ground_heavy.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   472,
+   272
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   136.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "corrupcao",
+   "nivel2",
+   "chao"
+  ],
+  "sha256": "2f288530c582c1111a6e91f3d0f5d794723950ff7a3509194feaf2cb302d88ba",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_corrupt_ground_light",
+  "path": "res://assets/modeled/nature/ato2/flo_corrupt_ground_light.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   472,
+   272
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   136.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "corrupcao",
+   "nivel1",
+   "chao"
+  ],
+  "sha256": "911958972fb5caef329fa9dfc5cf4f086bb5407b62bd64ac432b3b65ee8db8ea",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_corrupt_root_spike",
+  "path": "res://assets/modeled/nature/ato2/flo_corrupt_root_spike.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   292,
+   372
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   146.0,
+   276.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 14.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "corrupcao",
+   "espinho"
+  ],
+  "sha256": "709de6b33c2c9eabcb9ba0db342c663eb68c17075e9c8b0129cb15ee8241d341",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
   "id": "flo_fern_patch",
   "path": "res://assets/modeled/nature/ato2/flo_fern_patch.png",
   "group": "nature",
@@ -1094,6 +1193,358 @@
     22.0,
     3.8,
     15.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_hollow_core_active",
+  "path": "res://assets/modeled/nature/ato2/flo_hollow_core_active.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   752,
+   812
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   376.0,
+   586.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 80.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "boss",
+   "nucleo",
+   "estado_ativo"
+  ],
+  "sha256": "9239873982073a352cc19af19efc418fc6632abbf8ec1c14f3ba189d3b5214c2",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    20
+   ],
+   [
+    -31.8,
+    15.9,
+    20
+   ],
+   [
+    31.8,
+    -15.9,
+    20
+   ],
+   [
+    31.8,
+    15.9,
+    20
+   ],
+   [
+    -31.8,
+    -15.9,
+    20
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_hollow_core_dormant",
+  "path": "res://assets/modeled/nature/ato2/flo_hollow_core_dormant.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   752,
+   812
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   376.0,
+   586.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 80.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "boss",
+   "nucleo",
+   "estado_dormente"
+  ],
+  "sha256": "07d51d9693f237ac2038f385ccb6a98925534279730b38a037a83519c0be6c51",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    20
+   ],
+   [
+    -31.8,
+    15.9,
+    20
+   ],
+   [
+    31.8,
+    -15.9,
+    20
+   ],
+   [
+    31.8,
+    15.9,
+    20
+   ],
+   [
+    -31.8,
+    -15.9,
+    20
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_hollow_floor_active",
+  "path": "res://assets/modeled/nature/ato2/flo_hollow_floor_active.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   1012,
+   552
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   506.0,
+   276.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "boss",
+   "arena",
+   "piso",
+   "estado_ativo"
+  ],
+  "sha256": "55eac3c75d7ea42377519cb77cc6c32b4ea99a076058efbfa5ef5cee457e5171",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_hollow_floor_dormant",
+  "path": "res://assets/modeled/nature/ato2/flo_hollow_floor_dormant.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   1012,
+   552
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   506.0,
+   276.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "boss",
+   "arena",
+   "piso",
+   "estado_dormente"
+  ],
+  "sha256": "b7dd3f35cd9b34b29d44634bfeb1aae0950659b8213b3b0bbccb29cc76143268",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_hollow_wall_active",
+  "path": "res://assets/modeled/nature/ato2/flo_hollow_wall_active.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   492,
+   632
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   246.0,
+   486.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "boss",
+   "parede",
+   "modular",
+   "estado_ativo"
+  ],
+  "sha256": "f6052243875504d405e8c4934433c0382f6057eafab13569cf05eba0e9c26863",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_hollow_wall_dormant",
+  "path": "res://assets/modeled/nature/ato2/flo_hollow_wall_dormant.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   492,
+   632
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   246.0,
+   486.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "boss",
+   "parede",
+   "modular",
+   "estado_dormente"
+  ],
+  "sha256": "f9624e2984b2ab6512e1cfb18dabfd36b9a2edf448b4ab49366dcc3534743cb3",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_hollow_wound_healing",
+  "path": "res://assets/modeled/nature/ato2/flo_hollow_wound_healing.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   772,
+   532
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   386.0,
+   286.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 60.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "boss",
+   "acesso",
+   "ferida",
+   "estado_dormente"
+  ],
+  "sha256": "0ac2806c2b510a9f42780cb61484ed46c3dc3c1253ad6a4c70d96061a492aee5",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    55.2,
+    -27.6,
+    14
+   ],
+   [
+    -55.2,
+    27.6,
+    14
+   ],
+   [
+    -55.2,
+    -27.6,
+    14
+   ],
+   [
+    55.2,
+    27.6,
+    14
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_hollow_wound_open",
+  "path": "res://assets/modeled/nature/ato2/flo_hollow_wound_open.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   772,
+   532
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   386.0,
+   286.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 60.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "boss",
+   "acesso",
+   "ferida",
+   "estado_ativo"
+  ],
+  "sha256": "5630b26bfe3c8f68a109f66f552eadec60e66bd6feebd39bd5e5abed2fbed11d",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    55.2,
+    -27.6,
+    14
+   ],
+   [
+    -55.2,
+    27.6,
+    14
+   ],
+   [
+    -55.2,
+    -27.6,
+    14
+   ],
+   [
+    55.2,
+    27.6,
+    14
    ]
   ],
   "pipeline": "blender-pro"

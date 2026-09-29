@@ -23,7 +23,7 @@
   },
   "MODELED_PENDING_GATE": {
    "INTEGRATED": 248,
-   "NOT_USED": 192
+   "NOT_USED": 203
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -858,6 +858,33 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_FLO_CORRUPT_GROUND_HEAVY",
+   "key": "flo_corrupt_ground_heavy",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CORRUPT_GROUND_LIGHT",
+   "key": "flo_corrupt_ground_light",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CORRUPT_ROOT_SPIKE",
+   "key": "flo_corrupt_root_spike",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_FLO_FERN_PATCH",
    "key": "flo_fern_patch",
    "group": "nature",
@@ -914,6 +941,78 @@
   {
    "id": "MOD_FLO_HERB_BENCH",
    "key": "flo_herb_bench",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_CORE_ACTIVE",
+   "key": "flo_hollow_core_active",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_CORE_DORMANT",
+   "key": "flo_hollow_core_dormant",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_FLOOR_ACTIVE",
+   "key": "flo_hollow_floor_active",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_FLOOR_DORMANT",
+   "key": "flo_hollow_floor_dormant",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_ACTIVE",
+   "key": "flo_hollow_wall_active",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_DORMANT",
+   "key": "flo_hollow_wall_dormant",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WOUND_HEALING",
+   "key": "flo_hollow_wound_healing",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WOUND_OPEN",
+   "key": "flo_hollow_wound_open",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "NOT_USED",

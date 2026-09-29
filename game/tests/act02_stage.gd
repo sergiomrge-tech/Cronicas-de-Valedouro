@@ -21,7 +21,10 @@ func set_scene(composition: Dictionary, active_flags: Array) -> void:
 func flag_on(key: String) -> bool:
 	# "!flag" = flag ausente
 	if key.begins_with("!"):
-		return not flags.has(key.substr(1))
+		return not flag_on(key.substr(1))
+	# revanche: "rematch:<ID>" faz a leitura VISUAL de "elites:<ID>" (primeira derrota, persistente) valer como falsa, sem apagar o estado (igual a REG.rematch_boss)
+	if key.begins_with("elites:") and flags.has("rematch:" + key.substr(7)):
+		return false
 	return flags.has(key)
 
 func visible_obj(o: Dictionary) -> bool:

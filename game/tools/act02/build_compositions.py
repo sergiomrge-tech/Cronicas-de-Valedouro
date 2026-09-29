@@ -265,6 +265,54 @@ h.shot('FLO_2C_CORACAO_DORMENTE', [])
 h.shot('FLO_2C_CORACAO_MEMORIA_ATIVA', ['quest:Q_MS02_MEMORY_TREE:active'])
 comps.append(h.d)
 
+# ============================================================== LOC_HOLLOW_ROOT_ARENA (Q_MS02_HOLLOW_ROOT, BOSS_RAIZ_OCA_001)
+# Regra do Guardião aplicada: primeira derrota = flag persistente "elites:BOSS_RAIZ_OCA_001"; revanche = leitura visual temporária ("rematch:<ID>").
+BOSS = 'elites:BOSS_RAIZ_OCA_001'
+a = Comp('LOC_HOLLOW_ROOT_ARENA', 'Coração da Raiz Oca — arena', (380, 130),
+         'Arena feita para o boss: piso com anéis e cunhas de telegráfico, raízes gigantes delimitando o campo, núcleo ao fundo; circulação livre no campo. Ativa até a primeira derrota; depois dormente/purificada; a revanche reativa só a apresentação.', tint=(.03, .04, .08, .3))
+a.d['ground_solid'] = [.06, .05, .09]
+a.exclude_circle(480, 340, 250)                        # campo de combate livre de props
+for x in range(70, 900, 94):                          # parede de raízes ao fundo (arco norte)
+    y = 175 + abs(x - 480) * .1
+    a.add('flo_hollow_wall_active', x, y, hide_when=BOSS)
+    a.add('flo_hollow_wall_dormant', x, y, show_when=BOSS)
+a.add('flo_hollow_floor_active', 480, 350, layer='ground', hide_when=BOSS)
+a.add('flo_hollow_floor_dormant', 480, 350, layer='ground', show_when=BOSS)
+a.add('flo_hollow_core_active', 480, 250, hide_when=BOSS)
+a.add('flo_hollow_core_dormant', 480, 250, show_when=BOSS)
+for x, y in ((90, 330), (860, 340), (140, 460), (830, 470)):    # espinhos só no estado ativo (nunca dentro do campo)
+    a.add('flo_corrupt_root_spike', x, y, hide_when=BOSS)
+a.d['vignette'] = .5
+a.shot('FLO_2D_ARENA_PRE_BOSS', [])
+a.shot('FLO_2D_ARENA_POS_PRIMEIRA_DERROTA', [BOSS])
+a.shot('FLO_2D_ARENA_REVANCHE_ATIVA', [BOSS, 'rematch:BOSS_RAIZ_OCA_001'])
+comps.append(a.d)
+
+w = Comp('LOC_HOLLOW_ROOT_ARENA', 'Coração da Raiz Oca — aproximação e ferida', (500, 200),
+         'Acesso: uma ferida aberta na floresta sob/atrás da Árvore-Memória; a corrupção aumenta no caminho (solo escurecido, veios, espinhos). Depois da derrota a ferida cicatriza.', tint=(.05, .1, .09, .22))
+w.exclude_rect(0, 400, 700, 50)
+w.exclude_circle(740, 330, 130)
+w.trail([(-20, 430), (200, 420), (400, 410), (600, 390), (700, 350)], half=18, seed=6)
+w.add('flo_hollow_wound_open', 760, 350, hide_when=BOSS)
+w.add('flo_hollow_wound_healing', 760, 350, show_when=BOSS)
+for x, y in ((400, 400), (480, 410), (350, 380)):
+    w.add('flo_corrupt_ground_light', x, y, layer='ground', hide_when=BOSS)
+for x, y in ((580, 385), (640, 370), (560, 340), (680, 400)):
+    w.add('flo_corrupt_ground_heavy', x, y, layer='ground', hide_when=BOSS)
+for x, y in ((560, 430), (690, 300), (620, 455)):
+    w.add('flo_corrupt_root_spike', x, y, hide_when=BOSS)
+w.add('nat_tree_dead', 610, 260, hide_when=BOSS)
+w.add('nat_tree_dead', 470, 250, hide_when=BOSS)
+w.add('flo_ancient_tree_a', 110, 230, scale=.7)
+w.add('flo_ancient_tree_b', 300, 170, scale=.6)
+w.add('flo_ancient_tree_a', 900, 210, scale=.7, flip=True)
+w.add('flo_stone_moss', 230, 440)
+w.scatter(['flo_fern_patch', 'flo_glow_mushrooms', 'nat_bush_green'], 8, (20, 60, 360, 470), 44, min_d=50)
+w.d['vignette'] = .35
+w.shot('FLO_2D_FERIDA_PRE_BOSS', [])
+w.shot('FLO_2D_FERIDA_POS_PRIMEIRA_DERROTA', [BOSS])
+comps.append(w.d)
+
 # ------------------------------------------------------------------ saída
 # flags negativas: "!<flag>" em show_when/hide_when é resolvido pelo palco/Gerente como "flag ausente"
 json.dump(comps, open(OUT, 'w'), ensure_ascii=False, indent=1)
