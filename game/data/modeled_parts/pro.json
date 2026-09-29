@@ -23401,6 +23401,162 @@
   "pipeline": "blender-pro"
  },
  {
+  "id": "val_town_house_blue",
+  "path": "res://assets/modeled/city/ato1/val_town_house_blue.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   812,
+   872
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   636.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 90.0,
+  "tags": [
+   "ato1",
+   "casa",
+   "cidade",
+   "correcao_estrutural",
+   "original"
+  ],
+  "sha256": "7f7946597705056e347ccebccef135359954117ed920a7ef31c48cb25c4548a1",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -30.0,
+    30.0
+   ],
+   [
+    -55.0,
+    -5.0,
+    26.0
+   ],
+   [
+    55.0,
+    -5.0,
+    26.0
+   ],
+   [
+    0.0,
+    20.0,
+    26.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_town_house_red",
+  "path": "res://assets/modeled/city/ato1/val_town_house_red.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   812,
+   872
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   636.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 90.0,
+  "tags": [
+   "ato1",
+   "casa",
+   "cidade",
+   "correcao_estrutural",
+   "original"
+  ],
+  "sha256": "1f95a0a977ed45cdb281fa4f75b80bfb750836bb8097b99993c3959e85216d0b",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -30.0,
+    30.0
+   ],
+   [
+    -55.0,
+    -5.0,
+    26.0
+   ],
+   [
+    55.0,
+    -5.0,
+    26.0
+   ],
+   [
+    0.0,
+    20.0,
+    26.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_town_house_wood",
+  "path": "res://assets/modeled/city/ato1/val_town_house_wood.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   812,
+   872
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   636.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 90.0,
+  "tags": [
+   "ato1",
+   "casa",
+   "cidade",
+   "correcao_estrutural",
+   "original"
+  ],
+  "sha256": "c949f99b4c7100fd636410ef78440010d93b5f89d64f0142a8fd0068f0ffa9d6",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -30.0,
+    30.0
+   ],
+   [
+    -55.0,
+    -5.0,
+    26.0
+   ],
+   [
+    55.0,
+    -5.0,
+    26.0
+   ],
+   [
+    0.0,
+    20.0,
+    26.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
   "id": "val_training_dummy",
   "path": "res://assets/modeled/city/ato1/val_training_dummy.png",
   "group": "city",

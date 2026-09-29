@@ -1142,27 +1142,18 @@ func draw_approved_tree(ground: Vector2, autumn: bool = false, scale_factor: flo
 	draw_approved_cast(tree_key, ground, scale_factor, CAST.ALPHA_TREE)
 	draw_approved_visual(tree_key, ground, scale_factor)
 
-func draw_house_body(ground: Vector2) -> void:
-	# Corpo de pedra contínuo atrás da porta/janela APPROVED (sem ele o telhado flutua). Modelado no Lote 1 (val_house_body).
-	var tex: Texture2D = MODELED.texture("val_house_body")
+func draw_approved_house(ground: Vector2, roof_key: String) -> void:
+	# Casa modelada inteira (Lote 1 / correção estrutural): corpo, porta, janela e telhado numa peça só, sem telhado flutuante.
+	var asset_id: String = "val_town_house_blue" if roof_key == "city_roof_blue" else "val_town_house_red" if roof_key == "city_roof_red" else "val_town_house_wood"
+	var tex: Texture2D = MODELED.texture(asset_id)
 	if tex == null:
 		return
-	var e: Dictionary = MODELED.entry("val_house_body")
+	var e: Dictionary = MODELED.entry(asset_id)
 	var fs: Array = e["frame_size"]
 	var foot: Array = e["foot"]
 	var s: float = float(e["draw_scale"])
-	draw_texture_rect(tex, Rect2(ground + Vector2(0, -4) - Vector2(float(foot[0]) * s, float(foot[1]) * s), Vector2(float(fs[0]) * s, float(fs[1]) * s)), false)
-
-func draw_approved_house(ground: Vector2, roof_key: String) -> void:
-	# Composição feita exclusivamente com módulos APPROVED.
-	var roof_height: float = 150.0
-	if approved_visuals.has(roof_key):
-		roof_height = (approved_visuals[roof_key] as Texture2D).get_size().y * .52 + 56.0
-	CAST.box(self, ground + Vector2(0, 4), 86.0, roof_height)
-	draw_house_body(ground)
-	draw_approved_visual("city_house_door", ground + Vector2(-42, 0), .52)
-	draw_approved_visual("city_house_window", ground + Vector2(43, 0), .52)
-	draw_approved_visual(roof_key, ground + Vector2(0, -78), .52)
+	CAST.box(self, ground + Vector2(0, 4), 100.0, 210.0)
+	draw_texture_rect(tex, Rect2(ground - Vector2(float(foot[0]) * s, float(foot[1]) * s), Vector2(float(fs[0]) * s, float(fs[1]) * s)), false)
 
 func draw_approved_town(camera: Vector2) -> void:
 	var visible_area: Rect2 = Rect2(camera - Vector2(170, 170), VIEW_SIZE + Vector2(340, 340))

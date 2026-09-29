@@ -133,13 +133,10 @@ class World:
             self.obj(self.rnd.choice(assets), x, y, group, **kw)
 
     def house(self, x, y, roof, group, poi=None, zone='cidade', ruined=False):
-        """Casa composta só por módulos APPROVED (porta + janela + telhado), com colisão de base."""
-        s = .52
-        self.obj('val_house_body', x, y - 4, group, zone=zone, poi=poi, solid=False, check=False)      # corpo contínuo: o telhado não flutua entre porta e janela
-        self.obj('APP:city_house_door', x - 42, y, group, zone=zone, poi=poi, scale=s, solid=False, check=False)
-        self.obj('APP:city_house_window', x + 43, y, group, zone=zone, poi=poi, scale=s, solid=False, check=False)
-        self.obj('APP:' + roof, x, y - 78, group, zone=zone, poi=poi, scale=s, sy=y + 1, solid=False, check=False)
-        self.collider('rect', x - 88, y - 38, 176, 44, zone=zone, poi=poi)
+        """Casa da cidade: UMA peça modelada inteira (corpo, porta, janela, madeiramento e telhado ancorado nas paredes), com colisão de base."""
+        asset = {'city_roof_blue': 'val_town_house_blue', 'city_roof_red': 'val_town_house_red', 'city_roof_wood': 'val_town_house_wood'}.get(roof, 'val_town_house_wood')
+        self.obj(asset, x, y, group, zone=zone, poi=poi, solid=False, check=False)
+        self.collider('rect', x - 80, y - 42, 160, 48, zone=zone, poi=poi)      # planta vista em 3/4
 
     def collider(self, kind, a, b, c, d=None, zone='cidade', poi=None, hide_when=None):
         col = {'kind': kind, 'zone': zone}

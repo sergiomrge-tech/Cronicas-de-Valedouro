@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (28): Lote 01, únicos aprovados pelo Diretor. Cidade 15 + Dungeon 13.
-- **MODELED_PENDING_GATE** (697): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (700): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -13,8 +13,8 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
-| APPROVED | 28 | 0 |
-| MODELED_PENDING_GATE | 259 | 438 |
+| APPROVED | 26 | 2 |
+| MODELED_PENDING_GATE | 265 | 435 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -223,7 +223,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_cliff_end_rock_am` | INTEGRATED | 2 |
 | `nat_cliff_end_rock_ap` | NOT_USED | 0 |
 | `nat_cliff_end_rock_bm` | NOT_USED | 0 |
-| `nat_cliff_end_rock_bp` | INTEGRATED | 4 |
+| `nat_cliff_end_rock_bp` | INTEGRATED | 3 |
 | `nat_cliff_end_sand_am` | NOT_USED | 0 |
 | `nat_cliff_end_sand_ap` | NOT_USED | 0 |
 | `nat_cliff_end_sand_bm` | NOT_USED | 0 |
@@ -267,8 +267,8 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_fence_wood_a_a1` | NOT_USED | 0 |
 | `nat_fence_wood_a_a2` | NOT_USED | 0 |
 | `nat_fence_wood_a_a3` | INTEGRATED | 2 |
-| `nat_fence_wood_a_a4` | INTEGRATED | 1 |
-| `nat_fence_wood_a_a5` | INTEGRATED | 1 |
+| `nat_fence_wood_a_a4` | INTEGRATED | 2 |
+| `nat_fence_wood_a_a5` | INTEGRATED | 2 |
 | `nat_fence_wood_a_a6` | NOT_USED | 0 |
 | `nat_fence_wood_a_a7` | NOT_USED | 0 |
 | `nat_fence_wood_a_c0` | NOT_USED | 0 |
@@ -301,14 +301,14 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_hay_stack` | INTEGRATED | 4 |
 | `nat_hill_earth` | INTEGRATED | 2 |
 | `nat_hill_ice` | NOT_USED | 0 |
-| `nat_hill_low_earth` | INTEGRATED | 5 |
+| `nat_hill_low_earth` | INTEGRATED | 4 |
 | `nat_hill_low_ice` | INTEGRATED | 7 |
-| `nat_hill_low_rock` | INTEGRATED | 15 |
+| `nat_hill_low_rock` | INTEGRATED | 14 |
 | `nat_hill_low_sand` | INTEGRATED | 4 |
 | `nat_hill_sand` | NOT_USED | 0 |
-| `nat_hill_wide_earth` | INTEGRATED | 5 |
+| `nat_hill_wide_earth` | INTEGRATED | 4 |
 | `nat_hill_wide_ice` | INTEGRATED | 1 |
-| `nat_hill_wide_rock` | INTEGRATED | 3 |
+| `nat_hill_wide_rock` | INTEGRATED | 2 |
 | `nat_hill_wide_sand` | INTEGRATED | 3 |
 | `nat_ice_letters` | INTEGRATED | 2 |
 | `nat_ice_monolith_adrian` | INTEGRATED | 1 |
@@ -319,17 +319,17 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_mushrooms` | INTEGRATED | 10 |
 | `nat_obelisk_rune` | INTEGRATED | 5 |
 | `nat_pit_trap` | INTEGRATED | 2 |
-| `nat_plateau_earth_m` | NOT_USED | 0 |
+| `nat_plateau_earth_m` | INTEGRATED | 1 |
 | `nat_plateau_earth_s` | INTEGRATED | 3 |
 | `nat_plateau_ice_m` | INTEGRATED | 1 |
 | `nat_plateau_ice_s` | INTEGRATED | 1 |
 | `nat_plateau_rock_m` | INTEGRATED | 2 |
-| `nat_plateau_rock_s` | INTEGRATED | 2 |
+| `nat_plateau_rock_s` | INTEGRATED | 3 |
 | `nat_plateau_sand_m` | NOT_USED | 0 |
 | `nat_plateau_sand_s` | INTEGRATED | 1 |
 | `nat_ramp_earth` | INTEGRATED | 3 |
 | `nat_ramp_ice` | NOT_USED | 0 |
-| `nat_ramp_rock` | INTEGRATED | 1 |
+| `nat_ramp_rock` | INTEGRATED | 2 |
 | `nat_ramp_sand` | INTEGRATED | 2 |
 | `nat_reeds` | INTEGRATED | 14 |
 | `nat_res_crystal` | INTEGRATED | 3 |
@@ -339,8 +339,8 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_ridge_earth_b` | INTEGRATED | 1 |
 | `nat_ridge_ice_a` | INTEGRATED | 3 |
 | `nat_ridge_ice_b` | INTEGRATED | 4 |
-| `nat_ridge_rock_a` | INTEGRATED | 3 |
-| `nat_ridge_rock_b` | INTEGRATED | 6 |
+| `nat_ridge_rock_a` | INTEGRATED | 5 |
+| `nat_ridge_rock_b` | INTEGRATED | 5 |
 | `nat_ridge_sand_a` | INTEGRATED | 2 |
 | `nat_ridge_sand_b` | INTEGRATED | 4 |
 | `nat_rock_arch_natural` | NOT_USED | 0 |
@@ -458,7 +458,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_wolf_bones` | INTEGRATED | 3 |
 | `val_wolf_den` | INTEGRATED | 1 |
 
-### city (104)
+### city (107)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -523,11 +523,14 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_barricade_b_c3` | NOT_USED | 0 |
 | `val_crown_monument` | INTEGRATED | 2 |
 | `val_gate_main` | INTEGRATED | 1 |
-| `val_gate_tower` | INTEGRATED | 2 |
+| `val_gate_tower` | INTEGRATED | 7 |
 | `val_guild_hall` | INTEGRATED | 1 |
-| `val_house_body` | INTEGRATED | 21 |
+| `val_house_body` | NOT_USED | 0 |
 | `val_notice_board` | INTEGRATED | 1 |
 | `val_supply_stack` | INTEGRATED | 3 |
+| `val_town_house_blue` | INTEGRATED | 6 |
+| `val_town_house_red` | INTEGRATED | 6 |
+| `val_town_house_wood` | INTEGRATED | 9 |
 | `val_training_dummy` | INTEGRATED | 2 |
 | `val_wall_breach` | INTEGRATED | 1 |
 | `val_wall_breach_a1` | NOT_USED | 0 |
@@ -555,11 +558,11 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_wall_repaired_c3` | NOT_USED | 0 |
 | `val_wall_segment` | NOT_USED | 0 |
 | `val_wall_segment_a1` | NOT_USED | 0 |
-| `val_wall_segment_a2` | NOT_USED | 0 |
+| `val_wall_segment_a2` | INTEGRATED | 15 |
 | `val_wall_segment_a3` | NOT_USED | 0 |
 | `val_wall_segment_a4` | NOT_USED | 0 |
-| `val_wall_segment_a5` | NOT_USED | 0 |
-| `val_wall_segment_a6` | NOT_USED | 0 |
+| `val_wall_segment_a5` | INTEGRATED | 4 |
+| `val_wall_segment_a6` | INTEGRATED | 15 |
 | `val_wall_segment_a7` | NOT_USED | 0 |
 | `val_wall_segment_c0` | NOT_USED | 0 |
 | `val_wall_segment_c1` | NOT_USED | 0 |
@@ -668,8 +671,8 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `city_wall` | INTEGRATED |
 | `city_wall_vegetation` | INTEGRATED |
 | `city_gate` | INTEGRATED |
-| `city_house_door` | INTEGRATED |
-| `city_house_window` | INTEGRATED |
+| `city_house_door` | NOT_USED |
+| `city_house_window` | NOT_USED |
 | `city_roof_blue` | INTEGRATED |
 | `city_roof_red` | INTEGRATED |
 | `city_roof_wood` | INTEGRATED |
@@ -692,5 +695,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 67 (`REG001_POI_*`); objetos: 1138 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 21; passagens: 3; fragmentos de lore: 12.
+- POIs: 67 (`REG001_POI_*`); objetos: 1102 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 21; passagens: 3; fragmentos de lore: 12.
 

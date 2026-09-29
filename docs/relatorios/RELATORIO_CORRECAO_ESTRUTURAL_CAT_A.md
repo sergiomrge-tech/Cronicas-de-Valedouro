@@ -36,6 +36,16 @@ A primeira versão do kit existia como assets, mas as cenas ainda usavam as peç
 - Prefixos dos assets legados (`nat_fence_*` na fazenda/moinho/estação/casa abandonada) ainda usam `iso_run` retilíneo; migrar para `krun`.
 - 17 avisos de sombra na borda: aceitos.
 
-## Correção adicional: casas da cidade com telhado flutuante
-Diagnóstico: as casas eram só três peças APPROVED (porta, janela, telhado) sem parede entre elas, então o telhado ficava solto no ar. Correção: novo `val_house_body` (parede contínua de pedra, 4,6 u × 3,5 u) atrás de porta/janela e sob o telhado, usado em todas as `W.house()` do mundo e no desenho legado (`draw_house_body` em `main.gd`). O render passa por `tint_house_body.py` (paleta bege sombreada, amostrada das peças APPROVED). Suíte 17/17. Captura: `CASAS_cidade_telhado_ancorado.jpg`.
-Limite: a parede é um fundo liso; para o Diretor decidir se prefere uma casa modelada inteira (corpo + janelas + telhado) no lugar das três peças.
+## Correção adicional: casas inteiras modeladas (telhado não flutua mais)
+Diagnóstico: as casas eram três peças APPROVED soltas (porta, janela, telhado) desenhadas de frente, e o telhado ficava sem apoio. O primeiro remendo (parede atrás) foi rejeitado pelo Diretor.
+Correção: casa **original modelada inteira** (`val_town_house_blue/_red/_wood`), vista em 3/4 com duas fachadas reais:
+- térreo de pedra com cunhais, andar em enxaimel com balanço e cachorros;
+- porta em arco com dobradiças, degraus e lanterna; janelas com venezianas, montantes e floreiras;
+- telhado em fiadas de telhas com relevo real, apoiado nas paredes, com cumeeira, empena com óculo, água-furtada e chaminé;
+- barril, caixotes, lenha e hera ao redor;
+- três telhados diferentes: ardósia azul, telha de barro e ripas de madeira.
+Aplicada em **todas as 21 casas do mapa**: cidade, vila dos campos, aldeia do vale, estação, fazenda e casa abandonada (via `W.house()`), e nas casas legadas de `main.gd`. Colisão ajustada à planta, sem bloquear rotas. `audit_logic.py`: 0 falhas.
+
+## Correção adicional: muralha sul sem ângulo
+As peças APPROVED retas e frontais da muralha sul foram trocadas pelo **kit modelado `val_wall_segment`** em traçado de dentes nos eixos isométricos (±26,6°), com baluartes (`val_gate_tower`) nos cantos, peças levemente sobrepostas (sem frestas) e o vão do portão sul mantido. Rotas: `world_travel` PASS.
+Suíte Godot: **17/17 PASS**. Capturas: `CASAS_modeladas_cidade.jpg`, `CASA_abandonada_modelada.jpg`, `MURALHA_SUL_angulada.jpg`, `KIT_casa_3_telhados_render.jpg`.

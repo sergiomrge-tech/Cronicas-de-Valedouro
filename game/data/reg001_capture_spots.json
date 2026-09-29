@@ -1003,5 +1003,14 @@
    1150
   ],
   "time": 3.7
+ },
+ {
+  "name": "QA_MURALHA_SUL",
+  "zone": "cidade",
+  "pos": [
+   1500,
+   1470
+  ],
+  "time": 3.7
  }
 ]

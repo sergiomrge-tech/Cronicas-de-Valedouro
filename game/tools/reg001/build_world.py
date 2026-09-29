@@ -35,7 +35,7 @@ def krun(family, pts, group, **kw):
             continue
         want = _m.degrees(_m.atan2(dy, dx)) % 180.0
         deg, vid, v = min(vs, key=lambda t: min(abs(t[0] - want), 180 - abs(t[0] - want)))
-        n = max(1, int(round(dist / max(24.0, v['len_px']))))
+        n = max(1, int(_m.ceil(dist / (max(24.0, v['len_px']) * .86))))      # leve sobreposição: sem frestas entre peças
         for i in range(n):
             t = (i + .5) / n
             out.append(W.obj(vid, x0 + dx * t, y0 + dy * t, group, check=False, **kw))
@@ -966,13 +966,23 @@ for _hx, _hy, _roof in ((1075, 345, 'city_roof_wood'),
 
 # muralha sul com vão só na rua sul (x≈1300), fechada no resto; portão aprovado no vão
 _WALL_S = 800
-for _i in range(15):
-    _wx = 60 + _i * 116
-    if abs(_wx - 1300) < 110:
-        continue
-    _wy = TY + _WALL_S
-    W.obj('APP:city_wall_vegetation' if _i % 4 == 0 else 'APP:city_wall', TX + _wx, _wy, 'CIDADE_MURO', scale=.58, solid=False, check=False)
-    W.collider('rect', TX + _wx - 58, _wy - 26, 116, 24)
+# (correção estrutural) muralha modelada do KIT MULTI-ÂNGULO em traçado com curva e cantos, no lugar das peças APPROVED frontais
+def _zig(x0, x1, y_lo, y_hi, step):
+    pts, x, up = [], x0, True
+    while x < x1 - 1:
+        pts.append((x, y_lo if up else y_hi))
+        x += step
+        up = not up
+    pts.append((x1, y_lo if up else y_hi))
+    return pts
+
+
+for _x0, _x1 in ((-10, 1170), (1430, 1780)):
+    _pts = _zig(_x0, _x1, 772, 842, 140)                                 # dentes a ±26,6° (eixos isométricos)
+    krun('val_wall_segment', [T(x, y) for x, y in _pts], 'CIDADE_MURO')
+    for _k, (_x, _y) in enumerate(_pts[1:-1]):                            # baluartes nos cantos escondem as juntas
+        if _k % 2 == 0:
+            town('val_gate_tower', _x, _y + 6, group='CIDADE_MURO', scale=.5)
 W.obj('APP:city_gate', TX + 1300, TY + _WALL_S + 6, 'CIDADE_MURO', scale=.58, solid=False, check=False, sy=TY + _WALL_S - 60)
 W.collider('rect', TX + 1300 - 128, TY + _WALL_S - 26, 40, 24)
 W.collider('rect', TX + 1300 + 88, TY + _WALL_S - 26, 40, 24)

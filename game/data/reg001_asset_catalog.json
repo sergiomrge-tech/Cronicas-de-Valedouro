@@ -19,11 +19,12 @@
  },
  "counts": {
   "APPROVED": {
-   "INTEGRATED": 28
+   "INTEGRATED": 26,
+   "NOT_USED": 2
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 259,
-   "NOT_USED": 438
+   "INTEGRATED": 265,
+   "NOT_USED": 435
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -225,7 +226,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 1138
+  "object_count": 1102
  },
  "entries": [
   {
@@ -289,7 +290,7 @@
    "key": "city_house_door",
    "group": "city",
    "approval": "APPROVED",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "source": "approved_assets_bundle (Lote 01, QA Claude)"
   },
   {
@@ -297,7 +298,7 @@
    "key": "city_house_window",
    "group": "city",
    "approval": "APPROVED",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "source": "approved_assets_bundle (Lote 01, QA Claude)"
   },
   {
@@ -2744,7 +2745,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 3,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3140,7 +3141,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3149,7 +3150,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3446,7 +3447,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3464,7 +3465,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 15,
+   "placed": 14,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3491,7 +3492,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3509,7 +3510,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 3,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3607,8 +3608,8 @@
    "key": "nat_plateau_earth_m",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3653,7 +3654,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 3,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3698,7 +3699,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3788,7 +3789,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 3,
+   "placed": 5,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3797,7 +3798,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 6,
+   "placed": 5,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -5912,7 +5913,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 7,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -5929,8 +5930,8 @@
    "key": "val_house_body",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 21,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6348,6 +6349,33 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_VAL_TOWN_HOUSE_BLUE",
+   "key": "val_town_house_blue",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_TOWN_HOUSE_RED",
+   "key": "val_town_house_red",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_TOWN_HOUSE_WOOD",
+   "key": "val_town_house_wood",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 9,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_VAL_TRAINING_DUMMY",
    "key": "val_training_dummy",
    "group": "city",
@@ -6604,8 +6632,8 @@
    "key": "val_wall_segment_a2",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 15,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6631,8 +6659,8 @@
    "key": "val_wall_segment_a5",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6640,8 +6668,8 @@
    "key": "val_wall_segment_a6",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 15,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {

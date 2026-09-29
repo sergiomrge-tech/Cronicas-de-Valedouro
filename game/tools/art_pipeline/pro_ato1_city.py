@@ -549,3 +549,158 @@ def house_body(f):
     st = m_house_stone()
     geo.box((0, 0, 1.75), (.4, 4.6, 3.5), st, bevel=0.02)
     geo.rotate_all(45)
+
+
+# ============================================================== correção estrutural: casa da cidade MODELADA INTEIRA (substitui porta+janela+telhado soltos)
+def _shingle_slope(side, hx, hy, z_eave, z_ridge, ov, mat, rr, rows=8):
+    """Uma água do telhado em FIADAS de telhas sobrepostas (relevo real), descendo para side*x. hx = meia profundidade, hy = meio comprimento."""
+    run = hx + ov
+    ang = math.atan2(z_ridge - z_eave, run)
+    L = math.hypot(run, z_ridge - z_eave)
+    for r in range(rows):
+        t = (r + .5) / rows
+        x = side * run * (1 - t)
+        z = z_eave + (z_ridge - z_eave) * t
+        n = 11
+        for k in range(n):
+            y = -hy - ov + (k + .5) * (2 * hy + 2 * ov) / n + (.08 if r % 2 else -.08)
+            geo.box((x + side * .03, y, z + .06), (L / rows * 1.35, (2 * hy + 2 * ov) / n * .96, .07 + rr.uniform(0, .03)), mat,
+                    rot=(0, side * ang, rr.uniform(-.02, .02)), bevel=0.012)
+    return ang
+
+
+def _timber_face(axis, c, a0, a1, z0, z1, wd, rr):
+    """Enxaimel numa fachada: postes, travessas e mãos-francesas (axis 'x' = fachada em x=c correndo em y; 'y' = fachada em y=c correndo em x)."""
+    def B(u, z, su, sz, rot=0.0):
+        if axis == 'x':
+            geo.box((c, u, z), (.1, su, sz), wd, rot=(rot, 0, 0), bevel=0.01)
+        else:
+            geo.box((u, c, z), (su, .1, sz), wd, rot=(0, -rot, 0), bevel=0.01)
+    n = 4
+    for k in range(n + 1):
+        B(a0 + (a1 - a0) * k / n, (z0 + z1) / 2, .14, z1 - z0)
+    B((a0 + a1) / 2, z0 + .06, a1 - a0, .14)
+    B((a0 + a1) / 2, z1 - .06, a1 - a0, .14)
+    B((a0 + a1) / 2, (z0 + z1) / 2 - .35, a1 - a0, .1)
+    w = (a1 - a0) / n
+    for k in (0, n - 1):
+        B(a0 + w * (k + .5), (z0 + z1) / 2 + .25, .1, math.hypot(w, (z1 - z0) * .5) * .95, rot=(.7 if k == 0 else -.7))
+
+
+def _window(axis, c, u, z, w, h, wd, glass, rr, shutters=True, box=True):
+    def G(du, dz, su, sz, mat, dc=0.0, th=.08):
+        if axis == 'x':
+            geo.box((c + dc, u + du, z + dz), (th, su, sz), mat, bevel=0.01)
+        else:
+            geo.box((u + du, c + dc, z + dz), (su, th, sz), mat, bevel=0.01)
+    G(0, 0, w + .16, h + .16, wd, .02, .1)
+    G(0, 0, w, h, glass, .05, .06)
+    G(0, 0, .05, h, wd, .09, .05)
+    G(0, 0, w, .05, wd, .09, .05)
+    G(0, -h / 2 - .1, w + .3, .08, wd, .1, .2)                      # peitoril
+    if shutters:
+        for sgn in (-1, 1):
+            G(sgn * (w / 2 + .2), 0, .32, h + .08, M('cloth_green') if rr.random() < .5 else M('wood'), .06, .06)
+    if box:
+        G(0, -h / 2 - .28, w + .1, .2, M('wood_dark'), .16, .22)
+        if axis == 'x':
+            parts.flowers(c + .24, u, w * .5, 6, seed=int(u * 10) + 3)
+        else:
+            parts.flowers(u, c + .24, w * .5, 6, seed=int(u * 10) + 5)
+
+
+def _town_house(roof_mat, seed):
+    """Casa original da cidade (correção estrutural): térreo de pedra, andar em enxaimel com balanço, telhado de telhas em fiadas,
+    empena visível, água-furtada, chaminé, porta em arco com dobradiças, janelas com venezianas e floreiras. SEM rotação: vista em 3/4,
+    duas fachadas (+x frente com porta, +y lateral com empena) — casa com ângulo real, não um cartão frontal."""
+    rr = random.Random(seed)
+    st, wd, wo = m_house_stone(), M('wood_dark'), M('wood')
+    plaster = X('plaster_warm', lambda: mats.flat('plaster_warm', '#ecd6aa', rough=.95, spec=.05, bevel_wear=.35))
+    glass = M('glass')
+    hx, hy = 2.0, 2.5                                   # meia profundidade (x) e meio comprimento (y)
+    z1, z2, jet = 2.0, 3.9, .18
+    # térreo de pedra + soco
+    geo.box((0, 0, .15), (2 * hx + .3, 2 * hy + .3, .3), st, bevel=0.04)
+    geo.box((0, 0, z1 / 2 + .15), (2 * hx, 2 * hy, z1 - .3), st, bevel=0.03)
+    for sx in (-1, 1):                                  # cunhais (pedras de canto alternadas)
+        for sy in (-1, 1):
+            for k in range(4):
+                geo.box((sx * (hx - .02), sy * (hy - .02), .45 + k * .45), (.32 if k % 2 else .24, .24 if k % 2 else .32, .36), st, bevel=0.03)
+    # andar superior em balanço: reboco + enxaimel
+    geo.box((0, 0, (z1 + z2) / 2), (2 * (hx + jet), 2 * (hy + jet), z2 - z1), plaster, bevel=0.02)
+    geo.box((0, 0, z1 + .02), (2 * (hx + jet) + .1, 2 * (hy + jet) + .1, .16), wd, bevel=0.02)     # frechal do balanço
+    for k in range(9):                                  # cachorros (pontas das vigas do balanço)
+        y = -hy + k * (2 * hy) / 8
+        geo.box((hx + jet - .02, y, z1 - .12), (.4, .12, .14), wd, bevel=0.01)
+    _timber_face('x', hx + jet + .02, -hy - jet, hy + jet, z1 + .1, z2, wd, rr)
+    _timber_face('y', hy + jet + .02, -hx - jet, hx + jet, z1 + .1, z2, wd, rr)
+    # porta em arco (+x) com moldura de pedra, tábuas, dobradiças, degraus e lanterna
+    fx = hx
+    geo.box((fx + .06, -.9, .95), (.12, 1.1, 1.6), wd, bevel=0.02)
+    geo.cyl((fx + .06, -.9, 1.75), .55, .12, wd, rot=(0, 90, 0), sides=16)
+    for k in range(4):
+        geo.box((fx + .13, -1.3 + k * .27, 1.0), (.02, .03, 1.5), M('wood_old'), bevel=0)
+    for z in (.55, 1.4):
+        geo.box((fx + .14, -.75, z), (.03, .65, .07), M('iron'), bevel=0.005)
+    geo.box((fx + .15, -.55, 1.05), (.05, .06, .06), m_gold(), bevel=0.01)
+    for du in (-.62, .62):
+        geo.box((fx + .08, -.9 + du, .95), (.18, .22, 1.9), st, bevel=0.02)
+    for k in range(7):
+        a = math.pi * k / 6
+        geo.box((fx + .08, -.9 + math.cos(a) * .72, 1.75 + math.sin(a) * .72), (.18, .24, .24), st, rot=(a, 0, 0), bevel=0.02)
+    for k in range(2):
+        geo.box((fx + .35 + k * .28, -.9, .1 - k * .06 + .06), (.3 + k * .28, 1.5 - k * .2, .12), st, bevel=0.02)
+    geo.box((fx + .12, .1, 1.7), (.18, .06, .06), M('iron'), bevel=0.005)
+    lantern(fx + .3, .1, 1.72)
+    # janelas: térreo (+x e +y) e andar (+x, +y), água-furtada
+    _window('x', fx, 1.2, 1.15, .8, .9, wd, glass, rr)
+    _window('y', hy, -.9, 1.15, .9, .9, wd, glass, rr)
+    _window('y', hy, 1.0, 1.15, .7, .8, wd, glass, rr, box=False)
+    for u in (-1.4, .4, 1.9):
+        _window('x', hx + jet, u, 3.0, .6, .75, wd, glass, rr, box=(u == .4))
+    _window('y', hy + jet, 0, 3.0, .8, .75, wd, glass, rr)
+    # telhado: duas águas (cumeeira em y) em fiadas; empena +y com tábuas de beirada e óculo
+    ov, zr = .45, 5.9
+    for side in (-1, 1):
+        _shingle_slope(side, hx + jet, hy + jet, z2 - .05, zr, ov, roof_mat, rr)
+    geo.box((0, 0, zr + .08), (.34, 2 * (hy + jet + ov) + .1, .22), wd, bevel=0.03)          # cumeeira
+    gy = hy + jet
+    for k in range(6):                                   # empena triangular em reboco + enxaimel
+        z = z2 + (zr - z2) * (k + .5) / 6
+        half = (hx + jet) * (1 - (k + .5) / 6)
+        geo.box((0, gy, z), (2 * half, .14, (zr - z2) / 6 + .02), plaster, bevel=0.0)
+    geo.box((0, gy + .08, (z2 + zr) / 2), (.12, .06, zr - z2), wd, bevel=0.01)
+    geo.cyl((0, gy + .1, z2 + .9), .28, .06, glass, rot=(90, 0, 0), sides=14)
+    geo.cyl((0, gy + .11, z2 + .9), .34, .05, wd, rot=(90, 0, 0), sides=14, r2=.34)
+    ang = math.atan2(zr - z2, hx + jet + ov)
+    geo.box((hx + jet + ov - .05, 0, z2 - .12), (.12, 2 * (hy + jet + ov), .14), wd, bevel=0.01)   # calha/testeira
+    # água-furtada na água +x
+    dx, dz = hx * .45, z2 + (zr - z2) * .45
+    geo.box((dx, -1.0, dz + .35), (.9, 1.0, .9), plaster, bevel=0.02)
+    geo.box((dx + .46, -1.0, dz + .35), (.06, .6, .55), glass, bevel=0.0)
+    geo.box((dx + .49, -1.0, dz + .35), (.04, .7, .65), wd, bevel=0.0)
+    for s2 in (-1, 1):
+        geo.box((dx + .1, -1.0 + s2 * .3, dz + .95), (1.2, .7, .08), roof_mat, rot=(s2 * .55, 0, 0), bevel=0.01)
+    # chaminé de pedra com capa e fumaça (fumaça = emissor no jogo)
+    geo.box((-hx * .5, -hy * .55, zr - .2), (.7, .7, 2.2), st, bevel=0.03)
+    geo.box((-hx * .5, -hy * .55, zr + .95), (.85, .85, .14), st, bevel=0.02)
+    geo.cyl((-hx * .5, -hy * .55, zr + 1.02), .2, .08, M('hole'), sides=8)
+    # vida ao redor: barril, caixotes, hera, flores, lenha
+    geo.cyl((fx + .5, 1.9, 0), .3, .7, wd, sides=10)
+    geo.box((hx - .3, hy + .6, .25), (.55, .5, .5), wo, bevel=0.02)
+    geo.box((hx - .3, hy + .6, .72), (.45, .42, .42), wo, bevel=0.02)
+    for k in range(5):
+        geo.cyl((-hx + .5 + k * .02, hy + .35, .18 + k * .22), .12, 1.4, M('bark_log'), rot=(0, 90, 0), sides=7)
+    parts.ivy(fx + .04, 2.2, fx + .04, 2.45, .3, 2.1, M('leaf'), seed=seed, n=18)
+    parts.ivy(1.6, hy + .04, 1.9, hy + .04, .3, 1.9, M('leaf'), seed=seed + 1, n=14)
+    parts.grass_tufts(fx + .6, -2.2, .6, 6, M('grass'), seed=seed, h=.25)
+
+
+def _reg_house(name, roof, seed):
+    landmark(name, group='city', folder='ato1', size=(760, 820), origin=(380, 610), tags=('ato1', 'casa', 'cidade', 'correcao_estrutural', 'original'),
+             footprint=90, collision=((0.0, -30.0, 30.0), (-55.0, -5.0, 26.0), (55.0, -5.0, 26.0), (0.0, 20.0, 26.0)), samples=32)(lambda f, r=roof, sd=seed: _town_house(r(), sd))
+
+
+_reg_house('val_town_house_blue', lambda: M('roof_slate'), 11)
+_reg_house('val_town_house_red', lambda: M('roof_red'), 12)
+_reg_house('val_town_house_wood', lambda: X('roof_wood_shingle', lambda: mats.shingles('roof_wood_shingle', ('#2a1c14', '#5a3e28', '#86603c', '#b08658'), w=.22, h=.14)), 13)
