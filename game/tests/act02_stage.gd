@@ -131,6 +131,17 @@ func _draw() -> void:
 	for o in items:
 		if str(o.get("layer", "")) != "ground":
 			REGR.draw_item(self, entry_for(o), time_acc, approved)
+	# partículas leves (pólen/memória): poucos pontos animados por seno, sem sistema de partículas (custo mobile desprezível)
+	if comp.has("motes") and visible_obj(comp["motes"] as Dictionary):
+		var mo: Dictionary = comp["motes"]
+		var mc: Array = mo.get("color", [1, 1, .8])
+		for i in int(mo.get("n", 12)):
+			var fi: float = float(i)
+			var px: float = float(mo["x"]) + sin(fi * 12.9898) * float(mo["rx"]) + sin(time_acc * .6 + fi) * 8.0
+			var py: float = float(mo["y"]) + cos(fi * 78.233) * float(mo["ry"]) - fposmod(time_acc * 6.0 + fi * 17.0, 40.0)
+			var al: float = .35 + .35 * sin(time_acc * 1.7 + fi * 2.1)
+			draw_rect(Rect2(px, py, 2, 2), Color(float(mc[0]), float(mc[1]), float(mc[2]), al))
+			draw_rect(Rect2(px - 1, py - 1, 4, 4), Color(float(mc[0]), float(mc[1]), float(mc[2]), al * .25))
 	# luz filtrada pela copa: feixes suaves e vinheta escura nas bordas (leitura de navegação preservada)
 	var shafts: Array = comp.get("light_shafts", [])
 	for s_value in shafts:

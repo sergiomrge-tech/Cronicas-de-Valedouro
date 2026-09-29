@@ -4899,12 +4899,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   876,
-   1526
+   876.0,
+   1526.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 0,
-  "footprint": 140,
+  "blocks_radius": 0.0,
+  "footprint": 140.0,
   "tags": [
    "ato2",
    "floresta_ancestral",
@@ -4912,7 +4912,7 @@
    "landmark",
    "estado_aberto"
   ],
-  "sha256": "00e0c5a7673d53af6ab75bbf1e24d9dabf8b092eed49e18492ed862ee745074f",
+  "sha256": "ad607607e100fd9563aa484f05f0bed31b9a5b5fc95bce1220ae24a240e3c020",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -4928,27 +4928,27 @@
    ],
    [
     33.9,
-    -17,
+    -17.0,
     30
    ],
    [
-    0,
+    0.0,
     23.3,
     30
    ],
    [
-    0,
+    0.0,
     -23.3,
     30
    ],
    [
     -46.7,
-    0,
+    0.0,
     30
    ],
    [
     46.7,
-    0,
+    0.0,
     30
    ]
   ],
@@ -4966,12 +4966,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   876,
-   1526
+   876.0,
+   1526.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 0,
-  "footprint": 140,
+  "blocks_radius": 0.0,
+  "footprint": 140.0,
   "tags": [
    "ato2",
    "floresta_ancestral",
@@ -4979,53 +4979,53 @@
    "landmark",
    "estado_fechado"
   ],
-  "sha256": "6ebfffe0a7ed91b2e7897c033cad6023a44e22a3f139966012758819f0a3dd7b",
+  "sha256": "babf029579dc4f1d39a7c8593f2b5caa4abf90e30e658df426415ed2968e5925",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
    [
-    0,
-    0,
+    0.0,
+    0.0,
     30
    ],
    [
     -33.9,
-    17,
+    17.0,
     30
    ],
    [
     33.9,
-    -17,
+    -17.0,
     30
    ],
    [
     33.9,
-    17,
+    17.0,
     30
    ],
    [
     -33.9,
-    -17,
+    -17.0,
     30
    ],
    [
-    0,
+    0.0,
     23.3,
     30
    ],
    [
-    0,
+    0.0,
     -23.3,
     30
    ],
    [
     -46.7,
-    0,
+    0.0,
     30
    ],
    [
     46.7,
-    0,
+    0.0,
     30
    ]
   ],
@@ -7252,12 +7252,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   406,
-   546
+   406.0,
+   546.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 0,
-  "footprint": 70,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
   "tags": [
    "ato2",
    "floresta_ancestral",
@@ -7267,33 +7267,33 @@
    "ruina",
    "estado_corrompido"
   ],
-  "sha256": "310ac973ff68cf8845d7405b5b1345b15665886457fdb9a236969b4ee4074887",
+  "sha256": "a00bc325f8794aa8520fb9e54d76e2d610992bd152409154ed96ae18d4140ed0",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
    [
-    0,
-    0,
+    0.0,
+    0.0,
     14
    ],
    [
-    0,
-    17,
+    0.0,
+    17.0,
     14
    ],
    [
     33.9,
-    0,
+    0.0,
     14
    ],
    [
     -33.9,
-    0,
+    0.0,
     14
    ],
    [
-    0,
-    -17,
+    0.0,
+    -17.0,
     14
    ]
   ],
@@ -7311,12 +7311,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   406,
-   546
+   406.0,
+   546.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 0,
-  "footprint": 70,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
   "tags": [
    "ato2",
    "floresta_ancestral",
@@ -7326,33 +7326,33 @@
    "ruina",
    "estado_purificado"
   ],
-  "sha256": "70af22d61a1e7b86e780751e9010e46899b8482f0b8d11d5db60e0e4958f3f6b",
+  "sha256": "7a68a9119b959c1e3783a6928e67514feb9f86b11c06242edccc5a65c2f9915c",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
    [
-    0,
-    0,
+    0.0,
+    0.0,
     14
    ],
    [
-    0,
-    17,
+    0.0,
+    17.0,
     14
    ],
    [
     33.9,
-    0,
+    0.0,
     14
    ],
    [
     -33.9,
-    0,
+    0.0,
     14
    ],
    [
-    0,
-    -17,
+    0.0,
+    -17.0,
     14
    ]
   ],
@@ -7370,12 +7370,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   406,
-   546
+   406.0,
+   546.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 0,
-  "footprint": 70,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
   "tags": [
    "ato2",
    "floresta_ancestral",
@@ -7385,33 +7385,33 @@
    "musgo",
    "estado_corrompido"
   ],
-  "sha256": "3452a580645147bbe93622a5a6c5eb8eff17e588a5061e8a8d13fa9e16ff7055",
+  "sha256": "a62b53311e5e72b9cad37bf7771ea39f638f639eb65aadcad611321e3366f7f6",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
    [
-    0,
-    0,
+    0.0,
+    0.0,
     14
    ],
    [
-    0,
-    17,
+    0.0,
+    17.0,
     14
    ],
    [
     33.9,
-    0,
+    0.0,
     14
    ],
    [
     -33.9,
-    0,
+    0.0,
     14
    ],
    [
-    0,
-    -17,
+    0.0,
+    -17.0,
     14
    ]
   ],
@@ -7429,12 +7429,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   406,
-   546
+   406.0,
+   546.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 0,
-  "footprint": 70,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
   "tags": [
    "ato2",
    "floresta_ancestral",
@@ -7444,33 +7444,33 @@
    "musgo",
    "estado_purificado"
   ],
-  "sha256": "c92381a245f09faa122204759465520a0b92c91ce63264ec4edc103c11d87858",
+  "sha256": "06eb4de7fcf62bf8d418420b211be9d9dcb93a076ea23b78ccfd979889feec16",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
    [
-    0,
-    0,
+    0.0,
+    0.0,
     14
    ],
    [
-    0,
-    17,
+    0.0,
+    17.0,
     14
    ],
    [
     33.9,
-    0,
+    0.0,
     14
    ],
    [
     -33.9,
-    0,
+    0.0,
     14
    ],
    [
-    0,
-    -17,
+    0.0,
+    -17.0,
     14
    ]
   ],
@@ -7488,12 +7488,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   406,
-   546
+   406.0,
+   546.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 0,
-  "footprint": 70,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
   "tags": [
    "ato2",
    "floresta_ancestral",
@@ -7503,33 +7503,33 @@
    "folhas",
    "estado_corrompido"
   ],
-  "sha256": "22274abbdc613e47566237438bb89ecb4f86c0e4514e87aad862bf97bfdf66e7",
+  "sha256": "7ab625493815f3b2e28661e86d66f11ea407ffd56a7045f268dae373cf4ed70c",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
    [
-    0,
-    0,
+    0.0,
+    0.0,
     14
    ],
    [
-    0,
-    17,
+    0.0,
+    17.0,
     14
    ],
    [
     33.9,
-    0,
+    0.0,
     14
    ],
    [
     -33.9,
-    0,
+    0.0,
     14
    ],
    [
-    0,
-    -17,
+    0.0,
+    -17.0,
     14
    ]
   ],
@@ -7547,12 +7547,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   406,
-   546
+   406.0,
+   546.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 0,
-  "footprint": 70,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
   "tags": [
    "ato2",
    "floresta_ancestral",
@@ -7562,33 +7562,33 @@
    "folhas",
    "estado_purificado"
   ],
-  "sha256": "11d77aaa393c72bbf262bcc11662cfd15a9ef01bbb93c9ec9447564baa250784",
+  "sha256": "6b068eb56c8696738bd823fa76f3700c27885bc0504859aba1a98af312599166",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
    [
-    0,
-    0,
+    0.0,
+    0.0,
     14
    ],
    [
-    0,
-    17,
+    0.0,
+    17.0,
     14
    ],
    [
     33.9,
-    0,
+    0.0,
     14
    ],
    [
     -33.9,
-    0,
+    0.0,
     14
    ],
    [
-    0,
-    -17,
+    0.0,
+    -17.0,
     14
    ]
   ],

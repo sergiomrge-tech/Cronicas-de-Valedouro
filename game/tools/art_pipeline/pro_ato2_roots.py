@@ -44,41 +44,52 @@ def _life(cx, cy, r, corrupt, seed):
 
 # ------------------------------------------------------------------ Raiz da Água: bacia de pedra, raízes sobre um espelho d'água
 def _water(corrupt):
+    """PASSE FINAL: nascente natural — bacia de ROCHAS irregulares (não um disco), lâmina d'água de contorno orgânico com
+    transbordo para a frente, raízes que sobem da água e sustentam uma pedra-altar bruta."""
     rt, rune, lf, st = _pal(corrupt)
-    geo.cyl((0, 0, 0), 2.2, .35, st, sides=18, r2=2.0)                          # plataforma circular
-    geo.cyl((0, 0, .34), 1.5, .3, st, sides=16, r2=1.4)                         # bacia
-    geo.cyl((0, 0, .6), 1.25, .04, m_pool(corrupt), sides=16)   # água (parada e escura se corrompida)
-    for k in range(4):                                                           # quatro raízes sobem da água e sustentam o altar
+    rr = random.Random(44)
+    earth = X('earth_bank', lambda: mats.flat('earth_bank', '#3a3a1e', rough=1.0, spec=0.0, bevel_wear=.2))
+    parts.slab_blob(0, 0, -.02, 5.2, 4.4, .12, earth, seed=3, wobble=.22)
+    parts.slab_blob(.2, -.1, .1, 3.4, 2.8, .05, m_pool(corrupt), seed=5, wobble=.3)          # lâmina d'água orgânica
+    for k in range(11):                                                          # bacia: rochas de tamanhos variados, abertura na frente (+x)
+        a = -2.3 + k * (4.6 / 10) + rr.uniform(-.12, .12)
+        a = a + math.pi                                                          # arco pelo fundo; frente livre para o transbordo
+        d = 1.95 * (1 + .12 * math.sin(3 * a + 1)) + rr.uniform(-.1, .15)
+        parts.rock_mass((math.cos(a) * d, math.sin(a) * d * .9, -.05), (rr.uniform(.5, .95), rr.uniform(.5, .85), rr.uniform(.35, .75)), m_rock_moss(), 80 + k, subdiv=3, rough=.3, flat_top=False)
+    for k in range(4):                                                           # transbordo: seixos e fio d'água descendo
+        parts.boulder((1.9 + k * .45, rr.uniform(-.7, .7), .02), rr.uniform(.12, .22), m_rock_moss(), seed=90 + k, squash=.5)
+    parts.slab_blob(2.4, 0, .02, 1.6, .6, .03, m_pool(corrupt), seed=9, wobble=.35)
+    parts.tapered_shaft(-.2, .1, 0, 1.7, .8, .45, st, seed=13)                   # pedra-altar bruta na água
+    for k in range(4):                                                           # quatro raízes sobem da água e abraçam o altar
         a = k * math.pi / 2 + .4
-        root((math.cos(a) * 2.0, math.sin(a) * 2.0, .3), (math.cos(a) * .35, math.sin(a) * .35, 2.0), .22, .1, rt, sag=.25, sides=8)
-    geo.cyl((0, 0, 1.9), .34, .55, st, sides=8, r2=.28)                          # altar/núcleo entre as raízes
-    geo.cyl((0, 0, 2.45), .22, .08, rune, sides=10)
-    ball((0, 0, 2.75), .24, rune, squash=1.2)
-    for k in range(3):                                                           # pedras cobertas de musgo e pequenas quedas
-        a = k * 2.1 + .3
-        parts.rock_mass((math.cos(a) * 2.7, math.sin(a) * 2.7, 0), (.9, .8, .7), m_rock_moss(), 70 + k, subdiv=3, rough=.25, flat_top=False)
-    if not corrupt:
-        for k in range(3):
-            geo.cyl_between((math.cos(k * 2.1 + .3) * 2.7, math.sin(k * 2.1 + .3) * 2.7, .5), (math.cos(k * 2.1 + .3) * 1.5, math.sin(k * 2.1 + .3) * 1.5, .62), .05, m_pool(False), sides=5)
+        root((math.cos(a) * 1.7, math.sin(a) * 1.5, .1), (math.cos(a) * .3 - .2, math.sin(a) * .3 + .1, 1.9), .22, .1, rt, sag=.25, sides=8)
+    geo.cyl((-.2, .1, 1.72), .2, .08, rune, sides=10)
+    ball((-.2, .1, 2.0), .22, rune, squash=1.2)
+    if corrupt:
+        _veins(0, 0, 3.0, 8, 3, rune)
     else:
-        _veins(0, 0, 3.2, 8, 3, rune)
-    _life(0, 2.6, 1.4, corrupt, 5)
+        parts.leaf_cluster(-1.8, -1.2, .4, .8, 10, m_fern(), 12, size=(.1, .24), flat=.4)
+    _life(-.6, 2.6, 1.3, corrupt, 5)
     geo.rotate_all(45)
 
 
 # ------------------------------------------------------------------ Raiz da Pedra: monólito abraçado por raízes, arco de ruína
 def _stone(corrupt):
+    """PASSE FINAL: monólito cravado num afloramento (fundação enterrada, sem laje quadrada); ruína ao lado com soco comum
+    aos dois pilares, verga caída apoiada no entulho (lógica de desabamento)."""
     rt, rune, lf, st = _pal(corrupt)
-    geo.box((0, 0, .18), (3.0, 3.0, .36), st, bevel=0.05)
-    parts.tapered_shaft(0, 0, .3, 3.3, 1.2, .9, st, seed=6)                       # monólito
-    geo.box((.62, 0, 2.0), (.06, .5, 1.3), rune, bevel=0)                        # runa vertical no monólito
-    for k in range(5):                                                           # raízes abraçam a rocha em espiral
+    for k, (x, y, sx, sy, h) in enumerate(((0, 0, 2.2, 2.0, .6), (-.9, 1.0, 1.4, 1.2, .45), (.8, -.9, 1.2, 1.1, .4))):     # afloramento em blocos irregulares
+        parts.rock_mass((x, y, -.2), (sx, sy, h), m_rock_moss(), 61 + k, subdiv=4, rough=.38, freq=1.6, taper=.35, flat_top=False, squash_base=.5)
+    parts.tapered_shaft(0, 0, .1, 3.3, 1.2, .9, st, seed=6)                        # monólito
+    geo.box((.62, 0, 2.0), (.06, .5, 1.3), rune, bevel=0)
+    for k in range(5):
         a = k * 1.25
-        root((math.cos(a) * 1.6, math.sin(a) * 1.6, .1), (math.cos(a + 1.2) * .7, math.sin(a + 1.2) * .7, 3.0), .2, .08, rt, sag=.2, sides=8)
-    for sy in (-1.9, 1.9):                                                       # meio arco de ruína ao lado
-        geo.box((0, sy, 1.1), (.5, .5, 2.2), st, bevel=0.05)
-    geo.box((0, -1.05, 2.3), (.5, 2.0, .4), st, rot=(0, 0, 0), bevel=0.05)
-    parts.rubble(0, 1.6, 1.4, 6, m_rock_moss(), seed=4, rmin=.1, rmax=.28)
+        root((math.cos(a) * 1.8, math.sin(a) * 1.6, .05), (math.cos(a + 1.2) * .7, math.sin(a + 1.2) * .7, 3.0), .2, .08, rt, sag=.2, sides=8)
+    geo.box((-.1, 0, .12), (.9, 4.6, .5), st, bevel=0.04)                          # soco comum (fundação) da ruína, parcialmente enterrado
+    geo.box((0, -1.9, 1.2), (.5, .5, 2.2), st, bevel=0.05)                         # pilar em pé
+    geo.box((0, 1.9, .75), (.5, .5, 1.3), st, bevel=0.05)                          # pilar quebrado
+    geo.box((.25, 1.2, .75), (.5, 1.9, .38), st, rot=(.45, 0, .2), bevel=0.05)     # verga caída apoiada no pilar quebrado e no entulho
+    parts.rubble(.3, 2.1, 1.0, 7, m_rock_moss(), seed=4, rmin=.1, rmax=.28)
     if corrupt:
         _veins(0, 0, 3.0, 9, 4, rune)
     else:
@@ -89,16 +100,21 @@ def _stone(corrupt):
 
 # ------------------------------------------------------------------ Raiz do Vento: plataforma elevada, árvores inclinadas, folhas em movimento
 def _wind(corrupt):
+    """PASSE FINAL: afloramento rochoso natural (não um cubo) com degraus TALHADOS na rocha, três pedras eretas com runas
+    (em vez de anel/disco) e pilar central; duas árvores inclinadas formam o pórtico."""
     rt, rune, lf, st = _pal(corrupt)
-    geo.box((0, 0, .5), (3.6, 3.6, 1.0), st, bevel=0.06)                          # patamar elevado
-    for k in range(4):
-        geo.box((1.9, -1.2 + k * .8, .2 + k * .18), (.5, .8, .4 + k * .2), st, bevel=0.03)   # degraus de acesso
-    geo.cyl((0, 0, 1.0), 1.2, .1, st, sides=16)
-    geo.cyl((0, 0, 1.1), .95, .03, rune, sides=16, r2=.95)                       # anel rúnico
-    geo.cyl((0, 0, 1.1), .2, 1.2, st, sides=8, r2=.14)
-    ball((0, 0, 2.5), .22, rune, squash=1.2)
+    for k, (x, y, sx, sy, h) in enumerate(((0, 0, 3.4, 3.2, 1.25), (-1.3, 1.2, 1.8, 1.6, .9), (1.0, -1.4, 1.6, 1.4, .8), (-1.4, -1.0, 1.3, 1.2, .7))):
+        parts.rock_mass((x, y, -.2), (sx, sy, h), m_rock_moss(), 71 + k, subdiv=4, rough=.34, freq=1.5, taper=.3, terrace=.3, step=.4, flat_top=k == 0, squash_base=.5)
+    parts.slab_blob(0, 0, .98, 2.8, 2.6, .05, X('turf_forest', lambda: mats.flat('turf_forest', '#2a4a1e', rough=1.0, spec=0.0, bevel_wear=.3)), seed=7, wobble=.28)
+    for k in range(5):                                                            # degraus talhados descendo pela face +x
+        geo.box((1.55 + k * .32, -.4 + k * .06, .9 - k * .2), (.45, 1.0, .22), st, rot=(0, 0, .08 * k), bevel=0.04)
+    for k, (x, y) in enumerate(((-.8, -.9), (-.6, .95), (.7, -1.1))):              # pedras eretas com runas
+        parts.tapered_shaft(x, y, .9, 2.0 + k * .25, .42, .3, st, seed=20 + k)
+        geo.box((x + .2, y, 1.6 + k * .1), (.04, .14, .5), rune, bevel=0)
+    geo.cyl((0, 0, .95), .2, 1.2, st, sides=8, r2=.14)
+    ball((0, 0, 2.35), .22, rune, squash=1.2)
     for sy in (-1, 1):                                                           # duas árvores inclinadas formam pórtico sobre o patamar
-        root((-.4, sy * 1.5, 1.0), (-.6, sy * .3, 4.4), .3, .12, rt, sag=.1, sides=8)
+        root((-.9, sy * 1.6, .8), (-.6, sy * .3, 4.4), .3, .12, rt, sag=.1, sides=8)
         buttress_roots(.3, .6, 3, rt, seed=int(sy) + 5, spread=2.4)
     for k in range(4):
         branch((-.6, -.3 + k * .2, 4.3), (.3, -.9 + k * .6, 4.9), .09, .04, rt)

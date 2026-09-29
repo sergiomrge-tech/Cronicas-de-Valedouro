@@ -36,35 +36,51 @@ def _tree(open_state):
     for i in range(n + 1):
         t = i / n
         pts.append((.4 * t * t, .2 * math.sin(t * 2.2), H * t))
+    segs = []
     for i in range(n):
         ra = 3.4 - 1.7 * i / n
         rb = 3.4 - 1.7 * (i + 1) / n
-        geo.cyl_between(pts[i], pts[i + 1], ra, bark, sides=14, r2=rb)
+        segs.append(geo.cyl_between(pts[i], pts[i + 1], ra, bark, sides=14, r2=rb))
+    # CAVIDADE REAL (passe final): corte booleano no tronco em arco ogival orgânico — o interior tem paredes, teto e fundo de madeira
+    # viva escura (não um retângulo preto recortado). Faixas do cortador em degraus ficam atrás das ombreiras de raiz.
+    if open_state:                                                            # interior da madeira iluminado de dentro (luz de memória)
+        cav = X('mem_cavity_lit', lambda: mats.flat('mem_cavity_lit', '#5a3c1e', rough=1.0, spec=0.0, emission='#8a6a30', emission_strength=.22, bevel_wear=.15))
+    else:                                                                     # fechado: penumbra quente, nunca preto chapado
+        cav = X('mem_cavity', lambda: mats.flat('mem_cavity', '#4a3018', rough=1.0, spec=0.0, emission='#4a3418', emission_strength=.12, bevel_wear=.15))
+    prof = ((0.0, 2.3, 3.0), (2.3, 2.8, 2.5), (2.8, 3.2, 1.8), (3.2, 3.5, 1.0))
+    for sg in segs[:2]:
+        cutter = geo.join([geo.box((3.55, 0, (z0 + z1) / 2 - (.1 if z0 == 0 else 0)), (3.7, w, z1 - z0 + (.2 if z0 == 0 else .02)), None, bevel=0) for z0, z1, w in prof])
+        geo.boolean_cut(sg, cutter, cav)
+    for k in range(7):                                                        # nervuras internas (fibras de raiz) dão profundidade
+        y = -1.25 + k * .42
+        root((1.75, y, .05), (1.8 + (k % 2) * .2, y * .6, 3.2 - abs(y) * .5), .12, .07, cav, sag=-.1, sides=6)
+    for k in range(4):
+        root((1.8, -1.2 + k * .8, .06), (3.0, -1.4 + k * .9, .04), .16, .08, bark, sag=.02, sides=6)   # piso de raízes da cavidade
     for k in range(9):
         a = 2 * math.pi * k / 9 + rr.uniform(-.15, .15)
         L = 5.6 * rr.uniform(.85, 1.15)
+        if abs(math.atan2(math.sin(a), math.cos(a))) < .75:                     # a frente (+x) fica livre: a cavidade é o foco
+            a += .75 if math.sin(a) >= 0 else -.75
         root((math.cos(a) * 2.2, math.sin(a) * 2.2, 3.4), (math.cos(a) * L, math.sin(a) * L, .05), 1.0, .22, bark, sag=-.3, sides=9)
     # arcos de raiz frontais (+x): passagens em nível
     for sy in (-1, 1):
-        root((2.2, sy * .3, 2.9), (4.4, sy * 3.4, .05), .75, .25, bark, sag=-.25, sides=9)
-        root((2.0, sy * 1.3, 3.0), (3.6, sy * 5.0, .05), .55, .2, bark, sag=-.2, sides=8)
-    # cavidade / coração: grande vão em arco na face +x (3,2 u de largura × 3,8 u de altura)
-    geo.box((3.05, 0, 1.75), (.5, 3.2, 3.5), M('hole'), bevel=0)
-    geo.cyl((3.0, 0, 3.45), 1.6, .5, M('hole'), rot=(0, 90, 0), sides=16)
+        root((2.0, sy * 1.9, 2.9), (4.2, sy * 3.9, .05), .75, .25, bark, sag=-.25, sides=9)
+        root((1.6, sy * 2.2, 3.0), (3.4, sy * 5.2, .05), .55, .2, bark, sag=-.2, sides=8)
     for sy in (-1.75, 1.75):                                                      # ombreiras de raiz emoldurando o vão
-        root((3.1, sy, .05), (3.1, sy * .8, 3.9), .42, .3, bark, sag=.05, sides=8)
-    root((3.15, -1.5, 3.9), (3.15, 1.5, 3.9), .3, .3, bark, sag=-.3, sides=8)
+        root((3.1, sy, .05), (3.1, sy * .8, 3.5), .42, .3, bark, sag=.05, sides=8)
+    root((3.15, -1.5, 3.5), (3.15, 1.5, 3.5), .3, .3, bark, sag=-.3, sides=8)
     if open_state:
-        geo.box((3.32, 0, 1.4), (.04, 2.8, 2.6), m_memory_light_dim(), bevel=0)          # luz do coração
-        geo.box((3.34, 0, 1.2), (.04, 1.8, 1.8), m_memory_light(), bevel=0)
-        ball((3.4, 0, 1.4), .7, m_memory_light(), squash=1.4)
-        geo.box((4.4, 0, .03), (2.2, 1.6, .03), m_memory_light_dim(), bevel=0)           # faixa de luz no chão (caminho aberto)
+        ball((1.95, 0, 1.3), .55, m_memory_light(), squash=1.5)                          # coração aceso NO FUNDO da cavidade
+        geo.box((1.85, 0, 1.6), (.04, 1.6, 2.2), m_memory_light_dim(), bevel=0)
+        for k in range(5):                                                                 # veios de luz subindo pelas fibras
+            geo.box((1.9, -1.0 + k * .5, 2.3 + (k % 2) * .3), (.04, .06, 1.1), m_memory_light_dim(), bevel=0)
+        glow_mushrooms(3.8, -.6, 6, 21, spread=.6, h=.2)                                 # cogumelos de memória marcando a entrada aberta
         for k in range(4):                                                                # raízes recolhidas para os lados
             root((3.4, (k - 1.5) * 1.0, .05), (3.9, (k - 1.5) * 2.4, .05), .3, .12, bark, sag=-.05, sides=6)
     else:
         for k in range(11):                                                               # emaranhado de raízes fechando a cavidade
             y = -1.5 + k * .3
-            root((3.3, y, .05), (3.4, y + rr.uniform(-.25, .25), 3.7 + rr.uniform(-.2, .2)), .3, .16, bark, sag=.06, sides=6)
+            root((3.2, y, .05), (3.3, y + rr.uniform(-.25, .25), 3.5 + rr.uniform(-.3, .2) - abs(y) * .3), .3, .16, bark, sag=.06, sides=6)
         for k in range(5):
             root((3.3, -1.6, .5 + k * .8), (3.4, 1.6, .7 + k * .8), .22, .18, bark, sag=.15, sides=6)
     # inscrições antigas quase engolidas pela casca (linhas emissivas discretas) e plataformas naturais

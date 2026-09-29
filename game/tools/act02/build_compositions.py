@@ -288,9 +288,7 @@ def build_stone(c, flag):
 
 
 def build_wind(c, flag):
-    c.add('nat_plateau_earth_m', 480, 290, layer='ground')
-    c.add('nat_ramp_earth', 560, 400)
-    c.add('flo_lookout_rock', 800, 300)                            # mirante: de lá se vê o topo da Árvore-Memória
+    c.add('nat_wall_cliff_rock_a', 800, 300)                       # mirante natural (rocha): de lá se vê o topo da Árvore-Memória
     c.add('flo_ancient_tree_a', 130, 230, scale=.7, flip=True)
     c.add('flo_ancient_tree_b', 300, 140, scale=.6)
     for x, y in ((240, 380), (700, 470)):
@@ -305,20 +303,24 @@ shrine_arm('wind', 'Santuário — Raiz do Vento', (520, 210), 'Braço elevado: 
 # ============================================================== LOC_MEMORY_TREE (Q_MS02_MEMORY_TREE) — exterior e coração
 m = Comp('LOC_MEMORY_TREE', 'Árvore-Memória — exterior', (380, 130),
          'Landmark dominante: tronco colossal, raízes em arcos e passagens, clareira central com espelho d\'água e pedras memoriais. Fechada até purificar as três raízes; depois as raízes se afastam.', tint=(.05, .15, .1, .18), slug='arvore_memoria_exterior')
-m.exclude_circle(480, 430, 190)
-m.trail([(-20, 520), (120, 506), (260, 488), (390, 482), (470, 470)], half=20, seed=9)
-m.add('flo_memory_pool', 480, 500, layer='ground', scale=1.1)
-m.add('flo_memory_tree_sealed', 480, 440, scale=.55, hide_when='quest:Q_MS02_ROOTS')
-m.add('flo_memory_tree_open', 480, 440, scale=.55, show_when='quest:Q_MS02_ROOTS')
-m.add('flo_memory_root_arch', 200, 470, scale=.8)
-m.add('flo_memory_root_arch', 770, 470, scale=.8, flip=True)
-for x, y in ((300, 480), (650, 490), (380, 520), (570, 525)):
+m.exclude_circle(480, 380, 200)
+m.river([(350, 452), (420, 474), (520, 470), (600, 452), (650, 432)], half=32, wobble=.5)   # espelho d'água ORGÂNICO aos pés (raízes da árvore invadem a água)
+m.trail([(-20, 500), (120, 484), (240, 460), (320, 440), (370, 420)], half=20, seed=9)           # trilhas CONVERGENTES: oeste,
+m.trail([(980, 430), (860, 440), (760, 436), (680, 420), (620, 404)], half=17, seed=19)          # leste
+m.trail([(260, 590), (270, 530), (292, 480), (330, 448)], half=14, seed=23)                         # e uma picada do sul que se junta à oeste
+m.add('flo_memory_tree_sealed', 480, 390, scale=.68, hide_when='quest:Q_MS02_ROOTS')
+m.add('flo_memory_tree_open', 480, 390, scale=.68, show_when='quest:Q_MS02_ROOTS')
+m.add('flo_memory_root_arch', 190, 440, scale=.8)
+m.add('flo_memory_root_arch', 780, 430, scale=.8, flip=True)
+for x, y in ((300, 470), (660, 470), (400, 505), (575, 500)):
     m.add('flo_memory_stone', x, y, flip=x > 480)
-m.add('flo_ancient_tree_a', 90, 300, scale=.6)
-m.add('flo_ancient_tree_b', 880, 320, scale=.6, flip=True)
+m.add('flo_ancient_tree_a', 80, 300, scale=.45)            # vizinhas MENORES: a Árvore-Memória domina pela escala
+m.add('flo_ancient_tree_b', 900, 300, scale=.45, flip=True)
+m.add('flo_ancient_tree_b', 60, 560, scale=.42)
 m.add('flo_stone_moss', 130, 520)
 m.scatter(['flo_fern_patch', 'flo_glow_mushrooms'], 10, (20, 60, 920, 470), 33, min_d=52)
 m.d['light_shafts'] = [[m.o[0] + 300, m.o[1] + 0], [m.o[0] + 640, m.o[1] + 0]]
+m.d['motes'] = {'x': m.o[0] + 480, 'y': m.o[1] + 320, 'rx': 260, 'ry': 160, 'n': 18, 'color': [.85, 1, .6], 'show_when': 'quest:Q_MS02_ROOTS'}   # partículas leves de memória (baratas: 18 pontos)
 m.shot('FLO_2C_ARVORE_FECHADA', [])
 m.shot('FLO_2C_ARVORE_ABERTA', ['quest:Q_MS02_ROOTS'])
 comps.append(m.d)
