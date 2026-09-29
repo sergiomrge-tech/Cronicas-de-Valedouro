@@ -6,3 +6,6 @@ __pycache__/
 *.pyc
 artifacts/
 ci_output/
+
+# Extraído de approved_assets_bundle/ (SHA-256 verificado pelo CI); não versionar em duplicidade.
+game/assets/approved/
