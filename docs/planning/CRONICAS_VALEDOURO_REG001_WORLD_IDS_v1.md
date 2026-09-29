@@ -117,7 +117,7 @@ Todos os IDs são persistentes: nada crítico depende de nomes exibidos.
 | `REG001_TRAIL_OASIS` | rota ao oásis |
 | `REG001_PASS_FAZENDA` | atalho: portão da fazenda (shortcut) |
 | `REG001_PASS_VAU_SUL` | vau raso ao sul do vale: liga o Vale ao Deserto sem ponte (ford) |
-| `REG001_PASS_VAU_CENTRAL` | vau raso ao sul da cidade: atalho vale <-> pradaria (ford) |
+| `REG001_PASS_VAU_CENTRAL` | vau raso fora da muralha sul: travessia secundária segura (ford) |
 
 ## Fragmentos de lore
 
