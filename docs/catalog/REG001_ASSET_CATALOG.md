@@ -1,11 +1,12 @@
 # Catálogo de assets REG_001 — Etapa 1 (Mundo Rico)
 
-Gerado a partir de `game/data/reg001_asset_catalog.json`; fonte de status dos modelados: `game/data/modeled_assets_manifest.json`.
+Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/data/modeled_assets_manifest.json`.
 
 ## Política
 
-- **APPROVED** (266): bundle base do Lote 01 + assets modelados posteriormente promovidos pelo Diretor.
+- **APPROVED** (256): somente assets vigentes aprovados pelo Diretor.
 - **MODELED_PENDING_GATE** (463): modelados, ainda aguardando gate visual do Diretor.
+- Assets estruturais substituídos são removidos do banco/catálogo e não devem voltar ao renderer.
 - **LEGACY_BASELINE**: arte legada ainda em uso até substituição.
 - **REWORKED / HOLD**: fora do renderer final.
 
@@ -13,7 +14,7 @@ Gerado a partir de `game/data/reg001_asset_catalog.json`; fonte de status dos mo
 
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
-| APPROVED | 47 | 219 |
+| APPROVED | 42 | 214 |
 | MODELED_PENDING_GATE | 240 | 223 |
 | LEGACY_BASELINE | 119 | 0 |
 
@@ -421,24 +422,15 @@ Gerado a partir de `game/data/reg001_asset_catalog.json`; fonte de status dos mo
 | `val_archive_shelf_tall` | INTEGRATED | 4 |
 | `val_map_fragment_pedestal` | INTEGRATED | 1 |
 
-## APPROVED (266)
+## APPROVED (256)
 
 | Chave | Uso |
 |---|---|
 | `city_floor_clean` | INTEGRATED |
 | `city_floor_moss` | INTEGRATED |
 | `city_floor_worn` | INTEGRATED |
-| `city_gate` | NOT_USED |
-| `city_house_door` | NOT_USED |
-| `city_house_window` | NOT_USED |
-| `city_roof_blue` | INTEGRATED |
-| `city_roof_red` | INTEGRATED |
-| `city_roof_wood` | INTEGRATED |
-| `city_store` | NOT_USED |
 | `city_tree_autumn` | INTEGRATED |
 | `city_tree_green` | INTEGRATED |
-| `city_wall` | INTEGRATED |
-| `city_wall_vegetation` | INTEGRATED |
 | `city_water_edge` | INTEGRATED |
 | `dungeon_arch` | INTEGRATED |
 | `dungeon_corner` | INTEGRATED |
@@ -631,7 +623,6 @@ Gerado a partir de `game/data/reg001_asset_catalog.json`; fonte de status dos mo
 | `val_barricade_b_c2` | NOT_USED |
 | `val_barricade_b_c3` | NOT_USED |
 | `val_guild_hall` | INTEGRATED |
-| `val_house_body` | NOT_USED |
 | `val_palisade_broken_a1` | INTEGRATED |
 | `val_palisade_broken_a2` | INTEGRATED |
 | `val_palisade_broken_a3` | INTEGRATED |
