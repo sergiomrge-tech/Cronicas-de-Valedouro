@@ -212,3 +212,29 @@ def heart_wall(f):
     parts.hanging_vines(.72, -1.9, .72, 1.9, 3.9, 1.6, 6, m_leaf_deep(), 4)
     glow_mushrooms(.9, 1.6, 3, 5, spread=.25)
     geo.rotate_all(45)
+
+
+@landmark('flo_heart_wall_diag', group='nature', folder='ato2', size=(600, 620), origin=(300, 470), tags=('ato2', 'floresta_ancestral', 'arvore_memoria', 'coracao', 'parede', 'modular', 'diagonal'), footprint=0, collision=(), samples=24)
+def heart_wall_diag(f):
+    """Mesma parede viva do coração, mas correndo ao longo de um eixo isométrico (angulada), para fechar o espaço em V."""
+    bark = m_bark_old()
+    rr = random.Random(77)
+    geo.box((0, 0, 2.0), (1.4, 4.0, 4.0), bark, bevel=0.1)
+    for k in range(6):
+        y = -1.7 + k * .68 + rr.uniform(-.1, .1)
+        root((.65, y, .05), (.7, y + rr.uniform(-.25, .25), 3.9), .24 + rr.uniform(0, .1), .12, bark, sag=.05, sides=7)
+    for r_i in range(3):
+        z = 1.5 + r_i * .55
+        y0 = -1.5
+        while y0 < 1.3:
+            L = rr.uniform(.2, .5)
+            geo.box((.74, y0 + L / 2, z), (.04, L, .06), m_memory_light_dim(), bevel=0)
+            y0 += L + rr.uniform(.1, .2)
+    parts.hanging_vines(.72, -1.9, .72, 1.9, 3.9, 1.6, 6, m_leaf_deep(), 4)
+    glow_mushrooms(.9, 1.6, 3, 5, spread=.25)
+
+
+@landmark('flo_heart_wall_diagb', group='nature', folder='ato2', size=(600, 620), origin=(300, 470), tags=('ato2', 'floresta_ancestral', 'arvore_memoria', 'coracao', 'parede', 'modular', 'diagonal'), footprint=0, collision=(), samples=24)
+def heart_wall_diagb(f):
+    heart_wall_diag(f)
+    geo.rotate_all(90)

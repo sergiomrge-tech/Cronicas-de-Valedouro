@@ -1897,49 +1897,49 @@
     "show_when": "quest:Q_MS02_MEMORY_TREE:active"
    },
    {
-    "asset": "flo_heart_wall",
-    "x": 470,
-    "y": 395.6
+    "asset": "flo_heart_wall_diag",
+    "x": 860,
+    "y": 280
    },
    {
-    "asset": "flo_heart_wall",
-    "x": 566,
-    "y": 380.2
+    "asset": "flo_heart_wall_diag",
+    "x": 944,
+    "y": 322
    },
    {
-    "asset": "flo_heart_wall",
-    "x": 662,
-    "y": 364.9
+    "asset": "flo_heart_wall_diagb",
+    "x": 776,
+    "y": 322
    },
    {
-    "asset": "flo_heart_wall",
-    "x": 758,
-    "y": 349.5
+    "asset": "flo_heart_wall_diag",
+    "x": 1028,
+    "y": 364
    },
    {
-    "asset": "flo_heart_wall",
-    "x": 854,
-    "y": 334.2
+    "asset": "flo_heart_wall_diagb",
+    "x": 692,
+    "y": 364
    },
    {
-    "asset": "flo_heart_wall",
-    "x": 950,
-    "y": 341.2
+    "asset": "flo_heart_wall_diag",
+    "x": 1112,
+    "y": 406
    },
    {
-    "asset": "flo_heart_wall",
-    "x": 1046,
-    "y": 356.6
+    "asset": "flo_heart_wall_diagb",
+    "x": 608,
+    "y": 406
    },
    {
-    "asset": "flo_heart_wall",
-    "x": 1142,
-    "y": 371.9
+    "asset": "flo_heart_wall_diag",
+    "x": 1196,
+    "y": 448
    },
    {
-    "asset": "flo_heart_wall",
-    "x": 1238,
-    "y": 387.3
+    "asset": "flo_heart_wall_diagb",
+    "x": 524,
+    "y": 448
    },
    {
     "asset": "flo_memory_root_arch",
@@ -2045,111 +2045,111 @@
   "water": [],
   "objects": [
    {
-    "asset": "flo_hollow_wall_active",
-    "x": 450,
-    "y": 346.0,
+    "asset": "flo_hollow_wall_active_diag",
+    "x": 860,
+    "y": 280,
     "hide_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_dormant",
-    "x": 450,
-    "y": 346.0,
+    "asset": "flo_hollow_wall_dormant_diag",
+    "x": 860,
+    "y": 280,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active",
-    "x": 544,
-    "y": 336.6,
+    "asset": "flo_hollow_wall_active_diag",
+    "x": 944,
+    "y": 322,
     "hide_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_dormant",
-    "x": 544,
-    "y": 336.6,
+    "asset": "flo_hollow_wall_dormant_diag",
+    "x": 944,
+    "y": 322,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active",
-    "x": 638,
-    "y": 327.2,
+    "asset": "flo_hollow_wall_active_diagb",
+    "x": 776,
+    "y": 322,
     "hide_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_dormant",
-    "x": 638,
-    "y": 327.2,
+    "asset": "flo_hollow_wall_dormant_diagb",
+    "x": 776,
+    "y": 322,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active",
-    "x": 732,
-    "y": 317.8,
+    "asset": "flo_hollow_wall_active_diag",
+    "x": 1028,
+    "y": 364,
     "hide_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_dormant",
-    "x": 732,
-    "y": 317.8,
+    "asset": "flo_hollow_wall_dormant_diag",
+    "x": 1028,
+    "y": 364,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active",
-    "x": 826,
-    "y": 308.4,
+    "asset": "flo_hollow_wall_active_diagb",
+    "x": 692,
+    "y": 364,
     "hide_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_dormant",
-    "x": 826,
-    "y": 308.4,
+    "asset": "flo_hollow_wall_dormant_diagb",
+    "x": 692,
+    "y": 364,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active",
-    "x": 920,
-    "y": 311.0,
+    "asset": "flo_hollow_wall_active_diag",
+    "x": 1112,
+    "y": 406,
     "hide_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_dormant",
-    "x": 920,
-    "y": 311.0,
+    "asset": "flo_hollow_wall_dormant_diag",
+    "x": 1112,
+    "y": 406,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active",
-    "x": 1014,
-    "y": 320.4,
+    "asset": "flo_hollow_wall_active_diagb",
+    "x": 608,
+    "y": 406,
     "hide_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_dormant",
-    "x": 1014,
-    "y": 320.4,
+    "asset": "flo_hollow_wall_dormant_diagb",
+    "x": 608,
+    "y": 406,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active",
-    "x": 1108,
-    "y": 329.8,
+    "asset": "flo_hollow_wall_active_diag",
+    "x": 1196,
+    "y": 448,
     "hide_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_dormant",
-    "x": 1108,
-    "y": 329.8,
+    "asset": "flo_hollow_wall_dormant_diag",
+    "x": 1196,
+    "y": 448,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active",
-    "x": 1202,
-    "y": 339.2,
+    "asset": "flo_hollow_wall_active_diagb",
+    "x": 524,
+    "y": 448,
     "hide_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_dormant",
-    "x": 1202,
-    "y": 339.2,
+    "asset": "flo_hollow_wall_dormant_diagb",
+    "x": 524,
+    "y": 448,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
@@ -2169,13 +2169,13 @@
    {
     "asset": "flo_hollow_core_active",
     "x": 860,
-    "y": 380,
+    "y": 482,
     "hide_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
     "asset": "flo_hollow_core_dormant",
     "x": 860,
-    "y": 380,
+    "y": 482,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
@@ -2473,5 +2473,308 @@
    }
   ],
   "vignette": 0.35
+ },
+ {
+  "id": "LOC_FOREST_CARTOGRAPHER_SHRINE",
+  "name": "Santuário dos Cartógrafos",
+  "origin": [
+   400,
+   120
+  ],
+  "story": "Ruína anterior aos Guardas numa clareira elevada com vista; anel de oito linhas que recebe o Selo Verde; a saída aponta para o deserto (Ato III).",
+  "ground_tint": [
+   0.06,
+   0.13,
+   0.08,
+   0.16
+  ],
+  "water": [],
+  "objects": [
+   {
+    "asset": "flo_cart_path_covered",
+    "x": 480,
+    "y": 625,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_cart_path_open",
+    "x": 480,
+    "y": 625,
+    "show_when": "elites:BOSS_RAIZ_OCA_001",
+    "layer": "ground"
+   },
+   {
+    "asset": "flo_cart_path_covered",
+    "x": 600,
+    "y": 620,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_cart_path_open",
+    "x": 600,
+    "y": 620,
+    "show_when": "elites:BOSS_RAIZ_OCA_001",
+    "layer": "ground"
+   },
+   {
+    "asset": "flo_cart_path_covered",
+    "x": 700,
+    "y": 600,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_cart_path_open",
+    "x": 700,
+    "y": 600,
+    "show_when": "elites:BOSS_RAIZ_OCA_001",
+    "layer": "ground"
+   },
+   {
+    "asset": "flo_cart_terrace",
+    "x": 880,
+    "y": 330,
+    "scale": 0.85
+   },
+   {
+    "asset": "flo_cart_ring_inert",
+    "x": 880,
+    "y": 470,
+    "scale": 0.8,
+    "hide_when": "quest:Q_MS02_VEIL_SHRINE"
+   },
+   {
+    "asset": "flo_cart_ring_lit",
+    "x": 880,
+    "y": 470,
+    "scale": 0.8,
+    "show_when": "quest:Q_MS02_VEIL_SHRINE"
+   },
+   {
+    "asset": "flo_cart_pillar",
+    "x": 530,
+    "y": 420
+   },
+   {
+    "asset": "flo_cart_pillar",
+    "x": 1230,
+    "y": 410
+   },
+   {
+    "asset": "flo_cart_ruin_wall",
+    "x": 630,
+    "y": 360
+   },
+   {
+    "asset": "flo_cart_ruin_wall",
+    "x": 1130,
+    "y": 370,
+    "flip": true
+   },
+   {
+    "asset": "flo_ancient_tree_a",
+    "x": 490,
+    "y": 250,
+    "scale": 0.65
+   },
+   {
+    "asset": "flo_ancient_tree_b",
+    "x": 1280,
+    "y": 250,
+    "scale": 0.6,
+    "flip": true
+   },
+   {
+    "asset": "flo_stone_moss",
+    "x": 550,
+    "y": 540
+   },
+   {
+    "asset": "flo_exit_marker",
+    "x": 1300,
+    "y": 570,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 1060,
+    "y": 620
+   },
+   {
+    "asset": "nat_grass_dry",
+    "x": 1090,
+    "y": 634
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 1160,
+    "y": 560
+   },
+   {
+    "asset": "nat_grass_dry",
+    "x": 1190,
+    "y": 574
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 1230,
+    "y": 620
+   },
+   {
+    "asset": "nat_grass_dry",
+    "x": 1260,
+    "y": 634
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 1330,
+    "y": 540
+   },
+   {
+    "asset": "nat_grass_dry",
+    "x": 1360,
+    "y": 554
+   },
+   {
+    "asset": "nat_dune_small",
+    "x": 1340,
+    "y": 500
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 470.6,
+    "y": 541.2
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 589.5,
+    "y": 210.3,
+    "flip": true
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 616.9,
+    "y": 454.3,
+    "flip": true
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 442.7,
+    "y": 277.8
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 428.1,
+    "y": 356.5,
+    "flip": true
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 549.8,
+    "y": 370.7,
+    "flip": true
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 546.9,
+    "y": 258.0,
+    "flip": true
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 622.9,
+    "y": 257.2,
+    "flip": true
+   }
+  ],
+  "captures": [
+   {
+    "name": "FLO_2E_CARTOGRAFOS_INERTE",
+    "flags": []
+   },
+   {
+    "name": "FLO_2E_CARTOGRAFOS_CAMINHO_ABERTO",
+    "flags": [
+     "elites:BOSS_RAIZ_OCA_001"
+    ]
+   },
+   {
+    "name": "FLO_2E_CARTOGRAFOS_SELO_ATIVO",
+    "flags": [
+     "elites:BOSS_RAIZ_OCA_001",
+     "quest:Q_MS02_VEIL_SHRINE"
+    ]
+   }
+  ],
+  "light_shafts": [
+   [
+    820,
+    120
+   ]
+  ],
+  "exclusions": [
+   {
+    "circle": [
+     480,
+     340,
+     230
+    ]
+   },
+   {
+    "rect": [
+     0,
+     470,
+     960,
+     50
+    ]
+   }
+  ],
+  "trails": [
+   {
+    "pts": [
+     [
+      380,
+      620
+     ],
+     [
+      560,
+      615
+     ],
+     [
+      720,
+      590
+     ],
+     [
+      830,
+      550
+     ]
+    ],
+    "half": 18,
+    "seed": 4,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "pts": [
+     [
+      960,
+      590
+     ],
+     [
+      1100,
+      600
+     ],
+     [
+      1260,
+      590
+     ],
+     [
+      1380,
+      575
+     ]
+    ],
+    "half": 17,
+    "seed": 8,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   }
+  ]
  }
 ]

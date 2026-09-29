@@ -66,8 +66,10 @@ class Comp:
             got += 1
         return got
 
-    def trail(self, pts, half=22, seed=1):
-        self.d.setdefault('trails', []).append({'pts': [[self.o[0] + x, self.o[1] + y] for x, y in pts], 'half': half, 'seed': seed})
+    def trail(self, pts, half=22, seed=1, **state):
+        t = {'pts': [[self.o[0] + x, self.o[1] + y] for x, y in pts], 'half': half, 'seed': seed}
+        t.update(state)                                  # show_when / hide_when
+        self.d.setdefault('trails', []).append(t)
 
     def shot(self, name, flags=()):
         self.d['captures'].append({'name': name, 'flags': list(flags)})
@@ -250,8 +252,10 @@ h.d['ground_solid'] = [.05, .09, .06]
 h.add('flo_heart_floor', 480, 330, layer='ground', scale=1.15)
 h.add('flo_heart_seed', 480, 330, hide_when='quest:Q_MS02_MEMORY_TREE:active')
 h.add('flo_heart_seed_active', 480, 330, show_when='quest:Q_MS02_MEMORY_TREE:active')
-for x in range(90, 900, 96):                          # parede viva ao fundo, curvada em arco (a árvore por dentro)
-    h.add('flo_heart_wall', x, 200 + abs(x - 500) * .16)
+for k in range(0, 5):                                   # coração em V angulado: raízes vivas nas duas diagonais isométricas
+    h.add('flo_heart_wall_diag', 480 + 84 * k, 150 + 42 * k)
+    if k > 0:
+        h.add('flo_heart_wall_diagb', 480 - 84 * k, 150 + 42 * k)
 h.add('flo_memory_root_arch', 110, 330, scale=.8)
 h.add('flo_memory_root_arch', 860, 340, scale=.8, flip=True)
 for i, (x, y) in enumerate(((300, 400), (660, 400), (240, 330), (720, 330))):
@@ -272,14 +276,17 @@ a = Comp('LOC_HOLLOW_ROOT_ARENA', 'Coração da Raiz Oca — arena', (380, 130),
          'Arena feita para o boss: piso com anéis e cunhas de telegráfico, raízes gigantes delimitando o campo, núcleo ao fundo; circulação livre no campo. Ativa até a primeira derrota; depois dormente/purificada; a revanche reativa só a apresentação.', tint=(.03, .04, .08, .3))
 a.d['ground_solid'] = [.06, .05, .09]
 a.exclude_circle(480, 340, 250)                        # campo de combate livre de props
-for x in range(70, 900, 94):                          # parede de raízes ao fundo (arco norte)
-    y = 175 + abs(x - 480) * .1
-    a.add('flo_hollow_wall_active', x, y, hide_when=BOSS)
-    a.add('flo_hollow_wall_dormant', x, y, show_when=BOSS)
+# fundo em V angulado (eixos isométricos): lado direito desce em +Y (diagonal ↘), lado esquerdo em -X espelhado (diagonal ↙); frente aberta para a câmera
+for k in range(0, 5):
+    a.add('flo_hollow_wall_active_diag', 480 + 84 * k, 150 + 42 * k, hide_when=BOSS)
+    a.add('flo_hollow_wall_dormant_diag', 480 + 84 * k, 150 + 42 * k, show_when=BOSS)
+    if k > 0:
+        a.add('flo_hollow_wall_active_diagb', 480 - 84 * k, 150 + 42 * k, hide_when=BOSS)
+        a.add('flo_hollow_wall_dormant_diagb', 480 - 84 * k, 150 + 42 * k, show_when=BOSS)
 a.add('flo_hollow_floor_active', 480, 350, layer='ground', hide_when=BOSS)
 a.add('flo_hollow_floor_dormant', 480, 350, layer='ground', show_when=BOSS)
-a.add('flo_hollow_core_active', 480, 250, hide_when=BOSS)
-a.add('flo_hollow_core_dormant', 480, 250, show_when=BOSS)
+a.add('flo_hollow_core_active', 480, 352, hide_when=BOSS)
+a.add('flo_hollow_core_dormant', 480, 352, show_when=BOSS)
 for x, y in ((90, 330), (860, 340), (140, 460), (830, 470)):    # espinhos só no estado ativo (nunca dentro do campo)
     a.add('flo_corrupt_root_spike', x, y, hide_when=BOSS)
 a.d['vignette'] = .5
@@ -312,6 +319,42 @@ w.d['vignette'] = .35
 w.shot('FLO_2D_FERIDA_PRE_BOSS', [])
 w.shot('FLO_2D_FERIDA_POS_PRIMEIRA_DERROTA', [BOSS])
 comps.append(w.d)
+
+# ============================================================== LOC_FOREST_CARTOGRAPHER_SHRINE (Q_MS02_VEIL_SHRINE) + saída para o Ato III
+# F5 = boss derrotado (elites:BOSS_RAIZ_OCA_001) abre o caminho; F6 = Selo Verde recuperado (quest concluída) acende o anel e projeta a segunda linha.
+SEAL = 'quest:Q_MS02_VEIL_SHRINE'
+c = Comp('LOC_FOREST_CARTOGRAPHER_SHRINE', 'Santuário dos Cartógrafos', (400, 120),
+         'Ruína anterior aos Guardas numa clareira elevada com vista; anel de oito linhas que recebe o Selo Verde; a saída aponta para o deserto (Ato III).', tint=(.06, .13, .08, .16))
+c.exclude_circle(480, 340, 230)
+c.exclude_rect(0, 470, 960, 50)
+BOSSF = 'elites:BOSS_RAIZ_OCA_001'
+c.trail([(-20, 500), (160, 495), (320, 470), (430, 430)], half=18, seed=4, show_when=BOSSF)          # trilha visível só depois do boss
+for x, y in ((80, 505), (200, 500), (300, 480)):                                                     # antes: caminho encoberto por raízes e mato
+    c.add('flo_cart_path_covered', x, y, hide_when=BOSSF)
+    c.add('flo_cart_path_open', x, y, show_when=BOSSF, layer='ground')
+c.add('flo_cart_terrace', 480, 210, scale=.85)
+c.add('flo_cart_ring_inert', 480, 350, scale=.8, hide_when=SEAL)
+c.add('flo_cart_ring_lit', 480, 350, scale=.8, show_when=SEAL)
+for x, y in ((130, 300), (830, 290)):
+    c.add('flo_cart_pillar', x, y)
+c.add('flo_cart_ruin_wall', 230, 240)
+c.add('flo_cart_ruin_wall', 730, 250, flip=True)
+c.add('flo_ancient_tree_a', 90, 130, scale=.65)
+c.add('flo_ancient_tree_b', 880, 130, scale=.6, flip=True)
+c.add('flo_stone_moss', 150, 420)
+# ecótono para o Ato III: à direita o solo seca (grama seca, arbustos secos, dunas baixas) e o marco de saída aponta o caminho
+c.trail([(560, 470), (700, 480), (860, 470), (980, 455)], half=17, seed=8, show_when=BOSSF)
+c.add('flo_exit_marker', 900, 450, show_when=BOSSF)
+for x, y in ((660, 500), (760, 440), (830, 500), (930, 420)):
+    c.add('nat_bush_dry', x, y)
+    c.add('nat_grass_dry', x + 30, y + 14)
+c.add('nat_dune_small', 940, 380)
+c.scatter(['flo_fern_patch', 'flo_glow_mushrooms', 'nat_bush_green'], 8, (20, 60, 560, 380), 55, min_d=50)
+c.d['light_shafts'] = [[c.o[0] + 420, c.o[1]]]
+c.shot('FLO_2E_CARTOGRAFOS_INERTE', [])
+c.shot('FLO_2E_CARTOGRAFOS_CAMINHO_ABERTO', [BOSSF])
+c.shot('FLO_2E_CARTOGRAFOS_SELO_ATIVO', [BOSSF, SEAL])
+comps.append(c.d)
 
 # ------------------------------------------------------------------ saída
 # flags negativas: "!<flag>" em show_when/hide_when é resolvido pelo palco/Gerente como "flag ausente"

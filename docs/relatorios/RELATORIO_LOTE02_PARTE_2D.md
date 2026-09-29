@@ -29,3 +29,7 @@ Segue §3-E e §5.5 do documento do Gerente. **Mesmo princípio do Guardião da 
 ## Limitações
 - O boss em si (sprite/animação de `BOSS_RAIZ_OCA_001`) e seus telegráficos animados são do pipeline de criaturas/combate, fora desta parte; a arena já traz as marcas de leitura no piso.
 - Aproximação "abaixo, atrás ou dentro" da árvore: aqui foi resolvida como ferida ao lado da clareira; a conexão física final (túnel/descida) depende do mapa.
+
+## Correções após revisão do Diretor
+- **Núcleo flutuando:** o núcleo estava 100 px acima do centro do piso; agora assenta no centro do piso da arena (y do piso = y do núcleo), nos estados ativo e dormente.
+- **Paredes sem angulação:** as paredes eram desenhadas de frente (rotação de 45° aplicada e alinhadas no eixo da tela). Criadas variantes que correm pelos **eixos isométricos** (`flo_hollow_wall_{active,dormant}_diag` ↘ e `_diagb` ↙, sem espelhar sprite) e a arena passou a fechar em **V angulado** com a frente aberta para a câmera. O coração da Árvore-Memória recebeu o mesmo tratamento (`flo_heart_wall_diag/_diagb`). Assets modulares originais permanecem para outros usos.

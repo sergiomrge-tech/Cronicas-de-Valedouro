@@ -806,6 +806,386 @@
   "pipeline": "blender-pro"
  },
  {
+  "id": "flo_cart_path_covered",
+  "path": "res://assets/modeled/nature/ato2/flo_cart_path_covered.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   472,
+   352
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   226.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 30.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "cartografos",
+   "caminho",
+   "encoberto",
+   "modular"
+  ],
+  "sha256": "2da3114dc42b20961ef19e83ebcb8e9978a72738484582a2efa013e690377d7c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -25.5,
+    -12.7,
+    12
+   ],
+   [
+    0.0,
+    0.0,
+    12
+   ],
+   [
+    25.5,
+    12.7,
+    12
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_cart_path_open",
+  "path": "res://assets/modeled/nature/ato2/flo_cart_path_open.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   472,
+   352
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   226.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "cartografos",
+   "caminho",
+   "aberto",
+   "modular"
+  ],
+  "sha256": "08ac881b71ec93694785bbb841f1574783567cff502934cf840c0040e0e27e89",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_cart_pillar",
+  "path": "res://assets/modeled/nature/ato2/flo_cart_pillar.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   252,
+   412
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   126.0,
+   326.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 12.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "cartografos",
+   "ruina",
+   "pilar"
+  ],
+  "sha256": "ee546a23f076b0ce56d692c0384d65294e46e914fa3fe8310c1be562f107dfb6",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_cart_ring_inert",
+  "path": "res://assets/modeled/nature/ato2/flo_cart_ring_inert.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   952,
+   672
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   476.0,
+   356.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "cartografos",
+   "anel",
+   "estado_inerte"
+  ],
+  "sha256": "31d5e3e094d911d285da277783f57d3c111eda420a7bc9801b32faeccec681d2",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    16
+   ],
+   [
+    -25.5,
+    12.7,
+    16
+   ],
+   [
+    25.5,
+    -12.7,
+    16
+   ],
+   [
+    25.5,
+    12.7,
+    16
+   ],
+   [
+    -25.5,
+    -12.7,
+    16
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_cart_ring_lit",
+  "path": "res://assets/modeled/nature/ato2/flo_cart_ring_lit.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   1352,
+   752
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   476.0,
+   366.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "cartografos",
+   "anel",
+   "selo_verde",
+   "estado_ativo"
+  ],
+  "sha256": "b6a2035fb34ae23e54cc555cbc1ff92aa8c94c0bb6494246fc89a994088bd371",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    16
+   ],
+   [
+    -25.5,
+    12.7,
+    16
+   ],
+   [
+    25.5,
+    -12.7,
+    16
+   ],
+   [
+    25.5,
+    12.7,
+    16
+   ],
+   [
+    -25.5,
+    -12.7,
+    16
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_cart_ruin_wall",
+  "path": "res://assets/modeled/nature/ato2/flo_cart_ruin_wall.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   492,
+   412
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   246.0,
+   296.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 36.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "cartografos",
+   "ruina",
+   "inscricao"
+  ],
+  "sha256": "d64bf2d6780659b1cc37a0f93e28bf7a8d6bea44958cbfdc2b748936093dedc5",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -19.1,
+    -13.8,
+    10
+   ],
+   [
+    4.2,
+    -2.1,
+    10
+   ],
+   [
+    27.6,
+    9.5,
+    10
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_cart_terrace",
+  "path": "res://assets/modeled/nature/ato2/flo_cart_terrace.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   812,
+   572
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   356.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 90.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "cartografos",
+   "terraco",
+   "vista"
+  ],
+  "sha256": "bc299479864c6097bce35fedb172f16d8fdd0f1f9cbe3ca1a65926a0d64f59a0",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -77.1,
+    -6.0,
+    15.8
+   ],
+   [
+    -77.1,
+    6.0,
+    15.8
+   ],
+   [
+    -51.4,
+    -6.0,
+    15.8
+   ],
+   [
+    -51.4,
+    6.0,
+    15.8
+   ],
+   [
+    -25.7,
+    -6.0,
+    15.8
+   ],
+   [
+    -25.7,
+    6.0,
+    15.8
+   ],
+   [
+    0.0,
+    -6.0,
+    15.8
+   ],
+   [
+    0.0,
+    6.0,
+    15.8
+   ],
+   [
+    25.7,
+    -6.0,
+    15.8
+   ],
+   [
+    25.7,
+    6.0,
+    15.8
+   ],
+   [
+    51.4,
+    -6.0,
+    15.8
+   ],
+   [
+    51.4,
+    6.0,
+    15.8
+   ],
+   [
+    77.1,
+    -6.0,
+    15.8
+   ],
+   [
+    77.1,
+    6.0,
+    15.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
   "id": "flo_claw_tree",
   "path": "res://assets/modeled/nature/ato2/flo_claw_tree.png",
   "group": "nature",
@@ -930,6 +1310,43 @@
    "espinho"
   ],
   "sha256": "709de6b33c2c9eabcb9ba0db342c663eb68c17075e9c8b0129cb15ee8241d341",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_exit_marker",
+  "path": "res://assets/modeled/nature/ato2/flo_exit_marker.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   292,
+   472
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   146.0,
+   366.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 12.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "saida",
+   "ato3",
+   "marco"
+  ],
+  "sha256": "bb785f5710f9db05b755158a80c783a23a3645f36a0daea5ede4792dcb60a417",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -1132,6 +1549,70 @@
    "modular"
   ],
   "sha256": "e6ad57d02067701dbea6c3a28b66b455699add547b177b9c309ad5c37884b1fc",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_heart_wall_diag",
+  "path": "res://assets/modeled/nature/ato2/flo_heart_wall_diag.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   652,
+   672
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   326.0,
+   496.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "arvore_memoria",
+   "coracao",
+   "parede",
+   "modular",
+   "diagonal"
+  ],
+  "sha256": "c78ca0ac62179bb67465055ea4a8b85950e9ec86e1d452ed0066c6ff36fd59d8",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_heart_wall_diagb",
+  "path": "res://assets/modeled/nature/ato2/flo_heart_wall_diagb.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   652,
+   672
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   326.0,
+   496.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "arvore_memoria",
+   "coracao",
+   "parede",
+   "modular",
+   "diagonal"
+  ],
+  "sha256": "c498e9b366017fba871147d79ffa65c033c7a5ed070023a4f43cd215a6e8464c",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -1410,6 +1891,72 @@
   "pipeline": "blender-pro"
  },
  {
+  "id": "flo_hollow_wall_active_diag",
+  "path": "res://assets/modeled/nature/ato2/flo_hollow_wall_active_diag.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   652,
+   672
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   326.0,
+   496.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "boss",
+   "parede",
+   "modular",
+   "diagonal",
+   "estado_ativo"
+  ],
+  "sha256": "1a0260eade234c1c20ab86024e3dea5e5066adc67b1d9cbdc86de3021f716e53",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_hollow_wall_active_diagb",
+  "path": "res://assets/modeled/nature/ato2/flo_hollow_wall_active_diagb.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   652,
+   672
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   326.0,
+   496.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "boss",
+   "parede",
+   "modular",
+   "diagonal",
+   "estado_ativo"
+  ],
+  "sha256": "2dbdf20b7d28007f563bca380227db951b0fbe1effa5184f0e99b048dec0de46",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
   "id": "flo_hollow_wall_dormant",
   "path": "res://assets/modeled/nature/ato2/flo_hollow_wall_dormant.png",
   "group": "nature",
@@ -1437,6 +1984,72 @@
    "estado_dormente"
   ],
   "sha256": "f9624e2984b2ab6512e1cfb18dabfd36b9a2edf448b4ab49366dcc3534743cb3",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_hollow_wall_dormant_diag",
+  "path": "res://assets/modeled/nature/ato2/flo_hollow_wall_dormant_diag.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   652,
+   672
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   326.0,
+   496.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "boss",
+   "parede",
+   "modular",
+   "diagonal",
+   "estado_dormente"
+  ],
+  "sha256": "796aeb41253913cff317093ba4b514d466026cbdf73c33793fbbed08f302c26f",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_hollow_wall_dormant_diagb",
+  "path": "res://assets/modeled/nature/ato2/flo_hollow_wall_dormant_diagb.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   652,
+   672
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   326.0,
+   496.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "raiz_oca",
+   "boss",
+   "parede",
+   "modular",
+   "diagonal",
+   "estado_dormente"
+  ],
+  "sha256": "ff398e36daa1ed7d39e1ac12630821d24924db3efb7ed9119379e9c92fac3d19",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"

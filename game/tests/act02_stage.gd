@@ -94,7 +94,8 @@ func _draw() -> void:
 			var gp: Vector2 = r.position + Vector2(fposmod(float(i) * 37.0 + time_acc * 6.0, r.size.x), fposmod(float(i) * 53.0, r.size.y))
 			draw_rect(Rect2(gp, Vector2(4, 1)), Color(.9, 1, 1, .45))
 	for t_value in comp.get("trails", []):
-		draw_trail(t_value as Dictionary)
+		if visible_obj(t_value as Dictionary):
+			draw_trail(t_value as Dictionary)
 	var items: Array = []
 	for o_value in comp["objects"]:
 		var o: Dictionary = o_value

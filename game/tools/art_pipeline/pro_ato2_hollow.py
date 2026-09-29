@@ -94,7 +94,7 @@ def hollow_floor_dormant(f):
 
 
 # ------------------------------------------------------------------ paredes de raízes gigantes que delimitam o campo (modular 4,2 u)
-def _root_wall(active):
+def _root_wall(active, diag=False, turn=0):
     rt, glow, st = _pal(active)
     rr = random.Random(412 if active else 413)
     for k in range(5):
@@ -110,7 +110,10 @@ def _root_wall(active):
     else:
         for k in range(3):
             geo.cyl_between((.4, -1.5 + k * 1.4, 4.0), (.9, -1.5 + k * 1.4, 2.6), .1, rt, sides=5, r2=.02)
-    geo.rotate_all(45)
+    if not diag:
+        geo.rotate_all(45)
+    elif turn:
+        geo.rotate_all(turn)    # diag=True: sem girar (↘) ou girada 90° (↙): a parede corre ao longo de um eixo isométrico (2:1 na tela), sem espelhar o sprite
 
 
 @landmark('flo_hollow_wall_active', group='nature', folder='ato2', size=(440, 580), origin=(220, 460), tags=('ato2', 'floresta_ancestral', 'raiz_oca', 'boss', 'parede', 'modular', 'estado_ativo'), footprint=0, collision=(), samples=24)
@@ -196,3 +199,23 @@ def corrupt_root_spike(f):
     geo.box((.02, 0, .8), (.03, .03, .5), m_eco_corrupt(), bevel=0)
     parts.leaf_cluster(0, 0, .05, .6, 6, M('leaf_dry'), 3, size=(.1, .16), flat=.5)
     geo.rotate_all(45)
+
+
+@landmark('flo_hollow_wall_active_diag', group='nature', folder='ato2', size=(600, 620), origin=(300, 470), tags=('ato2', 'floresta_ancestral', 'raiz_oca', 'boss', 'parede', 'modular', 'diagonal', 'estado_ativo'), footprint=0, collision=(), samples=24)
+def hollow_wall_active_diag(f):
+    _root_wall(True, True)
+
+
+@landmark('flo_hollow_wall_dormant_diag', group='nature', folder='ato2', size=(600, 620), origin=(300, 470), tags=('ato2', 'floresta_ancestral', 'raiz_oca', 'boss', 'parede', 'modular', 'diagonal', 'estado_dormente'), footprint=0, collision=(), samples=24)
+def hollow_wall_dormant_diag(f):
+    _root_wall(False, True)
+
+
+@landmark('flo_hollow_wall_active_diagb', group='nature', folder='ato2', size=(600, 620), origin=(300, 470), tags=('ato2', 'floresta_ancestral', 'raiz_oca', 'boss', 'parede', 'modular', 'diagonal', 'estado_ativo'), footprint=0, collision=(), samples=24)
+def hollow_wall_active_diagb(f):
+    _root_wall(True, True, 90)
+
+
+@landmark('flo_hollow_wall_dormant_diagb', group='nature', folder='ato2', size=(600, 620), origin=(300, 470), tags=('ato2', 'floresta_ancestral', 'raiz_oca', 'boss', 'parede', 'modular', 'diagonal', 'estado_dormente'), footprint=0, collision=(), samples=24)
+def hollow_wall_dormant_diagb(f):
+    _root_wall(False, True, 90)
