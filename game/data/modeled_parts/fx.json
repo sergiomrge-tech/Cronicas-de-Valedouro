@@ -1,0 +1,176 @@
+[
+ {
+  "id": "fx_chest_open",
+  "path": "res://assets/modeled/fx/fx_chest_open.png",
+  "group": "fx",
+  "folder": "fx",
+  "frame_size": [
+   96,
+   96
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   48.0,
+   66.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "fx",
+   "animado",
+   "baú",
+   "abrir"
+  ],
+  "sha256": "6c659fa88a9383533f8521b7a2778d532dc1e9bdb7b20ac55bd72963b7c34cec",
+  "source": "game/tools/art_pipeline/pro_fx.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "pixel-sim"
+ },
+ {
+  "id": "fx_dig",
+  "path": "res://assets/modeled/fx/fx_dig.png",
+  "group": "fx",
+  "folder": "fx",
+  "frame_size": [
+   96,
+   96
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   48.0,
+   66.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "fx",
+   "animado",
+   "escavar",
+   "terra"
+  ],
+  "sha256": "c2d11805f29532c052e923c713edf44ab651e2386a27bba995031235eed2bcb7",
+  "source": "game/tools/art_pipeline/pro_fx.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "pixel-sim"
+ },
+ {
+  "id": "fx_harvest",
+  "path": "res://assets/modeled/fx/fx_harvest.png",
+  "group": "fx",
+  "folder": "fx",
+  "frame_size": [
+   96,
+   96
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   48.0,
+   66.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "fx",
+   "animado",
+   "colheita",
+   "folhas"
+  ],
+  "sha256": "049690821c1c5a00d005487b73353729addad24a5876ae9ad6c8882687b96bf6",
+  "source": "game/tools/art_pipeline/pro_fx.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "pixel-sim"
+ },
+ {
+  "id": "fx_mine",
+  "path": "res://assets/modeled/fx/fx_mine.png",
+  "group": "fx",
+  "folder": "fx",
+  "frame_size": [
+   96,
+   96
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   48.0,
+   66.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "fx",
+   "animado",
+   "mineração",
+   "fagulhas"
+  ],
+  "sha256": "fa5f62985ca2ab2cc8599a592eefcbf73ae42f7c3acb1bf5610881669d52d528",
+  "source": "game/tools/art_pipeline/pro_fx.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "pixel-sim"
+ },
+ {
+  "id": "fx_secret",
+  "path": "res://assets/modeled/fx/fx_secret.png",
+  "group": "fx",
+  "folder": "fx",
+  "frame_size": [
+   96,
+   96
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   48.0,
+   66.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "fx",
+   "animado",
+   "segredo",
+   "revelar"
+  ],
+  "sha256": "46bb3d9662094db66cccf277e71e03fca6e48588e622de59b4e2d92aa49ded12",
+  "source": "game/tools/art_pipeline/pro_fx.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "pixel-sim"
+ },
+ {
+  "id": "fx_shrine",
+  "path": "res://assets/modeled/fx/fx_shrine.png",
+  "group": "fx",
+  "folder": "fx",
+  "frame_size": [
+   96,
+   96
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   48.0,
+   66.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "fx",
+   "animado",
+   "santuário",
+   "luz"
+  ],
+  "sha256": "eb9e48c354f916e2aff0d43c9dd9222fcf17fa74039831081029f6da9aa2b350",
+  "source": "game/tools/art_pipeline/pro_fx.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "pixel-sim"
+ }
+]

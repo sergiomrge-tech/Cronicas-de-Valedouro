@@ -5,14 +5,14 @@ Nenhum asset foi promovido a APPROVED. PRO = remodelado no pipeline profissional
 | classe | quantidade |
 |---|---|
 | A | 35 |
-| B | 26 |
-| C | 77 |
+| B | 25 |
+| C | 6 |
 | D | 11 |
-| PRO | 143 |
+| PRO | 215 |
 
-## PRO (143)
+## PRO (215)
 
-fau_bird, fau_camel, fau_deer, fau_fish, fau_fox, fau_goat, fau_hare, fx_chest_open, fx_dig, fx_harvest, fx_mine, fx_secret, fx_shrine, int_beam, int_post, int_wall_door, int_wall_hearth, int_wall_niche, int_wall_plain, int_wall_window, nat_hill_earth, nat_hill_ice, nat_hill_sand, nat_plateau_earth_m, nat_plateau_earth_s, nat_plateau_ice_m, nat_plateau_ice_s, nat_plateau_rock_m, nat_plateau_rock_s, nat_plateau_sand_m, nat_plateau_sand_s, nat_ridge_earth_a, nat_ridge_earth_b, nat_ridge_ice_a, nat_ridge_ice_b, nat_ridge_rock_a, nat_ridge_rock_b, nat_ridge_sand_a, nat_ridge_sand_b, nat_rock_arch_natural, nat_rock_pillars, nat_steps_stone, nat_wall_cliff_ice_a, nat_wall_cliff_ice_b, nat_wall_cliff_rock_a, nat_wall_cliff_rock_b, nat_wall_cliff_sand_a, nat_wall_cliff_sand_b, nat_waterfall_front, npc_alchemist, npc_child, npc_elder, npc_farmer, npc_guard, npc_guildmaster, npc_hunter, npc_merchant, npc_miller, npc_shopkeeper, npc_smith, npc_traveler, npc_villager_f, npc_villager_m, str_barn, str_boat_row, str_boat_sail, str_cave_entrance, str_crop_cabbage, str_crop_corn, str_crop_wheat, str_dock_a, str_dock_b, str_dock_end, str_lodge_ice, str_outpost_amber, str_scarecrow, str_shelter_wood, str_shrine_stone, str_watchtower_frost, str_watchtower_stone, str_windmill, ter_bosque_0_0, ter_bosque_0_1, ter_bosque_1_0, ter_bosque_1_1, ter_bosque_2_0, ter_bosque_2_1, ter_bosque_3_0, ter_bosque_3_1, ter_ground_0_0, ter_ground_0_1, ter_ground_0_2, ter_ground_0_3, ter_ground_0_4, ter_ground_1_0, ter_ground_1_1, ter_ground_1_2, ter_ground_1_3, ter_ground_1_4, ter_ground_2_0, ter_ground_2_1, ter_ground_2_2, ter_ground_2_3, ter_ground_2_4, ter_ground_3_0, ter_ground_3_1, ter_ground_3_2, ter_ground_3_3, ter_ground_3_4, ter_ground_4_0, ter_ground_4_1, ter_ground_4_2, ter_ground_4_3, ter_ground_4_4, ter_ground_5_0, ter_ground_5_1, ter_ground_5_2, ter_ground_5_3, ter_ground_5_4, ter_tex_cobble, ter_tex_deck_stone, ter_tex_deck_wood, ter_tex_dirt, ter_tex_forest_floor, ter_tex_grass_a, ter_tex_grass_b, ter_tex_ice, ter_tex_meadow, ter_tex_mud, ter_tex_riverbed, ter_tex_road, ter_tex_road_sand, ter_tex_road_snow, ter_tex_sand, ter_tex_sand_dune, ter_tex_snow, ter_tex_stone, ter_tex_valley, ter_tex_water_deep, ter_tex_water_shallow, ter_water_foam, ter_water_glint, ter_water_ripple
+city_banner_blue, city_banner_red, city_barrels, city_bench, city_cart_market, city_crates, city_lamp_post_a, city_lamp_post_b, city_planter, fau_bird, fau_camel, fau_deer, fau_fish, fau_fox, fau_goat, fau_hare, fx_chest_open, fx_dig, fx_harvest, fx_mine, fx_secret, fx_shrine, int_beam, int_floor_stone, int_floor_wood, int_floor_wood_dark, int_post, int_wall_door, int_wall_hearth, int_wall_niche, int_wall_plain, int_wall_window, nat_altar_ancient, nat_altar_sand, nat_boulder_ice, nat_boulder_sand, nat_bush_berry, nat_bush_dry, nat_bush_flowering, nat_bush_frost, nat_bush_green, nat_cactus_round, nat_cactus_tall, nat_campfire, nat_cart_wood, nat_chest_closed, nat_chest_open, nat_chest_rare, nat_dune_large, nat_dune_small, nat_fence_broken_a, nat_fence_broken_b, nat_fence_wood_a, nat_fence_wood_b, nat_flag_blue, nat_flag_red, nat_gate_wood, nat_hay_bale, nat_hay_stack, nat_hill_earth, nat_hill_ice, nat_hill_sand, nat_ice_spire, nat_log_fallen, nat_log_pile, nat_obelisk_rune, nat_plateau_earth_m, nat_plateau_earth_s, nat_plateau_ice_m, nat_plateau_ice_s, nat_plateau_rock_m, nat_plateau_rock_s, nat_plateau_sand_m, nat_plateau_sand_s, nat_ridge_earth_a, nat_ridge_earth_b, nat_ridge_ice_a, nat_ridge_ice_b, nat_ridge_rock_a, nat_ridge_rock_b, nat_ridge_sand_a, nat_ridge_sand_b, nat_rock_arch_natural, nat_rock_boulder, nat_rock_ice, nat_rock_medium, nat_rock_mossy, nat_rock_pillars, nat_rock_sand, nat_rock_small, nat_rock_snow, nat_ruin_arch, nat_ruin_arch_sand, nat_ruin_column, nat_ruin_column_broken, nat_ruin_column_sand, nat_ruin_wall, nat_ruin_wall_sand, nat_signpost, nat_snow_mound, nat_statue_guardian, nat_steps_stone, nat_stump, nat_tent_frost, nat_tent_red, nat_tent_small, nat_tree_birch, nat_tree_dead, nat_tree_palm, nat_tree_pine, nat_tree_pine_snow, nat_wall_cliff_ice_a, nat_wall_cliff_ice_b, nat_wall_cliff_rock_a, nat_wall_cliff_rock_b, nat_wall_cliff_sand_a, nat_wall_cliff_sand_b, nat_wall_low_a, nat_wall_low_b, nat_waterfall_front, nat_well_stone, npc_alchemist, npc_child, npc_elder, npc_farmer, npc_guard, npc_guildmaster, npc_hunter, npc_merchant, npc_miller, npc_shopkeeper, npc_smith, npc_traveler, npc_villager_f, npc_villager_m, str_barn, str_boat_row, str_boat_sail, str_cave_entrance, str_crop_cabbage, str_crop_corn, str_crop_wheat, str_dock_a, str_dock_b, str_dock_end, str_lodge_ice, str_outpost_amber, str_scarecrow, str_shelter_wood, str_shrine_stone, str_watchtower_frost, str_watchtower_stone, str_windmill, ter_bosque_0_0, ter_bosque_0_1, ter_bosque_1_0, ter_bosque_1_1, ter_bosque_2_0, ter_bosque_2_1, ter_bosque_3_0, ter_bosque_3_1, ter_ground_0_0, ter_ground_0_1, ter_ground_0_2, ter_ground_0_3, ter_ground_0_4, ter_ground_1_0, ter_ground_1_1, ter_ground_1_2, ter_ground_1_3, ter_ground_1_4, ter_ground_2_0, ter_ground_2_1, ter_ground_2_2, ter_ground_2_3, ter_ground_2_4, ter_ground_3_0, ter_ground_3_1, ter_ground_3_2, ter_ground_3_3, ter_ground_3_4, ter_ground_4_0, ter_ground_4_1, ter_ground_4_2, ter_ground_4_3, ter_ground_4_4, ter_ground_5_0, ter_ground_5_1, ter_ground_5_2, ter_ground_5_3, ter_ground_5_4, ter_tex_cobble, ter_tex_deck_stone, ter_tex_deck_wood, ter_tex_dirt, ter_tex_forest_floor, ter_tex_grass_a, ter_tex_grass_b, ter_tex_ice, ter_tex_meadow, ter_tex_mud, ter_tex_riverbed, ter_tex_road, ter_tex_road_sand, ter_tex_road_snow, ter_tex_sand, ter_tex_sand_dune, ter_tex_snow, ter_tex_stone, ter_tex_valley, ter_tex_water_deep, ter_tex_water_shallow, ter_water_foam, ter_water_glint, ter_water_ripple
 
 ## A (35)
 
@@ -52,7 +52,7 @@ fau_bird, fau_camel, fau_deer, fau_fish, fau_fox, fau_goat, fau_hare, fx_chest_o
 - `nat_res_herb` — erva legível
 - `nat_res_ore` — minério legível
 
-## B (26)
+## B (25)
 
 - `city_sign_hanging` — placa simples: acrescentar corrente/desgaste
 - `city_stairs` — degraus lisos: adicionar quebra de aresta
@@ -79,87 +79,15 @@ fau_bird, fau_camel, fau_deer, fau_fish, fau_fox, fau_goat, fau_hare, fx_chest_o
 - `nat_pit_trap` — fosso: aprofundar
 - `nat_reeds` — juncos finos: adensar
 - `nat_trap_plate` — placa de pressão simples
-- `nat_wall_low_b` — variante espelhada
 
-## C (77)
+## C (6)
 
-- `city_banner_blue` — primitivas visíveis / detalhe insuficiente: remodelar
-- `city_banner_red` — primitivas visíveis / detalhe insuficiente: remodelar
-- `city_barrels` — primitivas visíveis / detalhe insuficiente: remodelar
-- `city_bench` — primitivas visíveis / detalhe insuficiente: remodelar
-- `city_cart_market` — primitivas visíveis / detalhe insuficiente: remodelar
-- `city_crates` — primitivas visíveis / detalhe insuficiente: remodelar
-- `city_lamp_post_a` — primitivas visíveis / detalhe insuficiente: remodelar
-- `city_lamp_post_b` — primitivas visíveis / detalhe insuficiente: remodelar
-- `city_planter` — primitivas visíveis / detalhe insuficiente: remodelar
-- `int_floor_stone` — primitivas visíveis / detalhe insuficiente: remodelar
-- `int_floor_wood` — primitivas visíveis / detalhe insuficiente: remodelar
-- `int_floor_wood_dark` — primitivas visíveis / detalhe insuficiente: remodelar
 - `int_wall_door_a` — primitivas visíveis / detalhe insuficiente: remodelar
 - `int_wall_door_b` — primitivas visíveis / detalhe insuficiente: remodelar
 - `int_wall_plain_a` — primitivas visíveis / detalhe insuficiente: remodelar
 - `int_wall_plain_b` — primitivas visíveis / detalhe insuficiente: remodelar
 - `int_wall_window_a` — primitivas visíveis / detalhe insuficiente: remodelar
 - `int_wall_window_b` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_altar_ancient` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_altar_sand` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_boulder_ice` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_boulder_sand` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_bush_berry` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_bush_dry` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_bush_flowering` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_bush_frost` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_bush_green` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_cactus_round` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_cactus_tall` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_campfire` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_cart_wood` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_chest_closed` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_chest_open` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_chest_rare` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_dune_large` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_dune_small` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_fence_broken_a` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_fence_broken_b` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_fence_wood_a` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_fence_wood_b` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_flag_blue` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_flag_red` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_gate_wood` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_hay_bale` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_hay_stack` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_ice_spire` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_log_fallen` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_log_pile` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_obelisk_rune` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_rock_boulder` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_rock_ice` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_rock_medium` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_rock_mossy` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_rock_sand` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_rock_small` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_rock_snow` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_ruin_arch` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_ruin_arch_sand` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_ruin_column` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_ruin_column_broken` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_ruin_column_sand` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_ruin_wall` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_ruin_wall_sand` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_signpost` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_snow_mound` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_statue_guardian` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_stump` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_tent_frost` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_tent_red` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_tent_small` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_tree_birch` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_tree_dead` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_tree_palm` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_tree_pine` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_tree_pine_snow` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_wall_low_a` — primitivas visíveis / detalhe insuficiente: remodelar
-- `nat_well_stone` — primitivas visíveis / detalhe insuficiente: remodelar
 
 ## D (11)
 

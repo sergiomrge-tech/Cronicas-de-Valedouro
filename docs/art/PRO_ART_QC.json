@@ -8,147 +8,143 @@
   "results": [
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/props/city_banner_blue.png",
-      "width": 130,
-      "height": 250,
+      "width": 182,
+      "height": 302,
       "bbox": [
-        30,
-        55,
-        130,
-        236
+        56,
+        81,
+        182,
+        262
       ],
       "opaque_pixels": 7217,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 294,
-      "edge_touch_pixels": 9,
-      "occupancy_ratio": 0.222062,
+      "unique_opaque_rgb": 299,
+      "edge_touch_pixels": 7,
+      "occupancy_ratio": 0.131304,
       "manifest_id": "city_banner_blue",
       "status": "WARN",
       "warnings": [
-        "9 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 294 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (30, 55, 0, 14); risk of animation/render clipping"
+        "7 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 299 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (56, 81, 0, 40); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/props/city_banner_red.png",
-      "width": 130,
-      "height": 250,
+      "width": 182,
+      "height": 302,
       "bbox": [
-        30,
-        55,
-        130,
-        236
+        56,
+        81,
+        182,
+        262
       ],
       "opaque_pixels": 7217,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 303,
-      "edge_touch_pixels": 9,
-      "occupancy_ratio": 0.222062,
+      "unique_opaque_rgb": 297,
+      "edge_touch_pixels": 7,
+      "occupancy_ratio": 0.131304,
       "manifest_id": "city_banner_red",
       "status": "WARN",
       "warnings": [
-        "9 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 303 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (30, 55, 0, 14); risk of animation/render clipping"
+        "7 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 297 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (56, 81, 0, 40); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/props/city_barrels.png",
-      "width": 170,
-      "height": 150,
+      "width": 222,
+      "height": 202,
       "bbox": [
-        26,
-        55,
-        141,
-        150
+        52,
+        81,
+        167,
+        176
       ],
       "opaque_pixels": 5545,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 315,
-      "edge_touch_pixels": 1,
-      "occupancy_ratio": 0.217451,
+      "unique_opaque_rgb": 319,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.123651,
       "manifest_id": "city_barrels",
       "status": "WARN",
       "warnings": [
-        "1 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 315 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (26, 55, 29, 0); risk of animation/render clipping"
+        "opaque palette has 319 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/props/city_bench.png",
-      "width": 170,
-      "height": 120,
+      "width": 222,
+      "height": 172,
       "bbox": [
-        41,
-        29,
-        153,
-        118
+        67,
+        55,
+        179,
+        144
       ],
       "opaque_pixels": 3575,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 255,
+      "unique_opaque_rgb": 262,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.175245,
+      "occupancy_ratio": 0.093626,
       "manifest_id": "city_bench",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 255 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 262 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/props/city_cart_market.png",
-      "width": 210,
-      "height": 160,
+      "width": 262,
+      "height": 212,
       "bbox": [
-        20,
-        43,
-        186,
-        160
+        46,
+        69,
+        212,
+        192
       ],
       "opaque_pixels": 7931,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 274,
-      "edge_touch_pixels": 7,
-      "occupancy_ratio": 0.236042,
+      "unique_opaque_rgb": 279,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.142788,
       "manifest_id": "city_cart_market",
       "status": "WARN",
       "warnings": [
-        "7 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 274 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (20, 43, 24, 0); risk of animation/render clipping"
+        "opaque palette has 279 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/props/city_crates.png",
-      "width": 170,
-      "height": 150,
+      "width": 222,
+      "height": 202,
       "bbox": [
-        40,
-        35,
-        151,
-        148
+        66,
+        61,
+        177,
+        174
       ],
       "opaque_pixels": 7484,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 307,
+      "unique_opaque_rgb": 301,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.29349,
+      "occupancy_ratio": 0.16689,
       "manifest_id": "city_crates",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 307 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 301 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
@@ -178,51 +174,47 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/props/city_lamp_post_a.png",
-      "width": 120,
-      "height": 220,
+      "width": 172,
+      "height": 272,
       "bbox": [
-        43,
-        47,
-        120,
-        206
+        69,
+        73,
+        167,
+        232
       ],
       "opaque_pixels": 2984,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 270,
-      "edge_touch_pixels": 13,
-      "occupancy_ratio": 0.11303,
+      "unique_opaque_rgb": 260,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.063782,
       "manifest_id": "city_lamp_post_a",
       "status": "WARN",
       "warnings": [
-        "13 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 270 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (43, 47, 0, 14); risk of animation/render clipping"
+        "opaque palette has 260 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/props/city_lamp_post_b.png",
-      "width": 200,
-      "height": 220,
+      "width": 252,
+      "height": 272,
       "bbox": [
-        58,
-        36,
-        200,
-        207
+        84,
+        62,
+        232,
+        233
       ],
       "opaque_pixels": 4435,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 300,
-      "edge_touch_pixels": 7,
-      "occupancy_ratio": 0.100795,
+      "unique_opaque_rgb": 296,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.064703,
       "manifest_id": "city_lamp_post_b",
       "status": "WARN",
       "warnings": [
-        "7 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 300 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (58, 36, 0, 13); risk of animation/render clipping"
+        "opaque palette has 296 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
@@ -249,24 +241,24 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/props/city_planter.png",
-      "width": 150,
-      "height": 120,
+      "width": 202,
+      "height": 172,
       "bbox": [
-        33,
-        24,
-        130,
-        115
+        59,
+        50,
+        156,
+        141
       ],
       "opaque_pixels": 4667,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 298,
+      "unique_opaque_rgb": 312,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.259278,
+      "occupancy_ratio": 0.134325,
       "manifest_id": "city_planter",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 298 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 312 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
@@ -360,398 +352,398 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_barn.png",
-      "width": 500,
-      "height": 460,
+      "width": 552,
+      "height": 512,
       "bbox": [
-        98,
-        147,
-        449,
-        433
+        124,
+        173,
+        476,
+        459
       ],
       "opaque_pixels": 57123,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 342,
+      "unique_opaque_rgb": 340,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.248361,
+      "occupancy_ratio": 0.202117,
       "manifest_id": "str_barn",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 342 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 340 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_boat_row.png",
-      "width": 1280,
-      "height": 240,
+      "width": 1488,
+      "height": 292,
       "bbox": [
-        70,
-        71,
-        1194,
-        182
+        96,
+        97,
+        1376,
+        208
       ],
-      "opaque_pixels": 28446,
+      "opaque_pixels": 28445,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 729,
+      "unique_opaque_rgb": 755,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.092598,
+      "occupancy_ratio": 0.065467,
       "manifest_id": "str_boat_row",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 729 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 755 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_boat_sail.png",
-      "width": 1600,
-      "height": 460,
+      "width": 1808,
+      "height": 512,
       "bbox": [
-        120,
-        31,
-        1515,
-        267
+        146,
+        57,
+        1697,
+        293
       ],
-      "opaque_pixels": 64986,
+      "opaque_pixels": 64987,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1022,
+      "unique_opaque_rgb": 1018,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.088296,
+      "occupancy_ratio": 0.070203,
       "manifest_id": "str_boat_sail",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 1022 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 1018 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_crop_cabbage.png",
-      "width": 380,
-      "height": 240,
+      "width": 432,
+      "height": 292,
       "bbox": [
-        52,
-        34,
-        333,
-        188
+        78,
+        60,
+        360,
+        214
       ],
       "opaque_pixels": 23174,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 220,
+      "unique_opaque_rgb": 225,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.254101,
+      "occupancy_ratio": 0.183711,
       "manifest_id": "str_crop_cabbage",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 220 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 225 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_crop_corn.png",
-      "width": 380,
-      "height": 240,
+      "width": 432,
+      "height": 292,
       "bbox": [
-        52,
-        10,
-        333,
-        188
+        78,
+        36,
+        360,
+        214
       ],
       "opaque_pixels": 25283,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 371,
+      "unique_opaque_rgb": 426,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.277226,
+      "occupancy_ratio": 0.20043,
       "manifest_id": "str_crop_corn",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 371 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 426 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_crop_wheat.png",
-      "width": 380,
-      "height": 240,
+      "width": 432,
+      "height": 292,
       "bbox": [
-        52,
-        16,
-        333,
-        188
+        78,
+        42,
+        359,
+        214
       ],
       "opaque_pixels": 25477,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 378,
+      "unique_opaque_rgb": 383,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.279353,
+      "occupancy_ratio": 0.201968,
       "manifest_id": "str_crop_wheat",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 378 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 383 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_dock_a.png",
-      "width": 360,
-      "height": 230,
+      "width": 412,
+      "height": 282,
       "bbox": [
-        80,
-        30,
-        302,
-        199
+        106,
+        56,
+        328,
+        225
       ],
       "opaque_pixels": 14229,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 279,
+      "unique_opaque_rgb": 276,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.171848,
+      "occupancy_ratio": 0.12247,
       "manifest_id": "str_dock_a",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 279 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 276 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_dock_b.png",
-      "width": 360,
-      "height": 230,
+      "width": 412,
+      "height": 282,
       "bbox": [
-        80,
-        30,
-        302,
-        199
+        106,
+        56,
+        328,
+        225
       ],
       "opaque_pixels": 14229,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 304,
+      "unique_opaque_rgb": 301,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.171848,
+      "occupancy_ratio": 0.12247,
       "manifest_id": "str_dock_b",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 304 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 301 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_dock_end.png",
-      "width": 300,
-      "height": 280,
+      "width": 352,
+      "height": 332,
       "bbox": [
-        76,
-        104,
-        244,
-        246
+        102,
+        130,
+        270,
+        272
       ],
       "opaque_pixels": 9944,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 303,
+      "unique_opaque_rgb": 327,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.118381,
+      "occupancy_ratio": 0.08509,
       "manifest_id": "str_dock_end",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 303 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 327 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_lodge_ice.png",
-      "width": 440,
-      "height": 400,
+      "width": 492,
+      "height": 452,
       "bbox": [
-        83,
-        38,
-        408,
-        380
+        109,
+        64,
+        434,
+        406
       ],
-      "opaque_pixels": 53580,
+      "opaque_pixels": 53581,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 495,
+      "unique_opaque_rgb": 515,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.304432,
+      "occupancy_ratio": 0.240939,
       "manifest_id": "str_lodge_ice",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 495 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 515 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_outpost_amber.png",
-      "width": 440,
-      "height": 400,
+      "width": 492,
+      "height": 452,
       "bbox": [
-        52,
-        98,
-        415,
-        396
+        78,
+        124,
+        441,
+        422
       ],
       "opaque_pixels": 47876,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 558,
+      "unique_opaque_rgb": 570,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.272023,
+      "occupancy_ratio": 0.215285,
       "manifest_id": "str_outpost_amber",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 558 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 570 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_scarecrow.png",
-      "width": 180,
-      "height": 280,
+      "width": 232,
+      "height": 332,
       "bbox": [
-        40,
-        101,
-        163,
-        240
+        66,
+        127,
+        189,
+        267
       ],
       "opaque_pixels": 5487,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 367,
+      "unique_opaque_rgb": 382,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.108869,
+      "occupancy_ratio": 0.071238,
       "manifest_id": "str_scarecrow",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 367 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 382 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_shelter_wood.png",
-      "width": 340,
-      "height": 300,
+      "width": 392,
+      "height": 352,
       "bbox": [
-        62,
-        84,
-        288,
-        278
+        88,
+        110,
+        314,
+        304
       ],
       "opaque_pixels": 21615,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 387,
+      "unique_opaque_rgb": 436,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.211912,
+      "occupancy_ratio": 0.156649,
       "manifest_id": "str_shelter_wood",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 387 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 436 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_shrine_stone.png",
-      "width": 1440,
-      "height": 400,
+      "width": 1648,
+      "height": 452,
       "bbox": [
-        58,
-        180,
-        1414,
-        379
+        84,
+        206,
+        1596,
+        405
       ],
-      "opaque_pixels": 120685,
+      "opaque_pixels": 120681,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1177,
+      "unique_opaque_rgb": 1288,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.209523,
+      "occupancy_ratio": 0.162011,
       "manifest_id": "str_shrine_stone",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 1177 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 1288 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_watchtower_frost.png",
-      "width": 360,
-      "height": 520,
+      "width": 412,
+      "height": 572,
       "bbox": [
-        37,
-        17,
-        360,
-        494
+        63,
+        43,
+        412,
+        520
       ],
       "opaque_pixels": 88920,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 481,
-      "edge_touch_pixels": 89,
-      "occupancy_ratio": 0.475,
+      "unique_opaque_rgb": 470,
+      "edge_touch_pixels": 61,
+      "occupancy_ratio": 0.377317,
       "manifest_id": "str_watchtower_frost",
       "status": "WARN",
       "warnings": [
-        "89 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 481 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (37, 17, 0, 26); risk of animation/render clipping"
+        "61 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 470 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (63, 43, 0, 52); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_watchtower_stone.png",
-      "width": 360,
-      "height": 520,
+      "width": 412,
+      "height": 572,
       "bbox": [
-        37,
-        17,
-        360,
-        494
+        63,
+        43,
+        412,
+        520
       ],
       "opaque_pixels": 88920,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 449,
-      "edge_touch_pixels": 89,
-      "occupancy_ratio": 0.475,
+      "unique_opaque_rgb": 448,
+      "edge_touch_pixels": 61,
+      "occupancy_ratio": 0.377317,
       "manifest_id": "str_watchtower_stone",
       "status": "WARN",
       "warnings": [
-        "89 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 449 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (37, 17, 0, 26); risk of animation/render clipping"
+        "61 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 448 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (63, 43, 0, 52); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/city/structures/str_windmill.png",
-      "width": 4000,
-      "height": 600,
+      "width": 4416,
+      "height": 652,
       "bbox": [
-        93,
-        92,
-        4000,
-        580
+        119,
+        118,
+        4416,
+        606
       ],
-      "opaque_pixels": 683243,
+      "opaque_pixels": 683240,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 2281,
-      "edge_touch_pixels": 14,
-      "occupancy_ratio": 0.284685,
+      "unique_opaque_rgb": 2249,
+      "edge_touch_pixels": 7,
+      "occupancy_ratio": 0.237299,
       "manifest_id": "str_windmill",
       "status": "WARN",
       "warnings": [
-        "14 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 2281 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (93, 92, 0, 20); risk of animation/render clipping"
+        "7 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 2249 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (119, 118, 0, 46); risk of animation/render clipping"
       ],
       "failures": []
     },
@@ -1012,26 +1004,24 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/dungeon/structures/str_cave_entrance.png",
-      "width": 440,
-      "height": 420,
+      "width": 492,
+      "height": 472,
       "bbox": [
-        51,
-        122,
-        409,
-        420
+        77,
+        148,
+        435,
+        447
       ],
-      "opaque_pixels": 63706,
+      "opaque_pixels": 63707,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 523,
-      "edge_touch_pixels": 8,
-      "occupancy_ratio": 0.344729,
+      "unique_opaque_rgb": 532,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.274334,
       "manifest_id": "str_cave_entrance",
       "status": "WARN",
       "warnings": [
-        "8 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 523 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (51, 122, 31, 0); risk of animation/render clipping"
+        "opaque palette has 532 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
@@ -2162,116 +2152,116 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/bushes/nat_bush_berry.png",
-      "width": 140,
-      "height": 110,
+      "width": 192,
+      "height": 162,
       "bbox": [
-        34,
-        35,
-        120,
-        99
+        60,
+        61,
+        146,
+        125
       ],
       "opaque_pixels": 3081,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 294,
+      "unique_opaque_rgb": 288,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.200065,
+      "occupancy_ratio": 0.099055,
       "manifest_id": "nat_bush_berry",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 294 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 288 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/bushes/nat_bush_dry.png",
-      "width": 140,
-      "height": 110,
+      "width": 192,
+      "height": 162,
       "bbox": [
-        34,
-        34,
-        115,
-        102
+        60,
+        60,
+        140,
+        128
       ],
       "opaque_pixels": 2990,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 281,
+      "unique_opaque_rgb": 276,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.194156,
+      "occupancy_ratio": 0.096129,
       "manifest_id": "nat_bush_dry",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 281 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 276 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/bushes/nat_bush_flowering.png",
-      "width": 140,
-      "height": 110,
+      "width": 192,
+      "height": 162,
       "bbox": [
-        32,
-        32,
-        115,
-        98
+        58,
+        58,
+        141,
+        124
       ],
       "opaque_pixels": 3289,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 290,
+      "unique_opaque_rgb": 292,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.213571,
+      "occupancy_ratio": 0.105742,
       "manifest_id": "nat_bush_flowering",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 290 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 292 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/bushes/nat_bush_frost.png",
-      "width": 140,
-      "height": 110,
+      "width": 192,
+      "height": 162,
       "bbox": [
-        22,
-        38,
-        121,
-        103
+        48,
+        64,
+        147,
+        129
       ],
       "opaque_pixels": 3625,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 287,
+      "unique_opaque_rgb": 284,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.23539,
+      "occupancy_ratio": 0.116544,
       "manifest_id": "nat_bush_frost",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 287 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 284 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/bushes/nat_bush_green.png",
-      "width": 140,
-      "height": 110,
+      "width": 192,
+      "height": 162,
       "bbox": [
-        36,
-        29,
-        132,
-        98
+        62,
+        55,
+        158,
+        124
       ],
       "opaque_pixels": 3652,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 294,
+      "unique_opaque_rgb": 297,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.237143,
+      "occupancy_ratio": 0.117413,
       "manifest_id": "nat_bush_green",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 294 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 297 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
@@ -2298,99 +2288,96 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/camp/nat_campfire.png",
-      "width": 600,
-      "height": 150,
+      "width": 808,
+      "height": 202,
       "bbox": [
-        32,
-        45,
-        566,
-        143
+        58,
+        71,
+        748,
+        169
       ],
-      "opaque_pixels": 13000,
+      "opaque_pixels": 12996,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1208,
+      "unique_opaque_rgb": 1218,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.144444,
+      "occupancy_ratio": 0.079625,
       "manifest_id": "nat_campfire",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 1208 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 1218 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/camp/nat_tent_frost.png",
-      "width": 200,
-      "height": 170,
+      "width": 252,
+      "height": 222,
       "bbox": [
-        0,
-        38,
-        200,
-        170
+        3,
+        64,
+        250,
+        222
       ],
-      "opaque_pixels": 16268,
+      "opaque_pixels": 17138,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 439,
-      "edge_touch_pixels": 109,
-      "occupancy_ratio": 0.478471,
+      "unique_opaque_rgb": 459,
+      "edge_touch_pixels": 7,
+      "occupancy_ratio": 0.306342,
       "manifest_id": "nat_tent_frost",
       "status": "WARN",
       "warnings": [
-        "109 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 439 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (0, 38, 0, 0); risk of animation/render clipping"
+        "7 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 459 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (3, 64, 2, 0); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/camp/nat_tent_red.png",
-      "width": 220,
-      "height": 190,
+      "width": 272,
+      "height": 242,
       "bbox": [
-        0,
-        59,
-        220,
-        190
+        13,
+        85,
+        260,
+        240
       ],
-      "opaque_pixels": 15172,
+      "opaque_pixels": 15965,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 404,
-      "edge_touch_pixels": 95,
-      "occupancy_ratio": 0.362967,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.242541,
       "manifest_id": "nat_tent_red",
       "status": "WARN",
       "warnings": [
-        "95 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 404 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (0, 59, 0, 0); risk of animation/render clipping"
+        "opaque palette has 404 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/camp/nat_tent_small.png",
-      "width": 200,
-      "height": 170,
+      "width": 252,
+      "height": 222,
       "bbox": [
-        0,
-        61,
-        200,
-        170
+        14,
+        87,
+        239,
+        221
       ],
-      "opaque_pixels": 9839,
+      "opaque_pixels": 10349,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 365,
-      "edge_touch_pixels": 55,
-      "occupancy_ratio": 0.289382,
+      "unique_opaque_rgb": 373,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.184989,
       "manifest_id": "nat_tent_small",
       "status": "WARN",
       "warnings": [
-        "55 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 365 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (0, 61, 0, 0); risk of animation/render clipping"
+        "opaque palette has 373 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (14, 87, 13, 1); risk of animation/render clipping"
       ],
       "failures": []
     },
@@ -2609,566 +2596,182 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/desert/nat_cactus_round.png",
-      "width": 130,
-      "height": 120,
+      "width": 182,
+      "height": 172,
       "bbox": [
-        23,
         49,
-        103,
-        111
+        75,
+        129,
+        137
       ],
       "opaque_pixels": 2330,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 248,
+      "unique_opaque_rgb": 246,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.149359,
+      "occupancy_ratio": 0.074431,
       "manifest_id": "nat_cactus_round",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 248 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 246 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/desert/nat_cactus_tall.png",
-      "width": 170,
-      "height": 240,
+      "width": 222,
+      "height": 292,
       "bbox": [
-        36,
-        98,
-        158,
-        231
+        62,
+        124,
+        184,
+        257
       ],
       "opaque_pixels": 5109,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 402,
+      "unique_opaque_rgb": 396,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.125221,
+      "occupancy_ratio": 0.078813,
       "manifest_id": "nat_cactus_tall",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 402 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 396 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/desert/nat_dune_large.png",
-      "width": 500,
-      "height": 270,
+      "width": 552,
+      "height": 322,
       "bbox": [
-        163,
-        71,
-        405,
-        205
+        189,
+        97,
+        431,
+        231
       ],
-      "opaque_pixels": 21118,
+      "opaque_pixels": 21117,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 346,
+      "unique_opaque_rgb": 340,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.15643,
+      "occupancy_ratio": 0.118806,
       "manifest_id": "nat_dune_large",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 346 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 340 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/desert/nat_dune_small.png",
-      "width": 330,
-      "height": 190,
+      "width": 382,
+      "height": 242,
       "bbox": [
-        106,
-        57,
-        243,
-        143
+        132,
+        83,
+        269,
+        169
       ],
       "opaque_pixels": 8041,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 280,
+      "unique_opaque_rgb": 286,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.128246,
+      "occupancy_ratio": 0.086982,
       "manifest_id": "nat_dune_small",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 280 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 286 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_earth.png",
-      "width": 320,
-      "height": 240,
+      "width": 372,
+      "height": 292,
       "bbox": [
-        61,
-        95,
-        260,
-        219
+        87,
+        121,
+        286,
+        245
       ],
       "opaque_pixels": 17325,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 318,
+      "unique_opaque_rgb": 312,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.225586,
+      "occupancy_ratio": 0.159495,
       "manifest_id": "nat_hill_earth",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 318 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 312 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_ice.png",
-      "width": 320,
-      "height": 240,
+      "width": 372,
+      "height": 292,
       "bbox": [
-        62,
-        100,
-        256,
-        224
+        88,
+        126,
+        283,
+        250
       ],
       "opaque_pixels": 17905,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 300,
+      "unique_opaque_rgb": 312,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.233138,
+      "occupancy_ratio": 0.164835,
       "manifest_id": "nat_hill_ice",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 300 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 312 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_sand.png",
-      "width": 320,
-      "height": 240,
+      "width": 372,
+      "height": 292,
       "bbox": [
-        56,
-        99,
-        263,
-        224
+        82,
+        125,
+        289,
+        250
       ],
       "opaque_pixels": 19076,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 336,
+      "unique_opaque_rgb": 342,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.248385,
+      "occupancy_ratio": 0.175615,
       "manifest_id": "nat_hill_sand",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 336 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 342 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_earth_m.png",
-      "width": 420,
-      "height": 400,
+      "width": 472,
+      "height": 452,
       "bbox": [
-        71,
-        136,
-        396,
-        387
+        97,
+        162,
+        422,
+        413
       ],
       "opaque_pixels": 49938,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 396,
-      "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.29725,
-      "manifest_id": "nat_plateau_earth_m",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 396 RGB colors; inspect uncontrolled gradients/noise"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_earth_s.png",
-      "width": 300,
-      "height": 300,
-      "bbox": [
-        52,
-        113,
-        276,
-        284
-      ],
-      "opaque_pixels": 23575,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 385,
-      "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.261944,
-      "manifest_id": "nat_plateau_earth_s",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 385 RGB colors; inspect uncontrolled gradients/noise"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_ice_m.png",
-      "width": 420,
-      "height": 400,
-      "bbox": [
-        63,
-        137,
-        390,
-        383
-      ],
-      "opaque_pixels": 49719,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 385,
-      "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.295946,
-      "manifest_id": "nat_plateau_ice_m",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 385 RGB colors; inspect uncontrolled gradients/noise"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_ice_s.png",
-      "width": 300,
-      "height": 300,
-      "bbox": [
-        65,
-        114,
-        270,
-        287
-      ],
-      "opaque_pixels": 21746,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 383,
-      "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.241622,
-      "manifest_id": "nat_plateau_ice_s",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 383 RGB colors; inspect uncontrolled gradients/noise"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_rock_m.png",
-      "width": 420,
-      "height": 400,
-      "bbox": [
-        78,
-        136,
-        389,
-        384
-      ],
-      "opaque_pixels": 48010,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 411,
-      "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.285774,
-      "manifest_id": "nat_plateau_rock_m",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 411 RGB colors; inspect uncontrolled gradients/noise"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_rock_s.png",
-      "width": 300,
-      "height": 300,
-      "bbox": [
-        48,
-        105,
-        270,
-        286
-      ],
-      "opaque_pixels": 22019,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 396,
-      "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.244656,
-      "manifest_id": "nat_plateau_rock_s",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 396 RGB colors; inspect uncontrolled gradients/noise"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_sand_m.png",
-      "width": 420,
-      "height": 400,
-      "bbox": [
-        78,
-        136,
-        389,
-        384
-      ],
-      "opaque_pixels": 47689,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 379,
-      "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.283863,
-      "manifest_id": "nat_plateau_sand_m",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 379 RGB colors; inspect uncontrolled gradients/noise"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_sand_s.png",
-      "width": 300,
-      "height": 300,
-      "bbox": [
-        48,
-        114,
-        270,
-        286
-      ],
-      "opaque_pixels": 21564,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 358,
-      "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.2396,
-      "manifest_id": "nat_plateau_sand_s",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 358 RGB colors; inspect uncontrolled gradients/noise"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_earth_a.png",
-      "width": 420,
-      "height": 340,
-      "bbox": [
-        50,
-        117,
-        379,
-        340
-      ],
-      "opaque_pixels": 41513,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 431,
-      "edge_touch_pixels": 28,
-      "occupancy_ratio": 0.290707,
-      "manifest_id": "nat_ridge_earth_a",
-      "status": "WARN",
-      "warnings": [
-        "28 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 431 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (50, 117, 41, 0); risk of animation/render clipping"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_earth_b.png",
-      "width": 420,
-      "height": 340,
-      "bbox": [
-        39,
-        117,
-        379,
-        340
-      ],
-      "opaque_pixels": 42508,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 456,
-      "edge_touch_pixels": 44,
-      "occupancy_ratio": 0.297675,
-      "manifest_id": "nat_ridge_earth_b",
-      "status": "WARN",
-      "warnings": [
-        "44 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 456 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (39, 117, 41, 0); risk of animation/render clipping"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_ice_a.png",
-      "width": 420,
-      "height": 340,
-      "bbox": [
-        53,
-        117,
-        379,
-        340
-      ],
-      "opaque_pixels": 41055,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 419,
-      "edge_touch_pixels": 54,
-      "occupancy_ratio": 0.2875,
-      "manifest_id": "nat_ridge_ice_a",
-      "status": "WARN",
-      "warnings": [
-        "54 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 419 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (53, 117, 41, 0); risk of animation/render clipping"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_ice_b.png",
-      "width": 420,
-      "height": 340,
-      "bbox": [
-        34,
-        117,
-        380,
-        340
-      ],
-      "opaque_pixels": 41175,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 462,
-      "edge_touch_pixels": 49,
-      "occupancy_ratio": 0.28834,
-      "manifest_id": "nat_ridge_ice_b",
-      "status": "WARN",
-      "warnings": [
-        "49 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 462 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (34, 117, 40, 0); risk of animation/render clipping"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_rock_a.png",
-      "width": 420,
-      "height": 340,
-      "bbox": [
-        53,
-        117,
-        384,
-        340
-      ],
-      "opaque_pixels": 42829,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 446,
-      "edge_touch_pixels": 20,
-      "occupancy_ratio": 0.299923,
-      "manifest_id": "nat_ridge_rock_a",
-      "status": "WARN",
-      "warnings": [
-        "20 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 446 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (53, 117, 36, 0); risk of animation/render clipping"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_rock_b.png",
-      "width": 420,
-      "height": 340,
-      "bbox": [
-        34,
-        115,
-        391,
-        340
-      ],
-      "opaque_pixels": 44032,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 477,
-      "edge_touch_pixels": 23,
-      "occupancy_ratio": 0.308347,
-      "manifest_id": "nat_ridge_rock_b",
-      "status": "WARN",
-      "warnings": [
-        "23 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 477 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (34, 115, 29, 0); risk of animation/render clipping"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_sand_a.png",
-      "width": 420,
-      "height": 340,
-      "bbox": [
-        61,
-        117,
-        385,
-        340
-      ],
-      "opaque_pixels": 41648,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 408,
-      "edge_touch_pixels": 21,
-      "occupancy_ratio": 0.291653,
-      "manifest_id": "nat_ridge_sand_a",
-      "status": "WARN",
-      "warnings": [
-        "21 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 408 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (61, 117, 35, 0); risk of animation/render clipping"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_sand_b.png",
-      "width": 420,
-      "height": 340,
-      "bbox": [
-        34,
-        118,
-        391,
-        340
-      ],
-      "opaque_pixels": 42999,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 429,
-      "edge_touch_pixels": 23,
-      "occupancy_ratio": 0.301113,
-      "manifest_id": "nat_ridge_sand_b",
-      "status": "WARN",
-      "warnings": [
-        "23 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 429 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (34, 118, 29, 0); risk of animation/render clipping"
-      ],
-      "failures": []
-    },
-    {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_rock_arch_natural.png",
-      "width": 360,
-      "height": 380,
-      "bbox": [
-        77,
-        128,
-        326,
-        354
-      ],
-      "opaque_pixels": 34628,
-      "soft_alpha_pixels": 0,
-      "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 395,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.253129,
-      "manifest_id": "nat_rock_arch_natural",
+      "occupancy_ratio": 0.234073,
+      "manifest_id": "nat_plateau_earth_m",
       "status": "WARN",
       "warnings": [
         "opaque palette has 395 RGB colors; inspect uncontrolled gradients/noise"
@@ -3176,67 +2779,435 @@
       "failures": []
     },
     {
-      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_rock_pillars.png",
-      "width": 300,
-      "height": 320,
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_earth_s.png",
+      "width": 352,
+      "height": 352,
       "bbox": [
-        83,
-        97,
-        258,
-        302
+        78,
+        139,
+        302,
+        310
+      ],
+      "opaque_pixels": 23575,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 374,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.190268,
+      "manifest_id": "nat_plateau_earth_s",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 374 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_ice_m.png",
+      "width": 472,
+      "height": 452,
+      "bbox": [
+        89,
+        163,
+        416,
+        409
+      ],
+      "opaque_pixels": 49718,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 389,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.233041,
+      "manifest_id": "nat_plateau_ice_m",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 389 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_ice_s.png",
+      "width": 352,
+      "height": 352,
+      "bbox": [
+        91,
+        140,
+        296,
+        313
+      ],
+      "opaque_pixels": 21746,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 380,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.175507,
+      "manifest_id": "nat_plateau_ice_s",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 380 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_rock_m.png",
+      "width": 472,
+      "height": 452,
+      "bbox": [
+        104,
+        162,
+        416,
+        410
+      ],
+      "opaque_pixels": 48010,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 422,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.225036,
+      "manifest_id": "nat_plateau_rock_m",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 422 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_rock_s.png",
+      "width": 352,
+      "height": 352,
+      "bbox": [
+        74,
+        131,
+        296,
+        312
+      ],
+      "opaque_pixels": 22018,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 409,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.177702,
+      "manifest_id": "nat_plateau_rock_s",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 409 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_sand_m.png",
+      "width": 472,
+      "height": 452,
+      "bbox": [
+        104,
+        162,
+        416,
+        410
+      ],
+      "opaque_pixels": 47690,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 370,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.223536,
+      "manifest_id": "nat_plateau_sand_m",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 370 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_plateau_sand_s.png",
+      "width": 352,
+      "height": 352,
+      "bbox": [
+        74,
+        140,
+        296,
+        312
+      ],
+      "opaque_pixels": 21563,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 361,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.17403,
+      "manifest_id": "nat_plateau_sand_s",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 361 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_earth_a.png",
+      "width": 472,
+      "height": 392,
+      "bbox": [
+        76,
+        143,
+        405,
+        370
+      ],
+      "opaque_pixels": 41568,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 447,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.224663,
+      "manifest_id": "nat_ridge_earth_a",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 447 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_earth_b.png",
+      "width": 472,
+      "height": 392,
+      "bbox": [
+        65,
+        143,
+        405,
+        378
+      ],
+      "opaque_pixels": 42718,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 462,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.230878,
+      "manifest_id": "nat_ridge_earth_b",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 462 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_ice_a.png",
+      "width": 472,
+      "height": 392,
+      "bbox": [
+        79,
+        143,
+        405,
+        382
+      ],
+      "opaque_pixels": 41535,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 424,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.224484,
+      "manifest_id": "nat_ridge_ice_a",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 424 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_ice_b.png",
+      "width": 472,
+      "height": 392,
+      "bbox": [
+        60,
+        143,
+        405,
+        376
+      ],
+      "opaque_pixels": 41426,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 480,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.223895,
+      "manifest_id": "nat_ridge_ice_b",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 480 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_rock_a.png",
+      "width": 472,
+      "height": 392,
+      "bbox": [
+        79,
+        143,
+        410,
+        369
+      ],
+      "opaque_pixels": 42858,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 436,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.231635,
+      "manifest_id": "nat_ridge_rock_a",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 436 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_rock_b.png",
+      "width": 472,
+      "height": 392,
+      "bbox": [
+        60,
+        141,
+        417,
+        368
+      ],
+      "opaque_pixels": 44045,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 504,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.23805,
+      "manifest_id": "nat_ridge_rock_b",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 504 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_sand_a.png",
+      "width": 472,
+      "height": 392,
+      "bbox": [
+        87,
+        143,
+        411,
+        369
+      ],
+      "opaque_pixels": 41677,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 431,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.225252,
+      "manifest_id": "nat_ridge_sand_a",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 431 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ridge_sand_b.png",
+      "width": 472,
+      "height": 392,
+      "bbox": [
+        60,
+        144,
+        417,
+        368
+      ],
+      "opaque_pixels": 43012,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 438,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.232467,
+      "manifest_id": "nat_ridge_sand_b",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 438 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_rock_arch_natural.png",
+      "width": 412,
+      "height": 432,
+      "bbox": [
+        103,
+        154,
+        351,
+        380
+      ],
+      "opaque_pixels": 34629,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 385,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.194562,
+      "manifest_id": "nat_rock_arch_natural",
+      "status": "WARN",
+      "warnings": [
+        "opaque palette has 385 RGB colors; inspect uncontrolled gradients/noise"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_rock_pillars.png",
+      "width": 352,
+      "height": 372,
+      "bbox": [
+        109,
+        123,
+        284,
+        328
       ],
       "opaque_pixels": 18355,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 352,
+      "unique_opaque_rgb": 342,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.191198,
+      "occupancy_ratio": 0.140174,
       "manifest_id": "nat_rock_pillars",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 352 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 342 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_steps_stone.png",
-      "width": 320,
-      "height": 260,
+      "width": 372,
+      "height": 312,
       "bbox": [
-        70,
-        130,
-        260,
-        245
+        96,
+        156,
+        286,
+        271
       ],
       "opaque_pixels": 13778,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 372,
+      "unique_opaque_rgb": 365,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.165601,
+      "occupancy_ratio": 0.11871,
       "manifest_id": "nat_steps_stone",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 372 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 365 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_wall_cliff_ice_a.png",
-      "width": 380,
-      "height": 380,
+      "width": 432,
+      "height": 432,
       "bbox": [
-        65,
-        121,
-        362,
-        373
+        91,
+        147,
+        388,
+        399
       ],
       "opaque_pixels": 37368,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 390,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.258781,
+      "occupancy_ratio": 0.200231,
       "manifest_id": "nat_wall_cliff_ice_a",
       "status": "WARN",
       "warnings": [
@@ -3246,20 +3217,20 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_wall_cliff_ice_b.png",
-      "width": 380,
-      "height": 380,
+      "width": 432,
+      "height": 432,
       "bbox": [
-        65,
-        123,
-        354,
-        373
+        91,
+        149,
+        380,
+        399
       ],
       "opaque_pixels": 38400,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 439,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.265928,
+      "occupancy_ratio": 0.205761,
       "manifest_id": "nat_wall_cliff_ice_b",
       "status": "WARN",
       "warnings": [
@@ -3269,20 +3240,20 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_wall_cliff_rock_a.png",
-      "width": 380,
-      "height": 380,
+      "width": 432,
+      "height": 432,
       "bbox": [
-        69,
-        117,
-        352,
-        362
+        95,
+        143,
+        378,
+        388
       ],
       "opaque_pixels": 35880,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 347,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.248476,
+      "occupancy_ratio": 0.192258,
       "manifest_id": "nat_wall_cliff_rock_a",
       "status": "WARN",
       "warnings": [
@@ -3292,147 +3263,139 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_wall_cliff_rock_b.png",
-      "width": 380,
-      "height": 380,
+      "width": 432,
+      "height": 432,
       "bbox": [
-        69,
-        116,
-        342,
-        369
+        95,
+        142,
+        368,
+        395
       ],
       "opaque_pixels": 35804,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 338,
+      "unique_opaque_rgb": 337,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.24795,
+      "occupancy_ratio": 0.191851,
       "manifest_id": "nat_wall_cliff_rock_b",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 338 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 337 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_wall_cliff_sand_a.png",
-      "width": 380,
-      "height": 380,
+      "width": 432,
+      "height": 432,
       "bbox": [
-        63,
-        113,
-        347,
-        380
+        89,
+        139,
+        373,
+        406
       ],
       "opaque_pixels": 36368,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 379,
-      "edge_touch_pixels": 6,
-      "occupancy_ratio": 0.251856,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.194873,
       "manifest_id": "nat_wall_cliff_sand_a",
       "status": "WARN",
       "warnings": [
-        "6 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 379 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (63, 113, 33, 0); risk of animation/render clipping"
+        "opaque palette has 379 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_wall_cliff_sand_b.png",
-      "width": 380,
-      "height": 380,
+      "width": 432,
+      "height": 432,
       "bbox": [
-        63,
-        115,
-        353,
-        380
+        89,
+        141,
+        379,
+        406
       ],
       "opaque_pixels": 36404,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 408,
-      "edge_touch_pixels": 6,
-      "occupancy_ratio": 0.252105,
+      "unique_opaque_rgb": 395,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.195066,
       "manifest_id": "nat_wall_cliff_sand_b",
       "status": "WARN",
       "warnings": [
-        "6 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 408 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (63, 115, 27, 0); risk of animation/render clipping"
+        "opaque palette has 395 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/farm/nat_cart_wood.png",
-      "width": 190,
-      "height": 140,
+      "width": 242,
+      "height": 192,
       "bbox": [
-        4,
-        16,
-        183,
-        140
+        30,
+        42,
+        209,
+        177
       ],
       "opaque_pixels": 9834,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 340,
-      "edge_touch_pixels": 18,
-      "occupancy_ratio": 0.369699,
+      "unique_opaque_rgb": 371,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.211648,
       "manifest_id": "nat_cart_wood",
       "status": "WARN",
       "warnings": [
-        "18 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 340 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (4, 16, 7, 0); risk of animation/render clipping"
+        "opaque palette has 371 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/farm/nat_hay_bale.png",
-      "width": 130,
-      "height": 100,
+      "width": 182,
+      "height": 152,
       "bbox": [
-        15,
-        26,
-        107,
-        92
+        41,
+        52,
+        133,
+        118
       ],
       "opaque_pixels": 3314,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 269,
+      "unique_opaque_rgb": 276,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.254923,
+      "occupancy_ratio": 0.119795,
       "manifest_id": "nat_hay_bale",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 269 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 276 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/farm/nat_hay_stack.png",
-      "width": 150,
-      "height": 140,
+      "width": 202,
+      "height": 192,
       "bbox": [
-        28,
-        19,
-        139,
-        140
+        54,
+        45,
+        165,
+        172
       ],
-      "opaque_pixels": 8270,
+      "opaque_pixels": 8320,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 275,
-      "edge_touch_pixels": 13,
-      "occupancy_ratio": 0.39381,
+      "unique_opaque_rgb": 287,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.214521,
       "manifest_id": "nat_hay_stack",
       "status": "WARN",
       "warnings": [
-        "13 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 275 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (28, 19, 11, 0); risk of animation/render clipping"
+        "opaque palette has 287 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
@@ -3461,256 +3424,250 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fauna/fau_bird.png",
-      "width": 720,
-      "height": 110,
+      "width": 888,
+      "height": 138,
       "bbox": [
-        41,
-        0,
-        691,
-        50
+        55,
+        6,
+        845,
+        64
       ],
-      "opaque_pixels": 2182,
+      "opaque_pixels": 2413,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 739,
-      "edge_touch_pixels": 43,
-      "occupancy_ratio": 0.027551,
+      "unique_opaque_rgb": 732,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.019691,
       "manifest_id": "fau_bird",
       "status": "WARN",
       "warnings": [
-        "43 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 739 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (41, 0, 29, 60); risk of animation/render clipping"
+        "opaque palette has 732 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fauna/fau_camel.png",
-      "width": 2800,
-      "height": 280,
+      "width": 3080,
+      "height": 308,
       "bbox": [
-        101,
-        112,
-        2761,
-        231
+        115,
+        126,
+        3027,
+        245
       ],
       "opaque_pixels": 48871,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 972,
+      "unique_opaque_rgb": 974,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.062335,
+      "occupancy_ratio": 0.051517,
       "manifest_id": "fau_camel",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 972 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 974 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fauna/fau_deer.png",
-      "width": 2200,
-      "height": 220,
+      "width": 2480,
+      "height": 248,
       "bbox": [
-        79,
-        62,
-        2176,
-        184
+        93,
+        76,
+        2442,
+        198
       ],
-      "opaque_pixels": 33862,
+      "opaque_pixels": 33856,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1046,
+      "unique_opaque_rgb": 1056,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.069963,
+      "occupancy_ratio": 0.055047,
       "manifest_id": "fau_deer",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 1046 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 1056 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fauna/fau_fish.png",
-      "width": 660,
-      "height": 90,
+      "width": 828,
+      "height": 118,
       "bbox": [
-        33,
-        34,
-        623,
-        55
+        47,
+        48,
+        777,
+        69
       ],
       "opaque_pixels": 3166,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 827,
+      "unique_opaque_rgb": 814,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.0533,
+      "occupancy_ratio": 0.032404,
       "manifest_id": "fau_fish",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 827 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 814 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fauna/fau_fox.png",
-      "width": 1700,
-      "height": 150,
+      "width": 1980,
+      "height": 178,
       "bbox": [
-        50,
-        85,
-        1655,
-        128
+        64,
+        99,
+        1921,
+        142
       ],
       "opaque_pixels": 11463,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1141,
+      "unique_opaque_rgb": 1130,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.044953,
+      "occupancy_ratio": 0.032525,
       "manifest_id": "fau_fox",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 1141 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 1130 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fauna/fau_goat.png",
-      "width": 1900,
-      "height": 190,
+      "width": 2180,
+      "height": 218,
       "bbox": [
-        71,
-        93,
-        1862,
-        161
+        85,
+        107,
+        2128,
+        175
       ],
       "opaque_pixels": 17961,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1213,
+      "unique_opaque_rgb": 1233,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.049753,
+      "occupancy_ratio": 0.037794,
       "manifest_id": "fau_goat",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 1213 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 1233 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fauna/fau_hare.png",
-      "width": 1300,
-      "height": 130,
+      "width": 1580,
+      "height": 158,
       "bbox": [
-        49,
-        71,
-        1264,
-        111
+        63,
+        85,
+        1530,
+        124
       ],
-      "opaque_pixels": 6928,
+      "opaque_pixels": 6927,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1207,
+      "unique_opaque_rgb": 1202,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.040994,
+      "occupancy_ratio": 0.027748,
       "manifest_id": "fau_hare",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 1207 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 1202 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fences/nat_fence_broken_a.png",
-      "width": 170,
-      "height": 110,
+      "width": 222,
+      "height": 162,
       "bbox": [
-        47,
-        17,
-        146,
-        108
+        73,
+        43,
+        173,
+        134
       ],
       "opaque_pixels": 2886,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 346,
+      "unique_opaque_rgb": 357,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.154332,
+      "occupancy_ratio": 0.080247,
       "manifest_id": "nat_fence_broken_a",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 346 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 357 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fences/nat_fence_broken_b.png",
-      "width": 170,
-      "height": 110,
+      "width": 222,
+      "height": 162,
       "bbox": [
-        33,
-        17,
-        137,
-        110
+        59,
+        43,
+        164,
+        137
       ],
       "opaque_pixels": 3146,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 348,
-      "edge_touch_pixels": 5,
-      "occupancy_ratio": 0.168235,
+      "unique_opaque_rgb": 353,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.087476,
       "manifest_id": "nat_fence_broken_b",
       "status": "WARN",
       "warnings": [
-        "5 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 348 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (33, 17, 33, 0); risk of animation/render clipping"
+        "opaque palette has 353 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fences/nat_fence_wood_a.png",
-      "width": 170,
-      "height": 110,
+      "width": 222,
+      "height": 162,
       "bbox": [
-        47,
-        17,
-        146,
-        110
+        73,
+        43,
+        173,
+        145
       ],
-      "opaque_pixels": 3227,
+      "opaque_pixels": 3306,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 313,
-      "edge_touch_pixels": 24,
-      "occupancy_ratio": 0.172567,
+      "unique_opaque_rgb": 308,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.091925,
       "manifest_id": "nat_fence_wood_a",
       "status": "WARN",
       "warnings": [
-        "24 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 313 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (47, 17, 24, 0); risk of animation/render clipping"
+        "opaque palette has 308 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fences/nat_fence_wood_b.png",
-      "width": 170,
-      "height": 110,
+      "width": 222,
+      "height": 162,
       "bbox": [
-        47,
-        17,
-        147,
-        108
+        73,
+        43,
+        173,
+        134
       ],
       "opaque_pixels": 3190,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 318,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.170588,
+      "occupancy_ratio": 0.0887,
       "manifest_id": "nat_fence_wood_b",
       "status": "WARN",
       "warnings": [
@@ -3720,74 +3677,70 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fences/nat_gate_wood.png",
-      "width": 190,
-      "height": 130,
+      "width": 242,
+      "height": 182,
       "bbox": [
-        45,
-        3,
-        180,
-        128
+        71,
+        29,
+        206,
+        154
       ],
       "opaque_pixels": 5253,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 271,
+      "unique_opaque_rgb": 268,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.212672,
+      "occupancy_ratio": 0.119267,
       "manifest_id": "nat_gate_wood",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 271 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 268 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fences/nat_wall_low_a.png",
-      "width": 180,
-      "height": 120,
+      "width": 232,
+      "height": 172,
       "bbox": [
-        23,
-        33,
-        166,
-        120
+        49,
+        59,
+        192,
+        158
       ],
-      "opaque_pixels": 7280,
+      "opaque_pixels": 7550,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 371,
-      "edge_touch_pixels": 63,
-      "occupancy_ratio": 0.337037,
+      "unique_opaque_rgb": 375,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.189204,
       "manifest_id": "nat_wall_low_a",
       "status": "WARN",
       "warnings": [
-        "63 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 371 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (23, 33, 14, 0); risk of animation/render clipping"
+        "opaque palette has 375 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/fences/nat_wall_low_b.png",
-      "width": 180,
-      "height": 120,
+      "width": 232,
+      "height": 172,
       "bbox": [
-        22,
-        33,
-        167,
-        120
+        48,
+        59,
+        193,
+        157
       ],
-      "opaque_pixels": 6672,
+      "opaque_pixels": 6927,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 346,
-      "edge_touch_pixels": 54,
-      "occupancy_ratio": 0.308889,
+      "unique_opaque_rgb": 363,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.173592,
       "manifest_id": "nat_wall_low_b",
       "status": "WARN",
       "warnings": [
-        "54 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 346 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (22, 33, 13, 0); risk of animation/render clipping"
+        "opaque palette has 363 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
@@ -3952,24 +3905,24 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ice/nat_ice_spire.png",
-      "width": 170,
-      "height": 230,
+      "width": 222,
+      "height": 282,
       "bbox": [
-        44,
-        83,
-        139,
-        216
+        70,
+        109,
+        165,
+        242
       ],
       "opaque_pixels": 5125,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 394,
+      "unique_opaque_rgb": 387,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.131074,
+      "occupancy_ratio": 0.081864,
       "manifest_id": "nat_ice_spire",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 394 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 387 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
@@ -3999,199 +3952,187 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ice/nat_snow_mound.png",
-      "width": 250,
-      "height": 150,
+      "width": 302,
+      "height": 202,
       "bbox": [
+        93,
         67,
-        41,
-        199,
-        120
+        225,
+        146
       ],
       "opaque_pixels": 7357,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 281,
+      "unique_opaque_rgb": 284,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.196187,
+      "occupancy_ratio": 0.120599,
       "manifest_id": "nat_snow_mound",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 281 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 284 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/props/nat_chest_closed.png",
-      "width": 150,
-      "height": 130,
+      "width": 202,
+      "height": 182,
       "bbox": [
-        37,
-        42,
-        127,
-        130
+        63,
+        68,
+        153,
+        157
       ],
-      "opaque_pixels": 4751,
+      "opaque_pixels": 4754,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 308,
-      "edge_touch_pixels": 5,
-      "occupancy_ratio": 0.243641,
+      "unique_opaque_rgb": 296,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.129311,
       "manifest_id": "nat_chest_closed",
       "status": "WARN",
       "warnings": [
-        "5 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 308 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (37, 42, 23, 0); risk of animation/render clipping"
+        "opaque palette has 296 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/props/nat_chest_open.png",
-      "width": 150,
-      "height": 130,
+      "width": 202,
+      "height": 182,
       "bbox": [
-        32,
-        32,
-        121,
-        130
+        58,
+        58,
+        147,
+        157
       ],
-      "opaque_pixels": 4411,
+      "opaque_pixels": 4415,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 305,
-      "edge_touch_pixels": 5,
-      "occupancy_ratio": 0.226205,
+      "unique_opaque_rgb": 299,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.12009,
       "manifest_id": "nat_chest_open",
       "status": "WARN",
       "warnings": [
-        "5 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 305 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (32, 32, 29, 0); risk of animation/render clipping"
+        "opaque palette has 299 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/props/nat_chest_rare.png",
-      "width": 150,
-      "height": 130,
+      "width": 202,
+      "height": 182,
       "bbox": [
-        37,
-        42,
-        127,
-        130
+        63,
+        68,
+        153,
+        157
       ],
-      "opaque_pixels": 4751,
+      "opaque_pixels": 4754,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 305,
-      "edge_touch_pixels": 5,
-      "occupancy_ratio": 0.243641,
+      "unique_opaque_rgb": 312,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.129311,
       "manifest_id": "nat_chest_rare",
       "status": "WARN",
       "warnings": [
-        "5 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 305 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (37, 42, 23, 0); risk of animation/render clipping"
+        "opaque palette has 312 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/props/nat_flag_blue.png",
-      "width": 600,
-      "height": 240,
+      "width": 808,
+      "height": 292,
       "bbox": [
-        4,
-        48,
-        600,
-        226
+        30,
+        74,
+        792,
+        252
       ],
       "opaque_pixels": 22818,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 840,
-      "edge_touch_pixels": 5,
-      "occupancy_ratio": 0.158458,
+      "unique_opaque_rgb": 851,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.096713,
       "manifest_id": "nat_flag_blue",
       "status": "WARN",
       "warnings": [
-        "5 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 840 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (4, 48, 0, 14); risk of animation/render clipping"
+        "opaque palette has 851 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/props/nat_flag_red.png",
-      "width": 600,
-      "height": 240,
+      "width": 808,
+      "height": 292,
       "bbox": [
-        4,
-        48,
-        600,
-        226
+        30,
+        74,
+        792,
+        252
       ],
       "opaque_pixels": 22818,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 818,
-      "edge_touch_pixels": 5,
-      "occupancy_ratio": 0.158458,
+      "unique_opaque_rgb": 863,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.096713,
       "manifest_id": "nat_flag_red",
       "status": "WARN",
       "warnings": [
-        "5 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 818 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (4, 48, 0, 14); risk of animation/render clipping"
+        "opaque palette has 863 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/props/nat_signpost.png",
-      "width": 120,
-      "height": 140,
+      "width": 172,
+      "height": 192,
       "bbox": [
-        21,
-        13,
-        120,
-        130
+        47,
+        39,
+        148,
+        156
       ],
       "opaque_pixels": 3510,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 310,
-      "edge_touch_pixels": 2,
-      "occupancy_ratio": 0.208929,
+      "unique_opaque_rgb": 325,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.106286,
       "manifest_id": "nat_signpost",
       "status": "WARN",
       "warnings": [
-        "2 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 310 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (21, 13, 0, 10); risk of animation/render clipping"
+        "opaque palette has 325 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/props/nat_well_stone.png",
-      "width": 190,
-      "height": 220,
+      "width": 242,
+      "height": 272,
       "bbox": [
-        8,
-        7,
-        190,
-        220
+        34,
+        33,
+        242,
+        252
       ],
-      "opaque_pixels": 17236,
+      "opaque_pixels": 17318,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 380,
-      "edge_touch_pixels": 65,
-      "occupancy_ratio": 0.412344,
+      "unique_opaque_rgb": 370,
+      "edge_touch_pixels": 2,
+      "occupancy_ratio": 0.263096,
       "manifest_id": "nat_well_stone",
       "status": "WARN",
       "warnings": [
-        "65 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 380 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (8, 7, 0, 0); risk of animation/render clipping"
+        "2 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 370 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (34, 33, 0, 20); risk of animation/render clipping"
       ],
       "failures": []
     },
@@ -4273,51 +4214,47 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/rocks/nat_boulder_ice.png",
-      "width": 230,
-      "height": 190,
+      "width": 282,
+      "height": 242,
       "bbox": [
-        0,
-        43,
-        210,
-        190
+        21,
+        69,
+        236,
+        220
       ],
-      "opaque_pixels": 17971,
+      "opaque_pixels": 18080,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 389,
-      "edge_touch_pixels": 62,
-      "occupancy_ratio": 0.411236,
+      "unique_opaque_rgb": 376,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.264932,
       "manifest_id": "nat_boulder_ice",
       "status": "WARN",
       "warnings": [
-        "62 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 389 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (0, 43, 20, 0); risk of animation/render clipping"
+        "opaque palette has 376 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/rocks/nat_boulder_sand.png",
-      "width": 230,
-      "height": 190,
+      "width": 282,
+      "height": 242,
       "bbox": [
-        35,
-        45,
-        214,
-        190
+        61,
+        71,
+        240,
+        222
       ],
-      "opaque_pixels": 15944,
+      "opaque_pixels": 15982,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 328,
-      "edge_touch_pixels": 13,
-      "occupancy_ratio": 0.364851,
+      "unique_opaque_rgb": 345,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.234189,
       "manifest_id": "nat_boulder_sand",
       "status": "WARN",
       "warnings": [
-        "13 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 328 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (35, 45, 16, 0); risk of animation/render clipping"
+        "opaque palette has 345 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
@@ -4348,444 +4285,421 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/rocks/nat_rock_boulder.png",
-      "width": 230,
-      "height": 190,
+      "width": 282,
+      "height": 242,
       "bbox": [
-        21,
-        44,
-        230,
-        190
+        47,
+        70,
+        263,
+        223
       ],
-      "opaque_pixels": 19838,
+      "opaque_pixels": 20015,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 328,
-      "edge_touch_pixels": 59,
-      "occupancy_ratio": 0.453959,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.293286,
       "manifest_id": "nat_rock_boulder",
       "status": "WARN",
       "warnings": [
-        "59 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 328 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (21, 44, 0, 0); risk of animation/render clipping"
+        "opaque palette has 328 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/rocks/nat_rock_ice.png",
-      "width": 170,
-      "height": 140,
+      "width": 222,
+      "height": 192,
       "bbox": [
-        25,
-        29,
-        155,
-        140
+        51,
+        55,
+        181,
+        174
       ],
-      "opaque_pixels": 8907,
+      "opaque_pixels": 9040,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 333,
-      "edge_touch_pixels": 46,
-      "occupancy_ratio": 0.374244,
+      "unique_opaque_rgb": 332,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.212087,
       "manifest_id": "nat_rock_ice",
       "status": "WARN",
       "warnings": [
-        "46 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 333 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (25, 29, 15, 0); risk of animation/render clipping"
+        "opaque palette has 332 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/rocks/nat_rock_medium.png",
-      "width": 160,
-      "height": 130,
+      "width": 212,
+      "height": 182,
       "bbox": [
-        1,
-        32,
-        154,
-        130
+        27,
+        58,
+        180,
+        156
       ],
       "opaque_pixels": 8470,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 330,
-      "edge_touch_pixels": 1,
-      "occupancy_ratio": 0.407212,
+      "unique_opaque_rgb": 342,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.219521,
       "manifest_id": "nat_rock_medium",
       "status": "WARN",
       "warnings": [
-        "1 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 330 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (1, 32, 6, 0); risk of animation/render clipping"
+        "opaque palette has 342 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/rocks/nat_rock_mossy.png",
-      "width": 170,
-      "height": 140,
+      "width": 222,
+      "height": 192,
       "bbox": [
-        14,
-        35,
-        170,
-        139
+        40,
+        61,
+        201,
+        165
       ],
-      "opaque_pixels": 10534,
+      "opaque_pixels": 10566,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 328,
-      "edge_touch_pixels": 11,
-      "occupancy_ratio": 0.442605,
+      "unique_opaque_rgb": 339,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.247889,
       "manifest_id": "nat_rock_mossy",
       "status": "WARN",
       "warnings": [
-        "11 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 328 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (14, 35, 0, 1); risk of animation/render clipping"
+        "opaque palette has 339 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/rocks/nat_rock_sand.png",
-      "width": 170,
-      "height": 140,
+      "width": 222,
+      "height": 192,
       "bbox": [
-        7,
-        41,
-        158,
-        140
+        33,
+        67,
+        184,
+        188
       ],
-      "opaque_pixels": 9360,
+      "opaque_pixels": 10330,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 306,
-      "edge_touch_pixels": 74,
-      "occupancy_ratio": 0.393277,
+      "unique_opaque_rgb": 309,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.242352,
       "manifest_id": "nat_rock_sand",
       "status": "WARN",
       "warnings": [
-        "74 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 306 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (7, 41, 12, 0); risk of animation/render clipping"
+        "opaque palette has 309 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/rocks/nat_rock_small.png",
-      "width": 110,
-      "height": 90,
+      "width": 162,
+      "height": 142,
       "bbox": [
-        14,
-        19,
-        99,
-        85
+        40,
+        45,
+        125,
+        111
       ],
       "opaque_pixels": 3431,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 288,
+      "unique_opaque_rgb": 286,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.346566,
+      "occupancy_ratio": 0.149148,
       "manifest_id": "nat_rock_small",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 288 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 286 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/rocks/nat_rock_snow.png",
-      "width": 170,
-      "height": 140,
+      "width": 222,
+      "height": 192,
       "bbox": [
-        24,
-        31,
-        165,
-        139
+        50,
+        57,
+        191,
+        165
       ],
       "opaque_pixels": 9180,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 368,
+      "unique_opaque_rgb": 364,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.385714,
+      "occupancy_ratio": 0.215372,
       "manifest_id": "nat_rock_snow",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 368 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (24, 31, 5, 1); risk of animation/render clipping"
+        "opaque palette has 364 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ruins/nat_altar_ancient.png",
-      "width": 400,
-      "height": 190,
+      "width": 504,
+      "height": 242,
       "bbox": [
-        15,
-        47,
-        384,
-        190
+        41,
+        73,
+        461,
+        220
       ],
-      "opaque_pixels": 26538,
+      "opaque_pixels": 26640,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 401,
-      "edge_touch_pixels": 76,
-      "occupancy_ratio": 0.349184,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.218418,
       "manifest_id": "nat_altar_ancient",
       "status": "WARN",
       "warnings": [
-        "76 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 401 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (15, 47, 16, 0); risk of animation/render clipping"
+        "opaque palette has 401 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ruins/nat_altar_sand.png",
-      "width": 400,
-      "height": 190,
+      "width": 504,
+      "height": 242,
       "bbox": [
-        15,
-        47,
-        384,
-        190
+        41,
+        73,
+        461,
+        220
       ],
-      "opaque_pixels": 25846,
+      "opaque_pixels": 25948,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 325,
-      "edge_touch_pixels": 76,
-      "occupancy_ratio": 0.340079,
+      "unique_opaque_rgb": 333,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.212744,
       "manifest_id": "nat_altar_sand",
       "status": "WARN",
       "warnings": [
-        "76 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 325 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (15, 47, 16, 0); risk of animation/render clipping"
+        "opaque palette has 333 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ruins/nat_obelisk_rune.png",
-      "width": 300,
-      "height": 290,
+      "width": 404,
+      "height": 342,
       "bbox": [
-        10,
-        60,
-        300,
-        278
+        36,
+        86,
+        402,
+        304
       ],
       "opaque_pixels": 21884,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 299,
-      "edge_touch_pixels": 16,
-      "occupancy_ratio": 0.25154,
+      "unique_opaque_rgb": 286,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.158387,
       "manifest_id": "nat_obelisk_rune",
       "status": "WARN",
       "warnings": [
-        "16 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 299 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (10, 60, 0, 12); risk of animation/render clipping"
+        "opaque palette has 286 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ruins/nat_ruin_arch.png",
-      "width": 260,
-      "height": 282,
+      "width": 312,
+      "height": 334,
       "bbox": [
-        8,
-        14,
-        260,
-        282
+        34,
+        40,
+        312,
+        328
       ],
-      "opaque_pixels": 30206,
+      "opaque_pixels": 31673,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 421,
-      "edge_touch_pixels": 154,
-      "occupancy_ratio": 0.411975,
+      "unique_opaque_rgb": 417,
+      "edge_touch_pixels": 5,
+      "occupancy_ratio": 0.30394,
       "manifest_id": "nat_ruin_arch",
       "status": "WARN",
       "warnings": [
-        "154 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 421 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (8, 14, 0, 0); risk of animation/render clipping"
+        "5 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 417 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (34, 40, 0, 6); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ruins/nat_ruin_arch_sand.png",
-      "width": 260,
-      "height": 282,
+      "width": 312,
+      "height": 334,
       "bbox": [
-        16,
-        14,
-        260,
-        282
+        42,
+        40,
+        312,
+        331
       ],
-      "opaque_pixels": 30653,
+      "opaque_pixels": 32012,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 404,
-      "edge_touch_pixels": 186,
-      "occupancy_ratio": 0.418071,
+      "unique_opaque_rgb": 417,
+      "edge_touch_pixels": 5,
+      "occupancy_ratio": 0.307193,
       "manifest_id": "nat_ruin_arch_sand",
       "status": "WARN",
       "warnings": [
-        "186 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 404 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (16, 14, 0, 0); risk of animation/render clipping"
+        "5 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 417 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (42, 40, 0, 3); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ruins/nat_ruin_column.png",
-      "width": 150,
-      "height": 250,
+      "width": 202,
+      "height": 302,
       "bbox": [
-        17,
-        60,
-        150,
-        244
+        43,
+        86,
+        200,
+        270
       ],
       "opaque_pixels": 8834,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 365,
-      "edge_touch_pixels": 25,
-      "occupancy_ratio": 0.235573,
+      "unique_opaque_rgb": 373,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.14481,
       "manifest_id": "nat_ruin_column",
       "status": "WARN",
       "warnings": [
-        "25 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 365 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (17, 60, 0, 6); risk of animation/render clipping"
+        "opaque palette has 373 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ruins/nat_ruin_column_broken.png",
-      "width": 190,
-      "height": 190,
+      "width": 242,
+      "height": 242,
       "bbox": [
-        30,
-        86,
-        156,
-        187
+        56,
+        112,
+        182,
+        213
       ],
       "opaque_pixels": 6869,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 392,
+      "unique_opaque_rgb": 379,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.190277,
+      "occupancy_ratio": 0.11729,
       "manifest_id": "nat_ruin_column_broken",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 392 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 379 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ruins/nat_ruin_column_sand.png",
-      "width": 150,
-      "height": 262,
+      "width": 202,
+      "height": 314,
       "bbox": [
-        14,
-        62,
-        150,
-        253
+        40,
+        88,
+        202,
+        279
       ],
       "opaque_pixels": 8945,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 324,
-      "edge_touch_pixels": 29,
-      "occupancy_ratio": 0.227608,
+      "unique_opaque_rgb": 319,
+      "edge_touch_pixels": 3,
+      "occupancy_ratio": 0.141026,
       "manifest_id": "nat_ruin_column_sand",
       "status": "WARN",
       "warnings": [
-        "29 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 324 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (14, 62, 0, 9); risk of animation/render clipping"
+        "3 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 319 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (40, 88, 0, 35); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ruins/nat_ruin_wall.png",
-      "width": 240,
-      "height": 206,
+      "width": 292,
+      "height": 258,
       "bbox": [
-        14,
-        56,
-        233,
-        206
+        40,
+        82,
+        259,
+        235
       ],
-      "opaque_pixels": 14470,
+      "opaque_pixels": 14510,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 399,
-      "edge_touch_pixels": 26,
-      "occupancy_ratio": 0.292678,
+      "unique_opaque_rgb": 403,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.192604,
       "manifest_id": "nat_ruin_wall",
       "status": "WARN",
       "warnings": [
-        "26 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 399 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (14, 56, 7, 0); risk of animation/render clipping"
+        "opaque palette has 403 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ruins/nat_ruin_wall_sand.png",
-      "width": 240,
-      "height": 206,
+      "width": 292,
+      "height": 258,
       "bbox": [
-        23,
-        47,
-        235,
-        206
+        49,
+        73,
+        260,
+        237
       ],
-      "opaque_pixels": 14150,
+      "opaque_pixels": 14237,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 308,
-      "edge_touch_pixels": 43,
-      "occupancy_ratio": 0.286206,
+      "unique_opaque_rgb": 291,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.18898,
       "manifest_id": "nat_ruin_wall_sand",
       "status": "WARN",
       "warnings": [
-        "43 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 308 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (23, 47, 5, 0); risk of animation/render clipping"
+        "opaque palette has 291 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/ruins/nat_statue_guardian.png",
-      "width": 170,
-      "height": 270,
+      "width": 222,
+      "height": 322,
       "bbox": [
-        42,
-        69,
-        157,
-        261
+        68,
+        95,
+        183,
+        287
       ],
       "opaque_pixels": 8734,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 358,
+      "unique_opaque_rgb": 353,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.190283,
+      "occupancy_ratio": 0.122181,
       "manifest_id": "nat_statue_guardian",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 358 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 353 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
@@ -4854,218 +4768,216 @@
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/trees/nat_tree_birch.png",
-      "width": 200,
-      "height": 260,
+      "width": 252,
+      "height": 312,
       "bbox": [
-        25,
+        51,
         0,
-        200,
-        260
+        252,
+        289
       ],
-      "opaque_pixels": 13401,
+      "opaque_pixels": 14366,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 578,
-      "edge_touch_pixels": 125,
-      "occupancy_ratio": 0.257712,
+      "unique_opaque_rgb": 592,
+      "edge_touch_pixels": 60,
+      "occupancy_ratio": 0.182718,
       "manifest_id": "nat_tree_birch",
       "status": "WARN",
       "warnings": [
-        "125 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 578 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (25, 0, 0, 0); risk of animation/render clipping"
+        "60 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 592 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (51, 0, 0, 23); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/trees/nat_tree_dead.png",
-      "width": 200,
-      "height": 260,
+      "width": 252,
+      "height": 312,
       "bbox": [
-        32,
-        68,
-        200,
-        260
+        58,
+        94,
+        252,
+        293
       ],
       "opaque_pixels": 6563,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 389,
-      "edge_touch_pixels": 21,
-      "occupancy_ratio": 0.126212,
+      "unique_opaque_rgb": 399,
+      "edge_touch_pixels": 1,
+      "occupancy_ratio": 0.083473,
       "manifest_id": "nat_tree_dead",
       "status": "WARN",
       "warnings": [
-        "21 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 389 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (32, 68, 0, 0); risk of animation/render clipping"
+        "1 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 399 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (58, 94, 0, 19); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/trees/nat_tree_palm.png",
-      "width": 220,
-      "height": 270,
+      "width": 272,
+      "height": 322,
       "bbox": [
-        6,
-        57,
-        220,
-        270
+        32,
+        83,
+        272,
+        321
       ],
-      "opaque_pixels": 10534,
+      "opaque_pixels": 10548,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 466,
-      "edge_touch_pixels": 87,
-      "occupancy_ratio": 0.17734,
+      "unique_opaque_rgb": 476,
+      "edge_touch_pixels": 8,
+      "occupancy_ratio": 0.120433,
       "manifest_id": "nat_tree_palm",
       "status": "WARN",
       "warnings": [
-        "87 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 466 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (6, 57, 0, 0); risk of animation/render clipping"
+        "8 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 476 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (32, 83, 0, 1); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/trees/nat_tree_pine.png",
-      "width": 200,
-      "height": 270,
+      "width": 252,
+      "height": 322,
       "bbox": [
-        2,
-        12,
-        200,
-        270
+        28,
+        38,
+        252,
+        302
       ],
       "opaque_pixels": 25606,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 422,
-      "edge_touch_pixels": 138,
-      "occupancy_ratio": 0.474185,
+      "unique_opaque_rgb": 426,
+      "edge_touch_pixels": 9,
+      "occupancy_ratio": 0.315562,
       "manifest_id": "nat_tree_pine",
       "status": "WARN",
       "warnings": [
-        "138 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 422 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (2, 12, 0, 0); risk of animation/render clipping"
+        "9 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 426 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (28, 38, 0, 20); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/trees/nat_tree_pine_snow.png",
-      "width": 200,
-      "height": 270,
+      "width": 252,
+      "height": 322,
       "bbox": [
-        16,
-        12,
-        200,
-        270
+        42,
+        38,
+        252,
+        306
       ],
       "opaque_pixels": 25239,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 491,
-      "edge_touch_pixels": 123,
-      "occupancy_ratio": 0.467389,
+      "unique_opaque_rgb": 485,
+      "edge_touch_pixels": 14,
+      "occupancy_ratio": 0.31104,
       "manifest_id": "nat_tree_pine_snow",
       "status": "WARN",
       "warnings": [
-        "123 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 491 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (16, 12, 0, 0); risk of animation/render clipping"
+        "14 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 485 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (42, 38, 0, 16); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/water/nat_waterfall_front.png",
-      "width": 4160,
-      "height": 460,
+      "width": 4576,
+      "height": 512,
       "bbox": [
-        16,
-        133,
-        4148,
-        460
+        42,
+        159,
+        4538,
+        512
       ],
-      "opaque_pixels": 684960,
+      "opaque_pixels": 732336,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1510,
-      "edge_touch_pixels": 1608,
-      "occupancy_ratio": 0.357943,
+      "unique_opaque_rgb": 1620,
+      "edge_touch_pixels": 1456,
+      "occupancy_ratio": 0.312575,
       "manifest_id": "nat_waterfall_front",
       "status": "WARN",
       "warnings": [
-        "1608 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 1510 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (16, 133, 12, 0); risk of animation/render clipping"
+        "1456 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1620 RGB colors; inspect uncontrolled gradients/noise",
+        "tight margin (42, 159, 38, 0); risk of animation/render clipping"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/wood/nat_log_fallen.png",
-      "width": 230,
-      "height": 130,
+      "width": 282,
+      "height": 182,
       "bbox": [
-        39,
-        28,
-        201,
-        130
+        65,
+        54,
+        227,
+        159
       ],
       "opaque_pixels": 7846,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 377,
-      "edge_touch_pixels": 25,
-      "occupancy_ratio": 0.262408,
+      "unique_opaque_rgb": 387,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.152872,
       "manifest_id": "nat_log_fallen",
       "status": "WARN",
       "warnings": [
-        "25 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 377 RGB colors; inspect uncontrolled gradients/noise",
-        "tight margin (39, 28, 29, 0); risk of animation/render clipping"
+        "opaque palette has 387 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/wood/nat_log_pile.png",
-      "width": 170,
-      "height": 130,
+      "width": 222,
+      "height": 182,
       "bbox": [
-        20,
-        31,
-        150,
-        123
+        46,
+        57,
+        176,
+        149
       ],
       "opaque_pixels": 6552,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 296,
+      "unique_opaque_rgb": 286,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.296471,
+      "occupancy_ratio": 0.162162,
       "manifest_id": "nat_log_pile",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 296 RGB colors; inspect uncontrolled gradients/noise"
+        "opaque palette has 286 RGB colors; inspect uncontrolled gradients/noise"
       ],
       "failures": []
     },
     {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/wood/nat_stump.png",
-      "width": 130,
-      "height": 110,
+      "width": 182,
+      "height": 162,
       "bbox": [
-        24,
-        44,
-        111,
-        100
+        50,
+        70,
+        137,
+        126
       ],
       "opaque_pixels": 3095,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 314,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.216434,
+      "occupancy_ratio": 0.104972,
       "manifest_id": "nat_stump",
       "status": "WARN",
       "warnings": [

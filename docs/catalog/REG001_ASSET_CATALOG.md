@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (28): Lote 01, únicos aprovados pelo Diretor. Cidade 15 + Dungeon 13.
-- **MODELED_PENDING_GATE** (258): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (292): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 28 | 0 |
-| MODELED_PENDING_GATE | 171 | 87 |
+| MODELED_PENDING_GATE | 178 | 114 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -40,10 +40,17 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## MODELED_PENDING_GATE — por grupo
 
-### nature (116)
+### nature (123)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
+| `fau_bird` | NOT_USED | 0 |
+| `fau_camel` | NOT_USED | 0 |
+| `fau_deer` | NOT_USED | 0 |
+| `fau_fish` | NOT_USED | 0 |
+| `fau_fox` | NOT_USED | 0 |
+| `fau_goat` | NOT_USED | 0 |
+| `fau_hare` | NOT_USED | 0 |
 | `nat_altar_ancient` | INTEGRATED | 1 |
 | `nat_altar_sand` | INTEGRATED | 1 |
 | `nat_bedroll` | INTEGRATED | 2 |
@@ -130,7 +137,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_rock_snow` | INTEGRATED | 2 |
 | `nat_ruin_arch` | INTEGRATED | 2 |
 | `nat_ruin_arch_sand` | INTEGRATED | 1 |
-| `nat_ruin_column` | INTEGRATED | 6 |
+| `nat_ruin_column` | INTEGRATED | 1 |
 | `nat_ruin_column_broken` | INTEGRATED | 9 |
 | `nat_ruin_column_sand` | INTEGRATED | 4 |
 | `nat_ruin_wall` | INTEGRATED | 2 |
@@ -167,15 +174,15 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 |---|---|---:|
 | `city_banner_blue` | INTEGRATED | 3 |
 | `city_banner_red` | INTEGRATED | 1 |
-| `city_barrels` | INTEGRATED | 6 |
+| `city_barrels` | INTEGRATED | 10 |
 | `city_bench` | INTEGRATED | 4 |
 | `city_cart_market` | INTEGRATED | 1 |
-| `city_crates` | INTEGRATED | 5 |
+| `city_crates` | INTEGRATED | 7 |
 | `city_fountain` | INTEGRATED | 1 |
 | `city_lamp_post_a` | INTEGRATED | 20 |
 | `city_lamp_post_b` | NOT_USED | 0 |
 | `city_monument` | INTEGRATED | 1 |
-| `city_planter` | INTEGRATED | 6 |
+| `city_planter` | INTEGRATED | 13 |
 | `city_sign_hanging` | INTEGRATED | 4 |
 | `city_stairs` | NOT_USED | 0 |
 | `city_stall_blue` | INTEGRATED | 1 |
@@ -219,38 +226,45 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `dg_stalagmites` | INTEGRATED | 4 |
 | `str_cave_entrance` | INTEGRATED | 1 |
 
-### interior (32)
+### interior (39)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
 | `int_alchemy_table` | INTEGRATED | 1 |
 | `int_anvil` | INTEGRATED | 1 |
 | `int_armor_stand` | INTEGRATED | 2 |
+| `int_beam` | NOT_USED | 0 |
 | `int_bed` | NOT_USED | 0 |
 | `int_bookshelf` | INTEGRATED | 4 |
-| `int_candle_stand` | INTEGRATED | 4 |
+| `int_candle_stand` | INTEGRATED | 7 |
 | `int_cauldron` | INTEGRATED | 1 |
 | `int_chair` | INTEGRATED | 2 |
 | `int_counter` | INTEGRATED | 1 |
 | `int_desk_guild` | INTEGRATED | 1 |
 | `int_fireplace` | NOT_USED | 0 |
 | `int_floor_carpet` | NOT_USED | 0 |
-| `int_floor_stone` | NOT_USED | 0 |
-| `int_floor_wood` | NOT_USED | 0 |
-| `int_floor_wood_dark` | NOT_USED | 0 |
+| `int_floor_stone` | INTEGRATED | 0 |
+| `int_floor_wood` | INTEGRATED | 0 |
+| `int_floor_wood_dark` | INTEGRATED | 0 |
 | `int_forge` | INTEGRATED | 1 |
+| `int_post` | INTEGRATED | 0 |
 | `int_quest_board` | INTEGRATED | 1 |
-| `int_rug_round` | INTEGRATED | 3 |
+| `int_rug_round` | INTEGRATED | 5 |
 | `int_sacks` | INTEGRATED | 2 |
 | `int_shelf_goods` | INTEGRATED | 4 |
 | `int_shelf_potions` | INTEGRATED | 4 |
-| `int_stool` | NOT_USED | 0 |
+| `int_stool` | INTEGRATED | 6 |
 | `int_table_long` | INTEGRATED | 1 |
-| `int_table_round` | NOT_USED | 0 |
+| `int_table_round` | INTEGRATED | 1 |
+| `int_wall_door` | NOT_USED | 0 |
 | `int_wall_door_a` | NOT_USED | 0 |
 | `int_wall_door_b` | NOT_USED | 0 |
+| `int_wall_hearth` | NOT_USED | 0 |
+| `int_wall_niche` | NOT_USED | 0 |
+| `int_wall_plain` | INTEGRATED | 0 |
 | `int_wall_plain_a` | NOT_USED | 0 |
 | `int_wall_plain_b` | NOT_USED | 0 |
+| `int_wall_window` | NOT_USED | 0 |
 | `int_wall_window_a` | NOT_USED | 0 |
 | `int_wall_window_b` | NOT_USED | 0 |
 | `int_weapon_rack` | INTEGRATED | 2 |
@@ -291,5 +305,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 61 (`REG001_POI_*`); objetos: 795 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 20; passagens: 3; fragmentos de lore: 12.
+- POIs: 61 (`REG001_POI_*`); objetos: 815 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 20; passagens: 3; fragmentos de lore: 12.
 

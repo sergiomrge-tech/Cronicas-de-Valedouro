@@ -1,0 +1,6475 @@
+[
+ {
+  "id": "city_banner_blue",
+  "path": "res://assets/modeled/city/props/city_banner_blue.png",
+  "group": "city",
+  "folder": "props",
+  "frame_size": [
+   182,
+   302
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   91.0,
+   252.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 5.0,
+  "footprint": 8.0,
+  "tags": [
+   "vila",
+   "bandeira"
+  ],
+  "sha256": "579e92ffc73ea337b4277e289df9a02526da30c8d30f96a64c957428731cf95e",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "city_banner_red",
+  "path": "res://assets/modeled/city/props/city_banner_red.png",
+  "group": "city",
+  "folder": "props",
+  "frame_size": [
+   182,
+   302
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   91.0,
+   252.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 5.0,
+  "footprint": 8.0,
+  "tags": [
+   "vila",
+   "bandeira"
+  ],
+  "sha256": "b3b426a880d6878052baedfbeb96883633b98a695fb909545f4d8667156db83a",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "city_barrels",
+  "path": "res://assets/modeled/city/props/city_barrels.png",
+  "group": "city",
+  "folder": "props",
+  "frame_size": [
+   222,
+   202
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   144.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 14.0,
+  "footprint": 16.0,
+  "tags": [
+   "vila",
+   "porto",
+   "barris"
+  ],
+  "sha256": "46113258c154f90a0c6f7da012ca449ee15db0f88c5ccdcc3e7f899828768e79",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "city_bench",
+  "path": "res://assets/modeled/city/props/city_bench.png",
+  "group": "city",
+  "folder": "props",
+  "frame_size": [
+   222,
+   172
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   122.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 10.0,
+  "footprint": 12.0,
+  "tags": [
+   "vila",
+   "banco"
+  ],
+  "sha256": "4c016f53f55a13b6b703442c53d36304aa37ed7f4e173b9d9080aa96a1ead17c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "city_cart_market",
+  "path": "res://assets/modeled/city/props/city_cart_market.png",
+  "group": "city",
+  "folder": "props",
+  "frame_size": [
+   262,
+   212
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   131.0,
+   154.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 16.0,
+  "footprint": 20.0,
+  "tags": [
+   "vila",
+   "mercado"
+  ],
+  "sha256": "934ee0f111a3eaa13090770fb53ff73ee2cc8909a024ce348840927e23357872",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "city_crates",
+  "path": "res://assets/modeled/city/props/city_crates.png",
+  "group": "city",
+  "folder": "props",
+  "frame_size": [
+   222,
+   202
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   144.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 15.0,
+  "footprint": 18.0,
+  "tags": [
+   "vila",
+   "porto",
+   "caixas"
+  ],
+  "sha256": "a9cf960802e9a31c6c155ed9bddaff66caf99d7c5c3be352843a76d5938ca4cc",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "city_lamp_post_a",
+  "path": "res://assets/modeled/city/props/city_lamp_post_a.png",
+  "group": "city",
+  "folder": "props",
+  "frame_size": [
+   172,
+   272
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   86.0,
+   222.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 5.0,
+  "footprint": 8.0,
+  "tags": [
+   "vila",
+   "luz"
+  ],
+  "sha256": "0c8910180c7564cbc8fdd7205eb2695254688db0fbf31cc1f23b47cded9d87b7",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "city_lamp_post_b",
+  "path": "res://assets/modeled/city/props/city_lamp_post_b.png",
+  "group": "city",
+  "folder": "props",
+  "frame_size": [
+   252,
+   272
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   126.0,
+   222.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 5.0,
+  "footprint": 8.0,
+  "tags": [
+   "vila",
+   "luz"
+  ],
+  "sha256": "2b512e3fbcf953dc5ebfc3b6be21114a7c1b50592e8b984012a663f7720d0f9f",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "city_planter",
+  "path": "res://assets/modeled/city/props/city_planter.png",
+  "group": "city",
+  "folder": "props",
+  "frame_size": [
+   202,
+   172
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   101.0,
+   122.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 11.0,
+  "footprint": 14.0,
+  "tags": [
+   "vila",
+   "jardim"
+  ],
+  "sha256": "880b37f5cb912ed7e67cadeca1db26755f92b1f3be27fff9fb497593d8557088",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "fau_bird",
+  "path": "res://assets/modeled/nature/fauna/fau_bird.png",
+  "group": "nature",
+  "folder": "fauna",
+  "frame_size": [
+   148,
+   138
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   74.0,
+   54.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 4.0,
+  "tags": [
+   "fauna",
+   "animado",
+   "ave"
+  ],
+  "sha256": "69206259c69355eb4f25908d5d04b943d4ada6ea4d55c56c7cffc3f8eca85c26",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "fau_camel",
+  "path": "res://assets/modeled/nature/fauna/fau_camel.png",
+  "group": "nature",
+  "folder": "fauna",
+  "frame_size": [
+   308,
+   308
+  ],
+  "frames": 10,
+  "rows": 1,
+  "foot": [
+   154.0,
+   229.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 8.0,
+  "tags": [
+   "fauna",
+   "animado",
+   "camel"
+  ],
+  "sha256": "41405c5613250843ebe19082e62e6a2f1c6a4d49d3aa6f56d527cd4563a4bbc7",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "fau_deer",
+  "path": "res://assets/modeled/nature/fauna/fau_deer.png",
+  "group": "nature",
+  "folder": "fauna",
+  "frame_size": [
+   248,
+   248
+  ],
+  "frames": 10,
+  "rows": 1,
+  "foot": [
+   124.0,
+   184.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 8.0,
+  "tags": [
+   "fauna",
+   "animado",
+   "deer"
+  ],
+  "sha256": "c4ce3e613a7dbed75cffeec755f797710c6631eb833cfe3ca0fb96549c130f79",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "fau_fish",
+  "path": "res://assets/modeled/nature/fauna/fau_fish.png",
+  "group": "nature",
+  "folder": "fauna",
+  "frame_size": [
+   138,
+   118
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   69.0,
+   59.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 4.0,
+  "tags": [
+   "fauna",
+   "animado",
+   "peixe"
+  ],
+  "sha256": "d8a0c0d9841e8c4a70eff263bb3b2917ba148d7539f4cf6faf92b25fbc3cc18f",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "fau_fox",
+  "path": "res://assets/modeled/nature/fauna/fau_fox.png",
+  "group": "nature",
+  "folder": "fauna",
+  "frame_size": [
+   198,
+   178
+  ],
+  "frames": 10,
+  "rows": 1,
+  "foot": [
+   99.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 8.0,
+  "tags": [
+   "fauna",
+   "animado",
+   "fox"
+  ],
+  "sha256": "c9a98df4eba39a4c4b4609f2bbba6fde219ae7467f4df3455ec37abe7660605d",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "fau_goat",
+  "path": "res://assets/modeled/nature/fauna/fau_goat.png",
+  "group": "nature",
+  "folder": "fauna",
+  "frame_size": [
+   218,
+   218
+  ],
+  "frames": 10,
+  "rows": 1,
+  "foot": [
+   109.0,
+   164.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 8.0,
+  "tags": [
+   "fauna",
+   "animado",
+   "goat"
+  ],
+  "sha256": "6347d4b02b2ca50a250e9450fb95b01bdbdbf880b645eb15ef0e0c8e9370601b",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "fau_hare",
+  "path": "res://assets/modeled/nature/fauna/fau_hare.png",
+  "group": "nature",
+  "folder": "fauna",
+  "frame_size": [
+   158,
+   158
+  ],
+  "frames": 10,
+  "rows": 1,
+  "foot": [
+   79.0,
+   118.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 8.0,
+  "tags": [
+   "fauna",
+   "animado",
+   "hare"
+  ],
+  "sha256": "a5482a9e4fd8d87b2ebf8d5e0ec440f482d4a6845263c10f2d1d25d5d89da80b",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "int_beam",
+  "path": "res://assets/modeled/interior/walls/int_beam.png",
+  "group": "interior",
+  "folder": "walls",
+  "frame_size": [
+   180,
+   60
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   90.0,
+   40.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "interior",
+   "viga"
+  ],
+  "sha256": "c65fa46e3ba40cb9cc9a5629efa24e2130a2241aa898d5ebad8ab0479b9b428e",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "int_floor_stone",
+  "path": "res://assets/modeled/interior/floors/int_floor_stone.png",
+  "group": "interior",
+  "folder": "floors",
+  "frame_size": [
+   248,
+   140
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   124.0,
+   70.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "interior",
+   "chao",
+   "ferreiro"
+  ],
+  "sha256": "18048af08166f4cb9d41866b079411791409351a1633ab63c48bb46fff874462",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "int_floor_wood",
+  "path": "res://assets/modeled/interior/floors/int_floor_wood.png",
+  "group": "interior",
+  "folder": "floors",
+  "frame_size": [
+   248,
+   140
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   124.0,
+   70.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "interior",
+   "chao"
+  ],
+  "sha256": "9cf4b6633d3bebf2e22b20fa208d388c67df03e39e8c7f1b781a1f11c82a7296",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "int_floor_wood_dark",
+  "path": "res://assets/modeled/interior/floors/int_floor_wood_dark.png",
+  "group": "interior",
+  "folder": "floors",
+  "frame_size": [
+   248,
+   140
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   124.0,
+   70.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "interior",
+   "chao"
+  ],
+  "sha256": "1136519054b5d27bed50aaeaa0a8a6a134cff022a759a22ec1c1d02f2296aa4c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "int_post",
+  "path": "res://assets/modeled/interior/walls/int_post.png",
+  "group": "interior",
+  "folder": "walls",
+  "frame_size": [
+   90,
+   250
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   45.0,
+   218.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "interior",
+   "poste",
+   "coluna"
+  ],
+  "sha256": "ebc19d589b987a09a2b7ec3db921b9644cb46e665fbe2a111c27a735aeb53eec",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "int_wall_door",
+  "path": "res://assets/modeled/interior/walls/int_wall_door.png",
+  "group": "interior",
+  "folder": "walls",
+  "frame_size": [
+   170,
+   250
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   85.0,
+   208.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "interior",
+   "parede",
+   "baia"
+  ],
+  "sha256": "6f53444b3ed9e5992b213937e429248de15f12c5dc2c75cda8dd79540eba2540",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "int_wall_hearth",
+  "path": "res://assets/modeled/interior/walls/int_wall_hearth.png",
+  "group": "interior",
+  "folder": "walls",
+  "frame_size": [
+   170,
+   250
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   85.0,
+   208.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "interior",
+   "parede",
+   "baia"
+  ],
+  "sha256": "c03f0db0263e8ef7d8872a2892ed6534f0f6e4c208ecfe8bd4566851b01de83a",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "int_wall_niche",
+  "path": "res://assets/modeled/interior/walls/int_wall_niche.png",
+  "group": "interior",
+  "folder": "walls",
+  "frame_size": [
+   170,
+   250
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   85.0,
+   208.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "interior",
+   "parede",
+   "baia"
+  ],
+  "sha256": "e301d1545a2c2797247e6c95aca8da5fe272eff8df37d164cd06a0f1ffba0977",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "int_wall_plain",
+  "path": "res://assets/modeled/interior/walls/int_wall_plain.png",
+  "group": "interior",
+  "folder": "walls",
+  "frame_size": [
+   170,
+   250
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   85.0,
+   208.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "interior",
+   "parede",
+   "baia"
+  ],
+  "sha256": "c7ae4fa12ff0bb99a4545766fb7be44d7eb1570cb452ef9fd9e1ea2019948f90",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "int_wall_window",
+  "path": "res://assets/modeled/interior/walls/int_wall_window.png",
+  "group": "interior",
+  "folder": "walls",
+  "frame_size": [
+   170,
+   250
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   85.0,
+   208.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "interior",
+   "parede",
+   "baia"
+  ],
+  "sha256": "3d004f7ab29fe4c131f47c54fb8e13349f019c61149adcd919c5437beeab5436",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_altar_ancient",
+  "path": "res://assets/modeled/nature/ruins/nat_altar_ancient.png",
+  "group": "nature",
+  "folder": "ruins",
+  "frame_size": [
+   252,
+   242
+  ],
+  "frames": 2,
+  "rows": 1,
+  "foot": [
+   126.0,
+   184.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 16.0,
+  "footprint": 28.0,
+  "tags": [
+   "ruinas",
+   "altar"
+  ],
+  "sha256": "b7992c47aa742c48b61b708e7f8041cef7152bd851f4d57624d19510c1279989",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_altar_sand",
+  "path": "res://assets/modeled/nature/ruins/nat_altar_sand.png",
+  "group": "nature",
+  "folder": "ruins",
+  "frame_size": [
+   252,
+   242
+  ],
+  "frames": 2,
+  "rows": 1,
+  "foot": [
+   126.0,
+   184.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 16.0,
+  "footprint": 28.0,
+  "tags": [
+   "ruinas",
+   "altar",
+   "deserto"
+  ],
+  "sha256": "169ddda801a4ffee65f1732000740cccaaf848df40f24833f8fbbb1d7b4c7cae",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_boulder_ice",
+  "path": "res://assets/modeled/nature/rocks/nat_boulder_ice.png",
+  "group": "nature",
+  "folder": "rocks",
+  "frame_size": [
+   282,
+   242
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   141.0,
+   178.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 24.0,
+  "footprint": 24.0,
+  "tags": [
+   "gelo",
+   "obstaculo",
+   "pedra"
+  ],
+  "sha256": "c722538242d27f2fbcd38421ba281d5f413ffee6fde0e4a560e27f8458f62fe9",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_boulder_sand",
+  "path": "res://assets/modeled/nature/rocks/nat_boulder_sand.png",
+  "group": "nature",
+  "folder": "rocks",
+  "frame_size": [
+   282,
+   242
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   141.0,
+   178.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 24.0,
+  "footprint": 24.0,
+  "tags": [
+   "deserto",
+   "obstaculo",
+   "pedra"
+  ],
+  "sha256": "6c9d431c5fe49efbffc22120e6dc66f40a624a3ad1a23e93802f7ac202c0dd88",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_bush_berry",
+  "path": "res://assets/modeled/nature/bushes/nat_bush_berry.png",
+  "group": "nature",
+  "folder": "bushes",
+  "frame_size": [
+   192,
+   162
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   96.0,
+   108.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 14.0,
+  "tags": [
+   "floresta",
+   "recurso",
+   "arbusto"
+  ],
+  "sha256": "e18219e31c4f35bb2f57130602bab90acdbfa5ed29c8a323e7776bd9ca2a425b",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_bush_dry",
+  "path": "res://assets/modeled/nature/bushes/nat_bush_dry.png",
+  "group": "nature",
+  "folder": "bushes",
+  "frame_size": [
+   192,
+   162
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   96.0,
+   108.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 12.0,
+  "tags": [
+   "deserto",
+   "arbusto"
+  ],
+  "sha256": "f6188ad078a882512e8e7766b3bd71c21ba7426f2392629d0ea50d1c5a3a4935",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_bush_flowering",
+  "path": "res://assets/modeled/nature/bushes/nat_bush_flowering.png",
+  "group": "nature",
+  "folder": "bushes",
+  "frame_size": [
+   192,
+   162
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   96.0,
+   108.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 14.0,
+  "tags": [
+   "campos",
+   "vale",
+   "arbusto"
+  ],
+  "sha256": "d3483ba87e4d6fad8dc787e9d3069b8c377ff268f322c27db90855acba3c2564",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_bush_frost",
+  "path": "res://assets/modeled/nature/bushes/nat_bush_frost.png",
+  "group": "nature",
+  "folder": "bushes",
+  "frame_size": [
+   192,
+   162
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   96.0,
+   108.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 12.0,
+  "tags": [
+   "gelo",
+   "arbusto"
+  ],
+  "sha256": "cac9f55c9f300e5a48ba15038ef925de5db05248541f988dc099351ab8f1c676",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_bush_green",
+  "path": "res://assets/modeled/nature/bushes/nat_bush_green.png",
+  "group": "nature",
+  "folder": "bushes",
+  "frame_size": [
+   192,
+   162
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   96.0,
+   108.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 14.0,
+  "tags": [
+   "todos",
+   "arbusto"
+  ],
+  "sha256": "4881e79e6bf7ffcf0d19ed3e94b7fff61c7da9ef0a644d6429c728d8e7f00db5",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_cactus_round",
+  "path": "res://assets/modeled/nature/desert/nat_cactus_round.png",
+  "group": "nature",
+  "folder": "desert",
+  "frame_size": [
+   182,
+   172
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   91.0,
+   118.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 8.0,
+  "footprint": 12.0,
+  "tags": [
+   "deserto",
+   "cacto"
+  ],
+  "sha256": "06afa5d22875c2ab62bdb73a4160256a5d30e9c7e8bd181c8c6a6738b29e2cb2",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_cactus_tall",
+  "path": "res://assets/modeled/nature/desert/nat_cactus_tall.png",
+  "group": "nature",
+  "folder": "desert",
+  "frame_size": [
+   222,
+   292
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   238.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 9.0,
+  "footprint": 14.0,
+  "tags": [
+   "deserto",
+   "cacto"
+  ],
+  "sha256": "b4926f6a8678493f5a34c190c2adaa7597b5230b8b3a4ae43725fd829629b749",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_campfire",
+  "path": "res://assets/modeled/nature/camp/nat_campfire.png",
+  "group": "nature",
+  "folder": "camp",
+  "frame_size": [
+   202,
+   202
+  ],
+  "frames": 4,
+  "rows": 1,
+  "foot": [
+   101.0,
+   138.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 12.0,
+  "footprint": 18.0,
+  "tags": [
+   "acampamento",
+   "fogo"
+  ],
+  "sha256": "2cf8aaeb3247324722cf22918ec30ae07a164f266151910a9ca11668703669f0",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_cart_wood",
+  "path": "res://assets/modeled/nature/farm/nat_cart_wood.png",
+  "group": "nature",
+  "folder": "farm",
+  "frame_size": [
+   242,
+   192
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   121.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 16.0,
+  "footprint": 16.0,
+  "tags": [
+   "campos",
+   "vila",
+   "carroca"
+  ],
+  "sha256": "6983297505883833ae5182b01dc25fa4d99cf19f74fb41cebd6cd12db6514e3a",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_chest_closed",
+  "path": "res://assets/modeled/nature/props/nat_chest_closed.png",
+  "group": "nature",
+  "folder": "props",
+  "frame_size": [
+   202,
+   182
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   101.0,
+   126.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 13.0,
+  "footprint": 14.0,
+  "tags": [
+   "bau"
+  ],
+  "sha256": "2e7b87f2dc8fd64bc524e51e98130e3c7cbaf683549bc18a5d7b3fe58ae77a21",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_chest_open",
+  "path": "res://assets/modeled/nature/props/nat_chest_open.png",
+  "group": "nature",
+  "folder": "props",
+  "frame_size": [
+   202,
+   182
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   101.0,
+   126.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 13.0,
+  "footprint": 14.0,
+  "tags": [
+   "bau"
+  ],
+  "sha256": "3949bcc3854e99461ad1b584ffb632d4e0e6b58a3fee11330a0150c9f63c4d2e",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_chest_rare",
+  "path": "res://assets/modeled/nature/props/nat_chest_rare.png",
+  "group": "nature",
+  "folder": "props",
+  "frame_size": [
+   202,
+   182
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   101.0,
+   126.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 13.0,
+  "footprint": 14.0,
+  "tags": [
+   "bau",
+   "raro"
+  ],
+  "sha256": "1f8dc9b8a9a37a41dc93ddac0f0c7d3e3cc38d407441779131b1d83eebe9e43f",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_dune_large",
+  "path": "res://assets/modeled/nature/desert/nat_dune_large.png",
+  "group": "nature",
+  "folder": "desert",
+  "frame_size": [
+   552,
+   322
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   276.0,
+   186.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 40.0,
+  "footprint": 40.0,
+  "tags": [
+   "deserto",
+   "duna",
+   "obstaculo"
+  ],
+  "sha256": "f857dc9fc086cd654bf6c4571fe8ac7e823cb2a3ce384648505bb15fccae3580",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_dune_small",
+  "path": "res://assets/modeled/nature/desert/nat_dune_small.png",
+  "group": "nature",
+  "folder": "desert",
+  "frame_size": [
+   382,
+   242
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   191.0,
+   138.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "deserto",
+   "duna"
+  ],
+  "sha256": "06d64f1d44a0dbadee8d9c93f95d6382796a007eeda1b761eb03a44f9112b110",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_fence_broken_a",
+  "path": "res://assets/modeled/nature/fences/nat_fence_broken_a.png",
+  "group": "nature",
+  "folder": "fences",
+  "frame_size": [
+   222,
+   162
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   114.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 8.0,
+  "footprint": 8.0,
+  "tags": [
+   "ruinas",
+   "cerca"
+  ],
+  "sha256": "c7f06da90da7f9b49b4ad43e3baafe639c9634e4539907d82ff958e6255c0fd1",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_fence_broken_b",
+  "path": "res://assets/modeled/nature/fences/nat_fence_broken_b.png",
+  "group": "nature",
+  "folder": "fences",
+  "frame_size": [
+   222,
+   162
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   114.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 8.0,
+  "footprint": 8.0,
+  "tags": [
+   "ruinas",
+   "cerca"
+  ],
+  "sha256": "ff215bbf67b00c9aaec6bcea898ba44be10f47711fabea95686d1e842cdced63",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_fence_wood_a",
+  "path": "res://assets/modeled/nature/fences/nat_fence_wood_a.png",
+  "group": "nature",
+  "folder": "fences",
+  "frame_size": [
+   222,
+   162
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   114.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 10.0,
+  "footprint": 10.0,
+  "tags": [
+   "campos",
+   "vila",
+   "cerca"
+  ],
+  "sha256": "bf31df9cf0ccfe57880cb576d1f63ecea3dc4b2faa910378a89b105532362722",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_fence_wood_b",
+  "path": "res://assets/modeled/nature/fences/nat_fence_wood_b.png",
+  "group": "nature",
+  "folder": "fences",
+  "frame_size": [
+   222,
+   162
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   114.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 10.0,
+  "footprint": 10.0,
+  "tags": [
+   "campos",
+   "vila",
+   "cerca"
+  ],
+  "sha256": "ec7d666819e91b31fb47a1f7b353dbf95eb96748743cfaa4cddca45b3b04f8bc",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_flag_blue",
+  "path": "res://assets/modeled/nature/props/nat_flag_blue.png",
+  "group": "nature",
+  "folder": "props",
+  "frame_size": [
+   202,
+   292
+  ],
+  "frames": 4,
+  "rows": 1,
+  "foot": [
+   101.0,
+   240.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 6.0,
+  "footprint": 10.0,
+  "tags": [
+   "bandeira"
+  ],
+  "sha256": "273054617d91427e00b9da7cc4e6083cc00855922afbe7daed536cd9c699cc5d",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_flag_red",
+  "path": "res://assets/modeled/nature/props/nat_flag_red.png",
+  "group": "nature",
+  "folder": "props",
+  "frame_size": [
+   202,
+   292
+  ],
+  "frames": 4,
+  "rows": 1,
+  "foot": [
+   101.0,
+   240.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 6.0,
+  "footprint": 10.0,
+  "tags": [
+   "bandeira"
+  ],
+  "sha256": "6dd3db494884862e3d1c44540eff9a83cdac6dd72962e931ba22c8817db85e5c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_gate_wood",
+  "path": "res://assets/modeled/nature/fences/nat_gate_wood.png",
+  "group": "nature",
+  "folder": "fences",
+  "frame_size": [
+   242,
+   182
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   121.0,
+   130.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 10.0,
+  "footprint": 10.0,
+  "tags": [
+   "campos",
+   "portao"
+  ],
+  "sha256": "c88224061892819b75087f0862d362a456bb3412e1e392cbcf71f85db4c8c7b4",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_hay_bale",
+  "path": "res://assets/modeled/nature/farm/nat_hay_bale.png",
+  "group": "nature",
+  "folder": "farm",
+  "frame_size": [
+   182,
+   152
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   91.0,
+   102.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 11.0,
+  "footprint": 11.0,
+  "tags": [
+   "campos",
+   "fazenda"
+  ],
+  "sha256": "ab477c28a38761d27f8bea735ad11ba1cc0530fa5a4b1636e9328bd152c73048",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_hay_stack",
+  "path": "res://assets/modeled/nature/farm/nat_hay_stack.png",
+  "group": "nature",
+  "folder": "farm",
+  "frame_size": [
+   202,
+   192
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   101.0,
+   138.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 14.0,
+  "footprint": 14.0,
+  "tags": [
+   "campos",
+   "fazenda"
+  ],
+  "sha256": "05a928432ad7477800fe51d4c87196a96cf1564eee75f2ac473c45b33b195dd9",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_hill_earth",
+  "path": "res://assets/modeled/nature/elevation/nat_hill_earth.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   372,
+   292
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   186.0,
+   196.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 33.0,
+  "tags": [
+   "elevacao",
+   "colina",
+   "earth"
+  ],
+  "sha256": "157b7acf8257079ead7df59f02de93f4720e66ac01a4079235b37ff576d0e740",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -15.9,
+    11.1
+   ],
+   [
+    15.9,
+    -8.0,
+    11.1
+   ],
+   [
+    31.8,
+    0.0,
+    11.1
+   ],
+   [
+    -15.9,
+    -8.0,
+    11.1
+   ],
+   [
+    0.0,
+    0.0,
+    11.1
+   ],
+   [
+    15.9,
+    8.0,
+    11.1
+   ],
+   [
+    -31.8,
+    0.0,
+    11.1
+   ],
+   [
+    -15.9,
+    8.0,
+    11.1
+   ],
+   [
+    0.0,
+    15.9,
+    11.1
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_hill_ice",
+  "path": "res://assets/modeled/nature/elevation/nat_hill_ice.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   372,
+   292
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   186.0,
+   196.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 33.0,
+  "tags": [
+   "elevacao",
+   "colina",
+   "ice"
+  ],
+  "sha256": "ef6fca348d11fcd9905321213f5ba6f254aacd1082de4d2e3a29faddb5452771",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -15.9,
+    11.1
+   ],
+   [
+    15.9,
+    -8.0,
+    11.1
+   ],
+   [
+    31.8,
+    0.0,
+    11.1
+   ],
+   [
+    -15.9,
+    -8.0,
+    11.1
+   ],
+   [
+    0.0,
+    0.0,
+    11.1
+   ],
+   [
+    15.9,
+    8.0,
+    11.1
+   ],
+   [
+    -31.8,
+    0.0,
+    11.1
+   ],
+   [
+    -15.9,
+    8.0,
+    11.1
+   ],
+   [
+    0.0,
+    15.9,
+    11.1
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_hill_sand",
+  "path": "res://assets/modeled/nature/elevation/nat_hill_sand.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   372,
+   292
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   186.0,
+   196.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 35.2,
+  "tags": [
+   "elevacao",
+   "colina",
+   "sand"
+  ],
+  "sha256": "747e0993dd73c466232ee80d358242550665a0548bb762a845da9ecb77701bea",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -17.0,
+    11.8
+   ],
+   [
+    17.0,
+    -8.5,
+    11.8
+   ],
+   [
+    33.9,
+    0.0,
+    11.8
+   ],
+   [
+    -17.0,
+    -8.5,
+    11.8
+   ],
+   [
+    0.0,
+    0.0,
+    11.8
+   ],
+   [
+    17.0,
+    8.5,
+    11.8
+   ],
+   [
+    -33.9,
+    0.0,
+    11.8
+   ],
+   [
+    -17.0,
+    8.5,
+    11.8
+   ],
+   [
+    0.0,
+    17.0,
+    11.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ice_spire",
+  "path": "res://assets/modeled/nature/ice/nat_ice_spire.png",
+  "group": "nature",
+  "folder": "ice",
+  "frame_size": [
+   222,
+   282
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   220.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 12.0,
+  "footprint": 18.0,
+  "tags": [
+   "gelo",
+   "cristal"
+  ],
+  "sha256": "fdaee4802dc51b662e9defab4ff5a388280ea736a11b4d24d0913312ac6ebd43",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_log_fallen",
+  "path": "res://assets/modeled/nature/wood/nat_log_fallen.png",
+  "group": "nature",
+  "folder": "wood",
+  "frame_size": [
+   282,
+   182
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   141.0,
+   122.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 16.0,
+  "footprint": 16.0,
+  "tags": [
+   "floresta",
+   "obstaculo",
+   "tronco"
+  ],
+  "sha256": "210fa751b8433ec8f7294fb8954be5cb8a44f8d1542f8b8d984024077d132d59",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_log_pile",
+  "path": "res://assets/modeled/nature/wood/nat_log_pile.png",
+  "group": "nature",
+  "folder": "wood",
+  "frame_size": [
+   222,
+   182
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   126.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 14.0,
+  "footprint": 14.0,
+  "tags": [
+   "vila",
+   "floresta",
+   "tronco"
+  ],
+  "sha256": "938c499981a3475d66e7d98a1cfee524d9db05c08de4e186388259d87978ed6b",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_obelisk_rune",
+  "path": "res://assets/modeled/nature/ruins/nat_obelisk_rune.png",
+  "group": "nature",
+  "folder": "ruins",
+  "frame_size": [
+   202,
+   342
+  ],
+  "frames": 2,
+  "rows": 1,
+  "foot": [
+   101.0,
+   282.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 10.0,
+  "footprint": 20.0,
+  "tags": [
+   "ruinas",
+   "obelisco"
+  ],
+  "sha256": "e27beafb4c47eb1e5561a33f91b4a8673016ad091e869b6620f46b11c58986b6",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_plateau_earth_m",
+  "path": "res://assets/modeled/nature/elevation/nat_plateau_earth_m.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   472,
+   452
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.4,
+  "tags": [
+   "elevacao",
+   "planalto",
+   "colinas"
+  ],
+  "sha256": "39a832655f9bd6b1fd0e2b67d2d43845ffa753a84b8cc1725f8ebb0f80a57021",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -25.5,
+    11.8
+   ],
+   [
+    17.0,
+    -17.0,
+    11.8
+   ],
+   [
+    33.9,
+    -8.5,
+    11.8
+   ],
+   [
+    50.9,
+    0.0,
+    11.8
+   ],
+   [
+    -17.0,
+    -17.0,
+    11.8
+   ],
+   [
+    0.0,
+    -8.5,
+    11.8
+   ],
+   [
+    17.0,
+    0.0,
+    11.8
+   ],
+   [
+    33.9,
+    8.5,
+    11.8
+   ],
+   [
+    -33.9,
+    -8.5,
+    11.8
+   ],
+   [
+    -17.0,
+    0.0,
+    11.8
+   ],
+   [
+    0.0,
+    8.5,
+    11.8
+   ],
+   [
+    17.0,
+    17.0,
+    11.8
+   ],
+   [
+    -50.9,
+    0.0,
+    11.8
+   ],
+   [
+    -33.9,
+    8.5,
+    11.8
+   ],
+   [
+    -17.0,
+    17.0,
+    11.8
+   ],
+   [
+    0.0,
+    25.5,
+    11.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_plateau_earth_s",
+  "path": "res://assets/modeled/nature/elevation/nat_plateau_earth_s.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   352,
+   352
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   176.0,
+   266.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 44.0,
+  "tags": [
+   "elevacao",
+   "planalto",
+   "colinas"
+  ],
+  "sha256": "5462e5d13f41d247af31db3d2a72b27205252b404f0b9f47a4a41697aa8ae0fc",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -14.1,
+    9.9
+   ],
+   [
+    14.1,
+    -7.1,
+    9.9
+   ],
+   [
+    28.3,
+    0.0,
+    9.9
+   ],
+   [
+    -14.1,
+    -7.1,
+    9.9
+   ],
+   [
+    0.0,
+    0.0,
+    9.9
+   ],
+   [
+    14.1,
+    7.1,
+    9.9
+   ],
+   [
+    -28.3,
+    0.0,
+    9.9
+   ],
+   [
+    -14.1,
+    7.1,
+    9.9
+   ],
+   [
+    0.0,
+    14.1,
+    9.9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_plateau_ice_m",
+  "path": "res://assets/modeled/nature/elevation/nat_plateau_ice_m.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   472,
+   452
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.4,
+  "tags": [
+   "elevacao",
+   "planalto",
+   "gelo"
+  ],
+  "sha256": "b366184b1e96ae86a8660a8160c4f6efd5b87fe5e7fd4f15f1b272225a411cdd",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -25.5,
+    11.8
+   ],
+   [
+    17.0,
+    -17.0,
+    11.8
+   ],
+   [
+    33.9,
+    -8.5,
+    11.8
+   ],
+   [
+    50.9,
+    0.0,
+    11.8
+   ],
+   [
+    -17.0,
+    -17.0,
+    11.8
+   ],
+   [
+    0.0,
+    -8.5,
+    11.8
+   ],
+   [
+    17.0,
+    0.0,
+    11.8
+   ],
+   [
+    33.9,
+    8.5,
+    11.8
+   ],
+   [
+    -33.9,
+    -8.5,
+    11.8
+   ],
+   [
+    -17.0,
+    0.0,
+    11.8
+   ],
+   [
+    0.0,
+    8.5,
+    11.8
+   ],
+   [
+    17.0,
+    17.0,
+    11.8
+   ],
+   [
+    -50.9,
+    0.0,
+    11.8
+   ],
+   [
+    -33.9,
+    8.5,
+    11.8
+   ],
+   [
+    -17.0,
+    17.0,
+    11.8
+   ],
+   [
+    0.0,
+    25.5,
+    11.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_plateau_ice_s",
+  "path": "res://assets/modeled/nature/elevation/nat_plateau_ice_s.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   352,
+   352
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   176.0,
+   266.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 44.0,
+  "tags": [
+   "elevacao",
+   "planalto",
+   "gelo"
+  ],
+  "sha256": "7479f84020f0af8302d3f53a5028601fb5e662e3d2e41aa035d23ed6333342c4",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -14.1,
+    9.9
+   ],
+   [
+    14.1,
+    -7.1,
+    9.9
+   ],
+   [
+    28.3,
+    0.0,
+    9.9
+   ],
+   [
+    -14.1,
+    -7.1,
+    9.9
+   ],
+   [
+    0.0,
+    0.0,
+    9.9
+   ],
+   [
+    14.1,
+    7.1,
+    9.9
+   ],
+   [
+    -28.3,
+    0.0,
+    9.9
+   ],
+   [
+    -14.1,
+    7.1,
+    9.9
+   ],
+   [
+    0.0,
+    14.1,
+    9.9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_plateau_rock_m",
+  "path": "res://assets/modeled/nature/elevation/nat_plateau_rock_m.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   472,
+   452
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.4,
+  "tags": [
+   "elevacao",
+   "planalto",
+   "rio"
+  ],
+  "sha256": "d353ff71e1c8f38c8aac64867c9b8e954503b3b30b41a3fba15e34844ec9389e",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -25.5,
+    11.8
+   ],
+   [
+    17.0,
+    -17.0,
+    11.8
+   ],
+   [
+    33.9,
+    -8.5,
+    11.8
+   ],
+   [
+    50.9,
+    0.0,
+    11.8
+   ],
+   [
+    -17.0,
+    -17.0,
+    11.8
+   ],
+   [
+    0.0,
+    -8.5,
+    11.8
+   ],
+   [
+    17.0,
+    0.0,
+    11.8
+   ],
+   [
+    33.9,
+    8.5,
+    11.8
+   ],
+   [
+    -33.9,
+    -8.5,
+    11.8
+   ],
+   [
+    -17.0,
+    0.0,
+    11.8
+   ],
+   [
+    0.0,
+    8.5,
+    11.8
+   ],
+   [
+    17.0,
+    17.0,
+    11.8
+   ],
+   [
+    -50.9,
+    0.0,
+    11.8
+   ],
+   [
+    -33.9,
+    8.5,
+    11.8
+   ],
+   [
+    -17.0,
+    17.0,
+    11.8
+   ],
+   [
+    0.0,
+    25.5,
+    11.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_plateau_rock_s",
+  "path": "res://assets/modeled/nature/elevation/nat_plateau_rock_s.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   352,
+   352
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   176.0,
+   266.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 44.0,
+  "tags": [
+   "elevacao",
+   "planalto",
+   "rio"
+  ],
+  "sha256": "385dcbb4217c55bb7627ed20e51b2923b2e0538dd301b9aff17b9e371c1226b4",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -14.1,
+    9.9
+   ],
+   [
+    14.1,
+    -7.1,
+    9.9
+   ],
+   [
+    28.3,
+    0.0,
+    9.9
+   ],
+   [
+    -14.1,
+    -7.1,
+    9.9
+   ],
+   [
+    0.0,
+    0.0,
+    9.9
+   ],
+   [
+    14.1,
+    7.1,
+    9.9
+   ],
+   [
+    -28.3,
+    0.0,
+    9.9
+   ],
+   [
+    -14.1,
+    7.1,
+    9.9
+   ],
+   [
+    0.0,
+    14.1,
+    9.9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_plateau_sand_m",
+  "path": "res://assets/modeled/nature/elevation/nat_plateau_sand_m.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   472,
+   452
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.4,
+  "tags": [
+   "elevacao",
+   "planalto",
+   "deserto"
+  ],
+  "sha256": "c975b455cec3fc7e205296594edda99b385097732686fd8a9d0de224286628ee",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -25.5,
+    11.8
+   ],
+   [
+    17.0,
+    -17.0,
+    11.8
+   ],
+   [
+    33.9,
+    -8.5,
+    11.8
+   ],
+   [
+    50.9,
+    0.0,
+    11.8
+   ],
+   [
+    -17.0,
+    -17.0,
+    11.8
+   ],
+   [
+    0.0,
+    -8.5,
+    11.8
+   ],
+   [
+    17.0,
+    0.0,
+    11.8
+   ],
+   [
+    33.9,
+    8.5,
+    11.8
+   ],
+   [
+    -33.9,
+    -8.5,
+    11.8
+   ],
+   [
+    -17.0,
+    0.0,
+    11.8
+   ],
+   [
+    0.0,
+    8.5,
+    11.8
+   ],
+   [
+    17.0,
+    17.0,
+    11.8
+   ],
+   [
+    -50.9,
+    0.0,
+    11.8
+   ],
+   [
+    -33.9,
+    8.5,
+    11.8
+   ],
+   [
+    -17.0,
+    17.0,
+    11.8
+   ],
+   [
+    0.0,
+    25.5,
+    11.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_plateau_sand_s",
+  "path": "res://assets/modeled/nature/elevation/nat_plateau_sand_s.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   352,
+   352
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   176.0,
+   266.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 44.0,
+  "tags": [
+   "elevacao",
+   "planalto",
+   "deserto"
+  ],
+  "sha256": "dbb62289c1a3a6b572b7548605d584951f1689814b756fc747554fc51a4cc075",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -14.1,
+    9.9
+   ],
+   [
+    14.1,
+    -7.1,
+    9.9
+   ],
+   [
+    28.3,
+    0.0,
+    9.9
+   ],
+   [
+    -14.1,
+    -7.1,
+    9.9
+   ],
+   [
+    0.0,
+    0.0,
+    9.9
+   ],
+   [
+    14.1,
+    7.1,
+    9.9
+   ],
+   [
+    -28.3,
+    0.0,
+    9.9
+   ],
+   [
+    -14.1,
+    7.1,
+    9.9
+   ],
+   [
+    0.0,
+    14.1,
+    9.9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ridge_earth_a",
+  "path": "res://assets/modeled/nature/elevation/nat_ridge_earth_a.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   472,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   296.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 101.19999999999999,
+  "tags": [
+   "elevacao",
+   "cordilheira",
+   "colinas"
+  ],
+  "sha256": "549c626c465c9c78ba7163906f1ec76b2776670c4ca623bc46fff42d02b828be",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    27.9,
+    -26.7,
+    11.3
+   ],
+   [
+    40.7,
+    -20.3,
+    11.3
+   ],
+   [
+    53.4,
+    -14.0,
+    11.3
+   ],
+   [
+    11.7,
+    -18.6,
+    11.3
+   ],
+   [
+    24.4,
+    -12.2,
+    11.3
+   ],
+   [
+    37.1,
+    -5.8,
+    11.3
+   ],
+   [
+    -4.6,
+    -10.4,
+    11.3
+   ],
+   [
+    8.1,
+    -4.1,
+    11.3
+   ],
+   [
+    20.9,
+    2.3,
+    11.3
+   ],
+   [
+    -20.9,
+    -2.3,
+    11.3
+   ],
+   [
+    -8.1,
+    4.1,
+    11.3
+   ],
+   [
+    4.6,
+    10.4,
+    11.3
+   ],
+   [
+    -37.1,
+    5.8,
+    11.3
+   ],
+   [
+    -24.4,
+    12.2,
+    11.3
+   ],
+   [
+    -11.7,
+    18.6,
+    11.3
+   ],
+   [
+    -53.4,
+    14.0,
+    11.3
+   ],
+   [
+    -40.7,
+    20.3,
+    11.3
+   ],
+   [
+    -27.9,
+    26.7,
+    11.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ridge_earth_b",
+  "path": "res://assets/modeled/nature/elevation/nat_ridge_earth_b.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   472,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   296.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 101.19999999999999,
+  "tags": [
+   "elevacao",
+   "cordilheira",
+   "colinas"
+  ],
+  "sha256": "d30cda04975b85138ff008c634db28647886ad92af32551217bdd2fc57ecbce2",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -27.9,
+    -26.7,
+    11.3
+   ],
+   [
+    -11.7,
+    -18.6,
+    11.3
+   ],
+   [
+    4.6,
+    -10.4,
+    11.3
+   ],
+   [
+    20.9,
+    -2.3,
+    11.3
+   ],
+   [
+    37.1,
+    5.8,
+    11.3
+   ],
+   [
+    53.4,
+    14.0,
+    11.3
+   ],
+   [
+    -40.7,
+    -20.3,
+    11.3
+   ],
+   [
+    -24.4,
+    -12.2,
+    11.3
+   ],
+   [
+    -8.1,
+    -4.1,
+    11.3
+   ],
+   [
+    8.1,
+    4.1,
+    11.3
+   ],
+   [
+    24.4,
+    12.2,
+    11.3
+   ],
+   [
+    40.7,
+    20.3,
+    11.3
+   ],
+   [
+    -53.4,
+    -14.0,
+    11.3
+   ],
+   [
+    -37.1,
+    -5.8,
+    11.3
+   ],
+   [
+    -20.9,
+    2.3,
+    11.3
+   ],
+   [
+    -4.6,
+    10.4,
+    11.3
+   ],
+   [
+    11.7,
+    18.6,
+    11.3
+   ],
+   [
+    27.9,
+    26.7,
+    11.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ridge_ice_a",
+  "path": "res://assets/modeled/nature/elevation/nat_ridge_ice_a.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   472,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   296.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 101.19999999999999,
+  "tags": [
+   "elevacao",
+   "cordilheira",
+   "gelo"
+  ],
+  "sha256": "7836b8840d338fef322ef38aaa4714d356c7ed98117b767e3168aa5ece410690",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    27.9,
+    -26.7,
+    11.3
+   ],
+   [
+    40.7,
+    -20.3,
+    11.3
+   ],
+   [
+    53.4,
+    -14.0,
+    11.3
+   ],
+   [
+    11.7,
+    -18.6,
+    11.3
+   ],
+   [
+    24.4,
+    -12.2,
+    11.3
+   ],
+   [
+    37.1,
+    -5.8,
+    11.3
+   ],
+   [
+    -4.6,
+    -10.4,
+    11.3
+   ],
+   [
+    8.1,
+    -4.1,
+    11.3
+   ],
+   [
+    20.9,
+    2.3,
+    11.3
+   ],
+   [
+    -20.9,
+    -2.3,
+    11.3
+   ],
+   [
+    -8.1,
+    4.1,
+    11.3
+   ],
+   [
+    4.6,
+    10.4,
+    11.3
+   ],
+   [
+    -37.1,
+    5.8,
+    11.3
+   ],
+   [
+    -24.4,
+    12.2,
+    11.3
+   ],
+   [
+    -11.7,
+    18.6,
+    11.3
+   ],
+   [
+    -53.4,
+    14.0,
+    11.3
+   ],
+   [
+    -40.7,
+    20.3,
+    11.3
+   ],
+   [
+    -27.9,
+    26.7,
+    11.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ridge_ice_b",
+  "path": "res://assets/modeled/nature/elevation/nat_ridge_ice_b.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   472,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   296.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 101.19999999999999,
+  "tags": [
+   "elevacao",
+   "cordilheira",
+   "gelo"
+  ],
+  "sha256": "d28a88c37a4d0eaf6612d6c4c8916614537237068811f3e9ed3e499079fa3eee",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -27.9,
+    -26.7,
+    11.3
+   ],
+   [
+    -11.7,
+    -18.6,
+    11.3
+   ],
+   [
+    4.6,
+    -10.4,
+    11.3
+   ],
+   [
+    20.9,
+    -2.3,
+    11.3
+   ],
+   [
+    37.1,
+    5.8,
+    11.3
+   ],
+   [
+    53.4,
+    14.0,
+    11.3
+   ],
+   [
+    -40.7,
+    -20.3,
+    11.3
+   ],
+   [
+    -24.4,
+    -12.2,
+    11.3
+   ],
+   [
+    -8.1,
+    -4.1,
+    11.3
+   ],
+   [
+    8.1,
+    4.1,
+    11.3
+   ],
+   [
+    24.4,
+    12.2,
+    11.3
+   ],
+   [
+    40.7,
+    20.3,
+    11.3
+   ],
+   [
+    -53.4,
+    -14.0,
+    11.3
+   ],
+   [
+    -37.1,
+    -5.8,
+    11.3
+   ],
+   [
+    -20.9,
+    2.3,
+    11.3
+   ],
+   [
+    -4.6,
+    10.4,
+    11.3
+   ],
+   [
+    11.7,
+    18.6,
+    11.3
+   ],
+   [
+    27.9,
+    26.7,
+    11.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ridge_rock_a",
+  "path": "res://assets/modeled/nature/elevation/nat_ridge_rock_a.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   472,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   296.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 101.19999999999999,
+  "tags": [
+   "elevacao",
+   "cordilheira",
+   "rio"
+  ],
+  "sha256": "f1a7d1ed9924e99c31de4428d0afeeddb62e3a863d700d6c74ab4f95b607fb3d",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    27.9,
+    -26.7,
+    11.3
+   ],
+   [
+    40.7,
+    -20.3,
+    11.3
+   ],
+   [
+    53.4,
+    -14.0,
+    11.3
+   ],
+   [
+    11.7,
+    -18.6,
+    11.3
+   ],
+   [
+    24.4,
+    -12.2,
+    11.3
+   ],
+   [
+    37.1,
+    -5.8,
+    11.3
+   ],
+   [
+    -4.6,
+    -10.4,
+    11.3
+   ],
+   [
+    8.1,
+    -4.1,
+    11.3
+   ],
+   [
+    20.9,
+    2.3,
+    11.3
+   ],
+   [
+    -20.9,
+    -2.3,
+    11.3
+   ],
+   [
+    -8.1,
+    4.1,
+    11.3
+   ],
+   [
+    4.6,
+    10.4,
+    11.3
+   ],
+   [
+    -37.1,
+    5.8,
+    11.3
+   ],
+   [
+    -24.4,
+    12.2,
+    11.3
+   ],
+   [
+    -11.7,
+    18.6,
+    11.3
+   ],
+   [
+    -53.4,
+    14.0,
+    11.3
+   ],
+   [
+    -40.7,
+    20.3,
+    11.3
+   ],
+   [
+    -27.9,
+    26.7,
+    11.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ridge_rock_b",
+  "path": "res://assets/modeled/nature/elevation/nat_ridge_rock_b.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   472,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   296.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 101.19999999999999,
+  "tags": [
+   "elevacao",
+   "cordilheira",
+   "rio"
+  ],
+  "sha256": "721c22f7400ca19119a910ec41ba5c7aff11f0c833298a799da35c7a8fe74f43",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -27.9,
+    -26.7,
+    11.3
+   ],
+   [
+    -11.7,
+    -18.6,
+    11.3
+   ],
+   [
+    4.6,
+    -10.4,
+    11.3
+   ],
+   [
+    20.9,
+    -2.3,
+    11.3
+   ],
+   [
+    37.1,
+    5.8,
+    11.3
+   ],
+   [
+    53.4,
+    14.0,
+    11.3
+   ],
+   [
+    -40.7,
+    -20.3,
+    11.3
+   ],
+   [
+    -24.4,
+    -12.2,
+    11.3
+   ],
+   [
+    -8.1,
+    -4.1,
+    11.3
+   ],
+   [
+    8.1,
+    4.1,
+    11.3
+   ],
+   [
+    24.4,
+    12.2,
+    11.3
+   ],
+   [
+    40.7,
+    20.3,
+    11.3
+   ],
+   [
+    -53.4,
+    -14.0,
+    11.3
+   ],
+   [
+    -37.1,
+    -5.8,
+    11.3
+   ],
+   [
+    -20.9,
+    2.3,
+    11.3
+   ],
+   [
+    -4.6,
+    10.4,
+    11.3
+   ],
+   [
+    11.7,
+    18.6,
+    11.3
+   ],
+   [
+    27.9,
+    26.7,
+    11.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ridge_sand_a",
+  "path": "res://assets/modeled/nature/elevation/nat_ridge_sand_a.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   472,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   296.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 101.19999999999999,
+  "tags": [
+   "elevacao",
+   "cordilheira",
+   "deserto"
+  ],
+  "sha256": "3d5e77b96b388cf2f24ef5c81f55c0edc1bd0e2862f6f578138eba7a60e2f2f0",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    27.9,
+    -26.7,
+    11.3
+   ],
+   [
+    40.7,
+    -20.3,
+    11.3
+   ],
+   [
+    53.4,
+    -14.0,
+    11.3
+   ],
+   [
+    11.7,
+    -18.6,
+    11.3
+   ],
+   [
+    24.4,
+    -12.2,
+    11.3
+   ],
+   [
+    37.1,
+    -5.8,
+    11.3
+   ],
+   [
+    -4.6,
+    -10.4,
+    11.3
+   ],
+   [
+    8.1,
+    -4.1,
+    11.3
+   ],
+   [
+    20.9,
+    2.3,
+    11.3
+   ],
+   [
+    -20.9,
+    -2.3,
+    11.3
+   ],
+   [
+    -8.1,
+    4.1,
+    11.3
+   ],
+   [
+    4.6,
+    10.4,
+    11.3
+   ],
+   [
+    -37.1,
+    5.8,
+    11.3
+   ],
+   [
+    -24.4,
+    12.2,
+    11.3
+   ],
+   [
+    -11.7,
+    18.6,
+    11.3
+   ],
+   [
+    -53.4,
+    14.0,
+    11.3
+   ],
+   [
+    -40.7,
+    20.3,
+    11.3
+   ],
+   [
+    -27.9,
+    26.7,
+    11.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ridge_sand_b",
+  "path": "res://assets/modeled/nature/elevation/nat_ridge_sand_b.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   472,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   296.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 101.19999999999999,
+  "tags": [
+   "elevacao",
+   "cordilheira",
+   "deserto"
+  ],
+  "sha256": "5897b29b8aceb2eca68afbc4a15b113d32c097312c4c4478e425bfb974fc5517",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -27.9,
+    -26.7,
+    11.3
+   ],
+   [
+    -11.7,
+    -18.6,
+    11.3
+   ],
+   [
+    4.6,
+    -10.4,
+    11.3
+   ],
+   [
+    20.9,
+    -2.3,
+    11.3
+   ],
+   [
+    37.1,
+    5.8,
+    11.3
+   ],
+   [
+    53.4,
+    14.0,
+    11.3
+   ],
+   [
+    -40.7,
+    -20.3,
+    11.3
+   ],
+   [
+    -24.4,
+    -12.2,
+    11.3
+   ],
+   [
+    -8.1,
+    -4.1,
+    11.3
+   ],
+   [
+    8.1,
+    4.1,
+    11.3
+   ],
+   [
+    24.4,
+    12.2,
+    11.3
+   ],
+   [
+    40.7,
+    20.3,
+    11.3
+   ],
+   [
+    -53.4,
+    -14.0,
+    11.3
+   ],
+   [
+    -37.1,
+    -5.8,
+    11.3
+   ],
+   [
+    -20.9,
+    2.3,
+    11.3
+   ],
+   [
+    -4.6,
+    10.4,
+    11.3
+   ],
+   [
+    11.7,
+    18.6,
+    11.3
+   ],
+   [
+    27.9,
+    26.7,
+    11.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_rock_arch_natural",
+  "path": "res://assets/modeled/nature/elevation/nat_rock_arch_natural.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   412,
+   432
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   206.0,
+   326.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 50.0,
+  "tags": [
+   "elevacao",
+   "arco",
+   "passagem"
+  ],
+  "sha256": "cadf0c31b63795b6b854768dd2a073846b94882284578fe73f87bdd345c463e5",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -34,
+    6,
+    20
+   ],
+   [
+    34,
+    6,
+    20
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_rock_boulder",
+  "path": "res://assets/modeled/nature/rocks/nat_rock_boulder.png",
+  "group": "nature",
+  "folder": "rocks",
+  "frame_size": [
+   282,
+   242
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   141.0,
+   178.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 24.0,
+  "footprint": 24.0,
+  "tags": [
+   "obstaculo",
+   "pedra"
+  ],
+  "sha256": "41b81e1cdb427b5fb5e1759c15e509bec1cf4d56f19e111e3fb3aa802bd8d4bb",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_rock_ice",
+  "path": "res://assets/modeled/nature/rocks/nat_rock_ice.png",
+  "group": "nature",
+  "folder": "rocks",
+  "frame_size": [
+   222,
+   192
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 14.0,
+  "footprint": 14.0,
+  "tags": [
+   "gelo",
+   "pedra"
+  ],
+  "sha256": "82ca4731763506613b45310b03ba7c9b34380084c8023da192603ed28d1c7cd1",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_rock_medium",
+  "path": "res://assets/modeled/nature/rocks/nat_rock_medium.png",
+  "group": "nature",
+  "folder": "rocks",
+  "frame_size": [
+   212,
+   182
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   106.0,
+   126.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 13.0,
+  "footprint": 13.0,
+  "tags": [
+   "todos",
+   "pedra"
+  ],
+  "sha256": "f47aa9ea0f454287d1c2da511ac24910af5af4f734f889368997c4a1cb68d802",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_rock_mossy",
+  "path": "res://assets/modeled/nature/rocks/nat_rock_mossy.png",
+  "group": "nature",
+  "folder": "rocks",
+  "frame_size": [
+   222,
+   192
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 14.0,
+  "footprint": 14.0,
+  "tags": [
+   "floresta",
+   "vale",
+   "pedra"
+  ],
+  "sha256": "afc74b8af14487179740b2f28243594858d2b854f94529956e91bc5ec9c08f42",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_rock_pillars",
+  "path": "res://assets/modeled/nature/elevation/nat_rock_pillars.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   352,
+   372
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   176.0,
+   286.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 34.0,
+  "tags": [
+   "elevacao",
+   "pilares",
+   "passagem"
+  ],
+  "sha256": "9448ff821aef776ab500e244c105afaffcf531598d6e0a4379df9db6880c0aa7",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0,
+    0,
+    16
+   ],
+   [
+    30,
+    10,
+    12
+   ],
+   [
+    -26,
+    8,
+    12
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_rock_sand",
+  "path": "res://assets/modeled/nature/rocks/nat_rock_sand.png",
+  "group": "nature",
+  "folder": "rocks",
+  "frame_size": [
+   222,
+   192
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 14.0,
+  "footprint": 14.0,
+  "tags": [
+   "deserto",
+   "pedra"
+  ],
+  "sha256": "d5fdd67b65aa6d37d03c2b5a24f8d492336d3f7fb3560d18f5976e7d58cd3fcf",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_rock_small",
+  "path": "res://assets/modeled/nature/rocks/nat_rock_small.png",
+  "group": "nature",
+  "folder": "rocks",
+  "frame_size": [
+   162,
+   142
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   81.0,
+   94.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "todos",
+   "pedra"
+  ],
+  "sha256": "08a55a39d9be176152d092fb98c1e75714bd22b82d82aeb6f995faf23656dbd6",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_rock_snow",
+  "path": "res://assets/modeled/nature/rocks/nat_rock_snow.png",
+  "group": "nature",
+  "folder": "rocks",
+  "frame_size": [
+   222,
+   192
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 14.0,
+  "footprint": 14.0,
+  "tags": [
+   "gelo",
+   "pedra"
+  ],
+  "sha256": "6df3bb3fb7ac6be5bdae303b906db478fccaca73efdf9624614e1147d2187240",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ruin_arch",
+  "path": "res://assets/modeled/nature/ruins/nat_ruin_arch.png",
+  "group": "nature",
+  "folder": "ruins",
+  "frame_size": [
+   312,
+   334
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   156.0,
+   274.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 14.0,
+  "footprint": 30.0,
+  "tags": [
+   "ruinas",
+   "arco"
+  ],
+  "sha256": "6373e45e9d2cbf7b2440b68bcfd16827d32f2658fe0c4d4b720a8b86c8352f21",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ruin_arch_sand",
+  "path": "res://assets/modeled/nature/ruins/nat_ruin_arch_sand.png",
+  "group": "nature",
+  "folder": "ruins",
+  "frame_size": [
+   312,
+   334
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   156.0,
+   274.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 14.0,
+  "footprint": 30.0,
+  "tags": [
+   "ruinas",
+   "arco",
+   "deserto"
+  ],
+  "sha256": "c8a44e25acaaebc81d02526c9b631a24b84f1fd45446be9f514bafcf99c11478",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ruin_column",
+  "path": "res://assets/modeled/nature/ruins/nat_ruin_column.png",
+  "group": "nature",
+  "folder": "ruins",
+  "frame_size": [
+   202,
+   302
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   101.0,
+   246.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 11.0,
+  "footprint": 18.0,
+  "tags": [
+   "ruinas",
+   "coluna"
+  ],
+  "sha256": "a99c779cd8f1e38b2d011357680980c3c7e8e2d0f8cf0ff9112fe2ab3ae4a8f9",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ruin_column_broken",
+  "path": "res://assets/modeled/nature/ruins/nat_ruin_column_broken.png",
+  "group": "nature",
+  "folder": "ruins",
+  "frame_size": [
+   242,
+   242
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   121.0,
+   184.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 11.0,
+  "footprint": 18.0,
+  "tags": [
+   "ruinas",
+   "coluna"
+  ],
+  "sha256": "99d8e952b2289fec65815269934605677d4965ee6705b93c440f3bd0aafa5bd4",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ruin_column_sand",
+  "path": "res://assets/modeled/nature/ruins/nat_ruin_column_sand.png",
+  "group": "nature",
+  "folder": "ruins",
+  "frame_size": [
+   202,
+   314
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   101.0,
+   258.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 11.0,
+  "footprint": 18.0,
+  "tags": [
+   "ruinas",
+   "coluna",
+   "deserto"
+  ],
+  "sha256": "9689066b6cc512a91c8b1c5b9fcb35c16462ae4cc43ac42b30577111ed18a7de",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ruin_wall",
+  "path": "res://assets/modeled/nature/ruins/nat_ruin_wall.png",
+  "group": "nature",
+  "folder": "ruins",
+  "frame_size": [
+   292,
+   258
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   146.0,
+   198.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 16.0,
+  "footprint": 24.0,
+  "tags": [
+   "ruinas",
+   "muro"
+  ],
+  "sha256": "2fcd6551e2ab827840e5fe101e98207c28fd53ecbf36f7ca3cae20adf5a10692",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_ruin_wall_sand",
+  "path": "res://assets/modeled/nature/ruins/nat_ruin_wall_sand.png",
+  "group": "nature",
+  "folder": "ruins",
+  "frame_size": [
+   292,
+   258
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   146.0,
+   198.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 16.0,
+  "footprint": 24.0,
+  "tags": [
+   "ruinas",
+   "muro",
+   "deserto"
+  ],
+  "sha256": "2dccd6cb9b3868bffe955efc1cbb330a513eaf696549c1490fb69891d1ef58a0",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_signpost",
+  "path": "res://assets/modeled/nature/props/nat_signpost.png",
+  "group": "nature",
+  "folder": "props",
+  "frame_size": [
+   172,
+   192
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   86.0,
+   142.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 6.0,
+  "footprint": 6.0,
+  "tags": [
+   "rota",
+   "placa"
+  ],
+  "sha256": "00d5c77464fc9c5be2238c46a2fc671a070613af4f5d077e608d42f3158307de",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_snow_mound",
+  "path": "res://assets/modeled/nature/ice/nat_snow_mound.png",
+  "group": "nature",
+  "folder": "ice",
+  "frame_size": [
+   302,
+   202
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   151.0,
+   116.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "gelo",
+   "neve"
+  ],
+  "sha256": "f322583ae5ff2584a43f22812ea404ff725ff687330e59e762da0b4d84e8a8da",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_statue_guardian",
+  "path": "res://assets/modeled/nature/ruins/nat_statue_guardian.png",
+  "group": "nature",
+  "folder": "ruins",
+  "frame_size": [
+   222,
+   322
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   111.0,
+   262.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 12.0,
+  "footprint": 20.0,
+  "tags": [
+   "ruinas",
+   "estatua"
+  ],
+  "sha256": "64e1c30adaf9e62e6e8d1c46f41428704452251b4d5c22f650dff655ca438b42",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_steps_stone",
+  "path": "res://assets/modeled/nature/elevation/nat_steps_stone.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   372,
+   312
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   186.0,
+   226.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 40.0,
+  "tags": [
+   "elevacao",
+   "degraus"
+  ],
+  "sha256": "2aaf3024ed95d5a7931e21870b4c5c59c56f7594ab42e8d30d0d48e2e0be97a4",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_stump",
+  "path": "res://assets/modeled/nature/wood/nat_stump.png",
+  "group": "nature",
+  "folder": "wood",
+  "frame_size": [
+   182,
+   162
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   91.0,
+   110.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 9.0,
+  "footprint": 9.0,
+  "tags": [
+   "floresta",
+   "tronco"
+  ],
+  "sha256": "3a15f400541d6408d4e38fb8378939dd699f3375122be019ffb70e0728194c35",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_tent_frost",
+  "path": "res://assets/modeled/nature/camp/nat_tent_frost.png",
+  "group": "nature",
+  "folder": "camp",
+  "frame_size": [
+   252,
+   222
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   126.0,
+   164.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 16.0,
+  "footprint": 26.0,
+  "tags": [
+   "acampamento",
+   "tenda",
+   "gelo"
+  ],
+  "sha256": "a9ae3ad20918020be5faefaa0c7b194699e1192debaa1bbeeb20150a3b42726c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_tent_red",
+  "path": "res://assets/modeled/nature/camp/nat_tent_red.png",
+  "group": "nature",
+  "folder": "camp",
+  "frame_size": [
+   272,
+   242
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   136.0,
+   178.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 18.0,
+  "footprint": 30.0,
+  "tags": [
+   "acampamento",
+   "tenda",
+   "deserto"
+  ],
+  "sha256": "17103085326bd85404ae3e0751889b15f1f516d37b94d3d111180cfff553018a",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_tent_small",
+  "path": "res://assets/modeled/nature/camp/nat_tent_small.png",
+  "group": "nature",
+  "folder": "camp",
+  "frame_size": [
+   252,
+   222
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   126.0,
+   164.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 16.0,
+  "footprint": 26.0,
+  "tags": [
+   "acampamento",
+   "tenda"
+  ],
+  "sha256": "b030ef8f5a3987603cf06684c5f3ef450ff1b505ffa2a8ee8a99d97748e54fc8",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_tree_birch",
+  "path": "res://assets/modeled/nature/trees/nat_tree_birch.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   252,
+   312
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   126.0,
+   254.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 13.0,
+  "footprint": 13.0,
+  "tags": [
+   "campos",
+   "vale",
+   "arvore"
+  ],
+  "sha256": "e43912e86afa359d0608bd4192df23e4253c7d886447f2403ba8b0b132d54eb0",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_tree_dead",
+  "path": "res://assets/modeled/nature/trees/nat_tree_dead.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   252,
+   312
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   126.0,
+   258.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 12.0,
+  "footprint": 12.0,
+  "tags": [
+   "ruinas",
+   "deserto",
+   "arvore"
+  ],
+  "sha256": "9431ca99aed340d9607f30a38590fd739a6f2052024ff4084673d049e38edf50",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_tree_palm",
+  "path": "res://assets/modeled/nature/trees/nat_tree_palm.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   272,
+   322
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   136.0,
+   268.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 12.0,
+  "footprint": 12.0,
+  "tags": [
+   "deserto",
+   "oasis",
+   "arvore"
+  ],
+  "sha256": "c59459aecb61cbdf3e1a78f532eb4b73a5dea32d312280f26be50b5301a4e16d",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_tree_pine",
+  "path": "res://assets/modeled/nature/trees/nat_tree_pine.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   252,
+   322
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   126.0,
+   264.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 15.0,
+  "footprint": 15.0,
+  "tags": [
+   "floresta",
+   "vale",
+   "arvore"
+  ],
+  "sha256": "44862b45214d6e64882131d4030efb7710026239708aeea602d9041f7ec466cc",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_tree_pine_snow",
+  "path": "res://assets/modeled/nature/trees/nat_tree_pine_snow.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   252,
+   322
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   126.0,
+   264.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 15.0,
+  "footprint": 15.0,
+  "tags": [
+   "gelo",
+   "arvore"
+  ],
+  "sha256": "5095a72c69afb56e22f38b2fd577a77e2c2120d8b0da9f37b1431837db25c45e",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_wall_cliff_ice_a",
+  "path": "res://assets/modeled/nature/elevation/nat_wall_cliff_ice_a.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   432,
+   432
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   216.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "elevacao",
+   "paredao",
+   "ice"
+  ],
+  "sha256": "05ece139c8d18a5ad1f7ed30f7c5d5da97f0def1bbc5a7a0c9782ac8542d737b",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    24.4,
+    -18.3,
+    10.7
+   ],
+   [
+    36.6,
+    -12.2,
+    10.7
+   ],
+   [
+    9.2,
+    -10.7,
+    10.7
+   ],
+   [
+    21.4,
+    -4.6,
+    10.7
+   ],
+   [
+    -6.1,
+    -3.0,
+    10.7
+   ],
+   [
+    6.1,
+    3.0,
+    10.7
+   ],
+   [
+    -21.4,
+    4.6,
+    10.7
+   ],
+   [
+    -9.2,
+    10.7,
+    10.7
+   ],
+   [
+    -36.6,
+    12.2,
+    10.7
+   ],
+   [
+    -24.4,
+    18.3,
+    10.7
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_wall_cliff_ice_b",
+  "path": "res://assets/modeled/nature/elevation/nat_wall_cliff_ice_b.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   432,
+   432
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   216.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "elevacao",
+   "paredao",
+   "ice"
+  ],
+  "sha256": "8d3c00794cb071e59ae6bc8a0b1ffc3f0ff7c09a6d193be85b8ee86b7ddedecc",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -24.4,
+    -18.3,
+    10.7
+   ],
+   [
+    -9.2,
+    -10.7,
+    10.7
+   ],
+   [
+    6.1,
+    -3.0,
+    10.7
+   ],
+   [
+    21.4,
+    4.6,
+    10.7
+   ],
+   [
+    36.6,
+    12.2,
+    10.7
+   ],
+   [
+    -36.6,
+    -12.2,
+    10.7
+   ],
+   [
+    -21.4,
+    -4.6,
+    10.7
+   ],
+   [
+    -6.1,
+    3.0,
+    10.7
+   ],
+   [
+    9.2,
+    10.7,
+    10.7
+   ],
+   [
+    24.4,
+    18.3,
+    10.7
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_wall_cliff_rock_a",
+  "path": "res://assets/modeled/nature/elevation/nat_wall_cliff_rock_a.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   432,
+   432
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   216.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "elevacao",
+   "paredao",
+   "rock"
+  ],
+  "sha256": "d76bcb179e8e1ab8a6b05e50ecac679661d4296e7bff7c53e60e5cf2e617bf8b",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    24.4,
+    -18.3,
+    10.7
+   ],
+   [
+    36.6,
+    -12.2,
+    10.7
+   ],
+   [
+    9.2,
+    -10.7,
+    10.7
+   ],
+   [
+    21.4,
+    -4.6,
+    10.7
+   ],
+   [
+    -6.1,
+    -3.0,
+    10.7
+   ],
+   [
+    6.1,
+    3.0,
+    10.7
+   ],
+   [
+    -21.4,
+    4.6,
+    10.7
+   ],
+   [
+    -9.2,
+    10.7,
+    10.7
+   ],
+   [
+    -36.6,
+    12.2,
+    10.7
+   ],
+   [
+    -24.4,
+    18.3,
+    10.7
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_wall_cliff_rock_b",
+  "path": "res://assets/modeled/nature/elevation/nat_wall_cliff_rock_b.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   432,
+   432
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   216.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "elevacao",
+   "paredao",
+   "rock"
+  ],
+  "sha256": "ab75b158a7186ebf3813bcb369bad19766878853c2de42f7943f7e35893424c8",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -24.4,
+    -18.3,
+    10.7
+   ],
+   [
+    -9.2,
+    -10.7,
+    10.7
+   ],
+   [
+    6.1,
+    -3.0,
+    10.7
+   ],
+   [
+    21.4,
+    4.6,
+    10.7
+   ],
+   [
+    36.6,
+    12.2,
+    10.7
+   ],
+   [
+    -36.6,
+    -12.2,
+    10.7
+   ],
+   [
+    -21.4,
+    -4.6,
+    10.7
+   ],
+   [
+    -6.1,
+    3.0,
+    10.7
+   ],
+   [
+    9.2,
+    10.7,
+    10.7
+   ],
+   [
+    24.4,
+    18.3,
+    10.7
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_wall_cliff_sand_a",
+  "path": "res://assets/modeled/nature/elevation/nat_wall_cliff_sand_a.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   432,
+   432
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   216.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "elevacao",
+   "paredao",
+   "sand"
+  ],
+  "sha256": "6271d5f49fe655bfcb785641f8bee5ac43eb44649939d042d80a63704655fbf9",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    24.4,
+    -18.3,
+    10.7
+   ],
+   [
+    36.6,
+    -12.2,
+    10.7
+   ],
+   [
+    9.2,
+    -10.7,
+    10.7
+   ],
+   [
+    21.4,
+    -4.6,
+    10.7
+   ],
+   [
+    -6.1,
+    -3.0,
+    10.7
+   ],
+   [
+    6.1,
+    3.0,
+    10.7
+   ],
+   [
+    -21.4,
+    4.6,
+    10.7
+   ],
+   [
+    -9.2,
+    10.7,
+    10.7
+   ],
+   [
+    -36.6,
+    12.2,
+    10.7
+   ],
+   [
+    -24.4,
+    18.3,
+    10.7
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_wall_cliff_sand_b",
+  "path": "res://assets/modeled/nature/elevation/nat_wall_cliff_sand_b.png",
+  "group": "nature",
+  "folder": "elevation",
+  "frame_size": [
+   432,
+   432
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   216.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "elevacao",
+   "paredao",
+   "sand"
+  ],
+  "sha256": "a0f1ccd914fe9374045a01e74217ee5fd08cc99fbbee694614dfa2be360dc3a5",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -24.4,
+    -18.3,
+    10.7
+   ],
+   [
+    -9.2,
+    -10.7,
+    10.7
+   ],
+   [
+    6.1,
+    -3.0,
+    10.7
+   ],
+   [
+    21.4,
+    4.6,
+    10.7
+   ],
+   [
+    36.6,
+    12.2,
+    10.7
+   ],
+   [
+    -36.6,
+    -12.2,
+    10.7
+   ],
+   [
+    -21.4,
+    -4.6,
+    10.7
+   ],
+   [
+    -6.1,
+    3.0,
+    10.7
+   ],
+   [
+    9.2,
+    10.7,
+    10.7
+   ],
+   [
+    24.4,
+    18.3,
+    10.7
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_wall_low_a",
+  "path": "res://assets/modeled/nature/fences/nat_wall_low_a.png",
+  "group": "nature",
+  "folder": "fences",
+  "frame_size": [
+   232,
+   172
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   116.0,
+   122.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 12.0,
+  "footprint": 12.0,
+  "tags": [
+   "campos",
+   "ruinas",
+   "muro"
+  ],
+  "sha256": "53e1a65194c752790d6030cd9dea31a2cc3950266c6865653df301fe769bb5bd",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_wall_low_b",
+  "path": "res://assets/modeled/nature/fences/nat_wall_low_b.png",
+  "group": "nature",
+  "folder": "fences",
+  "frame_size": [
+   232,
+   172
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   116.0,
+   122.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 12.0,
+  "footprint": 12.0,
+  "tags": [
+   "campos",
+   "ruinas",
+   "muro"
+  ],
+  "sha256": "3868db06c870991764690d6e586952fc9a40396f340d34653c74f0da4762a66a",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_waterfall_front",
+  "path": "res://assets/modeled/nature/water/nat_waterfall_front.png",
+  "group": "nature",
+  "folder": "water",
+  "frame_size": [
+   572,
+   512
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   286.0,
+   396.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 90.0,
+  "tags": [
+   "agua",
+   "cachoeira",
+   "penhasco"
+  ],
+  "sha256": "e3b50a5c6ed86ebfc61894bea539fdbf214d79a7d6c11f33d9c1b62b63652754",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -78,
+    -6,
+    34
+   ],
+   [
+    -40,
+    -4,
+    30
+   ],
+   [
+    40,
+    -4,
+    30
+   ],
+   [
+    78,
+    -6,
+    34
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_well_stone",
+  "path": "res://assets/modeled/nature/props/nat_well_stone.png",
+  "group": "nature",
+  "folder": "props",
+  "frame_size": [
+   242,
+   272
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   121.0,
+   210.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 18.0,
+  "footprint": 26.0,
+  "tags": [
+   "vila",
+   "poco"
+  ],
+  "sha256": "d7a962bf5094fa458be7a8263571142659a1ee4b285b8c45a1041a8572d0e30b",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_alchemist",
+  "path": "res://assets/modeled/npc/npc/npc_alchemist.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "alchemist"
+  ],
+  "sha256": "b09a46f907aac4583a779b5792c827e4a8e151c4e3040901b82776b0f5b6d4d1",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_child",
+  "path": "res://assets/modeled/npc/npc/npc_child.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "child"
+  ],
+  "sha256": "e8b0234aaf10822813cf4d219011dc195fc44f2f86d50cdbf72bd17b205aaa4e",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_elder",
+  "path": "res://assets/modeled/npc/npc/npc_elder.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "elder"
+  ],
+  "sha256": "093441026c3e3c8cfb76f465e1dc4303cbd5242e1a715f0b8fb83bcd1a6dca71",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_farmer",
+  "path": "res://assets/modeled/npc/npc/npc_farmer.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "farmer"
+  ],
+  "sha256": "8870dab5e717cafbc0813bb0e874761b954b8ab51fdfb6be77bd632fdba7584a",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_guard",
+  "path": "res://assets/modeled/npc/npc/npc_guard.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "guard"
+  ],
+  "sha256": "38114b8d9ecc4584bc56ec072aa8cdd666dd8f090fd9d46e760c3f0cb755f7d7",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_guildmaster",
+  "path": "res://assets/modeled/npc/npc/npc_guildmaster.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "guildmaster"
+  ],
+  "sha256": "6fe91c9f9807a0327ee6628f147629463bba4241b63b92ca1ce5913917d423c1",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_hunter",
+  "path": "res://assets/modeled/npc/npc/npc_hunter.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "hunter"
+  ],
+  "sha256": "620d17de182143ebd65393a4e87d516580d057fe5ea65c094981cc187d2bee51",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_merchant",
+  "path": "res://assets/modeled/npc/npc/npc_merchant.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "merchant"
+  ],
+  "sha256": "541779e7fea96471a0d5968928e6e0cb9a2d0a9848b28c2245b6e796895e066e",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_miller",
+  "path": "res://assets/modeled/npc/npc/npc_miller.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "miller"
+  ],
+  "sha256": "d3297b27acc8ff89de4170f5390f45d70fa291b28a148c475a39d5f633d56405",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_shopkeeper",
+  "path": "res://assets/modeled/npc/npc/npc_shopkeeper.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "shopkeeper"
+  ],
+  "sha256": "02d35c3e8a47c343d2044100bd364723b80c86327c1f578627a748785e6e9976",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_smith",
+  "path": "res://assets/modeled/npc/npc/npc_smith.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "smith"
+  ],
+  "sha256": "d19e6b9d9f76cf811eb0b094b932233195a0438fcd8a507a0c8ac378f915a439",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_traveler",
+  "path": "res://assets/modeled/npc/npc/npc_traveler.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "traveler"
+  ],
+  "sha256": "80c0bbae530f4a881a7060fcf003b33f3e5dc13bb60066b2ed260929e939c696",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_villager_f",
+  "path": "res://assets/modeled/npc/npc/npc_villager_f.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "villager_f"
+  ],
+  "sha256": "e5a539bbc17ff14d28f465f5efacbb642500a50a973013e3671f7fa9b8649cd8",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "npc_villager_m",
+  "path": "res://assets/modeled/npc/npc/npc_villager_m.png",
+  "group": "npc",
+  "folder": "npc",
+  "frame_size": [
+   128,
+   160
+  ],
+  "frames": 12,
+  "rows": 5,
+  "foot": [
+   64.0,
+   134.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "npc",
+   "animado",
+   "villager_m"
+  ],
+  "sha256": "ab55b89887f7a166e525cb1bef44181f2ffc686b5102e1f4850e4a2e4de54672",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_barn",
+  "path": "res://assets/modeled/city/structures/str_barn.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   552,
+   512
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   276.0,
+   386.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 60.0,
+  "tags": [
+   "estrutura",
+   "celeiro",
+   "fazenda"
+  ],
+  "sha256": "368c8ddb13425255b7d3e0868aebf85397bfb2a96500850b466a63bae35b6b54",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    9.4,
+    -22.4,
+    12.6
+   ],
+   [
+    27.0,
+    -13.5,
+    12.6
+   ],
+   [
+    44.7,
+    -4.7,
+    12.6
+   ],
+   [
+    -8.7,
+    -13.3,
+    12.6
+   ],
+   [
+    9.0,
+    -4.5,
+    12.6
+   ],
+   [
+    26.7,
+    4.3,
+    12.6
+   ],
+   [
+    -26.7,
+    -4.3,
+    12.6
+   ],
+   [
+    -9.0,
+    4.5,
+    12.6
+   ],
+   [
+    8.7,
+    13.3,
+    12.6
+   ],
+   [
+    -44.7,
+    4.7,
+    12.6
+   ],
+   [
+    -27.0,
+    13.5,
+    12.6
+   ],
+   [
+    -9.4,
+    22.4,
+    12.6
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_boat_row",
+  "path": "res://assets/modeled/city/structures/str_boat_row.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   372,
+   292
+  ],
+  "frames": 4,
+  "rows": 1,
+  "foot": [
+   186.0,
+   166.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "estrutura",
+   "barco",
+   "agua",
+   "animado"
+  ],
+  "sha256": "095bc3a9c86b6abce2b9a7537b5ba58ab542e07ce1bc9e77179e0f869442d73a",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    8.8,
+    -9.7,
+    9.9
+   ],
+   [
+    19.4,
+    -4.4,
+    9.9
+   ],
+   [
+    -5.3,
+    -2.7,
+    9.9
+   ],
+   [
+    5.3,
+    2.7,
+    9.9
+   ],
+   [
+    -19.4,
+    4.4,
+    9.9
+   ],
+   [
+    -8.8,
+    9.7,
+    9.9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_boat_sail",
+  "path": "res://assets/modeled/city/structures/str_boat_sail.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   452,
+   512
+  ],
+  "frames": 4,
+  "rows": 1,
+  "foot": [
+   226.0,
+   256.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 34.0,
+  "tags": [
+   "estrutura",
+   "barco",
+   "agua",
+   "animado"
+  ],
+  "sha256": "f68695762e55f60fd975a3699ec47bf628a494264af6fa3f3a622777252f0729",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    15.1,
+    -13.9,
+    10.0
+   ],
+   [
+    27.8,
+    -7.6,
+    10.0
+   ],
+   [
+    0.8,
+    -6.8,
+    10.0
+   ],
+   [
+    13.5,
+    -0.4,
+    10.0
+   ],
+   [
+    -13.5,
+    0.4,
+    10.0
+   ],
+   [
+    -0.8,
+    6.8,
+    10.0
+   ],
+   [
+    -27.8,
+    7.6,
+    10.0
+   ],
+   [
+    -15.1,
+    13.9,
+    10.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_cave_entrance",
+  "path": "res://assets/modeled/dungeon/structures/str_cave_entrance.png",
+  "group": "dungeon",
+  "folder": "structures",
+  "frame_size": [
+   492,
+   472
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   246.0,
+   356.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 52.0,
+  "tags": [
+   "estrutura",
+   "caverna",
+   "entrada"
+  ],
+  "sha256": "6889017b1e87f02ec6990aad1307b9114834cdf88f6cb5bded4c5877d24cc167",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -56,
+    8,
+    24
+   ],
+   [
+    -20,
+    14,
+    24
+   ],
+   [
+    20,
+    14,
+    24
+   ],
+   [
+    56,
+    8,
+    24
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_crop_cabbage",
+  "path": "res://assets/modeled/city/structures/str_crop_cabbage.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   432,
+   292
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   216.0,
+   146.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 40.0,
+  "tags": [
+   "estrutura",
+   "plantacao",
+   "fazenda",
+   "cabbage"
+  ],
+  "sha256": "9248b46ba4837ae996e9591d3ad08b3b30d2c83503aee9a4970576f268a37683",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_crop_corn",
+  "path": "res://assets/modeled/city/structures/str_crop_corn.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   432,
+   292
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   216.0,
+   146.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 40.0,
+  "tags": [
+   "estrutura",
+   "plantacao",
+   "fazenda",
+   "corn"
+  ],
+  "sha256": "4aa15f721fecdb83a79982db2f7385fbd161edf407d27230c68a87955c29ebf9",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_crop_wheat",
+  "path": "res://assets/modeled/city/structures/str_crop_wheat.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   432,
+   292
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   216.0,
+   146.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 40.0,
+  "tags": [
+   "estrutura",
+   "plantacao",
+   "fazenda",
+   "wheat"
+  ],
+  "sha256": "2622b071a0a1e79f506718b92ecb51ab0c9df5c666d7255fb5a24251c9b6be6d",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_dock_a",
+  "path": "res://assets/modeled/city/structures/str_dock_a.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   412,
+   282
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   206.0,
+   156.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 30.0,
+  "tags": [
+   "estrutura",
+   "cais",
+   "agua"
+  ],
+  "sha256": "d71cd4a92bc1a536cef6834aafc2cb4f2d363fb599ba012f33fef8fe5912539d",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    18.0,
+    -16.4,
+    11.8
+   ],
+   [
+    32.9,
+    -9.0,
+    11.8
+   ],
+   [
+    1.1,
+    -8.0,
+    11.8
+   ],
+   [
+    15.9,
+    -0.5,
+    11.8
+   ],
+   [
+    -15.9,
+    0.5,
+    11.8
+   ],
+   [
+    -1.1,
+    8.0,
+    11.8
+   ],
+   [
+    -32.9,
+    9.0,
+    11.8
+   ],
+   [
+    -18.0,
+    16.4,
+    11.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_dock_b",
+  "path": "res://assets/modeled/city/structures/str_dock_b.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   412,
+   282
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   206.0,
+   156.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 30.0,
+  "tags": [
+   "estrutura",
+   "cais",
+   "agua"
+  ],
+  "sha256": "c7d2c5a469096d216ea96c91c7fe0ff17c019196a8f3e347d7d837fe8651cb83",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -18.0,
+    -16.4,
+    11.8
+   ],
+   [
+    -1.1,
+    -8.0,
+    11.8
+   ],
+   [
+    15.9,
+    0.5,
+    11.8
+   ],
+   [
+    32.9,
+    9.0,
+    11.8
+   ],
+   [
+    -32.9,
+    -9.0,
+    11.8
+   ],
+   [
+    -15.9,
+    -0.5,
+    11.8
+   ],
+   [
+    1.1,
+    8.0,
+    11.8
+   ],
+   [
+    18.0,
+    16.4,
+    11.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_dock_end",
+  "path": "res://assets/modeled/city/structures/str_dock_end.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   352,
+   332
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   176.0,
+   216.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 24.0,
+  "tags": [
+   "estrutura",
+   "cais",
+   "lampiao"
+  ],
+  "sha256": "fcd781d855a8df017bd90ed6a40478a98bf22dabc79e31462cd624d446924772",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -9.0,
+    12.6
+   ],
+   [
+    18.0,
+    -0.0,
+    12.6
+   ],
+   [
+    -18.0,
+    -0.0,
+    12.6
+   ],
+   [
+    0.0,
+    9.0,
+    12.6
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_lodge_ice",
+  "path": "res://assets/modeled/city/structures/str_lodge_ice.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   492,
+   452
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   246.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 52.0,
+  "tags": [
+   "estrutura",
+   "abrigo",
+   "gelo"
+  ],
+  "sha256": "01d0e350f241f4bd8b0a3d45fb209512a1996cd8c123937ad2b20779984e6ea0",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    5.2,
+    -18.9,
+    11.3
+   ],
+   [
+    21.5,
+    -10.7,
+    11.3
+   ],
+   [
+    37.7,
+    -2.6,
+    11.3
+   ],
+   [
+    -9.1,
+    -11.7,
+    11.3
+   ],
+   [
+    7.2,
+    -3.6,
+    11.3
+   ],
+   [
+    23.4,
+    4.6,
+    11.3
+   ],
+   [
+    -23.4,
+    -4.6,
+    11.3
+   ],
+   [
+    -7.2,
+    3.6,
+    11.3
+   ],
+   [
+    9.1,
+    11.7,
+    11.3
+   ],
+   [
+    -37.7,
+    2.6,
+    11.3
+   ],
+   [
+    -21.5,
+    10.7,
+    11.3
+   ],
+   [
+    -5.2,
+    18.9,
+    11.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_outpost_amber",
+  "path": "res://assets/modeled/city/structures/str_outpost_amber.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   492,
+   452
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   246.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 52.0,
+  "tags": [
+   "estrutura",
+   "posto",
+   "deserto",
+   "ambar"
+  ],
+  "sha256": "2842afc2298a0cf398100db6adf57576c980be7151f35e5ed0cdfabd343f1066",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    3.8,
+    -19.6,
+    12.3
+   ],
+   [
+    21.5,
+    -10.7,
+    12.3
+   ],
+   [
+    39.2,
+    -1.9,
+    12.3
+   ],
+   [
+    -10.5,
+    -12.4,
+    12.3
+   ],
+   [
+    7.2,
+    -3.6,
+    12.3
+   ],
+   [
+    24.8,
+    5.3,
+    12.3
+   ],
+   [
+    -24.8,
+    -5.3,
+    12.3
+   ],
+   [
+    -7.2,
+    3.6,
+    12.3
+   ],
+   [
+    10.5,
+    12.4,
+    12.3
+   ],
+   [
+    -39.2,
+    1.9,
+    12.3
+   ],
+   [
+    -21.5,
+    10.7,
+    12.3
+   ],
+   [
+    -3.8,
+    19.6,
+    12.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_scarecrow",
+  "path": "res://assets/modeled/city/structures/str_scarecrow.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   232,
+   332
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   116.0,
+   246.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 6.0,
+  "footprint": 10.0,
+  "tags": [
+   "estrutura",
+   "fazenda",
+   "espantalho"
+  ],
+  "sha256": "3d57e86047a93a4a7f7954c30cc83a07ed2bfcd39fa4716dd2b86b07bb7b9c58",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_shelter_wood",
+  "path": "res://assets/modeled/city/structures/str_shelter_wood.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   392,
+   352
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   196.0,
+   256.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 36.0,
+  "tags": [
+   "estrutura",
+   "abrigo",
+   "estrada"
+  ],
+  "sha256": "cae22177202a88cf9216dea52e992b67b4e9dc120e43833e4281f2989e42181a",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    4.9,
+    -11.0,
+    11.8
+   ],
+   [
+    21.9,
+    -2.5,
+    11.8
+   ],
+   [
+    -8.5,
+    -4.2,
+    11.8
+   ],
+   [
+    8.5,
+    4.2,
+    11.8
+   ],
+   [
+    -21.9,
+    2.5,
+    11.8
+   ],
+   [
+    -4.9,
+    11.0,
+    11.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_shrine_stone",
+  "path": "res://assets/modeled/city/structures/str_shrine_stone.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   412,
+   452
+  ],
+  "frames": 4,
+  "rows": 1,
+  "foot": [
+   206.0,
+   336.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 40.0,
+  "tags": [
+   "estrutura",
+   "santuario",
+   "altar",
+   "animado"
+  ],
+  "sha256": "08fb332063c5e4eb3053ebfd89063c6c84330c7d5334e4e350bc7aac39e1f9c3",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -13.4,
+    9.4
+   ],
+   [
+    13.4,
+    -6.7,
+    9.4
+   ],
+   [
+    26.9,
+    0.0,
+    9.4
+   ],
+   [
+    -13.4,
+    -6.7,
+    9.4
+   ],
+   [
+    0.0,
+    -0.0,
+    9.4
+   ],
+   [
+    13.4,
+    6.7,
+    9.4
+   ],
+   [
+    -26.9,
+    0.0,
+    9.4
+   ],
+   [
+    -13.4,
+    6.7,
+    9.4
+   ],
+   [
+    0.0,
+    13.4,
+    9.4
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_watchtower_frost",
+  "path": "res://assets/modeled/city/structures/str_watchtower_frost.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   412,
+   572
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   206.0,
+   456.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 50.0,
+  "tags": [
+   "estrutura",
+   "torre",
+   "gelo",
+   "vigia"
+  ],
+  "sha256": "2d49ce059bc43c5a1fb2b3d3e072b4f7ec3948ab3ead2bc5ee20dd7726a43188",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -15.6,
+    10.9
+   ],
+   [
+    15.6,
+    -7.8,
+    10.9
+   ],
+   [
+    31.1,
+    -0.0,
+    10.9
+   ],
+   [
+    -15.6,
+    -7.8,
+    10.9
+   ],
+   [
+    0.0,
+    0.0,
+    10.9
+   ],
+   [
+    15.6,
+    7.8,
+    10.9
+   ],
+   [
+    -31.1,
+    -0.0,
+    10.9
+   ],
+   [
+    -15.6,
+    7.8,
+    10.9
+   ],
+   [
+    0.0,
+    15.6,
+    10.9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_watchtower_stone",
+  "path": "res://assets/modeled/city/structures/str_watchtower_stone.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   412,
+   572
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   206.0,
+   456.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 50.0,
+  "tags": [
+   "estrutura",
+   "torre",
+   "campos",
+   "vigia"
+  ],
+  "sha256": "06a20b2ac3d35bb60dc0c4c71f8b2510e7bd51b043cc5a30d24f59f452c72310",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -15.6,
+    10.9
+   ],
+   [
+    15.6,
+    -7.8,
+    10.9
+   ],
+   [
+    31.1,
+    -0.0,
+    10.9
+   ],
+   [
+    -15.6,
+    -7.8,
+    10.9
+   ],
+   [
+    0.0,
+    0.0,
+    10.9
+   ],
+   [
+    15.6,
+    7.8,
+    10.9
+   ],
+   [
+    -31.1,
+    -0.0,
+    10.9
+   ],
+   [
+    -15.6,
+    7.8,
+    10.9
+   ],
+   [
+    0.0,
+    15.6,
+    10.9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "str_windmill",
+  "path": "res://assets/modeled/city/structures/str_windmill.png",
+  "group": "city",
+  "folder": "structures",
+  "frame_size": [
+   552,
+   652
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   276.0,
+   526.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 56.0,
+  "tags": [
+   "estrutura",
+   "moinho",
+   "fazenda",
+   "animado"
+  ],
+  "sha256": "a204925f1a03763528c89e655702f4379cbf3b6a24785142cadb5e23ecd3427a",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -20.7,
+    9.6
+   ],
+   [
+    13.8,
+    -13.8,
+    9.6
+   ],
+   [
+    27.6,
+    -6.9,
+    9.6
+   ],
+   [
+    41.4,
+    -0.0,
+    9.6
+   ],
+   [
+    -13.8,
+    -13.8,
+    9.6
+   ],
+   [
+    0.0,
+    -6.9,
+    9.6
+   ],
+   [
+    13.8,
+    0.0,
+    9.6
+   ],
+   [
+    27.6,
+    6.9,
+    9.6
+   ],
+   [
+    -27.6,
+    -6.9,
+    9.6
+   ],
+   [
+    -13.8,
+    0.0,
+    9.6
+   ],
+   [
+    0.0,
+    6.9,
+    9.6
+   ],
+   [
+    13.8,
+    13.8,
+    9.6
+   ],
+   [
+    -41.4,
+    -0.0,
+    9.6
+   ],
+   [
+    -27.6,
+    6.9,
+    9.6
+   ],
+   [
+    -13.8,
+    13.8,
+    9.6
+   ],
+   [
+    0.0,
+    20.7,
+    9.6
+   ]
+  ],
+  "pipeline": "blender-pro"
+ }
+]

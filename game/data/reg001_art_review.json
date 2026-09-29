@@ -1,0 +1,2347 @@
+{
+ "counts": {
+  "PRO": 215,
+  "A": 35,
+  "B": 25,
+  "D": 11,
+  "C": 6
+ },
+ "rows": [
+  {
+   "id": "city_banner_blue",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "city_banner_red",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "city_barrels",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "city_bench",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "city_cart_market",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "city_crates",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "city_fountain",
+   "group": "city",
+   "class": "A",
+   "reason": "volume, água animada e pedra coerentes com a Cidade APPROVED",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "city_lamp_post_a",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "city_lamp_post_b",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "city_monument",
+   "group": "city",
+   "class": "A",
+   "reason": "silhueta clara e degraus",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "city_planter",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "city_sign_hanging",
+   "group": "city",
+   "class": "B",
+   "reason": "placa simples: acrescentar corrente/desgaste",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "city_stairs",
+   "group": "city",
+   "class": "B",
+   "reason": "degraus lisos: adicionar quebra de aresta",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "city_stall_blue",
+   "group": "city",
+   "class": "A",
+   "reason": "toldo listrado e balcão legíveis",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "city_stall_striped",
+   "group": "city",
+   "class": "A",
+   "reason": "toldo listrado e balcão legíveis",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_altar_dark",
+   "group": "dungeon",
+   "class": "A",
+   "reason": "foco com brilho",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_barrel_old",
+   "group": "dungeon",
+   "class": "B",
+   "reason": "barril pequeno: ferragens e desgaste",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_bones_pile",
+   "group": "dungeon",
+   "class": "B",
+   "reason": "osso genérico",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_boss_gate",
+   "group": "dungeon",
+   "class": "A",
+   "reason": "arco e portão com volume",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_brazier",
+   "group": "dungeon",
+   "class": "A",
+   "reason": "brilho e silhueta",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_crate_old",
+   "group": "dungeon",
+   "class": "B",
+   "reason": "caixa simples",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_crystal_checkpoint",
+   "group": "dungeon",
+   "class": "A",
+   "reason": "foco visual forte",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_mushroom_glow",
+   "group": "dungeon",
+   "class": "A",
+   "reason": "emissivo legível",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_pillar",
+   "group": "dungeon",
+   "class": "A",
+   "reason": "coerente com a paleta de Dungeon",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_pillar_broken",
+   "group": "dungeon",
+   "class": "A",
+   "reason": "ruína legível",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_portcullis",
+   "group": "dungeon",
+   "class": "A",
+   "reason": "grade legível",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_rune_circle",
+   "group": "dungeon",
+   "class": "A",
+   "reason": "leitura de piso rúnico",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_sarcophagus",
+   "group": "dungeon",
+   "class": "A",
+   "reason": "bloco esculpido com tampa",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_stairs",
+   "group": "dungeon",
+   "class": "A",
+   "reason": "degraus claros",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "dg_stalagmites",
+   "group": "dungeon",
+   "class": "A",
+   "reason": "silhueta natural",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "fau_bird",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "fau_camel",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "fau_deer",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "fau_fish",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "fau_fox",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "fau_goat",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "fau_hare",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "fx_chest_open",
+   "group": "fx",
+   "class": "PRO",
+   "reason": "FX em pixel art por simulação de partículas",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "pixel-sim"
+  },
+  {
+   "id": "fx_dig",
+   "group": "fx",
+   "class": "PRO",
+   "reason": "FX em pixel art por simulação de partículas",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "pixel-sim"
+  },
+  {
+   "id": "fx_harvest",
+   "group": "fx",
+   "class": "PRO",
+   "reason": "FX em pixel art por simulação de partículas",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "pixel-sim"
+  },
+  {
+   "id": "fx_mine",
+   "group": "fx",
+   "class": "PRO",
+   "reason": "FX em pixel art por simulação de partículas",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "pixel-sim"
+  },
+  {
+   "id": "fx_secret",
+   "group": "fx",
+   "class": "PRO",
+   "reason": "FX em pixel art por simulação de partículas",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "pixel-sim"
+  },
+  {
+   "id": "fx_shrine",
+   "group": "fx",
+   "class": "PRO",
+   "reason": "FX em pixel art por simulação de partículas",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "pixel-sim"
+  },
+  {
+   "id": "int_alchemy_table",
+   "group": "interior",
+   "class": "A",
+   "reason": "mesa de alquimia",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_anvil",
+   "group": "interior",
+   "class": "A",
+   "reason": "bigorna",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_armor_stand",
+   "group": "interior",
+   "class": "A",
+   "reason": "armadura em suporte",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_beam",
+   "group": "interior",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "int_bed",
+   "group": "interior",
+   "class": "A",
+   "reason": "cama com colcha",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_bookshelf",
+   "group": "interior",
+   "class": "A",
+   "reason": "estante com lombadas",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_candle_stand",
+   "group": "interior",
+   "class": "A",
+   "reason": "vela com brilho",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_cauldron",
+   "group": "interior",
+   "class": "A",
+   "reason": "caldeirão com fogo",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_chair",
+   "group": "interior",
+   "class": "B",
+   "reason": "cadeira simples: acrescentar almofada/junta",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_counter",
+   "group": "interior",
+   "class": "A",
+   "reason": "balcão de loja",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_desk_guild",
+   "group": "interior",
+   "class": "A",
+   "reason": "mesa da guilda",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_fireplace",
+   "group": "interior",
+   "class": "A",
+   "reason": "lareira de pedra com brilho",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_floor_carpet",
+   "group": "interior",
+   "class": "D",
+   "reason": "substituído por rugs modelados",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_floor_stone",
+   "group": "interior",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "int_floor_wood",
+   "group": "interior",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "int_floor_wood_dark",
+   "group": "interior",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "int_forge",
+   "group": "interior",
+   "class": "A",
+   "reason": "forja com brasa",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_post",
+   "group": "interior",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "int_quest_board",
+   "group": "interior",
+   "class": "A",
+   "reason": "quadro de missões",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_rug_round",
+   "group": "interior",
+   "class": "B",
+   "reason": "tapete liso: acrescentar padrão/franjas",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_sacks",
+   "group": "interior",
+   "class": "B",
+   "reason": "sacas com pouca dobra",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_shelf_goods",
+   "group": "interior",
+   "class": "A",
+   "reason": "prateleira com itens",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_shelf_potions",
+   "group": "interior",
+   "class": "A",
+   "reason": "frascos coloridos",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_stool",
+   "group": "interior",
+   "class": "B",
+   "reason": "banco simples",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_table_long",
+   "group": "interior",
+   "class": "B",
+   "reason": "mesa: adicionar itens e desgaste",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_table_round",
+   "group": "interior",
+   "class": "B",
+   "reason": "mesa: idem",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_wall_door",
+   "group": "interior",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "int_wall_door_a",
+   "group": "interior",
+   "class": "C",
+   "reason": "primitivas visíveis / detalhe insuficiente: remodelar",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_wall_door_b",
+   "group": "interior",
+   "class": "C",
+   "reason": "primitivas visíveis / detalhe insuficiente: remodelar",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_wall_hearth",
+   "group": "interior",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "int_wall_niche",
+   "group": "interior",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "int_wall_plain",
+   "group": "interior",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "int_wall_plain_a",
+   "group": "interior",
+   "class": "C",
+   "reason": "primitivas visíveis / detalhe insuficiente: remodelar",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_wall_plain_b",
+   "group": "interior",
+   "class": "C",
+   "reason": "primitivas visíveis / detalhe insuficiente: remodelar",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_wall_window",
+   "group": "interior",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "int_wall_window_a",
+   "group": "interior",
+   "class": "C",
+   "reason": "primitivas visíveis / detalhe insuficiente: remodelar",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_wall_window_b",
+   "group": "interior",
+   "class": "C",
+   "reason": "primitivas visíveis / detalhe insuficiente: remodelar",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_weapon_rack",
+   "group": "interior",
+   "class": "A",
+   "reason": "suporte de armas",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "int_workbench",
+   "group": "interior",
+   "class": "A",
+   "reason": "bancada",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_altar_ancient",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_altar_sand",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_bedroll",
+   "group": "nature",
+   "class": "B",
+   "reason": "rolo de dormir simples",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_bones_desert",
+   "group": "nature",
+   "class": "B",
+   "reason": "ossos genéricos",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_boulder_ice",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_boulder_sand",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_bush_berry",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_bush_dry",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_bush_flowering",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_bush_frost",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_bush_green",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cactus_round",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cactus_tall",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_campfire",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cart_wood",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_chest_closed",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_chest_open",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_chest_rare",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_decal_dirt_a",
+   "group": "nature",
+   "class": "D",
+   "reason": "manchas planas: aposentado (chão assado e props já cobrem a transição)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_decal_dry_a",
+   "group": "nature",
+   "class": "D",
+   "reason": "manchas planas: aposentado (chão assado e props já cobrem a transição)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_decal_grass_a",
+   "group": "nature",
+   "class": "D",
+   "reason": "manchas planas: aposentado (chão assado e props já cobrem a transição)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_decal_grass_b",
+   "group": "nature",
+   "class": "D",
+   "reason": "manchas planas: aposentado (chão assado e props já cobrem a transição)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_decal_mud_bank",
+   "group": "nature",
+   "class": "D",
+   "reason": "manchas planas: aposentado (chão assado e props já cobrem a transição)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_decal_sand_a",
+   "group": "nature",
+   "class": "D",
+   "reason": "manchas planas: aposentado (chão assado e props já cobrem a transição)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_decal_sand_b",
+   "group": "nature",
+   "class": "D",
+   "reason": "manchas planas: aposentado (chão assado e props já cobrem a transição)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_decal_snow_a",
+   "group": "nature",
+   "class": "D",
+   "reason": "manchas planas: aposentado (chão assado e props já cobrem a transição)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_decal_snow_b",
+   "group": "nature",
+   "class": "D",
+   "reason": "manchas planas: aposentado (chão assado e props já cobrem a transição)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_dune_large",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_dune_small",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_fence_broken_a",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_fence_broken_b",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_fence_wood_a",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_fence_wood_b",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_fissure",
+   "group": "nature",
+   "class": "B",
+   "reason": "fissura pequena: alongar e aprofundar",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_flag_blue",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_flag_red",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_flowers_blue",
+   "group": "nature",
+   "class": "B",
+   "reason": "moita de flores: aumentar variação",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_flowers_meadow",
+   "group": "nature",
+   "class": "B",
+   "reason": "idem",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_flowers_red",
+   "group": "nature",
+   "class": "B",
+   "reason": "idem",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_ford_stones",
+   "group": "nature",
+   "class": "B",
+   "reason": "pedras do vau: mais volume",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_gate_wood",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_grass_dry",
+   "group": "nature",
+   "class": "B",
+   "reason": "tufo simples",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_grass_tall",
+   "group": "nature",
+   "class": "B",
+   "reason": "tufo simples",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_hay_bale",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_hay_stack",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_hill_earth",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_hill_ice",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_hill_sand",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ice_spire",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ice_stones",
+   "group": "nature",
+   "class": "B",
+   "reason": "pedras de gelo: facetas",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_log_fallen",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_log_pile",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_mushrooms",
+   "group": "nature",
+   "class": "B",
+   "reason": "cogumelos simples",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_obelisk_rune",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_pit_trap",
+   "group": "nature",
+   "class": "B",
+   "reason": "fosso: aprofundar",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_plateau_earth_m",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_plateau_earth_s",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_plateau_ice_m",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_plateau_ice_s",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_plateau_rock_m",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_plateau_rock_s",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_plateau_sand_m",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_plateau_sand_s",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_reeds",
+   "group": "nature",
+   "class": "B",
+   "reason": "juncos finos: adensar",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_res_crystal",
+   "group": "nature",
+   "class": "A",
+   "reason": "cristal legível",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_res_herb",
+   "group": "nature",
+   "class": "A",
+   "reason": "erva legível",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_res_ore",
+   "group": "nature",
+   "class": "A",
+   "reason": "minério legível",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_ridge_earth_a",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ridge_earth_b",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ridge_ice_a",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ridge_ice_b",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ridge_rock_a",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ridge_rock_b",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ridge_sand_a",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ridge_sand_b",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_rock_arch_natural",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_rock_boulder",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_rock_ice",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_rock_medium",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_rock_mossy",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_rock_pillars",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_rock_sand",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_rock_small",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_rock_snow",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ruin_arch",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ruin_arch_sand",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ruin_column",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ruin_column_broken",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ruin_column_sand",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ruin_wall",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ruin_wall_sand",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_scarecrow",
+   "group": "nature",
+   "class": "D",
+   "reason": "substituído por str_scarecrow",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_signpost",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_snow_mound",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_statue_guardian",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_steps_stone",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_stump",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_tent_frost",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_tent_red",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_tent_small",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_trap_plate",
+   "group": "nature",
+   "class": "B",
+   "reason": "placa de pressão simples",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "nat_tree_birch",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_tree_dead",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_tree_palm",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_tree_pine",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_tree_pine_snow",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_wall_cliff_ice_a",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_wall_cliff_ice_b",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_wall_cliff_rock_a",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_wall_cliff_rock_b",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_wall_cliff_sand_a",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_wall_cliff_sand_b",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_wall_low_a",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_wall_low_b",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_waterfall_front",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_well_stone",
+   "group": "nature",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_alchemist",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_child",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_elder",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_farmer",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_guard",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_guildmaster",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_hunter",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_merchant",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_miller",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_shopkeeper",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_smith",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_traveler",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_villager_f",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "npc_villager_m",
+   "group": "npc",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_barn",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_boat_row",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_boat_sail",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_cave_entrance",
+   "group": "dungeon",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_crop_cabbage",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_crop_corn",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_crop_wheat",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_dock_a",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_dock_b",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_dock_end",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_lodge_ice",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_outpost_amber",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_scarecrow",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_shelter_wood",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_shrine_stone",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_watchtower_frost",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_watchtower_stone",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "str_windmill",
+   "group": "city",
+   "class": "PRO",
+   "reason": "remodelado em Blender (volume real, materiais, contorno, sombra de contato)",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_bosque_0_0",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_bosque_0_1",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_bosque_1_0",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_bosque_1_1",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_bosque_2_0",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_bosque_2_1",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_bosque_3_0",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_bosque_3_1",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_0_0",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_0_1",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_0_2",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_0_3",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_0_4",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_1_0",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_1_1",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_1_2",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_1_3",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_1_4",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_2_0",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_2_1",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_2_2",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_2_3",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_2_4",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_3_0",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_3_1",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_3_2",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_3_3",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_3_4",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_4_0",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_4_1",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_4_2",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_4_3",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_4_4",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_5_0",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_5_1",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_5_2",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_5_3",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_ground_5_4",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_cobble",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_deck_stone",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_deck_wood",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_dirt",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_forest_floor",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_grass_a",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_grass_b",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_ice",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_meadow",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_mud",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_riverbed",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_road",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_road_sand",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_road_snow",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_sand",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_sand_dune",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_snow",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_stone",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_valley",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_water_deep",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_tex_water_shallow",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_water_foam",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_water_glint",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  },
+  {
+   "id": "ter_water_ripple",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "kit"
+  }
+ ]
+}
