@@ -1174,14 +1174,7 @@ func draw_approved_town(camera: Vector2) -> void:
 	REGR.draw_shadows(self, view_items, view_rect, time_acc, approved_visuals)
 	shadow_pass_done = true
 
-	# Muralha norte e portão principal.
-	for wall_index in 13:
-		var wall_ground: Vector2 = MAP.TOWN + Vector2(150.0 + wall_index * 120.0, 180.0)
-		if absf(wall_ground.x - (MAP.TOWN.x + 883.0)) < 250.0:
-			continue
-		if visible_area.has_point(wall_ground):
-			CAST.box(self, wall_ground + Vector2(0, 4), 58.0, 56.0)
-			draw_approved_visual("city_wall_vegetation" if wall_index % 4 == 0 else "city_wall", wall_ground, .58)
+	# Muralha norte: objetos do mundo (kit isométrico `iso_wall` em tools/reg001/build_world.py), não mais peças APPROVED frontais.
 	var gate_ground: Vector2 = MAP.TOWN + Vector2(883, 184)
 	if visible_area.has_point(gate_ground):
 		pass # o portão é o marco modelado val_gate_main (Lote 1), com torres e barricadas como objetos do mundo
@@ -1200,8 +1193,7 @@ func draw_approved_town(camera: Vector2) -> void:
 
 	var store_ground: Vector2 = MAP.TOWN + Vector2(1570, 630)
 	if visible_area.has_point(store_ground):
-		draw_approved_cast("city_store", store_ground, .58, CAST.ALPHA_DEFAULT)
-		draw_approved_visual("city_store", store_ground, .58)
+		draw_approved_house(store_ground, "city_roof_red")      # loja decorativa = casa inteira modelada
 
 	# Árvores APPROVED integram a arquitetura e dão profundidade consistente.
 	var tree_positions: Array[Vector2] = [

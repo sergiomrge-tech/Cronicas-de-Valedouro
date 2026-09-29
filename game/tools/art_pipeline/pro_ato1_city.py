@@ -253,7 +253,7 @@ def supply_stack(f):
 
 
 # ============================================================== LOC_VAL_GUILD
-@landmark('val_guild_hall', group='city', folder='ato1', size=(760, 620), origin=(380, 470), tags=('ato1', 'guilda', 'servico', 'val_guild', 'landmark'), footprint=90, collision=fpr(3.6, 6.4), samples=24)
+@landmark('val_guild_hall', group='city', folder='ato1', size=(760, 620), origin=(380, 470), tags=('ato1', 'guilda', 'servico', 'val_guild', 'landmark'), footprint=90, coll=(3.6, 6.4), samples=24)
 def guild_hall(f):
     st, wd, wo, iron, sd = M('stone'), M('wood_dark'), M('wood'), M('iron'), M('stone_sand')
     plaster = mats.ground('guild_pl', ('#a88a5a', '#c8a672', '#dfc38c', '#f0dca8', '#fff0c8'), scale=3.0, fine=22.0)
@@ -274,8 +274,8 @@ def guild_hall(f):
     for i in range(6):
         geo.box((1.96, -2.5 + i * 1.0, 3.55), (.14, .18, 1.0), wd, bevel=0.03)
     # telhado azul em duas águas + empena central sobre a porta
-    geo.roof_gable(0, 0, 4.05, 3.5, 6.1, 1.8, m_roof_blue(), overhang=.35, ridge_axis='y', thickness=.12)
-    geo.roof_gable(1.7, 0, 3.4, 1.6, 2.6, 1.15, m_roof_blue(), overhang=.2, ridge_axis='x', thickness=.1)
+    roof_gable_tiled(0, 0, 4.05, 3.5, 6.1, 1.8, m_roof_blue(), overhang=.35, ridge_axis='y', gable_mat=M('plaster'), seed=21)
+    roof_gable_tiled(1.7, 0, 3.4, 1.6, 2.6, 1.15, m_roof_blue(), overhang=.2, ridge_axis='x', gable_mat=M('wood'), seed=22)
     geo.box((1.9, 0, 4.15), (.06, 2.2, .06), wd, bevel=0.01)
     # porta dupla larga com arco de pedra, degraus e lanternas
     geo.box((1.78, 0, 1.55), (.3, 2.4, 2.1), st, bevel=0.04)
@@ -304,7 +304,7 @@ def guild_hall(f):
     geo.cyl((2.6, -3.15, 2.35), .13, .03, M('cloth_blue'), rot=(0, 90, 0), sides=16, r2=.13)
     # extensão lateral: depósito de telhado baixo com portão de carga + chaminé de pedra
     geo.box((-.2, 4.35, .95), (2.6, 2.3, 1.9), st, bevel=0.05)
-    geo.roof_gable(-.2, 4.35, 1.9, 2.5, 2.3, .9, M('roof_red'), overhang=.25, ridge_axis='x', thickness=.1)
+    roof_gable_tiled(-.2, 4.35, 1.9, 2.5, 2.3, .9, M('roof_red'), overhang=.25, ridge_axis='x', gable_mat=M('wood_old'), seed=23)
     for sy in (-.35, .35):
         geo.box((1.12, 4.35 + sy, .95), (.1, .7, 1.4), wd, bevel=0.02)
     parts.tapered_shaft(-1.2, -1.6, 4.5, 6.1, .7, .55, st, seed=3)
@@ -317,7 +317,7 @@ def guild_hall(f):
     ball((2.15, 4.4, .2), .26, M('cloth_red'), squash=.75)
     geo.cyl_between((1.85, 2.9, .8), (1.85, 3.3, .3), .02, M('rope'), sides=4)
     parts.grass_tufts(1.4, 0, 3.4, 12, M('grass'), seed=5, h=.22)
-    geo.rotate_all(45)
+    # vista 3/4 (correção estrutural): sem rotação de 45°, fachada principal (+x) e lateral (+y) visíveis como nas casas
 
 
 @landmark('val_weapon_rack', group='city', folder='ato1', size=(260, 260), origin=(130, 180), tags=('ato1', 'guilda', 'prop', 'armas'), blocks=10, footprint=14, samples=24)
@@ -380,7 +380,7 @@ def _crown(x, y, z, s=1.0):
         ball((x + .05, y + k * .11 * s, z + .2 * s), .025 * s, M('cloth_red'), squash=1.0, smooth=False)
 
 
-@landmark('val_archive_hall', group='city', folder='ato1', size=(880, 700), origin=(440, 540), tags=('ato1', 'arquivo', 'landmark', 'seis_coroas', 'six_crowns_archive'), footprint=100, collision=fpr(4.0, 7.6), samples=24)
+@landmark('val_archive_hall', group='city', folder='ato1', size=(880, 700), origin=(440, 540), tags=('ato1', 'arquivo', 'landmark', 'seis_coroas', 'six_crowns_archive'), footprint=100, coll=(4.0, 7.6), samples=24)
 def archive_hall(f):
     nb, wd, iron, gold = m_noble(), M('wood_dark'), M('iron'), m_gold()
     slate = M('roof_slate')
@@ -392,8 +392,8 @@ def archive_hall(f):
     geo.box((.12, 0, 4.85), (3.9, 7.2, .5), m_noble(), bevel=0.03)
     for i in range(6):
         _crown(1.98, -2.75 + i * 1.1, 4.72, 1.3)
-    geo.roof_gable(-.1, 0, 5.05, 3.9, 7.2, 1.4, slate, overhang=.4, ridge_axis='y', thickness=.12)
-    geo.roof_gable(1.55, 0, 4.85, 1.7, 3.6, 1.1, slate, overhang=.2, ridge_axis='x', thickness=.1)     # frontão do pórtico
+    roof_gable_tiled(-.1, 0, 5.05, 3.9, 7.2, 1.4, slate, overhang=.4, ridge_axis='y', gable_mat=m_noble(), seed=31)
+    roof_gable_tiled(1.55, 0, 4.85, 1.7, 3.6, 1.1, slate, overhang=.2, ridge_axis='x', gable_mat=m_noble(), seed=32)     # frontão do pórtico (empena fechada em pedra nobre)
     # pórtico: quatro colunas com capitel e base, arquitrave e escadaria larga
     for y in (-1.95, -.65, .65, 1.95):
         geo.cyl((2.35, y, .6), .3, .12, nb, sides=14, r2=.28)
@@ -424,7 +424,7 @@ def archive_hall(f):
         geo.box((3.3, y, .3), (.6, 1.2, .3), nb, bevel=0.03)
         geo.cyl((3.35, y, .6), .3, .4, M('stone'), sides=10, r2=.25)
         parts.leaf_cluster(3.35, y, 1.15, .32, 18, M('leaf'), 3, size=(.08, .12), flat=.6)
-    geo.rotate_all(45)
+    # vista 3/4 (correção estrutural): sem rotação de 45°, fachada principal (+x) e lateral (+y) visíveis como nas casas
 
 
 @landmark('val_archive_lamp', group='city', folder='ato1', size=(140, 340), origin=(70, 280), tags=('ato1', 'arquivo', 'prop', 'iluminacao'), blocks=6, footprint=8, samples=24)
@@ -704,3 +704,29 @@ def _reg_house(name, roof, seed):
 _reg_house('val_town_house_blue', lambda: M('roof_slate'), 11)
 _reg_house('val_town_house_red', lambda: M('roof_red'), 12)
 _reg_house('val_town_house_wood', lambda: X('roof_wood_shingle', lambda: mats.shingles('roof_wood_shingle', ('#2a1c14', '#5a3e28', '#86603c', '#b08658'), w=.22, h=.14)), 13)
+
+
+# ============================================================== correção estrutural: torre de junção da muralha (kit isométrico)
+@landmark('val_wall_tower', group='city', folder='ato1', size=(340, 560), origin=(170, 440), tags=('ato1', 'muralha', 'torre', 'juncao', 'kit_isometrico', 'correcao_estrutural'), footprint=30, collision=((0.0, 0.0, 22.0),), samples=32)
+def wall_tower(f):
+    """Torre quadrada alinhada aos EIXOS DO MUNDO (sem rotação): as faces ficam paralelas às duas direções isométricas da muralha,
+    então cobre qualquer junção (reta, canto ou dente) e as peças de muro encostam nela sem fresta."""
+    st, wd = M('stone'), M('wood_dark')
+    s, H = 2.3, 4.6
+    geo.box((0, 0, .2), (s + .4, s + .4, .4), st, bevel=0.05)                    # soco
+    parts.tapered_shaft(0, 0, .35, H, s, s - .2, st, seed=4)
+    parts.quoins(0, 0, .35, H, s, s - .2, st, seed=5)
+    geo.box((0, 0, H + .05), (s + .3, s + .3, .22), st, bevel=0.04)              # cornija
+    for ax in ('x', 'y'):                                                        # ameias nos quatro lados
+        for sgn in (-1, 1):
+            if ax == 'x':
+                crenels_x(sgn * (s / 2 + .05), -s / 2, s / 2, H + .15, st, 5, depth=.3, h=.5)
+            else:
+                crenels(sgn * (s / 2 + .05), -s / 2, s / 2, H + .15, st, 5, depth=.3, h=.5)
+    for (ax, ay) in ((1, 0), (0, 1)):                                            # seteiras nas duas faces visíveis
+        for z in (1.6, 3.2):
+            geo.box((ax * (s / 2 - .05), ay * (s / 2 - .05), z), (.12 if ax else .22, .22 if ax else .12, .6), M('hole'), bevel=0)
+    torch(s / 2 + .05, 0, 2.4)
+    geo.cyl((-.5, -.5, H + .2), .05, 1.6, wd, sides=5)
+    banner(-.45, -.5, H + 1.7, .9, .5, M('cloth_blue'), seed=2)
+    parts.hanging_vines(s / 2 + .02, -s / 2 + .2, s / 2 + .02, -.1, H - .3, 1.4, 3, M('leaf'), 3)

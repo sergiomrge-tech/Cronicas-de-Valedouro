@@ -19,12 +19,12 @@
  },
  "counts": {
   "APPROVED": {
-   "INTEGRATED": 26,
-   "NOT_USED": 2
+   "INTEGRATED": 24,
+   "NOT_USED": 4
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 265,
-   "NOT_USED": 435
+   "INTEGRATED": 263,
+   "NOT_USED": 438
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -226,7 +226,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 1102
+  "object_count": 1118
  },
  "entries": [
   {
@@ -282,7 +282,7 @@
    "key": "city_gate",
    "group": "city",
    "approval": "APPROVED",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "source": "approved_assets_bundle (Lote 01, QA Claude)"
   },
   {
@@ -330,7 +330,7 @@
    "key": "city_store",
    "group": "city",
    "approval": "APPROVED",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "source": "approved_assets_bundle (Lote 01, QA Claude)"
   },
   {
@@ -2888,8 +2888,8 @@
    "key": "nat_fence_broken_a",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2924,8 +2924,8 @@
    "key": "nat_fence_broken_a_a4",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2996,8 +2996,8 @@
    "key": "nat_fence_broken_b",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 4,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3105,7 +3105,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 12,
+   "placed": 13,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3131,8 +3131,8 @@
    "key": "nat_fence_wood_a_a3",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 2,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3141,7 +3141,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 18,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3149,8 +3149,8 @@
    "key": "nat_fence_wood_a_a5",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 2,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3212,8 +3212,8 @@
    "key": "nat_fence_wood_b",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 10,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3753,7 +3753,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 3,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4284,7 +4284,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 3,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4319,8 +4319,8 @@
    "key": "nat_wall_low_a_a4",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4391,8 +4391,8 @@
    "key": "nat_wall_low_b",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 3,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -5579,8 +5579,8 @@
    "key": "val_banner_pole_tall",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 2,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -5588,8 +5588,8 @@
    "key": "val_barricade_a",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -5651,8 +5651,8 @@
    "key": "val_barricade_a_a7",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 1,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -5904,7 +5904,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -5913,7 +5913,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 7,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6363,7 +6363,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 6,
+   "placed": 7,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6398,8 +6398,8 @@
    "key": "val_wall_breach",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 1,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6416,8 +6416,8 @@
    "key": "val_wall_breach_a2",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6506,8 +6506,8 @@
    "key": "val_wall_repaired",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 2,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6524,8 +6524,8 @@
    "key": "val_wall_repaired_a2",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6560,8 +6560,8 @@
    "key": "val_wall_repaired_a6",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6633,7 +6633,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 15,
+   "placed": 17,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6659,8 +6659,8 @@
    "key": "val_wall_segment_a5",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 4,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6715,6 +6715,15 @@
    "approval": "MODELED_PENDING_GATE",
    "usage": "NOT_USED",
    "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_TOWER",
+   "key": "val_wall_tower",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 21,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {

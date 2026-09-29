@@ -168,3 +168,47 @@ def steps(x0, y, width, n, rise=.16, run=.32, mat=None):
         h = rise * (n - i)
         L = run * (i + 1)
         geo.box((x0 + L / 2, y, h / 2), (L, width, h), mat, bevel=0.02)
+
+
+def roof_gable_tiled(cx, cy, z0, sx, sy, h, mat, overhang=.3, ridge_axis='x', gable_mat=None, seed=0, rows=None, under=None):
+    """PADRÃO DE TELHADO (qualidade): telhas em FIADAS sobrepostas com relevo real + base contínua escura (sem vãos) + cumeeira
+    + EMPENAS FECHADAS no material da parede (o telhado nunca fica solto/flutuando). ridge_axis = eixo da cumeeira."""
+    rr = random.Random(seed)
+    geo.roof_gable(cx, cy, z0 - .02, sx, sy, h, under or M('wood_dark'), overhang=overhang, ridge_axis=ridge_axis, thickness=.1)
+    hx, hy = sx / 2 + overhang, sy / 2 + overhang
+    run = hy if ridge_axis == 'x' else hx
+    length = 2 * (hx if ridge_axis == 'x' else hy)
+    ang = math.atan2(h, run)
+    slope = math.hypot(run, h)
+    rows = rows or max(4, int(slope / .38))
+    cols = max(4, int(length / .42))
+    for side in (-1, 1):
+        for r in range(rows):
+            t = (r + .5) / rows
+            d = side * run * (1 - t)
+            z = z0 + h * t + .07
+            for k in range(cols):
+                u = -length / 2 + (k + .5) * length / cols + (.1 if r % 2 else -.1)
+                if abs(u) > length / 2 - .05:
+                    continue
+                size = (length / cols * .95, slope / rows * 1.4, .07 + rr.uniform(0, .03))
+                if ridge_axis == 'x':
+                    geo.box((cx + u, cy + d, z), size, mat, rot=(-side * ang, 0, rr.uniform(-.02, .02)), bevel=.012)
+                else:
+                    geo.box((cx + d, cy + u, z), (size[1], size[0], size[2]), mat, rot=(0, side * ang, rr.uniform(-.02, .02)), bevel=.012)
+    if ridge_axis == 'x':
+        geo.box((cx, cy, z0 + h + .06), (length + .1, .3, .2), M('wood_dark'), bevel=.03)
+    else:
+        geo.box((cx, cy, z0 + h + .06), (.3, length + .1, .2), M('wood_dark'), bevel=.03)
+    if gable_mat is not None:                                            # empenas triangulares fechadas nas pontas da cumeeira
+        for s2 in (-1, 1):
+            if ridge_axis == 'x':
+                e = cx + s2 * sx / 2
+                pts = [(e, cy - sy / 2, z0), (e, cy + sy / 2, z0), (e, cy, z0 + h)]
+            else:
+                e = cy + s2 * sy / 2
+                pts = [(cx - sx / 2, e, z0), (cx + sx / 2, e, z0), (cx, e, z0 + h)]
+            o = geo.mesh_from(pts, [(0, 1, 2)], gable_mat, 'gable')
+            sol = o.modifiers.new('solid', 'SOLIDIFY')
+            sol.thickness = .15
+            sol.offset = 0

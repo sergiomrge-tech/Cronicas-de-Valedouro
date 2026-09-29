@@ -40,6 +40,48 @@ def krun(family, pts, group, **kw):
             t = (i + .5) / n
             out.append(W.obj(vid, x0 + dx * t, y0 + dy * t, group, check=False, **kw))
     return out
+
+
+# ------------------------------------------------------------------ PADRÃO DE MURO ISOMÉTRICO (correção estrutural, categoria A)
+# Muros, muralhas, cercas e muretas correm SÓ pelos dois eixos isométricos (±26,6° na tela), em passos EXATOS do comprimento real da peça
+# (sem fresta nem sobreposição), e cada vértice recebe uma peça de junção (torre/pilar) quando a família tem uma. Ver .claude/skills/valedouro-asset-quality.
+_ISO_C, _ISO_S = 0.894427, 0.447214
+_ISO_DIR = {'se': (_ISO_C, _ISO_S), 'nw': (-_ISO_C, -_ISO_S), 'sw': (-_ISO_C, _ISO_S), 'ne': (_ISO_C, -_ISO_S)}
+ISO_KITS = {    # família -> (peça ↘/↖, peça ↙/↗, comprimento na tela em px, junção)
+    'muralha': ('val_wall_segment_a6', 'val_wall_segment_a2', 90.1, 'val_wall_tower'),
+    'muralha_reparada': ('val_wall_repaired_a6', 'val_wall_repaired_a2', 90.1, 'val_wall_tower'),
+    'muralha_rompida': ('val_wall_breach_a6', 'val_wall_breach_a2', 90.1, 'val_wall_tower'),
+    'cerca': ('nat_fence_wood_a_a4', 'nat_fence_wood_a', 39.0, None),
+    'cerca_quebrada': ('nat_fence_broken_a_a4', 'nat_fence_broken_a', 39.0, None),
+    'mureta': ('nat_wall_low_a_a4', 'nat_wall_low_a', 62.0, None),
+}
+
+
+def iso_wall(kit, start, moves, group, skip=(), joints=True, joint_scale=1.0, **kw):
+    """Traça um muro a partir de `start` (mundo): moves = [('se'|'sw'|'ne'|'nw', n_peças), ...]. Devolve os vértices."""
+    a, b, L, joint = ISO_KITS[kit]
+    x, y = start
+    verts = [(x, y)]
+    idx = 0
+    for d, n in moves:
+        dx, dy = _ISO_DIR[d]
+        piece = a if d in ('se', 'nw') else b
+        for i in range(n):
+            if idx not in skip:
+                W.obj(piece, round(x + dx * L * (i + .5), 1), round(y + dy * L * (i + .5), 1), group, check=False, **kw)
+            idx += 1
+        x, y = x + dx * L * n, y + dy * L * n
+        verts.append((x, y))
+    if joints and joint:
+        for vx, vy in verts:
+            W.obj(joint, round(vx, 1), round(vy + 2, 1), group, check=False, scale=joint_scale, **{k: v for k, v in kw.items() if k in ('hide_when', 'show_when')})
+    return verts
+
+
+def teeth(first, n_edges, seg=2):
+    """Dentes de muralha: alterna a direção `first` com a sua 'volta' no mesmo sentido horizontal (sempre em eixos isométricos)."""
+    back = {'sw': 'nw', 'nw': 'sw', 'se': 'ne', 'ne': 'se'}
+    return [(first if i % 2 == 0 else back[first], seg) for i in range(n_edges)]
 P = W.poi
 
 
@@ -91,7 +133,7 @@ P('REG001_POI_CASA_ABANDONADA', 'landmark', 'CASA ABANDONADA', 520, 590, tier=1,
   data={'lore': 'REG001_LORE_02', 'hint': 'As janelas estão quebradas; há um baú sob o alpendre.'})
 W.house(520, 610, 'city_roof_wood', 'CASA', poi='REG001_POI_CASA_ABANDONADA')
 W.obj('nat_tree_dead', 425, 640, 'CASA')
-W.iso_run('nat_fence_broken', 'b', 440, 664, 4, 'CASA', skip={2})
+iso_wall('cerca_quebrada', (420, 650), [('se', 2), ('ne', 2)], 'CASA', skip={2})
 W.obj('nat_hay_bale', 630, 640, 'CASA')
 W.obj('nat_chest_closed', 590, 648, 'CASA', poi='REG001_POI_CHEST_CASA')
 W.obj('nat_signpost', 470, 690, 'CASA')
@@ -266,10 +308,7 @@ W.obj('nat_flowers_red', 590, 1965, 'VILA_C')
 # --- Fazenda cercada (campos)
 P('REG001_POI_FAZENDA', 'landmark', 'FAZENDA DO VALE', 300, 2090, tier=1, layer='secondary', radius=180, region='campos', data={'hint': 'Campos cercados; o portão está aberto para quem passa.'})
 # losango isométrico: N(300,1990) E(428,2054) S(300,2118) W(172,2054); portão no vértice norte
-W.iso_run('nat_fence_wood', 'b', 316, 1998, 4, 'FAZENDA', skip={0})     # NE
-W.iso_run('nat_fence_wood', 'a', 188, 2046, 4, 'FAZENDA', skip={3})     # NO
-W.iso_run('nat_fence_wood', 'a', 316, 2110, 4, 'FAZENDA')               # SE
-W.iso_run('nat_fence_wood', 'b', 188, 2062, 4, 'FAZENDA')               # SO
+iso_wall('cerca', (174, 2054), [('ne', 4), ('se', 4), ('sw', 4), ('nw', 4)], 'FAZENDA', skip={3})     # cercado fechado (losango isométrico); vão do portão no lado NO
 W.obj('nat_gate_wood', 300, 1994, 'FAZENDA', layer='gate', hide_when='REG001_POI_PORTAO_FAZENDA')
 W.obj('nat_scarecrow', 300, 2072, 'FAZENDA')
 W.obj('nat_hay_stack', 236, 2086, 'FAZENDA')
@@ -291,8 +330,7 @@ W.house(1375, 1840, 'city_roof_red', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
 W.house(1170, 1790, 'city_roof_wood', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
 W.obj('nat_well_stone', 1440, 1750, 'ALDEIA_V')
 W.obj('nat_flag_red', 1465, 1700, 'ALDEIA_V', anim=1)
-W.iso_run('nat_wall_low', 'a', 1216, 1932, 3, 'ALDEIA_V')
-W.iso_run('nat_wall_low', 'b', 1320, 1900, 3, 'ALDEIA_V')
+iso_wall('mureta', (1206, 1940), [('ne', 2), ('se', 2)], 'ALDEIA_V')
 W.obj('city_barrels', 1235, 1740, 'ALDEIA_V')
 W.obj('city_crates', 1215, 1710, 'ALDEIA_V')
 W.obj('nat_flowers_blue', 1330, 1765, 'ALDEIA_V')
@@ -435,9 +473,7 @@ W.obj('nat_hay_bale', 2780, 1120, 'ESTACAO')
 # casa de posta (troca de montarias e carroças): casa, estábulo improvisado de feno e cerca; o comércio de peles é o motivo do lugar
 W.house(2735, 1042, 'city_roof_wood', 'ESTACAO', poi='REG001_POI_ESTACAO_LESTE')
 W.obj('nat_hay_stack', 2810, 1075, 'ESTACAO')
-W.obj('nat_fence_wood_a', 2700, 1155, 'ESTACAO')
-W.obj('nat_fence_wood_a', 2732, 1171, 'ESTACAO')
-W.obj('nat_fence_wood_b', 2764, 1155, 'ESTACAO')
+iso_wall('cerca', (2680, 1146), [('se', 2), ('ne', 2)], 'ESTACAO')
 W.emitter('smoke', 2710, 1110, 20)
 for x, y in [(2680, 960), (2790, 940), (2860, 1010), (2960, 900), (2980, 1150), (2830, 1345), (2640, 1330)]:
     W.obj('nat_rock_boulder' if (x + y) % 3 else 'nat_rock_mossy', x, y, 'COLINAS')
@@ -967,23 +1003,10 @@ for _hx, _hy, _roof in ((1075, 345, 'city_roof_wood'),
 # muralha sul com vão só na rua sul (x≈1300), fechada no resto; portão aprovado no vão
 _WALL_S = 800
 # (correção estrutural) muralha modelada do KIT MULTI-ÂNGULO em traçado com curva e cantos, no lugar das peças APPROVED frontais
-def _zig(x0, x1, y_lo, y_hi, step):
-    pts, x, up = [], x0, True
-    while x < x1 - 1:
-        pts.append((x, y_lo if up else y_hi))
-        x += step
-        up = not up
-    pts.append((x1, y_lo if up else y_hi))
-    return pts
-
-
-for _x0, _x1 in ((-10, 1170), (1430, 1780)):
-    _pts = _zig(_x0, _x1, 772, 842, 140)                                 # dentes a ±26,6° (eixos isométricos)
-    krun('val_wall_segment', [T(x, y) for x, y in _pts], 'CIDADE_MURO')
-    for _k, (_x, _y) in enumerate(_pts[1:-1]):                            # baluartes nos cantos escondem as juntas
-        if _k % 2 == 0:
-            town('val_gate_tower', _x, _y + 6, group='CIDADE_MURO', scale=.5)
-W.obj('APP:city_gate', TX + 1300, TY + _WALL_S + 6, 'CIDADE_MURO', scale=.58, solid=False, check=False, sy=TY + _WALL_S - 60)
+# muralha sul: dentes isométricos exatos, torre em cada vértice, vão do portão em x≈1300
+iso_wall('muralha', T(1196, 800), teeth('sw', 7), 'CIDADE_MURO')
+iso_wall('muralha', T(1404, 800), teeth('se', 2), 'CIDADE_MURO')
+town('val_gate_main', 1300, 806, group='CIDADE_MURO', scale=.62)      # portão sul modelado (no lugar da peça APPROVED frontal)
 W.collider('rect', TX + 1300 - 128, TY + _WALL_S - 26, 40, 24)
 W.collider('rect', TX + 1300 + 88, TY + _WALL_S - 26, 40, 24)
 
@@ -991,7 +1014,7 @@ W.collider('rect', TX + 1300 + 88, TY + _WALL_S - 26, 40, 24)
 for _wx, _wy in ((215, 470), (1560, 470)):
     W.obj('APP:city_water_edge', TX + _wx, TY + _wy, 'CIDADE_AGUA', scale=.58, solid=False, check=False)
     W.collider('rect', TX + _wx - 60, TY + _wy - 46, 120, 50)
-W.obj('APP:city_store', TX + 1720, TY + 470, 'CIDADE_LOJAS', scale=.58, solid=False, check=False)
+W.house(TX + 1720, TY + 470, 'city_roof_red', 'CIDADE_LOJAS')      # loja = casa inteira modelada
 W.collider('rect', TX + 1720 - 70, TY + 470 - 36, 140, 40)
 
 # povoados: mais casas compostas APPROVED (Vila dos Campos, Aldeia do Vale, casa da fazenda)
@@ -1041,8 +1064,8 @@ for _cy in (1832, 1900, 1968):
 W.obj('str_crop_wheat', 1080, 2018, 'MOINHO_L', layer='ground', scale=.62, solid=False, check=False)
 W.obj('nat_hay_stack', 1072, 1892, 'MOINHO_L', check=False)
 W.obj('nat_hay_bale', 1060, 1934, 'MOINHO_L', check=False)
-W.obj('nat_fence_wood_a', 968, 1856, 'MOINHO_L', check=False)
-W.obj('nat_fence_wood_b', 968, 1990, 'MOINHO_L', check=False)
+iso_wall('cerca', (934, 1872), [('ne', 2)], 'MOINHO_L')
+iso_wall('cerca', (934, 1974), [('se', 2)], 'MOINHO_L')
 
 # cais e barcos ao longo do rio (margem oeste)
 for _y, _kind in ((990, 'str_dock_a'), (1400, 'str_dock_a'), (2000, 'str_dock_b')):
@@ -1081,27 +1104,26 @@ _GX = 883
 town('val_gate_main', _GX, 178)
 town('val_gate_tower', _GX - 142, 186)
 town('val_gate_tower', _GX + 142, 186)
-town('val_wall_repaired', _GX - 236, 182)
 _ALFA_MORTO = 'elites:REG001_POI_ANCIAO_CLAREIRA'
 # estados do portão: antes = brecha + barricadas + carroça queimada; depois do Alfa = muralha reparada e estrada limpa
-town('val_wall_breach', _GX + 236, 182, hide_when=_ALFA_MORTO)
-town('val_wall_repaired', _GX + 236, 182, show_when=_ALFA_MORTO, flip=True)
-town('val_banner_pole_tall', _GX - 300, 160)
-town('val_banner_pole_tall', _GX + 300, 160, flip=True)
+# muralha norte em eixos isométricos (dentes para FORA, sobre a faixa já bloqueada y<149); 1º trecho a leste: rompido antes do Alfa, reparado depois
+iso_wall('muralha_reparada', T(_GX - 150, 186), [('nw', 1)], 'CIDADE_MURO', joints=False)
+iso_wall('muralha', T(_GX - 150 - 80.6, 186 - 40.3), [('sw', 1)] + teeth('nw', 3), 'CIDADE_MURO')
+iso_wall('muralha_rompida', T(_GX + 150, 186), [('ne', 1)], 'CIDADE_MURO', joints=False, hide_when=_ALFA_MORTO)
+iso_wall('muralha_reparada', T(_GX + 150, 186), [('ne', 1)], 'CIDADE_MURO', joints=False, show_when=_ALFA_MORTO)
+iso_wall('muralha', T(_GX + 150 + 80.6, 186 - 40.3), [('se', 1)] + teeth('ne', 3), 'CIDADE_MURO')
 # lado de fora: barricadas que deixam a estrada livre, fogueira de vigia, cercas, carroça queimada, sinais de ataque
-krun('val_barricade_a', [T(_GX - 250, 98), T(_GX - 190, 118), T(_GX - 120, 116)], 'CIDADE', hide_when=_ALFA_MORTO)      # barricadas em curva, deixando a estrada livre
-krun('val_barricade_a', [T(_GX + 120, 116), T(_GX + 190, 118), T(_GX + 250, 100)], 'CIDADE', hide_when=_ALFA_MORTO)
-krun('val_barricade_b', [T(_GX + 290, 132), T(_GX + 340, 150)], 'CIDADE', hide_when=_ALFA_MORTO)
+krun('val_barricade_a', [T(_GX - 230, 30), T(_GX - 160, 48), T(_GX - 100, 50)], 'CIDADE', hide_when=_ALFA_MORTO)      # barricadas em curva, deixando a estrada livre
+krun('val_barricade_a', [T(_GX + 100, 50), T(_GX + 160, 48), T(_GX + 230, 30)], 'CIDADE', hide_when=_ALFA_MORTO)
+krun('val_barricade_b', [T(_GX + 280, 10), T(_GX + 330, 26)], 'CIDADE', hide_when=_ALFA_MORTO)
 town('nat_campfire', _GX - 232, 96, anim=1)
 town('nat_log_fallen', _GX - 270, 112, solid=False)
 town('nat_hay_bale', _GX + 232, 92)
 W.emitter('smoke', TX + _GX - 232, TY + 90, 20)
 town('val_cart_wrecked', _GX + 380, 96, hide_when=_ALFA_MORTO)
 town('val_warning_post', _GX + 110, 70, solid=False)
-town('nat_fence_wood_a', _GX - 470, 132)
-town('nat_fence_wood_b', _GX - 438, 148)
-town('nat_fence_wood_a', _GX + 470, 138)
-town('nat_fence_broken_b', _GX + 502, 122)
+iso_wall('cerca', T(_GX - 520, 40), [('se', 3)], 'CIDADE')
+iso_wall('cerca_quebrada', T(_GX + 420, 90), [('ne', 3)], 'CIDADE')
 # lado de dentro: suprimentos, caixas e barris junto às torres, lampiões ao longo da rua
 town('val_supply_stack', _GX - 210, 246)
 town('val_supply_stack', _GX + 215, 250, flip=True)
@@ -1152,7 +1174,7 @@ P('REG001_POI_ARQUIVO_SEIS_COROAS', 'landmark', 'ARQUIVO DAS SEIS COROAS', TX + 
 for _x, _y in ((1400, 596), (1400, 640), (1690, 606), (1690, 650)):
     W.obj('str_crop_wheat', _x, _y, 'ESTRADA_N', layer='ground', scale=.62, solid=False, check=False)
 W.obj('str_scarecrow', 1672, 578, 'ESTRADA_N', check=False)
-krun('nat_fence_wood_a', [(1340, 552), (1390, 566), (1440, 592), (1470, 636)], 'ESTRADA_N')          # cerca da lavoura acompanha a curva do campo
+iso_wall('cerca', (1330, 548), [('se', 3), ('sw', 2)], 'ESTRADA_N')          # cerca da lavoura: canto em L nos eixos isométricos
 W.obj('nat_hay_stack', 1350, 620, 'ESTRADA_N', check=False)
 W.obj('nat_signpost', 1610, 660, 'ESTRADA_N', check=False)
 krun('val_palisade_broken', [(1380, 505), (1420, 478), (1470, 462), (1510, 470)], 'ESTRADA_N')      # paliçada em ARCO (oeste da estrada)

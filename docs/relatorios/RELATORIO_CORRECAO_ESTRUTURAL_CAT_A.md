@@ -49,3 +49,18 @@ Aplicada em **todas as 21 casas do mapa**: cidade, vila dos campos, aldeia do va
 ## Correção adicional: muralha sul sem ângulo
 As peças APPROVED retas e frontais da muralha sul foram trocadas pelo **kit modelado `val_wall_segment`** em traçado de dentes nos eixos isométricos (±26,6°), com baluartes (`val_gate_tower`) nos cantos, peças levemente sobrepostas (sem frestas) e o vão do portão sul mantido. Rotas: `world_travel` PASS.
 Suíte Godot: **17/17 PASS**. Capturas: `CASAS_modeladas_cidade.jpg`, `CASA_abandonada_modelada.jpg`, `MURALHA_SUL_angulada.jpg`, `KIT_casa_3_telhados_render.jpg`.
+
+## Revisão 3 — muros conectados em eixos isométricos, todos os prédios em 3/4
+- **Desconexão diagnosticada:** as cercas legadas avançavam 32 px por peça sem relação com o tamanho real, e a muralha sul tinha torre só em metade dos vértices.
+- **Novo padrão `iso_wall()`:** peças só nos dois eixos isométricos, passo exato do comprimento real e junção em cada vértice. A junção é a nova `val_wall_tower`, uma torre quadrada alinhada aos eixos do mundo.
+- **Aplicado em todo o mapa:**
+  - muralha norte (dentes para fora, com estados reparada/rompida junto ao portão) e muralha sul (dentes, portão sul modelado);
+  - cercado da fazenda (losango fechado com vão do portão), casa abandonada, estação, moinho, lavoura da estrada norte, cercas junto ao portão;
+  - mureta da aldeia.
+- **Retiradas do mundo e do desenho legado:** muralha norte APPROVED frontal, `APP:city_store` e `APP:city_gate`. A loja virou casa modelada.
+- **Guilda e Arquivo:** re-renderizados em vista 3/4, com `roof_gable_tiled()` (telhas em fiadas e empenas fechadas).
+- **Padrão salvo:** `.claude/skills/valedouro-asset-quality/SKILL.md`, referenciado no `CLAUDE.md`.
+- **Validação:** suíte Godot 17/17, `audit_logic` com 0 falhas e `world_travel` PASS.
+- **Pendentes:**
+  - o portão norte (`val_gate_main`) e suas duas torres seguem frontais, como gatehouse;
+  - as paredes internas da Mina do Eco seguem frontais (zona de dungeon).

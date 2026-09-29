@@ -57,7 +57,7 @@ class Comp:
             want = math.degrees(math.atan2(dy, dx)) % 180.0
             deg, vid, v = min(vs, key=lambda t: min(abs(t[0] - want), 180 - abs(t[0] - want)))
             seg = max(24.0, v['len_px'] + step_gap)
-            n = max(1, int(round(dist / seg)))
+            n = max(1, int(round(dist / seg))) if step_gap else max(1, int(math.ceil(dist / (seg * .88))))   # sem vão: peças sobrepostas
             for i in range(n):
                 t = (i + .5) / n
                 made.append(self.add(vid, x0 + dx * t, y0 + dy * t, **kw))
