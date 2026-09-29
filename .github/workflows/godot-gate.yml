@@ -2,7 +2,7 @@ name: Godot 4.7.2 Gate + Visual QA
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, art/pro-pixel-modeling-pipeline-v2 ]
   workflow_dispatch:
 
 permissions:
@@ -233,10 +233,24 @@ jobs:
           path: game/ci_output_reg001/*.png
           if-no-files-found: error
 
+      - name: Capture professional art gate (real Godot renders)
+        run: |
+          mkdir -p game/ci_output_art_gate
+          timeout 240s xvfb-run -a /tmp/godot/godot --path game --rendering-method gl_compatibility --script res://tests/qa_capture_art_gate.gd -- "$PWD/game/ci_output_art_gate"
+          test "$(find game/ci_output_art_gate -maxdepth 1 -type f -name '*.png' | wc -l)" -ge 20
+          ls -lh game/ci_output_art_gate
+
+      - name: Upload professional art gate artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: valedouro-professional-art-gate
+          path: game/ci_output_art_gate/*.png
+          if-no-files-found: error
+
       - name: Final CI cleanup
         shell: bash
         run: |
           set -e
-          rm -rf game/.godot game/ci_output game/ci_output_reg001 game/tools/__pycache__ game/tools/reg001/__pycache__ game/tools/modeling/__pycache__
+          rm -rf game/.godot game/ci_output game/ci_output_reg001 game/ci_output_art_gate game/tools/__pycache__ game/tools/reg001/__pycache__ game/tools/modeling/__pycache__ game/tools/art_pipeline/__pycache__
           rm -f game/tests/visual_capture.gd
           echo "CI is read-only: generated runtime assets and QA captures are not pushed back to main."
