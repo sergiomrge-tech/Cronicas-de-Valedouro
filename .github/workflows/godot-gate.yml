@@ -65,6 +65,8 @@ jobs:
           rm -rf game/tools/__pycache__
           python3 game/tools/validate_v0_6_1.py
           rm -rf game/tools/__pycache__
+          python3 game/tools/validate_reg001.py
+          rm -rf game/tools/__pycache__ game/tools/reg001/__pycache__
 
       - name: Install Godot runtime dependencies
         run: |
@@ -88,9 +90,9 @@ jobs:
         shell: bash
         run: |
           set -e
-          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog approved_visuals vertical_slice boss_patterns mobile_input; do
+          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog approved_visuals vertical_slice boss_patterns mobile_input modeled_assets reg001_world reg001_gameplay; do
             echo "===== TEST: $t ====="
-            timeout 25s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd"
+            timeout 60s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd"
           done
 
       - name: Create visual capture script
@@ -218,10 +220,23 @@ jobs:
           path: game/ci_output/*.png
           if-no-files-found: error
 
+      - name: Capture REG_001 world visual QA (real Godot renders)
+        run: |
+          mkdir -p game/ci_output_reg001
+          timeout 240s xvfb-run -a /tmp/godot/godot --path game --rendering-method gl_compatibility --script res://tests/qa_capture_reg001.gd -- "$PWD/game/ci_output_reg001"
+          ls -lh game/ci_output_reg001
+
+      - name: Upload REG_001 visual QA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: valedouro-reg001-visual-qa
+          path: game/ci_output_reg001/*.png
+          if-no-files-found: error
+
       - name: Final CI cleanup
         shell: bash
         run: |
           set -e
-          rm -rf game/.godot game/ci_output game/tools/__pycache__
+          rm -rf game/.godot game/ci_output game/ci_output_reg001 game/tools/__pycache__ game/tools/reg001/__pycache__ game/tools/modeling/__pycache__
           rm -f game/tests/visual_capture.gd
           echo "CI is read-only: generated runtime assets and QA captures are not pushed back to main."

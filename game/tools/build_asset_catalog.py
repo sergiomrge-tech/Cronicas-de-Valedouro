@@ -64,9 +64,10 @@ def runtime_loaded_names() -> set[str]:
 
 def main() -> None:
     runtime_names = runtime_loaded_names()
+    # approved/ e modeled/ têm manifestos próprios (approved_visual_manifest.json e modeled_assets_manifest.json).
     files = sorted(
         p for p in ASSETS.rglob("*")
-        if p.is_file() and p.suffix.lower() in CATALOG_EXTENSIONS
+        if p.is_file() and p.suffix.lower() in CATALOG_EXTENSIONS and p.relative_to(ASSETS).parts[0] not in {"approved", "modeled"}
     )
     rows = []
     for path in files:

@@ -49,6 +49,12 @@ Ainda abaixo do padrão final:
 - save ainda precisa migrar para schema v5/IDs;
 - performance Android ainda precisa de profiling/chunks.
 
+## Atualização — REG_001 Etapa 1 (Mundo Rico) concluída
+
+Ver `docs/checkpoints/CHECKPOINT_REG001_ETAPA1.md`. Resumo: 149 assets modelados (`MODELED_PENDING_GATE`, aguardam o gate visual do Diretor),
+61 POIs, 493 objetos manuais, 8 elites, 15 baús, 3 segredos, atalhos, vaus, Cripta Esquecida (mini-dungeon), interiores mobiliados,
+transições de bioma, chunks/culling e 3 novos testes nativos (`modeled_assets`, `reg001_world`, `reg001_gameplay`). Etapas 2 e 3 aguardam.
+
 ## Fonte de verdade operacional
 
 Ler nesta ordem:

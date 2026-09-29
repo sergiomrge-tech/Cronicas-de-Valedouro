@@ -240,7 +240,7 @@ def ruin_column(sc, f):
     sc.add(box((0, 0, 2.42), (.6, .6, .1), STONE_MOSS, 0))
 
 
-@asset('nat_ruin_column_broken', 'nature', 'ruins', (170, 170), (85, 142), seed=92, blocks=(11,), tags=('ruinas', 'coluna'), footprint=18)
+@asset('nat_ruin_column_broken', 'nature', 'ruins', (190, 190), (95, 158), seed=92, blocks=(11,), tags=('ruinas', 'coluna'), footprint=18)
 def ruin_column_broken(sc, f):
     add_patch(sc, 'grass', .9, 10, 92, nflowers=2)
     sc.add(box((0, 0, .12), (.9, .9, .24), STONE_MOSS, 0))
@@ -250,7 +250,7 @@ def ruin_column_broken(sc, f):
     facet(sc, (-.6, .4, 0), .22, ROCK_MOSS, 93, squash=.8, nplanes=8)
 
 
-@asset('nat_ruin_wall', 'nature', 'ruins', (240, 190), (120, 156), seed=93, blocks=(16,), tags=('ruinas', 'muro'), footprint=24)
+@asset('nat_ruin_wall', 'nature', 'ruins', (240, 206), (120, 172), seed=93, blocks=(16,), tags=('ruinas', 'muro'), footprint=24)
 def ruin_wall(sc, f):
     add_patch(sc, 'grass', 1.2, 10, 93, nflowers=2)
     rr = rng_for(93)
@@ -265,7 +265,7 @@ def ruin_wall(sc, f):
         facet(sc, (x, .5, z), .2, ROCK_MOSS, 94 + int(x * 10), squash=.8, nplanes=8)
 
 
-@asset('nat_ruin_arch', 'nature', 'ruins', (260, 260), (130, 232), seed=95, blocks=(14,), tags=('ruinas', 'arco'), footprint=30)
+@asset('nat_ruin_arch', 'nature', 'ruins', (260, 282), (130, 248), seed=95, blocks=(14,), tags=('ruinas', 'arco'), footprint=30)
 def ruin_arch(sc, f):
     add_patch(sc, 'grass', 1.4, 12, 95, nflowers=3)
     for u in (-.95, .95):

@@ -7,8 +7,13 @@ const FOREST_SIZE: Vector2 = Vector2(1825, 862)
 const FORGE_SIZE: Vector2 = Vector2(1512, 1040)
 const MAP = preload("res://scripts/world_map.gd")
 const LOOT = preload("res://scripts/loot_system.gd")
+const REG = preload("res://scripts/reg001_world.gd")
+const PROC = preload("res://scripts/reg001_procedural.gd")
+const REGR = preload("res://scripts/reg001_render.gd")
+const REGG = preload("res://scripts/reg001_gameplay.gd")
+const MODELED = preload("res://scripts/modeled_assets.gd")
 const SAVE_PATH: String = "user://valedouro_v1.json"
-const RANGES: Dictionary = {"cidade": 0, "floresta": 1, "masmorra": 2, "ferreiro": 3, "loja": 4, "alquimia": 5, "guilda": 6}
+const RANGES: Dictionary = {"cidade": 0, "floresta": 1, "masmorra": 2, "ferreiro": 3, "loja": 4, "alquimia": 5, "guilda": 6, "cripta": 7}
 var zone: String = "cidade"
 var player: Vector2 = MAP.TOWN + Vector2(884, 696)
 var facing: Vector2 = Vector2.DOWN
@@ -59,6 +64,9 @@ var map_visible: bool = false
 var ui_font: Font
 var panel_box: StyleBoxTexture
 var floaters: Array = []   # números de dano e efeitos rápidos
+var reg_game: RefCounted
+var view_items: Dictionary = {}
+var view_rect: Rect2 = Rect2()
 const ENEMY_SHEETS: Dictionary = {"Lobo": "wolf", "Limo": "slime", "Aranha Sombria": "spider", "Javali Musgoso": "boar", "Flor Voraz": "flower_beast", "Escorpião": "scorpion", "Escaravelho Âmbar": "amber_beetle", "Lobo de Gelo": "ice_wolf", "Golem de Geada": "ice_golem", "Guardião": "boss"}
 const ENEMY_FRAME_SIZE: Dictionary = {"Golem de Geada": 40.0, "Guardião": 64.0}
 const ENEMY_STATE_ROW: Dictionary = {"idle": 0, "walk": 1, "attack": 2, "hurt": 3, "death": 4}
@@ -110,6 +118,8 @@ func _ready() -> void:
 		for tier in 4:
 			textures["hero_%s_%d" % [family, tier]] = load("res://assets/hero_%s_%d.png" % [family, tier])
 	load_approved_visuals()
+	REG.ensure_loaded()
+	reg_game = REGG.new(self)
 	hero = textures["hero"]
 	ui_font = load("res://assets/fonts/PixelifySans.ttf")
 	if ui_font is FontFile:
@@ -318,6 +328,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			interact()
 		update_enemies(delta)
+		reg_game.tick(delta)
 		if zone == "cidade" and MAP.town_area(player):
 			enemies.clear()
 		if zone in ["cidade", "floresta", "masmorra"]:
@@ -365,6 +376,12 @@ func walkable(p: Vector2) -> bool:
 			for y in [8, 13, 19]:
 				if Rect2(x * 32 - 8, y * 32 - 8, 48, 48).has_point(p):
 					return false
+	elif zone == "cripta":
+		for wall_rect in REG.crypt_walls:
+			if (wall_rect as Rect2).has_point(p):
+				return false
+	if zone != "cidade" and REG.blocked_at(p, zone):
+		return false
 	return true
 
 func populate() -> void:
@@ -561,8 +578,9 @@ func finish_enemy(index: int) -> void:
 	floaters.append({"pos": p, "text": "", "t": .45, "color": Color(1, 1, 1), "puff": true})
 	enemies.remove_at(index)
 	kills[kind] = int(kills.get(kind, 0)) + 1
-	gold += monster_gold(kind)
-	gain_xp(monster_xp(kind))
+	gold += int(float(monster_gold(kind)) * float(enemy.get("gold_mult", 1.0)))
+	gain_xp(int(float(monster_xp(kind)) * float(enemy.get("xp_mult", 1.0))))
+	reg_game.on_enemy_defeated(enemy)
 	var reward: Dictionary = LOOT.roll(kind, rng)
 	if not reward.is_empty():
 		var material_name: String = reward["material"]
@@ -642,7 +660,7 @@ func update_enemies(delta: float) -> void:
 				enemy["pos"] = next
 				moved = true
 		if dist < 27 and float(enemy.get("cool", 0.0)) <= 0 and float(enemy.get("action_time", 0.0)) <= 0 and invulnerable <= 0:
-			var taken: int = maxi(1, monster_damage(str(enemy["kind"])) - armor - int(equipped_armor.get("def", 0)))
+			var taken: int = maxi(1, int(float(monster_damage(str(enemy["kind"]))) * float(enemy.get("dmg_mult", 1.0))) - armor - int(equipped_armor.get("def", 0)))
 			hp = maxi(0, hp - taken)
 			floaters.append({"pos": player + Vector2(0, -52), "text": "-%d" % taken, "t": .7, "color": Color(1, .38, .42)})
 			invulnerable = .75
@@ -728,6 +746,8 @@ func change_zone(new_zone: String, entry: Vector2) -> void:
 func interact() -> void:
 	if dialog.visible:
 		return
+	if reg_game.try_interact():
+		return
 	if zone == "cidade":
 		var local_pos: Vector2 = player - MAP.TOWN
 		if local_pos.distance_to(Vector2(455, 357)) < 82:
@@ -754,6 +774,13 @@ func interact() -> void:
 			change_zone("cidade", MAP.TOWN + Vector2(955, 748))
 		else:
 			message("A saída fica ao sul.")
+	elif zone == "cripta":
+		if player.y > 790:
+			var gate_poi: Dictionary = REG.poi_by_id.get("REG001_POI_CRIPTA_ENTRADA", {}) as Dictionary
+			var back: Vector2 = (gate_poi["pos"] as Vector2) + Vector2(0, 62) if not gate_poi.is_empty() else MAP.TOWN + Vector2(955, 748)
+			change_zone("cidade", back)
+		else:
+			message("A saída da cripta fica ao sul.")
 	else:
 		if player.y > (845 if zone == "ferreiro" else 680):
 			var outside: Vector2 = Vector2(1235, 365) if zone == "ferreiro" else Vector2(455, 365) if zone == "guilda" else Vector2(464, 660) if zone == "alquimia" else Vector2(1305, 664)
@@ -902,7 +929,7 @@ func equip_item(index: int) -> void:
 	save_game()
 
 func save_game() -> void:
-	var state: Dictionary = {"version": 4, "zone": zone, "px": player.x, "py": player.y, "hp": hp, "max_hp": max_hp, "level": level, "xp": xp, "gold": gold, "potions": potions, "weapon": weapon, "armor": armor, "kills": kills, "quest": quest, "materials": materials, "items": stored_items, "equipped_weapon": equipped_weapon, "equipped_armor": equipped_armor}
+	var state: Dictionary = {"version": 4, "zone": zone, "px": player.x, "py": player.y, "hp": hp, "max_hp": max_hp, "level": level, "xp": xp, "gold": gold, "potions": potions, "weapon": weapon, "armor": armor, "kills": kills, "quest": quest, "materials": materials, "items": stored_items, "equipped_weapon": equipped_weapon, "equipped_armor": equipped_armor, "reg001": REG.export_state()}
 	var file: FileAccess = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
 		file.store_string(JSON.stringify(state))
@@ -943,6 +970,7 @@ func load_game() -> void:
 	for key in kills.keys():
 		kills[key] = maxi(0, int(saved_kills.get(key, 0)))
 	if int(data.get("version", 0)) >= 4:
+		REG.import_state(data.get("reg001", {}))
 		var saved_materials: Variant = data.get("materials", {})
 		if saved_materials is Dictionary:
 			materials = saved_materials
@@ -992,7 +1020,10 @@ func _draw() -> void:
 				else:
 					tex = textures["grass2"] if index % 7 == 0 else textures["grass"]
 				draw_texture_rect(tex, Rect2(x * TILE, y * TILE, TILE, TILE), false)
+	view_rect = Rect2(camera, VIEW_SIZE)
 	if zone == "cidade":
+		view_items = PROC.view(view_rect)
+		REGR.draw_ground(self, view_items, view_rect, time_acc, approved_visuals)
 		draw_overworld(camera, x_start, x_end, y_start, y_end)
 		if Rect2(camera, VIEW_SIZE).intersects(MAP.TOWN_BOUNDS.grow(180.0)):
 			draw_approved_town_border(camera)
@@ -1009,11 +1040,19 @@ func _draw() -> void:
 			draw_label("RUÍNAS • E", ruins + Vector2(-76, -42))
 		draw_animals(camera)
 		draw_ambient_life(camera)
-		draw_region_story_props(camera)
-	elif zone == "masmorra":
-		draw_dungeon()
-	elif zone in ["ferreiro", "loja", "alquimia", "guilda"]:
-		draw_interior()
+		REGR.draw_emitters(self, view_rect, zone, time_acc)
+	else:
+		view_items = PROC.zone_view(zone)
+		if zone == "masmorra":
+			draw_dungeon()
+		elif zone == "cripta":
+			draw_crypt()
+		elif zone in ["ferreiro", "loja", "alquimia", "guilda"]:
+			draw_interior()
+		REGR.draw_ground(self, view_items, view_rect, time_acc, approved_visuals)
+		REGR.draw_emitters(self, view_rect, zone, time_acc)
+	reg_game.draw_npcs(self, view_rect)
+	REGR.draw_objects(self, view_items, view_rect, -1.0e9, player.y, time_acc, approved_visuals)
 	for enemy in enemies:
 		draw_enemy(enemy, camera)
 	draw_shadow_oval(player + Vector2(0, 3), Vector2(15, 5), Color(0, 0, 0, .4))
@@ -1029,6 +1068,8 @@ func _draw() -> void:
 		var family: String = equipped_weapon.get("kind", "sword")
 		var weapon_tier: int = clampi(maxi(int(equipped_weapon.get("tier", 0)), weapon if family == "sword" else 0), 0, 3)
 		draw_texture_rect_region(textures["hero_%s_%d" % [family, weapon_tier]], avatar_rect, source)
+	REGR.draw_objects(self, view_items, view_rect, player.y, 1.0e9, time_acc, approved_visuals)
+	reg_game.draw_overlay(self, view_rect)
 	if swing > 0:
 		if swing_target != Vector2.ZERO:
 			var projectile_color: Color = Color(.7, .93, 1) if equipped_weapon.get("kind", "") == "staff" else Color(1, .8, .46)
@@ -1043,6 +1084,7 @@ func _draw() -> void:
 		draw_world_minimap()
 
 func draw_overworld(camera: Vector2, x_start: int, x_end: int, y_start: int, y_end: int) -> void:
+	# Água, pontes, cascata, marcos legados e rótulos. Vegetação, props e transições vêm da camada REG_001 (chunks).
 	for y in range(y_start, y_end):
 		for x in range(x_start, x_end):
 			var p: Vector2 = Vector2(x * 32 + 16, y * 32 + 16)
@@ -1056,34 +1098,6 @@ func draw_overworld(camera: Vector2, x_start: int, x_end: int, y_start: int, y_e
 			elif name == "bridge":
 				draw_line(p + Vector2(-14, -12), p + Vector2(14, -12), Color(.48, .34, .25), 2)
 				draw_line(p + Vector2(-14, 10), p + Vector2(14, 10), Color(.48, .34, .25), 2)
-			draw_biome_transition_detail(p, x, y)
-			# Decorative vegetation layer: procedural but deterministic, and never over roads or water.
-			var detail_seed: int = MAP.cell_hash(x + 91, y + 47)
-			if not MAP.path_at(p) and not MAP.river_at(p) and not MAP.shallow_at(p) and not MAP.bridge_at(p) and not MAP.town_area(p):
-				var biome_name: String = MAP.biome(p)
-				if biome_name in ["floresta", "pradaria", "campos", "vale"]:
-					if detail_seed % 5 == 0:
-						draw_line(p + Vector2(-3, 6), p + Vector2(-1, -2), Color(.26, .46, .22, .7), 1)
-						draw_line(p + Vector2(1, 6), p + Vector2(2, -1), Color(.34, .56, .27, .7), 1)
-						draw_line(p + Vector2(4, 5), p + Vector2(6, 0), Color(.46, .68, .31, .7), 1)
-					if detail_seed % 19 == 0:
-						draw_circle(p + Vector2(-2, 4), 1.1, Color(.98, .95, .8, .95))
-						draw_circle(p + Vector2(2, 3), 1.1, Color(.95, .74, .88, .95))
-				elif biome_name == "deserto" and detail_seed % 17 == 0:
-					draw_line(p + Vector2(-1, 5), p + Vector2(0, -2), Color(.71, .79, .45, .6), 1)
-			var prop: String = MAP.prop_at(x, y)
-			if prop.is_empty():
-				continue
-			var visual_seed: int = MAP.cell_hash(x + 113, y + 197)
-			var jitter_x: float = float((visual_seed % 7) - 3)
-			var jitter_y: float = float((int(visual_seed / 7) % 5) - 2)
-			var pp: Vector2 = p + Vector2(jitter_x, jitter_y)
-			# Regra artística: apenas assets explicitamente APPROVED entram no renderer final.
-			if prop in ["tree", "pine"]:
-				var tree_key: String = "city_tree_autumn" if visual_seed % 9 == 0 else "city_tree_green"
-				draw_shadow_oval(pp + Vector2(4, 13), Vector2(31, 10), Color(0, 0, 0, .22))
-				draw_approved_visual(tree_key, pp + Vector2(0, 15), .50)
-			# Frost tree, bush, cactus, rocks, flowers etc. permanecem ocultos até terem asset APPROVED.
 
 	# Três travessias reutilizam a mesma linguagem de madeira/pedra, mas com silhuetas próprias.
 	for index in range(MAP.BRIDGE_YS.size()):
@@ -1092,19 +1106,15 @@ func draw_overworld(camera: Vector2, x_start: int, x_end: int, y_start: int, y_e
 		if camera.distance_to(bridge_center) < 700:
 			draw_bridge_details(bridge_center, index)
 
-	# Cascata: agora nasce entre rochas e se integra às margens refinadas.
+	# Cascata: queda animada (efeito); as rochas laterais são objetos modelados da REG_001.
 	var falls: Vector2 = Vector2(MAP.river_x(471.0), 471.0)
 	if camera.distance_to(falls) < 820:
-		draw_rect(Rect2(falls + Vector2(-88, -43), Vector2(176, 42)), Color(.27, .35, .39))
-		for rock_x in [-70, -52, 55, 72]:
-			draw_circle(falls + Vector2(rock_x, -18), 15, Color(.38, .42, .48))
 		for i in 10:
 			var fx: float = falls.x - 50.0 + i * 11.0
 			var drift: float = fposmod(time_acc * 41.0 + i * 9.0, 35.0)
 			draw_line(Vector2(fx, falls.y - 8 + drift), Vector2(fx - 3, falls.y + 29 + drift), Color(.78, .94, .99, .9), 3)
-		draw_shadow_oval(falls + Vector2(0, 76), Vector2(73, 18), Color(.86, .97, 1, .67))
 
-	# Marcos e construções repetem escala, contorno e sombras da cidade v0.5.
+	# Marcos legados (torres, moinho, posto, abrigo, santuário) — catálogo REG_001: LEGACY_BASELINE.
 	for entry in MAP.STRUCTURES:
 		var center: Vector2 = entry["pos"] as Vector2
 		if camera.distance_to(center) < 720:
@@ -1112,39 +1122,6 @@ func draw_overworld(camera: Vector2, x_start: int, x_end: int, y_start: int, y_e
 	for landmark in [[Vector2(230, 1240), "BOSQUE DO PRIMEIRO VENTO"], [Vector2(2520, 1700), "DUNAS DE ÂMBAR"], [Vector2(2460, 230), "PICOS DE GELO"], [Vector2(1250, 2020), "VALE DOS LÍRIOS"], [Vector2(2160, 510), "CASCATA DA AURORA"]]:
 		if camera.distance_to(landmark[0]) < 480:
 			draw_label(landmark[1], landmark[0], Color(.97, .92, .75))
-	for settlement in [[Vector2(535, 1880), "VILA DOS CAMPOS", Color(.39, .53, .39)], [Vector2(1430, 1760), "ALDEIA DO VALE", Color(.46, .52, .34)], [Vector2(2520, 1580), "CARAVANA DE ÂMBAR", Color(.62, .43, .24)], [Vector2(2460, 560), "POUSO DA GEADA", Color(.48, .58, .69)]]:
-		if camera.distance_to(settlement[0]) < 580:
-			draw_settlement(settlement[0], settlement[1], settlement[2])
-
-func draw_biome_transition_detail(p: Vector2, x: int, y: int) -> void:
-	# Borda orgânica barata entre biomas: nunca cobre estrada, água ou cidade.
-	if MAP.path_at(p) or MAP.river_at(p) or MAP.shallow_at(p) or MAP.bridge_at(p) or MAP.town_area(p):
-		return
-	var here: String = MAP.biome(p)
-	var neighbors: Array[Vector2] = [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector2(0, -32)]
-	var edge: bool = false
-	for delta: Vector2 in neighbors:
-		if MAP.biome(p + delta) != here:
-			edge = true
-			break
-	if not edge:
-		return
-	var seed: int = MAP.cell_hash(x + 211, y + 307)
-	var base_color: Color = Color(.36, .58, .30, .26)
-	match here:
-		"gelo": base_color = Color(.82, .94, .95, .34)
-		"deserto": base_color = Color(.78, .62, .34, .28)
-		"campos": base_color = Color(.58, .72, .35, .25)
-		"vale": base_color = Color(.45, .64, .31, .26)
-		"floresta": base_color = Color(.18, .39, .22, .28)
-	for dot_index in 5:
-		var dx: float = float((seed >> (dot_index * 2)) % 23) - 11.0
-		var dy: float = float((seed >> (dot_index * 3 + 1)) % 19) - 9.0
-		var rr: float = 2.0 + float((seed + dot_index * 7) % 4)
-		draw_circle(p + Vector2(dx, dy), rr, base_color)
-	if here in ["floresta", "campos", "vale"]:
-		draw_line(p + Vector2(-9, 10), p + Vector2(-6, 1), Color(.31, .5, .24, .5), 1)
-		draw_line(p + Vector2(7, 9), p + Vector2(5, 2), Color(.43, .62, .29, .45), 1)
 
 func draw_approved_visual(key: String, ground: Vector2, scale_factor: float = .58, tint: Color = Color.WHITE) -> void:
 	if not approved_visuals.has(key):
@@ -1266,41 +1243,6 @@ func draw_world_structure(entry: Dictionary) -> void:
 	draw_texture(tex, center - Vector2(sz.x * .5, sz.y - 18.0))
 	draw_label(str(entry["label"]), center + Vector2(-90, -sz.y + 1), Color(1, .9, .65))
 
-func draw_settlement(center: Vector2, label: String, roof_color: Color) -> void:
-	# Pequenos assentamentos agora têm casas, cercas, poço e jardim em vez de três blocos simples.
-	var house_positions: Array[Vector2] = [Vector2(-118, 14), Vector2(0, -26), Vector2(118, 20)]
-	for index in range(house_positions.size()):
-		var p: Vector2 = center + house_positions[index]
-		draw_shadow_oval(p + Vector2(10, 31), Vector2(42, 13), Color(0, 0, 0, .24))
-		draw_rect(Rect2(p - Vector2(31, 17), Vector2(62, 48)), Color(.67, .54, .38))
-		draw_rect(Rect2(p - Vector2(31, 17), Vector2(62, 5)), Color(.45, .31, .22))
-		draw_line(p + Vector2(-22, -12), p + Vector2(-22, 25), Color(.38, .25, .18), 3)
-		draw_line(p + Vector2(22, -12), p + Vector2(22, 25), Color(.38, .25, .18), 3)
-		draw_colored_polygon(PackedVector2Array([p + Vector2(-41, -14), p + Vector2(0, -55), p + Vector2(41, -14)]), roof_color.darkened(.22))
-		draw_colored_polygon(PackedVector2Array([p + Vector2(-36, -16), p + Vector2(0, -50), p + Vector2(36, -16)]), roof_color)
-		draw_line(p + Vector2(-25, -22), p + Vector2(0, -47), roof_color.lightened(.28), 2)
-		draw_rect(Rect2(p + Vector2(-8, 2), Vector2(16, 29)), Color(.3, .2, .15))
-		draw_rect(Rect2(p + Vector2(-25, -3), Vector2(12, 10)), Color(.31, .68, .76))
-		draw_line(p + Vector2(-19, -2), p + Vector2(-19, 6), Color(.9, .86, .62), 1)
-		if index != 1:
-			draw_rect(Rect2(p + Vector2(21, -43), Vector2(8, 20)), Color(.43, .3, .25))
-	# Cerca baixa e jardim deixam o assentamento integrado ao terreno.
-	for side in [-1.0, 1.0]:
-		var fx: float = center.x + side * 176.0
-		draw_line(Vector2(fx, center.y + 16), Vector2(fx, center.y + 94), Color(.46, .31, .19), 3)
-		for fy in range(24, 95, 18):
-			draw_line(Vector2(fx - 7, center.y + fy), Vector2(fx + 7, center.y + fy), Color(.66, .46, .26), 2)
-	var well: Vector2 = center + Vector2(0, 75)
-	draw_shadow_oval(well + Vector2(2, 6), Vector2(20, 7), Color(0, 0, 0, .18))
-	draw_circle(well, 17, Color(.38, .34, .32))
-	draw_circle(well, 12, Color(.52, .49, .43))
-	draw_circle(well, 8, Color(.18, .43, .55))
-	for flower_index in 10:
-		var angle: float = TAU * float(flower_index) / 10.0
-		var fp: Vector2 = center + Vector2(cos(angle) * 82.0, 70.0 + sin(angle) * 23.0)
-		draw_circle(fp, 2.0, Color(1, .8 if flower_index % 2 == 0 else .55, .72))
-	draw_label(label, center + Vector2(-90, -100))
-
 func draw_animals(camera: Vector2) -> void:
 	for creature in animals:
 		var p: Vector2 = creature["pos"]
@@ -1360,65 +1302,6 @@ func draw_town_life(camera: Vector2) -> void:
 		var src: Rect2 = Rect2(Vector2(frame * 48, direction * 56), Vector2(48, 56))
 		var tint: Color = [Color(.9, .75, .65), Color(.68, .86, .76), Color(.76, .72, .95), Color(.95, .8, .55)][i % 4]
 		draw_texture_rect_region(textures["hero_body"], Rect2(p - Vector2(17, 37), Vector2(34, 40)), src, tint)
-	# Mercado pequeno junto ao eixo principal.
-	for stall_data in [
-		[MAP.TOWN + Vector2(735, 570), Color(.62, .24, .3)],
-		[MAP.TOWN + Vector2(1070, 570), Color(.23, .42, .62)]
-	]:
-		var stall: Vector2 = stall_data[0] as Vector2
-		var cloth: Color = stall_data[1] as Color
-		draw_shadow_oval(stall + Vector2(0, 19), Vector2(38, 10), Color(0, 0, 0, .22))
-		draw_rect(Rect2(stall + Vector2(-34, -2), Vector2(68, 30)), Color(.48, .3, .18))
-		draw_colored_polygon(PackedVector2Array([stall + Vector2(-42, -2), stall + Vector2(-31, -27), stall + Vector2(31, -27), stall + Vector2(42, -2)]), cloth)
-		for item_index in 4:
-			draw_circle(stall + Vector2(-24 + item_index * 16, 5), 4, Color(1, .72 if item_index % 2 else .4, .28))
-	# Lampiões na avenida.
-	for local_y in [220.0, 390.0, 610.0, 770.0]:
-		for local_x in [810.0, 970.0]:
-			var lamp: Vector2 = MAP.TOWN + Vector2(local_x, local_y)
-			draw_line(lamp, lamp + Vector2(0, 24), Color(.28, .2, .16), 3)
-			draw_circle(lamp, 8, Color(1, .72, .25, .15))
-			draw_circle(lamp, 4, Color(1, .78, .3, .85))
-
-func draw_region_story_props(camera: Vector2) -> void:
-	var biome_name: String = MAP.biome(player)
-	if biome_name in ["campos", "vale"]:
-		for bale in [Vector2(430, 1910), Vector2(615, 2035), Vector2(1510, 1950), Vector2(1750, 2110)]:
-			if Rect2(camera - Vector2(30, 30), VIEW_SIZE + Vector2(60, 60)).has_point(bale):
-				draw_shadow_oval(bale + Vector2(2, 7), Vector2(15, 5), Color(0, 0, 0, .16))
-				draw_rect(Rect2(bale - Vector2(15, 9), Vector2(30, 18)), Color(.75, .58, .24))
-				draw_line(bale + Vector2(-13, -3), bale + Vector2(13, -3), Color(.96, .78, .34), 2)
-		for cart in [Vector2(760, 1870), Vector2(1320, 2100)]:
-			if Rect2(camera - Vector2(60, 40), VIEW_SIZE + Vector2(120, 80)).has_point(cart):
-				draw_rect(Rect2(cart - Vector2(28, 13), Vector2(56, 24)), Color(.45, .28, .16))
-				draw_circle(cart + Vector2(-20, 16), 9, Color(.22, .16, .13))
-				draw_circle(cart + Vector2(20, 16), 9, Color(.22, .16, .13))
-				draw_line(cart + Vector2(28, 0), cart + Vector2(54, -10), Color(.45, .28, .16), 4)
-	elif biome_name == "gelo":
-		for drift in [Vector2(2500, 330), Vector2(2780, 430), Vector2(2460, 690)]:
-			if Rect2(camera - Vector2(40, 40), VIEW_SIZE + Vector2(80, 80)).has_point(drift):
-				draw_colored_polygon(PackedVector2Array([drift + Vector2(-28, 9), drift + Vector2(-7, -8), drift + Vector2(15, -3), drift + Vector2(31, 9)]), Color(.9, .97, 1, .8))
-		var camp: Vector2 = Vector2(2685, 690)
-		if Rect2(camera - Vector2(60, 60), VIEW_SIZE + Vector2(120, 120)).has_point(camp):
-			draw_circle(camp, 14, Color(.98, .33, .08, .12))
-			draw_line(camp + Vector2(-10, 7), camp + Vector2(10, -7), Color(.35, .23, .16), 4)
-			draw_line(camp + Vector2(-10, -7), camp + Vector2(10, 7), Color(.35, .23, .16), 4)
-			draw_circle(camp + Vector2(0, -5), 7 + sin(time_acc * 7.0), Color(1, .55, .16, .85))
-	elif biome_name == "deserto":
-		for bones in [Vector2(2520, 1750), Vector2(2830, 2010), Vector2(2380, 1920)]:
-			if Rect2(camera - Vector2(50, 50), VIEW_SIZE + Vector2(100, 100)).has_point(bones):
-				draw_line(bones + Vector2(-12, -3), bones + Vector2(12, 3), Color(.85, .78, .61), 3)
-				draw_line(bones + Vector2(-8, 7), bones + Vector2(9, -8), Color(.85, .78, .61), 3)
-		var camp2: Vector2 = Vector2(2760, 1690)
-		if Rect2(camera - Vector2(80, 80), VIEW_SIZE + Vector2(160, 160)).has_point(camp2):
-			draw_colored_polygon(PackedVector2Array([camp2 + Vector2(-50, 25), camp2 + Vector2(0, -32), camp2 + Vector2(50, 25)]), Color(.7, .29, .27))
-			draw_colored_polygon(PackedVector2Array([camp2 + Vector2(-36, 21), camp2 + Vector2(0, -20), camp2 + Vector2(36, 21)]), Color(.92, .63, .35))
-	elif biome_name == "floresta":
-		for log in [Vector2(250, 620), Vector2(630, 920), Vector2(470, 1180)]:
-			if Rect2(camera - Vector2(60, 60), VIEW_SIZE + Vector2(120, 120)).has_point(log):
-				draw_shadow_oval(log + Vector2(3, 8), Vector2(28, 7), Color(0, 0, 0, .16))
-				draw_line(log + Vector2(-26, 2), log + Vector2(27, -4), Color(.37, .23, .15), 11)
-				draw_circle(log + Vector2(-26, 2), 7, Color(.59, .38, .2))
 
 func draw_world_minimap() -> void:
 	var origin: Vector2 = Vector2(353, 145)
@@ -1441,6 +1324,13 @@ func draw_world_minimap() -> void:
 			if MAP.river_at(p):
 				color = Color(.31, .69, .79)
 			draw_rect(Rect2(origin + Vector2(mx * 7.5, my * 7.46), Vector2(8, 8)), color)
+	for poi_value in REG.pois_in_zone("cidade"):
+		var map_poi: Dictionary = poi_value
+		if not bool(map_poi.get("show_label", true)) or not REG.has_mark("visited", str(map_poi["id"])):
+			continue
+		var poi_color: Color = Color(1, .8, .95) if str(map_poi["kind"]) == "elite" else Color(1, .93, .55) if str(map_poi["kind"]) in ["settlement", "camp", "shrine"] else Color(.7, .95, 1)
+		draw_circle(origin + (map_poi["pos"] as Vector2) * scale, 2.6, Color(.1, .05, .16))
+		draw_circle(origin + (map_poi["pos"] as Vector2) * scale, 1.7, poi_color)
 	var pulse: float = 4.0 + sin(time_acc * 6.0) * 1.5
 	draw_circle(origin + player * scale, pulse + 2, Color(.1, .05, .16))
 	draw_circle(origin + player * scale, pulse, Color(1, .3, .35))
@@ -1495,29 +1385,51 @@ func draw_dungeon() -> void:
 	draw_label("CÂMARA DO GUARDIÃO", Vector2(395, 92), Color(.86, .7, 1))
 	draw_label("↓ SAÍDA", Vector2(409, 805))
 
+func draw_crypt() -> void:
+	# Cripta Esquecida: pisos/paredes/arcos APPROVED + módulos modelados de dungeon (objetos da zona).
+	for row in 28:
+		for column in 16:
+			var ground: Vector2 = Vector2(35.0 + column * 70.0 + float(row % 2) * 35.0, 74.0 + row * 35.0)
+			var seed: int = MAP.cell_hash(column + 2100, row + 2300)
+			draw_approved_visual("dungeon_floor_broken" if seed % 6 == 0 else "dungeon_floor_stone", ground, .58)
+	for wall_value in REG.crypt_walls:
+		var wall_rect: Rect2 = wall_value
+		var wx: float = wall_rect.position.x + 45.0
+		while wx < wall_rect.end.x - 10.0:
+			draw_approved_visual("dungeon_wall", Vector2(wx, wall_rect.end.y + 6.0), .58)
+			wx += 100.0
+	draw_approved_visual("dungeon_corner", Vector2(60, 330), .52)
+	draw_approved_visual("dungeon_corner", Vector2(900, 330), .52)
+	draw_label("CRIPTA ESQUECIDA", Vector2(390, 88), Color(.86, .7, 1))
+	draw_label("↓ SAÍDA", Vector2(409, 872))
+
 func draw_interior() -> void:
 	var room_size: Vector2 = FORGE_SIZE if zone == "ferreiro" else SIZE
+	var floor_main: Texture2D = MODELED.texture("int_floor_wood_dark" if zone == "ferreiro" else "int_floor_wood")
+	var floor_alt: Texture2D = floor_main
 	for row in 31:
 		for column in 23:
 			var ground: Vector2 = Vector2(35.0 + column * 70.0 + float(row % 2) * 35.0, 72.0 + row * 35.0)
 			if ground.x > room_size.x + 90.0 or ground.y > room_size.y + 90.0:
 				continue
 			var seed: int = MAP.cell_hash(column + 1300, row + 1500)
-			draw_approved_visual("city_floor_moss" if seed % 13 == 0 else "city_floor_worn" if seed % 4 == 0 else "city_floor_clean", ground, .58)
+			if floor_main != null:
+				var floor_tex: Texture2D = floor_alt if seed % 6 == 0 else floor_main
+				draw_texture_rect(floor_tex, Rect2(ground - Vector2(124.0 * .58, 140.0 * .58), Vector2(248.0, 140.0) * .58), false)
+			else:
+				draw_approved_visual("city_floor_moss" if seed % 13 == 0 else "city_floor_worn" if seed % 4 == 0 else "city_floor_clean", ground, .58)
 	for wall_index in 9:
 		draw_approved_visual("city_wall_vegetation" if wall_index % 4 == 0 else "city_wall", Vector2(120.0 + wall_index * 110.0, 190), .52)
 	if zone == "loja":
-		draw_approved_visual("city_store", Vector2(480, 475), .72)
+		draw_interior_person(Vector2(520, 500), Color(.9, .78, .6), 4)
 	elif zone == "guilda":
 		draw_approved_visual("city_gate", Vector2(480, 350), .58)
 		draw_interior_person(Vector2(335, 500), Color(.78, .68, .9), 4)
 		draw_interior_person(Vector2(625, 500), Color(.65, .82, .7), 4)
 	elif zone == "ferreiro":
-		# O prédio de ferreiro do lote está HOLD; não é renderizado.
-		draw_interior_person(Vector2(480, 480), Color(.82, .68, .55), 0)
+		draw_interior_person(Vector2(700, 500), Color(.82, .68, .55), 0)
 	elif zone == "alquimia":
-		# Props de alquimia aguardam aprovação; ambiente usa apenas arquitetura aprovada.
-		draw_interior_person(Vector2(480, 480), Color(.64, .52, .86), 0)
+		draw_interior_person(Vector2(480, 500), Color(.64, .52, .86), 0)
 	draw_label(zone.to_upper(), Vector2(400, 113))
 	draw_label("E conversar  •  ↓ sair", Vector2(386, 637), Color.WHITE)
 
@@ -1531,13 +1443,17 @@ func draw_enemy(enemy: Dictionary, camera: Vector2) -> void:
 	# v0.6: folha completa de 40 quadros = idle, caminhada, ataque, dano e morte.
 	var p: Vector2 = enemy["pos"]
 	var kind: String = enemy["kind"]
-	var size: float = float(ENEMY_FRAME_SIZE.get(kind, 36.0))
+	var elite: bool = enemy.has("elite")
+	var size: float = float(ENEMY_FRAME_SIZE.get(kind, 36.0)) * (1.32 if elite else 1.0)
 	var boss: bool = kind == "Guardião"
 	var dead: bool = bool(enemy.get("dead", false))
 	var state: String = "death" if dead else str(enemy.get("state", "idle"))
 	if not ENEMY_STATE_ROW.has(state):
 		state = "idle"
 	draw_shadow_oval(p + Vector2(0, 11), Vector2(24, 7) if boss else Vector2(15, 5), Color(0, 0, 0, .35 if not dead else .18))
+	if elite and not dead:
+		draw_circle(p + Vector2(0, 4), 25, Color(1, .75, .3, .16))
+		draw_arc(p + Vector2(0, 4), 25 + sin(time_acc * 4.0) * 2.0, 0, TAU, 28, Color(1, .8, .35, .6), 2)
 	if boss and not dead:
 		var boss_action: String = str(enemy.get("boss_action", ""))
 		if boss_action == "shockwave":
@@ -1564,9 +1480,11 @@ func draw_enemy(enemy: Dictionary, camera: Vector2) -> void:
 	draw_texture_rect_region(textures[sheet_name], Rect2(anchor, Vector2(size, size)), Rect2(frame * size, row * size, size, size), tint)
 	draw_set_transform(-camera)
 	var max_life: int = maxi(1, int(enemy.get("max_hp", monster_health(kind))))
-	if not dead and (int(enemy.get("hp", max_life)) < max_life or boss):
-		var w: float = 48.0 if boss else 32.0
-		var top: Vector2 = p + Vector2(-w * .5, -58.0 if boss else -32.0)
+	if not dead and (int(enemy.get("hp", max_life)) < max_life or boss or elite):
+		var w: float = 48.0 if (boss or elite) else 32.0
+		var top: Vector2 = p + Vector2(-w * .5, -58.0 if boss else -46.0 if elite else -32.0)
+		if elite:
+			draw_label("★ " + str(enemy.get("elite_name", "Elite")), top + Vector2(w * .5 - 90.0, -6.0), Color(1, .82, .5))
 		draw_rect(Rect2(top - Vector2(1, 1), Vector2(w + 2, 6)), Color(.1, .05, .16))
 		draw_rect(Rect2(top, Vector2(w, 4)), Color(.3, .1, .16))
 		var life_ratio: float = clampf(float(enemy.get("hp", max_life)) / float(max_life), 0.0, 1.0)

@@ -16,5 +16,11 @@ Elyndor vive a Guerra da Coroa Oca há 23 anos. O protagonista é um humano da T
 - REG_001: mapa híbrido, vegetação procedural controlada e pontos narrativos manuais.
 - Árvores: refinadas, sombreadas, com sombra de contato e boa leitura mobile.
 
+## Estado REG_001 (Etapa 1 concluída)
+- Mundo manual em dados: `game/data/reg001_world.json` (fonte: `game/tools/reg001/build_world.py`); runtime em `game/scripts/reg001_*.gd`.
+- Assets modelados: `game/assets/modeled` + `game/data/modeled_assets_manifest.json` (fonte: `game/tools/modeling`). **Pendentes de gate visual do Diretor.**
+- Catálogo APPROVED/INTEGRATED/MISSING/NOT_USED: `docs/catalog/REG001_ASSET_CATALOG.md`; IDs: `docs/planning/CRONICAS_VALEDOURO_REG001_WORLD_IDS_v1.md`.
+- Relatório e gate: `docs/checkpoints/CHECKPOINT_REG001_ETAPA1.md`; capturas: `docs/visual_qa/reg001/`.
+
 ## Próximo marco
 Primeira build jogável: cidade, área externa, 2 inimigos, loot, inventário/equipamento, dungeon curta, Guardião e save/load.

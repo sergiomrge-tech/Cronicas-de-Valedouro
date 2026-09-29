@@ -1,0 +1,2743 @@
+{
+ "schema_version": 1,
+ "catalog_id": "CAT_REG001_STAGE1_001",
+ "policy": {
+  "renderer_uses": [
+   "APPROVED",
+   "MODELED_PENDING_GATE",
+   "LEGACY_BASELINE (inalterado desde v0.6)"
+  ],
+  "never_in_renderer": [
+   "REWORKED",
+   "HOLD"
+  ],
+  "excluded_counts": {
+   "REWORKED": 61,
+   "HOLD": 22
+  },
+  "note": "MODELED_PENDING_GATE aguarda o gate visual do Diretor; altere o status no manifesto para removê-lo do renderer."
+ },
+ "counts": {
+  "APPROVED": {
+   "INTEGRATED": 27,
+   "NOT_USED": 1
+  },
+  "MODELED_PENDING_GATE": {
+   "INTEGRATED": 130,
+   "NOT_USED": 19
+  },
+  "LEGACY_BASELINE": {
+   "INTEGRATED": 119
+  }
+ },
+ "missing_approved_asset": [
+  {
+   "id": "MISSING_NPC_ARTISTS",
+   "need": "NPCs viajantes/ambientais e moradores com sprite APPROVED (hoje: hero_body tingido, LEGACY_BASELINE)",
+   "used_by": "REG001_POI_VIAJANTE_NORTE, REG001_POI_ESTACAO_LESTE, assentamentos"
+  },
+  {
+   "id": "MISSING_FAUNA_APPROVED",
+   "need": "Fauna APPROVED: cervo, raposa, lebre, cabra, camelo, ave, peixe (hoje: sprites legados)",
+   "used_by": "populate_animals / fauna por bioma"
+  },
+  {
+   "id": "MISSING_STRUCT_WATCHTOWER",
+   "need": "Torre de vigia APPROVED (mirantes Oeste/Norte)",
+   "used_by": "REG001_POI_MIRANTE_OESTE, REG001_POI_MIRANTE_NORTE"
+  },
+  {
+   "id": "MISSING_STRUCT_WINDMILL",
+   "need": "Moinho APPROVED",
+   "used_by": "Moinho do Vale"
+  },
+  {
+   "id": "MISSING_STRUCT_OUTPOST",
+   "need": "Posto de Âmbar e Abrigo da Geada APPROVED",
+   "used_by": "STRUCTURES legadas"
+  },
+  {
+   "id": "MISSING_STRUCT_SHRINE",
+   "need": "Santuário APPROVED (hoje: sprite legado + altar modelado)",
+   "used_by": "REG001_POI_SANTUARIO_VALE"
+  },
+  {
+   "id": "MISSING_GROUND_TILES",
+   "need": "Tiles de chão APPROVED para grama, areia, neve, terra, estrada e água rasa/profunda (hoje: tiles legados 32 px)",
+   "used_by": "ground_at / draw loop"
+  },
+  {
+   "id": "MISSING_WATERFALL_CLIFF",
+   "need": "Cachoeira/penhasco APPROVED (hoje: efeito animado + rochas modeladas)",
+   "used_by": "Cachoeira da Aurora"
+  },
+  {
+   "id": "MISSING_CROPS",
+   "need": "Plantações/canteiros APPROVED para fazendas",
+   "used_by": "REG001_POI_FAZENDA"
+  },
+  {
+   "id": "MISSING_BOAT_DOCK",
+   "need": "Barcos, cais e docas APPROVED",
+   "used_by": "rio / cais leste"
+  },
+  {
+   "id": "MISSING_HILL_ELEVATION",
+   "need": "Peças de colina/elevação/falésia APPROVED (Colinas do Leste)",
+   "used_by": "REG001_POI_ESTACAO_LESTE"
+  },
+  {
+   "id": "MISSING_CAVE_ENTRANCE",
+   "need": "Entrada de caverna em rocha APPROVED para dungeons ao ar livre (hoje: portcullis + estátuas modeladas)",
+   "used_by": "REG001_POI_CRIPTA_ENTRADA"
+  },
+  {
+   "id": "MISSING_INTERIOR_WALLS_APPROVED",
+   "need": "Paredes/portas/janelas internas APPROVED específicas (hoje: paredes de Cidade APPROVED + kit modelado)",
+   "used_by": "guilda/ferreiro/loja/alquimia"
+  },
+  {
+   "id": "MISSING_HERO_ANIM_FX",
+   "need": "FX de interação (abrir baú, colher, cavar) APPROVED",
+   "used_by": "gameplay REG_001"
+  }
+ ],
+ "ids": {
+  "pois": [
+   "REG001_POI_CAMP_LENHADOR",
+   "REG001_POI_CHEST_LENHADOR",
+   "REG001_POI_CASA_ABANDONADA",
+   "REG001_POI_CHEST_CASA",
+   "REG001_POI_MIRANTE_OESTE",
+   "REG001_POI_ANCIAO_CLAREIRA",
+   "REG001_POI_CHEST_ANCIAO",
+   "REG001_POI_SEGREDO_MATA",
+   "REG001_POI_CHEST_SEGREDO_MATA",
+   "REG001_POI_RES_ERVA_A",
+   "REG001_POI_RES_ERVA_B",
+   "REG001_POI_RES_MINERIO_A",
+   "REG001_POI_RES_CRISTAL_A",
+   "REG001_POI_RUINAS_PRIMEIRO_VENTO",
+   "REG001_POI_ELITE_BOSQUE",
+   "REG001_POI_CHEST_ELITE_BOSQUE",
+   "REG001_POI_MIRANTE_NORTE",
+   "REG001_POI_VIAJANTE_NORTE",
+   "REG001_POI_VILA_CAMPOS",
+   "REG001_POI_FAZENDA",
+   "REG001_POI_PORTAO_FAZENDA",
+   "REG001_POI_CHEST_FAZENDA",
+   "REG001_POI_ALDEIA_VALE",
+   "REG001_POI_SANTUARIO_VALE",
+   "REG001_POI_ELITE_VALE",
+   "REG001_POI_CHEST_ELITE_VALE",
+   "REG001_POI_CRIPTA_ENTRADA",
+   "REG001_POI_POUSO_GEADA",
+   "REG001_POI_CANYON_GELO",
+   "REG001_POI_ELITE_GELO",
+   "REG001_POI_CHEST_ELITE_GELO",
+   "REG001_POI_SEGREDO_GELO",
+   "REG001_POI_CHEST_SEGREDO_GELO",
+   "REG001_POI_RES_CRISTAL_GELO_A",
+   "REG001_POI_RES_CRISTAL_GELO_B",
+   "REG001_POI_MIRANTE_GELO",
+   "REG001_POI_ESTACAO_LESTE",
+   "REG001_POI_CARAVANA",
+   "REG001_POI_RUINAS_DUNAS",
+   "REG001_POI_TRAP_DUNAS_A",
+   "REG001_POI_TRAP_DUNAS_B",
+   "REG001_POI_CHEST_DUNAS",
+   "REG001_POI_OASIS",
+   "REG001_POI_CHEST_OASIS",
+   "REG001_POI_SEGREDO_DUNA",
+   "REG001_POI_CHEST_SEGREDO_DUNA",
+   "REG001_POI_RES_AMBAR_A",
+   "REG001_POI_RES_AMBAR_B",
+   "REG001_POI_DG_CHECKPOINT",
+   "REG001_POI_DG_ELITE",
+   "REG001_POI_DG_CHEST",
+   "REG001_POI_BOSQUE_ELITE",
+   "REG001_POI_BOSQUE_CHEST",
+   "REG001_POI_BOSQUE_CAMP",
+   "REG001_POI_CRIPTA_CHECKPOINT",
+   "REG001_POI_CRIPTA_ELITE",
+   "REG001_POI_CRIPTA_ALTAR",
+   "REG001_POI_CRIPTA_CHEST",
+   "REG001_POI_CRIPTA_TRAP_1",
+   "REG001_POI_CRIPTA_TRAP_2",
+   "REG001_POI_CRIPTA_TRAP_3"
+  ],
+  "transitions": [
+   "REG001_TR_CIDADE_CAMPOS",
+   "REG001_TR_CAMPOS_FLORESTA",
+   "REG001_TR_FLORESTA_VALE",
+   "REG001_TR_CIDADE_VALE",
+   "REG001_TR_CIDADE_FLORESTA",
+   "REG001_TR_FLORESTA_GELO",
+   "REG001_TR_COLINAS_GELO",
+   "REG001_TR_COLINAS_DESERTO",
+   "REG001_TR_VALE_DESERTO",
+   "REG001_TR_CAMPOS_DESERTO"
+  ],
+  "trails": [
+   "REG001_TRAIL_LENHADOR",
+   "REG001_TRAIL_CASA",
+   "REG001_TRAIL_MIRANTE",
+   "REG001_TRAIL_RUINAS",
+   "REG001_TRAIL_ANCIAO",
+   "REG001_TRAIL_CAMPOS",
+   "REG001_TRAIL_FAZENDA",
+   "REG001_TRAIL_ALDEIA",
+   "REG001_TRAIL_MOINHO",
+   "REG001_TRAIL_SANTUARIO",
+   "REG001_TRAIL_CRIPTA",
+   "REG001_TRAIL_VALE_ELITE",
+   "REG001_TRAIL_VALE_FORD",
+   "REG001_TRAIL_GELO_ELITE",
+   "REG001_TRAIL_POUSO",
+   "REG001_TRAIL_ABRIGO",
+   "REG001_TRAIL_COLINAS",
+   "REG001_TRAIL_CARAVANA",
+   "REG001_TRAIL_DUNAS",
+   "REG001_TRAIL_OASIS"
+  ],
+  "passages": [
+   "REG001_PASS_FAZENDA",
+   "REG001_PASS_VAU_SUL",
+   "REG001_PASS_VAU_CENTRAL"
+  ],
+  "lore": [
+   "REG001_LORE_01",
+   "REG001_LORE_02",
+   "REG001_LORE_03",
+   "REG001_LORE_04",
+   "REG001_LORE_05",
+   "REG001_LORE_06",
+   "REG001_LORE_07",
+   "REG001_LORE_08",
+   "REG001_LORE_09",
+   "REG001_LORE_10",
+   "REG001_LORE_11",
+   "REG001_LORE_12"
+  ],
+  "object_count": 493
+ },
+ "entries": [
+  {
+   "id": "APP_CITY_FLOOR_STONE_CLEAN",
+   "key": "city_floor_clean",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_FLOOR_STONE_WORN",
+   "key": "city_floor_worn",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_FLOOR_STONE_MOSS",
+   "key": "city_floor_moss",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_WATER_EDGE",
+   "key": "city_water_edge",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "NOT_USED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_WALL_STRAIGHT",
+   "key": "city_wall",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_WALL_VEGETATION",
+   "key": "city_wall_vegetation",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_GATE_LARGE",
+   "key": "city_gate",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_HOUSE_DOOR",
+   "key": "city_house_door",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_HOUSE_WINDOW",
+   "key": "city_house_window",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_ROOF_BLUE",
+   "key": "city_roof_blue",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_ROOF_RED",
+   "key": "city_roof_red",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_ROOF_WOOD",
+   "key": "city_roof_wood",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_STORE",
+   "key": "city_store",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_TREE_GREEN",
+   "key": "city_tree_green",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_CITY_TREE_AUTUMN",
+   "key": "city_tree_autumn",
+   "group": "city",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_FLOOR_STONE",
+   "key": "dungeon_floor_stone",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_FLOOR_BROKEN",
+   "key": "dungeon_floor_broken",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_WALL_STRAIGHT",
+   "key": "dungeon_wall",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_CORNER_INSIDE",
+   "key": "dungeon_corner",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_ARCH",
+   "key": "dungeon_arch",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_DOOR",
+   "key": "dungeon_door",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_RAIL_STRAIGHT",
+   "key": "dungeon_rail",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_CRYSTAL_BLUE",
+   "key": "dungeon_crystal_blue",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_CRYSTAL_PURPLE",
+   "key": "dungeon_crystal_purple",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_TORCH",
+   "key": "dungeon_torch",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_EMISSIVE_CRYSTAL",
+   "key": "dungeon_emissive_crystal",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_SPIKES",
+   "key": "dungeon_spikes",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "APP_DUNGEON_CORRIDOR_STRAIGHT",
+   "key": "dungeon_corridor",
+   "group": "dungeon",
+   "approval": "APPROVED",
+   "usage": "INTEGRATED",
+   "source": "approved_assets_bundle (Lote 01, QA Claude)"
+  },
+  {
+   "id": "MOD_CITY_BANNER_BLUE",
+   "key": "city_banner_blue",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_BANNER_RED",
+   "key": "city_banner_red",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_BARRELS",
+   "key": "city_barrels",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_BENCH",
+   "key": "city_bench",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_CART_MARKET",
+   "key": "city_cart_market",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_CRATES",
+   "key": "city_crates",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_FOUNTAIN",
+   "key": "city_fountain",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_LAMP_POST_A",
+   "key": "city_lamp_post_a",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 8,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_LAMP_POST_B",
+   "key": "city_lamp_post_b",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_MONUMENT",
+   "key": "city_monument",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_PLANTER",
+   "key": "city_planter",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_SIGN_HANGING",
+   "key": "city_sign_hanging",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_STAIRS",
+   "key": "city_stairs",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_STALL_BLUE",
+   "key": "city_stall_blue",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_CITY_STALL_STRIPED",
+   "key": "city_stall_striped",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_ALTAR_DARK",
+   "key": "dg_altar_dark",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_BARREL_OLD",
+   "key": "dg_barrel_old",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_BONES_PILE",
+   "key": "dg_bones_pile",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_BOSS_GATE",
+   "key": "dg_boss_gate",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_BRAZIER",
+   "key": "dg_brazier",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_CRATE_OLD",
+   "key": "dg_crate_old",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_CRYSTAL_CHECKPOINT",
+   "key": "dg_crystal_checkpoint",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_MUSHROOM_GLOW",
+   "key": "dg_mushroom_glow",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_PILLAR",
+   "key": "dg_pillar",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 14,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_PILLAR_BROKEN",
+   "key": "dg_pillar_broken",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_PORTCULLIS",
+   "key": "dg_portcullis",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_RUNE_CIRCLE",
+   "key": "dg_rune_circle",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_SARCOPHAGUS",
+   "key": "dg_sarcophagus",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_STAIRS",
+   "key": "dg_stairs",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_DG_STALAGMITES",
+   "key": "dg_stalagmites",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_ALCHEMY_TABLE",
+   "key": "int_alchemy_table",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_ANVIL",
+   "key": "int_anvil",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_ARMOR_STAND",
+   "key": "int_armor_stand",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_BED",
+   "key": "int_bed",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_BOOKSHELF",
+   "key": "int_bookshelf",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_CANDLE_STAND",
+   "key": "int_candle_stand",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_CAULDRON",
+   "key": "int_cauldron",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_CHAIR",
+   "key": "int_chair",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_COUNTER",
+   "key": "int_counter",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_DESK_GUILD",
+   "key": "int_desk_guild",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_FIREPLACE",
+   "key": "int_fireplace",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_FLOOR_CARPET",
+   "key": "int_floor_carpet",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_FLOOR_STONE",
+   "key": "int_floor_stone",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_FLOOR_WOOD",
+   "key": "int_floor_wood",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_FLOOR_WOOD_DARK",
+   "key": "int_floor_wood_dark",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_FORGE",
+   "key": "int_forge",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_QUEST_BOARD",
+   "key": "int_quest_board",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_RUG_ROUND",
+   "key": "int_rug_round",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_SACKS",
+   "key": "int_sacks",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_SHELF_GOODS",
+   "key": "int_shelf_goods",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_SHELF_POTIONS",
+   "key": "int_shelf_potions",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_STOOL",
+   "key": "int_stool",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_TABLE_LONG",
+   "key": "int_table_long",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_TABLE_ROUND",
+   "key": "int_table_round",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_WALL_DOOR_A",
+   "key": "int_wall_door_a",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_WALL_DOOR_B",
+   "key": "int_wall_door_b",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_WALL_PLAIN_A",
+   "key": "int_wall_plain_a",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_WALL_PLAIN_B",
+   "key": "int_wall_plain_b",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_WALL_WINDOW_A",
+   "key": "int_wall_window_a",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_WALL_WINDOW_B",
+   "key": "int_wall_window_b",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_WEAPON_RACK",
+   "key": "int_weapon_rack",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_INT_WORKBENCH",
+   "key": "int_workbench",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ALTAR_ANCIENT",
+   "key": "nat_altar_ancient",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ALTAR_SAND",
+   "key": "nat_altar_sand",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_BEDROLL",
+   "key": "nat_bedroll",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_BONES_DESERT",
+   "key": "nat_bones_desert",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 8,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_BOULDER_ICE",
+   "key": "nat_boulder_ice",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 11,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_BOULDER_SAND",
+   "key": "nat_boulder_sand",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_BUSH_BERRY",
+   "key": "nat_bush_berry",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_BUSH_DRY",
+   "key": "nat_bush_dry",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_BUSH_FLOWERING",
+   "key": "nat_bush_flowering",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 7,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_BUSH_FROST",
+   "key": "nat_bush_frost",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 7,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_BUSH_GREEN",
+   "key": "nat_bush_green",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 10,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_CACTUS_ROUND",
+   "key": "nat_cactus_round",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_CACTUS_TALL",
+   "key": "nat_cactus_tall",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 8,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_CAMPFIRE",
+   "key": "nat_campfire",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_CART_WOOD",
+   "key": "nat_cart_wood",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_CHEST_CLOSED",
+   "key": "nat_chest_closed",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_CHEST_OPEN",
+   "key": "nat_chest_open",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_CHEST_RARE",
+   "key": "nat_chest_rare",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 11,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_DECAL_DIRT_A",
+   "key": "nat_decal_dirt_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_DECAL_DRY_A",
+   "key": "nat_decal_dry_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_DECAL_GRASS_A",
+   "key": "nat_decal_grass_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_DECAL_GRASS_B",
+   "key": "nat_decal_grass_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_DECAL_MUD_BANK",
+   "key": "nat_decal_mud_bank",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_DECAL_SAND_A",
+   "key": "nat_decal_sand_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_DECAL_SAND_B",
+   "key": "nat_decal_sand_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_DECAL_SNOW_A",
+   "key": "nat_decal_snow_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_DECAL_SNOW_B",
+   "key": "nat_decal_snow_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_DUNE_LARGE",
+   "key": "nat_dune_large",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 11,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_DUNE_SMALL",
+   "key": "nat_dune_small",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_A",
+   "key": "nat_fence_broken_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_B",
+   "key": "nat_fence_broken_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_A",
+   "key": "nat_fence_wood_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 7,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_B",
+   "key": "nat_fence_wood_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 7,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_FISSURE",
+   "key": "nat_fissure",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_FLAG_BLUE",
+   "key": "nat_flag_blue",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_FLAG_RED",
+   "key": "nat_flag_red",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_FLOWERS_BLUE",
+   "key": "nat_flowers_blue",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_FLOWERS_MEADOW",
+   "key": "nat_flowers_meadow",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 12,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_FLOWERS_RED",
+   "key": "nat_flowers_red",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_FORD_STONES",
+   "key": "nat_ford_stones",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_GATE_WOOD",
+   "key": "nat_gate_wood",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_GRASS_DRY",
+   "key": "nat_grass_dry",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_GRASS_TALL",
+   "key": "nat_grass_tall",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_HAY_BALE",
+   "key": "nat_hay_bale",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_HAY_STACK",
+   "key": "nat_hay_stack",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ICE_SPIRE",
+   "key": "nat_ice_spire",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 7,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ICE_STONES",
+   "key": "nat_ice_stones",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_LOG_FALLEN",
+   "key": "nat_log_fallen",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_LOG_PILE",
+   "key": "nat_log_pile",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_MUSHROOMS",
+   "key": "nat_mushrooms",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_OBELISK_RUNE",
+   "key": "nat_obelisk_rune",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_PIT_TRAP",
+   "key": "nat_pit_trap",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_REEDS",
+   "key": "nat_reeds",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 14,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RES_CRYSTAL",
+   "key": "nat_res_crystal",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RES_HERB",
+   "key": "nat_res_herb",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RES_ORE",
+   "key": "nat_res_ore",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ROCK_BOULDER",
+   "key": "nat_rock_boulder",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 11,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ROCK_ICE",
+   "key": "nat_rock_ice",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ROCK_MEDIUM",
+   "key": "nat_rock_medium",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ROCK_MOSSY",
+   "key": "nat_rock_mossy",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 13,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ROCK_SAND",
+   "key": "nat_rock_sand",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 7,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ROCK_SMALL",
+   "key": "nat_rock_small",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ROCK_SNOW",
+   "key": "nat_rock_snow",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_ARCH",
+   "key": "nat_ruin_arch",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_ARCH_SAND",
+   "key": "nat_ruin_arch_sand",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_COLUMN",
+   "key": "nat_ruin_column",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_COLUMN_BROKEN",
+   "key": "nat_ruin_column_broken",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 9,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_COLUMN_SAND",
+   "key": "nat_ruin_column_sand",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_WALL",
+   "key": "nat_ruin_wall",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_WALL_SAND",
+   "key": "nat_ruin_wall_sand",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_SCARECROW",
+   "key": "nat_scarecrow",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_SIGNPOST",
+   "key": "nat_signpost",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_SNOW_MOUND",
+   "key": "nat_snow_mound",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_STATUE_GUARDIAN",
+   "key": "nat_statue_guardian",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_STUMP",
+   "key": "nat_stump",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_TENT_FROST",
+   "key": "nat_tent_frost",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_TENT_RED",
+   "key": "nat_tent_red",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_TENT_SMALL",
+   "key": "nat_tent_small",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_TRAP_PLATE",
+   "key": "nat_trap_plate",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_TREE_BIRCH",
+   "key": "nat_tree_birch",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_TREE_DEAD",
+   "key": "nat_tree_dead",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_TREE_PALM",
+   "key": "nat_tree_palm",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_TREE_PINE",
+   "key": "nat_tree_pine",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_TREE_PINE_SNOW",
+   "key": "nat_tree_pine_snow",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_A",
+   "key": "nat_wall_low_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_B",
+   "key": "nat_wall_low_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_WELL_STONE",
+   "key": "nat_well_stone",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "AST_V06_AMBER_BEETLE_FULL",
+   "key": "res://assets/amber_beetle_full.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BIRD",
+   "key": "res://assets/bird.png",
+   "group": "fauna",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BIRD_ANIM",
+   "key": "res://assets/bird_anim.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BOAR_FULL",
+   "key": "res://assets/boar_full.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BOSS",
+   "key": "res://assets/boss.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BOSS_ANIM",
+   "key": "res://assets/boss_anim.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BOSS_FULL",
+   "key": "res://assets/boss_full.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BRIDGE",
+   "key": "res://assets/bridge.png",
+   "group": "structure",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BTN_ATTACK",
+   "key": "res://assets/btn_attack.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BTN_BAG",
+   "key": "res://assets/btn_bag.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BTN_INTERACT",
+   "key": "res://assets/btn_interact.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BTN_MAP",
+   "key": "res://assets/btn_map.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BTN_POTION",
+   "key": "res://assets/btn_potion.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_BUSH",
+   "key": "res://assets/bush.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_CACTUS",
+   "key": "res://assets/cactus.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_CAMEL",
+   "key": "res://assets/camel.png",
+   "group": "fauna",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_DEAD_BUSH",
+   "key": "res://assets/dead_bush.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_DEER",
+   "key": "res://assets/deer.png",
+   "group": "fauna",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_DESERT_DUNE",
+   "key": "res://assets/desert_dune.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_DESERT_OUTPOST",
+   "key": "res://assets/desert_outpost.png",
+   "group": "structure",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_ARMOR_1",
+   "key": "res://assets/equip_armor_1.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_ARMOR_2",
+   "key": "res://assets/equip_armor_2.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_ARMOR_3",
+   "key": "res://assets/equip_armor_3.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_ARMOR_4",
+   "key": "res://assets/equip_armor_4.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_BOW_0",
+   "key": "res://assets/equip_bow_0.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_BOW_1",
+   "key": "res://assets/equip_bow_1.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_BOW_2",
+   "key": "res://assets/equip_bow_2.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_BOW_3",
+   "key": "res://assets/equip_bow_3.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_STAFF_0",
+   "key": "res://assets/equip_staff_0.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_STAFF_1",
+   "key": "res://assets/equip_staff_1.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_STAFF_2",
+   "key": "res://assets/equip_staff_2.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_STAFF_3",
+   "key": "res://assets/equip_staff_3.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_SWORD_0",
+   "key": "res://assets/equip_sword_0.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_SWORD_1",
+   "key": "res://assets/equip_sword_1.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_SWORD_2",
+   "key": "res://assets/equip_sword_2.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_EQUIP_SWORD_3",
+   "key": "res://assets/equip_sword_3.png",
+   "group": "equipment_icon",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_FISH",
+   "key": "res://assets/fish.png",
+   "group": "fauna",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_FLOWER",
+   "key": "res://assets/flower.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_FLOWER_BEAST_FULL",
+   "key": "res://assets/flower_beast_full.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_FONTS_PIXELIFYSANS",
+   "key": "res://assets/fonts/PixelifySans.ttf",
+   "group": "font",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_FOREST_ART",
+   "key": "res://assets/forest_art.png",
+   "group": "environment_art",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_FORGE_ART",
+   "key": "res://assets/forge_art.png",
+   "group": "environment_art",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_FOX",
+   "key": "res://assets/fox.png",
+   "group": "fauna",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_FROST_TREE",
+   "key": "res://assets/frost_tree.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_GOAT",
+   "key": "res://assets/goat.png",
+   "group": "fauna",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_GRASS",
+   "key": "res://assets/grass.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_GRASS2",
+   "key": "res://assets/grass2.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HARE",
+   "key": "res://assets/hare.png",
+   "group": "fauna",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO",
+   "key": "res://assets/hero.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_ARMOR_1",
+   "key": "res://assets/hero_armor_1.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_ARMOR_2",
+   "key": "res://assets/hero_armor_2.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_ARMOR_3",
+   "key": "res://assets/hero_armor_3.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_ARMOR_4",
+   "key": "res://assets/hero_armor_4.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_BODY",
+   "key": "res://assets/hero_body.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_BOW_0",
+   "key": "res://assets/hero_bow_0.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_BOW_1",
+   "key": "res://assets/hero_bow_1.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_BOW_2",
+   "key": "res://assets/hero_bow_2.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_BOW_3",
+   "key": "res://assets/hero_bow_3.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_STAFF_0",
+   "key": "res://assets/hero_staff_0.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_STAFF_1",
+   "key": "res://assets/hero_staff_1.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_STAFF_2",
+   "key": "res://assets/hero_staff_2.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_STAFF_3",
+   "key": "res://assets/hero_staff_3.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_SWORD_0",
+   "key": "res://assets/hero_sword_0.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_SWORD_1",
+   "key": "res://assets/hero_sword_1.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_SWORD_2",
+   "key": "res://assets/hero_sword_2.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_SWORD_3",
+   "key": "res://assets/hero_sword_3.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_ICE_CRYSTAL",
+   "key": "res://assets/ice_crystal.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_ICE_GOLEM_FULL",
+   "key": "res://assets/ice_golem_full.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_ICE_LODGE",
+   "key": "res://assets/ice_lodge.png",
+   "group": "structure",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_ICE_ROCK",
+   "key": "res://assets/ice_rock.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_ICE_WOLF",
+   "key": "res://assets/ice_wolf.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_ICE_WOLF_ANIM",
+   "key": "res://assets/ice_wolf_anim.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_ICE_WOLF_FULL",
+   "key": "res://assets/ice_wolf_full.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_ICON_COIN",
+   "key": "res://assets/icon_coin.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_ICON_HEART",
+   "key": "res://assets/icon_heart.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_ICON_POTION",
+   "key": "res://assets/icon_potion.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_ICON_XP",
+   "key": "res://assets/icon_xp.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_MEADOW",
+   "key": "res://assets/meadow.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_OUTSKIRTS_GROUND",
+   "key": "res://assets/outskirts_ground.png",
+   "group": "environment_art",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_PATH",
+   "key": "res://assets/path.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_PATH_GROUND",
+   "key": "res://assets/path_ground.png",
+   "group": "environment_art",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_PINE",
+   "key": "res://assets/pine.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_PLANK",
+   "key": "res://assets/plank.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_REED",
+   "key": "res://assets/reed.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_RIVER",
+   "key": "res://assets/river.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_RIVERBANK",
+   "key": "res://assets/riverbank.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_ROOF",
+   "key": "res://assets/roof.png",
+   "group": "structure",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_RUIN_ARCH",
+   "key": "res://assets/ruin_arch.png",
+   "group": "structure",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SAND",
+   "key": "res://assets/sand.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SAND2",
+   "key": "res://assets/sand2.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SAND_ROCK",
+   "key": "res://assets/sand_rock.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SCORPION",
+   "key": "res://assets/scorpion.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SCORPION_ANIM",
+   "key": "res://assets/scorpion_anim.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SCORPION_FULL",
+   "key": "res://assets/scorpion_full.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SHALLOW_WATER",
+   "key": "res://assets/shallow_water.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SHRINE",
+   "key": "res://assets/shrine.png",
+   "group": "structure",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SLIME",
+   "key": "res://assets/slime.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SLIME_ANIM",
+   "key": "res://assets/slime_anim.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SLIME_FULL",
+   "key": "res://assets/slime_full.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SNOW",
+   "key": "res://assets/snow.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SNOW2",
+   "key": "res://assets/snow2.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_SPIDER_FULL",
+   "key": "res://assets/spider_full.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_STONE",
+   "key": "res://assets/stone.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_TREE",
+   "key": "res://assets/tree.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_UI_PORTRAIT",
+   "key": "res://assets/ui_portrait.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_UI_ROUND_BUTTON",
+   "key": "res://assets/ui_round_button.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_UI_WOOD_BUTTON",
+   "key": "res://assets/ui_wood_button.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_UI_WOOD_PANEL",
+   "key": "res://assets/ui_wood_panel.png",
+   "group": "ui",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_VALEDOURO_ART",
+   "key": "res://assets/valedouro_art.png",
+   "group": "environment_art",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_VALEDOURO_BLENDED",
+   "key": "res://assets/valedouro_blended.png",
+   "group": "environment_art",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_VALLEY_GRASS",
+   "key": "res://assets/valley_grass.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_VALLEY_ROCK",
+   "key": "res://assets/valley_rock.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_WALL",
+   "key": "res://assets/wall.png",
+   "group": "structure",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_WATCHTOWER",
+   "key": "res://assets/watchtower.png",
+   "group": "structure",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_WATER",
+   "key": "res://assets/water.png",
+   "group": "terrain_prop",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_WINDMILL",
+   "key": "res://assets/windmill.png",
+   "group": "structure",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_WOLF",
+   "key": "res://assets/wolf.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_WOLF_ANIM",
+   "key": "res://assets/wolf_anim.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_WOLF_FULL",
+   "key": "res://assets/wolf_full.png",
+   "group": "enemy",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  }
+ ]
+}

@@ -8,8 +8,8 @@ STONE = Mat(ramp('#3c2e3a', '#6e5a52', '#a08868', '#c8ae82', '#e6d0a0', '#f8ecc4
 STONE_PLAIN = Mat(ramp('#3c2e3a', '#6e5a52', '#a08868', '#c8ae82', '#e6d0a0', '#f8ecc4'), tex=tex_speckle(10, .16, 8), ambient=.34, bump=(6, .8), name='stone_plain')
 DSTONE = Mat(ramp('#12101e', '#2a2640', '#463e62', '#6a6088', '#948ab0', '#c0b8d8'), tex=tex_stone_blocks(3.2, .22, 9), ambient=.30, bump=(7, .8), name='stone_dungeon')
 DSTONE_PLAIN = Mat(ramp('#12101e', '#2a2640', '#463e62', '#6a6088', '#948ab0', '#c0b8d8'), tex=tex_speckle(9, .18, 12), ambient=.30, bump=(6, .9), name='dstone_plain')
-ROCK = Mat(ramp('#2a2230', '#4e4250', '#7c6a68', '#a8917e', '#d0bb9a', '#f0e2bc'), tex=tex_speckle(8, .2, 3), ambient=.32, bump=(4, 1.1), name='rock')
-ROCK_GREY = Mat(ramp('#1e1c2c', '#3a3a52', '#5e5e78', '#8a8aa0', '#b4b4c6', '#dcdce8'), tex=tex_speckle(8, .2, 4), ambient=.32, bump=(5, 1.0), name='rock_grey')
+ROCK = Mat(ramp('#2a2230', '#4e4250', '#7c6a68', '#a8917e', '#d0bb9a', '#f0e2bc'), tex=tex_speckle(8, .2, 3), ambient=.32, bump=(5, 1.7), name='rock')
+ROCK_GREY = Mat(ramp('#1e1c2c', '#3a3a52', '#5e5e78', '#8a8aa0', '#b4b4c6', '#dcdce8'), tex=tex_speckle(8, .2, 4), ambient=.32, bump=(5, 1.6), name='rock_grey')
 
 
 def moss_tint(ctx, col, tone):
@@ -35,9 +35,9 @@ def snow_tint(strength=1.0):
     return f
 
 
-ROCK_ICE = Mat(ramp('#1a2a58', '#2e4c88', '#5a86bc', '#8ec0e0', '#c4e8f6', '#f2fcff'), tex=tex_speckle(8, .18, 6), ambient=.36, bump=(5, .9), name='rock_ice')
+ROCK_ICE = Mat(ramp('#1a2a58', '#2e4c88', '#5a86bc', '#8ec0e0', '#c4e8f6', '#f2fcff'), tex=tex_speckle(8, .18, 6), ambient=.36, bump=(5, 1.5), name='rock_ice')
 ROCK_SNOW = Mat(ROCK_GREY.ramp, tex=tex_speckle(8, .2, 4), ambient=.34, bump=(5, 1.0), tint=snow_tint(), name='rock_snow')
-ROCK_SAND = Mat(ramp('#4a2a28', '#7e4a36', '#b87a4a', '#dea866', '#f4d08c', '#fff0be'), tex=tex_speckle(8, .2, 7), ambient=.36, bump=(5, .9), name='rock_sand')
+ROCK_SAND = Mat(ramp('#4a2a28', '#7e4a36', '#b87a4a', '#dea866', '#f4d08c', '#fff0be'), tex=tex_speckle(8, .2, 7), ambient=.36, bump=(5, 1.5), name='rock_sand')
 SANDSTONE = Mat(ramp('#4a2a28', '#7e4a36', '#b87a4a', '#dea866', '#f4d08c', '#fff0be'), tex=tex_stone_blocks(3.0, .2, 11), ambient=.36, bump=(7, .7), name='sandstone')
 
 # --- madeira
@@ -180,7 +180,7 @@ def facet(sc, c, r, mat, seed, squash=.75, nplanes=13, sx=1.0, sy=1.0, cut=0.0):
         a = rr.uniform(0, 6.283) if i >= 4 else i / 4 * 6.283 + rr.uniform(-.4, .4)
         h = math.sqrt(max(0.0, 1 - z * z))
         n = np.array([math.cos(a) * h / sx, math.sin(a) * h / sy, z / squash])
-        d = r * rr.uniform(.78, 1.02)
+        d = r * rr.uniform(.72, 1.02)
         nn = float(np.linalg.norm(n))
         n = n / nn
         cc = np.array([cx, cy, cz + r * squash * .35])
@@ -189,15 +189,17 @@ def facet(sc, c, r, mat, seed, squash=.75, nplanes=13, sx=1.0, sy=1.0, cut=0.0):
 
 
 def rock(sc, c, r, mat, seed, n=4, flat=.75):
-    """Aglomerado de rochas facetadas."""
+    """Aglomerado de rochas facetadas e irregulares (evita silhueta de tenda/pirâmide)."""
     rr = rng_for(seed)
     cx, cy, cz = c
-    facet(sc, (cx, cy, cz), r, mat, seed, squash=flat)
+    big = r > .6
+    facet(sc, (cx, cy, cz), r, mat, seed, squash=flat, nplanes=20 if big else 12, sx=rr.uniform(.85, 1.25), sy=rr.uniform(.85, 1.25))
     for i in range(1, n):
         a = rr.uniform(0, 6.283)
-        d = r * rr.uniform(.55, .95)
-        k = rr.uniform(.35, .62)
-        facet(sc, (cx + math.cos(a) * d, cy + math.sin(a) * d * .9, cz), r * k, mat, seed + i * 13, squash=flat * rr.uniform(.8, 1.1), nplanes=10)
+        d = r * rr.uniform(.25, .8)
+        k = rr.uniform(.3, .6)
+        z = cz + (r * flat * rr.uniform(.05, .45) if big else 0)
+        facet(sc, (cx + math.cos(a) * d, cy + math.sin(a) * d * .9, z), r * k, mat, seed + i * 13, squash=flat * rr.uniform(.7, 1.1), nplanes=12, sx=rr.uniform(.8, 1.3), sy=rr.uniform(.8, 1.3))
 
 
 def blade(sc, x, y, h, lean, mat, w=.05, seed=0):

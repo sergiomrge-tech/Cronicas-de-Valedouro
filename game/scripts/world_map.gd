@@ -6,15 +6,14 @@ const TOWN: Vector2 = Vector2(650, 680)
 const TOWN_BOUNDS: Rect2 = Rect2(TOWN, Vector2(1774, 887))
 const BRIDGE_Y: float = 1250.0 # compatibilidade com testes/saves antigos
 const BRIDGE_YS: Array[float] = [760.0, 1250.0, 1840.0]
+const REG = preload("res://scripts/reg001_world.gd")
 
 const STRUCTURES: Array[Dictionary] = [
 	{"pos": Vector2(360, 1110), "kind": "watchtower", "label": "TORRE DO OESTE", "radius": 42.0},
-	{"pos": Vector2(790, 365), "kind": "ruin_arch", "label": "ARCO DOS ANTIGOS", "radius": 38.0},
 	{"pos": Vector2(1320, 345), "kind": "watchtower", "label": "TORRE DO NORTE", "radius": 42.0},
 	{"pos": Vector2(1110, 1880), "kind": "windmill", "label": "MOINHO DO VALE", "radius": 50.0},
 	{"pos": Vector2(1660, 2010), "kind": "shrine", "label": "SANTUÁRIO DO VALE", "radius": 38.0},
 	{"pos": Vector2(2690, 1820), "kind": "desert_outpost", "label": "POSTO DE ÂMBAR", "radius": 54.0},
-	{"pos": Vector2(2420, 2070), "kind": "ruin_arch", "label": "RUÍNAS DAS DUNAS", "radius": 40.0},
 	{"pos": Vector2(2700, 600), "kind": "ice_lodge", "label": "ABRIGO DA GEADA", "radius": 54.0}
 ]
 
@@ -26,12 +25,12 @@ static func river_half_width(y: float) -> float:
 	return 48.0 + sin(y * 0.0041 + .6) * 8.0 + sin(y * 0.013) * 5.0
 
 static func river_at(p: Vector2) -> bool:
-	if p.y <= 242:
+	if p.y <= 242 or REG.ford_at(p):
 		return false
 	return absf(p.x - river_x(p.y)) < river_half_width(p.y)
 
 static func shallow_at(p: Vector2) -> bool:
-	if p.y <= 242 or bridge_at(p):
+	if p.y <= 242 or bridge_at(p) or REG.ford_at(p):
 		return false
 	var d: float = absf(p.x - river_x(p.y))
 	return d >= river_half_width(p.y) and d < river_half_width(p.y) + 12.0
@@ -92,11 +91,23 @@ static func path_at(p: Vector2) -> bool:
 	# Ramal baixo: vale -> dunas, cruza a ponte sul.
 	if p.y > 1790 and p.y < 1890 and p.x > 1450:
 		return true
-	return false
+	# Rotas secundárias e atalhos da REG_001 (dados em reg001_world.json).
+	return REG.trail_at(p)
+
+static func ground_biome(p: Vector2) -> String:
+	# Só para o piso: dispersa a fronteira dos biomas (±48 px) e evita a linha reta entre tiles de terreno.
+	var here: String = biome(p)
+	if here == "cidade":
+		return here
+	var h: int = cell_hash(int(p.x / 32) + 7, int(p.y / 32) + 13)
+	var other: String = biome(p + Vector2(float(h % 97) - 48.0, float((h / 97) % 97) - 48.0))
+	return other if other != "cidade" else here
 
 static func ground_at(p: Vector2) -> String:
 	if bridge_at(p):
 		return "bridge"
+	if p.y > 242 and REG.ford_at(p):
+		return "shallow_water" # vau: água rasa caminhável entre pedras
 	if river_at(p):
 		return "water"
 	if shallow_at(p):
@@ -105,7 +116,7 @@ static func ground_at(p: Vector2) -> String:
 		return "path"
 	if river_bank_at(p):
 		return "riverbank"
-	match biome(p):
+	match ground_biome(p):
 		"gelo": return "snow" if cell_hash(int(p.x / 32), int(p.y / 32)) % 5 else "snow2"
 		"deserto": return "sand" if cell_hash(int(p.x / 32), int(p.y / 32)) % 4 else "desert_dune"
 		"campos": return "meadow" if cell_hash(int(p.x / 32), int(p.y / 32)) % 4 else "grass2"
@@ -126,7 +137,7 @@ static func near_structure(p: Vector2, padding: float = 0.0) -> bool:
 
 static func prop_at(x: int, y: int) -> String:
 	var p: Vector2 = Vector2(x * 32 + 16, y * 32 + 16)
-	if town_area(p) or path_at(p) or river_at(p) or shallow_at(p) or bridge_at(p) or near_structure(p, 36.0):
+	if town_area(p) or path_at(p) or river_at(p) or shallow_at(p) or bridge_at(p) or near_structure(p, 36.0) or REG.clear_at(p):
 		return ""
 	var seed: int = cell_hash(x, y)
 	var local_seed: int = cell_hash(x + 17, y + 29)
@@ -143,36 +154,49 @@ static func prop_at(x: int, y: int) -> String:
 			if seed % 8 == 0: return "bush"
 			if seed % 17 == 0: return "flower"
 			if local_seed % 29 == 0: return "valley_rock"
+			if seed % 37 == 0: return "mushroom"
+			if local_seed % 53 == 0: return "log"
+			if seed % 61 == 0: return "stump"
 		"gelo":
 			if seed % 17 == 0: return "frost_tree"
 			if seed % 16 == 0: return "ice_rock"
 			if local_seed % 25 == 0: return "ice_crystal"
+			if seed % 13 == 0: return "snow_mound"
+			if local_seed % 23 == 0: return "bush"
 		"deserto":
 			if seed % 13 == 0: return "cactus"
 			if local_seed % 18 == 0: return "sand_rock"
 			if seed % 11 == 0: return "dead_bush"
+			if local_seed % 43 == 0: return "dune"
+			if seed % 47 == 0: return "bones"
 		"campos":
 			if seed % 19 == 0: return "tree"
 			if local_seed % 9 == 0: return "flower"
 			if seed % 15 == 0: return "bush"
 			if local_seed % 27 == 0: return "valley_rock"
+			if seed % 12 == 0: return "grass_tall"
 		"vale":
 			if seed % 17 == 0: return "tree"
 			if local_seed % 8 == 0: return "flower"
 			if seed % 18 == 0: return "valley_rock"
 			if local_seed % 13 == 0: return "bush"
+			if seed % 11 == 0: return "grass_tall"
 		"pradaria":
 			if seed % 16 == 0: return "bush"
 			if local_seed % 10 == 0: return "flower"
 			if seed % 31 == 0: return "tree"
+			if local_seed % 59 == 0: return "boulder"
+			if seed % 9 == 0: return "grass_tall"
 	return ""
 
 static func obstacle_at(p: Vector2) -> bool:
+	if REG.blocked_at(p):
+		return true
 	if town_area(p):
 		return false
 	if near_structure(p, -7.0):
 		return true
-	if (river_at(p) or shallow_at(p)) and not bridge_at(p):
+	if (river_at(p) or shallow_at(p)) and not bridge_at(p) and not REG.ford_at(p):
 		return true
 	# Células vizinhas bastam; a colisão fica no tronco/miolo, não na copa inteira.
 	var tx: int = int(p.x / 32)
@@ -180,9 +204,9 @@ static func obstacle_at(p: Vector2) -> bool:
 	for y in range(ty - 1, ty + 2):
 		for x in range(tx - 1, tx + 2):
 			var prop: String = prop_at(x, y)
-			if prop in ["tree", "pine", "frost_tree", "cactus", "ice_rock", "sand_rock", "ice_crystal", "valley_rock"]:
+			if prop in ["tree", "pine", "frost_tree", "cactus", "ice_rock", "sand_rock", "ice_crystal", "valley_rock", "log", "boulder"]:
 				var center: Vector2 = Vector2(x * 32 + 16, y * 32 + 16)
-				var radius: float = 15.0 if prop in ["pine", "tree", "frost_tree"] else 11.0
+				var radius: float = 15.0 if prop in ["pine", "tree", "frost_tree", "boulder", "log"] else 11.0
 				if center.distance_to(p) < radius:
 					return true
 	return false

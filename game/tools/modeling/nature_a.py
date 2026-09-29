@@ -193,13 +193,13 @@ def _rock_asset(id, mat, size, origin, seed, radius, n, blocks, tags, patch=None
 
 _rock_asset('nat_rock_small', ROCK, (110, 90), (55, 68), 41, .38, 3, None, ('todos', 'pedra'), 'grass')
 _rock_asset('nat_rock_medium', ROCK, (160, 130), (80, 100), 42, .65, 4, (13,), ('todos', 'pedra'), 'grass')
-_rock_asset('nat_rock_boulder', ROCK_GREY, (230, 190), (115, 152), 43, 1.1, 5, (24,), ('obstaculo', 'pedra'), 'grass', flat=.85)
+_rock_asset('nat_rock_boulder', ROCK_GREY, (230, 190), (115, 152), 43, 1.1, 6, (24,), ('obstaculo', 'pedra'), 'grass', flat=.68)
 _rock_asset('nat_rock_mossy', ROCK_MOSS, (170, 140), (85, 108), 44, .72, 4, (14,), ('floresta', 'vale', 'pedra'), 'grass')
 _rock_asset('nat_rock_ice', ROCK_ICE, (170, 140), (85, 108), 45, .72, 4, (14,), ('gelo', 'pedra'), 'snow')
 _rock_asset('nat_rock_snow', ROCK_SNOW, (170, 140), (85, 108), 46, .72, 4, (14,), ('gelo', 'pedra'), 'snow')
 _rock_asset('nat_rock_sand', ROCK_SAND, (170, 140), (85, 108), 47, .72, 4, (14,), ('deserto', 'pedra'), 'sand')
-_rock_asset('nat_boulder_sand', ROCK_SAND, (230, 190), (115, 152), 48, 1.1, 5, (24,), ('deserto', 'obstaculo', 'pedra'), 'sand', flat=.9)
-_rock_asset('nat_boulder_ice', ROCK_ICE, (230, 190), (115, 152), 49, 1.1, 5, (24,), ('gelo', 'obstaculo', 'pedra'), 'snow', flat=.9)
+_rock_asset('nat_boulder_sand', ROCK_SAND, (230, 190), (115, 152), 48, 1.1, 6, (24,), ('deserto', 'obstaculo', 'pedra'), 'sand', flat=.7)
+_rock_asset('nat_boulder_ice', ROCK_ICE, (230, 190), (115, 152), 49, 1.1, 6, (24,), ('gelo', 'obstaculo', 'pedra'), 'snow', flat=.7)
 
 
 @asset('nat_log_fallen', 'nature', 'wood', (230, 130), (115, 96), seed=51, blocks=(16,), tags=('floresta', 'obstaculo', 'tronco'))
