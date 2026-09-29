@@ -42,3 +42,10 @@ Gate de complexidade vs APPROVED (`docs/art/PRO_ART_COMPLEXITY_VS_APPROVED.json`
 
 ## Atualização final do dia (terreno + detalhe fino)
 Terreno: 18 decalques modelados, relevo macro, lábios de estrada/água, transições orgânicas (ver `docs/relatorios/RELATORIO_DIA_2026-09-29_PARA_GERENTE_GPT.md`, §4). Detalhe fino: passada de ID por objeto, texturas mais densas, falésias em estratos; gate de complexidade 2/17 → 4/17 (arestas 0,42× → 0,53× dos APPROVED). 14/14 testes Godot 4.7.2 PASS; 58 capturas reais em `docs/visual_qa/pro/game/`.
+
+## Atualização — transições de bioma, relevo e level design (2026-09-29)
+- **Transições harmônicas**: `ground_detail.harmonize` mistura a cor de baixa frequência entre famílias de bioma (sigma 60 px, faixa 90 px) e `blend_regions` + `warpL` tornam as fronteiras orgânicas. O bake exporta `game/data/reg001_biome_grid.json`; `world_map.veg_biome` e `reg001_procedural.build_chunk` usam a grade para misturar a vegetação do bioma vizinho de forma gradual (ecótono). Estrada de neve recolorida (menos contraste).
+- **Relevo**: gerador de formações em `build_world.py` (`poly`, `mesa`, `terraces`, `arc`, `best`) — 104 peças elevadas compostas (antes 45): muralha glacial, anfiteatro do Círculo de Gelo, garganta, cordilheira e terraços das colinas, cânion e mesas do deserto, cristas do vale, colinas dos campos, cristas do bosque. Vãos abrem sozinhos onde há trilha/POI/água.
+- **Level design**: `docs/planning/REG001_LEVEL_DESIGN.md` (foco, massas, espaço negativo, segredos por região).
+- **Validação**: 14/14 testes Godot em PASS (`reg001_world`: 870 objetos, 4975 células conectadas), capturas reais 59–66 e 16/17/21/50/51/57 em `docs/visual_qa/pro/game/`.
+- **Limites honestos**: relevo ainda usa o kit MODELED_PENDING_GATE (nenhuma promoção a APPROVED); algumas formações colocam menos peças que o ideal por causa de POIs/trilhas; ecótono de decalques específico e sombras projetadas do relevo ficam para a próxima etapa.
