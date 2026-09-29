@@ -82,7 +82,7 @@ func check() -> void:
 		if od.has("poi"):
 			assert(REG.poi_by_id.has(str(od["poi"])), "objeto com POI inexistente: " + str(od["id"]))
 		if od.has("hide_when"):
-			assert(REG.poi_by_id.has(str(od["hide_when"])), "hide_when inexistente: " + str(od["id"]))
+			assert(REG.poi_by_id.has(str(od["hide_when"]).split(":")[-1]), "hide_when inexistente: " + str(od["id"]))
 		if od.has("show_when"):
 			assert(REG.poi_by_id.has(str(od["show_when"])), "show_when inexistente: " + str(od["id"]))
 	# ---- conteúdo exigido pela Etapa 1

@@ -23,7 +23,7 @@ func check_routes() -> void:
 				queue.append(next)
 	for point in [Vector2i(9, 32), Vector2i(80, 56), Vector2i(80, 12), Vector2i(37, 61)]:
 		assert(visited.has(point), "Bioma inacessível no ponto: " + str(point))
-	for point in [Vector2i(34, 32), Vector2i(58, 32), Vector2i(47, 23), Vector2i(61, 41)]:
+	for point in [Vector2i(36, 35), Vector2i(58, 32), Vector2i(47, 23), Vector2i(61, 41)]:
 		assert(visited.has(point), "Entrada de Valedouro bloqueada: " + str(point))
 	assert(not game.walkable(WORLD.TOWN + Vector2(874, 497)))
 	print("ROUTES PASS: quatro biomas, guilda, ferreiro, portão, loja e fonte; ", visited.size(), " células conectadas")

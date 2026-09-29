@@ -28,7 +28,7 @@ func check() -> void:
 		var e: Dictionary = entries[id_value] as Dictionary
 		var id: String = str(id_value)
 		var known_prefix: bool = false
-		for prefix in ["nat_", "city_", "dg_", "int_", "ter_", "str_", "npc_", "fau_", "fx_"]:
+		for prefix in ["nat_", "city_", "dg_", "int_", "ter_", "str_", "npc_", "fau_", "fx_", "val_"]:
 			if id.begins_with(prefix):
 				known_prefix = true
 		assert(known_prefix, "prefixo inválido: " + id)
