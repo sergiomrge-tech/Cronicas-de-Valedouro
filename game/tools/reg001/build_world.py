@@ -80,9 +80,9 @@ W.obj('nat_flag_blue', 318, 1086, 'MIRANTE', poi='REG001_POI_MIRANTE_OESTE', ani
 W.obj('nat_signpost', 400, 1092, 'MIRANTE')
 W.obj('nat_flowers_meadow', 300, 1136, 'MIRANTE')
 
-# --- Clareira do Ancião (elite opcional)
-P('REG001_POI_ANCIAO_CLAREIRA', 'elite', 'CLAREIRA DO ANCIÃO', 300, 420, tier=2, layer='secondary', radius=170, region='floresta',
-  data={'enemy': 'Lobo', 'name': 'Lobo Ancião', 'hp_mult': 3.4, 'dmg_mult': 1.5, 'xp_mult': 4.0, 'gold_mult': 4.0, 'trigger': 210,
+# --- Clareira do Alfa (LOC_ALPHA_CLEARING, Q_MS01_ALPHA): arena do Alfa da Matilha (o mesmo padrão de Eco das ruínas)
+P('REG001_POI_ANCIAO_CLAREIRA', 'elite', 'CLAREIRA DO ALFA', 300, 420, tier=2, layer='secondary', radius=170, region='floresta',
+  data={'enemy': 'Lobo', 'name': 'Alfa da Matilha', 'hp_mult': 3.4, 'dmg_mult': 1.5, 'xp_mult': 4.0, 'gold_mult': 4.0, 'trigger': 210,
         'drop': {'materials': {'Couro de lobo': 3}}, 'chest': 'REG001_POI_CHEST_ANCIAO', 'lore': 'REG001_LORE_03'})
 for i in range(9):
     a = .35 + i / 9 * 2 * math.pi
@@ -94,6 +94,18 @@ W.obj('nat_stone_circle', 300, 432, 'ANCIAO', check=False)
 for i in range(3):
     a = i / 3 * 2 * math.pi + .9
     W.obj('nat_ruin_column_broken', 300 + math.cos(a) * 168, 432 + math.sin(a) * 118, 'ANCIAO')
+# LOTE 1: território da matilha — solo pisoteado com rastros, toca na rocha ao norte, ossos e crânios (somem depois do Alfa),
+# árvores retorcidas e árvore de arranhões; a entrada é a trilha estreita do sul (TRAIL_LENHADOR) e a saída fica aberta
+W.obj('val_trampled_earth', 300, 440, 'ANCIAO', layer='ground', scale=1.5, solid=False, check=False)
+W.obj('val_paw_tracks', 250, 560, 'ANCIAO', layer='ground', solid=False, check=False)
+W.obj('val_paw_tracks', 360, 520, 'ANCIAO', layer='ground', solid=False, check=False, flip=True)
+W.obj('val_wolf_den', 300, 250, 'ANCIAO', check=False)
+for _x, _y, _f in ((205, 372, False), (398, 396, True), (238, 500, False), (372, 468, True)):
+    W.obj('val_pack_bones', _x, _y, 'ANCIAO', hide_when='elites:REG001_POI_ANCIAO_CLAREIRA', solid=False, check=False, flip=_f)
+W.obj('val_wolf_bones', 320, 552, 'ANCIAO', solid=False, check=False)
+W.obj('nat_tree_dead', 132, 470, 'ANCIAO')
+W.obj('nat_tree_dead', 448, 360, 'ANCIAO')
+W.obj('nat_log_fallen', 150, 350, 'ANCIAO')
 W.obj('nat_chest_rare', 300, 330, 'ANCIAO', poi='REG001_POI_CHEST_ANCIAO')
 W.obj('nat_mushrooms', 250, 470, 'ANCIAO')
 W.obj('nat_bones_desert', 350, 478, 'ANCIAO', solid=False)
@@ -128,23 +140,19 @@ P('REG001_POI_RUINAS_PRIMEIRO_VENTO', 'lore', 'RUÍNAS DO PRIMEIRO VENTO', 790, 
 W.obj('nat_ruin_arch', 790, 345, 'RUINAS', poi='REG001_POI_RUINAS_PRIMEIRO_VENTO', solid=False)
 W.collider('circle', 748, 350, 16)
 W.collider('circle', 832, 350, 16)
-W.obj('nat_altar_ancient', 790, 428, 'RUINAS', poi='REG001_POI_RUINAS_PRIMEIRO_VENTO', anim=1)
 W.obj('nat_obelisk_rune', 690, 380, 'RUINAS', anim=1)
 W.obj('nat_obelisk_rune', 890, 384, 'RUINAS', anim=1)
 W.obj('nat_statue_guardian', 738, 302, 'RUINAS')
-# Portão do Primeiro Limiar: entrada da masmorra do Guardião, encaixada na rocha logo além do arco dos antigos
-# (rota principal Cidade -> Bosque -> Ruínas -> Dungeon; a sala de baixo é a arena do Guardião)
-P('REG001_POI_MASMORRA_ENTRADA', 'entrance', 'PORTÃO DO PRIMEIRO LIMIAR', 790, 298, tier=2, layer='main', radius=56, clear=70, region='floresta',
-  data={'zone': 'masmorra', 'entry': [476, 745], 'text': 'Além do arco dos antigos, uma grade de pedra range na rocha. O Guardião aguarda lá embaixo. Entrar?'})
-W.obj('dg_portcullis', 790, 296, 'RUINAS', poi='REG001_POI_MASMORRA_ENTRADA', solid=False)
 W.obj('nat_statue_guardian', 842, 304, 'RUINAS', flip=True)
-W.obj('APP:dungeon_torch', 752, 322, 'RUINAS', scale=.44, solid=False)
-W.obj('APP:dungeon_torch', 828, 322, 'RUINAS', scale=.44, solid=False)
-W.collider('rect', 745, 268, 34, 26)
-W.collider('rect', 800, 268, 34, 26)
-# moldura de relevo: paredão atrás e nos flancos (o portão está dentro da rocha, não solto no mato)
-for _a, _x, _y in (('nat_cliff_corner_rock', 790, 236), ('nat_wall_cliff_rock_b', 706, 268), ('nat_wall_cliff_rock_a', 874, 268),
-                   ('nat_cliff_end_rock_bp', 660, 318), ('nat_cliff_end_rock_am', 920, 322), ('nat_hill_low_rock', 712, 214), ('nat_hill_low_rock', 870, 210)):
+# LOTE 1 / LOC_FIRST_WIND_RUINS (Cena 2): mais antigo que Valedouro. Piso circular rachado, mecanismo de pedra com placa de Eco,
+# parede de inscrições acesa (assinatura "A." danificada, só sugerida), arcos com raízes e um paredão de rocha ao fundo (ruína numa encosta).
+W.obj('val_ruin_floor_circle', 790, 425, 'RUINAS', layer='ground', scale=1.25, solid=False, check=False)
+W.obj('val_ruin_mechanism', 790, 428, 'RUINAS', poi='REG001_POI_RUINAS_PRIMEIRO_VENTO', anim=1, check=False)
+W.obj('val_ruin_inscription_wall', 790, 296, 'RUINAS', check=False)
+W.obj('val_ruin_root_arch', 935, 410, 'RUINAS', check=False)
+W.obj('val_ruin_root_arch', 648, 440, 'RUINAS', check=False, flip=True)
+W.obj('val_ruin_inscription_wall', 690, 520, 'RUINAS', check=False, flip=True, scale=.8)
+for _a, _x, _y in (('nat_cliff_corner_rock', 790, 226), ('nat_cliff_end_rock_bp', 690, 250), ('nat_cliff_end_rock_am', 890, 254), ('nat_hill_low_rock', 712, 200), ('nat_hill_low_rock', 870, 196)):
     W.obj(_a, _x, _y, 'RUINAS_R', check=False, **({'solid': False} if 'hill_low' in _a else {}))
 W.obj('nat_ruin_wall', 700, 470, 'RUINAS')
 W.obj('nat_ruin_wall', 880, 476, 'RUINAS')
@@ -201,7 +209,8 @@ trail('REG001_TRAIL_FAZENDA', [(540, 1880), (440, 1950), (310, 1972)], note='rot
 trail('REG001_TRAIL_ALDEIA', [(1536, 1770), (1490, 1752), (1440, 1752)], note='ramal da estrada sul à Aldeia do Vale')
 trail('REG001_TRAIL_MOINHO', [(1440, 1752), (1330, 1752), (1240, 1850), (1150, 1880)], note='rota da aldeia ao moinho')
 trail('REG001_TRAIL_SANTUARIO', [(1536, 1990), (1600, 2000), (1640, 2005)], note='ramal ao santuário')
-trail('REG001_TRAIL_CRIPTA', [(1150, 1910), (1170, 2060), (1215, 2150)], note='rota da cripta esquecida (mini-dungeon opcional)')
+trail('REG001_TRAIL_CRIPTA', [(1150, 1910), (1085, 2040), (1075, 2170), (1160, 2222), (1225, 2225)], note='rota da Mina do Eco: contorna o talude pelo oeste e chega à boca da mina pela frente')
+trail('REG001_TRAIL_GALERIA', [(1225, 2225), (1330, 2232), (1400, 2225)], note='ramal da mina à galeria antiga selada (cripta opcional)')
 trail('REG001_TRAIL_VALE_ELITE', [(1590, 2110), (1700, 2165), (1800, 2150)], note='rota ao elite do vale')
 trail('REG001_TRAIL_VALE_FORD', [(1590, 1900), (1760, 1890), (1900, 2000), (1965, 2100)], note='rota ao vau do sul')
 
@@ -276,22 +285,37 @@ P('REG001_POI_CHEST_ELITE_VALE', 'chest', 'BAÚ DA FLOR ANCIÃ', 1810, 2090, tie
   data={'requires_elite': 'REG001_POI_ELITE_VALE', 'loot': {'gold': 130, 'materials': {'Seiva voraz': 4}, 'item': item('Arco do Sol Nascente', 'bow', 2, 6, 3, 9, 0), 'potions': 2}})
 
 # --- Cripta Esquecida: entrada do mini-dungeon opcional
-P('REG001_POI_CRIPTA_ENTRADA', 'entrance', 'CRIPTA ESQUECIDA', 1225, 2185, tier=2, layer='secondary', radius=110, region='vale',
-  data={'zone': 'cripta', 'entry': [480, 800], 'text': 'Uma grade rangente guarda a Cripta Esquecida. Entrar?'})
-W.obj('dg_portcullis', 1225, 2178, 'CRIPTA', poi='REG001_POI_CRIPTA_ENTRADA', solid=False)
-W.collider('rect', 1180, 2140, 40, 30)
-W.collider('rect', 1236, 2140, 40, 30)
-W.obj('nat_statue_guardian', 1145, 2180, 'CRIPTA')
-W.obj('nat_statue_guardian', 1305, 2184, 'CRIPTA', flip=True)
-W.obj('nat_rock_boulder', 1090, 2160, 'CRIPTA')
-W.obj('nat_rock_boulder', 1350, 2150, 'CRIPTA')
-W.obj('APP:dungeon_torch', 1188, 2196, 'CRIPTA', scale=.44, solid=False)
-W.obj('APP:dungeon_torch', 1262, 2196, 'CRIPTA', scale=.44, solid=False)
-W.obj('nat_ruin_column_broken', 1310, 2245, 'CRIPTA')
-W.emitter('sparkle', 1225, 2150, 50)
-# moldura de relevo: a cripta está escavada num flanco de colina (paredões laterais e ao fundo), a trilha chega pelo vão
-for _a, _x, _y in (('nat_wall_cliff_rock_b', 1082, 2176), ('nat_wall_cliff_rock_a', 1372, 2176), ('nat_cliff_end_rock_am', 1050, 2124), ('nat_cliff_end_rock_bp', 1402, 2126), ('nat_hill_low_rock', 1150, 2262), ('nat_hill_low_rock', 1305, 2262)):
-    W.obj(_a, _x, _y, 'CRIPTA_R', check=False, **({'solid': False} if 'hill_low' in _a else {}))
+# LOTE 1 / LOC_ECHO_MINE (Q_MS01_MINE): a Mina do Eco, "abaixo de Valedouro" (sul), no talude do Vale. A boca de madeira e pedra vira
+# o portão da masmorra do Guardião (interior = mina em 3 zonas + Núcleo do Eco). O POI mantém o ID persistente do canon (existing_poi).
+P('REG001_POI_CRIPTA_ENTRADA', 'entrance', 'MINA DO ECO', 1225, 2190, tier=2, layer='secondary', radius=90, region='vale',
+  data={'zone': 'masmorra', 'entry': [476, 745], 'text': 'A boca da antiga Mina do Eco range ao vento. Inscrições que ninguém decifrou brilham lá no fundo. Entrar?'})
+W.obj('val_mine_portal', 1225, 2150, 'MINA', poi='REG001_POI_CRIPTA_ENTRADA', check=False)
+W.emitter('sparkle', 1225, 2135, 50)
+# complexo exterior: trilhos que saem da boca, vagonete, guincho sobre o poço, pilhas de minério, lampiões, depósito de suprimentos
+W.obj('val_mine_rails_a', 1196, 2208, 'MINA', layer='ground', solid=False, check=False)
+W.obj('val_mine_rails_a', 1128, 2242, 'MINA', layer='ground', solid=False, check=False)
+W.obj('val_mine_cart', 1092, 2262, 'MINA', check=False)
+W.obj('val_mine_winch', 1000, 2180, 'MINA', check=False)
+W.obj('val_ore_pile', 1330, 2150, 'MINA', check=False)
+W.obj('val_ore_pile', 1128, 2112, 'MINA', check=False, flip=True)
+W.obj('val_mine_lantern_post', 1150, 2200, 'MINA', solid=False, check=False)
+W.obj('val_mine_lantern_post', 1300, 2205, 'MINA', solid=False, check=False)
+W.obj('val_supply_stack', 1290, 2262, 'MINA', check=False)
+W.obj('nat_signpost', 1022, 2112, 'MINA')
+W.obj('val_warning_post', 1180, 2255, 'MINA', check=False)
+# galeria antiga selada: a Cripta Esquecida (opcional) é um túnel lateral da própria mina, fechado por grade de pedra
+P('REG001_POI_GALERIA_ANTIGA', 'entrance', 'GALERIA ANTIGA', 1400, 2215, tier=2, layer='secondary', radius=70, region='vale',
+  data={'zone': 'cripta', 'entry': [480, 800], 'text': 'Uma grade de pedra selou esta galeria muito antes dos mineiros. Entrar?'})
+W.obj('dg_portcullis', 1400, 2205, 'MINA', poi='REG001_POI_GALERIA_ANTIGA', solid=False)
+W.obj('nat_statue_guardian', 1352, 2210, 'MINA')
+W.obj('nat_statue_guardian', 1448, 2214, 'MINA', flip=True)
+W.obj('APP:dungeon_torch', 1372, 2230, 'MINA', scale=.44, solid=False)
+W.obj('APP:dungeon_torch', 1430, 2230, 'MINA', scale=.44, solid=False)
+W.collider('rect', 1380, 2172, 40, 26)
+# moldura de relevo: talude ao redor da boca e da galeria (não ao longo da trilha)
+for _a, _x, _y in (('nat_cliff_end_rock_bp', 1050, 2100), ('nat_wall_cliff_rock_a', 1440, 2160), ('nat_cliff_end_rock_am', 1500, 2200),
+                   ('nat_hill_low_rock', 1165, 2075), ('nat_hill_low_rock', 1295, 2075), ('nat_hill_low_rock', 1150, 2290)):
+    W.obj(_a, _x, _y, 'MINA_R', check=False, **({'solid': False} if 'hill_low' in _a else {}))
 
 # ============================================================================================
 # GELO (Picos de Gelo)
@@ -488,8 +512,6 @@ def town(asset, x, y, group='CIDADE', **kw):
     W.obj(asset, wx, wy, group, check=False, **kw)
 
 
-town('city_banner_blue', 760, 190)
-town('city_banner_blue', 1010, 190)
 for x, y in [(810, 220), (970, 220), (810, 390), (970, 390), (810, 610), (970, 610), (810, 770), (970, 770)]:
     town('city_lamp_post_a', x, y)
 town('city_stall_striped', 735, 590)
@@ -499,8 +521,6 @@ town('city_fountain', 874, 497, anim=1)
 town('city_barrels', 1180, 460)
 town('city_crates', 1370, 470)
 town('city_barrels', 540, 465)
-town('city_planter', 430, 395)
-town('city_planter', 500, 395)
 town('city_planter', 1195, 400)
 town('city_planter', 1275, 400)
 town('city_planter', 425, 690)
@@ -511,7 +531,6 @@ town('city_bench', 780, 545)
 town('city_bench', 990, 545)
 town('city_monument', 875, 330)
 town('city_sign_hanging', 400, 388)
-town('int_quest_board', 545, 405, scale=.85)          # QUEST 03: quadro de contratos da Guilda (Contrato dos Lobos)
 town('city_sign_hanging', 1160, 388)
 town('city_sign_hanging', 1360, 676)
 town('city_sign_hanging', 396, 682)
@@ -617,6 +636,25 @@ room('loja', 'int_stool', 380, 480)
 room('loja', 'city_barrels', 840, 610)
 room('loja', 'int_candle_stand', 520, 320, anim=1)
 
+# Arquivo das Seis Coroas (interior): estantes altas, mesa de mapas de Elyndor, atris, pedestal do Fragmento do Primeiro Mapa (Cena 3)
+for _x in (190, 330, 630, 770):
+    room('arquivo', 'val_archive_shelf_tall', _x, 300)
+room('arquivo', 'val_map_fragment_pedestal', 480, 340, anim=1)
+room('arquivo', 'val_archive_map_table', 480, 470)
+room('arquivo', 'val_archive_lectern', 330, 520)
+room('arquivo', 'val_archive_lectern', 640, 520)
+room('arquivo', 'int_rug_round', 480, 560, layer='ground', scale=2.0)
+room('arquivo', 'int_candle_stand', 230, 470, anim=1)
+room('arquivo', 'int_candle_stand', 730, 470, anim=1)
+room('arquivo', 'city_banner_blue', 120, 300)
+room('arquivo', 'city_banner_blue', 850, 300)
+room('arquivo', 'int_table_long', 800, 540)
+room('arquivo', 'int_chair', 760, 575)
+room('arquivo', 'int_chair', 850, 575)
+room('arquivo', 'val_crown_monument', 130, 560, scale=1.0)
+room('arquivo', 'int_bookshelf', 110, 430)
+room('arquivo', 'city_planter', 850, 430)
+
 # ============================================================================================
 # MASMORRA DO GUARDIÃO — ambientação com módulos modelados (layout em coordenadas locais)
 # ============================================================================================
@@ -626,21 +664,61 @@ def dg(asset, x, y, **kw):
     W.obj(asset, x, y, 'DG', zone='masmorra', check=False, **kw)
 
 
-for px, py in [(6, 8), (11, 8), (18, 8), (24, 8), (6, 13), (11, 13), (18, 13), (24, 13), (6, 19), (11, 19), (18, 19), (24, 19)]:
-    dg('dg_pillar' if (px + py) % 3 else 'dg_pillar_broken', px * 32 + 16, py * 32 + 32, solid=False)
-dg('dg_rune_circle', 480, 300, layer='ground', anim=1)
-for bx in (285, 675):
-    dg('dg_brazier', bx, 275, anim=1)
-dg('dg_sarcophagus', 150, 520)
-dg('dg_sarcophagus', 810, 520, flip=True)
-dg('dg_bones_pile', 300, 600)
-dg('dg_bones_pile', 690, 610)
-dg('dg_barrel_old', 140, 690)
-dg('dg_crate_old', 190, 700)
-dg('dg_stalagmites', 120, 400)
-dg('dg_stalagmites', 850, 400)
+# LOTE 1 / LOC_ECHO_MINE + LOC_ECHO_MINE_CORE: a mina em três zonas, de baixo (entrada, y≈750) para cima (arena, y≈240):
+#   Zona 1 mineração comum (y>600): galeria com trilhos, vagonete, lampiões, minério, maquinário;
+#   Zona 2 mineração antiga (y 425-600): nichos laterais com o elite e sarcófagos, vigas velhas, primeiros veios de Eco;
+#   Zona 3 contato com o Eco (y<425): paredes de rocha com fissuras luminosas, cristais, anéis rúnicos no piso e o Núcleo do Eco.
+MINE_WALLS = [  # (x, y, largura, altura) — colisão e paredes visuais (segmentos de rocha a cada ~100 px)
+    (40, 585, 330, 34, 0), (590, 585, 330, 34, 0),      # divisa zona 1 / zona 2 (vão central 370-590)
+    (40, 425, 260, 34, 1), (660, 425, 260, 34, 1),      # divisa zona 2 / arena (vão central 300-660)
+]
+for _x, _y, _w, _h, _eco in MINE_WALLS:
+    W.collider('rect', _x, _y, _w, _h, zone='masmorra')
+    for _i in range(int(_w // 100) + 1):
+        _wx = _x + 50 + _i * (_w - 100) / max(1, int(_w // 100))
+        dg('val_mine_rock_wall_eco' if _eco else 'val_mine_rock_wall', _wx, _y + _h + 6, solid=False)
+for _k in range(9):     # parede de fundo da arena (norte), com o vão da porta atrás do Guardião
+    _wx = 60 + _k * 105
+    if 400 < _wx < 560:
+        continue
+    dg('val_mine_rock_wall_eco', _wx, 200, solid=False)
+dg('val_mine_beam_arch', 480, 618, solid=False)          # boca da zona 2 (madeira nova)
+dg('val_mine_beam_arch', 330, 790, solid=False)
+dg('val_mine_beam_arch', 630, 790, solid=False)
+# zona 1
+dg('val_mine_rails_a', 545, 680, layer='ground')
+dg('val_mine_rails_a', 477, 714, layer='ground')
+dg('val_mine_rails_a', 409, 748, layer='ground')
+dg('val_mine_cart', 385, 700, solid=False)
+dg('val_mine_machine', 820, 640)
+dg('val_mine_lantern_post', 330, 660, solid=False)
+dg('val_mine_lantern_post', 640, 690, solid=False)
+dg('val_ore_pile', 130, 700, solid=False)
+dg('val_ore_pile', 840, 745, solid=False, flip=True)
+dg('dg_barrel_old', 140, 640)
+dg('dg_crate_old', 190, 660)
 dg('dg_mushroom_glow', 110, 770, anim=1)
 dg('dg_mushroom_glow', 860, 770, anim=1)
+# zona 2
+dg('dg_sarcophagus', 150, 520)
+dg('dg_sarcophagus', 810, 520, flip=True)
+dg('dg_bones_pile', 330, 540)
+dg('dg_bones_pile', 640, 545)
+dg('val_eco_vein', 90, 470, solid=False)
+dg('val_eco_vein', 870, 470, solid=False, flip=True)
+dg('val_mine_beam_arch', 250, 560, solid=False, scale=.8)
+dg('dg_stalagmites', 700, 470)
+# zona 3 / arena do Guardião: piso rúnico, núcleo ao fundo, cristais nas bordas, pilares como cobertura
+dg('val_core_floor_ring', 480, 320, layer='ground', scale=1.3, solid=False)
+dg('dg_rune_circle', 480, 300, layer='ground', anim=1)
+dg('val_eco_core', 480, 225, solid=False)
+for _x, _y, _f in ((110, 300, False), (850, 300, True), (130, 390, False), (830, 390, True)):
+    dg('val_eco_crystal_cluster', _x, _y, solid=False, flip=_f)
+for px, py in [(6, 8), (11, 8), (18, 8), (24, 8)]:
+    dg('dg_pillar' if (px + py) % 3 else 'dg_pillar_broken', px * 32 + 16, py * 32 + 32, solid=False)
+for bx in (285, 675):
+    dg('dg_brazier', bx, 275, anim=1)
+W.emitter('sparkle', 480, 300, 200, zone='masmorra')
 dg('dg_crystal_checkpoint', 760, 700, anim=1, poi='REG001_POI_DG_CHECKPOINT')
 P('REG001_POI_DG_CHECKPOINT', 'checkpoint', 'CRISTAL DE REPOUSO', 760, 700, zone='masmorra', tier=2, layer='main', radius=70, region='masmorra',
   data={'heal': True, 'hint': 'O cristal restaura suas forças.'})
@@ -830,10 +908,10 @@ def town_house(x, y, roof, group='CIDADE_CASAS'):
     W.house(TX + x, TY + y, roof, group)
 
 
-for _hx, _hy in ((485, 330), (1245, 340), (470, 615), (1280, 625)):     # casas de interior (desenhadas em main.gd)
+for _hx, _hy in ((1245, 340), (470, 615), (1280, 625)):     # casas de interior (desenhadas em main.gd)
     W.collider('rect', TX + _hx - 88, TY + _hy - 38, 176, 44)
 W.collider('rect', TX + 1570 - 70, TY + 630 - 36, 140, 40)           # loja decorativa
-for _hx, _hy, _roof in ((120, 300, 'city_roof_blue'), (275, 285, 'city_roof_wood'), (640, 335, 'city_roof_red'), (1075, 345, 'city_roof_wood'),
+for _hx, _hy, _roof in ((1075, 345, 'city_roof_wood'),
                         (1440, 330, 'city_roof_blue'), (1640, 300, 'city_roof_red'), (120, 640, 'city_roof_wood'), (285, 665, 'city_roof_blue'),
                         (640, 665, 'city_roof_red'), (1100, 690, 'city_roof_blue'), (1470, 690, 'city_roof_wood')):
     town_house(_hx, _hy, _roof)
@@ -866,7 +944,7 @@ for _x, _y, _roof, _grp, _poi in ((345, 1835, 'city_roof_red', 'VILA_C', 'REG001
 
 # árvores aprovadas: alamedas ao longo das ruas e jardins
 _rt = random.Random(4242)
-for _tx, _ty in ((370, 250), (525, 250), (760, 255), (1040, 250), (1200, 250), (1330, 250), (60, 470), (60, 700), (340, 520), (560, 560),
+for _tx, _ty in ((760, 255), (1040, 250), (1200, 250), (1330, 250), (60, 470), (60, 700), (340, 520), (560, 560),
                  (760, 720), (1130, 560), (1200, 740), (1400, 520), (1720, 640), (1720, 300), (700, 480), (1060, 470)):
     if _town_free(_tx, _ty, w=60, h=40, pad=0):
         W.obj('APP:city_tree_autumn' if _rt.random() < .25 else 'APP:city_tree_green', TX + _tx, TY + _ty, 'CIDADE_ARV', scale=.5, solid=False, check=False)
@@ -935,6 +1013,100 @@ for _t in TRAILS:
                 W.obj('nat_flag_red', _fx, _fy, 'BANDEIRAS', anim=1, solid=False, check=False)
                 _d += 150.0
             _acc = (_acc + _L) % 150.0
+
+# ============================================================================================
+# LOTE 1 — ATO I (Berço de Valedouro): Portão, Guilda, Arquivo, Estrada Norte
+# ============================================================================================
+# --- LOC_VAL_GATE: portão norte (por onde chega quem vem da Floresta da Queda). Muralha de pedra com portão de madeira reforçada,
+# duas torres com plataforma de vigia, muralha reparada/atacada nos flancos, barricadas e vigia do lado de fora, pátio de suprimentos por dentro.
+_GX = 883
+town('val_gate_main', _GX, 178)
+town('val_gate_tower', _GX - 142, 186)
+town('val_gate_tower', _GX + 142, 186)
+town('val_wall_repaired', _GX - 236, 182)
+town('val_wall_breach', _GX + 236, 182)
+town('val_banner_pole_tall', _GX - 300, 160)
+town('val_banner_pole_tall', _GX + 300, 160, flip=True)
+# lado de fora: barricadas que deixam a estrada livre, fogueira de vigia, cercas, carroça queimada, sinais de ataque
+town('val_barricade_a', _GX - 160, 112)
+town('val_barricade_a', _GX + 160, 112)
+town('val_barricade_b', _GX + 300, 128)
+town('nat_campfire', _GX - 232, 96, anim=1)
+town('nat_log_fallen', _GX - 270, 112, solid=False)
+town('nat_hay_bale', _GX + 232, 92)
+W.emitter('smoke', TX + _GX - 232, TY + 90, 20)
+town('val_cart_wrecked', _GX + 380, 96)
+town('val_warning_post', _GX + 110, 70, solid=False)
+town('nat_fence_wood_a', _GX - 470, 132)
+town('nat_fence_wood_b', _GX - 438, 148)
+town('nat_fence_wood_a', _GX + 470, 138)
+town('nat_fence_broken_b', _GX + 502, 122)
+# lado de dentro: suprimentos, caixas e barris junto às torres, lampiões ao longo da rua
+town('val_supply_stack', _GX - 210, 246)
+town('val_supply_stack', _GX + 215, 250, flip=True)
+town('city_barrels', _GX - 120, 236)
+town('city_crates', _GX + 120, 240)
+for _sx, _sy in ((_GX - 70, 116), (_GX + 70, 116)):
+    town('city_lamp_post_a', _sx, _sy, solid=False)
+# sentinelas do portão (visual + orientação; não alteram missão)
+P('REG001_POI_SENTINELA_PORTAO_A', 'npc', 'SENTINELA', TX + _GX - 118, TY + 214, tier=1, layer='secondary', radius=70, region='cidade', show_label=False,
+  data={'npc': 'guard', 'name': 'Sentinela', 'family': 'guard', 'lines': ['Sinos de guerra ao norte, outra vez. Fique na estrada e mantenha o portão às costas.', 'A Guilda fica à esquerda, depois do pátio.'],
+        'path': [[TX + _GX - 118, TY + 214], [TX + _GX - 96, TY + 226], [TX + _GX - 140, TY + 224]]})
+P('REG001_POI_SENTINELA_PORTAO_B', 'npc', 'SENTINELA', TX + _GX + 118, TY + 214, tier=1, layer='secondary', radius=70, region='cidade', show_label=False,
+  data={'npc': 'guard', 'name': 'Sentinela', 'family': 'guard', 'lines': ['O portão fecha ao anoitecer. Do lado de fora, as barricadas seguram o que aparecer.'],
+        'path': [[TX + _GX + 118, TY + 214], [TX + _GX + 140, TY + 226], [TX + _GX + 96, TY + 224]]})
+P('REG001_POI_VAL_GATE', 'landmark', 'PORTÃO DE VALEDOURO', TX + _GX, TY + 230, tier=1, layer='main', radius=60, region='cidade', show_label=False,
+  data={'hint': 'Portão de Valedouro: a cidade protegida de um lado, a guerra do outro.'})
+
+# --- LOC_VAL_GUILD: Guilda dos Aventureiros (salão de dois pavimentos, placa, toldo, depósito) + pátio de uso real
+_GLX = 520
+town('val_guild_hall', _GLX, 335)
+town('val_weapon_rack', _GLX - 150, 402)
+town('val_training_dummy', _GLX + 175, 420)
+town('val_training_dummy', _GLX + 225, 446, flip=True)
+town('val_notice_board', _GLX + 105, 410)
+town('city_bench', _GLX - 70, 462)
+town('city_bench', _GLX + 70, 462)
+town('city_barrels', _GLX - 190, 430)
+town('city_crates', _GLX + 250, 392)
+town('nat_well_stone', _GLX - 240, 470)
+town('city_lamp_post_b', _GLX - 100, 392, solid=False)
+town('city_lamp_post_b', _GLX + 100, 470, solid=False)
+W.emitter('smoke', TX + _GLX - 56, TY + 250, 16)
+
+# --- LOC_SIX_CROWNS_ARCHIVE: Arquivo das Seis Coroas (fachada de pedra nobre com seis coroas, pórtico, escadaria) + pátio organizado
+_ARX = 195
+town('val_archive_hall', _ARX, 335, scale=.82)
+town('val_archive_lamp', _ARX - 150, 410, solid=False)
+town('val_archive_lamp', _ARX + 150, 410, solid=False)
+town('val_crown_monument', _ARX + 170, 470)
+town('city_bench', _ARX - 90, 462)
+town('city_bench', _ARX + 40, 470)
+town('city_planter', _ARX - 150, 470)
+town('city_sign_hanging', _ARX + 100, 420)
+P('REG001_POI_ARQUIVO_SEIS_COROAS', 'landmark', 'ARQUIVO DAS SEIS COROAS', TX + _ARX, TY + 402, tier=1, layer='main', radius=60, region='cidade', show_label=True,
+  data={'hint': 'Arquivo das Seis Coroas. Aproxime-se da porta e pressione E.'})
+
+# --- LOC_VAL_NORTH_ROAD: cidade -> fazendas -> estrada -> mata -> território da matilha (Estrada Norte, x≈1536)
+for _x, _y in ((1400, 596), (1400, 640), (1690, 606), (1690, 650)):
+    W.obj('str_crop_wheat', _x, _y, 'ESTRADA_N', layer='ground', scale=.62, solid=False, check=False)
+W.obj('str_scarecrow', 1672, 578, 'ESTRADA_N', check=False)
+for _x, _y, _k in ((1370, 560, 'a'), (1402, 576, 'b'), (1434, 592, 'a')):
+    W.obj('nat_fence_wood_' + _k, _x, _y, 'ESTRADA_N', check=False)
+W.obj('nat_hay_stack', 1350, 620, 'ESTRADA_N', check=False)
+W.obj('nat_signpost', 1610, 660, 'ESTRADA_N', check=False)
+W.obj('val_palisade_broken', 1455, 470, 'ESTRADA_N', check=False)
+W.obj('val_palisade_broken', 1625, 500, 'ESTRADA_N', check=False, flip=True)
+W.obj('val_cart_wrecked', 1655, 420, 'ESTRADA_N', check=False)
+W.obj('val_warning_post', 1475, 380, 'ESTRADA_N', check=False, solid=False)
+W.obj('val_warning_post', 1600, 330, 'ESTRADA_N', check=False, solid=False, flip=True)
+W.obj('val_camp_remains', 1430, 330, 'ESTRADA_N', check=False)
+W.obj('val_wolf_bones', 1660, 360, 'ESTRADA_N', solid=False, check=False)
+W.obj('val_wolf_bones', 1440, 445, 'ESTRADA_N', solid=False, check=False, flip=True)
+for _x, _y, _f in ((1598, 590, False), (1478, 545, True), (1618, 455, False), (1470, 400, True), (1582, 350, False), (1500, 300, True)):
+    W.obj('val_paw_tracks', _x, _y, 'ESTRADA_N', layer='ground', solid=False, check=False, flip=_f)
+W.obj('val_trampled_earth', 1640, 350, 'ESTRADA_N', layer='ground', solid=False, check=False, scale=.9)
+W.obj('val_trampled_earth', 1450, 300, 'ESTRADA_N', layer='ground', solid=False, check=False, scale=.8, flip=True)
 
 # ── RELEVO E LEVEL DESIGN DAS FORMAÇÕES ─────────────────────────────────────────────────────────────
 # Cada formação é composta (cristas, paredões, colinas de pé, platôs com degraus) e colocada peça a peça com
@@ -1188,7 +1360,7 @@ formations()
 LORE = {
     'REG001_LORE_01': {'title': 'Diário do lenhador', 'text': 'O vento mudou de direção três noites seguidas. Ouvi passos no bosque que não eram de lobo. Deixei o fogo aceso para enganá-los.'},
     'REG001_LORE_02': {'title': 'Bilhete na porta', 'text': '"Partimos para a Vila dos Campos. Se voltar, procure sob o alpendre: escondemos tudo que pudemos."'},
-    'REG001_LORE_03': {'title': 'Marcas na clareira', 'text': 'As pedras formam um círculo com símbolos gastos pelo tempo. O Lobo Ancião guarda o lugar desde antes da Guerra da Coroa Oca.'},
+    'REG001_LORE_03': {'title': 'Marcas na clareira', 'text': 'As pedras formam um círculo com símbolos gastos pelo tempo. O Alfa da Matilha guarda o lugar desde antes da Guerra da Coroa Oca — e traz no pelo o mesmo padrão das ruínas.'},
     'REG001_LORE_04': {'title': 'Passagem esquecida', 'text': 'Atrás dos galhos, um arco antigo. Alguém o escondeu de propósito — e voltou aqui muitas vezes.'},
     'REG001_LORE_05': {'title': 'Altar do Primeiro Vento', 'text': 'Os Viajantes chegam por onde o vento nasce. O altar vibra quando alguém de outro mundo se aproxima... e vibra agora.'},
     'REG001_LORE_06': {'title': 'Teia antiga', 'text': 'A teia guarda restos de um mapa. Ele aponta para uma cripta ao sul, sob o Vale dos Lírios.'},

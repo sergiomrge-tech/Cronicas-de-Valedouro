@@ -32,7 +32,7 @@ static var ford_rects: Array = []
 static var crypt_walls: Array = []
 static var state: Dictionary = {}
 
-const ZONE_IDS: Dictionary = {"cidade": 0, "floresta": 1, "masmorra": 2, "ferreiro": 3, "loja": 4, "alquimia": 5, "guilda": 6, "cripta": 7}
+const ZONE_IDS: Dictionary = {"cidade": 0, "floresta": 1, "masmorra": 2, "ferreiro": 3, "loja": 4, "alquimia": 5, "guilda": 6, "cripta": 7, "arquivo": 8}
 
 static func _key(zone: String, cx: int, cy: int) -> int:
 	# chave inteira (barata de hashear): zona * 2^22 + (cx+512) * 2^11 + (cy+512)
@@ -230,16 +230,24 @@ static func _index_trails() -> void:
 static func chunk_of(p: Vector2) -> Vector2i:
 	return Vector2i(int(floor(p.x / CHUNK)), int(floor(p.y / CHUNK)))
 
+static func _flag(found: Dictionary, key: String) -> bool:
+	# "elites:ID" e "lore:ID" consultam essas seções do estado salvo; sem prefixo, a seção "found" (segredos/portões).
+	if key.begins_with("elites:"):
+		return (state["elites"] as Dictionary).has(key.substr(7))
+	if key.begins_with("lore:"):
+		return (state["lore"] as Dictionary).has(key.substr(5))
+	return found.has(key)
+
 static func is_hidden(o: Dictionary) -> bool:
 	var poi_id: String = str(o.get("poi", ""))
 	if not poi_id.is_empty() and (state["gathered"] as Dictionary).has(poi_id):
 		return true # recurso já colhido
 	var found: Dictionary = state["found"] as Dictionary
 	var hide_when: String = str(o.get("hide_when", ""))
-	if not hide_when.is_empty() and found.has(hide_when):
+	if not hide_when.is_empty() and _flag(found, hide_when):
 		return true
 	var show_when: String = str(o.get("show_when", ""))
-	if not show_when.is_empty() and not found.has(show_when):
+	if not show_when.is_empty() and not _flag(found, show_when):
 		return true
 	return false
 

@@ -12,7 +12,7 @@ Todos os IDs são persistentes: nada crítico depende de nomes exibidos.
 | `REG001_POI_CASA_ABANDONADA` | landmark | Casa Abandonada | floresta | cidade | 1 | secondary |
 | `REG001_POI_CHEST_CASA` | chest | Baú Da Casa | floresta | cidade | 1 | secondary |
 | `REG001_POI_MIRANTE_OESTE` | viewpoint | Mirante Da Torre Do Oeste | floresta | cidade | 1 | secondary |
-| `REG001_POI_ANCIAO_CLAREIRA` | elite | Clareira Do Ancião | floresta | cidade | 2 | secondary |
+| `REG001_POI_ANCIAO_CLAREIRA` | elite | Clareira Do Alfa | floresta | cidade | 2 | secondary |
 | `REG001_POI_CHEST_ANCIAO` | chest | Baú Do Ancião | floresta | cidade | 2 | secondary |
 | `REG001_POI_SEGREDO_MATA` | secret | Passagem Na Mata | floresta | cidade | 2 | secret |
 | `REG001_POI_CHEST_SEGREDO_MATA` | chest | Baú Secreto | floresta | cidade | 2 | secret |
@@ -21,7 +21,6 @@ Todos os IDs são persistentes: nada crítico depende de nomes exibidos.
 | `REG001_POI_RES_MINERIO_A` | resource | Minério Bruto | floresta | cidade | 1 | secondary |
 | `REG001_POI_RES_CRISTAL_A` | resource | Cristal Verde | floresta | cidade | 1 | secondary |
 | `REG001_POI_RUINAS_PRIMEIRO_VENTO` | lore | Ruínas Do Primeiro Vento | floresta | cidade | 2 | main |
-| `REG001_POI_MASMORRA_ENTRADA` | entrance | Portão Do Primeiro Limiar | floresta | cidade | 2 | main |
 | `REG001_POI_ELITE_BOSQUE` | elite | Área Do Elite Do Bosque | floresta | cidade | 2 | secondary |
 | `REG001_POI_CHEST_ELITE_BOSQUE` | chest | Baú Da Tecelã | floresta | cidade | 2 | secondary |
 | `REG001_POI_MIRANTE_NORTE` | viewpoint | Mirante Da Torre Do Norte | floresta | cidade | 1 | secondary |
@@ -34,7 +33,8 @@ Todos os IDs são persistentes: nada crítico depende de nomes exibidos.
 | `REG001_POI_SANTUARIO_VALE` | shrine | Santuário Do Vale | vale | cidade | 1 | secondary |
 | `REG001_POI_ELITE_VALE` | elite | Jardim Da Flor Anciã | vale | cidade | 2 | secondary |
 | `REG001_POI_CHEST_ELITE_VALE` | chest | Baú Da Flor Anciã | vale | cidade | 2 | secondary |
-| `REG001_POI_CRIPTA_ENTRADA` | entrance | Cripta Esquecida | vale | cidade | 2 | secondary |
+| `REG001_POI_CRIPTA_ENTRADA` | entrance | Mina Do Eco | vale | cidade | 2 | secondary |
+| `REG001_POI_GALERIA_ANTIGA` | entrance | Galeria Antiga | vale | cidade | 2 | secondary |
 | `REG001_POI_POUSO_GEADA` | settlement | Pouso Da Geada | gelo | cidade | 2 | main |
 | `REG001_POI_CANYON_GELO` | landmark | Passagem Estreita | gelo | cidade | 1 | secondary |
 | `REG001_POI_ELITE_GELO` | elite | Círculo De Gelo | gelo | cidade | 3 | secondary |
@@ -70,6 +70,10 @@ Todos os IDs são persistentes: nada crítico depende de nomes exibidos.
 | `REG001_POI_CRIPTA_TRAP_1` | trap | Armadilha | cripta | cripta | 2 | secondary |
 | `REG001_POI_CRIPTA_TRAP_2` | trap | Armadilha | cripta | cripta | 2 | secondary |
 | `REG001_POI_CRIPTA_TRAP_3` | trap | Armadilha | cripta | cripta | 2 | secondary |
+| `REG001_POI_SENTINELA_PORTAO_A` | npc | Sentinela | cidade | cidade | 1 | secondary |
+| `REG001_POI_SENTINELA_PORTAO_B` | npc | Sentinela | cidade | cidade | 1 | secondary |
+| `REG001_POI_VAL_GATE` | landmark | Portão De Valedouro | cidade | cidade | 1 | main |
+| `REG001_POI_ARQUIVO_SEIS_COROAS` | landmark | Arquivo Das Seis Coroas | cidade | cidade | 1 | main |
 
 ## Transições de bioma
 
@@ -100,7 +104,8 @@ Todos os IDs são persistentes: nada crítico depende de nomes exibidos.
 | `REG001_TRAIL_ALDEIA` | ramal da estrada sul à Aldeia do Vale |
 | `REG001_TRAIL_MOINHO` | rota da aldeia ao moinho |
 | `REG001_TRAIL_SANTUARIO` | ramal ao santuário |
-| `REG001_TRAIL_CRIPTA` | rota da cripta esquecida (mini-dungeon opcional) |
+| `REG001_TRAIL_CRIPTA` | rota da Mina do Eco: contorna o talude pelo oeste e chega à boca da mina pela frente |
+| `REG001_TRAIL_GALERIA` | ramal da mina à galeria antiga selada (cripta opcional) |
 | `REG001_TRAIL_VALE_ELITE` | rota ao elite do vale |
 | `REG001_TRAIL_VALE_FORD` | rota ao vau do sul |
 | `REG001_TRAIL_GELO_ELITE` | rota ao círculo de gelo (elite) |

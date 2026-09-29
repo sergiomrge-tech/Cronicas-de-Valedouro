@@ -22,8 +22,8 @@
    "INTEGRATED": 28
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 197,
-   "NOT_USED": 146
+   "INTEGRATED": 242,
+   "NOT_USED": 150
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -117,7 +117,6 @@
    "REG001_POI_RES_MINERIO_A",
    "REG001_POI_RES_CRISTAL_A",
    "REG001_POI_RUINAS_PRIMEIRO_VENTO",
-   "REG001_POI_MASMORRA_ENTRADA",
    "REG001_POI_ELITE_BOSQUE",
    "REG001_POI_CHEST_ELITE_BOSQUE",
    "REG001_POI_MIRANTE_NORTE",
@@ -131,6 +130,7 @@
    "REG001_POI_ELITE_VALE",
    "REG001_POI_CHEST_ELITE_VALE",
    "REG001_POI_CRIPTA_ENTRADA",
+   "REG001_POI_GALERIA_ANTIGA",
    "REG001_POI_POUSO_GEADA",
    "REG001_POI_CANYON_GELO",
    "REG001_POI_ELITE_GELO",
@@ -165,7 +165,11 @@
    "REG001_POI_CRIPTA_CHEST",
    "REG001_POI_CRIPTA_TRAP_1",
    "REG001_POI_CRIPTA_TRAP_2",
-   "REG001_POI_CRIPTA_TRAP_3"
+   "REG001_POI_CRIPTA_TRAP_3",
+   "REG001_POI_SENTINELA_PORTAO_A",
+   "REG001_POI_SENTINELA_PORTAO_B",
+   "REG001_POI_VAL_GATE",
+   "REG001_POI_ARQUIVO_SEIS_COROAS"
   ],
   "transitions": [
    "REG001_TR_CIDADE_CAMPOS",
@@ -191,6 +195,7 @@
    "REG001_TRAIL_MOINHO",
    "REG001_TRAIL_SANTUARIO",
    "REG001_TRAIL_CRIPTA",
+   "REG001_TRAIL_GALERIA",
    "REG001_TRAIL_VALE_ELITE",
    "REG001_TRAIL_VALE_FORD",
    "REG001_TRAIL_GELO_ELITE",
@@ -220,7 +225,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 952
+  "object_count": 1079
  },
  "entries": [
   {
@@ -471,7 +476,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 14,
+   "placed": 16,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -480,7 +485,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 6,
+   "placed": 10,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -498,7 +503,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 10,
+   "placed": 12,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -516,7 +521,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 20,
+   "placed": 22,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -524,8 +529,8 @@
    "key": "city_lamp_post_b",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -552,7 +557,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 6,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -660,7 +665,7 @@
    "group": "dungeon",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 14,
+   "placed": 8,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -669,7 +674,7 @@
    "group": "dungeon",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 2,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -678,7 +683,7 @@
    "group": "dungeon",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 1,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -714,7 +719,7 @@
    "group": "dungeon",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 3,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -885,7 +890,7 @@
    "group": "interior",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 5,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -894,7 +899,7 @@
    "group": "interior",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 7,
+   "placed": 9,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -912,7 +917,7 @@
    "group": "interior",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 4,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1002,7 +1007,7 @@
    "group": "interior",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 1,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1011,7 +1016,7 @@
    "group": "interior",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 6,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1056,7 +1061,7 @@
    "group": "interior",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1190,8 +1195,8 @@
    "key": "nat_altar_ancient",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 1,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1308,7 +1313,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 6,
+   "placed": 7,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1596,7 +1601,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 3,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1605,7 +1610,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 10,
+   "placed": 14,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1614,7 +1619,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 9,
+   "placed": 11,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1713,7 +1718,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 6,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1722,7 +1727,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 3,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1767,7 +1772,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 14,
+   "placed": 15,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1866,7 +1871,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1956,7 +1961,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 3,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2136,7 +2141,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 11,
+   "placed": 9,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2235,7 +2240,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2289,7 +2294,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 7,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2397,7 +2402,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2451,7 +2456,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 6,
+   "placed": 5,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2460,7 +2465,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 10,
+   "placed": 8,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2523,7 +2528,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 3,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2712,7 +2717,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 9,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2766,7 +2771,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2774,8 +2779,8 @@
    "key": "str_shelter_wood",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 1,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3533,6 +3538,447 @@
    "usage": "NOT_USED",
    "placed": 0,
    "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_VAL_ARCHIVE_HALL",
+   "key": "val_archive_hall",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_ARCHIVE_LAMP",
+   "key": "val_archive_lamp",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_ARCHIVE_LECTERN",
+   "key": "val_archive_lectern",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_ARCHIVE_MAP_TABLE",
+   "key": "val_archive_map_table",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_ARCHIVE_SHELF_TALL",
+   "key": "val_archive_shelf_tall",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BANNER_POLE_TALL",
+   "key": "val_banner_pole_tall",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_A",
+   "key": "val_barricade_a",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_B",
+   "key": "val_barricade_b",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_CAMP_REMAINS",
+   "key": "val_camp_remains",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_CART_WRECKED",
+   "key": "val_cart_wrecked",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_CORE_FLOOR_RING",
+   "key": "val_core_floor_ring",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_CROWN_MONUMENT",
+   "key": "val_crown_monument",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_ECO_CORE",
+   "key": "val_eco_core",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_ECO_CRYSTAL_CLUSTER",
+   "key": "val_eco_crystal_cluster",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_ECO_VEIN",
+   "key": "val_eco_vein",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_GATE_MAIN",
+   "key": "val_gate_main",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_GATE_TOWER",
+   "key": "val_gate_tower",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_GUILD_HALL",
+   "key": "val_guild_hall",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MAP_FRAGMENT_PEDESTAL",
+   "key": "val_map_fragment_pedestal",
+   "group": "interior",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_BEAM_ARCH",
+   "key": "val_mine_beam_arch",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_CART",
+   "key": "val_mine_cart",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_FLOOR",
+   "key": "val_mine_floor",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_LANTERN_POST",
+   "key": "val_mine_lantern_post",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_MACHINE",
+   "key": "val_mine_machine",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_PORTAL",
+   "key": "val_mine_portal",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_RAILS_A",
+   "key": "val_mine_rails_a",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_RAILS_B",
+   "key": "val_mine_rails_b",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL",
+   "key": "val_mine_rock_wall",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 8,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO",
+   "key": "val_mine_rock_wall_eco",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 14,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_WINCH",
+   "key": "val_mine_winch",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_NOTICE_BOARD",
+   "key": "val_notice_board",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_ORE_PILE",
+   "key": "val_ore_pile",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PACK_BONES",
+   "key": "val_pack_bones",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PALISADE_BROKEN",
+   "key": "val_palisade_broken",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PAW_TRACKS",
+   "key": "val_paw_tracks",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 8,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_FLOOR_CIRCLE",
+   "key": "val_ruin_floor_circle",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_INSCRIPTION_WALL",
+   "key": "val_ruin_inscription_wall",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_MECHANISM",
+   "key": "val_ruin_mechanism",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_ROOT_ARCH",
+   "key": "val_ruin_root_arch",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_SUPPLY_STACK",
+   "key": "val_supply_stack",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_TRAINING_DUMMY",
+   "key": "val_training_dummy",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_TRAMPLED_EARTH",
+   "key": "val_trampled_earth",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_BREACH",
+   "key": "val_wall_breach",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_REPAIRED",
+   "key": "val_wall_repaired",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_SEGMENT",
+   "key": "val_wall_segment",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WARNING_POST",
+   "key": "val_warning_post",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WEAPON_RACK",
+   "key": "val_weapon_rack",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WOLF_BONES",
+   "key": "val_wolf_bones",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WOLF_DEN",
+   "key": "val_wolf_den",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
    "id": "AST_V06_AMBER_BEETLE_FULL",

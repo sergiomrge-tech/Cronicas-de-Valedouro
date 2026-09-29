@@ -82,7 +82,7 @@ for o in world['objects']:
         check(status in {'APPROVED', 'MODELED_PENDING_GATE'}, f'asset com status bloqueado no mundo: {a} ({status})')
     for key in ('poi', 'hide_when', 'show_when'):
         if key in o:
-            check(o[key] in poi_ids, f"{o['id']}: {key} -> {o[key]} inexistente")
+            check(o[key].split(':', 1)[-1] in poi_ids or o[key].startswith('lore:'), f"{o['id']}: {key} -> {o[key]} inexistente")
 check(len(world['objects']) >= 450 and len(world['pois']) >= 55, 'conteúdo insuficiente')
 kinds = {p['kind'] for p in world['pois']}
 for needed in ('elite', 'chest', 'secret', 'gate', 'resource', 'camp', 'settlement', 'viewpoint', 'lore', 'npc', 'entrance', 'trap', 'checkpoint', 'shrine'):

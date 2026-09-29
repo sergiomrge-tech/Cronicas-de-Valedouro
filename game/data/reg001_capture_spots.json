@@ -731,5 +731,176 @@
    1220
   ],
   "time": 3.7
+ },
+ {
+  "name": "A01_01_portao_visao_geral",
+  "zone": "cidade",
+  "pos": [
+   1533,
+   1010
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_02_portao_torres_detalhe",
+  "zone": "cidade",
+  "pos": [
+   1533,
+   930
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_03_portao_lado_externo",
+  "zone": "cidade",
+  "pos": [
+   1533,
+   800
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_04_guilda_exterior",
+  "zone": "cidade",
+  "pos": [
+   1200,
+   1080
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_05_guilda_patio",
+  "zone": "cidade",
+  "pos": [
+   1170,
+   1130
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_06_estrada_norte_cidade_fazendas",
+  "zone": "cidade",
+  "pos": [
+   1540,
+   640
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_07_estrada_norte_perigo",
+  "zone": "cidade",
+  "pos": [
+   1540,
+   470
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_08_estrada_norte_mata",
+  "zone": "cidade",
+  "pos": [
+   1540,
+   320
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_09_ruinas_visao",
+  "zone": "cidade",
+  "pos": [
+   790,
+   460
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_10_ruinas_mecanismo",
+  "zone": "cidade",
+  "pos": [
+   790,
+   400
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_11_clareira_alfa_arena",
+  "zone": "cidade",
+  "pos": [
+   300,
+   470
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_12_clareira_alfa_toca",
+  "zone": "cidade",
+  "pos": [
+   300,
+   320
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_13_mina_exterior",
+  "zone": "cidade",
+  "pos": [
+   1225,
+   2230
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_14_mina_galeria_antiga",
+  "zone": "cidade",
+  "pos": [
+   1380,
+   2240
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_15_mina_interior_zona1",
+  "zone": "masmorra",
+  "pos": [
+   480,
+   720
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_16_mina_interior_zona2",
+  "zone": "masmorra",
+  "pos": [
+   480,
+   520
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_17_nucleo_arena",
+  "zone": "masmorra",
+  "pos": [
+   480,
+   330
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_18_arquivo_exterior",
+  "zone": "cidade",
+  "pos": [
+   845,
+   1080
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_19_arquivo_interior",
+  "zone": "arquivo",
+  "pos": [
+   480,
+   560
+  ],
+  "time": 3.7
  }
 ]

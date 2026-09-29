@@ -373,7 +373,7 @@
    "baked",
    "mundo"
   ],
-  "sha256": "e9e4f5d5b427d30e146fdcfa48a1ec79ec7f81e80174e37483d34e2fa1d5101e",
+  "sha256": "b956d4912b83a7cec6d93701a4aba9a1d83d585e428f0d9efaf4504be04ec297",
   "source": "game/tools/terrain/bake_ground.py",
   "status": "MODELED_PENDING_GATE"
  },
@@ -454,7 +454,7 @@
    "baked",
    "mundo"
   ],
-  "sha256": "08df38d6a9b4638390a0a7a1707bcf68e78631db282fef271865788fa8a92201",
+  "sha256": "4807a52e323445a6caca04fad665f0bd370da50465d48fe8583b37b9842ebbef",
   "source": "game/tools/terrain/bake_ground.py",
   "status": "MODELED_PENDING_GATE"
  },
@@ -481,7 +481,7 @@
    "baked",
    "mundo"
   ],
-  "sha256": "9d27a1eb98d02885009f63fdf5e426821d1965cb65c00e252654be13ea848ea2",
+  "sha256": "0eb47f8372a8ea89c04e7bf7b986ad26ce2daeeb76ccb5e8fc07bcba2170085c",
   "source": "game/tools/terrain/bake_ground.py",
   "status": "MODELED_PENDING_GATE"
  },
@@ -589,7 +589,7 @@
    "baked",
    "mundo"
   ],
-  "sha256": "f5db78bfe4a0892a11c7beb06264a39ce94f9820ccadfd267a43e9738bcd0540",
+  "sha256": "e2575de88ebdfdc0471f67fee88709cd5ffd0f0edf94f68804c7449d1152ba5a",
   "source": "game/tools/terrain/bake_ground.py",
   "status": "MODELED_PENDING_GATE"
  },
@@ -616,7 +616,7 @@
    "baked",
    "mundo"
   ],
-  "sha256": "e403e510085d94ae593f9f1aa726e652e0f18050baa771d573ee5b89b0b07803",
+  "sha256": "840737cc34b778ef44103025b70e7c2bdf7120672b45373fa65d0e61749a51fe",
   "source": "game/tools/terrain/bake_ground.py",
   "status": "MODELED_PENDING_GATE"
  },
@@ -643,7 +643,7 @@
    "baked",
    "mundo"
   ],
-  "sha256": "7ad0c85b782b4d472226b3844171ca95759c045144d49edd2f6a8da19f639657",
+  "sha256": "2509430a9ba6966984c6fbf5bc78587d1ae0151ff25226dee57a742506c3bc81",
   "source": "game/tools/terrain/bake_ground.py",
   "status": "MODELED_PENDING_GATE"
  },
@@ -670,7 +670,7 @@
    "baked",
    "mundo"
   ],
-  "sha256": "2fb10b2f46f8dac7cc1c31493b217cb49c408d117b5899da78b7fca3d6ee6b6c",
+  "sha256": "c04c2383349a130cf85fc82baf09598cb2462596391165700b2657d7f5e5f608",
   "source": "game/tools/terrain/bake_ground.py",
   "status": "MODELED_PENDING_GATE"
  },
@@ -751,7 +751,7 @@
    "baked",
    "mundo"
   ],
-  "sha256": "1e80890a20641d258d383a2962e5d08271d7e23c5f1d9672cb091d2f8a64dcf8",
+  "sha256": "f69622f4b3c40809cc6234198babca1695760094ceac0eb2b06ca165b139a6fd",
   "source": "game/tools/terrain/bake_ground.py",
   "status": "MODELED_PENDING_GATE"
  },

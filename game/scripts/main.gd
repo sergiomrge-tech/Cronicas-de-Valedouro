@@ -17,7 +17,7 @@ const MODELED = preload("res://scripts/modeled_assets.gd")
 const CHARART = preload("res://scripts/character_art.gd")
 const GROUND = preload("res://scripts/ground_bake.gd")
 const SAVE_PATH: String = "user://valedouro_v1.json"
-const RANGES: Dictionary = {"cidade": 0, "floresta": 1, "masmorra": 2, "ferreiro": 3, "loja": 4, "alquimia": 5, "guilda": 6, "cripta": 7}
+const RANGES: Dictionary = {"cidade": 0, "floresta": 1, "masmorra": 2, "ferreiro": 3, "loja": 4, "alquimia": 5, "guilda": 6, "cripta": 7, "arquivo": 8}
 var zone: String = "cidade"
 var player: Vector2 = MAP.TOWN + Vector2(884, 696)
 var facing: Vector2 = Vector2.DOWN
@@ -363,7 +363,7 @@ func walkable(p: Vector2) -> bool:
 				return false # visible water beside the eastern quay
 			if not MAP.bridge_at(p) and town_point.y < 149 and town_point.x > 170 and town_point.x < 1570 and (town_point.x < 793 or town_point.x > 1008):
 				return false # northern wall; the center gate stays open
-			for rect in [Rect2(330, 36, 305, 294), Rect2(1085, 145, 325, 193), Rect2(292, 390, 335, 214), Rect2(1110, 390, 340, 224)]:
+			for rect in [Rect2(1085, 145, 325, 193), Rect2(292, 390, 335, 214), Rect2(1110, 390, 340, 224)]:
 				if rect.grow(7).has_point(town_point):
 					return false
 	if zone == "floresta":
@@ -378,7 +378,7 @@ func walkable(p: Vector2) -> bool:
 			return false
 	elif zone == "masmorra":
 		for x in [6, 11, 18, 24]:
-			for y in [8, 13, 19]:
+			for y in [8]:
 				if Rect2(x * 32 - 8, y * 32 - 8, 48, 48).has_point(p):
 					return false
 	elif zone == "cripta":
@@ -755,8 +755,10 @@ func interact() -> void:
 		return
 	if zone == "cidade":
 		var local_pos: Vector2 = player - MAP.TOWN
-		if local_pos.distance_to(Vector2(455, 357)) < 82:
+		if local_pos.distance_to(Vector2(520, 402)) < 82:
 			change_zone("guilda", Vector2(480, 719))
+		elif local_pos.distance_to(Vector2(195, 402)) < 82:
+			change_zone("arquivo", Vector2(480, 719))
 		elif local_pos.distance_to(Vector2(1235, 358)) < 82:
 			change_zone("ferreiro", Vector2(754, 895))
 		elif local_pos.distance_to(Vector2(1305, 650)) < 82:
@@ -774,22 +776,22 @@ func interact() -> void:
 			message("Explore os gramados livremente; a saída fica ao sul da trilha central.")
 	elif zone == "masmorra":
 		if player.y > 720:
-			# a saída leva de volta ao Portão do Primeiro Limiar, nas Ruínas do Primeiro Vento
-			var dungeon_poi: Dictionary = REG.poi_by_id.get("REG001_POI_MASMORRA_ENTRADA", {}) as Dictionary
+			# a saída leva de volta à boca da Mina do Eco, no talude do Vale
+			var dungeon_poi: Dictionary = REG.poi_by_id.get("REG001_POI_CRIPTA_ENTRADA", {}) as Dictionary
 			var dungeon_back: Vector2 = (dungeon_poi["pos"] as Vector2) + Vector2(0, 62) if not dungeon_poi.is_empty() else MAP.TOWN + Vector2(883, 188)
 			change_zone("cidade", dungeon_back)
 		else:
 			message("A saída fica ao sul.")
 	elif zone == "cripta":
 		if player.y > 790:
-			var gate_poi: Dictionary = REG.poi_by_id.get("REG001_POI_CRIPTA_ENTRADA", {}) as Dictionary
+			var gate_poi: Dictionary = REG.poi_by_id.get("REG001_POI_GALERIA_ANTIGA", {}) as Dictionary
 			var back: Vector2 = (gate_poi["pos"] as Vector2) + Vector2(0, 62) if not gate_poi.is_empty() else MAP.TOWN + Vector2(955, 748)
 			change_zone("cidade", back)
 		else:
 			message("A saída da cripta fica ao sul.")
 	else:
 		if player.y > (845 if zone == "ferreiro" else 680):
-			var outside: Vector2 = Vector2(1235, 365) if zone == "ferreiro" else Vector2(455, 365) if zone == "guilda" else Vector2(464, 660) if zone == "alquimia" else Vector2(1305, 664)
+			var outside: Vector2 = Vector2(1235, 365) if zone == "ferreiro" else Vector2(520, 408) if zone == "guilda" else Vector2(195, 408) if zone == "arquivo" else Vector2(464, 660) if zone == "alquimia" else Vector2(1305, 664)
 			change_zone("cidade", MAP.TOWN + outside)
 		else:
 			match zone:
@@ -797,6 +799,11 @@ func interact() -> void:
 				"ferreiro": forge_menu()
 				"loja": shop_menu()
 				"alquimia": potion_menu()
+				"arquivo": archive_menu()
+
+func archive_menu() -> void:
+	# Arquivo das Seis Coroas (Cena 3 do canon): leitura do registro. Não altera missão, save nem recompensa.
+	show_dialog("Arquivo das Seis Coroas", "O arquivista abre um registro de 23 anos atrás: um estrangeiro chamado Adrian Vale, sem linhagem, reino ou passado verificável, apareceu em Elyndor com conhecimentos impossíveis para a época. Ajudou povoados, participou de expedições e estudou ruínas dos Cartógrafos do Véu. O último registro antecede o início da Guerra da Coroa Oca.", [])
 
 func guild_menu() -> void:
 	match quest:
@@ -804,7 +811,7 @@ func guild_menu() -> void:
 		1: show_dialog("Guilda dos Exploradores", "Lobos derrotados: %d/3. A floresta fica ao norte." % mini(kills["Lobo"], 3), [])
 		2: show_dialog("Guilda dos Exploradores", "Excelente caçada! Seu próximo contrato é derrotar o Guardião da masmorra.", [["Receber 60 moedas + 45 XP", func(): claim_hunt_reward()]])
 		3: show_dialog("Guilda dos Exploradores", "O Guardião ocupa a sala central da masmorra. Prepare suas poções e equipamentos.", [])
-		4: show_dialog("Guilda dos Exploradores", "As ruínas estão seguras. Recompensa: 140 moedas, 120 XP e espada reforçada.", [["Receber recompensa", func(): claim_boss_reward()]])
+		4: show_dialog("Guilda dos Exploradores", "A Mina do Eco está segura. Recompensa: 140 moedas, 120 XP e espada reforçada.", [["Receber recompensa", func(): claim_boss_reward()]])
 		_: show_dialog("Guilda dos Exploradores", "Você salvou Valedouro. A floresta e as ruínas continuam abertas para evoluir.", [])
 
 func claim_hunt_reward() -> void:
@@ -812,7 +819,7 @@ func claim_hunt_reward() -> void:
 	quest = 3
 	gain_xp(45)
 	dialog.hide()
-	message("Novo contrato: o Guardião espera sob as Ruínas do Primeiro Vento, a noroeste, seguindo a estrada do Bosque.")
+	message("Novo contrato: o Guardião do Eco espera na Mina do Eco, ao sul, no talude do Vale.")
 	save_game()
 
 func claim_boss_reward() -> void:
@@ -1030,7 +1037,7 @@ func _draw() -> void:
 			draw_dungeon()
 		elif zone == "cripta":
 			draw_crypt()
-		elif zone in ["ferreiro", "loja", "alquimia", "guilda"]:
+		elif zone in ["ferreiro", "loja", "alquimia", "guilda", "arquivo"]:
 			draw_interior()
 		REGR.draw_ground(self, view_items, view_rect, time_acc, approved_visuals)
 		REGR.draw_shadows(self, view_items, view_rect, time_acc, approved_visuals)
@@ -1133,19 +1140,17 @@ func draw_approved_town(camera: Vector2) -> void:
 	# Muralha norte e portão principal.
 	for wall_index in 13:
 		var wall_ground: Vector2 = MAP.TOWN + Vector2(150.0 + wall_index * 120.0, 180.0)
-		if absf(wall_ground.x - (MAP.TOWN.x + 883.0)) < 175.0:
+		if absf(wall_ground.x - (MAP.TOWN.x + 883.0)) < 250.0:
 			continue
 		if visible_area.has_point(wall_ground):
 			CAST.box(self, wall_ground + Vector2(0, 4), 58.0, 56.0)
 			draw_approved_visual("city_wall_vegetation" if wall_index % 4 == 0 else "city_wall", wall_ground, .58)
 	var gate_ground: Vector2 = MAP.TOWN + Vector2(883, 184)
 	if visible_area.has_point(gate_ground):
-		draw_approved_cast("city_gate", gate_ground, .58, CAST.ALPHA_DEFAULT)
-		draw_approved_visual("city_gate", gate_ground, .58)
+		pass # o portão é o marco modelado val_gate_main (Lote 1), com torres e barricadas como objetos do mundo
 
 	# Quatro conjuntos arquitetônicos, sempre formados por peças APPROVED.
 	var houses: Array = [
-		[Vector2(485, 330), "city_roof_blue"],
 		[Vector2(1245, 340), "city_roof_red"],
 		[Vector2(470, 615), "city_roof_wood"],
 		[Vector2(1280, 625), "city_roof_blue"]
@@ -1163,7 +1168,7 @@ func draw_approved_town(camera: Vector2) -> void:
 
 	# Árvores APPROVED integram a arquitetura e dão profundidade consistente.
 	var tree_positions: Array[Vector2] = [
-		Vector2(175, 300), Vector2(760, 330), Vector2(1010, 300), Vector2(1600, 315),
+		Vector2(760, 330), Vector2(1010, 300), Vector2(1600, 315),
 		Vector2(180, 735), Vector2(700, 735), Vector2(1035, 745), Vector2(1570, 760)
 	]
 	for tree_index in range(tree_positions.size()):
@@ -1332,7 +1337,22 @@ func draw_label(text: String, p: Vector2, color: Color = Color(1, .88, .64)) -> 
 	draw_string(ui_font, p, text, HORIZONTAL_ALIGNMENT_CENTER, 180, 16, color)
 
 func draw_dungeon() -> void:
-	# Dungeon final: somente os 13 módulos que passaram QA como APPROVED.
+	# Mina do Eco (Lote 1 / Ato I): piso de cascalho modelado em malha 2:1; paredes de rocha, vigas, trilhos, veios e Núcleo do Eco são objetos da zona.
+	var floor_tex: Texture2D = MODELED.texture("val_mine_floor")
+	if floor_tex == null:
+		draw_dungeon_legacy()
+		return
+	for row in int(SIZE.y / 31.0) + 4:
+		for column in int(SIZE.x / 124.0) + 3:
+			var center: Vector2 = Vector2(float(column) * 124.0 + (62.0 if row % 2 == 1 else 0.0) - 62.0, float(row) * 31.0 - 31.0)
+			draw_texture_rect(floor_tex, Rect2(center - Vector2(62.0, 35.0), Vector2(124.0, 70.0)), false)
+	draw_approved_visual("dungeon_arch", Vector2(480, 194), .62)
+	draw_approved_visual("dungeon_door", Vector2(480, 196), .54)
+	draw_label("NÚCLEO DO ECO", Vector2(395, 92), Color(.5, .9, 1))
+	draw_label("MINA DO ECO • ↓ SAÍDA", Vector2(409, 805), Color(.85, .8, .7))
+
+func draw_dungeon_legacy() -> void:
+	# Fallback: somente os 13 módulos APPROVED (quando a arte modelada da mina não está disponível).
 	for row in 28:
 		for column in 16:
 			var ground: Vector2 = Vector2(35.0 + column * 70.0 + float(row % 2) * 35.0, 74.0 + row * 35.0)
@@ -1390,7 +1410,7 @@ func draw_crypt() -> void:
 func draw_interior() -> void:
 	var room_size: Vector2 = FORGE_SIZE if zone == "ferreiro" else SIZE
 	# Piso modelado (tábuas/lajes com padrão contínuo) em malha de losangos 2:1; fallback: pisos APPROVED de Cidade.
-	var floor_id: String = "int_floor_stone" if zone == "ferreiro" else "int_floor_wood_dark" if zone == "alquimia" else "int_floor_wood"
+	var floor_id: String = "int_floor_stone" if zone == "ferreiro" or zone == "arquivo" else "int_floor_wood_dark" if zone == "alquimia" else "int_floor_wood"
 	var floor_tex: Texture2D = MODELED.texture(floor_id)
 	if floor_tex != null:
 		var rows_n: int = int(room_size.y / 31.0) + 4
@@ -1417,6 +1437,8 @@ func draw_interior() -> void:
 		draw_interior_person(Vector2(700, 500), Color(.82, .68, .55), 0, "smith")
 	elif zone == "alquimia":
 		draw_interior_person(Vector2(480, 500), Color(.64, .52, .86), 0, "alchemist")
+	elif zone == "arquivo":
+		draw_interior_person(Vector2(480, 470), Color(.7, .75, .95), 0, "guildmaster")
 	draw_label(zone.to_upper(), Vector2(400, 113))
 	draw_label("E conversar  •  ↓ sair", Vector2(386, 637), Color.WHITE)
 
@@ -1424,7 +1446,8 @@ const INTERIOR_BAYS: Dictionary = {
 	"guilda": ["window", "plain", "niche", "window", "plain", "door", "plain", "window", "niche", "plain", "window", "plain", "niche"],
 	"ferreiro": ["window", "plain", "hearth", "plain", "window", "niche", "plain", "window", "plain", "hearth", "plain", "window", "niche", "plain", "window", "plain", "hearth", "plain", "window", "plain", "niche"],
 	"alquimia": ["niche", "window", "niche", "plain", "window", "door", "window", "plain", "niche", "window", "niche", "plain", "niche"],
-	"loja": ["window", "niche", "plain", "niche", "window", "door", "window", "niche", "plain", "niche", "window", "plain", "niche"]
+	"loja": ["window", "niche", "plain", "niche", "window", "door", "window", "niche", "plain", "niche", "window", "plain", "niche"],
+	"arquivo": ["niche", "window", "niche", "window", "niche", "door", "niche", "window", "niche", "window", "niche", "plain", "niche"]
 }
 
 func draw_interior_walls(room_size: Vector2) -> void:

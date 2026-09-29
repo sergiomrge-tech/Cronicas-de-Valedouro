@@ -15,14 +15,25 @@ from pro_landmarks import landmark
 from ato1_common import *
 
 
-def fp(sx, sy, ox=0.0, oy=0.0, step=.9):
-    """Colisão em círculos (px de jogo) de um retângulo sx×sy (unidades), depois de girar 45°: mesma projeção de terrain_forms_data."""
-    from terrain_forms_data import footprint_circles
-    return footprint_circles(sx, sy, step, .9)
+def fpr(depth, width, step=.9, r=None):
+    """Colisão de um volume frontal (girado 45°): largura vira eixo x da tela (30 px/u), profundidade vira y (15 px/u)."""
+    out = []
+    ny = max(1, int(math.ceil(width / step)))
+    nx = max(1, int(math.ceil(depth / step)))
+    for j in range(ny):
+        Y = -width / 2 + (j + .5) * width / ny
+        for i in range(nx):
+            X = -depth / 2 + (i + .5) * depth / nx
+            out.append((round(30 * Y, 1), round(15 * X, 1), r or round(max(width / ny, 1.0) * 30 * .5 * 1.05, 1)))
+    return tuple(out)
+
+
+def gate_piers():
+    return tuple((sx * dx, 0.0, 15.0) for sx in (-1, 1) for dx in (52.0, 76.0, 98.0))
 
 
 # ============================================================== LOC_VAL_GATE
-@landmark('val_gate_main', group='city', folder='ato1', size=(620, 600), origin=(310, 470), tags=('ato1', 'portao', 'fortificacao', 'val_gate'), footprint=70, collision=fp(6.6, 1.6), samples=24)
+@landmark('val_gate_main', group='city', folder='ato1', size=(620, 600), origin=(310, 470), tags=('ato1', 'portao', 'fortificacao', 'val_gate'), footprint=70, collision=gate_piers(), samples=24)
 def gate_main(f):
     st, wd, wo, iron = M('stone'), M('wood_dark'), M('wood_old'), M('iron')
     # dois pilares de pedra + verga (sem booleana): vão de 2,7 u; recuo escuro atrás das folhas
@@ -80,7 +91,7 @@ def gate_main(f):
     geo.rotate_all(45)
 
 
-@landmark('val_gate_tower', group='city', folder='ato1', size=(520, 720), origin=(260, 560), tags=('ato1', 'torre', 'guarita', 'val_gate'), footprint=44, collision=fp(2.6, 2.6), samples=24)
+@landmark('val_gate_tower', group='city', folder='ato1', size=(520, 720), origin=(260, 560), tags=('ato1', 'torre', 'guarita', 'val_gate'), footprint=44, collision=fpr(2.6, 2.6), samples=24)
 def gate_tower(f):
     st, wd, wo, iron = M('stone'), M('wood_dark'), M('wood_old'), M('iron')
     geo.box((0, 0, .2), (3.1, 3.1, .4), st, bevel=0.05)
@@ -121,17 +132,17 @@ def gate_tower(f):
     geo.rotate_all(45)
 
 
-@landmark('val_wall_segment', group='city', folder='ato1', size=(360, 300), origin=(180, 230), tags=('ato1', 'muralha', 'modular', 'intacto'), footprint=40, collision=fp(3.6, 1.0), samples=24)
+@landmark('val_wall_segment', group='city', folder='ato1', size=(360, 300), origin=(180, 230), tags=('ato1', 'muralha', 'modular', 'intacto'), footprint=40, collision=fpr(1.0, 3.6), samples=24)
 def wall_segment(f):
     _wall(0)
 
 
-@landmark('val_wall_repaired', group='city', folder='ato1', size=(360, 300), origin=(180, 230), tags=('ato1', 'muralha', 'modular', 'reparado'), footprint=40, collision=fp(3.6, 1.0), samples=24)
+@landmark('val_wall_repaired', group='city', folder='ato1', size=(360, 300), origin=(180, 230), tags=('ato1', 'muralha', 'modular', 'reparado'), footprint=40, collision=fpr(1.0, 3.6), samples=24)
 def wall_repaired(f):
     _wall(1)
 
 
-@landmark('val_wall_breach', group='city', folder='ato1', size=(360, 300), origin=(180, 230), tags=('ato1', 'muralha', 'modular', 'quebrado', 'ataque'), footprint=40, collision=fp(3.6, 1.0), samples=24)
+@landmark('val_wall_breach', group='city', folder='ato1', size=(360, 300), origin=(180, 230), tags=('ato1', 'muralha', 'modular', 'quebrado', 'ataque'), footprint=40, collision=fpr(1.0, 3.6), samples=24)
 def wall_breach(f):
     _wall(2)
 
@@ -169,12 +180,12 @@ def _wall(state):
     geo.rotate_all(45)
 
 
-@landmark('val_barricade_a', group='city', folder='ato1', size=(340, 280), origin=(170, 190), tags=('ato1', 'barricada', 'intacta', 'val_gate'), footprint=36, collision=fp(3.2, .8), samples=24)
+@landmark('val_barricade_a', group='city', folder='ato1', size=(340, 280), origin=(170, 190), tags=('ato1', 'barricada', 'intacta', 'val_gate'), footprint=36, collision=fpr(.8, 3.2), samples=24)
 def barricade_a(f):
     _barricade(False)
 
 
-@landmark('val_barricade_b', group='city', folder='ato1', size=(340, 280), origin=(170, 190), tags=('ato1', 'barricada', 'quebrada', 'val_gate'), footprint=36, collision=fp(3.2, .8), samples=24)
+@landmark('val_barricade_b', group='city', folder='ato1', size=(340, 280), origin=(170, 190), tags=('ato1', 'barricada', 'quebrada', 'val_gate'), footprint=36, collision=fpr(.8, 3.2), samples=24)
 def barricade_b(f):
     _barricade(True)
 
@@ -242,7 +253,7 @@ def supply_stack(f):
 
 
 # ============================================================== LOC_VAL_GUILD
-@landmark('val_guild_hall', group='city', folder='ato1', size=(760, 620), origin=(380, 470), tags=('ato1', 'guilda', 'servico', 'val_guild', 'landmark'), footprint=90, collision=fp(6.4, 3.6), samples=24)
+@landmark('val_guild_hall', group='city', folder='ato1', size=(760, 620), origin=(380, 470), tags=('ato1', 'guilda', 'servico', 'val_guild', 'landmark'), footprint=90, collision=fpr(3.6, 6.4), samples=24)
 def guild_hall(f):
     st, wd, wo, iron, sd = M('stone'), M('wood_dark'), M('wood'), M('iron'), M('stone_sand')
     plaster = mats.ground('guild_pl', ('#a88a5a', '#c8a672', '#dfc38c', '#f0dca8', '#fff0c8'), scale=3.0, fine=22.0)
@@ -369,7 +380,7 @@ def _crown(x, y, z, s=1.0):
         ball((x + .05, y + k * .11 * s, z + .2 * s), .025 * s, M('cloth_red'), squash=1.0, smooth=False)
 
 
-@landmark('val_archive_hall', group='city', folder='ato1', size=(880, 700), origin=(440, 540), tags=('ato1', 'arquivo', 'landmark', 'seis_coroas', 'six_crowns_archive'), footprint=100, collision=fp(7.6, 4.0), samples=24)
+@landmark('val_archive_hall', group='city', folder='ato1', size=(880, 700), origin=(440, 540), tags=('ato1', 'arquivo', 'landmark', 'seis_coroas', 'six_crowns_archive'), footprint=100, collision=fpr(4.0, 7.6), samples=24)
 def archive_hall(f):
     nb, wd, iron, gold = m_noble(), M('wood_dark'), M('iron'), m_gold()
     slate = M('roof_slate')

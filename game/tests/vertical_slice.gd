@@ -91,7 +91,7 @@ func run_gate() -> void:
 
 	# Dungeon -> Guardião -> segunda mecânica de boss -> recompensa.
 	REG.ensure_loaded()
-	var dungeon_gate: Dictionary = REG.poi_by_id.get("REG001_POI_MASMORRA_ENTRADA", {}) as Dictionary
+	var dungeon_gate: Dictionary = REG.poi_by_id.get("REG001_POI_CRIPTA_ENTRADA", {}) as Dictionary
 	assert(not dungeon_gate.is_empty())
 	game.player = (dungeon_gate["pos"] as Vector2) + Vector2(0, 30)
 	game.interact()

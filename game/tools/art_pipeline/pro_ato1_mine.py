@@ -30,7 +30,7 @@ def crystal(x, y, z, h, r, mat, tilt=(0, 0)):
 
 
 # ============================================================== LOC_ECHO_MINE — exterior
-@landmark('val_mine_portal', group='dungeon', folder='ato1', size=(760, 700), origin=(380, 560), tags=('ato1', 'mina_do_eco', 'entrada', 'echo_mine'), footprint=80, collision=fp(6.2, 2.4), samples=24)
+@landmark('val_mine_portal', group='dungeon', folder='ato1', size=(760, 700), origin=(380, 560), tags=('ato1', 'mina_do_eco', 'entrada', 'echo_mine'), footprint=80, collision=tuple((round(30 * y, 1), 0.0, 15.0) for y in (-3.0, -2.4, -1.8, 1.8, 2.4, 3.0)), samples=24)
 def mine_portal(f):
     rk, wd, wo, iron = M('rock'), M('wood_dark'), M('wood_old'), M('iron')
     body = parts.rock_mass((0, 0, 0), (3.2, 6.6, 4.2), rk, 81, subdiv=5, rough=.3, terrace=.5, step=.5, taper=.1, flat_top=True, squash_base=.05)
