@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - art/pro-pixel-modeling-pipeline-v2
+  pull_request:
+    branches:
+      - ccr-bb54cda9-tvw178
   workflow_dispatch:
 
 permissions:
