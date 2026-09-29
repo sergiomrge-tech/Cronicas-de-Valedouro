@@ -561,7 +561,7 @@ for pid, x, y, mat in [('REG001_POI_RES_AMBAR_A', 2250, 1950, 'Âmbar Bruto'), (
 # RIO E TRAVESSIAS
 # ============================================================================================
 ford('REG001_PASS_VAU_SUL', 2110, 'vau raso ao sul do vale: liga o Vale ao Deserto sem ponte')
-ford('REG001_PASS_VAU_CENTRAL', 1520, 'vau raso ao sul da cidade: atalho vale <-> pradaria')
+ford('REG001_PASS_VAU_CENTRAL', 1650, 'vau raso fora da muralha sul: travessia secundária segura')
 for y in (900, 1080, 1420, 1650, 1990, 2200):
     rx = geo.river_x(y)
     W.obj('nat_reeds', rx - geo.river_hw(y) - 25, y, 'RIO', solid=False)
