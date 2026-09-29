@@ -25,6 +25,7 @@ sys.path.insert(0, str(GAME / 'tools' / 'modeling'))
 import geo  # noqa: E402
 import texlib as T  # noqa: E402
 import manifest_lib  # noqa: E402
+import ground_detail as GD  # noqa: E402
 
 OUT = GAME / 'assets' / 'modeled' / 'terrain'
 W, H = 3072, 2304
@@ -140,8 +141,11 @@ def build_terrain_ids(x0, y0, w, h, trails_mask, ford_mask, seeds):
     bay = bayer(h, w, x0, y0)
     fine = seeds['fine'][y0:y0 + h, x0:x0 + w]
     macro_mix = seeds['macro'][y0:y0 + h, x0:x0 + w]
-    bx = xx + dxa * (1.0 - macro_mix) + dxb * macro_mix
-    by_ = yy + dya * (1.0 - macro_mix) + dyb * macro_mix
+    LA, LB = seeds['warpL']
+    dxl = (LA[y0:y0 + h, x0:x0 + w] - .5) * 230
+    dyl = (LB[y0:y0 + h, x0:x0 + w] - .5) * 230
+    bx = xx + dxa * (1.0 - macro_mix) + dxb * macro_mix + dxl
+    by_ = yy + dya * (1.0 - macro_mix) + dyb * macro_mix + dyl
     bio = biome_ids(bx, by_)
     patch1 = seeds['p1'][y0:y0 + h, x0:x0 + w]
     patch2 = seeds['p2'][y0:y0 + h, x0:x0 + w]
@@ -233,7 +237,7 @@ def colorize(ter, textures, x0, y0, seeds):
 def shade_dunes(out, ter, seeds, x0, y0, w, h, bay):
     """Dunas (deserto) e derivas de neve (gelo) com direção do vento: barlavento suave e claro, sotavento íngreme e escuro,
     crista com filete de luz; amplitude macro varia o porte e deixa áreas planas. Luz principal: alto-esquerda."""
-    for names, fld, amp_key, period, lee_dark, tint in ((('sand',), 'dune', 'dune_amp', 4.2, .66, (1.0, .85, .75)), (('snow', 'ice'), 'drift', 'drift_amp', 2.4, .84, (.88, .93, 1.05))):
+    for names, fld, amp_key, period, lee_dark, tint in ((('sand',), 'dune', 'dune_amp', 3.4, .8, (1.0, .92, .86)), (('snow', 'ice'), 'drift', 'drift_amp', 2.0, .92, (.95, .97, 1.03))):
         m = np.isin(ter, [IDX[n] for n in names])
         if not m.any() or fld not in seeds:
             continue
@@ -330,7 +334,25 @@ def make_seeds(w, h):
     drift = smooth_field(w, h, 30, 8, 113, 2)
     s['drift'] = drift[yy_i, (xx_i + (yy_i * .35).astype(np.int32)) % w]
     s['drift_amp'] = smooth_field(w, h, 8, 6, 114, 2)
+    s['warpL'] = (smooth_field(w, h, 6, 5, 115, 2), smooth_field(w, h, 6, 5, 116, 2))
+    s['blob'] = smooth_field(w, h, w // 26, h // 26, 117, 2)
+    s.update(detail_fields(w, h, 300))
     return s
+
+
+def detail_fields(w, h, seed):
+    """Campos para decalques (agrupamentos e áreas livres) e relevo macro."""
+    return {'clump_a': smooth_field(w, h, max(4, w // 90), max(3, h // 90), seed + 1, 3), 'clump_b': smooth_field(w, h, max(3, w // 150), max(3, h // 150), seed + 2, 2),
+            'flower': smooth_field(w, h, max(3, w // 200), max(3, h // 200), seed + 3, 2), 'height': smooth_field(w, h, max(3, w // 260), max(3, h // 260), seed + 4, 3)}
+
+
+def finish_ground(img, ter, seeds, w, h, world_seed=0):
+    bay = bayer(h, w)
+    img = GD.macro_shade(img, ter, IDX, seeds['height'], bay)
+    img = GD.rims(img, ter, IDX)
+    img, n = GD.scatter(img, ter, IDX, GD.WORLD_RULES, seeds, w, h)
+    print('  decalques:', n)
+    return img
 
 
 def bake_world(textures, world):
@@ -342,8 +364,11 @@ def bake_world(textures, world):
     # a máscara de estradas principais também recebe um ruído de borda em build_terrain_ids; aqui só trilhas
     fords = ford_mask_for(0, 0, W, H, world)
     ter, bridge_any = build_terrain_ids(0, 0, W, H, trails_soft, fords, {**seeds, 'road_soft': seeds['road_soft']})
+    ter = GD.ragged_town_edge(ter, IDX, seeds['fine'], bayer(H, W))
+    ter = GD.blend_regions(ter, IDX, ['grass_a', 'grass_b', 'meadow', 'valley', 'forest_floor', 'sand', 'snow', 'ice'], seeds['blob'], blur_px=22, wobble=.6)
     img = colorize(ter, textures, 0, 0, seeds)
     img = draw_bridge_rails(img, 0, 0)
+    img = finish_ground(img, ter, seeds, W, H)
     return img, ter
 
 
@@ -356,6 +381,7 @@ def bake_bosque(textures):
     seeds['p2'] = smooth_field(w, h, 18, 8, 203, 2)
     seeds['p3'] = smooth_field(w, h, 26, 12, 204, 2)
     seeds['macro'] = smooth_field(w, h, 5, 3, 205)
+    seeds.update(detail_fields(w, h, 400))
     xx, yy = region_arrays(0, 0, w, h)
     bay = bayer(h, w)
     fine = seeds['fine']
@@ -387,7 +413,9 @@ def bake_bosque(textures):
     rs = smooth_field(w, h, 160, 70, 206)
     road = (rp > (.5 + (rs - .5) * .55 + (bay - .5) * .12)) & ~water & ~shallow
     ter = np.where(road, np.where(gt(seeds['p1'], .6, bay), IDX['dirt'], IDX['road']), ter)
-    return colorize(ter, textures, 0, 0, seeds), ter
+    img = colorize(ter, textures, 0, 0, seeds)
+    img = finish_ground(img, ter, seeds, w, h)
+    return img, ter
 
 
 def save_chunks(img, prefix, group_folder, world_w, world_h, source):

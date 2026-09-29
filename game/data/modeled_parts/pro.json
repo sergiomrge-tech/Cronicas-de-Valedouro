@@ -6618,5 +6618,509 @@
   ],
   "pipeline": "blender-pro",
   "palette": "oklab-k64"
+ },
+ {
+  "id": "ter_dec_bones",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_bones.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "ossos",
+   "deserto"
+  ],
+  "sha256": "85c5df7d3d759a4985d7a8256e4cd93da66d87a20287cf12b5f71ff654345644",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_cobble_weeds",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_cobble_weeds.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   56,
+   44
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   28.0,
+   30.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "cidade",
+   "ervas"
+  ],
+  "sha256": "855141416095598937ae040e44bc491c5c11a48bc317837be6237b79b5be20f0",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_cracks_dirt",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_cracks_dirt.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "rachadura",
+   "terra",
+   "campos"
+  ],
+  "sha256": "e351d6fbf7f3e5391279eca3ba8489945f9e6b6e68cea235942d9ee408f4c0df",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_cracks_ice",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_cracks_ice.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "rachadura",
+   "gelo"
+  ],
+  "sha256": "ec820e8720bb6d6b4fdc728e257be936563f078829fd6478dcc1e128004a5ef7",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_cracks_sand",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_cracks_sand.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "rachadura",
+   "deserto"
+  ],
+  "sha256": "ce156b80f6361ac1008b02f5188518c7fb5b4cd9d3d0d89144f5bb5497410162",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_flowers",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_flowers.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "flores"
+  ],
+  "sha256": "b65d55fc9e31603b824aeaa53409c016a5210c0b3a9faa960299988f0d45537d",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_grass",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_grass.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "relva"
+  ],
+  "sha256": "59dbb4a93931f1d8353a892fdd6f9480b5dbf9f66600403644affc9c9c7399c9",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_grass_dry",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_grass_dry.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "seca",
+   "campos",
+   "deserto"
+  ],
+  "sha256": "f86c4613c9a244243bbdb6304dcaae11840b5164cd6111c12bc20be030517638",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_grass_frost",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_grass_frost.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "gelo",
+   "relva"
+  ],
+  "sha256": "0ef43b02ef3843e9de214e72cac59089dca67fb5adba47648aa35bf962c280a5",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_grass_tall",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_grass_tall.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "relva",
+   "alta"
+  ],
+  "sha256": "a64318620ea707638710f1bd13170efc0c5be788a7a6ad655461c2a787793066",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_leaves",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_leaves.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "folhas",
+   "floresta",
+   "campos"
+  ],
+  "sha256": "72faeb1955a4a964d3ee8d225387adf00f2c0a623006a0b437e9a68cce87d9a1",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_moss_stone",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_moss_stone.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   56,
+   44
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   28.0,
+   30.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "cidade",
+   "musgo"
+  ],
+  "sha256": "53f7364047231fe29696fce5b097aac98f7316e4055ee2bf3d0a2dce1bdfabac",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_mushrooms",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_mushrooms.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "cogumelos",
+   "floresta"
+  ],
+  "sha256": "9f57c844b1b789d0268c7fc0f3d1922a5c8754c089da8c52d5cf02427cf588f5",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_pebbles",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_pebbles.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "seixos"
+  ],
+  "sha256": "fe1da854bdaf44f3a707997c9c296e413f3beff4c88b3997274a1a9f2eb3fb29",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_sand_ripple",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_sand_ripple.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   96,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   48.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "areia",
+   "ondulação"
+  ],
+  "sha256": "583dff69980a1bb04ee2d2c6bc61bed279b18a9bfb2ba01b421738d81b4fced9",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_snow_drift",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_snow_drift.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   96,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   48.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "neve",
+   "deriva"
+  ],
+  "sha256": "673f6918d02d97dadf1f7fd8eb11c0e2d1b46e6bc47d5a0df5f9ce6f21798073",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_stones_ice",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_stones_ice.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "seixos",
+   "gelo"
+  ],
+  "sha256": "8eba13b1cdcd685cdfdfac65b519f07ddba1dcc4f1bf1bf59e00234fd5514fc9",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "ter_dec_stones_sand",
+  "path": "res://assets/modeled/terrain/decals/ter_dec_stones_sand.png",
+  "group": "terrain",
+  "folder": "decals",
+  "frame_size": [
+   72,
+   56
+  ],
+  "frames": 6,
+  "rows": 1,
+  "foot": [
+   36.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "decalque",
+   "seixos",
+   "deserto"
+  ],
+  "sha256": "ffa7e4d9c4e977b3eb6b274961627ef78434d427e927d2db39f3a72df4b1248e",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
  }
 ]

@@ -23,7 +23,7 @@
   },
   "MODELED_PENDING_GATE": {
    "INTEGRATED": 178,
-   "NOT_USED": 114
+   "NOT_USED": 132
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -2586,6 +2586,168 @@
    "usage": "NOT_USED",
    "placed": 0,
    "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_DEC_BONES",
+   "key": "ter_dec_bones",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_COBBLE_WEEDS",
+   "key": "ter_dec_cobble_weeds",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_CRACKS_DIRT",
+   "key": "ter_dec_cracks_dirt",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_CRACKS_ICE",
+   "key": "ter_dec_cracks_ice",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_CRACKS_SAND",
+   "key": "ter_dec_cracks_sand",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_FLOWERS",
+   "key": "ter_dec_flowers",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_GRASS",
+   "key": "ter_dec_grass",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_GRASS_DRY",
+   "key": "ter_dec_grass_dry",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_GRASS_FROST",
+   "key": "ter_dec_grass_frost",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_GRASS_TALL",
+   "key": "ter_dec_grass_tall",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_LEAVES",
+   "key": "ter_dec_leaves",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_MOSS_STONE",
+   "key": "ter_dec_moss_stone",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_MUSHROOMS",
+   "key": "ter_dec_mushrooms",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_PEBBLES",
+   "key": "ter_dec_pebbles",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_SAND_RIPPLE",
+   "key": "ter_dec_sand_ripple",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_SNOW_DRIFT",
+   "key": "ter_dec_snow_drift",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_STONES_ICE",
+   "key": "ter_dec_stones_ice",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_TER_DEC_STONES_SAND",
+   "key": "ter_dec_stones_sand",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
    "id": "MOD_TER_GROUND_0_0",
