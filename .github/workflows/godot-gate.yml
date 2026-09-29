@@ -46,7 +46,8 @@ jobs:
           mkdir -p game/assets
           unzip -q -o /tmp/approved_assets_bundle.zip -d game/assets
           test "$(find game/assets/approved -type f -name '*.png' | wc -l)" -eq 28
-          echo "APPROVED asset set: 28/28"
+          test "$(python3 -c 'import json; print(json.load(open("game/data/approved_visual_manifest.json"))["count"])')" -eq 19
+          echo "Legacy source bundle: 28 physical files; active approved manifest: 19 (retired architecture excluded)"
 
       - name: Python art/runtime dependencies
         run: |
