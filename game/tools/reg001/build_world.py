@@ -131,7 +131,7 @@ P('REG001_POI_CHEST_LENHADOR', 'chest', 'BAÚ DO LENHADOR', 372, 815, tier=1, la
 # --- Casa abandonada
 P('REG001_POI_CASA_ABANDONADA', 'landmark', 'CASA ABANDONADA', 520, 590, tier=1, layer='secondary', radius=120, region='floresta',
   data={'lore': 'REG001_LORE_02', 'hint': 'As janelas estão quebradas; há um baú sob o alpendre.'})
-W.house(520, 610, 'city_roof_wood', 'CASA', poi='REG001_POI_CASA_ABANDONADA')
+W.house(520, 610, 'wood', 'CASA', poi='REG001_POI_CASA_ABANDONADA')
 W.obj('nat_tree_dead', 425, 640, 'CASA')
 iso_wall('cerca_quebrada', (420, 650), [('se', 2), ('ne', 2)], 'CASA', skip={2})
 W.obj('nat_hay_bale', 630, 640, 'CASA')
@@ -294,9 +294,9 @@ trail('REG001_TRAIL_VALE_FORD', [(1590, 1900), (1760, 1890), (1900, 2000), (1965
 # --- Vila dos Campos (assentamento com casas APPROVED)
 P('REG001_POI_VILA_CAMPOS', 'settlement', 'VILA DOS CAMPOS', 535, 1880, tier=1, layer='main', radius=230, region='campos',
   data={'npc': 'farmer', 'name': 'Dona Alma', 'family': 'farmer', 'lines': ['Os limos andam ariscos nos campos.', 'Meu espantalho cansou de vigiar, mas os corvos têm medo dele.']})
-W.house(440, 1900, 'city_roof_wood', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
-W.house(540, 1830, 'city_roof_blue', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
-W.house(650, 1905, 'city_roof_red', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
+W.house(440, 1900, 'wood', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
+W.house(540, 1830, 'blue', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
+W.house(650, 1905, 'red', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
 W.obj('nat_well_stone', 545, 1955, 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
 W.obj('nat_flag_blue', 610, 1960, 'VILA_C', anim=1)
 W.obj('nat_hay_bale', 380, 1965, 'VILA_C')
@@ -325,9 +325,9 @@ P('REG001_POI_CHEST_FAZENDA', 'chest', 'BAÚ DA FAZENDA', 236, 2050, tier=1, lay
 # --- Aldeia do Vale + Moinho + Santuário
 P('REG001_POI_ALDEIA_VALE', 'settlement', 'ALDEIA DO VALE', 1330, 1760, tier=1, layer='main', radius=200, region='vale',
   data={'npc': 'miller', 'name': 'Tio Bento', 'family': 'miller', 'lines': ['O moinho gira sozinho quando o vento do bosque sopra.', 'A cripta ao sul não é lugar para curiosos... mas há tesouros.']})
-W.house(1290, 1690, 'city_roof_blue', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
-W.house(1375, 1840, 'city_roof_red', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
-W.house(1170, 1790, 'city_roof_wood', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
+W.house(1290, 1690, 'blue', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
+W.house(1375, 1840, 'red', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
+W.house(1170, 1790, 'wood', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
 W.obj('nat_well_stone', 1440, 1750, 'ALDEIA_V')
 W.obj('nat_flag_red', 1465, 1700, 'ALDEIA_V', anim=1)
 iso_wall('mureta', (1206, 1940), [('ne', 2), ('se', 2)], 'ALDEIA_V')
@@ -471,7 +471,7 @@ W.obj('nat_flag_red', 2630, 1100, 'ESTACAO', anim=1)
 W.obj('nat_signpost', 2645, 1170, 'ESTACAO')
 W.obj('nat_hay_bale', 2780, 1120, 'ESTACAO')
 # casa de posta (troca de montarias e carroças): casa, estábulo improvisado de feno e cerca; o comércio de peles é o motivo do lugar
-W.house(2735, 1042, 'city_roof_wood', 'ESTACAO', poi='REG001_POI_ESTACAO_LESTE')
+W.house(2735, 1042, 'wood', 'ESTACAO', poi='REG001_POI_ESTACAO_LESTE')
 W.obj('nat_hay_stack', 2810, 1075, 'ESTACAO')
 iso_wall('cerca', (2680, 1146), [('se', 2), ('ne', 2)], 'ESTACAO')
 W.emitter('smoke', 2710, 1110, 20)
@@ -995,9 +995,9 @@ def town_house(x, y, roof, group='CIDADE_CASAS'):
 for _hx, _hy in ((1245, 340), (470, 615), (1280, 625)):     # casas de interior (desenhadas em main.gd)
     W.collider('rect', TX + _hx - 88, TY + _hy - 38, 176, 44)
 W.collider('rect', TX + 1570 - 70, TY + 630 - 36, 140, 40)           # loja decorativa
-for _hx, _hy, _roof in ((1075, 345, 'city_roof_wood'),
-                        (1440, 330, 'city_roof_blue'), (1640, 300, 'city_roof_red'), (120, 640, 'city_roof_wood'), (285, 665, 'city_roof_blue'),
-                        (640, 665, 'city_roof_red'), (1100, 690, 'city_roof_blue'), (1470, 690, 'city_roof_wood')):
+for _hx, _hy, _roof in ((1075, 345, 'wood'),
+                        (1440, 330, 'blue'), (1640, 300, 'red'), (120, 640, 'wood'), (285, 665, 'blue'),
+                        (640, 665, 'red'), (1100, 690, 'blue'), (1470, 690, 'wood')):
     town_house(_hx, _hy, _roof)
 
 # muralha sul com vão só na rua sul (x≈1300), fechada no resto; portão aprovado no vão
@@ -1014,13 +1014,13 @@ W.collider('rect', TX + 1300 + 88, TY + _WALL_S - 26, 40, 24)
 for _wx, _wy in ((215, 470), (1560, 470)):
     W.obj('APP:city_water_edge', TX + _wx, TY + _wy, 'CIDADE_AGUA', scale=.58, solid=False, check=False)
     W.collider('rect', TX + _wx - 60, TY + _wy - 46, 120, 50)
-W.house(TX + 1720, TY + 470, 'city_roof_red', 'CIDADE_LOJAS')      # loja = casa inteira modelada
+W.house(TX + 1720, TY + 470, 'red', 'CIDADE_LOJAS')      # loja = casa inteira modelada
 W.collider('rect', TX + 1720 - 70, TY + 470 - 36, 140, 40)
 
 # povoados: mais casas compostas APPROVED (Vila dos Campos, Aldeia do Vale, casa da fazenda)
-for _x, _y, _roof, _grp, _poi in ((345, 1835, 'city_roof_red', 'VILA_C', 'REG001_POI_VILA_CAMPOS'), (700, 1820, 'city_roof_wood', 'VILA_C', 'REG001_POI_VILA_CAMPOS'),
-                                  (1185, 1690, 'city_roof_red', 'ALDEIA_V', 'REG001_POI_ALDEIA_VALE'), (1425, 1700, 'city_roof_wood', 'ALDEIA_V', 'REG001_POI_ALDEIA_VALE'),
-                                  (600, 2070, 'city_roof_blue', 'FAZENDA', None)):
+for _x, _y, _roof, _grp, _poi in ((345, 1835, 'red', 'VILA_C', 'REG001_POI_VILA_CAMPOS'), (700, 1820, 'wood', 'VILA_C', 'REG001_POI_VILA_CAMPOS'),
+                                  (1185, 1690, 'red', 'ALDEIA_V', 'REG001_POI_ALDEIA_VALE'), (1425, 1700, 'wood', 'ALDEIA_V', 'REG001_POI_ALDEIA_VALE'),
+                                  (600, 2070, 'blue', 'FAZENDA', None)):
     W.house(_x, _y, _roof, _grp, poi=_poi)
 
 # árvores aprovadas: alamedas ao longo das ruas e jardins
