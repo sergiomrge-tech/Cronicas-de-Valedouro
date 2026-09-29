@@ -110,10 +110,16 @@ jobs:
       - name: Native Godot tests
         shell: bash
         run: |
-          set -e
+          set -euo pipefail
           for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog approved_visuals vertical_slice boss_patterns mobile_input modeled_assets reg001_world reg001_gameplay character_art; do
             echo "===== TEST: $t ====="
-            timeout 60s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd"
+            log="/tmp/godot-test-$t.log"
+            if ! timeout 60s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" >"$log" 2>&1; then
+              echo "===== FAILED: $t ====="
+              tail -n 160 "$log"
+              exit 1
+            fi
+            tail -n 24 "$log"
           done
 
       - name: Create visual capture script
