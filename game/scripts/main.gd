@@ -12,6 +12,7 @@ const PROC = preload("res://scripts/reg001_procedural.gd")
 const REGR = preload("res://scripts/reg001_render.gd")
 const REGG = preload("res://scripts/reg001_gameplay.gd")
 const MODELED = preload("res://scripts/modeled_assets.gd")
+const CHARART = preload("res://scripts/character_art.gd")
 const GROUND = preload("res://scripts/ground_bake.gd")
 const SAVE_PATH: String = "user://valedouro_v1.json"
 const RANGES: Dictionary = {"cidade": 0, "floresta": 1, "masmorra": 2, "ferreiro": 3, "loja": 4, "alquimia": 5, "guilda": 6, "cripta": 7}
@@ -1186,15 +1187,33 @@ func draw_animals(camera: Vector2) -> void:
 		var p: Vector2 = creature["pos"]
 		if not Rect2(camera - Vector2(40, 40), VIEW_SIZE + Vector2(80, 80)).has_point(p):
 			continue
-		var kind: String = creature["kind"]
+		var kind: String = str(creature["kind"])
 		if kind != "fish" and kind != "bird":
 			draw_shadow_oval(p + Vector2(0, 8), Vector2(12, 4), Color(0, 0, 0, .22))
 		var bob: float = sin(float(creature["phase"])) * (3.0 if kind == "bird" else 1.5)
+
+		var animation: String = CHARART.fauna_animation(kind)
+		var candidate: Dictionary = CHARART.candidate(CHARART.fauna_subject(kind), animation)
+		if not candidate.is_empty():
+			var frame_count: int = maxi(1, int(candidate.get("frames", 1)))
+			var frame: int = CHARART.fauna_frame(kind, float(creature["phase"]), frame_count)
+			var direction: int = CHARART.direction_from_angle(float(creature["angle"]))
+			var source: Rect2 = CHARART.source_rect(candidate, frame, direction)
+			var candidate_size: Vector2 = CHARART.frame_size(candidate)
+			var anchor: Vector2 = Vector2(-candidate_size.x * .5, -candidate_size.y + 8.0 - bob)
+			var texture_value: Variant = candidate.get("texture", null)
+			if texture_value is Texture2D:
+				draw_set_transform(p - camera)
+				draw_texture_rect_region(texture_value as Texture2D, Rect2(anchor, candidate_size), source)
+				draw_set_transform(-camera)
+				continue
+
+		# Fallback visual legado: mantido idêntico enquanto o candidato não existir.
 		var flip: float = -1.0 if cos(float(creature["angle"])) < 0 else 1.0
 		draw_set_transform(p - camera, 0, Vector2(flip, 1))
 		if kind == "bird":
-			var frame: int = int(float(creature["phase"]) * 1.3) % 4
-			draw_texture_rect_region(textures["bird_anim"], Rect2(Vector2(-16, -16 - bob), Vector2(32, 32)), Rect2(frame * 32, 0, 32, 32))
+			var legacy_frame: int = int(float(creature["phase"]) * 1.3) % 4
+			draw_texture_rect_region(textures["bird_anim"], Rect2(Vector2(-16, -16 - bob), Vector2(32, 32)), Rect2(legacy_frame * 32, 0, 32, 32))
 		else:
 			draw_texture_rect(textures[kind], Rect2(Vector2(-16, -16 - bob), Vector2(32, 32)), false)
 		draw_set_transform(-camera)
@@ -1237,6 +1256,19 @@ func draw_town_life(camera: Vector2) -> void:
 		draw_shadow_oval(p + Vector2(0, 4), Vector2(11, 4), Color(0, 0, 0, .28))
 		var frame: int = int(time_acc * 5.0 + i * 2) % 8
 		var direction: int = 2 if sin(time_acc + i) > 0 else 6
+
+		var family: String = CHARART.town_family(i)
+		var candidate: Dictionary = CHARART.candidate(family, "walk")
+		if not candidate.is_empty():
+			var texture_value: Variant = candidate.get("texture", null)
+			if texture_value is Texture2D:
+				var source: Rect2 = CHARART.source_rect(candidate, frame, direction)
+				var candidate_size: Vector2 = CHARART.frame_size(candidate)
+				var anchor: Vector2 = p - Vector2(candidate_size.x * .5, candidate_size.y - 4.0)
+				draw_texture_rect_region(texture_value as Texture2D, Rect2(anchor, candidate_size), source)
+				continue
+
+		# Fallback legado: tint do hero_body permanece até existir arte própria.
 		var src: Rect2 = Rect2(Vector2(frame * 48, direction * 56), Vector2(48, 56))
 		var tint: Color = [Color(.9, .75, .65), Color(.68, .86, .76), Color(.76, .72, .95), Color(.95, .8, .55)][i % 4]
 		draw_texture_rect_region(textures["hero_body"], Rect2(p - Vector2(17, 37), Vector2(34, 40)), src, tint)
@@ -1360,21 +1392,32 @@ func draw_interior() -> void:
 	for wall_index in 9:
 		draw_approved_visual("city_wall_vegetation" if wall_index % 4 == 0 else "city_wall", Vector2(120.0 + wall_index * 110.0, 190), .52)
 	if zone == "loja":
-		draw_interior_person(Vector2(520, 500), Color(.9, .78, .6), 4)
+		draw_interior_person(Vector2(520, 500), Color(.9, .78, .6), 4, CHARART.interior_family("loja"))
 	elif zone == "guilda":
 		draw_approved_visual("city_gate", Vector2(480, 350), .58)
-		draw_interior_person(Vector2(335, 500), Color(.78, .68, .9), 4)
-		draw_interior_person(Vector2(625, 500), Color(.65, .82, .7), 4)
+		draw_interior_person(Vector2(335, 500), Color(.78, .68, .9), 4, CHARART.interior_family("guilda_left"))
+		draw_interior_person(Vector2(625, 500), Color(.65, .82, .7), 4, CHARART.interior_family("guilda_right"))
 	elif zone == "ferreiro":
-		draw_interior_person(Vector2(700, 500), Color(.82, .68, .55), 0)
+		draw_interior_person(Vector2(700, 500), Color(.82, .68, .55), 0, CHARART.interior_family("ferreiro"))
 	elif zone == "alquimia":
-		draw_interior_person(Vector2(480, 500), Color(.64, .52, .86), 0)
+		draw_interior_person(Vector2(480, 500), Color(.64, .52, .86), 0, CHARART.interior_family("alquimia"))
 	draw_label(zone.to_upper(), Vector2(400, 113))
 	draw_label("E conversar  •  ↓ sair", Vector2(386, 637), Color.WHITE)
 
-func draw_interior_person(p: Vector2, tint: Color, facing_index: int = 0) -> void:
+func draw_interior_person(p: Vector2, tint: Color, facing_index: int = 0, family: String = "npc_villager") -> void:
 	draw_shadow_oval(p + Vector2(0, 4), Vector2(11, 4), Color(0, 0, 0, .28))
 	var frame: int = int(time_acc * 4.0 + p.x * .01) % 8
+	var candidate: Dictionary = CHARART.candidate(family, "idle")
+	if not candidate.is_empty():
+		var texture_value: Variant = candidate.get("texture", null)
+		if texture_value is Texture2D:
+			var source: Rect2 = CHARART.source_rect(candidate, frame, facing_index)
+			var candidate_size: Vector2 = CHARART.frame_size(candidate)
+			var anchor: Vector2 = p - Vector2(candidate_size.x * .5, candidate_size.y - 4.0)
+			draw_texture_rect_region(texture_value as Texture2D, Rect2(anchor, candidate_size), source)
+			return
+
+	# Fallback legado permanece idêntico até a família candidata existir.
 	var src: Rect2 = Rect2(Vector2(frame * 48, facing_index * 56), Vector2(48, 56))
 	draw_texture_rect_region(textures["hero_body"], Rect2(p - Vector2(18, 38), Vector2(36, 42)), src, tint)
 
