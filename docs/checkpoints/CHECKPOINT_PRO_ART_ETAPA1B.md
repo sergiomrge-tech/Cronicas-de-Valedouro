@@ -64,3 +64,12 @@ Terreno: 18 decalques modelados, relevo macro, lábios de estrada/água, transi�
 - **Correções**: entrada da masmorra saiu da muralha da cidade e foi para o **Portão do Primeiro Limiar** nas Ruínas do Primeiro Vento (rota Cidade→Bosque→Ruínas→Dungeon; `main.gd`, teste `vertical_slice.gd` e texto do contrato ajustados; muralha sul fechada); **Cripta** escavada no flanco de colina; **Taverna do Viajante** na praça (descanso/save); **casa de posta** na Estação das Colinas; **moinho com lavouras**; **cais com carga**; **poço** que estava dentro do rio movido.
 - **Validação**: 14/14 testes Godot PASS (`reg001_world`: 916 objetos, 63 POIs, 4914 células conectadas), validador estático PASS, capturas reais 67–74 e ANTES/DEPOIS em `docs/visual_qa/pro/logica/`.
 - **Limites**: nada promovido a APPROVED; mecanismo do altar não gateia a dungeon (fluxo de missão intocado); faltam córregos (Bosque/Campos/Vale), templo e residência do NPC principal.
+
+## Atualização — sombra projetada em todos os assets (2026-09-29)
+- **Sistema**: `game/scripts/cast_shadow.gd` (luz cima‑esquerda → sombra para baixo‑direita, cisalhamento 0,55/0,28 por px de altura). Passada única `REGR.draw_shadows` sob todos os objetos (após o piso, antes de NPCs/objetos/herói).
+  - **Sprites modelados e APPROVED** (árvores, casas de campo, torres, moinho, celeiro, cactos, tendas, poço, estátuas, muralhas, portões, baús, tochas…): a própria silhueta cisalhada pela altura acima do pé (polígono texturizado em preto).
+  - **Casas** (porta+janela+telhado): UMA sombra de caixa (sem empilhar as três peças). **Muralhas/loja/portão da cidade** e **árvores APPROVED**: sombra própria em `main.gd`.
+  - **Personagens, NPCs, inimigos, chefes e fauna**: `CAST.figure` (contato + projeção afinada) via `draw_shadow_oval`.
+  - **Relevo**: continua com sombra assada no piso (`ground_detail.relief_shadows`, agora com o mesmo ângulo).
+  - Sem sombra por regra: decalques, água, lavouras, flores/grama, interior e FX (rasteiros).
+- **Teste** `tests/cast_shadow.gd`: regras + cobertura (nenhum asset alto ficou sem sombra). 15/15 testes Godot PASS. Capturas em `docs/visual_qa/pro/sombras/`.
