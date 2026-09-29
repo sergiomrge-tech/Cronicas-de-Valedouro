@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (28): Lote 01, únicos aprovados pelo Diretor. Cidade 15 + Dungeon 13.
-- **MODELED_PENDING_GATE** (310): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (337): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 28 | 0 |
-| MODELED_PENDING_GATE | 178 | 132 |
+| MODELED_PENDING_GATE | 189 | 148 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -40,7 +40,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## MODELED_PENDING_GATE — por grupo
 
-### nature (123)
+### nature (150)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -69,6 +69,21 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_chest_closed` | INTEGRATED | 4 |
 | `nat_chest_open` | INTEGRATED | 0 |
 | `nat_chest_rare` | INTEGRATED | 11 |
+| `nat_cliff_corner_ice` | NOT_USED | 0 |
+| `nat_cliff_corner_rock` | NOT_USED | 0 |
+| `nat_cliff_corner_sand` | NOT_USED | 0 |
+| `nat_cliff_end_ice_am` | NOT_USED | 0 |
+| `nat_cliff_end_ice_ap` | NOT_USED | 0 |
+| `nat_cliff_end_ice_bm` | NOT_USED | 0 |
+| `nat_cliff_end_ice_bp` | NOT_USED | 0 |
+| `nat_cliff_end_rock_am` | NOT_USED | 0 |
+| `nat_cliff_end_rock_ap` | NOT_USED | 0 |
+| `nat_cliff_end_rock_bm` | NOT_USED | 0 |
+| `nat_cliff_end_rock_bp` | INTEGRATED | 2 |
+| `nat_cliff_end_sand_am` | NOT_USED | 0 |
+| `nat_cliff_end_sand_ap` | NOT_USED | 0 |
+| `nat_cliff_end_sand_bm` | NOT_USED | 0 |
+| `nat_cliff_end_sand_bp` | INTEGRATED | 1 |
 | `nat_decal_dirt_a` | INTEGRATED | 0 |
 | `nat_decal_dry_a` | INTEGRATED | 0 |
 | `nat_decal_grass_a` | INTEGRATED | 0 |
@@ -96,9 +111,17 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_grass_tall` | INTEGRATED | 8 |
 | `nat_hay_bale` | INTEGRATED | 4 |
 | `nat_hay_stack` | INTEGRATED | 1 |
-| `nat_hill_earth` | INTEGRATED | 9 |
-| `nat_hill_ice` | INTEGRATED | 1 |
-| `nat_hill_sand` | INTEGRATED | 3 |
+| `nat_hill_earth` | INTEGRATED | 2 |
+| `nat_hill_ice` | NOT_USED | 0 |
+| `nat_hill_low_earth` | INTEGRATED | 4 |
+| `nat_hill_low_ice` | INTEGRATED | 7 |
+| `nat_hill_low_rock` | INTEGRATED | 12 |
+| `nat_hill_low_sand` | INTEGRATED | 4 |
+| `nat_hill_sand` | NOT_USED | 0 |
+| `nat_hill_wide_earth` | INTEGRATED | 4 |
+| `nat_hill_wide_ice` | INTEGRATED | 1 |
+| `nat_hill_wide_rock` | INTEGRATED | 3 |
+| `nat_hill_wide_sand` | INTEGRATED | 3 |
 | `nat_ice_spire` | INTEGRATED | 7 |
 | `nat_ice_stones` | NOT_USED | 0 |
 | `nat_log_fallen` | INTEGRATED | 2 |
@@ -108,24 +131,28 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_pit_trap` | INTEGRATED | 2 |
 | `nat_plateau_earth_m` | INTEGRATED | 1 |
 | `nat_plateau_earth_s` | INTEGRATED | 3 |
-| `nat_plateau_ice_m` | INTEGRATED | 2 |
+| `nat_plateau_ice_m` | INTEGRATED | 1 |
 | `nat_plateau_ice_s` | INTEGRATED | 1 |
 | `nat_plateau_rock_m` | INTEGRATED | 3 |
-| `nat_plateau_rock_s` | INTEGRATED | 2 |
-| `nat_plateau_sand_m` | INTEGRATED | 2 |
-| `nat_plateau_sand_s` | INTEGRATED | 2 |
+| `nat_plateau_rock_s` | INTEGRATED | 3 |
+| `nat_plateau_sand_m` | NOT_USED | 0 |
+| `nat_plateau_sand_s` | INTEGRATED | 1 |
+| `nat_ramp_earth` | INTEGRATED | 3 |
+| `nat_ramp_ice` | NOT_USED | 0 |
+| `nat_ramp_rock` | INTEGRATED | 1 |
+| `nat_ramp_sand` | INTEGRATED | 2 |
 | `nat_reeds` | INTEGRATED | 14 |
 | `nat_res_crystal` | INTEGRATED | 3 |
 | `nat_res_herb` | INTEGRATED | 2 |
 | `nat_res_ore` | INTEGRATED | 3 |
-| `nat_ridge_earth_a` | INTEGRATED | 1 |
-| `nat_ridge_earth_b` | NOT_USED | 0 |
-| `nat_ridge_ice_a` | INTEGRATED | 2 |
-| `nat_ridge_ice_b` | INTEGRATED | 2 |
-| `nat_ridge_rock_a` | INTEGRATED | 1 |
-| `nat_ridge_rock_b` | INTEGRATED | 2 |
+| `nat_ridge_earth_a` | INTEGRATED | 2 |
+| `nat_ridge_earth_b` | INTEGRATED | 1 |
+| `nat_ridge_ice_a` | INTEGRATED | 3 |
+| `nat_ridge_ice_b` | INTEGRATED | 4 |
+| `nat_ridge_rock_a` | INTEGRATED | 3 |
+| `nat_ridge_rock_b` | INTEGRATED | 6 |
 | `nat_ridge_sand_a` | INTEGRATED | 2 |
-| `nat_ridge_sand_b` | INTEGRATED | 2 |
+| `nat_ridge_sand_b` | INTEGRATED | 4 |
 | `nat_rock_arch_natural` | NOT_USED | 0 |
 | `nat_rock_boulder` | INTEGRATED | 11 |
 | `nat_rock_ice` | INTEGRATED | 3 |
@@ -157,12 +184,12 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_tree_palm` | INTEGRATED | 5 |
 | `nat_tree_pine` | INTEGRATED | 49 |
 | `nat_tree_pine_snow` | INTEGRATED | 0 |
-| `nat_wall_cliff_ice_a` | INTEGRATED | 2 |
-| `nat_wall_cliff_ice_b` | INTEGRATED | 1 |
-| `nat_wall_cliff_rock_a` | INTEGRATED | 1 |
-| `nat_wall_cliff_rock_b` | INTEGRATED | 1 |
+| `nat_wall_cliff_ice_a` | INTEGRATED | 4 |
+| `nat_wall_cliff_ice_b` | INTEGRATED | 4 |
+| `nat_wall_cliff_rock_a` | INTEGRATED | 4 |
+| `nat_wall_cliff_rock_b` | INTEGRATED | 8 |
 | `nat_wall_cliff_sand_a` | INTEGRATED | 2 |
-| `nat_wall_cliff_sand_b` | INTEGRATED | 1 |
+| `nat_wall_cliff_sand_b` | INTEGRATED | 3 |
 | `nat_wall_low_a` | INTEGRATED | 3 |
 | `nat_wall_low_b` | INTEGRATED | 3 |
 | `nat_waterfall_front` | INTEGRATED | 1 |
@@ -305,5 +332,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 61 (`REG001_POI_*`); objetos: 815 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 20; passagens: 3; fragmentos de lore: 12.
+- POIs: 61 (`REG001_POI_*`); objetos: 878 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 20; passagens: 3; fragmentos de lore: 12.
 

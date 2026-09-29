@@ -10,7 +10,7 @@
   "note": "MODELED_PENDING_GATE = modelado no estilo dos 28 APPROVED, aguardando gate visual do Diretor. Mude o status de um asset para REJECTED/HOLD para removê-lo do renderer."
  },
  "counts": {
-  "total": 310
+  "total": 337
  },
  "assets": [
   {
@@ -2715,6 +2715,1011 @@
    "pipeline": "blender-pro"
   },
   {
+   "id": "nat_cliff_corner_ice",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_corner_ice.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    472,
+    432
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    236.0,
+    326.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 70.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "canto",
+    "ice"
+   ],
+   "sha256": "f229e4825144faaee203eca13e5abe61da3f907c90a2ea5060807a723185c39b",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     29.4,
+     -20.8,
+     9.6
+    ],
+    [
+     41.6,
+     -14.7,
+     9.6
+    ],
+    [
+     15.6,
+     -13.9,
+     9.6
+    ],
+    [
+     27.8,
+     -7.8,
+     9.6
+    ],
+    [
+     1.8,
+     -7.0,
+     9.6
+    ],
+    [
+     14.0,
+     -0.9,
+     9.6
+    ],
+    [
+     -12.0,
+     -0.1,
+     9.6
+    ],
+    [
+     0.2,
+     6.0,
+     9.6
+    ],
+    [
+     -31.7,
+     -7.1,
+     10.7
+    ],
+    [
+     -16.3,
+     0.6,
+     10.7
+    ],
+    [
+     -43.9,
+     -1.0,
+     10.7
+    ],
+    [
+     -28.5,
+     6.7,
+     10.7
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_corner_rock",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_corner_rock.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    472,
+    432
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    236.0,
+    326.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 70.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "canto",
+    "rock"
+   ],
+   "sha256": "b5d22972d9d3b78e6d89504016878a44481254190160cc96772be57691e22a98",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     29.4,
+     -20.8,
+     9.6
+    ],
+    [
+     41.6,
+     -14.7,
+     9.6
+    ],
+    [
+     15.6,
+     -13.9,
+     9.6
+    ],
+    [
+     27.8,
+     -7.8,
+     9.6
+    ],
+    [
+     1.8,
+     -7.0,
+     9.6
+    ],
+    [
+     14.0,
+     -0.9,
+     9.6
+    ],
+    [
+     -12.0,
+     -0.1,
+     9.6
+    ],
+    [
+     0.2,
+     6.0,
+     9.6
+    ],
+    [
+     -31.7,
+     -7.1,
+     10.7
+    ],
+    [
+     -16.3,
+     0.6,
+     10.7
+    ],
+    [
+     -43.9,
+     -1.0,
+     10.7
+    ],
+    [
+     -28.5,
+     6.7,
+     10.7
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_corner_sand",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_corner_sand.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    472,
+    432
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    236.0,
+    326.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 70.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "canto",
+    "sand"
+   ],
+   "sha256": "2f80aa386d69719dec7d79ebf268fa774498d4bfba0b39e03c8139185d6d33e6",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     29.4,
+     -20.8,
+     9.6
+    ],
+    [
+     41.6,
+     -14.7,
+     9.6
+    ],
+    [
+     15.6,
+     -13.9,
+     9.6
+    ],
+    [
+     27.8,
+     -7.8,
+     9.6
+    ],
+    [
+     1.8,
+     -7.0,
+     9.6
+    ],
+    [
+     14.0,
+     -0.9,
+     9.6
+    ],
+    [
+     -12.0,
+     -0.1,
+     9.6
+    ],
+    [
+     0.2,
+     6.0,
+     9.6
+    ],
+    [
+     -31.7,
+     -7.1,
+     10.7
+    ],
+    [
+     -16.3,
+     0.6,
+     10.7
+    ],
+    [
+     -43.9,
+     -1.0,
+     10.7
+    ],
+    [
+     -28.5,
+     6.7,
+     10.7
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_end_ice_am",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_end_ice_am.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    432,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    216.0,
+    296.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "fim",
+    "ice"
+   ],
+   "sha256": "8a7edb473340714605bc6d1e37f006b8695041e6be550ca36d7009125969ff5c",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     8.8,
+     -10.5,
+     10.4
+    ],
+    [
+     20.9,
+     -4.4,
+     10.4
+    ],
+    [
+     -6.1,
+     -3.0,
+     10.4
+    ],
+    [
+     6.1,
+     3.0,
+     10.4
+    ],
+    [
+     -20.9,
+     4.4,
+     10.4
+    ],
+    [
+     -8.8,
+     10.5,
+     10.4
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_end_ice_ap",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_end_ice_ap.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    432,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    216.0,
+    296.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "fim",
+    "ice"
+   ],
+   "sha256": "7558140c4ce2e88f03345f2e993f97ce5cbf7547845f3ba3a285aa69765f2c5d",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     8.8,
+     -10.5,
+     10.4
+    ],
+    [
+     20.9,
+     -4.4,
+     10.4
+    ],
+    [
+     -6.1,
+     -3.0,
+     10.4
+    ],
+    [
+     6.1,
+     3.0,
+     10.4
+    ],
+    [
+     -20.9,
+     4.4,
+     10.4
+    ],
+    [
+     -8.8,
+     10.5,
+     10.4
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_end_ice_bm",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_end_ice_bm.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    432,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    216.0,
+    296.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "fim",
+    "ice"
+   ],
+   "sha256": "93f2b3cc496088d7dbed3aabfc8ed66ad77eb1b89505ed7dea35a6a9a3f8366a",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     -8.8,
+     -10.5,
+     10.4
+    ],
+    [
+     6.1,
+     -3.0,
+     10.4
+    ],
+    [
+     20.9,
+     4.4,
+     10.4
+    ],
+    [
+     -20.9,
+     -4.4,
+     10.4
+    ],
+    [
+     -6.1,
+     3.0,
+     10.4
+    ],
+    [
+     8.8,
+     10.5,
+     10.4
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_end_ice_bp",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_end_ice_bp.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    432,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    216.0,
+    296.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "fim",
+    "ice"
+   ],
+   "sha256": "2d28af92d8d4bf9dac73081c9f769bcd792ecedebf76b14fda2d3624585cd4b0",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     -8.8,
+     -10.5,
+     10.4
+    ],
+    [
+     6.1,
+     -3.0,
+     10.4
+    ],
+    [
+     20.9,
+     4.4,
+     10.4
+    ],
+    [
+     -20.9,
+     -4.4,
+     10.4
+    ],
+    [
+     -6.1,
+     3.0,
+     10.4
+    ],
+    [
+     8.8,
+     10.5,
+     10.4
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_end_rock_am",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_end_rock_am.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    432,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    216.0,
+    296.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "fim",
+    "rock"
+   ],
+   "sha256": "df935307b7c9e2c002950436cacefa4328913908ce605535e9f1ce0478da41f4",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     8.8,
+     -10.5,
+     10.4
+    ],
+    [
+     20.9,
+     -4.4,
+     10.4
+    ],
+    [
+     -6.1,
+     -3.0,
+     10.4
+    ],
+    [
+     6.1,
+     3.0,
+     10.4
+    ],
+    [
+     -20.9,
+     4.4,
+     10.4
+    ],
+    [
+     -8.8,
+     10.5,
+     10.4
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_end_rock_ap",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_end_rock_ap.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    432,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    216.0,
+    296.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "fim",
+    "rock"
+   ],
+   "sha256": "f4f77d9d650c399276df7bff17b89bb0c20c5a1354509d7ccf4cc70604388ce9",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     8.8,
+     -10.5,
+     10.4
+    ],
+    [
+     20.9,
+     -4.4,
+     10.4
+    ],
+    [
+     -6.1,
+     -3.0,
+     10.4
+    ],
+    [
+     6.1,
+     3.0,
+     10.4
+    ],
+    [
+     -20.9,
+     4.4,
+     10.4
+    ],
+    [
+     -8.8,
+     10.5,
+     10.4
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_end_rock_bm",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_end_rock_bm.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    432,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    216.0,
+    296.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "fim",
+    "rock"
+   ],
+   "sha256": "b9dd55fc1ef282fb5da40c5faeed6ce9caeedbb4be9a9ad9f0b4532db691d7aa",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     -8.8,
+     -10.5,
+     10.4
+    ],
+    [
+     6.1,
+     -3.0,
+     10.4
+    ],
+    [
+     20.9,
+     4.4,
+     10.4
+    ],
+    [
+     -20.9,
+     -4.4,
+     10.4
+    ],
+    [
+     -6.1,
+     3.0,
+     10.4
+    ],
+    [
+     8.8,
+     10.5,
+     10.4
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_end_rock_bp",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_end_rock_bp.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    432,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    216.0,
+    296.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "fim",
+    "rock"
+   ],
+   "sha256": "856cc9fdfade5de7a94e66b7c89cdcc91d69cdaabfdcf42b8031e6531b465493",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     -8.8,
+     -10.5,
+     10.4
+    ],
+    [
+     6.1,
+     -3.0,
+     10.4
+    ],
+    [
+     20.9,
+     4.4,
+     10.4
+    ],
+    [
+     -20.9,
+     -4.4,
+     10.4
+    ],
+    [
+     -6.1,
+     3.0,
+     10.4
+    ],
+    [
+     8.8,
+     10.5,
+     10.4
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_end_sand_am",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_end_sand_am.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    432,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    216.0,
+    296.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "fim",
+    "sand"
+   ],
+   "sha256": "f3c35062b2f1525e375fafa4f20964ed1193301343447aa655ace5ab7a8e9d78",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     8.8,
+     -10.5,
+     10.4
+    ],
+    [
+     20.9,
+     -4.4,
+     10.4
+    ],
+    [
+     -6.1,
+     -3.0,
+     10.4
+    ],
+    [
+     6.1,
+     3.0,
+     10.4
+    ],
+    [
+     -20.9,
+     4.4,
+     10.4
+    ],
+    [
+     -8.8,
+     10.5,
+     10.4
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_end_sand_ap",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_end_sand_ap.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    432,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    216.0,
+    296.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "fim",
+    "sand"
+   ],
+   "sha256": "dd840e577abffe790a2847e761cb615238d152e7c6fa6bdd16ba0a40a5c8330c",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     8.8,
+     -10.5,
+     10.4
+    ],
+    [
+     20.9,
+     -4.4,
+     10.4
+    ],
+    [
+     -6.1,
+     -3.0,
+     10.4
+    ],
+    [
+     6.1,
+     3.0,
+     10.4
+    ],
+    [
+     -20.9,
+     4.4,
+     10.4
+    ],
+    [
+     -8.8,
+     10.5,
+     10.4
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_end_sand_bm",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_end_sand_bm.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    432,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    216.0,
+    296.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "fim",
+    "sand"
+   ],
+   "sha256": "1547bd1420d5ac963f3935f097ffeae892fb49cb4cc1fb42652394865ed84ede",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     -8.8,
+     -10.5,
+     10.4
+    ],
+    [
+     6.1,
+     -3.0,
+     10.4
+    ],
+    [
+     20.9,
+     4.4,
+     10.4
+    ],
+    [
+     -20.9,
+     -4.4,
+     10.4
+    ],
+    [
+     -6.1,
+     3.0,
+     10.4
+    ],
+    [
+     8.8,
+     10.5,
+     10.4
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_cliff_end_sand_bp",
+   "path": "res://assets/modeled/nature/elevation/nat_cliff_end_sand_bp.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    432,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    216.0,
+    296.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "paredao",
+    "fim",
+    "sand"
+   ],
+   "sha256": "fe3ef67fc7a12f51475da1b0832fb1da605252f036586be17e83a0a6de62da6f",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     -8.8,
+     -10.5,
+     10.4
+    ],
+    [
+     6.1,
+     -3.0,
+     10.4
+    ],
+    [
+     20.9,
+     4.4,
+     10.4
+    ],
+    [
+     -20.9,
+     -4.4,
+     10.4
+    ],
+    [
+     -6.1,
+     3.0,
+     10.4
+    ],
+    [
+     8.8,
+     10.5,
+     10.4
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
    "id": "nat_decal_dirt_a",
    "path": "res://assets/modeled/nature/decals/nat_decal_dirt_a.png",
    "group": "nature",
@@ -3581,6 +4586,122 @@
    "pipeline": "blender-pro"
   },
   {
+   "id": "nat_hill_low_earth",
+   "path": "res://assets/modeled/nature/elevation/nat_hill_low_earth.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    492,
+    312
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    246.0,
+    206.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 50.599999999999994,
+   "tags": [
+    "elevacao",
+    "ondulacao",
+    "caminhavel",
+    "earth"
+   ],
+   "sha256": "304a77436f82cfbd993a54e8aa8a7edf6200be4ea787e67b6a1d222bcaee752f",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_hill_low_ice",
+   "path": "res://assets/modeled/nature/elevation/nat_hill_low_ice.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    492,
+    312
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    246.0,
+    206.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 50.599999999999994,
+   "tags": [
+    "elevacao",
+    "ondulacao",
+    "caminhavel",
+    "ice"
+   ],
+   "sha256": "1da278215ec610ec6eaaa330b629cb85026e14ad31b1ac28fdcfaec9d3c55470",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_hill_low_rock",
+   "path": "res://assets/modeled/nature/elevation/nat_hill_low_rock.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    492,
+    312
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    246.0,
+    206.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 50.599999999999994,
+   "tags": [
+    "elevacao",
+    "ondulacao",
+    "caminhavel",
+    "rock"
+   ],
+   "sha256": "2d7a53cbe7fd2659e2cea3ac7a4c1a5c96dca6c3478dd899e87fbb901c2ed463",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_hill_low_sand",
+   "path": "res://assets/modeled/nature/elevation/nat_hill_low_sand.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    492,
+    312
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    246.0,
+    206.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 50.599999999999994,
+   "tags": [
+    "elevacao",
+    "ondulacao",
+    "caminhavel",
+    "sand"
+   ],
+   "sha256": "7796c7a40a5b3ec4753a1c592918c766a8600c09d430be39728ce91d26ced617",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
    "id": "nat_hill_sand",
    "path": "res://assets/modeled/nature/elevation/nat_hill_sand.png",
    "group": "nature",
@@ -3651,6 +4772,730 @@
      0.0,
      17.0,
      11.8
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_hill_wide_earth",
+   "path": "res://assets/modeled/nature/elevation/nat_hill_wide_earth.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    612,
+    412
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    306.0,
+    276.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 66.0,
+   "tags": [
+    "elevacao",
+    "colina",
+    "ampla",
+    "earth"
+   ],
+   "sha256": "2ea884bb61cd303eb9d90b64cb9b7aaa35033630e05945a483461ba66738f31c",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     5.4,
+     -35.8,
+     11.5
+    ],
+    [
+     21.9,
+     -27.5,
+     11.5
+    ],
+    [
+     38.4,
+     -19.2,
+     11.5
+    ],
+    [
+     55.0,
+     -11.0,
+     11.5
+    ],
+    [
+     71.5,
+     -2.7,
+     11.5
+    ],
+    [
+     -10.0,
+     -28.1,
+     11.5
+    ],
+    [
+     6.5,
+     -19.8,
+     11.5
+    ],
+    [
+     23.1,
+     -11.5,
+     11.5
+    ],
+    [
+     39.6,
+     -3.3,
+     11.5
+    ],
+    [
+     56.2,
+     5.0,
+     11.5
+    ],
+    [
+     -25.4,
+     -20.4,
+     11.5
+    ],
+    [
+     -8.9,
+     -12.1,
+     11.5
+    ],
+    [
+     7.7,
+     -3.8,
+     11.5
+    ],
+    [
+     24.2,
+     4.4,
+     11.5
+    ],
+    [
+     40.8,
+     12.7,
+     11.5
+    ],
+    [
+     -40.8,
+     -12.7,
+     11.5
+    ],
+    [
+     -24.2,
+     -4.4,
+     11.5
+    ],
+    [
+     -7.7,
+     3.8,
+     11.5
+    ],
+    [
+     8.9,
+     12.1,
+     11.5
+    ],
+    [
+     25.4,
+     20.4,
+     11.5
+    ],
+    [
+     -56.2,
+     -5.0,
+     11.5
+    ],
+    [
+     -39.6,
+     3.3,
+     11.5
+    ],
+    [
+     -23.1,
+     11.5,
+     11.5
+    ],
+    [
+     -6.5,
+     19.8,
+     11.5
+    ],
+    [
+     10.0,
+     28.1,
+     11.5
+    ],
+    [
+     -71.5,
+     2.7,
+     11.5
+    ],
+    [
+     -55.0,
+     11.0,
+     11.5
+    ],
+    [
+     -38.4,
+     19.2,
+     11.5
+    ],
+    [
+     -21.9,
+     27.5,
+     11.5
+    ],
+    [
+     -5.4,
+     35.8,
+     11.5
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_hill_wide_ice",
+   "path": "res://assets/modeled/nature/elevation/nat_hill_wide_ice.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    612,
+    412
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    306.0,
+    276.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 66.0,
+   "tags": [
+    "elevacao",
+    "colina",
+    "ampla",
+    "ice"
+   ],
+   "sha256": "f6d8b38a735eb1a490b303ca0d4e410c984e14d1859ae237dc07c9b26dff45d5",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     5.4,
+     -35.8,
+     11.5
+    ],
+    [
+     21.9,
+     -27.5,
+     11.5
+    ],
+    [
+     38.4,
+     -19.2,
+     11.5
+    ],
+    [
+     55.0,
+     -11.0,
+     11.5
+    ],
+    [
+     71.5,
+     -2.7,
+     11.5
+    ],
+    [
+     -10.0,
+     -28.1,
+     11.5
+    ],
+    [
+     6.5,
+     -19.8,
+     11.5
+    ],
+    [
+     23.1,
+     -11.5,
+     11.5
+    ],
+    [
+     39.6,
+     -3.3,
+     11.5
+    ],
+    [
+     56.2,
+     5.0,
+     11.5
+    ],
+    [
+     -25.4,
+     -20.4,
+     11.5
+    ],
+    [
+     -8.9,
+     -12.1,
+     11.5
+    ],
+    [
+     7.7,
+     -3.8,
+     11.5
+    ],
+    [
+     24.2,
+     4.4,
+     11.5
+    ],
+    [
+     40.8,
+     12.7,
+     11.5
+    ],
+    [
+     -40.8,
+     -12.7,
+     11.5
+    ],
+    [
+     -24.2,
+     -4.4,
+     11.5
+    ],
+    [
+     -7.7,
+     3.8,
+     11.5
+    ],
+    [
+     8.9,
+     12.1,
+     11.5
+    ],
+    [
+     25.4,
+     20.4,
+     11.5
+    ],
+    [
+     -56.2,
+     -5.0,
+     11.5
+    ],
+    [
+     -39.6,
+     3.3,
+     11.5
+    ],
+    [
+     -23.1,
+     11.5,
+     11.5
+    ],
+    [
+     -6.5,
+     19.8,
+     11.5
+    ],
+    [
+     10.0,
+     28.1,
+     11.5
+    ],
+    [
+     -71.5,
+     2.7,
+     11.5
+    ],
+    [
+     -55.0,
+     11.0,
+     11.5
+    ],
+    [
+     -38.4,
+     19.2,
+     11.5
+    ],
+    [
+     -21.9,
+     27.5,
+     11.5
+    ],
+    [
+     -5.4,
+     35.8,
+     11.5
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_hill_wide_rock",
+   "path": "res://assets/modeled/nature/elevation/nat_hill_wide_rock.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    612,
+    412
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    306.0,
+    276.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 66.0,
+   "tags": [
+    "elevacao",
+    "colina",
+    "ampla",
+    "rock"
+   ],
+   "sha256": "08cd9022e1eaacf5c3a75ef9e405c158d89afdb88c3c40c94da47a3dae5936bd",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     5.4,
+     -35.8,
+     11.5
+    ],
+    [
+     21.9,
+     -27.5,
+     11.5
+    ],
+    [
+     38.4,
+     -19.2,
+     11.5
+    ],
+    [
+     55.0,
+     -11.0,
+     11.5
+    ],
+    [
+     71.5,
+     -2.7,
+     11.5
+    ],
+    [
+     -10.0,
+     -28.1,
+     11.5
+    ],
+    [
+     6.5,
+     -19.8,
+     11.5
+    ],
+    [
+     23.1,
+     -11.5,
+     11.5
+    ],
+    [
+     39.6,
+     -3.3,
+     11.5
+    ],
+    [
+     56.2,
+     5.0,
+     11.5
+    ],
+    [
+     -25.4,
+     -20.4,
+     11.5
+    ],
+    [
+     -8.9,
+     -12.1,
+     11.5
+    ],
+    [
+     7.7,
+     -3.8,
+     11.5
+    ],
+    [
+     24.2,
+     4.4,
+     11.5
+    ],
+    [
+     40.8,
+     12.7,
+     11.5
+    ],
+    [
+     -40.8,
+     -12.7,
+     11.5
+    ],
+    [
+     -24.2,
+     -4.4,
+     11.5
+    ],
+    [
+     -7.7,
+     3.8,
+     11.5
+    ],
+    [
+     8.9,
+     12.1,
+     11.5
+    ],
+    [
+     25.4,
+     20.4,
+     11.5
+    ],
+    [
+     -56.2,
+     -5.0,
+     11.5
+    ],
+    [
+     -39.6,
+     3.3,
+     11.5
+    ],
+    [
+     -23.1,
+     11.5,
+     11.5
+    ],
+    [
+     -6.5,
+     19.8,
+     11.5
+    ],
+    [
+     10.0,
+     28.1,
+     11.5
+    ],
+    [
+     -71.5,
+     2.7,
+     11.5
+    ],
+    [
+     -55.0,
+     11.0,
+     11.5
+    ],
+    [
+     -38.4,
+     19.2,
+     11.5
+    ],
+    [
+     -21.9,
+     27.5,
+     11.5
+    ],
+    [
+     -5.4,
+     35.8,
+     11.5
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_hill_wide_sand",
+   "path": "res://assets/modeled/nature/elevation/nat_hill_wide_sand.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    612,
+    412
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    306.0,
+    276.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 66.0,
+   "tags": [
+    "elevacao",
+    "colina",
+    "ampla",
+    "sand"
+   ],
+   "sha256": "fd46edf152af4d2ba4c8d79cd10a8ebc3ebc643799ad8263a22af0a1afec29ae",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     5.4,
+     -35.8,
+     11.5
+    ],
+    [
+     21.9,
+     -27.5,
+     11.5
+    ],
+    [
+     38.4,
+     -19.2,
+     11.5
+    ],
+    [
+     55.0,
+     -11.0,
+     11.5
+    ],
+    [
+     71.5,
+     -2.7,
+     11.5
+    ],
+    [
+     -10.0,
+     -28.1,
+     11.5
+    ],
+    [
+     6.5,
+     -19.8,
+     11.5
+    ],
+    [
+     23.1,
+     -11.5,
+     11.5
+    ],
+    [
+     39.6,
+     -3.3,
+     11.5
+    ],
+    [
+     56.2,
+     5.0,
+     11.5
+    ],
+    [
+     -25.4,
+     -20.4,
+     11.5
+    ],
+    [
+     -8.9,
+     -12.1,
+     11.5
+    ],
+    [
+     7.7,
+     -3.8,
+     11.5
+    ],
+    [
+     24.2,
+     4.4,
+     11.5
+    ],
+    [
+     40.8,
+     12.7,
+     11.5
+    ],
+    [
+     -40.8,
+     -12.7,
+     11.5
+    ],
+    [
+     -24.2,
+     -4.4,
+     11.5
+    ],
+    [
+     -7.7,
+     3.8,
+     11.5
+    ],
+    [
+     8.9,
+     12.1,
+     11.5
+    ],
+    [
+     25.4,
+     20.4,
+     11.5
+    ],
+    [
+     -56.2,
+     -5.0,
+     11.5
+    ],
+    [
+     -39.6,
+     3.3,
+     11.5
+    ],
+    [
+     -23.1,
+     11.5,
+     11.5
+    ],
+    [
+     -6.5,
+     19.8,
+     11.5
+    ],
+    [
+     10.0,
+     28.1,
+     11.5
+    ],
+    [
+     -71.5,
+     2.7,
+     11.5
+    ],
+    [
+     -55.0,
+     11.0,
+     11.5
+    ],
+    [
+     -38.4,
+     19.2,
+     11.5
+    ],
+    [
+     -21.9,
+     27.5,
+     11.5
+    ],
+    [
+     -5.4,
+     35.8,
+     11.5
     ]
    ],
    "pipeline": "blender-pro"
@@ -4581,6 +6426,122 @@
      9.9
     ]
    ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ramp_earth",
+   "path": "res://assets/modeled/nature/elevation/nat_ramp_earth.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    612,
+    472
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    306.0,
+    326.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "rampa",
+    "caminhavel",
+    "earth"
+   ],
+   "sha256": "6699502e563565e4d15cc1c6050fca2c85e1b6ce33b5335fd4453dd7d16e1ad2",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ramp_ice",
+   "path": "res://assets/modeled/nature/elevation/nat_ramp_ice.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    612,
+    472
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    306.0,
+    326.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "rampa",
+    "caminhavel",
+    "ice"
+   ],
+   "sha256": "4646f4c78a782e310dd4259cb48b1c3b763024734f9049fecc9a2748fe36efa0",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ramp_rock",
+   "path": "res://assets/modeled/nature/elevation/nat_ramp_rock.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    612,
+    472
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    306.0,
+    326.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "rampa",
+    "caminhavel",
+    "rock"
+   ],
+   "sha256": "afe1c16fbcc7f1282eb133eafbe550f39905f0bbe0eb60936693dbdb1351358a",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_ramp_sand",
+   "path": "res://assets/modeled/nature/elevation/nat_ramp_sand.png",
+   "group": "nature",
+   "folder": "elevation",
+   "frame_size": [
+    612,
+    472
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    306.0,
+    326.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 60.0,
+   "tags": [
+    "elevacao",
+    "rampa",
+    "caminhavel",
+    "sand"
+   ],
+   "sha256": "9b8c6e977403f3bdb92b28009f50bcf4f251fd2cc87978e87d0954717e8b2034",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
    "pipeline": "blender-pro"
   },
   {
@@ -9469,7 +11430,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "47dcf14d2b4f29d222ceb341a9786965fd9d5f586b0cf0136ea3e75bb23be90a",
+   "sha256": "1844d576022891deb93fff824bd2b144b0fbb8bb2545715876274d9bf194e19a",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9496,7 +11457,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "8e6de6078daf8ab04f0434ccec9eeae80ec7a6cee9017d3deb5c555872e983ca",
+   "sha256": "ba60814c1df38aa539ce5566b40674cf51e5fc791aa5457dc79831d433ed152c",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9523,7 +11484,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "df729e47f6afec0b8fbbf5e46e43561359015a9d48462a1180e677e8cc90dcd7",
+   "sha256": "588025761c80feb0fdca6679017d76b409b5bcdef510217d17a1af7ddff90cd6",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9550,7 +11511,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "9bcbf3662fc3d3d3e2afb0a30969b239b0baca6037154d82ccb0365ea8ccad93",
+   "sha256": "89ede66f73e4368e4586cc17e4e05e566e63c4d137ab408f9cdbccf37fad5ae9",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9604,7 +11565,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "c627384e2376b2c0166abb6d637b12f9705c6a0de378ce637cf8e81919eb8883",
+   "sha256": "4f317ec960f3d01102bf2b9649272394774229a7dc8c9376e816869d82c128e0",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9631,7 +11592,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "be4b0d7fc07c7737f8bbfbe43be69b3b3934007320fa16aec2081c82a68f22e1",
+   "sha256": "b8e1c435629739e5bfcb70b51eac7929dff72cf8130d84fa249de4910b8bff61",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9658,7 +11619,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "cfbbdb8a61535bb03a1f0cf9930bc3324022e1bd4aad6a0aa9b9a7e2160bde95",
+   "sha256": "ee88f5a3397548a98a4fa36584cdaf9c48ceb17af1eccb3d4d4932030754092a",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9685,7 +11646,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "6a7a5687b9d0f228ad2b93f5b6380768a3be646ec5ea12463d0c5d29c667c15b",
+   "sha256": "5ebc820b9be743858ca422493f76392e4f317b7fc581346fdb957a974d3575f1",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9793,7 +11754,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "ada7980136489247c70dfb5041dfb9eda76030a243727b8d02a22dc12a77606c",
+   "sha256": "796bb017c352fe16634ce75545836dacc4b7a0e5b3c258351428a25e4bb325e7",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9820,7 +11781,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "78e739e3544aa29c6fb20267bac76a9c7886dc5dac669296cc41e5d5d80dd993",
+   "sha256": "7dea254f60d4f5f2877fe88048833d6483dda6ca30f8ec4bbee57ea56b56c139",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9847,7 +11808,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "0ea381f72cbcfb09ca27710730eeaf8cb1d0f4d4917a06de11f01a2b2f570193",
+   "sha256": "5b99edf867c5709112810f96dc78a6cedac14ff7bb7ab855d09484c3fe0f731a",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9874,7 +11835,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "18dd056442390526f3fd8d052ea72e7f6103e52c8c1baaee35118d3df2469229",
+   "sha256": "c82319aa8702a752f8dcc4f876b3f75056c476e8c2a2c7a3966b36e989623603",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9928,7 +11889,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "58e29aa26100bb7320487683673d1b07ef9c19fdd3e1db81c85dc061c38fba1a",
+   "sha256": "ac8fa5121475f39e4ef5581f09c7d2dc5f82d0276a2ea993628118298801219d",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9955,7 +11916,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "cd1f00bef6d7bb7c5964ce11fd86963adc091542d428fc0982dfd3ce3cfefc6e",
+   "sha256": "19e289b02290fe96edfd3745c2a25a42e95607a8834ccba7396ddb35b2c2d3a4",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -9982,7 +11943,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "b810c8e7f1d1fde36edf50c3522be663b02a53f89a06f468bfdb7d30c636602b",
+   "sha256": "e07f42ddcf52bdaba233737f00366affe3f1c9c7fbe36f5747baef328bd8c96c",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -10009,7 +11970,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "e36ed5134c28b37e43d6219fbf0a2081800963a82e56054cefc00bc429069d57",
+   "sha256": "644799c75c4e1ba7ea1fc55a0cd7829790b3746b50475a31d280a8647cf7fa8e",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -10036,7 +11997,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "5ec349a7a97bfdc438e99e38ed3e66040bdd0d1cca11eca48a221af063ddc0c9",
+   "sha256": "7cf97ae88e3725a68ef3b160a05b7bb2939fcbaa2cd0cee438a7da070e5404e1",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -10063,7 +12024,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "a320330d8c9f06966586230dac59599121aa7b6ed6471c4e57acdfd8f151b2e4",
+   "sha256": "2ce971335fd6dcd77a186258929018185bd8632825fe2c6e61759e2f773d9cd0",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -10090,7 +12051,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "bd3f61232c2a3ef448c55359dfd89b544eb2ff64a7306ded6ac7eb7e44110bcc",
+   "sha256": "a8cecfa9ca930ad0b7ae02e3cba5588fea28e3c6558f0960f5e7615ffb701827",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -10117,7 +12078,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "5259686fa34cd898b6b80efe2c13b054ac5f53c9d59724c4af49e8b70e3bba21",
+   "sha256": "de04b1f37ae1ef3d54818a4d1226bd741bbbc8fa677777673bf902bd9f223998",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -10144,7 +12105,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "590c8da8b3a9d5e0e6be7114f5573c3114844408750731f0a558945ace26c168",
+   "sha256": "8a2802e392508a38d1b40bb15cb70c007698846e836f7484a98f808e6e26f483",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -10171,7 +12132,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "4bcddb3e40f8f24ae3a977f63aa2c93bb77fddfbe66e5859c531a2de46f440d5",
+   "sha256": "22e15420b1c6f61e69ed7fec596657b7c61dadd8577a8ce0549be111a6d3f7fe",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -10198,7 +12159,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "286fb3864c76b25f8413b5e1d5b619b2cabe2d7de5574b5858b26a5a101cb21c",
+   "sha256": "ec4115d1ce240fea23b06828b4bec00da3242b84de426780279d006bd9044653",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -10225,7 +12186,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "dc11c6b0546fa75f5731ce7155c17d410c8f9fd8b7fc62851b7e6a4e778e9558",
+   "sha256": "7172be8a81716cc19134775d67ccf7f6f2f83120025e168947d87ddbb3b60055",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },

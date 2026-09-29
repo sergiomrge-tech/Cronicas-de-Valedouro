@@ -868,7 +868,7 @@ ELEV_RAD = {'hill': 55, 'plateau_s': 58, 'plateau_m': 78, 'ridge': 74, 'wall': 6
 
 
 def _erad(asset):
-    for k, v in (('hill', 55), ('plateau_earth_s', 58), ('plateau_rock_s', 58), ('plateau_sand_s', 58), ('plateau_ice_s', 58), ('plateau', 78), ('ridge', 74), ('wall', 62), ('arch', 60), ('pillars', 40), ('steps', 50)):
+    for k, v in (('hill_wide', 88), ('hill_low', 46), ('cliff_end', 56), ('cliff_corner', 72), ('ramp', 40), ('hill', 55), ('plateau_earth_s', 58), ('plateau_rock_s', 58), ('plateau_sand_s', 58), ('plateau_ice_s', 58), ('plateau', 78), ('ridge', 74), ('wall', 62), ('arch', 60), ('pillars', 40), ('steps', 50)):
         if k in asset:
             return v
     return 60
@@ -920,9 +920,11 @@ def _elev_why(x, y, rad, group):
     return 'terr/trail/struct'
 
 
-def _put(asset, x, y, group, solid=None):
+def _put(asset, x, y, group, solid=None, flip=False):
     x, y = x + _OFF[0], y + _OFF[1]
     rad = _erad(asset)
+    if 'hill_low' in asset or 'nat_ramp' in asset:
+        solid = False
     if _REGION[0] and geo.biome(x, y) != _REGION[0]:
         return False
     if not _elev_ok(x, y, rad, group):
@@ -930,7 +932,7 @@ def _put(asset, x, y, group, solid=None):
             print('  FAIL', asset, round(x), round(y), _elev_why(x, y, rad, group))
         return False
     if not _DRY[0]:
-        W.obj(asset, x, y, 'ELEV', check=False, **({} if solid is None else {'solid': solid}))
+        W.obj(asset, x, y, 'ELEV', check=False, flip=flip, **({} if solid is None else {'solid': solid}))
     _elev_done.append((x, y, rad, group))
     return True
 
@@ -962,6 +964,14 @@ def best(region, fn, *args, tries=28, spread=90, **kw):
 def _fam_asset(kind, fam, ori='a'):
     if kind == 'hill':
         return 'nat_hill_' + ('earth' if fam == 'rock' else fam)
+    if kind == 'hillw':
+        return 'nat_hill_wide_' + fam
+    if kind == 'hilll':
+        return 'nat_hill_low_' + fam
+    if kind == 'ramp':
+        return 'nat_ramp_' + fam
+    if kind == 'corner':
+        return 'nat_cliff_corner_' + ('rock' if fam == 'earth' else fam)
     if kind == 'wall' and fam == 'earth':
         fam = 'rock'
     if kind in ('ridge', 'wall'):
@@ -988,12 +998,17 @@ def poly(fam, pts, name, kinds=('ridge', 'wall'), spacing=76, foot=3, gaps=(), c
             kind = kinds[idx % len(kinds)]
             if _put(_fam_asset(kind, fam, ori), x + px * j, y + py * j, name):
                 n_ok += 1
-            if foot and idx % foot == 1 and _put(_fam_asset('hill', fam), x + px * 64 * side, y + py * 64 * side * .8, name):
+            if foot and idx % foot == 1 and _put(_fam_asset('hilll' if idx % 2 else 'hillw', fam), x + px * 78 * side, y + py * 78 * side * .8, name):
                 n_ok += 1
             idx += 1
     if cap:
-        for (x, y) in (pts[0], pts[-1]):
-            if _put(_fam_asset('hill', fam), x, y, name):
+        wf = 'rock' if fam == 'earth' else fam
+        for k, ((x, y), (ox, oy)) in enumerate(((pts[0], pts[1]), (pts[-1], pts[-2]))):
+            dx, dy = x - ox, y - oy                      # sentido para fora da formação
+            L = math.hypot(dx, dy) or 1.0
+            ori = 'a' if dx * dy < 0 else 'b'
+            sg = 'p' if dy >= 0 else 'm'
+            if _put('nat_cliff_end_%s_%s%s' % (wf, ori, sg), x + dx / L * 48, y + dy / L * 48, name):
                 n_ok += 1
     return n_ok
 
@@ -1002,10 +1017,10 @@ def mesa(fam, x, y, name, steps_dir=1):
     """Platô com colinas de pé e degraus para o lado da trilha."""
     n = 0
     n += _put(_fam_asset('plat_m', fam), x, y, name)
-    n += _put(_fam_asset('plat_s', fam), x - 120 * steps_dir, y + 34, name)
-    n += _put(_fam_asset('hill', fam), x + 92 * steps_dir, y + 40, name)
-    n += _put(_fam_asset('hill', fam), x - 24, y - 70, name)
-    n += _put('nat_steps_stone', x - 66 * steps_dir, y + 62, name, solid=False)
+    n += _put(_fam_asset('plat_s', fam), x - 175 * steps_dir, y + 58, name)
+    n += _put(_fam_asset('hillw', fam), x + 120 * steps_dir, y + 52, name)
+    n += _put(_fam_asset('hilll', fam), x - 24, y - 96, name)
+    n += _put('nat_ramp_' + fam, x - 90 * steps_dir, y + 48, name, solid=False, flip=steps_dir < 0)
     return n
 
 
@@ -1014,7 +1029,7 @@ def terraces(fam, x, y, name, n=3, dir_=1):
     k = 0
     for i in range(n):
         k += _put(_fam_asset('plat_m' if i == n - 1 else 'plat_s', fam), x + dir_ * i * 104, y - i * 52, name)
-    k += _put('nat_steps_stone', x - dir_ * 40, y + 50, name, solid=False)
+    k += _put('nat_ramp_' + fam, x - dir_ * 92, y + 46, name, solid=False, flip=dir_ < 0)
     return k
 
 
@@ -1054,13 +1069,13 @@ def formations():
     L['gelo_muralha_n'] = best('gelo', poly, 'ice', [(2200, 90), (2400, 80)], 'g_mn', kinds=('wall', 'ridge'), spacing=92, foot=4)
     L['gelo_mirante'] = best('gelo', mesa, 'ice', 2980, 540, 'g_mir', steps_dir=-1)
     L['gelo_mesa_oeste'] = best('gelo', mesa, 'ice', 2110, 400, 'g_mo')
-    L['gelo_fill'] = scatter('gelo', 'ice', ['hill', 'plat_s', 'ridge'], 5, (2060, 60, 3040, 840), 'g_f')
+    L['gelo_fill'] = scatter('gelo', 'ice', ['hillw', 'hilll', 'plat_s', 'ridge', 'hilll'], 8, (2060, 60, 3040, 840), 'g_f')
     # ── PRADARIA (colinas leste): cordilheira baixa ao norte, terraços em degraus, colinas ao sul
     L['prad_cordilheira'] = best('pradaria', poly, 'earth', [(2680, 900), (2800, 880), (2960, 905)], 'p_c', kinds=('ridge', 'wall'), spacing=84, foot=3)
     L['prad_terraco_a'] = best('pradaria', terraces, 'earth', 2640, 1010, 'p_ta', 3, 1)
     L['prad_terraco_b'] = best('pradaria', terraces, 'earth', 2900, 1290, 'p_tb', 3, -1)
     L['prad_sul'] = best('pradaria', poly, 'earth', [(2650, 1350), (2800, 1340), (2960, 1360)], 'p_s', kinds=('ridge', 'wall'), foot=3, side=-1)
-    L['prad_fill'] = scatter('pradaria', 'earth', ['hill', 'plat_s', 'hill', 'ridge'], 6, (2430, 860, 3040, 1380), 'p_f')
+    L['prad_fill'] = scatter('pradaria', 'earth', ['hillw', 'hilll', 'plat_s', 'hillw', 'hilll', 'ridge'], 10, (2430, 860, 3040, 1380), 'p_f')
     # ── DESERTO: serra ao sul, cânion (duas paredes com corredor), mesas
     L['des_serra_sul'] = best('deserto', poly, 'sand', [(2060, 2190), (2260, 2230), (2620, 2235), (2960, 2215)], 'd_ss', kinds=('wall', 'ridge'), spacing=90, foot=3, side=-1)
     L['des_canyon_w'] = best('deserto', poly, 'sand', [(2560, 1700), (2680, 1760), (2800, 1820)], 'd_cw', kinds=('wall', 'ridge'), foot=2, side=-1)
@@ -1068,22 +1083,22 @@ def formations():
     L['des_mesa_1'] = best('deserto', mesa, 'sand', 2130, 1500, 'd_m1')
     L['des_mesa_2'] = best('deserto', mesa, 'sand', 2800, 1960, 'd_m2', steps_dir=-1)
     L['des_mesa_3'] = best('deserto', mesa, 'sand', 2160, 1990, 'd_m3')
-    L['des_fill'] = scatter('deserto', 'sand', ['hill', 'plat_s', 'ridge', 'hill'], 6, (1990, 1380, 3040, 2260), 'd_f')
+    L['des_fill'] = scatter('deserto', 'sand', ['hillw', 'hilll', 'plat_s', 'ridge', 'hilll', 'hillw'], 10, (1990, 1380, 3040, 2260), 'd_f')
     # ── VALE: cristas de pedra, patamares, anel de colinas ao redor do Santuário
     L['vale_crista_n'] = best('vale', poly, 'rock', [(880, 1690), (1000, 1660), (1180, 1650), (1300, 1650)], 'v_cn', kinds=('ridge', 'wall'), foot=3)
     L['vale_anel'] = best('vale', poly, 'rock', [(1560, 2130), (1470, 2090), (1470, 1990)], 'v_a', kinds=('ridge', 'wall'), foot=2)
     L['vale_patamar'] = best('vale', terraces, 'rock', 1040, 2080, 'v_t', 3, 1)
     L['vale_leste'] = best('vale', poly, 'rock', [(1880, 1720), (1920, 1840), (1900, 1960)], 'v_l', kinds=('wall', 'ridge'), foot=2)
-    L['vale_fill'] = scatter('vale', 'rock', ['hill', 'plat_s', 'ridge'], 5, (760, 1570, 2010, 2280), 'v_f')
+    L['vale_fill'] = scatter('vale', 'rock', ['hillw', 'hilll', 'plat_s', 'hilll', 'ridge'], 8, (760, 1570, 2010, 2280), 'v_f')
     # ── CAMPOS: colinas suaves entre as cercas da fazenda
     L['campos_colinas'] = best('campos', poly, 'earth', [(120, 1690), (260, 1650), (420, 1690)], 'c_a', kinds=('ridge', 'hill'), foot=0)
     L['campos_terraco'] = best('campos', terraces, 'earth', 470, 2190, 'c_t', 3, 1)
-    L['campos_fill'] = scatter('campos', 'earth', ['hill', 'plat_s', 'hill'], 4, (40, 1570, 760, 2280), 'c_f')
+    L['campos_fill'] = scatter('campos', 'earth', ['hillw', 'hilll', 'hillw', 'hilll'], 7, (40, 1570, 760, 2280), 'c_f')
     # ── FLORESTA: patamares no sul do bosque e cristas de pedra
     L['flor_sul'] = best('floresta', poly, 'rock', [(80, 1300), (240, 1400), (420, 1440)], 'f_s', kinds=('wall', 'ridge'), foot=3, side=-1)
     L['flor_mesa'] = best('floresta', mesa, 'rock', 560, 1340, 'f_m')
     L['flor_norte'] = best('floresta', poly, 'rock', [(1560, 500), (1700, 440), (1880, 470)], 'f_n', kinds=('ridge', 'wall'), foot=3)
-    L['flor_fill'] = scatter('floresta', 'rock', ['plat_m', 'ridge', 'hill'], 5, (40, 900, 1040, 1570), 'f_f')
+    L['flor_fill'] = scatter('floresta', 'rock', ['plat_m', 'hilll', 'ridge', 'hillw', 'hilll'], 8, (40, 900, 1040, 1570), 'f_f')
     for _asset, _x, _y, _sol in (('nat_rock_arch_natural', 2420, 700, None), ('nat_steps_stone', 1580, 1120, False), ('str_shelter_wood', 1420, 640, None), ('nat_rock_pillars', 2350, 1900, None)):
         if _elev_ok(_x, _y, _erad(_asset)):
             W.obj(_asset, _x, _y, 'ELEV', solid=_sol, check=False)
