@@ -50,9 +50,17 @@ def smooth_field(w, h, cells_x, cells_y, seed, octaves=1):
     return np.clip((total - total.min()) / (total.max() - total.min() + 1e-9), 0, 1)
 
 
+_DITHER_RNG = np.random.default_rng(91027)
+_DITHER64 = _DITHER_RNG.random((64, 64), dtype=np.float32)
+
 def bayer(h, w, ox=0, oy=0):
-    tile = np.tile(T.BAYER8, (h // 8 + 2, w // 8 + 2))
-    return tile[oy % 8:oy % 8 + h, ox % 8:ox % 8 + w]
+    """Large deterministic decorrelated threshold field.
+
+    Keeps hard pixel-art transitions but avoids the obvious 8x8 ordered-dither
+    carpet visible in large REG_001 biome boundaries.
+    """
+    tile = np.tile(_DITHER64, (h // 64 + 3, w // 64 + 3))
+    return tile[oy % 64:oy % 64 + h, ox % 64:ox % 64 + w]
 
 
 def region_arrays(x0, y0, w, h):
@@ -123,13 +131,17 @@ def build_terrain_ids(x0, y0, w, h, trails_mask, ford_mask, seeds):
     """Mapa de ids de terreno por pixel (com bordas dithered/ragged)."""
     xx, yy = region_arrays(x0, y0, w, h)
     A = seeds['warpA']; B = seeds['warpB']
-    dxa = (A[0][y0:y0 + h, x0:x0 + w] - .5) * 90; dya = (A[1][y0:y0 + h, x0:x0 + w] - .5) * 90
-    dxb = (B[0][y0:y0 + h, x0:x0 + w] - .5) * 90; dyb = (B[1][y0:y0 + h, x0:x0 + w] - .5) * 90
+    # Broad continuous coordinate warp: breaks rectangular biome borders into
+    # large natural masses instead of swapping between two warped samples.
+    dxa = (A[0][y0:y0 + h, x0:x0 + w] - .5) * 190
+    dya = (A[1][y0:y0 + h, x0:x0 + w] - .5) * 190
+    dxb = (B[0][y0:y0 + h, x0:x0 + w] - .5) * 145
+    dyb = (B[1][y0:y0 + h, x0:x0 + w] - .5) * 145
     bay = bayer(h, w, x0, y0)
     fine = seeds['fine'][y0:y0 + h, x0:x0 + w]
-    use_b = (bay + (fine - .5) * .5) > .5
-    bx = np.where(use_b, xx + dxb, xx + dxa)
-    by_ = np.where(use_b, yy + dyb, yy + dya)
+    macro_mix = seeds['macro'][y0:y0 + h, x0:x0 + w]
+    bx = xx + dxa * (1.0 - macro_mix) + dxb * macro_mix
+    by_ = yy + dya * (1.0 - macro_mix) + dyb * macro_mix
     bio = biome_ids(bx, by_)
     patch1 = seeds['p1'][y0:y0 + h, x0:x0 + w]
     patch2 = seeds['p2'][y0:y0 + h, x0:x0 + w]
@@ -177,9 +189,9 @@ def build_terrain_ids(x0, y0, w, h, trails_mask, ford_mask, seeds):
     ter = np.where(ford_vis, np.where(gt(patch2, .5, bay, .12), IDX['riverbed'], IDX['water_shallow']), ter)
     # estradas e trilhas com bordas irregulares
     road = path_mask_geo(xx, yy) | trails_mask
-    road_img = Image.fromarray((road * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(5))
+    road_img = Image.fromarray((road * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(10))
     road_prob = np.asarray(road_img, dtype=np.float32) / 255.0
-    edge_noise = (seeds['road_soft'][y0:y0 + h, x0:x0 + w] - .5) * .55 + (bay - .5) * .12
+    edge_noise = (seeds['road_soft'][y0:y0 + h, x0:x0 + w] - .5) * .72 + (bay - .5) * .08
     road_final = (road_prob > (.5 + edge_noise)) & ~(deep | shal) & ~bridge_any
     road_ter = np.where(gt(patch1, .6, bay), IDX['dirt'], IDX['road'])
     road_ter = np.where(bio == 2, IDX['road_sand'], np.where(bio == 1, IDX['road_snow'], road_ter))
@@ -290,7 +302,7 @@ def bake_world(textures, world):
     seeds = make_seeds(W, H)
     trails = rasterize_trails(0, 0, W, H, world)
     # suaviza a máscara de trilhas com blur curto para bordas orgânicas
-    tr_img = Image.fromarray((trails * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(4))
+    tr_img = Image.fromarray((trails * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(8))
     trails_soft = np.asarray(tr_img) > 60
     # a máscara de estradas principais também recebe um ruído de borda em build_terrain_ids; aqui só trilhas
     fords = ford_mask_for(0, 0, W, H, world)
