@@ -68,6 +68,9 @@ jobs:
           rm -rf game/tools/__pycache__
           python3 game/tools/validate_reg001.py
           rm -rf game/tools/__pycache__ game/tools/reg001/__pycache__
+          python3 game/tools/validate_main_story.py
+          python3 game/tools/reg001/audit_logic.py
+          rm -rf game/tools/__pycache__ game/tools/reg001/__pycache__
 
       - name: Professional art diagnostic benchmark
         if: github.ref_name == 'art/pro-pixel-modeling-pipeline-v2'
@@ -105,13 +108,16 @@ jobs:
 
       - name: Godot import / parser gate
         run: |
-          timeout 90s /tmp/godot/godot --headless --path game --editor --quit-after 20
+          # --import espera a importação de recursos terminar antes de sair.
+          # Não usar --quit-after aqui: ele conta iterações e pode abortar o scan,
+          # deixando .ctex/.fontdata ausentes para os testes seguintes.
+          timeout 180s /tmp/godot/godot --headless --path game --import
 
       - name: Native Godot tests
         shell: bash
         run: |
           set -euo pipefail
-          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog approved_visuals vertical_slice boss_patterns mobile_input modeled_assets reg001_world reg001_gameplay character_art; do
+          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog approved_visuals vertical_slice boss_patterns mobile_input modeled_assets reg001_world reg001_gameplay character_art cast_shadow guardian_state act02_compositions act02_stage; do
             echo "===== TEST: $t ====="
             log="/tmp/godot-test-$t.log"
             if ! timeout 60s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" >"$log" 2>&1; then
