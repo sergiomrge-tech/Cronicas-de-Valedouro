@@ -277,3 +277,24 @@ The world is ready for Etapa 2 only when:
 
 ## Sources incorporated as principles
 This internal skill was authored specifically for Valedouro using general techniques from professional isometric/pixel-art workflows: fixed orthographic pre-render rigs, 3D-to-2D sprite pipelines, low-resolution rendering, hand pixel cleanup, palette/cluster discipline, spritesheet metadata, and pixel-accurate Godot integration. No external skill text is copied verbatim.
+
+## 18. Regras operacionais (adotadas do estudo de skills públicas: Blender-Kiln, aseprite-ai-artist, PixelRefiner)
+Fontes estudadas: [elithril/blender-kiln](https://github.com/elithril/blender-kiln) (MIT), [xinkouhe/aseprite-ai-artist](https://github.com/xinkouhe/aseprite-ai-artist) (MIT), [HappyOnigiri/PixelRefiner](https://github.com/HappyOnigiri/PixelRefiner). Nenhum código foi copiado; só princípios.
+
+**Modelagem (Blender)**
+1. Antes de operar, confirmar o estado da cena (objetos, escala, origem); todo asset nasce de cena limpa (`core.reset()`), sem herança de estado.
+2. O gerador (`pro_*.py`) é a fonte versionada; o PNG é reprodutível. Não editar PNG gerado à mão sem registrar a passada no manifesto.
+3. Nunca limitar contagem de polígonos "por regra": limitar pelo que se lê na resolução final.
+4. Auditar materiais antes de exportar: nenhum material padrão do Blender, nenhum "preto puro" fora de vãos intencionais.
+5. Operações destrutivas (booleana, joins) só sobre malhas próprias do asset; nunca sobre o mundo de referência.
+6. Lote: renderizar por prefixo, registrar falha por asset e continuar; o manifesto só é regravado ao final (`build_assets.py`).
+
+**Pixel art (limpeza)**
+7. Paleta: K-means em **Oklab** (`vk/post.py::quantize_oklab`), 64 cores por folha; paleta de referência do projeto em `game/data/valedouro_palette.json` (extraída dos 28 APPROVED).
+8. Fluxo por asset: brief → paleta → base 3D → sombreamento → limpeza (clusters, contornos, alpha) → revisão crítica → export com tags → captura no Godot.
+9. Revisão crítica obrigatória por família (`pixel-critic`): silhueta, clusters, pixels isolados, banding, contorno, contato com o chão.
+10. Se houver Aseprite licenciado na máquina do artista, a limpeza manual pode usar o MCP `aseprite-ai-artist`; o resultado entra como novo PNG com hash no manifesto.
+
+**Encaixe de módulos (contrato)**
+11. Unidade 60 px/u; baia de parede 2,4 u; tile de piso 2,92 u (124×70 px de jogo, losango 2:1, emenda contínua); pé ancorado em `foot`; folga de 26 px no canvas.
+12. Módulos vizinhos são testados juntos em malha (folha de emenda) antes de entrar no manifesto.

@@ -1,8 +1,8 @@
 {
   "summary": {
     "total": 292,
-    "pass": 44,
-    "warn": 248,
+    "pass": 152,
+    "warn": 140,
     "fail": 0
   },
   "results": [
@@ -19,14 +19,13 @@
       "opaque_pixels": 7217,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 299,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 7,
       "occupancy_ratio": 0.131304,
       "manifest_id": "city_banner_blue",
       "status": "WARN",
       "warnings": [
         "7 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 299 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (56, 81, 0, 40); risk of animation/render clipping"
       ],
       "failures": []
@@ -44,14 +43,13 @@
       "opaque_pixels": 7217,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 297,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 7,
       "occupancy_ratio": 0.131304,
       "manifest_id": "city_banner_red",
       "status": "WARN",
       "warnings": [
         "7 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 297 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (56, 81, 0, 40); risk of animation/render clipping"
       ],
       "failures": []
@@ -69,14 +67,12 @@
       "opaque_pixels": 5545,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 319,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.123651,
       "manifest_id": "city_barrels",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 319 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -92,14 +88,12 @@
       "opaque_pixels": 3575,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 262,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.093626,
       "manifest_id": "city_bench",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 262 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -115,14 +109,12 @@
       "opaque_pixels": 7931,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 279,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.142788,
       "manifest_id": "city_cart_market",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 279 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -138,14 +130,12 @@
       "opaque_pixels": 7484,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 301,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.16689,
       "manifest_id": "city_crates",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 301 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -185,14 +175,12 @@
       "opaque_pixels": 2984,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 260,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.063782,
       "manifest_id": "city_lamp_post_a",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 260 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -208,14 +196,12 @@
       "opaque_pixels": 4435,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 296,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.064703,
       "manifest_id": "city_lamp_post_b",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 296 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -252,14 +238,12 @@
       "opaque_pixels": 4667,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 312,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.134325,
       "manifest_id": "city_planter",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 312 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -363,14 +347,12 @@
       "opaque_pixels": 57123,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 340,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.202117,
       "manifest_id": "str_barn",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 340 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -386,14 +368,12 @@
       "opaque_pixels": 28445,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 755,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.065467,
       "manifest_id": "str_boat_row",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 755 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -409,14 +389,12 @@
       "opaque_pixels": 64987,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1018,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.070203,
       "manifest_id": "str_boat_sail",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 1018 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -432,14 +410,12 @@
       "opaque_pixels": 23174,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 225,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.183711,
       "manifest_id": "str_crop_cabbage",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 225 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -455,14 +431,12 @@
       "opaque_pixels": 25283,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 426,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.20043,
       "manifest_id": "str_crop_corn",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 426 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -478,14 +452,12 @@
       "opaque_pixels": 25477,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 383,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.201968,
       "manifest_id": "str_crop_wheat",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 383 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -501,14 +473,12 @@
       "opaque_pixels": 14229,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 276,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.12247,
       "manifest_id": "str_dock_a",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 276 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -524,14 +494,12 @@
       "opaque_pixels": 14229,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 301,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.12247,
       "manifest_id": "str_dock_b",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 301 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -547,14 +515,12 @@
       "opaque_pixels": 9944,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 327,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.08509,
       "manifest_id": "str_dock_end",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 327 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -570,14 +536,12 @@
       "opaque_pixels": 53581,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 515,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.240939,
       "manifest_id": "str_lodge_ice",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 515 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -593,14 +557,12 @@
       "opaque_pixels": 47876,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 570,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.215285,
       "manifest_id": "str_outpost_amber",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 570 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -616,14 +578,12 @@
       "opaque_pixels": 5487,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 382,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.071238,
       "manifest_id": "str_scarecrow",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 382 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -639,14 +599,12 @@
       "opaque_pixels": 21615,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 436,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.156649,
       "manifest_id": "str_shelter_wood",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 436 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -662,14 +620,12 @@
       "opaque_pixels": 120681,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1288,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.162011,
       "manifest_id": "str_shrine_stone",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 1288 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -685,14 +641,13 @@
       "opaque_pixels": 88920,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 470,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 61,
       "occupancy_ratio": 0.377317,
       "manifest_id": "str_watchtower_frost",
       "status": "WARN",
       "warnings": [
         "61 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 470 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (63, 43, 0, 52); risk of animation/render clipping"
       ],
       "failures": []
@@ -710,14 +665,13 @@
       "opaque_pixels": 88920,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 448,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 61,
       "occupancy_ratio": 0.377317,
       "manifest_id": "str_watchtower_stone",
       "status": "WARN",
       "warnings": [
         "61 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 448 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (63, 43, 0, 52); risk of animation/render clipping"
       ],
       "failures": []
@@ -735,14 +689,13 @@
       "opaque_pixels": 683240,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 2249,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 7,
       "occupancy_ratio": 0.237299,
       "manifest_id": "str_windmill",
       "status": "WARN",
       "warnings": [
         "7 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 2249 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (119, 118, 0, 46); risk of animation/render clipping"
       ],
       "failures": []
@@ -1015,14 +968,12 @@
       "opaque_pixels": 63707,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 532,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.274334,
       "manifest_id": "str_cave_entrance",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 532 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -1291,13 +1242,12 @@
       "opaque_pixels": 15376,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 160,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.442857,
       "manifest_id": "int_floor_stone",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 160 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (1, 8, 1, 8); risk of animation/render clipping"
       ],
       "failures": []
@@ -1315,13 +1265,12 @@
       "opaque_pixels": 15376,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 160,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.442857,
       "manifest_id": "int_floor_wood",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 160 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (1, 8, 1, 8); risk of animation/render clipping"
       ],
       "failures": []
@@ -1339,13 +1288,12 @@
       "opaque_pixels": 15376,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 160,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.442857,
       "manifest_id": "int_floor_wood_dark",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 160 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (1, 8, 1, 8); risk of animation/render clipping"
       ],
       "failures": []
@@ -1842,14 +1790,13 @@
       "opaque_pixels": 5742,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 195,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 12,
       "occupancy_ratio": 0.531667,
       "manifest_id": "int_beam",
       "status": "WARN",
       "warnings": [
         "12 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 195 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (1, 15, 0, 5); risk of animation/render clipping"
       ],
       "failures": []
@@ -1867,14 +1814,13 @@
       "opaque_pixels": 6541,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 275,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 13,
       "occupancy_ratio": 0.290711,
       "manifest_id": "int_post",
       "status": "WARN",
       "warnings": [
         "13 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 275 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (8, 22, 0, 22); risk of animation/render clipping"
       ],
       "failures": []
@@ -1892,14 +1838,13 @@
       "opaque_pixels": 28918,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 231,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 32,
       "occupancy_ratio": 0.680424,
       "manifest_id": "int_wall_door",
       "status": "WARN",
       "warnings": [
         "32 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 231 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (11, 18, 0, 24); risk of animation/render clipping"
       ],
       "failures": []
@@ -1965,14 +1910,13 @@
       "opaque_pixels": 29520,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 239,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 33,
       "occupancy_ratio": 0.694588,
       "manifest_id": "int_wall_hearth",
       "status": "WARN",
       "warnings": [
         "33 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 239 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (11, 13, 0, 24); risk of animation/render clipping"
       ],
       "failures": []
@@ -1990,14 +1934,13 @@
       "opaque_pixels": 28584,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 224,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 32,
       "occupancy_ratio": 0.672565,
       "manifest_id": "int_wall_niche",
       "status": "WARN",
       "warnings": [
         "32 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 224 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (11, 18, 0, 24); risk of animation/render clipping"
       ],
       "failures": []
@@ -2015,14 +1958,13 @@
       "opaque_pixels": 28584,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 221,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 32,
       "occupancy_ratio": 0.672565,
       "manifest_id": "int_wall_plain",
       "status": "WARN",
       "warnings": [
         "32 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 221 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (11, 18, 0, 24); risk of animation/render clipping"
       ],
       "failures": []
@@ -2088,14 +2030,13 @@
       "opaque_pixels": 28584,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 229,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 32,
       "occupancy_ratio": 0.672565,
       "manifest_id": "int_wall_window",
       "status": "WARN",
       "warnings": [
         "32 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 229 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (11, 18, 0, 24); risk of animation/render clipping"
       ],
       "failures": []
@@ -2163,14 +2104,12 @@
       "opaque_pixels": 3081,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 288,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.099055,
       "manifest_id": "nat_bush_berry",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 288 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2186,14 +2125,12 @@
       "opaque_pixels": 2990,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 276,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.096129,
       "manifest_id": "nat_bush_dry",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 276 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2209,14 +2146,12 @@
       "opaque_pixels": 3289,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 292,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.105742,
       "manifest_id": "nat_bush_flowering",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 292 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2232,14 +2167,12 @@
       "opaque_pixels": 3625,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 284,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.116544,
       "manifest_id": "nat_bush_frost",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 284 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2255,14 +2188,12 @@
       "opaque_pixels": 3652,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 297,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.117413,
       "manifest_id": "nat_bush_green",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 297 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2299,14 +2230,12 @@
       "opaque_pixels": 12996,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1218,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.079625,
       "manifest_id": "nat_campfire",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 1218 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2322,14 +2251,13 @@
       "opaque_pixels": 17138,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 459,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 7,
       "occupancy_ratio": 0.306342,
       "manifest_id": "nat_tent_frost",
       "status": "WARN",
       "warnings": [
         "7 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 459 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (3, 64, 2, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -2347,14 +2275,12 @@
       "opaque_pixels": 15965,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 404,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.242541,
       "manifest_id": "nat_tent_red",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 404 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2370,13 +2296,12 @@
       "opaque_pixels": 10349,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 373,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.184989,
       "manifest_id": "nat_tent_small",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 373 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (14, 87, 13, 1); risk of animation/render clipping"
       ],
       "failures": []
@@ -2607,14 +2532,12 @@
       "opaque_pixels": 2330,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 246,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.074431,
       "manifest_id": "nat_cactus_round",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 246 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2630,14 +2553,12 @@
       "opaque_pixels": 5109,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 396,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.078813,
       "manifest_id": "nat_cactus_tall",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 396 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2653,14 +2574,12 @@
       "opaque_pixels": 21117,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 340,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.118806,
       "manifest_id": "nat_dune_large",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 340 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2676,14 +2595,12 @@
       "opaque_pixels": 8041,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 286,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.086982,
       "manifest_id": "nat_dune_small",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 286 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2699,14 +2616,12 @@
       "opaque_pixels": 17325,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 312,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.159495,
       "manifest_id": "nat_hill_earth",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 312 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2722,14 +2637,12 @@
       "opaque_pixels": 17905,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 312,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.164835,
       "manifest_id": "nat_hill_ice",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 312 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2745,14 +2658,12 @@
       "opaque_pixels": 19076,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 342,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.175615,
       "manifest_id": "nat_hill_sand",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 342 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2768,14 +2679,12 @@
       "opaque_pixels": 49938,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 395,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.234073,
       "manifest_id": "nat_plateau_earth_m",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 395 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2791,14 +2700,12 @@
       "opaque_pixels": 23575,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 374,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.190268,
       "manifest_id": "nat_plateau_earth_s",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 374 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2814,14 +2721,12 @@
       "opaque_pixels": 49718,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 389,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.233041,
       "manifest_id": "nat_plateau_ice_m",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 389 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2837,14 +2742,12 @@
       "opaque_pixels": 21746,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 380,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.175507,
       "manifest_id": "nat_plateau_ice_s",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 380 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2860,14 +2763,12 @@
       "opaque_pixels": 48010,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 422,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.225036,
       "manifest_id": "nat_plateau_rock_m",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 422 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2883,14 +2784,12 @@
       "opaque_pixels": 22018,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 409,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.177702,
       "manifest_id": "nat_plateau_rock_s",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 409 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2906,14 +2805,12 @@
       "opaque_pixels": 47690,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 370,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.223536,
       "manifest_id": "nat_plateau_sand_m",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 370 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2929,14 +2826,12 @@
       "opaque_pixels": 21563,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 361,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.17403,
       "manifest_id": "nat_plateau_sand_s",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 361 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2952,14 +2847,12 @@
       "opaque_pixels": 41568,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 447,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.224663,
       "manifest_id": "nat_ridge_earth_a",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 447 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2975,14 +2868,12 @@
       "opaque_pixels": 42718,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 462,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.230878,
       "manifest_id": "nat_ridge_earth_b",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 462 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -2998,14 +2889,12 @@
       "opaque_pixels": 41535,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 424,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.224484,
       "manifest_id": "nat_ridge_ice_a",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 424 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3021,14 +2910,12 @@
       "opaque_pixels": 41426,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 480,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.223895,
       "manifest_id": "nat_ridge_ice_b",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 480 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3044,14 +2931,12 @@
       "opaque_pixels": 42858,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 436,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.231635,
       "manifest_id": "nat_ridge_rock_a",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 436 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3067,14 +2952,12 @@
       "opaque_pixels": 44045,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 504,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.23805,
       "manifest_id": "nat_ridge_rock_b",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 504 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3090,14 +2973,12 @@
       "opaque_pixels": 41677,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 431,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.225252,
       "manifest_id": "nat_ridge_sand_a",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 431 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3113,14 +2994,12 @@
       "opaque_pixels": 43012,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 438,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.232467,
       "manifest_id": "nat_ridge_sand_b",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 438 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3136,14 +3015,12 @@
       "opaque_pixels": 34629,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 385,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.194562,
       "manifest_id": "nat_rock_arch_natural",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 385 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3159,14 +3036,12 @@
       "opaque_pixels": 18355,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 342,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.140174,
       "manifest_id": "nat_rock_pillars",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 342 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3182,14 +3057,12 @@
       "opaque_pixels": 13778,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 365,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.11871,
       "manifest_id": "nat_steps_stone",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 365 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3205,14 +3078,12 @@
       "opaque_pixels": 37368,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 390,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.200231,
       "manifest_id": "nat_wall_cliff_ice_a",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 390 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3228,14 +3099,12 @@
       "opaque_pixels": 38400,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 439,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.205761,
       "manifest_id": "nat_wall_cliff_ice_b",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 439 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3251,14 +3120,12 @@
       "opaque_pixels": 35880,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 347,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.192258,
       "manifest_id": "nat_wall_cliff_rock_a",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 347 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3274,14 +3141,12 @@
       "opaque_pixels": 35804,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 337,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.191851,
       "manifest_id": "nat_wall_cliff_rock_b",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 337 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3297,14 +3162,12 @@
       "opaque_pixels": 36368,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 379,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.194873,
       "manifest_id": "nat_wall_cliff_sand_a",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 379 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3320,14 +3183,12 @@
       "opaque_pixels": 36404,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 395,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.195066,
       "manifest_id": "nat_wall_cliff_sand_b",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 395 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3343,14 +3204,12 @@
       "opaque_pixels": 9834,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 371,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.211648,
       "manifest_id": "nat_cart_wood",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 371 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3366,14 +3225,12 @@
       "opaque_pixels": 3314,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 276,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.119795,
       "manifest_id": "nat_hay_bale",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 276 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3389,14 +3246,12 @@
       "opaque_pixels": 8320,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 287,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.214521,
       "manifest_id": "nat_hay_stack",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 287 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3435,14 +3290,12 @@
       "opaque_pixels": 2413,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 732,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.019691,
       "manifest_id": "fau_bird",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 732 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3458,14 +3311,12 @@
       "opaque_pixels": 48871,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 974,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.051517,
       "manifest_id": "fau_camel",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 974 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3481,14 +3332,12 @@
       "opaque_pixels": 33856,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1056,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.055047,
       "manifest_id": "fau_deer",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 1056 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3504,14 +3353,12 @@
       "opaque_pixels": 3166,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 814,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.032404,
       "manifest_id": "fau_fish",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 814 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3527,14 +3374,12 @@
       "opaque_pixels": 11463,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1130,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.032525,
       "manifest_id": "fau_fox",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 1130 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3550,14 +3395,12 @@
       "opaque_pixels": 17961,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1233,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.037794,
       "manifest_id": "fau_goat",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 1233 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3573,14 +3416,12 @@
       "opaque_pixels": 6927,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1202,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.027748,
       "manifest_id": "fau_hare",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 1202 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3596,14 +3437,12 @@
       "opaque_pixels": 2886,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 357,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.080247,
       "manifest_id": "nat_fence_broken_a",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 357 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3619,14 +3458,12 @@
       "opaque_pixels": 3146,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 353,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.087476,
       "manifest_id": "nat_fence_broken_b",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 353 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3642,14 +3479,12 @@
       "opaque_pixels": 3306,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 308,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.091925,
       "manifest_id": "nat_fence_wood_a",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 308 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3665,14 +3500,12 @@
       "opaque_pixels": 3190,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 318,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.0887,
       "manifest_id": "nat_fence_wood_b",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 318 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3688,14 +3521,12 @@
       "opaque_pixels": 5253,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 268,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.119267,
       "manifest_id": "nat_gate_wood",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 268 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3711,14 +3542,12 @@
       "opaque_pixels": 7550,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 375,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.189204,
       "manifest_id": "nat_wall_low_a",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 375 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3734,14 +3563,12 @@
       "opaque_pixels": 6927,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 363,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.173592,
       "manifest_id": "nat_wall_low_b",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 363 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3916,14 +3743,12 @@
       "opaque_pixels": 5125,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 387,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.081864,
       "manifest_id": "nat_ice_spire",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 387 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3963,14 +3788,12 @@
       "opaque_pixels": 7357,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 284,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.120599,
       "manifest_id": "nat_snow_mound",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 284 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -3986,14 +3809,12 @@
       "opaque_pixels": 4754,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 296,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.129311,
       "manifest_id": "nat_chest_closed",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 296 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4009,14 +3830,12 @@
       "opaque_pixels": 4415,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 299,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.12009,
       "manifest_id": "nat_chest_open",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 299 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4032,14 +3851,12 @@
       "opaque_pixels": 4754,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 312,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.129311,
       "manifest_id": "nat_chest_rare",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 312 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4055,14 +3872,12 @@
       "opaque_pixels": 22818,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 851,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.096713,
       "manifest_id": "nat_flag_blue",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 851 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4078,14 +3893,12 @@
       "opaque_pixels": 22818,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 863,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.096713,
       "manifest_id": "nat_flag_red",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 863 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4101,14 +3914,12 @@
       "opaque_pixels": 3510,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 325,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.106286,
       "manifest_id": "nat_signpost",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 325 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4124,14 +3935,13 @@
       "opaque_pixels": 17318,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 370,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 2,
       "occupancy_ratio": 0.263096,
       "manifest_id": "nat_well_stone",
       "status": "WARN",
       "warnings": [
         "2 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 370 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (34, 33, 0, 20); risk of animation/render clipping"
       ],
       "failures": []
@@ -4225,14 +4035,12 @@
       "opaque_pixels": 18080,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 376,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.264932,
       "manifest_id": "nat_boulder_ice",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 376 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4248,14 +4056,12 @@
       "opaque_pixels": 15982,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 345,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.234189,
       "manifest_id": "nat_boulder_sand",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 345 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4296,14 +4102,12 @@
       "opaque_pixels": 20015,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 328,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.293286,
       "manifest_id": "nat_rock_boulder",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 328 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4319,14 +4123,12 @@
       "opaque_pixels": 9040,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 332,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.212087,
       "manifest_id": "nat_rock_ice",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 332 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4342,14 +4144,12 @@
       "opaque_pixels": 8470,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 342,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.219521,
       "manifest_id": "nat_rock_medium",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 342 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4365,14 +4165,12 @@
       "opaque_pixels": 10566,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 339,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.247889,
       "manifest_id": "nat_rock_mossy",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 339 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4388,14 +4186,12 @@
       "opaque_pixels": 10330,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 309,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.242352,
       "manifest_id": "nat_rock_sand",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 309 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4411,14 +4207,12 @@
       "opaque_pixels": 3431,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 286,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.149148,
       "manifest_id": "nat_rock_small",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 286 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4434,14 +4228,12 @@
       "opaque_pixels": 9180,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 364,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.215372,
       "manifest_id": "nat_rock_snow",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 364 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4457,14 +4249,12 @@
       "opaque_pixels": 26640,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 401,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.218418,
       "manifest_id": "nat_altar_ancient",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 401 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4480,14 +4270,12 @@
       "opaque_pixels": 25948,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 333,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.212744,
       "manifest_id": "nat_altar_sand",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 333 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4503,14 +4291,12 @@
       "opaque_pixels": 21884,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 286,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.158387,
       "manifest_id": "nat_obelisk_rune",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 286 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4526,14 +4312,13 @@
       "opaque_pixels": 31673,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 417,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 5,
       "occupancy_ratio": 0.30394,
       "manifest_id": "nat_ruin_arch",
       "status": "WARN",
       "warnings": [
         "5 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 417 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (34, 40, 0, 6); risk of animation/render clipping"
       ],
       "failures": []
@@ -4551,14 +4336,13 @@
       "opaque_pixels": 32012,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 417,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 5,
       "occupancy_ratio": 0.307193,
       "manifest_id": "nat_ruin_arch_sand",
       "status": "WARN",
       "warnings": [
         "5 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 417 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (42, 40, 0, 3); risk of animation/render clipping"
       ],
       "failures": []
@@ -4576,14 +4360,12 @@
       "opaque_pixels": 8834,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 373,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.14481,
       "manifest_id": "nat_ruin_column",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 373 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4599,14 +4381,12 @@
       "opaque_pixels": 6869,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 379,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.11729,
       "manifest_id": "nat_ruin_column_broken",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 379 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4622,14 +4402,13 @@
       "opaque_pixels": 8945,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 319,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 3,
       "occupancy_ratio": 0.141026,
       "manifest_id": "nat_ruin_column_sand",
       "status": "WARN",
       "warnings": [
         "3 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 319 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (40, 88, 0, 35); risk of animation/render clipping"
       ],
       "failures": []
@@ -4647,14 +4426,12 @@
       "opaque_pixels": 14510,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 403,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.192604,
       "manifest_id": "nat_ruin_wall",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 403 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4670,14 +4447,12 @@
       "opaque_pixels": 14237,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 291,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.18898,
       "manifest_id": "nat_ruin_wall_sand",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 291 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4693,14 +4468,12 @@
       "opaque_pixels": 8734,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 353,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.122181,
       "manifest_id": "nat_statue_guardian",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 353 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4779,14 +4552,13 @@
       "opaque_pixels": 14366,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 592,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 60,
       "occupancy_ratio": 0.182718,
       "manifest_id": "nat_tree_birch",
       "status": "WARN",
       "warnings": [
         "60 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 592 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (51, 0, 0, 23); risk of animation/render clipping"
       ],
       "failures": []
@@ -4804,14 +4576,13 @@
       "opaque_pixels": 6563,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 399,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 1,
       "occupancy_ratio": 0.083473,
       "manifest_id": "nat_tree_dead",
       "status": "WARN",
       "warnings": [
         "1 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 399 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (58, 94, 0, 19); risk of animation/render clipping"
       ],
       "failures": []
@@ -4829,14 +4600,13 @@
       "opaque_pixels": 10548,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 476,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 8,
       "occupancy_ratio": 0.120433,
       "manifest_id": "nat_tree_palm",
       "status": "WARN",
       "warnings": [
         "8 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 476 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (32, 83, 0, 1); risk of animation/render clipping"
       ],
       "failures": []
@@ -4854,14 +4624,13 @@
       "opaque_pixels": 25606,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 426,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 9,
       "occupancy_ratio": 0.315562,
       "manifest_id": "nat_tree_pine",
       "status": "WARN",
       "warnings": [
         "9 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 426 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (28, 38, 0, 20); risk of animation/render clipping"
       ],
       "failures": []
@@ -4879,14 +4648,13 @@
       "opaque_pixels": 25239,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 485,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 14,
       "occupancy_ratio": 0.31104,
       "manifest_id": "nat_tree_pine_snow",
       "status": "WARN",
       "warnings": [
         "14 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 485 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (42, 38, 0, 16); risk of animation/render clipping"
       ],
       "failures": []
@@ -4904,14 +4672,13 @@
       "opaque_pixels": 732336,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 1620,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 1456,
       "occupancy_ratio": 0.312575,
       "manifest_id": "nat_waterfall_front",
       "status": "WARN",
       "warnings": [
         "1456 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 1620 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (42, 159, 38, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -4929,14 +4696,12 @@
       "opaque_pixels": 7846,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 387,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.152872,
       "manifest_id": "nat_log_fallen",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 387 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4952,14 +4717,12 @@
       "opaque_pixels": 6552,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 286,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.162162,
       "manifest_id": "nat_log_pile",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 286 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4975,14 +4738,12 @@
       "opaque_pixels": 3095,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 314,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.104972,
       "manifest_id": "nat_stump",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 314 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -4998,14 +4759,13 @@
       "opaque_pixels": 239417,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 5961,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 64,
       "occupancy_ratio": 0.194838,
       "manifest_id": "npc_alchemist",
       "status": "WARN",
       "warnings": [
         "64 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 5961 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (42, 10, 0, 6); risk of animation/render clipping"
       ],
       "failures": []
@@ -5023,14 +4783,12 @@
       "opaque_pixels": 152253,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 6476,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.123904,
       "manifest_id": "npc_child",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 6476 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -5046,14 +4804,13 @@
       "opaque_pixels": 205712,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 6050,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 5,
       "occupancy_ratio": 0.167409,
       "manifest_id": "npc_elder",
       "status": "WARN",
       "warnings": [
         "5 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 6050 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (41, 32, 0, 8); risk of animation/render clipping"
       ],
       "failures": []
@@ -5071,14 +4828,13 @@
       "opaque_pixels": 223422,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 5845,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 93,
       "occupancy_ratio": 0.181821,
       "manifest_id": "npc_farmer",
       "status": "WARN",
       "warnings": [
         "93 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 5845 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (39, 25, 0, 6); risk of animation/render clipping"
       ],
       "failures": []
@@ -5096,14 +4852,13 @@
       "opaque_pixels": 237188,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 6459,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 10,
       "occupancy_ratio": 0.193024,
       "manifest_id": "npc_guard",
       "status": "WARN",
       "warnings": [
         "10 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 6459 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (30, 27, 0, 6); risk of animation/render clipping"
       ],
       "failures": []
@@ -5121,14 +4876,13 @@
       "opaque_pixels": 216186,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 6502,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 1,
       "occupancy_ratio": 0.175933,
       "manifest_id": "npc_guildmaster",
       "status": "WARN",
       "warnings": [
         "1 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 6502 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (31, 29, 0, 6); risk of animation/render clipping"
       ],
       "failures": []
@@ -5146,13 +4900,12 @@
       "opaque_pixels": 201514,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 4698,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.163993,
       "manifest_id": "npc_hunter",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 4698 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (34, 28, 1, 7); risk of animation/render clipping"
       ],
       "failures": []
@@ -5170,14 +4923,13 @@
       "opaque_pixels": 201078,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 6119,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 13,
       "occupancy_ratio": 0.163638,
       "manifest_id": "npc_merchant",
       "status": "WARN",
       "warnings": [
         "13 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 6119 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (33, 29, 0, 6); risk of animation/render clipping"
       ],
       "failures": []
@@ -5195,14 +4947,13 @@
       "opaque_pixels": 198887,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 6021,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 1,
       "occupancy_ratio": 0.161855,
       "manifest_id": "npc_miller",
       "status": "WARN",
       "warnings": [
         "1 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 6021 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (36, 30, 0, 6); risk of animation/render clipping"
       ],
       "failures": []
@@ -5220,13 +4971,12 @@
       "opaque_pixels": 194003,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 5454,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.15788,
       "manifest_id": "npc_shopkeeper",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 5454 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (42, 27, 1, 6); risk of animation/render clipping"
       ],
       "failures": []
@@ -5244,14 +4994,13 @@
       "opaque_pixels": 206318,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 4273,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 10,
       "occupancy_ratio": 0.167902,
       "manifest_id": "npc_smith",
       "status": "WARN",
       "warnings": [
         "10 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 4273 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (35, 29, 0, 6); risk of animation/render clipping"
       ],
       "failures": []
@@ -5269,14 +5018,13 @@
       "opaque_pixels": 224380,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 5360,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 6,
       "occupancy_ratio": 0.182601,
       "manifest_id": "npc_traveler",
       "status": "WARN",
       "warnings": [
         "6 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 5360 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (32, 27, 0, 6); risk of animation/render clipping"
       ],
       "failures": []
@@ -5294,14 +5042,12 @@
       "opaque_pixels": 187279,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 5475,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.152408,
       "manifest_id": "npc_villager_f",
-      "status": "WARN",
-      "warnings": [
-        "opaque palette has 5475 RGB colors; inspect uncontrolled gradients/noise"
-      ],
+      "status": "PASS",
+      "warnings": [],
       "failures": []
     },
     {
@@ -5317,13 +5063,12 @@
       "opaque_pixels": 173664,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 5221,
+      "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
       "occupancy_ratio": 0.141328,
       "manifest_id": "npc_villager_m",
       "status": "WARN",
       "warnings": [
-        "opaque palette has 5221 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (40, 29, 1, 6); risk of animation/render clipping"
       ],
       "failures": []

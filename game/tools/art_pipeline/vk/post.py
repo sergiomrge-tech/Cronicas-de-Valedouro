@@ -71,9 +71,61 @@ def clean_alpha(alpha, thr=128, iterations=1):
     return m
 
 
+def _to_oklab(rgb):
+    c = rgb.astype(np.float64) / 255.0
+    lin = np.where(c <= 0.04045, c / 12.92, ((c + 0.055) / 1.055) ** 2.4)
+    M1 = np.array([[0.4122214708, 0.5363325363, 0.0514459929], [0.2119034982, 0.6806995451, 0.1073969566], [0.0883024619, 0.2817188376, 0.6299787005]])
+    lms = np.cbrt(lin @ M1.T)
+    M2 = np.array([[0.2104542553, 0.7936177850, -0.0040720468], [1.9779984951, -2.4285922050, 0.4505937099], [0.0259040371, 0.7827717662, -0.8086757660]])
+    return lms @ M2.T
+
+
+def _from_oklab(lab):
+    M2i = np.linalg.inv(np.array([[0.2104542553, 0.7936177850, -0.0040720468], [1.9779984951, -2.4285922050, 0.4505937099], [0.0259040371, 0.7827717662, -0.8086757660]]))
+    M1i = np.linalg.inv(np.array([[0.4122214708, 0.5363325363, 0.0514459929], [0.2119034982, 0.6806995451, 0.1073969566], [0.0883024619, 0.2817188376, 0.6299787005]]))
+    lms = (lab @ M2i.T) ** 3
+    lin = np.clip(lms @ M1i.T, 0, 1)
+    c = np.where(lin <= 0.0031308, lin * 12.92, 1.055 * lin ** (1 / 2.4) - 0.055)
+    return (np.clip(c, 0, 1) * 255 + .5).astype(np.uint8)
+
+
+def quantize_oklab(rgb, mask, colors, iters=10, seed=7):
+    """K-means em Oklab (perceptual) sobre as cores únicas ponderadas por frequência; inicialização k-means++ determinística."""
+    px = rgb[mask]
+    if len(px) == 0:
+        return rgb
+    uniq, inv, cnt = np.unique(px.reshape(-1, 3), axis=0, return_inverse=True, return_counts=True)
+    inv = inv.ravel()
+    if len(uniq) <= colors:
+        return rgb
+    lab = _to_oklab(uniq)
+    w = cnt.astype(np.float64)
+    rng = np.random.default_rng(seed)
+    cent = [lab[int(np.argmax(w))]]
+    d2 = np.full(len(lab), np.inf)
+    for _ in range(1, colors):
+        d2 = np.minimum(d2, ((lab - cent[-1]) ** 2).sum(1))
+        p = d2 * w
+        cent.append(lab[int(rng.choice(len(lab), p=p / p.sum()))])
+    cent = np.array(cent)
+    for _ in range(iters):
+        idx = ((lab[:, None, :] - cent[None, :, :]) ** 2).sum(2).argmin(1)
+        for k in range(colors):
+            m = idx == k
+            if m.any():
+                cent[k] = (lab[m] * w[m, None]).sum(0) / w[m].sum()
+    idx = ((lab[:, None, :] - cent[None, :, :]) ** 2).sum(2).argmin(1)
+    pal = _from_oklab(cent)
+    out = rgb.copy()
+    out[mask] = pal[idx[inv]]
+    return out
+
+
 def quantize(rgb, mask, colors):
     if colors <= 0:
         return rgb
+    if colors <= 256:
+        return quantize_oklab(rgb, mask, colors)
     im = Image.fromarray(rgb, 'RGB')
     alpha = Image.fromarray((mask * 255).astype(np.uint8), 'L')
     base = Image.new('RGB', im.size, (0, 0, 0))
