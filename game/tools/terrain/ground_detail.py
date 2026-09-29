@@ -335,7 +335,7 @@ def relief_shadows(img, ter, IDX, objects, w, h, bay, strength=.5):
     for (t, val) in ((1.0, 100), (.66, 170), (.33, 240)):          # do fim da sombra até o pé: cada passada só escurece
         for px, py, (shapes, hu) in casters:
             hp = hu * SHADOW_PX
-            vx, vy = hp * 1.05 * t, hp * .42 * t                     # luz de cima-esquerda: sombra cai para baixo-direita
+            vx, vy = hp * .55 * t, hp * .28 * t                     # luz de cima-esquerda: sombra cai para baixo-direita
             for shp in shapes:
                 if shp[0] == 'rect':
                     _, cx, cy, sx, sy = shp

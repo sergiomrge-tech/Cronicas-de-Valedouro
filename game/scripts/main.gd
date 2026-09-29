@@ -6,6 +6,7 @@ const VIEW_SIZE: Vector2 = Vector2(960, 540)
 const FOREST_SIZE: Vector2 = Vector2(1825, 862)
 const FORGE_SIZE: Vector2 = Vector2(1512, 1040)
 const MAP = preload("res://scripts/world_map.gd")
+const CAST = preload("res://scripts/cast_shadow.gd")
 const LOOT = preload("res://scripts/loot_system.gd")
 const REG = preload("res://scripts/reg001_world.gd")
 const PROC = preload("res://scripts/reg001_procedural.gd")
@@ -70,6 +71,7 @@ var floaters: Array = []   # números de dano e efeitos rápidos
 var reg_game: RefCounted
 var view_items: Dictionary = {}
 var view_rect: Rect2 = Rect2()
+var shadow_pass_done: bool = false
 const ENEMY_SHEETS: Dictionary = {"Lobo": "wolf", "Limo": "slime", "Aranha Sombria": "spider", "Javali Musgoso": "boar", "Flor Voraz": "flower_beast", "Escorpião": "scorpion", "Escaravelho Âmbar": "amber_beetle", "Lobo de Gelo": "ice_wolf", "Golem de Geada": "ice_golem", "Guardião": "boss"}
 const ENEMY_FRAME_SIZE: Dictionary = {"Golem de Geada": 40.0, "Guardião": 64.0}
 const ENEMY_STATE_ROW: Dictionary = {"idle": 0, "walk": 1, "attack": 2, "hurt": 3, "death": 4}
@@ -997,6 +999,7 @@ func _draw() -> void:
 	var x_end: int = mini(int(ceil(world_bounds.x / TILE)), x_start + 36)
 	var y_end: int = mini(int(ceil(world_bounds.y / TILE)), y_start + 23)
 	view_rect = Rect2(camera, VIEW_SIZE)
+	shadow_pass_done = false
 	if zone == "cidade":
 		GROUND.draw_world(self, view_rect)
 	elif zone == "floresta":
@@ -1015,6 +1018,9 @@ func _draw() -> void:
 			var gate: Vector2 = MAP.TOWN + Vector2(883, 65)
 			draw_arc(gate, 28, 0, TAU, 26, Color(.71, .94, .56, .86), 4)
 			draw_label("BOSQUE • E", gate + Vector2(-88, -42))
+		if not shadow_pass_done:
+			REGR.draw_shadows(self, view_items, view_rect, time_acc, approved_visuals)
+			shadow_pass_done = true
 		draw_animals(camera)
 		draw_ambient_life(camera)
 		REGR.draw_emitters(self, view_rect, zone, time_acc)
@@ -1027,6 +1033,7 @@ func _draw() -> void:
 		elif zone in ["ferreiro", "loja", "alquimia", "guilda"]:
 			draw_interior()
 		REGR.draw_ground(self, view_items, view_rect, time_acc, approved_visuals)
+		REGR.draw_shadows(self, view_items, view_rect, time_acc, approved_visuals)
 		REGR.draw_emitters(self, view_rect, zone, time_acc)
 	reg_game.draw_npcs(self, view_rect)
 	REGR.draw_objects(self, view_items, view_rect, -1.0e9, player.y, time_acc, approved_visuals)
@@ -1081,13 +1088,25 @@ func draw_approved_visual(key: String, ground: Vector2, scale_factor: float = .5
 	var rect: Rect2 = Rect2(ground - Vector2(scaled.x * .5, scaled.y), scaled)
 	draw_texture_rect(texture, rect, false, tint)
 
+func draw_approved_cast(key: String, ground: Vector2, scale_factor: float, alpha: float) -> void:
+	# sombra projetada da própria silhueta de um sprite APPROVED
+	if not approved_visuals.has(key):
+		return
+	var texture: Texture2D = approved_visuals[key] as Texture2D
+	var scaled: Vector2 = texture.get_size() * scale_factor
+	CAST.sprite(self, texture, Rect2(ground - Vector2(scaled.x * .5, scaled.y), scaled), Rect2(Vector2.ZERO, texture.get_size()), ground, false, alpha)
+
 func draw_approved_tree(ground: Vector2, autumn: bool = false, scale_factor: float = .50) -> void:
-	draw_shadow_oval(ground + Vector2(4, 4), Vector2(33, 10), Color(0, 0, 0, .24))
-	draw_approved_visual("city_tree_autumn" if autumn else "city_tree_green", ground, scale_factor)
+	var tree_key: String = "city_tree_autumn" if autumn else "city_tree_green"
+	draw_approved_cast(tree_key, ground, scale_factor, CAST.ALPHA_TREE)
+	draw_approved_visual(tree_key, ground, scale_factor)
 
 func draw_approved_house(ground: Vector2, roof_key: String) -> void:
 	# Composição feita exclusivamente com módulos APPROVED.
-	draw_shadow_oval(ground + Vector2(0, 5), Vector2(72, 14), Color(0, 0, 0, .22))
+	var roof_height: float = 150.0
+	if approved_visuals.has(roof_key):
+		roof_height = (approved_visuals[roof_key] as Texture2D).get_size().y * .52 + 56.0
+	CAST.box(self, ground + Vector2(0, 4), 86.0, roof_height)
 	draw_approved_visual("city_house_door", ground + Vector2(-42, 0), .52)
 	draw_approved_visual("city_house_window", ground + Vector2(43, 0), .52)
 	draw_approved_visual(roof_key, ground + Vector2(0, -78), .52)
@@ -1107,6 +1126,9 @@ func draw_approved_town(camera: Vector2) -> void:
 			elif tile_seed % 3 == 0:
 				floor_key = "city_floor_worn"
 			draw_approved_visual(floor_key, ground, .58)
+	# sombra projetada dos objetos do mundo: por cima do piso da cidade e por baixo de tudo o que vem depois
+	REGR.draw_shadows(self, view_items, view_rect, time_acc, approved_visuals)
+	shadow_pass_done = true
 
 	# Muralha norte e portão principal.
 	for wall_index in 13:
@@ -1114,9 +1136,11 @@ func draw_approved_town(camera: Vector2) -> void:
 		if absf(wall_ground.x - (MAP.TOWN.x + 883.0)) < 175.0:
 			continue
 		if visible_area.has_point(wall_ground):
+			CAST.box(self, wall_ground + Vector2(0, 4), 58.0, 56.0)
 			draw_approved_visual("city_wall_vegetation" if wall_index % 4 == 0 else "city_wall", wall_ground, .58)
 	var gate_ground: Vector2 = MAP.TOWN + Vector2(883, 184)
 	if visible_area.has_point(gate_ground):
+		draw_approved_cast("city_gate", gate_ground, .58, CAST.ALPHA_DEFAULT)
 		draw_approved_visual("city_gate", gate_ground, .58)
 
 	# Quatro conjuntos arquitetônicos, sempre formados por peças APPROVED.
@@ -1134,7 +1158,7 @@ func draw_approved_town(camera: Vector2) -> void:
 
 	var store_ground: Vector2 = MAP.TOWN + Vector2(1570, 630)
 	if visible_area.has_point(store_ground):
-		draw_shadow_oval(store_ground + Vector2(4, 5), Vector2(63, 13), Color(0, 0, 0, .22))
+		draw_approved_cast("city_store", store_ground, .58, CAST.ALPHA_DEFAULT)
 		draw_approved_visual("city_store", store_ground, .58)
 
 	# Árvores APPROVED integram a arquitetura e dão profundidade consistente.
@@ -1293,6 +1317,10 @@ func draw_world_minimap() -> void:
 	draw_string(ui_font, origin + Vector2(0, 200), "Ponto vermelho: você  •  mapa fecha no botão", HORIZONTAL_ALIGNMENT_LEFT, 248, 12, Color(1, .95, .8))
 
 func draw_shadow_oval(center: Vector2, radii: Vector2, color: Color) -> void:
+	if radii.x <= 30.0:
+		# personagens, animais e inimigos: sombra projetada na direção da luz (altura estimada pela largura do corpo)
+		CAST.figure(self, center, radii.x, radii.x * 3.4, color.a)
+		return
 	var points: PackedVector2Array = PackedVector2Array()
 	for step in 20:
 		var angle: float = TAU * step / 20.0

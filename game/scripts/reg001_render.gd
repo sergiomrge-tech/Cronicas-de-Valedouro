@@ -6,8 +6,14 @@ extends RefCounted
 const PROC = preload("res://scripts/reg001_procedural.gd")
 const REG = preload("res://scripts/reg001_world.gd")
 const MODELED = preload("res://scripts/modeled_assets.gd")
+const CAST = preload("res://scripts/cast_shadow.gd")
+
+# Sem sombra projetada em tempo real: rasteiros/decalques/água/interior e o relevo (que tem sombra assada no piso, ver bake_ground.py).
+const NO_CAST: Array = ["nat_decal", "ter_", "str_crop", "nat_ford", "nat_fissure", "nat_pit", "nat_trap", "nat_flowers", "nat_grass", "nat_mushrooms", "nat_bedroll", "nat_bones", "nat_reeds", "int_", "fx_", "nat_plateau_", "nat_ridge_", "nat_wall_cliff_", "nat_cliff_", "nat_hill_", "nat_rock_pillars", "nat_waterfall", "str_dock", "str_boat", "nat_snow_mound", "nat_dune", "APP:city_floor", "APP:city_water", "APP:dungeon_floor", "APP:dungeon_spikes", "APP:city_house_door", "APP:city_house_window"]
 
 static var last_draw_count: int = 0
+static var shadows_enabled: bool = true
+static var last_shadow_count: int = 0
 
 static func resolve_asset(entry: Array) -> String:
 	var asset: String = str(entry[PROC.IT_ASSET])
@@ -139,3 +145,78 @@ static func draw_emitters(canvas: CanvasItem, rect: Rect2, zone: String, time: f
 				var life2: float = fposmod(time * .9 + float(i) * .14 + seed, 1.0)
 				var sp2: Vector2 = pos + Vector2((float(i) - 3.0) * 12.0 + sin(life2 * 6.0) * 4.0, 30.0 - life2 * 40.0)
 				canvas.draw_rect(Rect2(sp2, Vector2(2, 2)), Color(.88, .98, 1, .5 * (1.0 - life2)))
+
+# ------------------------------------------------------------------ sombra projetada (passada única sob todos os objetos)
+static func casts_shadow(asset: String) -> bool:
+	for prefix in NO_CAST:
+		if asset.begins_with(str(prefix)):
+			return false
+	return true
+
+static func cast_item(canvas: CanvasItem, entry: Array, time: float, approved: Dictionary) -> bool:
+	var owner: Variant = entry[PROC.IT_OWNER]
+	if owner is Dictionary and REG.is_hidden(owner as Dictionary):
+		return false
+	var asset: String = resolve_asset(entry)
+	if not casts_shadow(asset):
+		return false
+	var ground: Vector2 = Vector2(float(entry[PROC.IT_X]), float(entry[PROC.IT_Y]))
+	var scale_mul: float = float(entry[PROC.IT_SCALE])
+	var flip: bool = bool(entry[PROC.IT_FLIP])
+	if asset.begins_with("APP:"):
+		var key: String = asset.substr(4)
+		if not approved.has(key):
+			return false
+		var atex: Texture2D = approved[key] as Texture2D
+		var ds: float = scale_mul if scale_mul != 1.0 else .5
+		var sz: Vector2 = atex.get_size() * ds
+		if key.begins_with("city_roof"):
+			# a casa (porta + janela + telhado) projeta UMA sombra de caixa, sem empilhar as três peças
+			CAST.box(canvas, ground + Vector2(0, 78), 86.0 * ds / .52, sz.y + 78.0 - 22.0, CAST.ALPHA_DEFAULT)
+			return true
+		var alpha_a: float = CAST.ALPHA_TREE if key.begins_with("city_tree") else CAST.ALPHA_DEFAULT
+		CAST.sprite(canvas, atex, Rect2(ground - Vector2(sz.x * .5, sz.y), sz), Rect2(Vector2.ZERO, atex.get_size()), ground, false, alpha_a, .8 if sz.y > 160.0 else 1.0)
+		return true
+	if not MODELED.has(asset):
+		return false
+	var e: Dictionary = MODELED.entry(asset)
+	var tex: Texture2D = MODELED.texture(asset)
+	if tex == null:
+		return false
+	var fs: Array = e["frame_size"]
+	var fw: float = float(fs[0])
+	var fh: float = float(fs[1])
+	var foot: Array = e["foot"]
+	var s: float = float(e["draw_scale"]) * scale_mul
+	var frame: int = frame_for(int(e["frames"]), time, float(entry[PROC.IT_ANIM]))
+	var dst: Rect2 = Rect2(ground - Vector2(float(foot[0]) * s, float(foot[1]) * s), Vector2(fw * s, fh * s))
+	if flip:
+		dst.position.x = ground.x - (fw - float(foot[0])) * s
+	var tall: bool = float(foot[1]) * s > 160.0
+	var alpha: float = CAST.ALPHA_TREE if (asset.contains("tree") or asset.contains("pine") or asset.contains("palm")) else CAST.ALPHA_DEFAULT
+	CAST.sprite(canvas, tex, dst, Rect2(frame * fw, 0, fw, fh), ground, flip, alpha, .75 if tall else 1.0)
+	return true
+
+static func draw_shadows(canvas: CanvasItem, view: Dictionary, rect: Rect2, time: float, approved: Dictionary) -> int:
+	if not shadows_enabled:
+		return 0
+	var ys: PackedFloat32Array = view["ys"] as PackedFloat32Array
+	var objs: Array = view["objs"] as Array
+	var top: float = rect.position.y - 130.0
+	var bottom: float = rect.end.y + 320.0
+	var i: int = PROC.first_index(ys, top)
+	var n: int = 0
+	var x_min: float = rect.position.x - 340.0
+	var x_max: float = rect.end.x + 220.0
+	while i < objs.size():
+		var entry: Array = objs[i]
+		i += 1
+		if float(entry[PROC.IT_SY]) > bottom:
+			break
+		var x: float = float(entry[PROC.IT_X])
+		if x < x_min or x > x_max:
+			continue
+		if cast_item(canvas, entry, time, approved):
+			n += 1
+	last_shadow_count = n
+	return n
