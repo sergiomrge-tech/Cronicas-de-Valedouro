@@ -82,15 +82,6 @@ const APPROVED_VISUAL_PATHS: Dictionary = {
 	"city_floor_worn": "res://assets/approved/city/floors/floor_stone_worn.png",
 	"city_floor_moss": "res://assets/approved/city/floors/floor_stone_moss.png",
 	"city_water_edge": "res://assets/approved/city/water/water_edge.png",
-	"city_wall": "res://assets/approved/city/walls/wall_straight.png",
-	"city_wall_vegetation": "res://assets/approved/city/walls/wall_vegetation.png",
-	"city_gate": "res://assets/approved/city/walls/gate_large.png",
-	"city_house_door": "res://assets/approved/city/buildings/house_door.png",
-	"city_house_window": "res://assets/approved/city/buildings/house_window.png",
-	"city_roof_blue": "res://assets/approved/city/buildings/roof_blue.png",
-	"city_roof_red": "res://assets/approved/city/buildings/roof_red.png",
-	"city_roof_wood": "res://assets/approved/city/buildings/roof_wood.png",
-	"city_store": "res://assets/approved/city/special/store.png",
 	"city_tree_green": "res://assets/approved/city/props/tree_green.png",
 	"city_tree_autumn": "res://assets/approved/city/props/tree_autumn.png",
 	"dungeon_floor_stone": "res://assets/approved/dungeon/floors/floor_stone.png",
@@ -150,7 +141,7 @@ func load_approved_visuals() -> void:
 		var texture: Resource = load(path)
 		assert(texture is Texture2D, "Asset APPROVED não é Texture2D: %s" % path)
 		approved_visuals[key] = texture
-	assert(approved_visuals.size() == 28)
+	assert(approved_visuals.size() == 19)
 
 func make_ui() -> void:
 	controller = Control.new()
@@ -1142,9 +1133,10 @@ func draw_approved_tree(ground: Vector2, autumn: bool = false, scale_factor: flo
 	draw_approved_cast(tree_key, ground, scale_factor, CAST.ALPHA_TREE)
 	draw_approved_visual(tree_key, ground, scale_factor)
 
-func draw_approved_house(ground: Vector2, roof_key: String) -> void:
+func draw_approved_house(ground: Vector2, house_variant: String) -> void:
 	# Casa modelada inteira (Lote 1 / correção estrutural): corpo, porta, janela e telhado numa peça só, sem telhado flutuante.
-	var asset_id: String = "val_town_house_blue" if roof_key == "city_roof_blue" else "val_town_house_red" if roof_key == "city_roof_red" else "val_town_house_wood"
+	# A variante é apenas uma escolha entre casas completas modeladas; não referencia telhados legados.
+	var asset_id: String = "val_town_house_blue" if house_variant == "blue" else "val_town_house_red" if house_variant == "red" else "val_town_house_wood"
 	var tex: Texture2D = MODELED.texture(asset_id)
 	if tex == null:
 		return
@@ -1181,9 +1173,9 @@ func draw_approved_town(camera: Vector2) -> void:
 
 	# Quatro conjuntos arquitetônicos, sempre formados por peças APPROVED.
 	var houses: Array = [
-		[Vector2(1245, 340), "city_roof_red"],
-		[Vector2(470, 615), "city_roof_wood"],
-		[Vector2(1280, 625), "city_roof_blue"]
+		[Vector2(1245, 340), "red"],
+		[Vector2(470, 615), "wood"],
+		[Vector2(1280, 625), "blue"]
 	]
 	for house_value in houses:
 		var house_data: Array = house_value as Array
@@ -1193,7 +1185,7 @@ func draw_approved_town(camera: Vector2) -> void:
 
 	var store_ground: Vector2 = MAP.TOWN + Vector2(1570, 630)
 	if visible_area.has_point(store_ground):
-		draw_approved_house(store_ground, "city_roof_red")      # loja decorativa = casa inteira modelada
+		draw_approved_house(store_ground, "red")      # loja decorativa = casa inteira modelada
 
 	# Árvores APPROVED integram a arquitetura e dão profundidade consistente.
 	var tree_positions: Array[Vector2] = [
@@ -1493,8 +1485,7 @@ func draw_interior_walls(room_size: Vector2) -> void:
 	var pattern: Array = INTERIOR_BAYS.get(zone, INTERIOR_BAYS["guilda"]) as Array
 	var bay_tex: Texture2D = MODELED.texture("int_wall_plain")
 	if bay_tex == null:
-		for wall_index in 9:
-			draw_approved_visual("city_wall_vegetation" if wall_index % 4 == 0 else "city_wall", Vector2(120.0 + wall_index * 110.0, 190), .52)
+		# Fail-safe: nunca reintroduzir muralhas arquitetônicas aposentadas como fallback de interior.
 		return
 	var bay_w: float = 72.0
 	var count: int = int(ceil(room_size.x / bay_w))
