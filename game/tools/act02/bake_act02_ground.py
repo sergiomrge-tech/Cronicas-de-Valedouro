@@ -298,6 +298,12 @@ def bake(comp, idx):
         (state_trails if (tr.get('show_when') or tr.get('hide_when')) else base_trails).append((i, tr))
     road_all = np.zeros((H, W), bool)
     for i, tr in base_trails:
+        if tr.get('yard'):                              # chão batido de ocupação: terra com relva rala em dither, sem rebaixo
+            t = stroke(catmull([(x - ox, y - oy) for x, y in tr['pts']]), tr['half'], seed + 80 + i, wobble=.45)
+            t = np.where(water, 0, t)
+            nz = (field(seed + 90 + i, 26, 1) - .5) * .4
+            ter = np.where(t > .5 + nz, IDX['dirt'], np.where((t > .2 + nz) & (dth > .45 + (.5 - t)), IDX['dirt'], ter))
+            continue
         t = stroke(catmull([(x - ox, y - oy) for x, y in tr['pts']]), tr['half'] * 1.3, seed + 60 + i)
         t = np.where(water, 0, t)
         ter, road = trail_paint(None, ter, t, dth, seed + i)

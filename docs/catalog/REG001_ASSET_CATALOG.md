@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (256): inclui o bundle base do Lote 01 e assets modelados posteriormente promovidos pelo Diretor.
-- **MODELED_PENDING_GATE** (472): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (476): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 40 | 216 |
-| MODELED_PENDING_GATE | 246 | 226 |
+| MODELED_PENDING_GATE | 246 | 230 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -40,7 +40,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## MODELED_PENDING_GATE — por grupo
 
-### nature (246)
+### nature (250)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -100,8 +100,11 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `flo_memory_tree_sealed` | NOT_USED | 0 |
 | `flo_palisade_broken` | NOT_USED | 0 |
 | `flo_palisade_organic` | NOT_USED | 0 |
+| `flo_ranger_hall` | NOT_USED | 0 |
 | `flo_ranger_lodge` | NOT_USED | 0 |
 | `flo_ranger_shed` | NOT_USED | 0 |
+| `flo_ranger_store` | NOT_USED | 0 |
+| `flo_ranger_tower` | NOT_USED | 0 |
 | `flo_ranger_watch` | NOT_USED | 0 |
 | `flo_rest_platform` | NOT_USED | 0 |
 | `flo_root_arch` | NOT_USED | 0 |
@@ -115,6 +118,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `flo_shrine_water_pure` | NOT_USED | 0 |
 | `flo_shrine_wind_corrupt` | NOT_USED | 0 |
 | `flo_shrine_wind_pure` | NOT_USED | 0 |
+| `flo_stone_bridge_arch` | NOT_USED | 0 |
 | `flo_stone_moss` | NOT_USED | 0 |
 | `flo_training_target` | NOT_USED | 0 |
 | `flo_weapon_rack_green` | NOT_USED | 0 |

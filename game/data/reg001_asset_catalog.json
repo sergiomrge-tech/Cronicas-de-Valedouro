@@ -24,7 +24,7 @@
   },
   "MODELED_PENDING_GATE": {
    "INTEGRATED": 246,
-   "NOT_USED": 226
+   "NOT_USED": 230
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -1849,6 +1849,15 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_FLO_RANGER_HALL",
+   "key": "flo_ranger_hall",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_FLO_RANGER_LODGE",
    "key": "flo_ranger_lodge",
    "group": "nature",
@@ -1860,6 +1869,24 @@
   {
    "id": "MOD_FLO_RANGER_SHED",
    "key": "flo_ranger_shed",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_RANGER_STORE",
+   "key": "flo_ranger_store",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_RANGER_TOWER",
+   "key": "flo_ranger_tower",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "NOT_USED",
@@ -1977,6 +2004,15 @@
   {
    "id": "MOD_FLO_SHRINE_WIND_PURE",
    "key": "flo_shrine_wind_pure",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_STONE_BRIDGE_ARCH",
+   "key": "flo_stone_bridge_arch",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "NOT_USED",

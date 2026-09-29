@@ -139,6 +139,11 @@ class Comp:
             self.add(rr.choice(assets), x, y, flip=rr.random() < .5, **kw)
             got += 1
 
+    def yard(self, pts, half=50, seed=1):
+        """Chão batido/pisoteado pela ocupação (assado no chão como trilha larga e irregular)."""
+        t = {'pts': [[self.o[0] + x, self.o[1] + y] for x, y in pts], 'half': half, 'seed': seed, 'yard': True}
+        self.d.setdefault('trails', []).append(t)
+
     def shot(self, name, flags=()):
         self.d['captures'].append({'name': name, 'flags': list(flags)})
 
@@ -148,34 +153,35 @@ comps = []
 # ============================================================== LOC_FOREST_STONE_BRIDGE (Q_MS02_BORDER)
 b = Comp('LOC_FOREST_STONE_BRIDGE', 'Ponte de Pedra da Fronteira', (300, 90),
          'Entrada da região: margem oeste ainda parecida com o Berço; depois da ponte, a floresta antiga (troncos largos, raízes, musgo, luz filtrada).', slug='ponte_fronteira')
-b.exclude_circle(770, 420, 60)                     # plataforma de descanso
-_RIO = [(540, -40), (505, 60), (470, 150), (492, 250), (480, 336), (452, 420), (478, 500), (520, 580)]
-b.river(_RIO, half=64, wobble=.3)                  # rio sinuoso da fronteira: estreita sob a ponte, alarga nas curvas
-b.trail([(-20, 292), (110, 318), (240, 336), (330, 330), (480, 324), (620, 328), (730, 342), (850, 328), (980, 300)], half=22, seed=3)
-b.add('flo_bridge_ramp', 352, 336, flip=True)
-b.add('flo_bridge_span_broken', 480, 336)
-b.add('flo_bridge_ramp', 608, 336)
-b.add('flo_border_marker', 318, 372)
-b.add('flo_border_marker', 642, 372, flip=True)
-b.add('flo_rest_platform', 770, 440)
-b.add('flo_root_arch', 770, 340, scale=.8)                    # porta natural depois da ponte
-for i, (x, y) in enumerate(((690, 330), (730, 336), (820, 332), (860, 326), (905, 322))):
+b.exclude_circle(800, 500, 60)                     # plataforma de descanso
+b.exclude_circle(480, 330, 130)                    # ponte inteira
+# rio sinuoso que corre na diagonal isométrica (eixo x da ponte): nasce no alto-direito, passa SOB o arco e se alarga embaixo
+_RIO = [(1010, 30), (900, 110), (800, 150), (680, 238), (560, 290), (480, 330), (400, 372), (300, 396), (200, 470), (110, 580)]
+b.river(_RIO, half=50, wobble=.34)
+# estrada antiga chega em CURVA às cabeceiras (a ponte corre na outra diagonal); do lado leste some sob raízes até a quest
+b.trail([(-20, 238), (120, 262), (240, 262), (310, 282), (345, 298)], half=22, seed=3)
+b.trail([(535, 410), (610, 432), (700, 430), (790, 440), (880, 426), (980, 396)], half=22, seed=13)
+b.add('flo_stone_bridge_arch', 480, 330)
+b.add('flo_border_marker', 318, 300)
+b.add('flo_border_marker', 628, 356, flip=True)
+b.add('flo_rest_platform', 800, 500)
+b.add('flo_root_arch', 735, 430, scale=.8)                    # porta natural depois da ponte
+for i, (x, y) in enumerate(((680, 416), (790, 440), (850, 432), (910, 418))):
     b.add('flo_root_run', x, y, show_when='!quest:Q_MS02_BORDER', layer='ground', flip=i % 2 == 0)   # antes: trilha interior fechada por raízes
-# margem oeste (Berço): árvores comuns e vegetação leve
-for x, y, a in ((60, 190, 'nat_tree_pine'), (150, 120, 'nat_tree_birch'), (230, 200, 'nat_tree_pine'), (120, 440, 'nat_tree_birch'), (240, 480, 'nat_tree_pine'), (330, 130, 'nat_tree_birch')):
+# margem noroeste (Berço): árvores comuns e vegetação leve
+for x, y, a in ((60, 170, 'nat_tree_pine'), (150, 100, 'nat_tree_birch'), (250, 170, 'nat_tree_pine'), (110, 420, 'nat_tree_birch'), (190, 330, 'nat_tree_pine'), (340, 100, 'nat_tree_birch'), (440, 200, 'nat_oak_b')):
     b.add(a, x, y)
-# margem leste (floresta ancestral): árvores largas, feixe de luz, pedras engolidas
-b.add('flo_ancient_tree_a', 690, 200, scale=.72)
-b.add('flo_ancient_tree_b', 880, 240, scale=.72)
-b.add('flo_ancient_tree_a', 900, 520, flip=True, scale=.72)
-b.add('flo_ancient_tree_b', 640, 530, scale=.7)
-b.add('flo_stone_moss', 620, 430)
-b.add('flo_stone_moss', 340, 470)
-b.add('nat_rock_mossy', 395, 250)
-b.add('nat_rock_mossy', 592, 262)
-b.bank_scatter(['nat_reeds'], _RIO, 88, 10, 3, min_d=46)          # juncos na beira d'água (sprites largos como samambaia sobrepõem a lâmina)
-b.scatter(['nat_bush_green', 'nat_bush_flowering', 'nat_flowers_meadow', 'nat_grass_tall'], 12, (20, 60, 360, 470), 11, min_d=44)
-b.scatter(['flo_fern_patch', 'flo_glow_mushrooms', 'flo_fern_patch'], 10, (580, 60, 370, 470), 12, min_d=50)
+# margem sudeste (floresta ancestral): árvores largas, pedras engolidas, samambaias
+b.add('flo_ancient_tree_a', 800, 300, scale=.72)
+b.add('flo_ancient_tree_b', 920, 230, scale=.7)
+b.add('flo_ancient_tree_a', 900, 540, flip=True, scale=.72)
+b.add('flo_ancient_tree_b', 640, 540, scale=.7)
+b.add('flo_stone_moss', 560, 470)
+b.add('flo_stone_moss', 250, 470)
+b.add('nat_rock_mossy', 405, 272)
+b.bank_scatter(['nat_reeds'], _RIO, 74, 10, 3, min_d=46)
+b.scatter(['nat_bush_green', 'nat_bush_flowering', 'nat_flowers_meadow', 'nat_grass_tall'], 10, (20, 60, 420, 300), 11, min_d=44)
+b.scatter(['flo_fern_patch', 'flo_glow_mushrooms', 'flo_fern_patch'], 10, (520, 300, 430, 230), 12, min_d=50)
 b.d['light_shafts'] = [[b.o[0] + 700, b.o[1] + 0], [b.o[0] + 840, b.o[1] + 40]]
 b.shot('FLO_2A_PONTE_ANTES', [])
 b.shot('FLO_2A_PONTE_DEPOIS', ['quest:Q_MS02_BORDER'])
@@ -184,22 +190,23 @@ comps.append(b.d)
 # ============================================================== LOC_FOREST_RANGER_LODGE (Q_MS02_RANGERS)
 r = Comp('LOC_FOREST_RANGER_LODGE', 'Casa dos Guardas Verdes', (520, 250),
          'Hub leve: clareira defendida com casa, posto de observação, depósito, ervas, mesa de mapas, alvos e arsenal; sinais de ataque até a defesa.', tint=(.05, .15, .08, .18), slug='posto_guardas')
-r.exclude_rect(390, 350, 190, 190)                 # pátio à frente da varanda + trilha de acesso
-r.exclude_circle(480, 420, 40)                     # fogueira
-r.trail([(-20, 404), (140, 432), (300, 452), (440, 446), (560, 454), (720, 470), (860, 452), (980, 420)], half=20, seed=5)   # patrulha: curva suave
-r.trail([(520, 452), (500, 490), (470, 530), (452, 580)], half=21, seed=8)          # acesso sul: sai em Y da patrulha
-r.trail([(420, 440), (380, 380), (340, 300), (300, 200), (318, 60)], half=15, seed=11)   # picada norte: bifurca em ângulo agudo
-r.add('flo_ranger_lodge', 470, 330)
-r.add('flo_ranger_watch', 730, 270)
-r.add('flo_ranger_shed', 250, 300)
-r.add('flo_herb_bench', 340, 390)
-r.add('flo_map_table', 610, 400)
-r.add('flo_training_target', 810, 430)
-r.add('flo_training_target', 870, 400, flip=True)
-r.add('flo_weapon_rack_green', 720, 420)
-r.add('nat_campfire', 480, 440, anim=1)
-r.add('nat_log_fallen', 420, 462, layer='ground')
-r.add('flo_claw_tree', 880, 320, scale=.75)                   # árvore arranhada pelo ataque
+r.exclude_circle(430, 410, 70)                     # pátio de chão batido em frente à varanda
+r.exclude_circle(500, 300, 120)                    # casa
+r.yard([(360, 400), (430, 420), (520, 410), (600, 420)], half=50, seed=15)     # terreno pisado pela ocupação
+r.trail([(-20, 404), (140, 432), (300, 452), (440, 452), (560, 462), (720, 478), (860, 460), (980, 424)], half=20, seed=5)   # patrulha: curva suave
+r.trail([(452, 580), (446, 520), (436, 460), (424, 400), (426, 352)], half=21, seed=8)          # acesso aos degraus da varanda
+r.trail([(610, 470), (640, 400), (650, 320), (626, 210), (650, 60)], half=15, seed=11)          # picada norte entre a casa e a torre
+r.add('flo_ranger_hall', 500, 300)
+r.add('flo_ranger_tower', 790, 300)
+r.add('flo_ranger_store', 250, 300)
+r.add('flo_herb_bench', 330, 380)
+r.add('flo_map_table', 600, 405)
+r.add('flo_training_target', 840, 455)
+r.add('flo_training_target', 895, 420, flip=True)
+r.add('flo_weapon_rack_green', 720, 410)
+r.add('nat_campfire', 410, 430, anim=1)
+r.add('nat_log_fallen', 370, 460, layer='ground')
+r.add('flo_claw_tree', 900, 330, scale=.75)                   # árvore arranhada pelo ataque
 # paliçada orgânica: trechos parciais em arco, nunca um muro contínuo
 _DEF = 'quest:Q_MS02_RANGERS'
 _pal_w = [(40, 250), (70, 320), (120, 380), (190, 430), (270, 470), (340, 500)]                # arco oeste da paliçada
@@ -213,10 +220,15 @@ r.run('flo_barricade_improvised', [(560, 520), (630, 505)], hide_when=_DEF)
 for x, y in ((60, 460), (900, 510)):
     r.add('flo_root_run', x, y, show_when='quest:Q_MS02_RANGERS:active', layer='ground')
 r.add('flo_ancient_tree_a', 110, 200, scale=.75)
-r.add('flo_ancient_tree_b', 405, 235, scale=.6)       # duas árvores ancestrais abraçam a casa (a construção se apoia nelas)
-r.add('flo_ancient_tree_a', 560, 230, flip=True, scale=.6)
-r.add('flo_ancient_tree_b', 900, 150, scale=.75)
-r.add('flo_ancient_tree_a', 700, 95, flip=True, scale=.7)
+r.add('flo_ancient_tree_b', 380, 190, scale=.6)       # duas árvores ancestrais abraçam a casa (a construção se apoia nelas)
+r.add('flo_ancient_tree_a', 640, 200, flip=True, scale=.6)
+r.add('flo_ancient_tree_b', 920, 150, scale=.75)
+r.add('flo_ancient_tree_a', 760, 90, flip=True, scale=.7)
+for _pts, _sd in ((_pal_w, 61), (_pal_e, 62)):                 # a cerca some na vegetação: moitas e samambaias do lado de fora
+    rr_ = random.Random(_sd)
+    for (x0, y0), (x1, y1) in zip(_pts[:-1], _pts[1:]):
+        if rr_.random() < .7:
+            r.add(rr_.choice(['nat_bush_green', 'flo_fern_patch', 'nat_grass_tall']), (x0 + x1) / 2 + (-30 if _sd == 61 else 30), (y0 + y1) / 2 + 18, flip=rr_.random() < .5)
 r.scatter(['flo_fern_patch', 'flo_glow_mushrooms', 'nat_bush_green', 'nat_flowers_meadow'], 12, (20, 60, 920, 470), 21, min_d=44)
 r.d['light_shafts'] = [[r.o[0] + 380, r.o[1] + 0], [r.o[0] + 560, r.o[1] + 20]]
 r.shot('FLO_2A_CASA_PRE', [])
