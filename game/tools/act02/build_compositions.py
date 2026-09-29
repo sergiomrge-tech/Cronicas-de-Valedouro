@@ -222,6 +222,49 @@ shrine_arm('water', 'Santuário — Raiz da Água', (300, 150), "Braço úmido: 
 shrine_arm('stone', 'Santuário — Raiz da Pedra', (700, 100), 'Braço rochoso: monólito abraçado por raízes junto a ruínas antigas; atalho destravável ao purificar.', build_stone)
 shrine_arm('wind', 'Santuário — Raiz do Vento', (520, 210), 'Braço elevado: patamar de lajes com pórtico de árvores inclinadas, mirante próximo; sinos de folhas quando purificado.', build_wind)
 
+# ============================================================== LOC_MEMORY_TREE (Q_MS02_MEMORY_TREE) — exterior e coração
+m = Comp('LOC_MEMORY_TREE', 'Árvore-Memória — exterior', (380, 130),
+         'Landmark dominante: tronco colossal, raízes em arcos e passagens, clareira central com espelho d\'água e pedras memoriais. Fechada até purificar as três raízes; depois as raízes se afastam.', tint=(.05, .15, .1, .18))
+m.exclude_circle(480, 430, 190)
+m.exclude_rect(0, 470, 960, 40)
+m.trail([(-20, 500), (200, 490), (400, 480), (480, 470)], half=20, seed=9)
+m.add('flo_memory_pool', 480, 500, layer='ground', scale=1.1)
+m.add('flo_memory_tree_sealed', 480, 440, scale=.55, hide_when='quest:Q_MS02_ROOTS')
+m.add('flo_memory_tree_open', 480, 440, scale=.55, show_when='quest:Q_MS02_ROOTS')
+m.add('flo_memory_root_arch', 200, 470, scale=.8)
+m.add('flo_memory_root_arch', 770, 470, scale=.8, flip=True)
+for x, y in ((300, 480), (650, 490), (380, 520), (570, 525)):
+    m.add('flo_memory_stone', x, y, flip=x > 480)
+m.add('flo_ancient_tree_a', 90, 300, scale=.6)
+m.add('flo_ancient_tree_b', 880, 320, scale=.6, flip=True)
+m.add('flo_stone_moss', 130, 520)
+m.scatter(['flo_fern_patch', 'flo_glow_mushrooms'], 10, (20, 60, 920, 470), 33, min_d=52)
+m.d['light_shafts'] = [[m.o[0] + 300, m.o[1] + 0], [m.o[0] + 640, m.o[1] + 0]]
+m.shot('FLO_2C_ARVORE_FECHADA', [])
+m.shot('FLO_2C_ARVORE_ABERTA', ['quest:Q_MS02_ROOTS'])
+comps.append(m.d)
+
+h = Comp('LOC_MEMORY_TREE', 'Árvore-Memória — coração', (380, 130),
+         'Interior/coração acessível na missão: piso de raízes com anel de luz, semente-memória sobre pedestal, inscrições, arcos de raiz como paredes; espaço para as memórias de Adrian.', tint=(.02, .06, .04, .35))
+h.d['ground_solid'] = [.05, .09, .06]
+h.add('flo_heart_floor', 480, 330, layer='ground', scale=1.15)
+h.add('flo_heart_seed', 480, 330, hide_when='quest:Q_MS02_MEMORY_TREE:active')
+h.add('flo_heart_seed_active', 480, 330, show_when='quest:Q_MS02_MEMORY_TREE:active')
+for x in range(90, 900, 96):                          # parede viva ao fundo, curvada em arco (a árvore por dentro)
+    h.add('flo_heart_wall', x, 200 + abs(x - 500) * .16)
+h.add('flo_memory_root_arch', 110, 330, scale=.8)
+h.add('flo_memory_root_arch', 860, 340, scale=.8, flip=True)
+for i, (x, y) in enumerate(((300, 400), (660, 400), (240, 330), (720, 330))):
+    h.add('flo_memory_stone', x, y, flip=x > 480)
+for x, y in ((150, 420), (820, 430), (330, 470), (620, 470)):
+    h.add('flo_glow_mushrooms', x, y)
+for x, y in ((110, 330), (850, 330)):
+    h.add('flo_fern_patch', x, y)
+h.d['vignette'] = .5
+h.shot('FLO_2C_CORACAO_DORMENTE', [])
+h.shot('FLO_2C_CORACAO_MEMORIA_ATIVA', ['quest:Q_MS02_MEMORY_TREE:active'])
+comps.append(h.d)
+
 # ------------------------------------------------------------------ saída
 # flags negativas: "!<flag>" em show_when/hide_when é resolvido pelo palco/Gerente como "flag ausente"
 json.dump(comps, open(OUT, 'w'), ensure_ascii=False, indent=1)

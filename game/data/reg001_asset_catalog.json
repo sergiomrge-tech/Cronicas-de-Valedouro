@@ -23,7 +23,7 @@
   },
   "MODELED_PENDING_GATE": {
    "INTEGRATED": 248,
-   "NOT_USED": 183
+   "NOT_USED": 192
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -876,6 +876,42 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_FLO_HEART_FLOOR",
+   "key": "flo_heart_floor",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_SEED",
+   "key": "flo_heart_seed",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_SEED_ACTIVE",
+   "key": "flo_heart_seed_active",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_WALL",
+   "key": "flo_heart_wall",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_FLO_HERB_BENCH",
    "key": "flo_herb_bench",
    "group": "nature",
@@ -896,6 +932,51 @@
   {
    "id": "MOD_FLO_MAP_TABLE",
    "key": "flo_map_table",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_MEMORY_POOL",
+   "key": "flo_memory_pool",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_MEMORY_ROOT_ARCH",
+   "key": "flo_memory_root_arch",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_MEMORY_STONE",
+   "key": "flo_memory_stone",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_MEMORY_TREE_OPEN",
+   "key": "flo_memory_tree_open",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_MEMORY_TREE_SEALED",
+   "key": "flo_memory_tree_sealed",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "NOT_USED",

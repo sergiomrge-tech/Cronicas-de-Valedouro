@@ -1651,5 +1651,381 @@
     "seed": 9
    }
   ]
+ },
+ {
+  "id": "LOC_MEMORY_TREE",
+  "name": "Árvore-Memória — exterior",
+  "origin": [
+   380,
+   130
+  ],
+  "story": "Landmark dominante: tronco colossal, raízes em arcos e passagens, clareira central com espelho d'água e pedras memoriais. Fechada até purificar as três raízes; depois as raízes se afastam.",
+  "ground_tint": [
+   0.05,
+   0.15,
+   0.1,
+   0.18
+  ],
+  "water": [],
+  "objects": [
+   {
+    "asset": "flo_memory_pool",
+    "x": 860,
+    "y": 630,
+    "layer": "ground",
+    "scale": 1.1
+   },
+   {
+    "asset": "flo_memory_tree_sealed",
+    "x": 860,
+    "y": 570,
+    "scale": 0.55,
+    "hide_when": "quest:Q_MS02_ROOTS"
+   },
+   {
+    "asset": "flo_memory_tree_open",
+    "x": 860,
+    "y": 570,
+    "scale": 0.55,
+    "show_when": "quest:Q_MS02_ROOTS"
+   },
+   {
+    "asset": "flo_memory_root_arch",
+    "x": 580,
+    "y": 600,
+    "scale": 0.8
+   },
+   {
+    "asset": "flo_memory_root_arch",
+    "x": 1150,
+    "y": 600,
+    "scale": 0.8,
+    "flip": true
+   },
+   {
+    "asset": "flo_memory_stone",
+    "x": 680,
+    "y": 610
+   },
+   {
+    "asset": "flo_memory_stone",
+    "x": 1030,
+    "y": 620,
+    "flip": true
+   },
+   {
+    "asset": "flo_memory_stone",
+    "x": 760,
+    "y": 650
+   },
+   {
+    "asset": "flo_memory_stone",
+    "x": 950,
+    "y": 655,
+    "flip": true
+   },
+   {
+    "asset": "flo_ancient_tree_a",
+    "x": 470,
+    "y": 430,
+    "scale": 0.6
+   },
+   {
+    "asset": "flo_ancient_tree_b",
+    "x": 1260,
+    "y": 450,
+    "scale": 0.6,
+    "flip": true
+   },
+   {
+    "asset": "flo_stone_moss",
+    "x": 510,
+    "y": 650
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 1151.6,
+    "y": 320.3
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 842.5,
+    "y": 322.6,
+    "flip": true
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 684.5,
+    "y": 423.2
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1191.1,
+    "y": 508.3
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 507.9,
+    "y": 216.3
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1311.3,
+    "y": 221.1,
+    "flip": true
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 695.9,
+    "y": 304.1,
+    "flip": true
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 458.3,
+    "y": 233.8,
+    "flip": true
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 777.2,
+    "y": 353.6
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1126.5,
+    "y": 467.1
+   }
+  ],
+  "captures": [
+   {
+    "name": "FLO_2C_ARVORE_FECHADA",
+    "flags": []
+   },
+   {
+    "name": "FLO_2C_ARVORE_ABERTA",
+    "flags": [
+     "quest:Q_MS02_ROOTS"
+    ]
+   }
+  ],
+  "light_shafts": [
+   [
+    680,
+    130
+   ],
+   [
+    1020,
+    130
+   ]
+  ],
+  "exclusions": [
+   {
+    "circle": [
+     480,
+     430,
+     190
+    ]
+   },
+   {
+    "rect": [
+     0,
+     470,
+     960,
+     40
+    ]
+   }
+  ],
+  "trails": [
+   {
+    "pts": [
+     [
+      360,
+      630
+     ],
+     [
+      580,
+      620
+     ],
+     [
+      780,
+      610
+     ],
+     [
+      860,
+      600
+     ]
+    ],
+    "half": 20,
+    "seed": 9
+   }
+  ]
+ },
+ {
+  "id": "LOC_MEMORY_TREE",
+  "name": "Árvore-Memória — coração",
+  "origin": [
+   380,
+   130
+  ],
+  "story": "Interior/coração acessível na missão: piso de raízes com anel de luz, semente-memória sobre pedestal, inscrições, arcos de raiz como paredes; espaço para as memórias de Adrian.",
+  "ground_tint": [
+   0.02,
+   0.06,
+   0.04,
+   0.35
+  ],
+  "water": [],
+  "objects": [
+   {
+    "asset": "flo_heart_floor",
+    "x": 860,
+    "y": 460,
+    "layer": "ground",
+    "scale": 1.15
+   },
+   {
+    "asset": "flo_heart_seed",
+    "x": 860,
+    "y": 460,
+    "hide_when": "quest:Q_MS02_MEMORY_TREE:active"
+   },
+   {
+    "asset": "flo_heart_seed_active",
+    "x": 860,
+    "y": 460,
+    "show_when": "quest:Q_MS02_MEMORY_TREE:active"
+   },
+   {
+    "asset": "flo_heart_wall",
+    "x": 470,
+    "y": 395.6
+   },
+   {
+    "asset": "flo_heart_wall",
+    "x": 566,
+    "y": 380.2
+   },
+   {
+    "asset": "flo_heart_wall",
+    "x": 662,
+    "y": 364.9
+   },
+   {
+    "asset": "flo_heart_wall",
+    "x": 758,
+    "y": 349.5
+   },
+   {
+    "asset": "flo_heart_wall",
+    "x": 854,
+    "y": 334.2
+   },
+   {
+    "asset": "flo_heart_wall",
+    "x": 950,
+    "y": 341.2
+   },
+   {
+    "asset": "flo_heart_wall",
+    "x": 1046,
+    "y": 356.6
+   },
+   {
+    "asset": "flo_heart_wall",
+    "x": 1142,
+    "y": 371.9
+   },
+   {
+    "asset": "flo_heart_wall",
+    "x": 1238,
+    "y": 387.3
+   },
+   {
+    "asset": "flo_memory_root_arch",
+    "x": 490,
+    "y": 460,
+    "scale": 0.8
+   },
+   {
+    "asset": "flo_memory_root_arch",
+    "x": 1240,
+    "y": 470,
+    "scale": 0.8,
+    "flip": true
+   },
+   {
+    "asset": "flo_memory_stone",
+    "x": 680,
+    "y": 530
+   },
+   {
+    "asset": "flo_memory_stone",
+    "x": 1040,
+    "y": 530,
+    "flip": true
+   },
+   {
+    "asset": "flo_memory_stone",
+    "x": 620,
+    "y": 460
+   },
+   {
+    "asset": "flo_memory_stone",
+    "x": 1100,
+    "y": 460,
+    "flip": true
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 530,
+    "y": 550
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1200,
+    "y": 560
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 710,
+    "y": 600
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1000,
+    "y": 600
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 490,
+    "y": 460
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 1230,
+    "y": 460
+   }
+  ],
+  "captures": [
+   {
+    "name": "FLO_2C_CORACAO_DORMENTE",
+    "flags": []
+   },
+   {
+    "name": "FLO_2C_CORACAO_MEMORIA_ATIVA",
+    "flags": [
+     "quest:Q_MS02_MEMORY_TREE:active"
+    ]
+   }
+  ],
+  "light_shafts": [],
+  "exclusions": [],
+  "ground_solid": [
+   0.05,
+   0.09,
+   0.06
+  ],
+  "vignette": 0.5
  }
 ]

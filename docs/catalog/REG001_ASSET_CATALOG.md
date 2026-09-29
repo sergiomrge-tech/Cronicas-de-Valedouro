@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (28): Lote 01, únicos aprovados pelo Diretor. Cidade 15 + Dungeon 13.
-- **MODELED_PENDING_GATE** (431): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (440): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 28 | 0 |
-| MODELED_PENDING_GATE | 248 | 183 |
+| MODELED_PENDING_GATE | 248 | 192 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -40,7 +40,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## MODELED_PENDING_GATE — por grupo
 
-### nature (203)
+### nature (212)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -61,9 +61,18 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `flo_claw_tree` | NOT_USED | 0 |
 | `flo_fern_patch` | NOT_USED | 0 |
 | `flo_glow_mushrooms` | NOT_USED | 0 |
+| `flo_heart_floor` | NOT_USED | 0 |
+| `flo_heart_seed` | NOT_USED | 0 |
+| `flo_heart_seed_active` | NOT_USED | 0 |
+| `flo_heart_wall` | NOT_USED | 0 |
 | `flo_herb_bench` | NOT_USED | 0 |
 | `flo_lookout_rock` | NOT_USED | 0 |
 | `flo_map_table` | NOT_USED | 0 |
+| `flo_memory_pool` | NOT_USED | 0 |
+| `flo_memory_root_arch` | NOT_USED | 0 |
+| `flo_memory_stone` | NOT_USED | 0 |
+| `flo_memory_tree_open` | NOT_USED | 0 |
+| `flo_memory_tree_sealed` | NOT_USED | 0 |
 | `flo_palisade_broken` | NOT_USED | 0 |
 | `flo_palisade_organic` | NOT_USED | 0 |
 | `flo_ranger_lodge` | NOT_USED | 0 |

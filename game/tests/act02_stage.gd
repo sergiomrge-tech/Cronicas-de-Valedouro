@@ -71,7 +71,11 @@ func _draw() -> void:
 	var origin: Array = comp.get("origin", [0, 0])
 	var view: Rect2 = Rect2(Vector2(float(origin[0]), float(origin[1])), Vector2(960, 540))
 	draw_set_transform(-view.position)
-	GROUND.draw_bosque(self, view)
+	if comp.has("ground_solid"):
+		var gs: Array = comp["ground_solid"]
+		draw_rect(view, Color(float(gs[0]), float(gs[1]), float(gs[2]), 1.0))
+	else:
+		GROUND.draw_bosque(self, view)
 	var tint: Array = comp.get("ground_tint", [0.05, 0.16, 0.1, 0.22])
 	draw_rect(view, Color(float(tint[0]), float(tint[1]), float(tint[2]), float(tint[3])))
 	for w_value in comp.get("water", []):
