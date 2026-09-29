@@ -32,11 +32,10 @@ approved = load('approved_visual_manifest.json')
 modeled = load('modeled_assets_manifest.json')
 world = load('reg001_world.json')
 catalog = load('reg001_asset_catalog.json')
-check(approved['count'] == 28, 'esperados 28 APPROVED')
 sys.path.insert(0, str(ROOT / 'tools' / 'reg001'))
-from spec import APP_KEYS  # chaves curtas do renderer para as 28 peças APPROVED
+from spec import APP_KEYS  # chaves curtas do renderer para o manifesto APPROVED ativo
 approved_keys = set(APP_KEYS)
-check(len(approved_keys) == 28, 'chaves APPROVED != 28')
+check(approved['count'] == len(approved_keys), f"manifesto APPROVED ({approved['count']}) != chaves do renderer ({len(approved_keys)})")
 
 # ---- assets modelados: arquivos, quadros, hashes, status
 ids = set()
@@ -96,7 +95,10 @@ for zone in ('guilda', 'ferreiro', 'alquimia', 'loja', 'masmorra', 'cripta'):
 
 # ---- catálogo
 check(catalog['policy']['excluded_counts'] == {'REWORKED': 61, 'HOLD': 22}, 'contagem REWORKED/HOLD alterada')
-check(catalog['counts']['APPROVED']['INTEGRATED'] + catalog['counts']['APPROVED'].get('NOT_USED', 0) == 28, 'catálogo APPROVED incompleto')
+modeled_approved = sum(1 for e in modeled['assets'] if e['status'] == 'APPROVED')
+expected_approved_total = approved['count'] + modeled_approved
+catalog_approved_total = catalog['counts']['APPROVED']['INTEGRATED'] + catalog['counts']['APPROVED'].get('NOT_USED', 0)
+check(catalog_approved_total == expected_approved_total, f'catálogo APPROVED incompleto: {catalog_approved_total} != {expected_approved_total}')
 check(len(catalog['missing_approved_asset']) >= 10, 'lista MISSING_APPROVED_ASSET vazia')
 n_mod = sum(1 for e in catalog['entries'] if e['approval'] in ('MODELED_PENDING_GATE', 'APPROVED') and e['id'].startswith('MOD_'))
 check(n_mod == len(ids), 'catálogo desatualizado em relação ao manifesto modelado')
