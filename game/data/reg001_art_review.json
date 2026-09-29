@@ -1,6 +1,6 @@
 {
  "counts": {
-  "PRO": 215,
+  "PRO": 233,
   "A": 35,
   "B": 25,
   "D": 17
@@ -1909,6 +1909,150 @@
    "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
    "status": "MODELED_PENDING_GATE",
    "pipeline": "kit"
+  },
+  {
+   "id": "ter_dec_bones",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_cobble_weeds",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_cracks_dirt",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_cracks_ice",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_cracks_sand",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_flowers",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_grass",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_grass_dry",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_grass_frost",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_grass_tall",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_leaves",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_moss_stone",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_mushrooms",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_pebbles",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_sand_ripple",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_snow_drift",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_stones_ice",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "ter_dec_stones_sand",
+   "group": "terrain",
+   "class": "PRO",
+   "reason": "chão assado / textura contínua (terreno) — pipeline de terreno",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
   },
   {
    "id": "ter_ground_0_0",

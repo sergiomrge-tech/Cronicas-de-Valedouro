@@ -206,6 +206,17 @@ def shadow_layer(shadow, alpha_level=104, dither=True):
     return m, alpha_level
 
 
+def id_edges(idmap, mask):
+    """Fronteiras entre objetos diferentes (pixel à direita/abaixo com outro ID), só onde ambos são opacos."""
+    a = idmap[..., :3].astype(np.int16)
+    ex = (np.abs(a[:, 1:] - a[:, :-1]).sum(-1) > 24) & mask[:, 1:] & mask[:, :-1]
+    ey = (np.abs(a[1:, :] - a[:-1, :]).sum(-1) > 24) & mask[1:, :] & mask[:-1, :]
+    e = np.zeros(mask.shape, dtype=bool)
+    e[:, :-1] |= ex
+    e[:-1, :] |= ey
+    return e
+
+
 def compose(asset_rgba, shadow_alpha, colors=128, outline_px=2, do_outline=True, grade_kw=None, shadow_level=104, thr=128, depth_edge=None, inner_strength=0.62):
     a = asset_rgba[..., 3]
     mask = clean_alpha(a, thr)

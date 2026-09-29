@@ -1,0 +1,574 @@
+{
+  "schema_version": 1,
+  "results": [
+    {
+      "id": "str_watchtower_stone",
+      "candidate": "game/assets/modeled/city/structures/str_watchtower_stone.png",
+      "candidate_metrics": {
+        "size": [
+          349,
+          477
+        ],
+        "visible_pixels": 97607,
+        "occupancy": 0.58632,
+        "palette32_used": 32,
+        "edge_density": 0.11473,
+        "local_variation": 0.0286,
+        "silhouette_perimeter_area": 0.02086
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.36547,
+        "local_variation": 0.09878,
+        "silhouette_perimeter_area": 0.03165
+      },
+      "ratios": {
+        "palette32_used": 1.0,
+        "edge_density": 0.3139,
+        "local_variation": 0.2895,
+        "silhouette_perimeter_area": 0.6591
+      },
+      "status": "WARN",
+      "warnings": [
+        "edge_density is only 0.31x reference average",
+        "local_variation is only 0.29x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "str_watchtower_frost",
+      "candidate": "game/assets/modeled/city/structures/str_watchtower_frost.png",
+      "candidate_metrics": {
+        "size": [
+          349,
+          477
+        ],
+        "visible_pixels": 97573,
+        "occupancy": 0.58612,
+        "palette32_used": 31,
+        "edge_density": 0.13151,
+        "local_variation": 0.03424,
+        "silhouette_perimeter_area": 0.02083
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.36547,
+        "local_variation": 0.09878,
+        "silhouette_perimeter_area": 0.03165
+      },
+      "ratios": {
+        "palette32_used": 0.9688,
+        "edge_density": 0.3598,
+        "local_variation": 0.3466,
+        "silhouette_perimeter_area": 0.6581
+      },
+      "status": "WARN",
+      "warnings": [
+        "edge_density is only 0.36x reference average",
+        "local_variation is only 0.35x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "str_windmill",
+      "candidate": "game/assets/modeled/city/structures/str_windmill.png",
+      "candidate_metrics": {
+        "size": [
+          4297,
+          488
+        ],
+        "visible_pixels": 730416,
+        "occupancy": 0.34833,
+        "palette32_used": 32,
+        "edge_density": 0.17541,
+        "local_variation": 0.03962,
+        "silhouette_perimeter_area": 0.04124
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.36547,
+        "local_variation": 0.09878,
+        "silhouette_perimeter_area": 0.03165
+      },
+      "ratios": {
+        "palette32_used": 1.0,
+        "edge_density": 0.48,
+        "local_variation": 0.4011,
+        "silhouette_perimeter_area": 1.303
+      },
+      "status": "WARN",
+      "warnings": [
+        "edge_density is only 0.48x reference average",
+        "local_variation is only 0.40x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "str_barn",
+      "candidate": "game/assets/modeled/city/structures/str_barn.png",
+      "candidate_metrics": {
+        "size": [
+          352,
+          286
+        ],
+        "visible_pixels": 61040,
+        "occupancy": 0.60633,
+        "palette32_used": 32,
+        "edge_density": 0.07568,
+        "local_variation": 0.02031,
+        "silhouette_perimeter_area": 0.01987
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.36547,
+        "local_variation": 0.09878,
+        "silhouette_perimeter_area": 0.03165
+      },
+      "ratios": {
+        "palette32_used": 1.0,
+        "edge_density": 0.2071,
+        "local_variation": 0.2056,
+        "silhouette_perimeter_area": 0.6278
+      },
+      "status": "WARN",
+      "warnings": [
+        "edge_density is only 0.21x reference average",
+        "local_variation is only 0.21x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "str_lodge_ice",
+      "candidate": "game/assets/modeled/city/structures/str_lodge_ice.png",
+      "candidate_metrics": {
+        "size": [
+          325,
+          342
+        ],
+        "visible_pixels": 57192,
+        "occupancy": 0.51455,
+        "palette32_used": 31,
+        "edge_density": 0.14792,
+        "local_variation": 0.03865,
+        "silhouette_perimeter_area": 0.02264
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.36547,
+        "local_variation": 0.09878,
+        "silhouette_perimeter_area": 0.03165
+      },
+      "ratios": {
+        "palette32_used": 0.9688,
+        "edge_density": 0.4047,
+        "local_variation": 0.3913,
+        "silhouette_perimeter_area": 0.7153
+      },
+      "status": "WARN",
+      "warnings": [
+        "edge_density is only 0.40x reference average",
+        "local_variation is only 0.39x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "str_outpost_amber",
+      "candidate": "game/assets/modeled/city/structures/str_outpost_amber.png",
+      "candidate_metrics": {
+        "size": [
+          363,
+          298
+        ],
+        "visible_pixels": 48702,
+        "occupancy": 0.45022,
+        "palette32_used": 32,
+        "edge_density": 0.18389,
+        "local_variation": 0.04868,
+        "silhouette_perimeter_area": 0.03195
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.36547,
+        "local_variation": 0.09878,
+        "silhouette_perimeter_area": 0.03165
+      },
+      "ratios": {
+        "palette32_used": 1.0,
+        "edge_density": 0.5032,
+        "local_variation": 0.4928,
+        "silhouette_perimeter_area": 1.0095
+      },
+      "status": "WARN",
+      "warnings": [
+        "edge_density is only 0.50x reference average",
+        "local_variation is only 0.49x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "str_shrine_stone",
+      "candidate": "game/assets/modeled/city/structures/str_shrine_stone.png",
+      "candidate_metrics": {
+        "size": [
+          1512,
+          199
+        ],
+        "visible_pixels": 124082,
+        "occupancy": 0.41239,
+        "palette32_used": 28,
+        "edge_density": 0.25951,
+        "local_variation": 0.06439,
+        "silhouette_perimeter_area": 0.05304
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.36547,
+        "local_variation": 0.09878,
+        "silhouette_perimeter_area": 0.03165
+      },
+      "ratios": {
+        "palette32_used": 0.875,
+        "edge_density": 0.7101,
+        "local_variation": 0.6518,
+        "silhouette_perimeter_area": 1.6758
+      },
+      "status": "PASS_DIAGNOSTIC",
+      "warnings": [],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "str_cave_entrance",
+      "candidate": "game/assets/modeled/dungeon/structures/str_cave_entrance.png",
+      "candidate_metrics": {
+        "size": [
+          358,
+          299
+        ],
+        "visible_pixels": 71367,
+        "occupancy": 0.66672,
+        "palette32_used": 32,
+        "edge_density": 0.17099,
+        "local_variation": 0.03914,
+        "silhouette_perimeter_area": 0.01998
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.36547,
+        "local_variation": 0.09878,
+        "silhouette_perimeter_area": 0.03165
+      },
+      "ratios": {
+        "palette32_used": 1.0,
+        "edge_density": 0.4679,
+        "local_variation": 0.3962,
+        "silhouette_perimeter_area": 0.6313
+      },
+      "status": "WARN",
+      "warnings": [
+        "edge_density is only 0.47x reference average",
+        "local_variation is only 0.40x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "nat_tree_pine",
+      "candidate": "game/assets/modeled/nature/trees/nat_tree_pine.png",
+      "candidate_metrics": {
+        "size": [
+          224,
+          264
+        ],
+        "visible_pixels": 31023,
+        "occupancy": 0.5246,
+        "palette32_used": 31,
+        "edge_density": 0.14678,
+        "local_variation": 0.034,
+        "silhouette_perimeter_area": 0.04487
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.3026,
+        "local_variation": 0.07232,
+        "silhouette_perimeter_area": 0.06566
+      },
+      "ratios": {
+        "palette32_used": 0.9688,
+        "edge_density": 0.4851,
+        "local_variation": 0.4702,
+        "silhouette_perimeter_area": 0.6834
+      },
+      "status": "WARN",
+      "warnings": [
+        "edge_density is only 0.49x reference average",
+        "local_variation is only 0.47x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "nat_tree_birch",
+      "candidate": "game/assets/modeled/nature/trees/nat_tree_birch.png",
+      "candidate_metrics": {
+        "size": [
+          201,
+          289
+        ],
+        "visible_pixels": 19628,
+        "occupancy": 0.3379,
+        "palette32_used": 30,
+        "edge_density": 0.23208,
+        "local_variation": 0.05657,
+        "silhouette_perimeter_area": 0.13404
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.3026,
+        "local_variation": 0.07232,
+        "silhouette_perimeter_area": 0.06566
+      },
+      "ratios": {
+        "palette32_used": 0.9375,
+        "edge_density": 0.767,
+        "local_variation": 0.7823,
+        "silhouette_perimeter_area": 2.0414
+      },
+      "status": "PASS_DIAGNOSTIC",
+      "warnings": [],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "nat_tree_palm",
+      "candidate": "game/assets/modeled/nature/trees/nat_tree_palm.png",
+      "candidate_metrics": {
+        "size": [
+          240,
+          238
+        ],
+        "visible_pixels": 15277,
+        "occupancy": 0.26745,
+        "palette32_used": 30,
+        "edge_density": 0.16975,
+        "local_variation": 0.04091,
+        "silhouette_perimeter_area": 0.14911
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.3026,
+        "local_variation": 0.07232,
+        "silhouette_perimeter_area": 0.06566
+      },
+      "ratios": {
+        "palette32_used": 0.9375,
+        "edge_density": 0.561,
+        "local_variation": 0.5657,
+        "silhouette_perimeter_area": 2.2709
+      },
+      "status": "WARN",
+      "warnings": [
+        "edge_density is only 0.56x reference average",
+        "local_variation is only 0.57x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "nat_tree_dead",
+      "candidate": "game/assets/modeled/nature/trees/nat_tree_dead.png",
+      "candidate_metrics": {
+        "size": [
+          194,
+          199
+        ],
+        "visible_pixels": 7436,
+        "occupancy": 0.19261,
+        "palette32_used": 31,
+        "edge_density": 0.2451,
+        "local_variation": 0.05473,
+        "silhouette_perimeter_area": 0.21046
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.3026,
+        "local_variation": 0.07232,
+        "silhouette_perimeter_area": 0.06566
+      },
+      "ratios": {
+        "palette32_used": 0.9688,
+        "edge_density": 0.81,
+        "local_variation": 0.7568,
+        "silhouette_perimeter_area": 3.2053
+      },
+      "status": "PASS_DIAGNOSTIC",
+      "warnings": [],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "nat_plateau_earth_m",
+      "candidate": "game/assets/modeled/nature/elevation/nat_plateau_earth_m.png",
+      "candidate_metrics": {
+        "size": [
+          317,
+          254
+        ],
+        "visible_pixels": 51061,
+        "occupancy": 0.63416,
+        "palette32_used": 32,
+        "edge_density": 0.20042,
+        "local_variation": 0.04661,
+        "silhouette_perimeter_area": 0.01919
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.30031,
+        "local_variation": 0.07864,
+        "silhouette_perimeter_area": 0.02774
+      },
+      "ratios": {
+        "palette32_used": 1.0,
+        "edge_density": 0.6674,
+        "local_variation": 0.5927,
+        "silhouette_perimeter_area": 0.6917
+      },
+      "status": "WARN",
+      "warnings": [
+        "local_variation is only 0.59x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "nat_ridge_rock_a",
+      "candidate": "game/assets/modeled/nature/elevation/nat_ridge_rock_a.png",
+      "candidate_metrics": {
+        "size": [
+          348,
+          225
+        ],
+        "visible_pixels": 45074,
+        "occupancy": 0.57566,
+        "palette32_used": 32,
+        "edge_density": 0.18651,
+        "local_variation": 0.04405,
+        "silhouette_perimeter_area": 0.02596
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.30031,
+        "local_variation": 0.07864,
+        "silhouette_perimeter_area": 0.02774
+      },
+      "ratios": {
+        "palette32_used": 1.0,
+        "edge_density": 0.6211,
+        "local_variation": 0.5601,
+        "silhouette_perimeter_area": 0.9357
+      },
+      "status": "WARN",
+      "warnings": [
+        "local_variation is only 0.56x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "nat_wall_cliff_ice_a",
+      "candidate": "game/assets/modeled/nature/elevation/nat_wall_cliff_ice_a.png",
+      "candidate_metrics": {
+        "size": [
+          275,
+          246
+        ],
+        "visible_pixels": 39184,
+        "occupancy": 0.57922,
+        "palette32_used": 31,
+        "edge_density": 0.2054,
+        "local_variation": 0.05237,
+        "silhouette_perimeter_area": 0.02769
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.30031,
+        "local_variation": 0.07864,
+        "silhouette_perimeter_area": 0.02774
+      },
+      "ratios": {
+        "palette32_used": 0.9688,
+        "edge_density": 0.684,
+        "local_variation": 0.6659,
+        "silhouette_perimeter_area": 0.998
+      },
+      "status": "PASS_DIAGNOSTIC",
+      "warnings": [],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "nat_rock_boulder",
+      "candidate": "game/assets/modeled/nature/rocks/nat_rock_boulder.png",
+      "candidate_metrics": {
+        "size": [
+          216,
+          153
+        ],
+        "visible_pixels": 20446,
+        "occupancy": 0.61868,
+        "palette32_used": 32,
+        "edge_density": 0.14407,
+        "local_variation": 0.03782,
+        "silhouette_perimeter_area": 0.02739
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.30031,
+        "local_variation": 0.07864,
+        "silhouette_perimeter_area": 0.02774
+      },
+      "ratios": {
+        "palette32_used": 1.0,
+        "edge_density": 0.4797,
+        "local_variation": 0.4809,
+        "silhouette_perimeter_area": 0.9872
+      },
+      "status": "WARN",
+      "warnings": [
+        "edge_density is only 0.48x reference average",
+        "local_variation is only 0.48x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    },
+    {
+      "id": "nat_ruin_arch",
+      "candidate": "game/assets/modeled/nature/ruins/nat_ruin_arch.png",
+      "candidate_metrics": {
+        "size": [
+          278,
+          288
+        ],
+        "visible_pixels": 36253,
+        "occupancy": 0.4528,
+        "palette32_used": 30,
+        "edge_density": 0.14986,
+        "local_variation": 0.03798,
+        "silhouette_perimeter_area": 0.05702
+      },
+      "reference_average": {
+        "palette32_used": 32.0,
+        "edge_density": 0.30031,
+        "local_variation": 0.07864,
+        "silhouette_perimeter_area": 0.02774
+      },
+      "ratios": {
+        "palette32_used": 0.9375,
+        "edge_density": 0.499,
+        "local_variation": 0.483,
+        "silhouette_perimeter_area": 2.0551
+      },
+      "status": "WARN",
+      "warnings": [
+        "edge_density is only 0.50x reference average",
+        "local_variation is only 0.48x reference average"
+      ],
+      "note": "Diagnostic complexity only; Director visual review remains authoritative."
+    }
+  ],
+  "summary": {
+    "total": 17,
+    "warnings": 13,
+    "missing": 0
+  }
+}

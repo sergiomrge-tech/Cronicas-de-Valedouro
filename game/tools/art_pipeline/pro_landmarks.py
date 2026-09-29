@@ -259,6 +259,7 @@ def run(ids, preview_dir=None, write=True):
     for id in ids:
         fn, kw = REGISTRY[id]
         kw = dict(kw)
+        kw.setdefault('inner', 0.0 if kw.get('group') in ('terrain', 'fx', 'interior') else 0.4)
         pad = kw.pop('pad', None)
         if pad is None:
             pad = 0 if kw.get('group') in ('interior', 'npc', 'fx') else (14 if id.startswith('fau_') else 26)     # folga anti-clipping (sombra/copas/bandeiras)

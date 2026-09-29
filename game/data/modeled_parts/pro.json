@@ -21,11 +21,10 @@
    "vila",
    "bandeira"
   ],
-  "sha256": "8996074125df0928afcf268822f76cb478553bb9e9d91fa1a031bf9c35414cd8",
+  "sha256": "200a7aaf97da41a52af7ffc6c181a1f7ba13ab2002422afb0eb947568dd0fef0",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "city_banner_red",
@@ -49,11 +48,10 @@
    "vila",
    "bandeira"
   ],
-  "sha256": "d1613255944b28954acf95bf122f294c0eddf0d4e1c216688af872641782f940",
+  "sha256": "136edc16eba50d4666124dee4ca3cef601bc0a10fd3ff1e638adfe2370da92e1",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "city_barrels",
@@ -78,11 +76,10 @@
    "porto",
    "barris"
   ],
-  "sha256": "b5f2032cc17697bcd0b14e8cc92030463d0f841b64946441e96301dcbb57969d",
+  "sha256": "370a44013410a355d40f98d696be35bf328929a1a6449ac6e0cc6c613b197419",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "city_bench",
@@ -106,11 +103,10 @@
    "vila",
    "banco"
   ],
-  "sha256": "dbbd20f03e6840ba09d45ca89f870b57d094527d555f397bb2b51c8133fb90b9",
+  "sha256": "1999e2961b36f997de388de1825611fb84d543cc5acbd0186eb2c6392a6b32a4",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "city_cart_market",
@@ -134,11 +130,10 @@
    "vila",
    "mercado"
   ],
-  "sha256": "e45b98e7dd8ea402267aed12ec3503bd5431510464d064f49e9c7efdf097c11b",
+  "sha256": "c5d809dc09e44f12fec290a1b5b7196502a6ca6f78f0bb4548e5ff05f939be73",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "city_crates",
@@ -163,11 +158,10 @@
    "porto",
    "caixas"
   ],
-  "sha256": "3da9bcd2c5a0c2bea548d35508eb3caa902cc28e2b4ad2981fd3f0f13e40540f",
+  "sha256": "9a4d59c7c694089dfeb2b9e52c3121af844de2047957f0eae3998bc62d38b9ca",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "city_lamp_post_a",
@@ -191,11 +185,10 @@
    "vila",
    "luz"
   ],
-  "sha256": "09d38a3156378519b9c406aa62adcf36ad55bb4176e271d9837cdd7386fd28c0",
+  "sha256": "7f806ac15c29e30bb5a931858da533394b66fdff391029292255201c47ee4172",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "city_lamp_post_b",
@@ -219,11 +212,10 @@
    "vila",
    "luz"
   ],
-  "sha256": "db6b44424da747814463767e24086049f7ecd6f34264fa8c680788293ffff0ef",
+  "sha256": "47d3b235e5d5a867673c8b7bab917de8cc44a5e6aaeaed1055dea0b613a80f85",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "city_planter",
@@ -247,11 +239,10 @@
    "vila",
    "jardim"
   ],
-  "sha256": "08886c3dc508a097bb625e2e6a21f6336ab9008d84747a71c0f892d179a07d8a",
+  "sha256": "a4ba7acdcf70b4a9d170d70ba232dc52aede40012c448cd133de8aa5c155a5b6",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "fau_bird",
@@ -765,11 +756,10 @@
    "ruinas",
    "altar"
   ],
-  "sha256": "2e997d6f84bd3e31e1896a7feae502b7cb064b0080fde9c7188fd4be1725a29b",
+  "sha256": "77ee83bf9f244b0decdf3b4a548e69f5a3f4a0e31a20bd6d9ccc0df2b205ea14",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_altar_sand",
@@ -794,11 +784,10 @@
    "altar",
    "deserto"
   ],
-  "sha256": "a2aa8727e98f8a179ae2370fd0149e3fcf1e977f40c5a9b9837ea19964a89081",
+  "sha256": "66796c402aae691211078198d6ef3c397f27960f0f3ad5018a8530ebc9cc211a",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_boulder_ice",
@@ -823,11 +812,10 @@
    "obstaculo",
    "pedra"
   ],
-  "sha256": "34a6b07d25ef534c9d432a78a2d3577d26c587078fb7162dfb2ebf3f11d16395",
+  "sha256": "656af3ae0a7f114ef1840906d03bb757e933020088db71e9b80cbbb7ab13e0bd",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_boulder_sand",
@@ -852,11 +840,10 @@
    "obstaculo",
    "pedra"
   ],
-  "sha256": "942d07eb50c2b687bd84ccfb433d2937db478963835737215f24e3b0aab4871e",
+  "sha256": "151a69d286b12128d0ecb213be11083cdda92d3db79981669c20d7743244422a",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_bush_berry",
@@ -881,11 +868,10 @@
    "recurso",
    "arbusto"
   ],
-  "sha256": "3b4182d610e2bfe647ad77ac362f707ee87b6c0d71e2d84eee345ea06073807a",
+  "sha256": "2180421a19d1ba6f4bf5772149954452877347fe555aaf37e4dab5f100e14971",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_bush_dry",
@@ -909,11 +895,10 @@
    "deserto",
    "arbusto"
   ],
-  "sha256": "775828f4d4c8e5295417b537e80bccbd94ef727f629629ea2f1c64bc2d6d565f",
+  "sha256": "d18cf79da9c8091f2236b250e7a8b86b8f4890486203c65b88dcea4c6da27949",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_bush_flowering",
@@ -938,11 +923,10 @@
    "vale",
    "arbusto"
   ],
-  "sha256": "f80fbebda07ee2d05c52193d8596de10a862c1a221de127c7b9efd677c9d0e87",
+  "sha256": "102e72d64922be3741da83550b863f7f6cc44c0d297e565793b287e96c4530ed",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_bush_frost",
@@ -966,11 +950,10 @@
    "gelo",
    "arbusto"
   ],
-  "sha256": "be14a8666a688c40271a9a2775d3004ed1be0e5a3e445e38c3635599b07e3b42",
+  "sha256": "e2f2f7e2422d4153a74a067bef729d7ae513f050a46b4bf3dd893c356e9b5b5d",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_bush_green",
@@ -994,11 +977,10 @@
    "todos",
    "arbusto"
   ],
-  "sha256": "aa26f6da1ccee348b7850d6faeabb8174bb0251fc930e43e864f67d7ca371a10",
+  "sha256": "50675ccc0233226dcaec54ba9cba37950684fbf2598ccc8483f08e3c3b5299fd",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_cactus_round",
@@ -1022,11 +1004,10 @@
    "deserto",
    "cacto"
   ],
-  "sha256": "fce2ef23e03a6eef7d06cbf92bedbf7ddeb9ad197ad1176bd487fdebec95ef7c",
+  "sha256": "2d076287884941a4e3161f4c614dc6e63a0008abfa4a25dc38eb46ef05339131",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_cactus_tall",
@@ -1050,11 +1031,10 @@
    "deserto",
    "cacto"
   ],
-  "sha256": "4c50a4b0bcd87b2b4be5113f465212aa835379bb580778bb0d267f1bbf657001",
+  "sha256": "00d5146fa9cb55c77ca71f8306e007bcadfb0e9d221952b718e49777399103d4",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_campfire",
@@ -1078,11 +1058,10 @@
    "acampamento",
    "fogo"
   ],
-  "sha256": "c7fdd5838973f5c34b0c37af72fcfec4b3b3223675a26f5baef4df31b999b389",
+  "sha256": "0c4b37d09fca94d40f7e2e7fbb8d1df2b531250a7e5005c4273c46cda1f339cc",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_cart_wood",
@@ -1107,11 +1086,10 @@
    "vila",
    "carroca"
   ],
-  "sha256": "da95e903424400c93ff4748dbd6283589f138d1904e9662d0b62975935124bae",
+  "sha256": "28ab3783bd498d934a1dc7afc025a869446c0a8492010b8e3578f93644f73888",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_chest_closed",
@@ -1134,11 +1112,10 @@
   "tags": [
    "bau"
   ],
-  "sha256": "4a7629216c172d7e699f91be7ff7ded1b4521f55c0a14723b8f2fa03ec941ac0",
+  "sha256": "04f0aacc0f2bdb77defaa3b8afb40da8bff744d0829bf11d3b522e8edd4e86a2",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_chest_open",
@@ -1161,11 +1138,10 @@
   "tags": [
    "bau"
   ],
-  "sha256": "2a9d5f74ffed12cd01fc6463a340f612858db81394d7d3b4716aa0e8832bc5de",
+  "sha256": "bad1fc4bdafa9f0673d655b3a6fdad8259c2d08a7f13d612e3df054acbdd31c9",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_chest_rare",
@@ -1189,11 +1165,10 @@
    "bau",
    "raro"
   ],
-  "sha256": "d12af29ca0da24a4feef5af1776b0ed47b98873365c684f08444ce611b57f09e",
+  "sha256": "8b8c506e36ba600f0a829bc0d5600ba82221e55d07697c5c1b6276f53cb4a994",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_dune_large",
@@ -1218,11 +1193,10 @@
    "duna",
    "obstaculo"
   ],
-  "sha256": "24c87a81dec9f8ac8f5e684ebfed6854776eb40a5f9eb169b1c90e97c9887164",
+  "sha256": "d1385bd6a3a09bd05db7f53a471be8ac75113ae3ca05242e051f399de6c8220c",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_dune_small",
@@ -1246,11 +1220,10 @@
    "deserto",
    "duna"
   ],
-  "sha256": "ba9b82ab8dbb82a44d3828a92765bd618b1bb679046f9191487bbf4f229eb5fd",
+  "sha256": "4e52a635ccb7c148f69e8715959569c4e1d5f3d924a9eccd115f8e98696ac6f4",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_fence_broken_a",
@@ -1274,11 +1247,10 @@
    "ruinas",
    "cerca"
   ],
-  "sha256": "ecaa67ed0fa27570272119a8112f1ed14a90b22a0767da9c1502b6b936237c16",
+  "sha256": "79d03065d8250eb16df5fdef9aed6ea49ab79e5bd4b2ad2a078ba3dfd84bde99",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_fence_broken_b",
@@ -1302,11 +1274,10 @@
    "ruinas",
    "cerca"
   ],
-  "sha256": "7d732427e744650a48a7b30b6978996db7fa6bce41114e6e4755a3596ebe4ffb",
+  "sha256": "9e22011f29631137f07fb5d4c8d386ee1288d43ca7ff3202a8f984835926391c",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_fence_wood_a",
@@ -1331,11 +1302,10 @@
    "vila",
    "cerca"
   ],
-  "sha256": "3de08adc13b66988d1aa659a2e932b5601b3aa5b12479d7986cbfcf05b1ad137",
+  "sha256": "e27d4bf2bb28c27d5b8bfefd57cc20d3145e813e2466f4810197863fdf9e4201",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_fence_wood_b",
@@ -1360,11 +1330,10 @@
    "vila",
    "cerca"
   ],
-  "sha256": "d6ee30b11f84fb94cfa2d2931d14871f86e7b5bcc0fa0f8146fc9b2785b22cc0",
+  "sha256": "5effa43262285ba25875f717951cadd227eb0063e01c9153ef743029402ea2c4",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_flag_blue",
@@ -1387,11 +1356,10 @@
   "tags": [
    "bandeira"
   ],
-  "sha256": "d453b1f7c9262c894b608119af3b4417d1183cc91bf772b92d132f91599a53b9",
+  "sha256": "769fb40479717040e8e6c175c098eaac7705a67a9aa676e96afd68a2c52befaf",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_flag_red",
@@ -1414,11 +1382,10 @@
   "tags": [
    "bandeira"
   ],
-  "sha256": "3ce3238631d123877893fcb9a8d47836d2bfac932874ef960f638b02e7ee3217",
+  "sha256": "63265c2dab7f07f29a72fc7242c6f165db24c55ad5c829bc66a52abeca4ecebb",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_gate_wood",
@@ -1442,11 +1409,10 @@
    "campos",
    "portao"
   ],
-  "sha256": "22ba62366d3e8270e0a8c6883f44e84a9708503bd36d0f68b29c444eb3fd3e34",
+  "sha256": "0d61644226298b37a460c7af805db18797411c081a485098636d0a9eeb95b795",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_hay_bale",
@@ -1470,11 +1436,10 @@
    "campos",
    "fazenda"
   ],
-  "sha256": "6bbd7c66c0adc6a8b8faf906628b46e509a05f73b6e88ee4d821eb85f19ab265",
+  "sha256": "527b13c12d17229a2968c3fe4b0984e5aafe626683caa5465bfa117e4ea41114",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_hay_stack",
@@ -1498,11 +1463,10 @@
    "campos",
    "fazenda"
   ],
-  "sha256": "94200b2c45131ea21a1ccca51588001973c0831b32a2531f857b32c475f639df",
+  "sha256": "c92a42f0e31739f716c9003c7725e76cd42fe33b6c4d900cc4a4d6da85179461",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_hill_earth",
@@ -1527,7 +1491,7 @@
    "colina",
    "earth"
   ],
-  "sha256": "d2f243e01630c9b1faf1c1cfbbd49c3e309db7ce8852d5def82e97d5d973d0d8",
+  "sha256": "8938fbffbede3dc7a74a871d7a950d23c9657f9a963fbd3fa88e9b044acfb1d1",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -1577,8 +1541,7 @@
     11.1
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_hill_ice",
@@ -1603,7 +1566,7 @@
    "colina",
    "ice"
   ],
-  "sha256": "13cb021addfe45b55f36924e15e762944b71c2f7a7822c8b93c05f568ede8c32",
+  "sha256": "c415b2987e657336fac0a8a5cf73a61df61619954b31535678cf1867c84ef2f7",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -1653,8 +1616,7 @@
     11.1
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_hill_sand",
@@ -1679,7 +1641,7 @@
    "colina",
    "sand"
   ],
-  "sha256": "96df94d5bf7fe37b26739fae740cbd124af50a38dd818e3d45d6ba88e524a5c8",
+  "sha256": "3c61f9ca7655234960452e9b7ecbe097dfeb9b89d5a566727c8f0a08ba9d7aee",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -1729,8 +1691,7 @@
     11.8
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ice_spire",
@@ -1754,11 +1715,10 @@
    "gelo",
    "cristal"
   ],
-  "sha256": "31911085656aa4afb07a3c5c7f26ae91353db31f672ec67efcf043140a8527c8",
+  "sha256": "7f94093d6bee5c135577eb205860a405cc29f1d7f517840db4fbb1ec171b8140",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_log_fallen",
@@ -1783,11 +1743,10 @@
    "obstaculo",
    "tronco"
   ],
-  "sha256": "a24682895c0a3891bd19eb1fe4b31c096193a398f7abf0d0ed9b8a2b811d949f",
+  "sha256": "70ee0ffefc620165ba9e798e3751c9b16767d7860476f5eb7217484104700165",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_log_pile",
@@ -1812,11 +1771,10 @@
    "floresta",
    "tronco"
   ],
-  "sha256": "b1bde921b25c2c5c8640e6aec567262934fe3895b2bd3f93b37a52e95ac273b7",
+  "sha256": "74107418bda9fcee27c70b330b9869b26626134d24a2fb321deaede1e48dc12a",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_obelisk_rune",
@@ -1840,11 +1798,10 @@
    "ruinas",
    "obelisco"
   ],
-  "sha256": "18883438629338908301fd05fd2dc7fb924929089cd2fcde3ed854933b7b8efb",
+  "sha256": "def7d985e0a95a55efd832a64ce42ef517a86afeeba56d9bc4bb05b70d2c449d",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_plateau_earth_m",
@@ -1869,7 +1826,7 @@
    "planalto",
    "colinas"
   ],
-  "sha256": "724f3d596b5c32fbd68b9c2dcdac84d0f8d23e9d8a839b145ef120412dcfa442",
+  "sha256": "c4bda14270a6fb6a04cb58256359fecc54f923d93a27b671cdc6f6a4832b38fa",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -1954,8 +1911,7 @@
     11.8
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_plateau_earth_s",
@@ -1980,7 +1936,7 @@
    "planalto",
    "colinas"
   ],
-  "sha256": "2b037b437d27ae49df0a75bfc7f394ad83219c3a2d19a2ec8849fc98b2304777",
+  "sha256": "ec4d67d21a8b2921f6c6bbe13f37e3017f2ea433543f56a9986ce5b1696a7520",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -2030,8 +1986,7 @@
     9.9
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_plateau_ice_m",
@@ -2056,7 +2011,7 @@
    "planalto",
    "gelo"
   ],
-  "sha256": "2b3f6809f446b6b5ba6c683add97e0f24e7e09745692ec3ddc92d081d67c20ea",
+  "sha256": "6aa5dbae114feda5055963dc72661308004a03e7858a0a2772b00bab8237fe9d",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -2141,8 +2096,7 @@
     11.8
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_plateau_ice_s",
@@ -2167,7 +2121,7 @@
    "planalto",
    "gelo"
   ],
-  "sha256": "5306cf02daac512af94e10647ff5973f889127d7f6baf8e6f15bba8db53097be",
+  "sha256": "d13120a17b9a1e3d8882b69af82dca5db8998aa1e1fa0f1952f29a747ae10aab",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -2217,8 +2171,7 @@
     9.9
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_plateau_rock_m",
@@ -2243,7 +2196,7 @@
    "planalto",
    "rio"
   ],
-  "sha256": "afde1a19a7f9751faae4fed512d98992f2f0e924e93e6c6c35ebe21b1fe26e5c",
+  "sha256": "b95063f3944e6627432d520735a36bdec5883809ec233fe31992704ec58ae623",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -2328,8 +2281,7 @@
     11.8
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_plateau_rock_s",
@@ -2354,7 +2306,7 @@
    "planalto",
    "rio"
   ],
-  "sha256": "92deb8f5ff1a43d3432581b39b9fe4ae7b2f200d9b0966fe2a452a0c7c61a40f",
+  "sha256": "4eef1b8999dd380a45619bf37134aad60ec2e9a70f4f4e39d0856c9e8bc61df6",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -2404,8 +2356,7 @@
     9.9
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_plateau_sand_m",
@@ -2430,7 +2381,7 @@
    "planalto",
    "deserto"
   ],
-  "sha256": "7f321ed631ed7cecfd3bb81f358675656173ec66a70117ccd99bf289be92663f",
+  "sha256": "e88726416cdafb4433d459797732f5abc27ceb24e2a7416b004ccd6aeb312149",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -2515,8 +2466,7 @@
     11.8
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_plateau_sand_s",
@@ -2541,7 +2491,7 @@
    "planalto",
    "deserto"
   ],
-  "sha256": "71783851fcb92c3cb33a3248dd59f7d3b7716bfb2fe2bbaa1f162f2b2db95cae",
+  "sha256": "5995ab68426648b8cbd164ba3fc340982d275f9f24a119e67f76421fc70308bf",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -2591,8 +2541,7 @@
     9.9
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ridge_earth_a",
@@ -2617,7 +2566,7 @@
    "cordilheira",
    "colinas"
   ],
-  "sha256": "d1a362d53799d65dad2d3ced90a51a16af76a832b977b2a40f6c719b73a49b39",
+  "sha256": "c4cf3c848abea4443bfd3b8348d44b35c5fade07153ea2c2a9920de8e2be83e2",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -2712,8 +2661,7 @@
     11.3
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ridge_earth_b",
@@ -2738,7 +2686,7 @@
    "cordilheira",
    "colinas"
   ],
-  "sha256": "be6cbca08c68a59b91d708988b464c9eb3069320ed389dcb27fe74087a10aed9",
+  "sha256": "54209c4023f9da810da65a648e561280b053e06148197be2784dee041c08bda8",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -2833,8 +2781,7 @@
     11.3
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ridge_ice_a",
@@ -2859,7 +2806,7 @@
    "cordilheira",
    "gelo"
   ],
-  "sha256": "6b1197bc485e8b1782e2647ab47a05eae331f7379209e368172a09882db6db4d",
+  "sha256": "3419f202e5347a4dc88b88967260548c33c740af438c97ce4b79ccd58e1a7992",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -2954,8 +2901,7 @@
     11.3
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ridge_ice_b",
@@ -2980,7 +2926,7 @@
    "cordilheira",
    "gelo"
   ],
-  "sha256": "ee2e304abcbd3c714c83dd50ea8ca38277040edeaa5e059b5b7ade8e4f6c733b",
+  "sha256": "aabf099bacb647921fa84e8263e58672daf7bb2c91bff34b9422b5e07c2d8f35",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -3075,8 +3021,7 @@
     11.3
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ridge_rock_a",
@@ -3101,7 +3046,7 @@
    "cordilheira",
    "rio"
   ],
-  "sha256": "c57c9a6cf30d2b6fc45cb74be278883079987760b618567caaebf43907d29b64",
+  "sha256": "703c3949b4510a27c9f211a9e750d3e0439be838b58fe96259d22641dc091e41",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -3196,8 +3141,7 @@
     11.3
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ridge_rock_b",
@@ -3222,7 +3166,7 @@
    "cordilheira",
    "rio"
   ],
-  "sha256": "2b20132fd55e370fc223dc93f72fe99704fb21ea985dfd96b7625d390d3d3da1",
+  "sha256": "d87d5a380362ea4e37ee3c75018cb508284c54f03283203a6002a809e82554f7",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -3317,8 +3261,7 @@
     11.3
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ridge_sand_a",
@@ -3343,7 +3286,7 @@
    "cordilheira",
    "deserto"
   ],
-  "sha256": "663068742e60fd9ddac0cad1fe29bd3cc9c841e4c0e162b7b7e87f19d26bebf5",
+  "sha256": "b8b22dcb19a3dd8e94362137d694a0fef5fe58690975d1ece9c11a3574d26757",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -3438,8 +3381,7 @@
     11.3
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ridge_sand_b",
@@ -3464,7 +3406,7 @@
    "cordilheira",
    "deserto"
   ],
-  "sha256": "f6b27c998232bf7375ed018e8dbde44b43001696a503f84f1c08ae66d036e479",
+  "sha256": "26577e36df934c649f024b0923082c2509b4efc7da28562dbbc4bc469db1e06e",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -3559,8 +3501,7 @@
     11.3
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_rock_arch_natural",
@@ -3585,7 +3526,7 @@
    "arco",
    "passagem"
   ],
-  "sha256": "0f050ad6ad3a8ad49cad5ea52e4112fc56106803e8f5135420ceb84f47606524",
+  "sha256": "b2e680ada254cd8f991823ff129462f8a489ce55996f19f47b20c45768223a9d",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -3600,8 +3541,7 @@
     20
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_rock_boulder",
@@ -3625,11 +3565,10 @@
    "obstaculo",
    "pedra"
   ],
-  "sha256": "243617c015cf7e358dc72a062607af6e8b84aaf0eec8d2aedacc63411c5a489e",
+  "sha256": "a033af83c743f702295306373bd75674e7d298fa49018572a9e81587daea96f4",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_rock_ice",
@@ -3653,11 +3592,10 @@
    "gelo",
    "pedra"
   ],
-  "sha256": "239aae297f67890ca938dd40bcef5fcdd5296a1ffc76ea36117799399020c885",
+  "sha256": "5f0768abcb80ea46dc680242b0b270cef78c7fddd195639957fc791b5447e1d9",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_rock_medium",
@@ -3681,11 +3619,10 @@
    "todos",
    "pedra"
   ],
-  "sha256": "846b2c3c5ba719dfc76b294cc559d49f501266a72419c27e51b9022160d59396",
+  "sha256": "49159376eeb9818b1a2f22e37aef50970a5e484729904ec31c970201e7dd7de3",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_rock_mossy",
@@ -3710,11 +3647,10 @@
    "vale",
    "pedra"
   ],
-  "sha256": "e72147b313adcf42742c63b37e78e273908333b8bb582b002e3288dce69922c4",
+  "sha256": "2e385b1392c7804f5ca3b4b095d8110c00d45e977b18aa6f165673ae6911015f",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_rock_pillars",
@@ -3739,7 +3675,7 @@
    "pilares",
    "passagem"
   ],
-  "sha256": "b8228053cdc606ab13c98ec2b58a439abd42ce88be5bfa7d1c3af99139ef3f7e",
+  "sha256": "0c928171613af55fafdc16912d2c9c2682f44c0a0da8d9f8c44acf81ce9b2b92",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -3759,8 +3695,7 @@
     12
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_rock_sand",
@@ -3784,11 +3719,10 @@
    "deserto",
    "pedra"
   ],
-  "sha256": "afe0a74b6679bdbc01e1e17df6f242537fe9c0a38ac4610774bfba4e7a769e9f",
+  "sha256": "db62fbe5a8043be4d4bfdb909676b6815ac0be995f135ab533f1027f2d53db07",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_rock_small",
@@ -3812,11 +3746,10 @@
    "todos",
    "pedra"
   ],
-  "sha256": "ee0bacd06800d01e5a664a0519cefb9c13b0b8fb55df32a9b34149ef049bcb3a",
+  "sha256": "e543c528826e2a1a82a9eadbbf6a4f2337f601ce688a02305eac3df0fdeeb6ba",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_rock_snow",
@@ -3840,11 +3773,10 @@
    "gelo",
    "pedra"
   ],
-  "sha256": "32c8d275f97e1139815a301c263eb4e7039f576f910199b48d9f1d7bc2e5aab3",
+  "sha256": "3a6b7c419b98b1e6231aadcb556732325c6642777305713d39bea8a5a51e8070",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ruin_arch",
@@ -3868,11 +3800,10 @@
    "ruinas",
    "arco"
   ],
-  "sha256": "1f729a34cb98ccdce011023ec1a9064f97c9982e97d04150688e16e2c7f0e48a",
+  "sha256": "cb3451d6114d9c6c3f34b2f2305be15181c74bdb0b6de02e6342314d0ae9646a",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ruin_arch_sand",
@@ -3897,11 +3828,10 @@
    "arco",
    "deserto"
   ],
-  "sha256": "97b840298a72a73c6951906e707d461677903eb55bbcd7098b56b794d0050489",
+  "sha256": "239ebf3b9eb194f5cfb7f82b26277d63d45f9c41a07180dca5a4314688daf539",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ruin_column",
@@ -3925,11 +3855,10 @@
    "ruinas",
    "coluna"
   ],
-  "sha256": "41c7b4371a4d168e7d1af9199f5c0b589b33e44a9b45965e7c8820221de2ae47",
+  "sha256": "acd9aac345c1a04f83864b6e872ecfb1bffcaf1a185049f0ac44b0d6afdcfc2c",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ruin_column_broken",
@@ -3953,11 +3882,10 @@
    "ruinas",
    "coluna"
   ],
-  "sha256": "62d42979042fd371b17cbba50e869e8704bc4d75f42ed9cf7fb0d87b1c78b5af",
+  "sha256": "186902c9c3c81526b8dca399ff59d76f264d5f74a6660c32356b64ccf2cb9699",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ruin_column_sand",
@@ -3982,11 +3910,10 @@
    "coluna",
    "deserto"
   ],
-  "sha256": "e27fa45c4971a643da4ff6e100d6c359e3bdf3a4f5d2df017caeba9f619156ac",
+  "sha256": "47fc188c69210e14b966d2d68625d5cebd1b0e7775851248706c3d84ee971577",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ruin_wall",
@@ -4010,11 +3937,10 @@
    "ruinas",
    "muro"
   ],
-  "sha256": "a48cd6c2edd920e40b08a582b63b8ffbfa547ae46afdea7600dc82cb78f00987",
+  "sha256": "144ea9b0990bb67cf4a88ccb56cb372791247bd9cc8e97eb55f496781c8e72b3",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_ruin_wall_sand",
@@ -4039,11 +3965,10 @@
    "muro",
    "deserto"
   ],
-  "sha256": "84ad01be9d6d7e3e531d13c1e65df34be0b82a449a9fbab69fac61ae5b7ad93f",
+  "sha256": "827d30c01c0fcf0a757bad3886a5decf2a75adcb90a9d3c6e896e1f18e9b35e9",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_signpost",
@@ -4067,11 +3992,10 @@
    "rota",
    "placa"
   ],
-  "sha256": "53aeda1d2eb097530efe7b7ab255b9f017b354001cbd39fd38efa797792eca53",
+  "sha256": "cdb3aacbc847eb346db627ca571724214e0a77e771d77c59f0efa0cb8a4f04f6",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_snow_mound",
@@ -4095,11 +4019,10 @@
    "gelo",
    "neve"
   ],
-  "sha256": "4d1d723452c39f901f05609e9c630ccb95c440eabaeb3126ca8ab2e72862bb89",
+  "sha256": "cceffb06ad71596b70769bf9217a2cadd8b7edc6d457bf5ea18669b07b6053b1",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_statue_guardian",
@@ -4123,11 +4046,10 @@
    "ruinas",
    "estatua"
   ],
-  "sha256": "52826aa0fb50afda14dbc8e5ff7de8584d87e66f5d32b1d6f942dcd2420472ce",
+  "sha256": "019cb9fc5243fe69cd83da272e84cf4117b5ca63fb95a7bd44d2895838b1e2af",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_steps_stone",
@@ -4151,11 +4073,10 @@
    "elevacao",
    "degraus"
   ],
-  "sha256": "72e2e35af1f5677df5033eadb75ae76caac58f4f9478ca59af796f2b3850df22",
+  "sha256": "2ec858b875f5597af5d2269160e1a60985715e7836de3d9dca4dc133bca06ebc",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_stump",
@@ -4179,11 +4100,10 @@
    "floresta",
    "tronco"
   ],
-  "sha256": "a1339826c7d8628cfe80aeaaf8ad077709515cc038e0791dd6de4eb9cf2da2c6",
+  "sha256": "26bf5a89cfad9ada2bac95ef5e10c53113ece2f2e621b1d317ba7afc9785f98d",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_tent_frost",
@@ -4208,11 +4128,10 @@
    "tenda",
    "gelo"
   ],
-  "sha256": "249103aade48efeb30f9bdd27bef818fc46438f4e7753dbb68150ab62b575bb0",
+  "sha256": "e0284b7d487ef5e995956c6aabd8c3d7fe01b068452948706c9ee11426d45eda",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_tent_red",
@@ -4237,11 +4156,10 @@
    "tenda",
    "deserto"
   ],
-  "sha256": "836dc9fca23d2bd5de9dbba46bac11541d95674d7e13af6552b961f402f6c6f4",
+  "sha256": "4136f5a2db8b5a839bc96035e0ca6b1b5fbf92889a0e3cdcb01c2a5a12b7a399",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_tent_small",
@@ -4265,11 +4183,10 @@
    "acampamento",
    "tenda"
   ],
-  "sha256": "da1ebb232fbcfa50cacadde2b41c67c93bf413883c2ad7f03ec8f0c467bdb273",
+  "sha256": "e78b9ea847ff0743f5460a9373862a02b43c06c9bdcc20916a66fc91fc72257a",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_tree_birch",
@@ -4294,11 +4211,10 @@
    "vale",
    "arvore"
   ],
-  "sha256": "e027c94c6dc5bebd32fcdccc3172be727c62d1edd9fd714da23173ab9e3eb397",
+  "sha256": "7c4bd301ce8bf3de193b6d9bc19f615ee9665445be953154f5c839533dda4126",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_tree_dead",
@@ -4323,11 +4239,10 @@
    "deserto",
    "arvore"
   ],
-  "sha256": "e293aab835d25026e7577b51a31b6d6ab803f81fcd977d55a949f8902b9c1d4f",
+  "sha256": "ac4f4777823bfb3c04d88684a3060adbbacbcbc5d4644f9b9497fbf4639df7cd",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_tree_palm",
@@ -4352,11 +4267,10 @@
    "oasis",
    "arvore"
   ],
-  "sha256": "5a73237e3883c889dc6cc574f7a54203a81ccbc6beb0d1af6faaec7f303afd6b",
+  "sha256": "3ddcd66ff1d44b7d38b77c82945c74216d921bfe5d7494f0abe3830338a0dd20",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_tree_pine",
@@ -4381,11 +4295,10 @@
    "vale",
    "arvore"
   ],
-  "sha256": "a88f8d220353b537eb99e035c35e7045db76c03dab2de6069261f5a26d935008",
+  "sha256": "75d2073eb4871651aa69ea97d5b921e2713e20bb1a9e62b149550b7e7ed334fc",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_tree_pine_snow",
@@ -4409,11 +4322,10 @@
    "gelo",
    "arvore"
   ],
-  "sha256": "dbfb8af9d5ad350da1f08795a284a6dfbf2e50e18f9c5873eb59688a4d6a9abc",
+  "sha256": "38f4ef6ca67b30676ebd4006b104986d0be752547763416774f8411c530a1fd5",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_wall_cliff_ice_a",
@@ -4438,7 +4350,7 @@
    "paredao",
    "ice"
   ],
-  "sha256": "e9f5e57d118b948518e7ed734e27ca17c3d91e0e27d82c531aee4844a605dc3c",
+  "sha256": "99144eb526a073b8ae84f43615e56d4b8496e59ea8cc7ee4714880e227e75ea6",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -4493,8 +4405,7 @@
     10.7
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_wall_cliff_ice_b",
@@ -4519,7 +4430,7 @@
    "paredao",
    "ice"
   ],
-  "sha256": "9ff7e813744e34e9a5315a3eac0d202548e9b9db65b95f53fac326bc75d4716a",
+  "sha256": "01a3d6db52bac269e48df5d4c6c4489c0631fdab39e9973d45532ecb9441c1fb",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -4574,8 +4485,7 @@
     10.7
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_wall_cliff_rock_a",
@@ -4600,7 +4510,7 @@
    "paredao",
    "rock"
   ],
-  "sha256": "7759e7c04dc8d522acb51641600d9801d0cfc1a3cdeeba32f871c913b0e75ddd",
+  "sha256": "f12c9614bdc95dfccb2fca3bb5b3afd359dc11ce4a4ff93402dfc73a99dac585",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -4655,8 +4565,7 @@
     10.7
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_wall_cliff_rock_b",
@@ -4681,7 +4590,7 @@
    "paredao",
    "rock"
   ],
-  "sha256": "9501d9fb60b643ced0f692c883a2ffc828d3f4117b5c348e6d76f09925a28ef2",
+  "sha256": "9af4cb0eba4c0ac0b2671057810ad4338ecfced7dd3b8d8b3cfbc9a830fb28c8",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -4736,8 +4645,7 @@
     10.7
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_wall_cliff_sand_a",
@@ -4762,7 +4670,7 @@
    "paredao",
    "sand"
   ],
-  "sha256": "47ebd59bd85c32363d90a9d390a99a5a9b1d7dcc1ca150697b33a84088d5cbc7",
+  "sha256": "f90129a2c568463efec14c953f63b2a21539863cb1c70f7cba4057b89403baf4",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -4817,8 +4725,7 @@
     10.7
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_wall_cliff_sand_b",
@@ -4843,7 +4750,7 @@
    "paredao",
    "sand"
   ],
-  "sha256": "29ade74d8480d3b001b3193d0aa47be8d80515530f09f770e56978aa4f3aa0af",
+  "sha256": "a974001aa718a1d1fa7d69ec9bab630b0eca0ce1855cb551fdfca2b8fc2b8f31",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -4898,8 +4805,7 @@
     10.7
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_wall_low_a",
@@ -4924,11 +4830,10 @@
    "ruinas",
    "muro"
   ],
-  "sha256": "0bbd632da2d26f19452321c10e6236b2b3c14bf44aaa40442e753ccc318b3f33",
+  "sha256": "b5a1173354df04360c3125ba725ecdd9bf40547f812ae7349bdfccd8e1bc67e2",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_wall_low_b",
@@ -4953,11 +4858,10 @@
    "ruinas",
    "muro"
   ],
-  "sha256": "3731dc011c7447bb0a98803e110b828d5b01032b88e7c37df135df24b6cbcbfe",
+  "sha256": "905a4439752749bf7438d67fac22e88a5ca8c83b42e540295b8dbb500a4ea15c",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_waterfall_front",
@@ -4982,7 +4886,7 @@
    "cachoeira",
    "penhasco"
   ],
-  "sha256": "099a4eb24c708c562338f307dcf89766955c3b3507482eb45f6d952221c3ddab",
+  "sha256": "a3d652a88c0ca8f0898d5aef3bc22c0532a9bc4a656718cb032a608b8a9119f9",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -5007,8 +4911,7 @@
     34
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "nat_well_stone",
@@ -5032,11 +4935,10 @@
    "vila",
    "poco"
   ],
-  "sha256": "44f78212432446f60b2a5f98e335047f88471508abc18917bb850b820ae5e4a2",
+  "sha256": "18a7f69973c1b69c09f844b671aeea08a5117fdef79c37de37d4c16be0d08b7f",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "npc_alchemist",
@@ -5467,7 +5369,7 @@
    "celeiro",
    "fazenda"
   ],
-  "sha256": "30a5f5c5ccb53d6001bde155f1b4ac28e74e3e5dc5d127926d69f8e9f0c7fd1a",
+  "sha256": "254185befa990b147ead4cd9f95324d236f6fc8c466573354ae7aaf51254c5e5",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -5532,8 +5434,7 @@
     12.6
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_boat_row",
@@ -5559,7 +5460,7 @@
    "agua",
    "animado"
   ],
-  "sha256": "1ad1dd369d2b2805dfffbae8bfc3cc7037e54691a037913ad43c4189834c75aa",
+  "sha256": "de63192a9558c8c6dab40b9fb23d7dc460d16bee2d356cdb24831540e56db960",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -5594,8 +5495,7 @@
     9.9
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_boat_sail",
@@ -5621,7 +5521,7 @@
    "agua",
    "animado"
   ],
-  "sha256": "71662c6e9e52946cf02dba7add874878cd1de80264d4a9206fe3d54a5643a1e0",
+  "sha256": "1183d1c38c191ac6dd7961b8ff15f1a7eb29ba04bf1f4bcc78bebadda0141098",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -5666,8 +5566,7 @@
     10.0
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_cave_entrance",
@@ -5692,7 +5591,7 @@
    "caverna",
    "entrada"
   ],
-  "sha256": "3e7a4a766f5b9f6a5f68ed553deac10f3670b937d7b05eb61660141be92be75d",
+  "sha256": "04b654e9115ff651a3d1694eaf35244824ba6aa3fc369a77f448bcdaeafb3364",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -5717,8 +5616,7 @@
     24
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_crop_cabbage",
@@ -5744,11 +5642,10 @@
    "fazenda",
    "cabbage"
   ],
-  "sha256": "3800c5df46b3267e47bffebf6bc218fe7b80a280794f345a5cac7ef40aa9d82b",
+  "sha256": "438896aac5ade09bbdc70ad933f38cafba9d27758dacce25449150cb2ef34045",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_crop_corn",
@@ -5774,11 +5671,10 @@
    "fazenda",
    "corn"
   ],
-  "sha256": "7669414f640f2a9cb0fb9cf471d4937952172d0a676cb7d8e333932846a1d309",
+  "sha256": "93d9ee2f689d742a88ae041d3f17ca5a35b5b3f4018cdcc83ebae1fc86ac758c",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_crop_wheat",
@@ -5804,11 +5700,10 @@
    "fazenda",
    "wheat"
   ],
-  "sha256": "2390ed0eef055505d670035daf7def415c0f77fa23b42ced36c46ba5678386e6",
+  "sha256": "23b8ae47e0c139582602fb4d490b43189711ac2d9d53a8e298a99c152aaeaaea",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_dock_a",
@@ -5833,7 +5728,7 @@
    "cais",
    "agua"
   ],
-  "sha256": "ede3df91cad4a69e447a2660ac01dd0fe6d3f43811de905d2de1940370532060",
+  "sha256": "cb6efb470266d12023ef85eb03709fea2acd50c862941c9379e4879a023368f9",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -5878,8 +5773,7 @@
     11.8
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_dock_b",
@@ -5904,7 +5798,7 @@
    "cais",
    "agua"
   ],
-  "sha256": "edc4ff82e44ace57bf9a22340d3b06dcb64b199b29d02f9673bbb387f8c741f1",
+  "sha256": "e379ea5c21961a2a0ba7ed21830d42bf3d165272ae49d2f42a4ea396077c9765",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -5949,8 +5843,7 @@
     11.8
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_dock_end",
@@ -5975,7 +5868,7 @@
    "cais",
    "lampiao"
   ],
-  "sha256": "270cb961cf7c255681f855205b6f89bc4423e9481294b95920e1f4b82ec67b34",
+  "sha256": "b4616f055dcf3eaff3e24c2ce5ab87255875cb2e620d88e50591b470da29cb14",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -6000,8 +5893,7 @@
     12.6
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_lodge_ice",
@@ -6026,7 +5918,7 @@
    "abrigo",
    "gelo"
   ],
-  "sha256": "9776fd365715d113ed079a6c338d2ca4e9812926706196cf0d3498dce4ecde43",
+  "sha256": "4b5bf460cb73b673dbe86146418e304ef8269cfb14fcb2c29c36cf25b232e77c",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -6091,8 +5983,7 @@
     11.3
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_outpost_amber",
@@ -6118,7 +6009,7 @@
    "deserto",
    "ambar"
   ],
-  "sha256": "4e6b9896e53883e0ea8d6a9b27fe3174bcc0c46103baa45dff776d6f0eacdd93",
+  "sha256": "a594b7979d585c318e9f80cf3877f7f0a74b359af6ed7125bbe97bec5a376a04",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -6183,8 +6074,7 @@
     12.3
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_scarecrow",
@@ -6209,11 +6099,10 @@
    "fazenda",
    "espantalho"
   ],
-  "sha256": "771cc92130775f537155b8d77637888996d74a0f533ed20f3880fc73b2a02c73",
+  "sha256": "341d58011e124364dcfce25c04c898e1adb249dc28f517b6a0b6e19177265ba0",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_shelter_wood",
@@ -6238,7 +6127,7 @@
    "abrigo",
    "estrada"
   ],
-  "sha256": "be9a6c7f084eba8aa5187ba5f5f0d7def537964c3ebbe882ac34ad0baf8388bb",
+  "sha256": "55f875eee026854edae3dd2003d39bf5a70d86b4d8356896b981738e53da4055",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -6273,8 +6162,7 @@
     11.8
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_shrine_stone",
@@ -6300,7 +6188,7 @@
    "altar",
    "animado"
   ],
-  "sha256": "34406dcae499536aaaa77aed1e9134db78cd59e4879329c8abc016d31df1f11b",
+  "sha256": "2a09558f6f9d8c2ed439514f28b89180b42798f5a5876a159fc51281fa9e736e",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -6350,8 +6238,7 @@
     9.4
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_watchtower_frost",
@@ -6377,7 +6264,7 @@
    "gelo",
    "vigia"
   ],
-  "sha256": "38c21bf0661123a09e7b4643adb6857a5d3be19f5e9823b2480ea0ecf3f55672",
+  "sha256": "0339a61dc968655d9866f303198f023302a6ba25a5b45fbe742cb6dd3f3fee9f",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -6427,8 +6314,7 @@
     10.9
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_watchtower_stone",
@@ -6454,7 +6340,7 @@
    "campos",
    "vigia"
   ],
-  "sha256": "f84feb0a4c03df7ee71273fe747fb0df1b5586a8f10a76c495c58d4a330b922c",
+  "sha256": "651a6e0f83fa87a179787818ef42b1402fbdc93e6696c987a60c3982b81d5e7a",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -6504,8 +6390,7 @@
     10.9
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "str_windmill",
@@ -6531,7 +6416,7 @@
    "fazenda",
    "animado"
   ],
-  "sha256": "10f99c18682ef8e1566a18beab06ba12daa9a24957af95bf77fb7dff0b9fa9b5",
+  "sha256": "97703f9736d315591c75e95ce671956118f35c125822429b028d485cb94dc525",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -6616,8 +6501,7 @@
     9.6
    ]
   ],
-  "pipeline": "blender-pro",
-  "palette": "oklab-k64"
+  "pipeline": "blender-pro"
  },
  {
   "id": "ter_dec_bones",
@@ -6642,7 +6526,7 @@
    "ossos",
    "deserto"
   ],
-  "sha256": "85c5df7d3d759a4985d7a8256e4cd93da66d87a20287cf12b5f71ff654345644",
+  "sha256": "dd359131233859816ad86b6260a0798fc9b42a961c11fc829bce8633aa6db539",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -6670,7 +6554,7 @@
    "cidade",
    "ervas"
   ],
-  "sha256": "855141416095598937ae040e44bc491c5c11a48bc317837be6237b79b5be20f0",
+  "sha256": "ca964d66ff63af88c1ce1d0f40591b4c8b966c8e3d76ffd9e94f53492a0ef858",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -6699,7 +6583,7 @@
    "terra",
    "campos"
   ],
-  "sha256": "e351d6fbf7f3e5391279eca3ba8489945f9e6b6e68cea235942d9ee408f4c0df",
+  "sha256": "28c5c38d2325f1446137f891c88ecde259aa1b092dc85d1cb74ccfaec8dbd31c",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -6727,7 +6611,7 @@
    "rachadura",
    "gelo"
   ],
-  "sha256": "ec820e8720bb6d6b4fdc728e257be936563f078829fd6478dcc1e128004a5ef7",
+  "sha256": "e034d87e146a22a481bb12572eac5ede673d3bf650419511b1ad3d8189e3afcc",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -6755,7 +6639,7 @@
    "rachadura",
    "deserto"
   ],
-  "sha256": "ce156b80f6361ac1008b02f5188518c7fb5b4cd9d3d0d89144f5bb5497410162",
+  "sha256": "d6500ee67ae4f0ba9bd09f17a4fb724b6a4a713f418d4da484d56e0d4f64cc65",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -6782,7 +6666,7 @@
    "decalque",
    "flores"
   ],
-  "sha256": "b65d55fc9e31603b824aeaa53409c016a5210c0b3a9faa960299988f0d45537d",
+  "sha256": "f01ca29f2f78279793370d99e7b422135c30b686232d3e1928c7dd55ffe26103",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -6809,7 +6693,7 @@
    "decalque",
    "relva"
   ],
-  "sha256": "59dbb4a93931f1d8353a892fdd6f9480b5dbf9f66600403644affc9c9c7399c9",
+  "sha256": "6566d64bddfeb6b3b7f132ec9514f48589c27227c25363debadf3f6f66b86ddb",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -6838,7 +6722,7 @@
    "campos",
    "deserto"
   ],
-  "sha256": "f86c4613c9a244243bbdb6304dcaae11840b5164cd6111c12bc20be030517638",
+  "sha256": "fbdb5814b67e43090dd472c2cf7d35514bf3b00e8e9fc8be11139efa05ff32f9",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -6866,7 +6750,7 @@
    "gelo",
    "relva"
   ],
-  "sha256": "0ef43b02ef3843e9de214e72cac59089dca67fb5adba47648aa35bf962c280a5",
+  "sha256": "cd79bf2c6d503e18e543d50c2adabea2ef9fed63fd741838728c9d9b13b8f6bf",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -6894,7 +6778,7 @@
    "relva",
    "alta"
   ],
-  "sha256": "a64318620ea707638710f1bd13170efc0c5be788a7a6ad655461c2a787793066",
+  "sha256": "37259f2d1dde3d7a276dd8cc1e25eaa3f068c2fae1bca77b2917a84891904b0a",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -6923,7 +6807,7 @@
    "floresta",
    "campos"
   ],
-  "sha256": "72faeb1955a4a964d3ee8d225387adf00f2c0a623006a0b437e9a68cce87d9a1",
+  "sha256": "fa7b368f631dba20fe7a77bfa9bf0d6557809b6f5103ba3d788973c0d3e6d231",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -6951,7 +6835,7 @@
    "cidade",
    "musgo"
   ],
-  "sha256": "53f7364047231fe29696fce5b097aac98f7316e4055ee2bf3d0a2dce1bdfabac",
+  "sha256": "9f56fb0d41808d0d63f572c5c1e2247d9fd5f2321642abec34c98e2e7bf2086b",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -6979,7 +6863,7 @@
    "cogumelos",
    "floresta"
   ],
-  "sha256": "9f57c844b1b789d0268c7fc0f3d1922a5c8754c089da8c52d5cf02427cf588f5",
+  "sha256": "213f70100581254a51be3a4d34980733d103b4526a46210001a4c2c6cc0925ad",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -7006,7 +6890,7 @@
    "decalque",
    "seixos"
   ],
-  "sha256": "fe1da854bdaf44f3a707997c9c296e413f3beff4c88b3997274a1a9f2eb3fb29",
+  "sha256": "85cf4637ed03fe6ffbc6a036de3cc1b4983b359940103a2f203a90f6a6a0bef6",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -7034,7 +6918,7 @@
    "areia",
    "ondulação"
   ],
-  "sha256": "583dff69980a1bb04ee2d2c6bc61bed279b18a9bfb2ba01b421738d81b4fced9",
+  "sha256": "abe6e6f59421179ba487c04eaf53a07b11a90a58d012c025db3c1587dd785ba7",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -7090,7 +6974,7 @@
    "seixos",
    "gelo"
   ],
-  "sha256": "8eba13b1cdcd685cdfdfac65b519f07ddba1dcc4f1bf1bf59e00234fd5514fc9",
+  "sha256": "7d02656531b77fdec5ad5b6dbfea2660ee2eb9b8394249f985e871e33bdd221b",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
@@ -7118,7 +7002,7 @@
    "seixos",
    "deserto"
   ],
-  "sha256": "ffa7e4d9c4e977b3eb6b274961627ef78434d427e927d2db39f3a72df4b1248e",
+  "sha256": "297f0a08faad872a067fee0ab532e599a8d9ff2927245e69be92be8a6d7e0112",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"

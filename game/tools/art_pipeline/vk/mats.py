@@ -266,8 +266,8 @@ def planks(name='planks', cols=('#4a2a18', '#7a4a28', '#a8743c', '#c8964e'), alo
         br.inputs['Mortar Size'].default_value = 0.02
         br.inputs['Brick Width'].default_value = length
         br.inputs['Row Height'].default_value = width
-        br.inputs['Color1'].default_value = hexrgb(cols[1])
-        br.inputs['Color2'].default_value = hexrgb(cols[2])
+        br.inputs['Color1'].default_value = hexrgb(cols[0])
+        br.inputs['Color2'].default_value = hexrgb(cols[3])
         br.inputs['Mortar'].default_value = hexrgb(gap)
         n.link(cb, 0, br, 'Vector')
         return br
@@ -295,7 +295,11 @@ def planks(name='planks', cols=('#4a2a18', '#7a4a28', '#a8743c', '#c8964e'), alo
     gapm = n.math('SUBTRACT', 1.0, f2)
     dg = n.node('ShaderNodeRGB'); dg.outputs[0].default_value = hexrgb(gap)
     withgap = n.mix(aged_col, dg, n.math('MULTIPLY', gapm, 0.95, clamp=True))
-    edged, bev = _edge_wear(n, withgap, amount=wear, light=cols[3])
+    oi = n.node('ShaderNodeObjectInfo')
+    tint = n.ramp(oi.outputs['Random'], [(0.0, '#b8b8b8'), (0.5, '#e8e8e8'), (1.0, '#ffffff')])
+    tinted = n.node('ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY'); tinted.inputs[0].default_value = 1.0
+    n.link(withgap, 0, tinted, 6); n.link(tint, 0, tinted, 7)
+    edged, bev = _edge_wear(n, tinted, amount=wear, light=cols[3])
     return n.finish(edged, rough=rough, spec=0.18, bump_from=grain, bump_strength=0.35)
 
 
@@ -305,17 +309,17 @@ def shingles(name='shingles', cols=('#3a1418', '#7a2a22', '#b04a2e', '#e07a4a'),
     uv = n.node('ShaderNodeTexCoord')
     br = n.node('ShaderNodeTexBrick', offset=0.5, offset_frequency=2)
     br.inputs['Scale'].default_value = 1.0
-    br.inputs['Mortar Size'].default_value = 0.05
+    br.inputs['Mortar Size'].default_value = 0.075
     br.inputs['Mortar Smooth'].default_value = 0.0
     br.inputs['Brick Width'].default_value = w
     br.inputs['Row Height'].default_value = h
-    br.inputs['Color1'].default_value = hexrgb(cols[1])
-    br.inputs['Color2'].default_value = hexrgb(cols[2])
+    br.inputs['Color1'].default_value = hexrgb(cols[0])
+    br.inputs['Color2'].default_value = hexrgb(cols[3])
     br.inputs['Mortar'].default_value = hexrgb(mortar)
     n.link(uv, 'UV', br, 'Vector')
     sp = n.node('ShaderNodeSeparateXYZ'); n.link(uv, 'UV', sp, 0)
     fr = n.math('FRACT', n.math('DIVIDE', sp.outputs[1], h))
-    rowshade = n.ramp(fr, [(0.0, '#3c3c3c'), (0.22, '#b8b8b8'), (0.8, '#eaeaea'), (1.0, '#ffffff')])
+    rowshade = n.ramp(fr, [(0.0, '#303030'), (0.3, '#b0b0b0'), (0.8, '#eaeaea'), (1.0, '#ffffff')])
     fru = n.math('FRACT', n.math('DIVIDE', n.math('ADD', sp.outputs[0], n.math('MULTIPLY', n.math('FLOOR', n.math('DIVIDE', sp.outputs[1], h)), w * 0.5)), w))
     colshade = n.ramp(fru, [(0.0, '#8a8a8a'), (0.12, '#f0f0f0'), (0.9, '#ffffff'), (1.0, '#a0a0a0')])
     c, m = _obj_coord(n)

@@ -142,6 +142,37 @@ def render_frame(path_tmp, catcher_shadow=True):
     return asset, shadow
 
 
+def id_pass(path_tmp):
+    """Passada de IDs por objeto (emissão com cor aleatória por objeto, sem antialias): serve para linhas internas entre partes."""
+    sc = bpy.context.scene
+    catcher = bpy.data.objects.get('catcher')
+    if catcher is not None:
+        catcher.hide_render = True
+    m = bpy.data.materials.new('idpass')
+    m.use_nodes = True
+    t = m.node_tree
+    for n in list(t.nodes):
+        t.nodes.remove(n)
+    oi = t.nodes.new('ShaderNodeObjectInfo')
+    out = t.nodes.new('ShaderNodeOutputMaterial')
+    em = t.nodes.new('ShaderNodeEmission')
+    comb = t.nodes.new('ShaderNodeCombineXYZ')
+    for i, k in enumerate((7.13, 13.7, 3.31)):
+        mul = t.nodes.new('ShaderNodeMath'); mul.operation = 'MULTIPLY'; mul.inputs[1].default_value = k
+        fr = t.nodes.new('ShaderNodeMath'); fr.operation = 'FRACT'
+        t.links.new(oi.outputs['Random'], mul.inputs[0]); t.links.new(mul.outputs[0], fr.inputs[0]); t.links.new(fr.outputs[0], comb.inputs[i])
+    t.links.new(comb.outputs[0], em.inputs['Color'])
+    t.links.new(em.outputs[0], out.inputs['Surface'])
+    vl = bpy.context.view_layer
+    vl.material_override = m
+    old = (sc.cycles.samples, sc.cycles.use_denoising, sc.view_settings.exposure)
+    sc.cycles.samples, sc.cycles.use_denoising, sc.view_settings.exposure = 1, False, 0.0
+    arr = _render_to(path_tmp)
+    sc.cycles.samples, sc.cycles.use_denoising, sc.view_settings.exposure = old
+    vl.material_override = None
+    return arr
+
+
 def clear_objects():
     for o in list(bpy.data.objects):
         if o.type in ('MESH', 'CURVE', 'EMPTY', 'SURFACE', 'FONT'):

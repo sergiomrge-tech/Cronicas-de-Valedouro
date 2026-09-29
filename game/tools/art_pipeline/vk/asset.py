@@ -16,7 +16,7 @@ sys.path.insert(0, str(GAME / 'tools' / 'modeling'))
 
 
 def produce(id, group, folder, size, origin, build, frames=1, rows=1, tags=(), collision=None, footprint=0.0, blocks=0.0, draw_scale=0.5,
-            colors=160, outline=2, samples=32, catcher=True, scale=core.PX_PER_UNIT, out_dir=None, source='game/tools/art_pipeline/', preview=None, sun_energy=5.2, grade_kw=None, exposure=None, diamond=None):
+            colors=160, outline=2, samples=32, catcher=True, scale=core.PX_PER_UNIT, out_dir=None, source='game/tools/art_pipeline/', preview=None, sun_energy=5.2, grade_kw=None, exposure=None, diamond=None, inner=0.0):
     """`build(frame, row)` cria a geometria em Blender (a cena é limpa antes de cada quadro)."""
     w, h = size
     sheet = Image.new('RGBA', (w * frames, h * rows), (0, 0, 0, 0))
@@ -39,7 +39,11 @@ def produce(id, group, folder, size, origin, build, frames=1, rows=1, tags=(), c
                 yy, xx = _np.mgrid[0:h, 0:w]
                 inside = (_np.abs(xx + .5 - origin[0]) / diamond[0] + _np.abs(yy + .5 - origin[1]) / diamond[1]) <= 1.0
                 asset[..., 3] = _np.where(inside, 255, 0)
-            frame = post.compose(asset, shadow, colors=colors, outline_px=outline, grade_kw=grade_kw)
+            dedge = None
+            if inner > 0:
+                idm = core.id_pass(TMP)
+                dedge = post.id_edges(idm, asset[..., 3] >= 128)
+            frame = post.compose(asset, shadow, colors=colors, outline_px=outline, grade_kw=grade_kw, depth_edge=dedge, inner_strength=1.0 - inner)
             sheet.paste(Image.fromarray(frame, 'RGBA'), (f * w, r * h))
     folder_path = (Path(out_dir) if out_dir else OUT / group / folder)
     folder_path.mkdir(parents=True, exist_ok=True)

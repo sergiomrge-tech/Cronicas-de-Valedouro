@@ -1,8 +1,8 @@
 {
   "summary": {
-    "total": 292,
-    "pass": 152,
-    "warn": 140,
+    "total": 310,
+    "pass": 167,
+    "warn": 143,
     "fail": 0
   },
   "results": [
@@ -2671,17 +2671,17 @@
       "width": 472,
       "height": 452,
       "bbox": [
-        97,
-        162,
-        422,
-        413
+        92,
+        156,
+        409,
+        410
       ],
-      "opaque_pixels": 49938,
+      "opaque_pixels": 48846,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.234073,
+      "occupancy_ratio": 0.228954,
       "manifest_id": "nat_plateau_earth_m",
       "status": "PASS",
       "warnings": [],
@@ -2692,17 +2692,17 @@
       "width": 352,
       "height": 352,
       "bbox": [
-        78,
-        139,
-        302,
-        310
+        75,
+        136,
+        303,
+        309
       ],
-      "opaque_pixels": 23575,
+      "opaque_pixels": 23079,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.190268,
+      "occupancy_ratio": 0.186265,
       "manifest_id": "nat_plateau_earth_s",
       "status": "PASS",
       "warnings": [],
@@ -2713,17 +2713,17 @@
       "width": 472,
       "height": 452,
       "bbox": [
-        89,
-        163,
+        91,
+        166,
         416,
-        409
+        407
       ],
-      "opaque_pixels": 49718,
+      "opaque_pixels": 48866,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.233041,
+      "occupancy_ratio": 0.229048,
       "manifest_id": "nat_plateau_ice_m",
       "status": "PASS",
       "warnings": [],
@@ -2734,17 +2734,17 @@
       "width": 352,
       "height": 352,
       "bbox": [
-        91,
+        75,
         140,
-        296,
-        313
+        293,
+        312
       ],
-      "opaque_pixels": 21746,
+      "opaque_pixels": 22395,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.175507,
+      "occupancy_ratio": 0.180745,
       "manifest_id": "nat_plateau_ice_s",
       "status": "PASS",
       "warnings": [],
@@ -2755,17 +2755,17 @@
       "width": 472,
       "height": 452,
       "bbox": [
-        104,
-        162,
-        416,
-        410
+        89,
+        164,
+        409,
+        407
       ],
-      "opaque_pixels": 48010,
+      "opaque_pixels": 47108,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.225036,
+      "occupancy_ratio": 0.220808,
       "manifest_id": "nat_plateau_rock_m",
       "status": "PASS",
       "warnings": [],
@@ -2776,17 +2776,17 @@
       "width": 352,
       "height": 352,
       "bbox": [
-        74,
-        131,
-        296,
+        73,
+        128,
+        298,
         312
       ],
-      "opaque_pixels": 22018,
+      "opaque_pixels": 23212,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.177702,
+      "occupancy_ratio": 0.187339,
       "manifest_id": "nat_plateau_rock_s",
       "status": "PASS",
       "warnings": [],
@@ -2797,17 +2797,17 @@
       "width": 472,
       "height": 452,
       "bbox": [
-        104,
-        162,
-        416,
-        410
+        89,
+        164,
+        409,
+        407
       ],
-      "opaque_pixels": 47690,
+      "opaque_pixels": 46591,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.223536,
+      "occupancy_ratio": 0.218384,
       "manifest_id": "nat_plateau_sand_m",
       "status": "PASS",
       "warnings": [],
@@ -2818,17 +2818,17 @@
       "width": 352,
       "height": 352,
       "bbox": [
-        74,
+        73,
         140,
-        296,
+        292,
         312
       ],
-      "opaque_pixels": 21563,
+      "opaque_pixels": 22634,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.17403,
+      "occupancy_ratio": 0.182674,
       "manifest_id": "nat_plateau_sand_s",
       "status": "PASS",
       "warnings": [],
@@ -2839,17 +2839,17 @@
       "width": 472,
       "height": 392,
       "bbox": [
-        76,
-        143,
-        405,
+        75,
+        141,
+        406,
         370
       ],
-      "opaque_pixels": 41568,
+      "opaque_pixels": 42310,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.224663,
+      "occupancy_ratio": 0.228673,
       "manifest_id": "nat_ridge_earth_a",
       "status": "PASS",
       "warnings": [],
@@ -2861,16 +2861,16 @@
       "height": 392,
       "bbox": [
         65,
-        143,
-        405,
+        141,
+        407,
         378
       ],
-      "opaque_pixels": 42718,
+      "opaque_pixels": 42340,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.230878,
+      "occupancy_ratio": 0.228835,
       "manifest_id": "nat_ridge_earth_b",
       "status": "PASS",
       "warnings": [],
@@ -2881,17 +2881,17 @@
       "width": 472,
       "height": 392,
       "bbox": [
-        79,
-        143,
-        405,
-        382
+        71,
+        145,
+        407,
+        383
       ],
-      "opaque_pixels": 41535,
+      "opaque_pixels": 41561,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.224484,
+      "occupancy_ratio": 0.224625,
       "manifest_id": "nat_ridge_ice_a",
       "status": "PASS",
       "warnings": [],
@@ -2902,17 +2902,17 @@
       "width": 472,
       "height": 392,
       "bbox": [
-        60,
-        143,
-        405,
-        376
+        58,
+        141,
+        411,
+        377
       ],
-      "opaque_pixels": 41426,
+      "opaque_pixels": 43516,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.223895,
+      "occupancy_ratio": 0.235191,
       "manifest_id": "nat_ridge_ice_b",
       "status": "PASS",
       "warnings": [],
@@ -2924,16 +2924,16 @@
       "height": 392,
       "bbox": [
         79,
-        143,
-        410,
-        369
+        142,
+        427,
+        367
       ],
-      "opaque_pixels": 42858,
+      "opaque_pixels": 42550,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.231635,
+      "occupancy_ratio": 0.22997,
       "manifest_id": "nat_ridge_rock_a",
       "status": "PASS",
       "warnings": [],
@@ -2944,17 +2944,17 @@
       "width": 472,
       "height": 392,
       "bbox": [
-        60,
-        141,
-        417,
+        59,
+        138,
+        404,
         368
       ],
-      "opaque_pixels": 44045,
+      "opaque_pixels": 43454,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.23805,
+      "occupancy_ratio": 0.234856,
       "manifest_id": "nat_ridge_rock_b",
       "status": "PASS",
       "warnings": [],
@@ -2965,17 +2965,17 @@
       "width": 472,
       "height": 392,
       "bbox": [
-        87,
-        143,
-        411,
-        369
+        86,
+        142,
+        427,
+        367
       ],
-      "opaque_pixels": 41677,
+      "opaque_pixels": 41291,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.225252,
+      "occupancy_ratio": 0.223166,
       "manifest_id": "nat_ridge_sand_a",
       "status": "PASS",
       "warnings": [],
@@ -2986,17 +2986,17 @@
       "width": 472,
       "height": 392,
       "bbox": [
-        60,
-        144,
-        417,
+        59,
+        145,
+        404,
         368
       ],
-      "opaque_pixels": 43012,
+      "opaque_pixels": 42209,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.232467,
+      "occupancy_ratio": 0.228127,
       "manifest_id": "nat_ridge_sand_b",
       "status": "PASS",
       "warnings": [],
@@ -3071,16 +3071,16 @@
       "height": 432,
       "bbox": [
         91,
-        147,
-        388,
+        153,
+        366,
         399
       ],
-      "opaque_pixels": 37368,
+      "opaque_pixels": 35903,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.200231,
+      "occupancy_ratio": 0.192381,
       "manifest_id": "nat_wall_cliff_ice_a",
       "status": "PASS",
       "warnings": [],
@@ -3092,16 +3092,16 @@
       "height": 432,
       "bbox": [
         91,
-        149,
+        152,
         380,
         399
       ],
-      "opaque_pixels": 38400,
+      "opaque_pixels": 37515,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.205761,
+      "occupancy_ratio": 0.201019,
       "manifest_id": "nat_wall_cliff_ice_b",
       "status": "PASS",
       "warnings": [],
@@ -3113,16 +3113,16 @@
       "height": 432,
       "bbox": [
         95,
-        143,
+        148,
         378,
         388
       ],
-      "opaque_pixels": 35880,
+      "opaque_pixels": 36335,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.192258,
+      "occupancy_ratio": 0.194696,
       "manifest_id": "nat_wall_cliff_rock_a",
       "status": "PASS",
       "warnings": [],
@@ -3134,16 +3134,16 @@
       "height": 432,
       "bbox": [
         95,
-        142,
+        150,
         368,
-        395
+        391
       ],
-      "opaque_pixels": 35804,
+      "opaque_pixels": 36738,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.191851,
+      "occupancy_ratio": 0.196856,
       "manifest_id": "nat_wall_cliff_rock_b",
       "status": "PASS",
       "warnings": [],
@@ -3155,16 +3155,16 @@
       "height": 432,
       "bbox": [
         89,
-        139,
+        148,
         373,
         406
       ],
-      "opaque_pixels": 36368,
+      "opaque_pixels": 35969,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.194873,
+      "occupancy_ratio": 0.192735,
       "manifest_id": "nat_wall_cliff_sand_a",
       "status": "PASS",
       "warnings": [],
@@ -3176,16 +3176,16 @@
       "height": 432,
       "bbox": [
         89,
-        141,
-        379,
+        148,
+        372,
         406
       ],
-      "opaque_pixels": 36404,
+      "opaque_pixels": 36957,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
       "unique_opaque_rgb": 64,
       "edge_touch_pixels": 0,
-      "occupancy_ratio": 0.195066,
+      "occupancy_ratio": 0.198029,
       "manifest_id": "nat_wall_cliff_sand_b",
       "status": "PASS",
       "warnings": [],
@@ -5074,6 +5074,391 @@
       "failures": []
     },
     {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_bones.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        27,
+        33,
+        403,
+        42
+      ],
+      "opaque_pixels": 144,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.005952,
+      "manifest_id": "ter_dec_bones",
+      "status": "WARN",
+      "warnings": [
+        "very low canvas occupancy (0.60%); crop/scale may be wrong"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_cobble_weeds.png",
+      "width": 336,
+      "height": 44,
+      "bbox": [
+        21,
+        20,
+        313,
+        33
+      ],
+      "opaque_pixels": 291,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.019683,
+      "manifest_id": "ter_dec_cobble_weeds",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_cracks_dirt.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        27,
+        26,
+        419,
+        51
+      ],
+      "opaque_pixels": 454,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.018767,
+      "manifest_id": "ter_dec_cracks_dirt",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_cracks_ice.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        5,
+        25,
+        417,
+        56
+      ],
+      "opaque_pixels": 411,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 4,
+      "occupancy_ratio": 0.016989,
+      "manifest_id": "ter_dec_cracks_ice",
+      "status": "WARN",
+      "warnings": [
+        "4 visible pixels touch the canvas boundary; check crop/bleed",
+        "tight margin (5, 25, 15, 0); risk of animation/render clipping"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_cracks_sand.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        16,
+        23,
+        414,
+        52
+      ],
+      "opaque_pixels": 437,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.018064,
+      "manifest_id": "ter_dec_cracks_sand",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_flowers.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        27,
+        21,
+        408,
+        44
+      ],
+      "opaque_pixels": 889,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.036748,
+      "manifest_id": "ter_dec_flowers",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_grass.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        25,
+        23,
+        409,
+        44
+      ],
+      "opaque_pixels": 749,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.030961,
+      "manifest_id": "ter_dec_grass",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_grass_dry.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        26,
+        21,
+        414,
+        45
+      ],
+      "opaque_pixels": 757,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.031291,
+      "manifest_id": "ter_dec_grass_dry",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_grass_frost.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        25,
+        22,
+        407,
+        44
+      ],
+      "opaque_pixels": 824,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.034061,
+      "manifest_id": "ter_dec_grass_frost",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_grass_tall.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        25,
+        13,
+        413,
+        44
+      ],
+      "opaque_pixels": 1066,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.044064,
+      "manifest_id": "ter_dec_grass_tall",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_leaves.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        27,
+        32,
+        407,
+        43
+      ],
+      "opaque_pixels": 207,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.008557,
+      "manifest_id": "ter_dec_leaves",
+      "status": "WARN",
+      "warnings": [
+        "very low canvas occupancy (0.86%); crop/scale may be wrong"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_moss_stone.png",
+      "width": 336,
+      "height": 44,
+      "bbox": [
+        21,
+        23,
+        313,
+        34
+      ],
+      "opaque_pixels": 346,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.023404,
+      "manifest_id": "ter_dec_moss_stone",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_mushrooms.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        24,
+        26,
+        402,
+        43
+      ],
+      "opaque_pixels": 606,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.02505,
+      "manifest_id": "ter_dec_mushrooms",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_pebbles.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        28,
+        28,
+        407,
+        44
+      ],
+      "opaque_pixels": 692,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.028604,
+      "manifest_id": "ter_dec_pebbles",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_sand_ripple.png",
+      "width": 576,
+      "height": 56,
+      "bbox": [
+        31,
+        21,
+        559,
+        48
+      ],
+      "opaque_pixels": 4143,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.128441,
+      "manifest_id": "ter_dec_sand_ripple",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_snow_drift.png",
+      "width": 576,
+      "height": 56,
+      "bbox": [
+        31,
+        22,
+        559,
+        48
+      ],
+      "opaque_pixels": 4044,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 28,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.125372,
+      "manifest_id": "ter_dec_snow_drift",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_stones_ice.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        30,
+        29,
+        407,
+        45
+      ],
+      "opaque_pixels": 467,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.019304,
+      "manifest_id": "ter_dec_stones_ice",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/decals/ter_dec_stones_sand.png",
+      "width": 432,
+      "height": 56,
+      "bbox": [
+        30,
+        30,
+        400,
+        43
+      ],
+      "opaque_pixels": 427,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.01765,
+      "manifest_id": "ter_dec_stones_sand",
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
       "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/terrain/fx/ter_water_foam.png",
       "width": 112,
       "height": 6,
@@ -5158,13 +5543,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 29,
+      "unique_opaque_rgb": 1212,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_bosque_0_0",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1212 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5182,13 +5568,14 @@
       "opaque_pixels": 179200,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 21,
+      "unique_opaque_rgb": 937,
       "edge_touch_pixels": 1720,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_bosque_0_1",
       "status": "WARN",
       "warnings": [
         "1720 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 937 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5206,13 +5593,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 29,
+      "unique_opaque_rgb": 1542,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_bosque_1_0",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1542 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5230,13 +5618,14 @@
       "opaque_pixels": 179200,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 27,
+      "unique_opaque_rgb": 1088,
       "edge_touch_pixels": 1720,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_bosque_1_1",
       "status": "WARN",
       "warnings": [
         "1720 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1088 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5254,13 +5643,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 47,
+      "unique_opaque_rgb": 1451,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_bosque_2_0",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1451 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5278,13 +5668,14 @@
       "opaque_pixels": 179200,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 45,
+      "unique_opaque_rgb": 917,
       "edge_touch_pixels": 1720,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_bosque_2_1",
       "status": "WARN",
       "warnings": [
         "1720 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 917 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5302,13 +5693,14 @@
       "opaque_pixels": 147968,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 41,
+      "unique_opaque_rgb": 1128,
       "edge_touch_pixels": 1598,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_bosque_3_0",
       "status": "WARN",
       "warnings": [
         "1598 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1128 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5326,13 +5718,14 @@
       "opaque_pixels": 101150,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 35,
+      "unique_opaque_rgb": 351,
       "edge_touch_pixels": 1274,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_bosque_3_1",
       "status": "WARN",
       "warnings": [
         "1274 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 351 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5350,13 +5743,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 23,
+      "unique_opaque_rgb": 1338,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_0_0",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1338 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5374,13 +5768,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 29,
+      "unique_opaque_rgb": 1762,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_0_1",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1762 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5398,13 +5793,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 25,
+      "unique_opaque_rgb": 1011,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_0_2",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1011 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5422,13 +5818,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 34,
+      "unique_opaque_rgb": 1382,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_0_3",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1382 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5446,13 +5843,14 @@
       "opaque_pixels": 131072,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 19,
+      "unique_opaque_rgb": 628,
       "edge_touch_pixels": 1532,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_0_4",
       "status": "WARN",
       "warnings": [
         "1532 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 628 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5470,13 +5868,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 29,
+      "unique_opaque_rgb": 996,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_1_0",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 996 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5494,13 +5893,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 33,
+      "unique_opaque_rgb": 1387,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_1_1",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1387 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5518,13 +5918,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 32,
+      "unique_opaque_rgb": 1023,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_1_2",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1023 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5542,13 +5943,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 47,
+      "unique_opaque_rgb": 1286,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_1_3",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1286 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5566,13 +5968,14 @@
       "opaque_pixels": 131072,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 29,
+      "unique_opaque_rgb": 675,
       "edge_touch_pixels": 1532,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_1_4",
       "status": "WARN",
       "warnings": [
         "1532 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 675 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5590,13 +5993,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 26,
+      "unique_opaque_rgb": 1068,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_2_0",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1068 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5614,13 +6018,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 33,
+      "unique_opaque_rgb": 1287,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_2_1",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1287 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5638,13 +6043,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 18,
+      "unique_opaque_rgb": 975,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_2_2",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 975 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5662,13 +6068,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 41,
+      "unique_opaque_rgb": 1371,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_2_3",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1371 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5686,13 +6093,14 @@
       "opaque_pixels": 131072,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 29,
+      "unique_opaque_rgb": 1190,
       "edge_touch_pixels": 1532,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_2_4",
       "status": "WARN",
       "warnings": [
         "1532 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1190 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5710,14 +6118,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 315,
+      "unique_opaque_rgb": 1530,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_3_0",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 315 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 1530 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5735,14 +6143,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 201,
+      "unique_opaque_rgb": 1143,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_3_1",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 201 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 1143 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5760,13 +6168,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 18,
+      "unique_opaque_rgb": 1084,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_3_2",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1084 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5784,14 +6193,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 514,
+      "unique_opaque_rgb": 2913,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_3_3",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 514 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 2913 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5809,14 +6218,14 @@
       "opaque_pixels": 131072,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 528,
+      "unique_opaque_rgb": 2454,
       "edge_touch_pixels": 1532,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_3_4",
       "status": "WARN",
       "warnings": [
         "1532 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 528 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 2454 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5834,14 +6243,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 539,
+      "unique_opaque_rgb": 1286,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_4_0",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 539 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 1286 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5859,14 +6268,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 328,
+      "unique_opaque_rgb": 1322,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_4_1",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 328 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 1322 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5884,13 +6293,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 95,
+      "unique_opaque_rgb": 1958,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_4_2",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
+        "opaque palette has 1958 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5908,14 +6318,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 590,
+      "unique_opaque_rgb": 2938,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_4_3",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 590 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 2938 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5933,14 +6343,14 @@
       "opaque_pixels": 131072,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 538,
+      "unique_opaque_rgb": 2791,
       "edge_touch_pixels": 1532,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_4_4",
       "status": "WARN",
       "warnings": [
         "1532 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 538 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 2791 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5958,14 +6368,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 741,
+      "unique_opaque_rgb": 1663,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_5_0",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 741 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 1663 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -5983,14 +6393,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 685,
+      "unique_opaque_rgb": 2618,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_5_1",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 685 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 2618 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -6008,14 +6418,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 530,
+      "unique_opaque_rgb": 3063,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_5_2",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 530 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 3063 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -6033,14 +6443,14 @@
       "opaque_pixels": 262144,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 571,
+      "unique_opaque_rgb": 3113,
       "edge_touch_pixels": 2044,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_5_3",
       "status": "WARN",
       "warnings": [
         "2044 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 571 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 3113 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -6058,14 +6468,14 @@
       "opaque_pixels": 131072,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 514,
+      "unique_opaque_rgb": 2413,
       "edge_touch_pixels": 1532,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_ground_5_4",
       "status": "WARN",
       "warnings": [
         "1532 visible pixels touch the canvas boundary; check crop/bleed",
-        "opaque palette has 514 RGB colors; inspect uncontrolled gradients/noise",
+        "opaque palette has 2413 RGB colors; inspect uncontrolled gradients/noise",
         "tight margin (0, 0, 0, 0); risk of animation/render clipping"
       ],
       "failures": []
@@ -6515,7 +6925,7 @@
       "opaque_pixels": 65536,
       "soft_alpha_pixels": 0,
       "soft_alpha_ratio": 0.0,
-      "unique_opaque_rgb": 11,
+      "unique_opaque_rgb": 10,
       "edge_touch_pixels": 1020,
       "occupancy_ratio": 1.0,
       "manifest_id": "ter_tex_valley",

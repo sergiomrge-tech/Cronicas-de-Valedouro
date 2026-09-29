@@ -55,19 +55,41 @@ def mats_dry():
     return M('leaf_dry')
 
 
+def strata_block(sx, sy, h, mat, seed, layers=6, taper=.07, rough=.3):
+    """Falésia em camadas: lajes sobrepostas com recuos, saliências e blocos soltos nas faces — arestas e sombras reais entre estratos."""
+    import random
+    rr = random.Random(seed)
+    z = 0.0
+    hs = [rr.uniform(.7, 1.3) for _ in range(layers)]
+    tot = sum(hs)
+    for i in range(layers):
+        lh = h * hs[i] / tot
+        k = 1 - taper * (i / max(1, layers - 1)) * 2
+        ox, oy = rr.uniform(-.07, .07), rr.uniform(-.07, .07)
+        parts.rock_mass((ox, oy, z), (sx * k * rr.uniform(.94, 1.04), sy * k * rr.uniform(.94, 1.04), lh + .06), mat, seed * 7 + i, subdiv=4, rough=rough, freq=1.4,
+                        terrace=.2, step=.2, taper=.04, flat_top=True, squash_base=.02)
+        # blocos salientes e fendas nas faces frontais
+        for j in range(2 if i else 3):
+            a = rr.choice((0, 1))
+            px = (sx * k / 2 * rr.choice((-1, 1)) * rr.uniform(.4, 1.0)) if a else rr.uniform(-.4, .4) * sx * k
+            py = rr.uniform(-.4, .4) * sy * k if a else (sy * k / 2 * rr.choice((-1, 1)))
+            parts.rock_mass((px + ox, py + oy, z + lh * .1), (rr.uniform(.35, .7), rr.uniform(.3, .6), lh * rr.uniform(.5, .9)), mat, seed * 11 + i * 3 + j, subdiv=3, rough=.35, taper=.1, flat_top=False)
+        z += lh
+
+
 def cliff_block(kind, sx, sy, h, seed, taper=0.07, rubble_n=9):
     rock_key, cap_key, _ = KINDS[kind]
-    parts.rock_mass((0, 0, 0), (sx, sy, h), M(rock_key), seed, subdiv=5, rough=.34, freq=1.05, terrace=.55, step=.42, taper=taper, flat_top=True, squash_base=.03)
-    cap = parts.slab_blob(0, 0, h + .04, sx * (1 - taper) * 1.02, sy * (1 - taper) * 1.02, .28, M(cap_key), seed + 2)
-    dress_cap(kind, 0, 0, h + .04, sx * (1 - taper), sy * (1 - taper), seed + 9)
-    parts.rubble(0, 0, max(sx, sy) * .5 * 1.02, rubble_n, M(rock_key), seed=seed + 11, rmin=.12, rmax=.3)
+    strata_block(sx, sy, h, M(rock_key), seed, layers=max(4, int(h * 3)), taper=taper)
+    cap = parts.slab_blob(0, 0, h + .1, sx * (1 - taper) * 1.02, sy * (1 - taper) * 1.02, .3, M(cap_key), seed + 2)
+    dress_cap(kind, 0, 0, h + .1, sx * (1 - taper), sy * (1 - taper), seed + 9)
+    parts.rubble(0, 0, max(sx, sy) * .5 * 1.02, rubble_n + 3, M(rock_key), seed=seed + 11, rmin=.12, rmax=.34)
     if kind in ('earth', 'rock'):
-        parts.hanging_vines(sx / 2 * .92, -sy * .4, sx / 2 * .92, sy * .4, h * .92, h * .55, 4, M('leaf'), seed + 21)
-        parts.hanging_vines(-sx * .4, sy / 2 * .92, sx * .4, sy / 2 * .92, h * .92, h * .5, 3, M('leaf'), seed + 25)
+        parts.hanging_vines(sx / 2 * .92, -sy * .4, sx / 2 * .92, sy * .4, h * .92, h * .55, 5, M('leaf'), seed + 21)
+        parts.hanging_vines(-sx * .4, sy / 2 * .92, sx * .4, sy / 2 * .92, h * .92, h * .5, 4, M('leaf'), seed + 25)
         parts.grass_tufts(0, 0, max(sx, sy) * .62, int(sx * sy * .9), M('grass'), seed=seed + 4, h=.24)
     elif kind == 'ice':
-        parts.icicles(sx / 2 * .95, -sy * .35, sx / 2 * .95, sy * .35, h * .96, 5, M('glass_ice'), seed + 31)
-        parts.icicles(-sx * .35, sy / 2 * .95, sx * .35, sy / 2 * .95, h * .96, 4, M('glass_ice'), seed + 33)
+        parts.icicles(sx / 2 * .95, -sy * .35, sx / 2 * .95, sy * .35, h * .96, 6, M('glass_ice'), seed + 31)
+        parts.icicles(-sx * .35, sy / 2 * .95, sx * .35, sy / 2 * .95, h * .96, 5, M('glass_ice'), seed + 33)
 
 
 def _reg(kind, name, sx, sy, h, seed, size, origin, coll, tags, taper=.07):
@@ -133,7 +155,7 @@ def _wall(kind, axis, seed):
               footprint=70, coll=((L, 1.15) if axis == 'a' else (1.15, L)), samples=24)
     def _b(f):
         sx, sy = (L, 1.15) if axis == 'a' else (1.15, L)
-        parts.rock_mass((0, 0, 0), (sx, sy, 2.7), M(rock_key), seed, subdiv=5, rough=.42, freq=1.15, terrace=.6, step=.45, taper=.14, flat_top=False, squash_base=.05)
+        strata_block(sx, sy, 2.7, M(rock_key), seed, layers=8, taper=.12, rough=.38)
         import random
         rr = random.Random(seed)
         n = int(L / .55)
