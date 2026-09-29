@@ -961,6 +961,52 @@
   "pipeline": "blender-pro"
  },
  {
+  "id": "flo_lookout_rock",
+  "path": "res://assets/modeled/nature/ato2/flo_lookout_rock.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   612,
+   572
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   306.0,
+   426.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 60.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "mirante",
+   "exploracao"
+  ],
+  "sha256": "ff5e8ca53149143b833c61a7070f91e9b03112470494d76b5b08c448a6798c98",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    16
+   ],
+   [
+    0.0,
+    19.1,
+    16
+   ],
+   [
+    0.0,
+    -19.1,
+    16
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
   "id": "flo_map_table",
   "path": "res://assets/modeled/nature/ato2/flo_map_table.png",
   "group": "nature",
@@ -1601,6 +1647,493 @@
   "sha256": "5a6ac5fe418973ce4097758c54cc3a632b5e5378443cf5d20f54eab1fff4ceda",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_root_shortcut_blocked",
+  "path": "res://assets/modeled/nature/ato2/flo_root_shortcut_blocked.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   572,
+   572
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   286.0,
+   426.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 40.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "atalho",
+   "bloqueado"
+  ],
+  "sha256": "6aad1a1a4a13168dde6b773fcbddf1b99e7bb389671bd467f54fbb03ec752a1d",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -46.7,
+    -23.3,
+    13
+   ],
+   [
+    -23.3,
+    -11.7,
+    13
+   ],
+   [
+    0.0,
+    0.0,
+    13
+   ],
+   [
+    23.3,
+    11.7,
+    13
+   ],
+   [
+    46.7,
+    23.3,
+    13
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_root_shortcut_open",
+  "path": "res://assets/modeled/nature/ato2/flo_root_shortcut_open.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   572,
+   572
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   286.0,
+   426.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 40.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "atalho",
+   "aberto"
+  ],
+  "sha256": "089633ebcd805240050001623c1f89cc8139636c723be80dce0b42219857001c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -46.7,
+    -23.3,
+    13
+   ],
+   [
+    46.7,
+    23.3,
+    13
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_shrine_path_marker",
+  "path": "res://assets/modeled/nature/ato2/flo_shrine_path_marker.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   232,
+   352
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   116.0,
+   266.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "sinal",
+   "raiz"
+  ],
+  "sha256": "403a3ad778b395df25646c0b2aa61675afabdbd247dd248b488e8074afd2056c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_shrine_stone_corrupt",
+  "path": "res://assets/modeled/nature/ato2/flo_shrine_stone_corrupt.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   812,
+   752
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   546.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "santuario_raiz",
+   "raiz_da_pedra",
+   "rocha",
+   "ruina",
+   "estado_corrompido"
+  ],
+  "sha256": "310ac973ff68cf8845d7405b5b1345b15665886457fdb9a236969b4ee4074887",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    17.0,
+    14
+   ],
+   [
+    33.9,
+    0.0,
+    14
+   ],
+   [
+    -33.9,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    -17.0,
+    14
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_shrine_stone_pure",
+  "path": "res://assets/modeled/nature/ato2/flo_shrine_stone_pure.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   812,
+   752
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   546.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "santuario_raiz",
+   "raiz_da_pedra",
+   "rocha",
+   "ruina",
+   "estado_purificado"
+  ],
+  "sha256": "70af22d61a1e7b86e780751e9010e46899b8482f0b8d11d5db60e0e4958f3f6b",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    17.0,
+    14
+   ],
+   [
+    33.9,
+    0.0,
+    14
+   ],
+   [
+    -33.9,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    -17.0,
+    14
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_shrine_water_corrupt",
+  "path": "res://assets/modeled/nature/ato2/flo_shrine_water_corrupt.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   812,
+   752
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   546.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "santuario_raiz",
+   "raiz_da_agua",
+   "agua",
+   "musgo",
+   "estado_corrompido"
+  ],
+  "sha256": "3452a580645147bbe93622a5a6c5eb8eff17e588a5061e8a8d13fa9e16ff7055",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    17.0,
+    14
+   ],
+   [
+    33.9,
+    0.0,
+    14
+   ],
+   [
+    -33.9,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    -17.0,
+    14
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_shrine_water_pure",
+  "path": "res://assets/modeled/nature/ato2/flo_shrine_water_pure.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   812,
+   752
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   546.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "santuario_raiz",
+   "raiz_da_agua",
+   "agua",
+   "musgo",
+   "estado_purificado"
+  ],
+  "sha256": "c92381a245f09faa122204759465520a0b92c91ce63264ec4edc103c11d87858",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    17.0,
+    14
+   ],
+   [
+    33.9,
+    0.0,
+    14
+   ],
+   [
+    -33.9,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    -17.0,
+    14
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_shrine_wind_corrupt",
+  "path": "res://assets/modeled/nature/ato2/flo_shrine_wind_corrupt.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   812,
+   752
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   546.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "santuario_raiz",
+   "raiz_do_vento",
+   "elevado",
+   "folhas",
+   "estado_corrompido"
+  ],
+  "sha256": "22274abbdc613e47566237438bb89ecb4f86c0e4514e87aad862bf97bfdf66e7",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    17.0,
+    14
+   ],
+   [
+    33.9,
+    0.0,
+    14
+   ],
+   [
+    -33.9,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    -17.0,
+    14
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "flo_shrine_wind_pure",
+  "path": "res://assets/modeled/nature/ato2/flo_shrine_wind_pure.png",
+  "group": "nature",
+  "folder": "ato2",
+  "frame_size": [
+   812,
+   752
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   546.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "ato2",
+   "floresta_ancestral",
+   "santuario_raiz",
+   "raiz_do_vento",
+   "elevado",
+   "folhas",
+   "estado_purificado"
+  ],
+  "sha256": "11d77aaa393c72bbf262bcc11662cfd15a9ef01bbb93c9ec9447564baa250784",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    17.0,
+    14
+   ],
+   [
+    33.9,
+    0.0,
+    14
+   ],
+   [
+    -33.9,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    -17.0,
+    14
+   ]
+  ],
   "pipeline": "blender-pro"
  },
  {

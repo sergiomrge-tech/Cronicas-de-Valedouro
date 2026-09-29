@@ -12,7 +12,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import pro_landmarks as base
 
-for mod in ('pro_terrain', 'pro_relief', 'pro_nature', 'pro_lore', 'pro_ato1_city', 'pro_ato1_wild', 'pro_ato1_mine', 'pro_ato2_forest', 'pro_ato2_roots', 'pro_ground', 'pro_props', 'pro_structures', 'pro_life', 'pro_interiors'):
+for mod in ('pro_terrain', 'pro_relief', 'pro_nature', 'pro_lore', 'pro_ato1_city', 'pro_ato1_wild', 'pro_ato1_mine', 'pro_ato2_forest', 'pro_ato2_roots', 'pro_ato2_memory','pro_ground', 'pro_props', 'pro_structures', 'pro_life', 'pro_interiors'):
     if (HERE / f'{mod}.py').exists():
         importlib.import_module(mod)
 

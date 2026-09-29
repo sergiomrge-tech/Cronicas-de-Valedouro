@@ -845,5 +845,811 @@
     "seed": 11
    }
   ]
+ },
+ {
+  "id": "LOC_FOREST_ROOT_SHRINES",
+  "name": "Santuário — Raiz da Água",
+  "origin": [
+   300,
+   150
+  ],
+  "story": "Braço úmido: bacia de pedra sobre um espelho d'água, musgo e pequenas quedas; corrompido = água parada e escura, veios roxos; purificado = água clara e vida.",
+  "ground_tint": [
+   0.05,
+   0.14,
+   0.09,
+   0.2
+  ],
+  "water": [
+   {
+    "tex": "ter_tex_water_shallow",
+    "x": 340,
+    "y": 300,
+    "w": 250,
+    "h": 150
+   }
+  ],
+  "objects": [
+   {
+    "asset": "flo_shrine_water_corrupt",
+    "x": 780,
+    "y": 490,
+    "hide_when": "quest:Q_MS02_ROOTS:water"
+   },
+   {
+    "asset": "flo_shrine_water_pure",
+    "x": 780,
+    "y": 490,
+    "show_when": "quest:Q_MS02_ROOTS:water"
+   },
+   {
+    "asset": "flo_shrine_path_marker",
+    "x": 630,
+    "y": 620
+   },
+   {
+    "asset": "flo_shrine_path_marker",
+    "x": 940,
+    "y": 600,
+    "flip": true
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 680,
+    "y": 550,
+    "hide_when": "quest:Q_MS02_ROOTS:water"
+   },
+   {
+    "asset": "nat_bush_flowering",
+    "x": 686,
+    "y": 554,
+    "show_when": "quest:Q_MS02_ROOTS:water"
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 900,
+    "y": 550,
+    "hide_when": "quest:Q_MS02_ROOTS:water"
+   },
+   {
+    "asset": "nat_bush_flowering",
+    "x": 906,
+    "y": 554,
+    "show_when": "quest:Q_MS02_ROOTS:water"
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 720,
+    "y": 450,
+    "hide_when": "quest:Q_MS02_ROOTS:water"
+   },
+   {
+    "asset": "nat_bush_flowering",
+    "x": 726,
+    "y": 454,
+    "show_when": "quest:Q_MS02_ROOTS:water"
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 860,
+    "y": 440,
+    "hide_when": "quest:Q_MS02_ROOTS:water"
+   },
+   {
+    "asset": "nat_bush_flowering",
+    "x": 866,
+    "y": 444,
+    "show_when": "quest:Q_MS02_ROOTS:water"
+   },
+   {
+    "asset": "nat_web_ground",
+    "x": 840,
+    "y": 570,
+    "hide_when": "quest:Q_MS02_ROOTS:water",
+    "layer": "ground"
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 910,
+    "y": 530,
+    "show_when": "quest:Q_MS02_ROOTS:water"
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 650,
+    "y": 530,
+    "show_when": "quest:Q_MS02_ROOTS:water"
+   },
+   {
+    "asset": "nat_waterfall_front",
+    "x": 465,
+    "y": 310
+   },
+   {
+    "asset": "nat_rock_mossy",
+    "x": 360,
+    "y": 470
+   },
+   {
+    "asset": "nat_rock_mossy",
+    "x": 420,
+    "y": 490
+   },
+   {
+    "asset": "nat_rock_mossy",
+    "x": 550,
+    "y": 470
+   },
+   {
+    "asset": "nat_rock_mossy",
+    "x": 600,
+    "y": 410
+   },
+   {
+    "asset": "nat_reeds",
+    "x": 502.0,
+    "y": 479.7
+   },
+   {
+    "asset": "nat_reeds",
+    "x": 439.0,
+    "y": 454.1,
+    "flip": true
+   },
+   {
+    "asset": "nat_reeds",
+    "x": 590.0,
+    "y": 471.6,
+    "flip": true
+   },
+   {
+    "asset": "nat_reeds",
+    "x": 397.4,
+    "y": 452.5,
+    "flip": true
+   },
+   {
+    "asset": "flo_ancient_tree_a",
+    "x": 1080,
+    "y": 350,
+    "scale": 0.7
+   },
+   {
+    "asset": "flo_ancient_tree_b",
+    "x": 1180,
+    "y": 620,
+    "scale": 0.65
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 361.7,
+    "y": 540.6
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 507.1,
+    "y": 380.4,
+    "flip": true
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 1011.1,
+    "y": 576.2,
+    "flip": true
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 572.4,
+    "y": 548.6
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1038.9,
+    "y": 302.7
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1031.6,
+    "y": 663.2
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 513.2,
+    "y": 537.1
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 943.7,
+    "y": 478.6,
+    "flip": true
+   }
+  ],
+  "captures": [
+   {
+    "name": "FLO_2B_WATER_CORROMPIDA",
+    "flags": []
+   },
+   {
+    "name": "FLO_2B_WATER_PURIFICADA",
+    "flags": [
+     "quest:Q_MS02_ROOTS:water"
+    ]
+   }
+  ],
+  "light_shafts": [
+   [
+    720,
+    150
+   ]
+  ],
+  "exclusions": [
+   {
+    "circle": [
+     480,
+     330,
+     120
+    ]
+   },
+   {
+    "rect": [
+     0,
+     440,
+     960,
+     40
+    ]
+   }
+  ],
+  "trails": [
+   {
+    "pts": [
+     [
+      280,
+      650
+     ],
+     [
+      500,
+      620
+     ],
+     [
+      660,
+      590
+     ],
+     [
+      770,
+      550
+     ]
+    ],
+    "half": 18,
+    "seed": 3
+   }
+  ]
+ },
+ {
+  "id": "LOC_FOREST_ROOT_SHRINES",
+  "name": "Santuário — Raiz da Pedra",
+  "origin": [
+   700,
+   100
+  ],
+  "story": "Braço rochoso: monólito abraçado por raízes junto a ruínas antigas; atalho destravável ao purificar.",
+  "ground_tint": [
+   0.05,
+   0.14,
+   0.09,
+   0.2
+  ],
+  "water": [],
+  "objects": [
+   {
+    "asset": "flo_shrine_stone_corrupt",
+    "x": 1180,
+    "y": 440,
+    "hide_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "flo_shrine_stone_pure",
+    "x": 1180,
+    "y": 440,
+    "show_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "flo_shrine_path_marker",
+    "x": 1030,
+    "y": 570
+   },
+   {
+    "asset": "flo_shrine_path_marker",
+    "x": 1340,
+    "y": 550,
+    "flip": true
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 1080,
+    "y": 500,
+    "hide_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "nat_bush_flowering",
+    "x": 1086,
+    "y": 504,
+    "show_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 1300,
+    "y": 500,
+    "hide_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "nat_bush_flowering",
+    "x": 1306,
+    "y": 504,
+    "show_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 1120,
+    "y": 400,
+    "hide_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "nat_bush_flowering",
+    "x": 1126,
+    "y": 404,
+    "show_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 1260,
+    "y": 390,
+    "hide_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "nat_bush_flowering",
+    "x": 1266,
+    "y": 394,
+    "show_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "nat_web_ground",
+    "x": 1240,
+    "y": 520,
+    "hide_when": "quest:Q_MS02_ROOTS:stone",
+    "layer": "ground"
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1310,
+    "y": 480,
+    "show_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 1050,
+    "y": 480,
+    "show_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "nat_wall_cliff_rock_a",
+    "x": 850,
+    "y": 300
+   },
+   {
+    "asset": "nat_wall_cliff_rock_b",
+    "x": 1000,
+    "y": 290
+   },
+   {
+    "asset": "nat_ruin_wall",
+    "x": 1400,
+    "y": 350
+   },
+   {
+    "asset": "nat_ruin_column_broken",
+    "x": 1470,
+    "y": 430
+   },
+   {
+    "asset": "nat_ruin_column",
+    "x": 1340,
+    "y": 350
+   },
+   {
+    "asset": "flo_stone_moss",
+    "x": 950,
+    "y": 500
+   },
+   {
+    "asset": "flo_stone_moss",
+    "x": 1480,
+    "y": 530
+   },
+   {
+    "asset": "flo_root_shortcut_blocked",
+    "x": 1560,
+    "y": 500,
+    "hide_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "flo_root_shortcut_open",
+    "x": 1560,
+    "y": 500,
+    "show_when": "quest:Q_MS02_ROOTS:stone"
+   },
+   {
+    "asset": "flo_ancient_tree_b",
+    "x": 810,
+    "y": 570,
+    "scale": 0.65
+   },
+   {
+    "asset": "flo_ancient_tree_a",
+    "x": 1220,
+    "y": 230,
+    "scale": 0.65
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 1572.6,
+    "y": 406.0
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 887.9,
+    "y": 374.7
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 745.8,
+    "y": 243.5
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 1560.3,
+    "y": 181.7,
+    "flip": true
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 1594.9,
+    "y": 247.7,
+    "flip": true
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 1311.8,
+    "y": 269.3
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 1042.4,
+    "y": 172.3
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1121.1,
+    "y": 615.7,
+    "flip": true
+   }
+  ],
+  "captures": [
+   {
+    "name": "FLO_2B_STONE_CORROMPIDA",
+    "flags": []
+   },
+   {
+    "name": "FLO_2B_STONE_PURIFICADA",
+    "flags": [
+     "quest:Q_MS02_ROOTS:stone"
+    ]
+   }
+  ],
+  "light_shafts": [
+   [
+    1120,
+    100
+   ]
+  ],
+  "exclusions": [
+   {
+    "circle": [
+     480,
+     330,
+     120
+    ]
+   },
+   {
+    "rect": [
+     0,
+     440,
+     960,
+     40
+    ]
+   }
+  ],
+  "trails": [
+   {
+    "pts": [
+     [
+      680,
+      600
+     ],
+     [
+      900,
+      570
+     ],
+     [
+      1060,
+      540
+     ],
+     [
+      1170,
+      500
+     ]
+    ],
+    "half": 18,
+    "seed": 9
+   }
+  ]
+ },
+ {
+  "id": "LOC_FOREST_ROOT_SHRINES",
+  "name": "Santuário — Raiz do Vento",
+  "origin": [
+   520,
+   210
+  ],
+  "story": "Braço elevado: patamar de lajes com pórtico de árvores inclinadas, mirante próximo; sinos de folhas quando purificado.",
+  "ground_tint": [
+   0.05,
+   0.14,
+   0.09,
+   0.2
+  ],
+  "water": [],
+  "objects": [
+   {
+    "asset": "flo_shrine_wind_corrupt",
+    "x": 1000,
+    "y": 550,
+    "hide_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "flo_shrine_wind_pure",
+    "x": 1000,
+    "y": 550,
+    "show_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "flo_shrine_path_marker",
+    "x": 850,
+    "y": 680
+   },
+   {
+    "asset": "flo_shrine_path_marker",
+    "x": 1160,
+    "y": 660,
+    "flip": true
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 900,
+    "y": 610,
+    "hide_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "nat_bush_flowering",
+    "x": 906,
+    "y": 614,
+    "show_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 1120,
+    "y": 610,
+    "hide_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "nat_bush_flowering",
+    "x": 1126,
+    "y": 614,
+    "show_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 940,
+    "y": 510,
+    "hide_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "nat_bush_flowering",
+    "x": 946,
+    "y": 514,
+    "show_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "nat_bush_dry",
+    "x": 1080,
+    "y": 500,
+    "hide_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "nat_bush_flowering",
+    "x": 1086,
+    "y": 504,
+    "show_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "nat_web_ground",
+    "x": 1060,
+    "y": 630,
+    "hide_when": "quest:Q_MS02_ROOTS:wind",
+    "layer": "ground"
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1130,
+    "y": 590,
+    "show_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 870,
+    "y": 590,
+    "show_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "nat_plateau_earth_m",
+    "x": 1000,
+    "y": 500,
+    "layer": "ground"
+   },
+   {
+    "asset": "nat_ramp_earth",
+    "x": 1080,
+    "y": 610
+   },
+   {
+    "asset": "flo_lookout_rock",
+    "x": 1320,
+    "y": 510
+   },
+   {
+    "asset": "flo_ancient_tree_a",
+    "x": 650,
+    "y": 440,
+    "scale": 0.7,
+    "flip": true
+   },
+   {
+    "asset": "flo_ancient_tree_b",
+    "x": 820,
+    "y": 350,
+    "scale": 0.6
+   },
+   {
+    "asset": "nat_tree_dead",
+    "x": 760,
+    "y": 590,
+    "hide_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "nat_tree_dead",
+    "x": 1220,
+    "y": 680,
+    "hide_when": "quest:Q_MS02_ROOTS:wind"
+   },
+   {
+    "asset": "flo_ancient_tree_b",
+    "x": 1420,
+    "y": 360,
+    "scale": 0.65
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 558.9,
+    "y": 485.5,
+    "flip": true
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 881.0,
+    "y": 286.1,
+    "flip": true
+   },
+   {
+    "asset": "flo_fern_patch",
+    "x": 639.6,
+    "y": 353.5
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 1284.0,
+    "y": 291.8
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 806.3,
+    "y": 401.6,
+    "flip": true
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1354.3,
+    "y": 615.5
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 552.7,
+    "y": 297.3,
+    "flip": true
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 1175.6,
+    "y": 614.2,
+    "flip": true
+   }
+  ],
+  "captures": [
+   {
+    "name": "FLO_2B_WIND_CORROMPIDA",
+    "flags": []
+   },
+   {
+    "name": "FLO_2B_WIND_PURIFICADA",
+    "flags": [
+     "quest:Q_MS02_ROOTS:wind"
+    ]
+   }
+  ],
+  "light_shafts": [
+   [
+    940,
+    210
+   ]
+  ],
+  "exclusions": [
+   {
+    "circle": [
+     480,
+     330,
+     120
+    ]
+   },
+   {
+    "rect": [
+     0,
+     440,
+     960,
+     40
+    ]
+   }
+  ],
+  "trails": [
+   {
+    "pts": [
+     [
+      500,
+      710
+     ],
+     [
+      720,
+      680
+     ],
+     [
+      880,
+      650
+     ],
+     [
+      990,
+      610
+     ]
+    ],
+    "half": 18,
+    "seed": 9
+   }
+  ]
  }
 ]

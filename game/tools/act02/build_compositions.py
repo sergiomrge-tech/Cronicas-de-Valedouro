@@ -156,6 +156,72 @@ r.shot('FLO_2A_CASA_DURANTE', ['quest:Q_MS02_RANGERS:active'])
 r.shot('FLO_2A_CASA_POS', ['quest:Q_MS02_RANGERS'])
 comps.append(r.d)
 
+# ============================================================== LOC_FOREST_ROOT_SHRINES (Q_MS02_ROOTS) — três braços (uma composição por microárea)
+def shrine_arm(key, name, origin, story, build):
+    sd = sum(map(ord, key))                                      # semente determinística (hash() de str varia por processo)
+    c = Comp('LOC_FOREST_ROOT_SHRINES', name, origin, story, tint=(.05, .14, .09, .2))
+    flag = 'quest:Q_MS02_ROOTS:' + key                         # sub-objetivo purificado deste braço (mesma fonte de verdade da quest)
+    c.exclude_circle(480, 330, 120)                              # área do santuário
+    c.exclude_rect(0, 440, 960, 40)                              # trilha de aproximação
+    c.trail([(-20, 500), (200, 470), (360, 440), (470, 400)], half=18, seed=sd % 17)
+    c.add('flo_shrine_' + key + '_corrupt', 480, 340, hide_when=flag)
+    c.add('flo_shrine_' + key + '_pure', 480, 340, show_when=flag)
+    c.add('flo_shrine_path_marker', 330, 470)
+    c.add('flo_shrine_path_marker', 640, 450, flip=True)
+    # estado corrompido: mato murcho, teias; purificado: flores, samambaias, cogumelos
+    for x, y in ((380, 400), (600, 400), (420, 300), (560, 290)):
+        c.add('nat_bush_dry', x, y, hide_when=flag)
+        c.add('nat_bush_flowering', x + 6, y + 4, show_when=flag)
+    c.add('nat_web_ground', 540, 420, hide_when=flag, layer='ground')
+    c.add('flo_glow_mushrooms', 610, 380, show_when=flag)
+    c.add('flo_fern_patch', 350, 380, show_when=flag)
+    build(c, flag)
+    c.scatter(['flo_fern_patch', 'flo_glow_mushrooms', 'nat_bush_green'], 8, (20, 60, 920, 470), sd, min_d=48)
+    c.d['light_shafts'] = [[c.o[0] + 420, c.o[1] + 0]]
+    c.shot('FLO_2B_' + key.upper() + '_CORROMPIDA', [])
+    c.shot('FLO_2B_' + key.upper() + '_PURIFICADA', [flag])
+    comps.append(c.d)
+
+
+def build_water(c, flag):
+    c.d['water'].append({'tex': 'ter_tex_water_shallow', 'x': c.o[0] + 40, 'y': c.o[1] + 150, 'w': 250, 'h': 150})
+    c.add('nat_waterfall_front', 165, 160)
+    for x, y in ((60, 320), (120, 340), (250, 320), (300, 260)):
+        c.add('nat_rock_mossy', x, y)
+    c.scatter(['nat_reeds'], 6, (40, 300, 260, 40), 5, min_d=40)
+    c.add('flo_ancient_tree_a', 780, 200, scale=.7)
+    c.add('flo_ancient_tree_b', 880, 470, scale=.65)
+
+
+def build_stone(c, flag):
+    c.add('nat_wall_cliff_rock_a', 150, 200)
+    c.add('nat_wall_cliff_rock_b', 300, 190)
+    c.add('nat_ruin_wall', 700, 250)
+    c.add('nat_ruin_column_broken', 770, 330)
+    c.add('nat_ruin_column', 640, 250)
+    c.add('flo_stone_moss', 250, 400)
+    c.add('flo_stone_moss', 780, 430)
+    c.add('flo_root_shortcut_blocked', 860, 400, hide_when='quest:Q_MS02_ROOTS:stone')       # atalho destravável ao purificar
+    c.add('flo_root_shortcut_open', 860, 400, show_when='quest:Q_MS02_ROOTS:stone')
+    c.add('flo_ancient_tree_b', 110, 470, scale=.65)
+    c.add('flo_ancient_tree_a', 520, 130, scale=.65)
+
+
+def build_wind(c, flag):
+    c.add('nat_plateau_earth_m', 480, 290, layer='ground')
+    c.add('nat_ramp_earth', 560, 400)
+    c.add('flo_lookout_rock', 800, 300)                            # mirante: de lá se vê o topo da Árvore-Memória
+    c.add('flo_ancient_tree_a', 130, 230, scale=.7, flip=True)
+    c.add('flo_ancient_tree_b', 300, 140, scale=.6)
+    for x, y in ((240, 380), (700, 470)):
+        c.add('nat_tree_dead', x, y, hide_when=flag)                # árvores secas antes da purificação
+    c.add('flo_ancient_tree_b', 900, 150, scale=.65)
+
+
+shrine_arm('water', 'Santuário — Raiz da Água', (300, 150), "Braço úmido: bacia de pedra sobre um espelho d'água, musgo e pequenas quedas; corrompido = água parada e escura, veios roxos; purificado = água clara e vida.", build_water)
+shrine_arm('stone', 'Santuário — Raiz da Pedra', (700, 100), 'Braço rochoso: monólito abraçado por raízes junto a ruínas antigas; atalho destravável ao purificar.', build_stone)
+shrine_arm('wind', 'Santuário — Raiz do Vento', (520, 210), 'Braço elevado: patamar de lajes com pórtico de árvores inclinadas, mirante próximo; sinos de folhas quando purificado.', build_wind)
+
 # ------------------------------------------------------------------ saída
 # flags negativas: "!<flag>" em show_when/hide_when é resolvido pelo palco/Gerente como "flag ausente"
 json.dump(comps, open(OUT, 'w'), ensure_ascii=False, indent=1)

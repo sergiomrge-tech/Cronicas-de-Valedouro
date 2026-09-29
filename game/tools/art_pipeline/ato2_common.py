@@ -138,3 +138,10 @@ def canopy_mass(centers, radius, seed=0, dark=True, n_leaf=46, size=(.26, .4), l
     for i, c in enumerate(centers):
         ball((c[0], c[1], c[2]), radius * rr.uniform(.85, 1.05), m_leaf_mass(), squash=.72)
         parts.leaf_cluster(c[0], c[1], c[2] + radius * .35, radius * .95, n_leaf, tuft or (m_leaf_light() if (light and i % 2) else m_leaf_deep()), seed + i * 5, size=size, flat=.6)
+
+
+def m_pool(corrupt):
+    """Espelho d'água do santuário: azul-esverdeado vivo (purificado) ou roxo-negro parado (corrompido)."""
+    if corrupt:
+        return X('pool_corrupt', lambda: mats.flat('pool_corrupt', '#1c1230', rough=.4, spec=.5, emission='#5a3aa8', emission_strength=.25, bevel_wear=0))
+    return X('pool_pure', lambda: mats.flat('pool_pure', '#2a8a96', rough=.2, spec=.8, emission='#5ad0c0', emission_strength=.5, bevel_wear=0))
