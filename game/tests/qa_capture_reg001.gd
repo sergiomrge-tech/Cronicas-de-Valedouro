@@ -42,6 +42,7 @@ func capture_all() -> void:
 		game.player = Vector2(float(pos[0]), float(pos[1]))
 		game.map_visible = false
 		game.dialog.hide()
+		game.end_guardian_rematch()
 		game.enemies.clear()
 		game.hint_timer = 0.0
 		game.hint = ""
