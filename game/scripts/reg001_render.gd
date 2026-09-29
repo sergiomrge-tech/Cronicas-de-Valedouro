@@ -9,7 +9,7 @@ const MODELED = preload("res://scripts/modeled_assets.gd")
 const CAST = preload("res://scripts/cast_shadow.gd")
 
 # Sem sombra projetada em tempo real: rasteiros/decalques/água/interior e o relevo (que tem sombra assada no piso, ver bake_ground.py).
-const NO_CAST: Array = ["nat_decal", "ter_", "str_crop", "nat_ford", "nat_fissure", "nat_pit", "nat_trap", "nat_flowers", "nat_grass", "nat_mushrooms", "nat_bedroll", "nat_bones", "nat_reeds", "int_", "fx_", "nat_plateau_", "nat_ridge_", "nat_wall_cliff_", "nat_cliff_", "nat_hill_", "nat_rock_pillars", "nat_waterfall", "str_dock", "str_boat", "nat_snow_mound", "nat_dune", "APP:city_floor", "APP:city_water", "APP:dungeon_floor", "APP:dungeon_spikes", "APP:city_house_door", "APP:city_house_window"]
+const NO_CAST: Array = ["nat_decal", "ter_", "str_crop", "nat_ford", "nat_fissure", "nat_pit", "nat_trap", "nat_flowers", "nat_grass", "nat_mushrooms", "nat_bedroll", "nat_bones", "nat_reeds", "int_", "fx_", "nat_plateau_", "nat_ridge_", "nat_wall_cliff_", "nat_cliff_", "nat_hill_", "nat_rock_pillars", "nat_waterfall", "str_dock", "str_boat", "nat_snow_mound", "nat_dune", "APP:city_floor", "APP:city_water", "APP:dungeon_floor", "APP:dungeon_spikes"]
 
 static var last_draw_count: int = 0
 static var shadows_enabled: bool = true
