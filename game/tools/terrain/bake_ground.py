@@ -197,7 +197,7 @@ def build_terrain_ids(x0, y0, w, h, trails_mask, ford_mask, seeds):
     road_prob = np.asarray(road_img, dtype=np.float32) / 255.0
     edge_noise = (seeds['road_soft'][y0:y0 + h, x0:x0 + w] - .5) * .72 + (bay - .5) * .08
     road_final = (road_prob > (.5 + edge_noise)) & ~(deep | shal) & ~bridge_any
-    road_ter = np.where(gt(patch1, .6, bay), IDX['dirt'], IDX['road'])
+    road_ter = np.where(gt(patch1, .82, bay), IDX['dirt'], IDX['road'])      # trilha = chão batido com pedrisco; terra nua só em manchas
     road_ter = np.where(bio == 2, IDX['road_sand'], np.where(bio == 1, IDX['road_snow'], road_ter))
     ter = np.where(road_final, road_ter, ter)
     # pontes

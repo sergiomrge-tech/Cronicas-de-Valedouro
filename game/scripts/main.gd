@@ -1129,9 +1129,18 @@ func draw_approved_cast(key: String, ground: Vector2, scale_factor: float, alpha
 	CAST.sprite(self, texture, Rect2(ground - Vector2(scaled.x * .5, scaled.y), scaled), Rect2(Vector2.ZERO, texture.get_size()), ground, false, alpha)
 
 func draw_approved_tree(ground: Vector2, autumn: bool = false, scale_factor: float = .50) -> void:
-	var tree_key: String = "city_tree_autumn" if autumn else "city_tree_green"
-	draw_approved_cast(tree_key, ground, scale_factor, CAST.ALPHA_TREE)
-	draw_approved_visual(tree_key, ground, scale_factor)
+	# (revisão visual) árvore final modelada, com copa em volume e sombra projetada; o fator antigo (.42–.5) vira escala relativa
+	var tree_id: String = "nat_oak_autumn" if autumn else ["nat_oak_a", "nat_oak_b", "nat_oak_c"][int(ground.x + ground.y) % 3]
+	var tex: Texture2D = MODELED.texture(tree_id)
+	if tex == null:
+		return
+	var e: Dictionary = MODELED.entry(tree_id)
+	var fs: Array = e["frame_size"]
+	var foot: Array = e["foot"]
+	var s: float = float(e["draw_scale"]) * scale_factor * 1.5
+	var dst: Rect2 = Rect2(ground - Vector2(float(foot[0]) * s, float(foot[1]) * s), Vector2(float(fs[0]) * s, float(fs[1]) * s))
+	CAST.sprite(self, tex, dst, Rect2(0, 0, float(fs[0]), float(fs[1])), ground, false, CAST.ALPHA_TREE, .75)
+	draw_texture_rect(tex, dst, false)
 
 func draw_approved_house(ground: Vector2, house_variant: String) -> void:
 	# Casa modelada inteira (Lote 1 / correção estrutural): corpo, porta, janela e telhado numa peça só, sem telhado flutuante.

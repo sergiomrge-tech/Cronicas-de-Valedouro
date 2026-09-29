@@ -1,24 +1,25 @@
 # Catálogo de assets REG_001 — Etapa 1 (Mundo Rico)
 
-Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/data/modeled_assets_manifest.json`.
+Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/reg001_asset_catalog.json`.
 
 ## Política
 
-- **APPROVED** (256): somente assets vigentes aprovados pelo Diretor.
-- **MODELED_PENDING_GATE** (463): modelados, ainda aguardando gate visual do Diretor.
-- Assets estruturais substituídos são removidos do banco/catálogo e não devem voltar ao renderer.
-- **LEGACY_BASELINE**: arte legada ainda em uso até substituição.
-- **REWORKED / HOLD**: fora do renderer final.
+- **APPROVED** (28): Lote 01, únicos aprovados pelo Diretor. Cidade 15 + Dungeon 13.
+- **MODELED_PENDING_GATE** (710): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
+- **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
 ## Contagem por status
 
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
-| APPROVED | 42 | 214 |
-| MODELED_PENDING_GATE | 240 | 223 |
+| APPROVED | 22 | 6 |
+| MODELED_PENDING_GATE | 269 | 441 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
+
+Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para suprir a falta.
 
 | ID | Necessidade | Usado por |
 |---|---|---|
@@ -39,7 +40,7 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 
 ## MODELED_PENDING_GATE — por grupo
 
-### nature (237)
+### nature (422)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -53,6 +54,17 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `flo_ancient_tree_a` | NOT_USED | 0 |
 | `flo_ancient_tree_b` | NOT_USED | 0 |
 | `flo_barricade_improvised` | NOT_USED | 0 |
+| `flo_barricade_improvised_a1` | NOT_USED | 0 |
+| `flo_barricade_improvised_a2` | NOT_USED | 0 |
+| `flo_barricade_improvised_a3` | NOT_USED | 0 |
+| `flo_barricade_improvised_a4` | NOT_USED | 0 |
+| `flo_barricade_improvised_a5` | NOT_USED | 0 |
+| `flo_barricade_improvised_a6` | NOT_USED | 0 |
+| `flo_barricade_improvised_a7` | NOT_USED | 0 |
+| `flo_barricade_improvised_c0` | NOT_USED | 0 |
+| `flo_barricade_improvised_c1` | NOT_USED | 0 |
+| `flo_barricade_improvised_c2` | NOT_USED | 0 |
+| `flo_barricade_improvised_c3` | NOT_USED | 0 |
 | `flo_border_marker` | NOT_USED | 0 |
 | `flo_bridge_ramp` | NOT_USED | 0 |
 | `flo_bridge_span` | NOT_USED | 0 |
@@ -63,6 +75,17 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `flo_cart_ring_inert` | NOT_USED | 0 |
 | `flo_cart_ring_lit` | NOT_USED | 0 |
 | `flo_cart_ruin_wall` | NOT_USED | 0 |
+| `flo_cart_ruin_wall_a1` | NOT_USED | 0 |
+| `flo_cart_ruin_wall_a2` | NOT_USED | 0 |
+| `flo_cart_ruin_wall_a3` | NOT_USED | 0 |
+| `flo_cart_ruin_wall_a4` | NOT_USED | 0 |
+| `flo_cart_ruin_wall_a5` | NOT_USED | 0 |
+| `flo_cart_ruin_wall_a6` | NOT_USED | 0 |
+| `flo_cart_ruin_wall_a7` | NOT_USED | 0 |
+| `flo_cart_ruin_wall_c0` | NOT_USED | 0 |
+| `flo_cart_ruin_wall_c1` | NOT_USED | 0 |
+| `flo_cart_ruin_wall_c2` | NOT_USED | 0 |
+| `flo_cart_ruin_wall_c3` | NOT_USED | 0 |
 | `flo_cart_terrace` | NOT_USED | 0 |
 | `flo_claw_tree` | NOT_USED | 0 |
 | `flo_corrupt_ground_heavy` | NOT_USED | 0 |
@@ -75,6 +98,17 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `flo_heart_seed` | NOT_USED | 0 |
 | `flo_heart_seed_active` | NOT_USED | 0 |
 | `flo_heart_wall` | NOT_USED | 0 |
+| `flo_heart_wall_a1` | NOT_USED | 0 |
+| `flo_heart_wall_a2` | NOT_USED | 0 |
+| `flo_heart_wall_a3` | NOT_USED | 0 |
+| `flo_heart_wall_a4` | NOT_USED | 0 |
+| `flo_heart_wall_a5` | NOT_USED | 0 |
+| `flo_heart_wall_a6` | NOT_USED | 0 |
+| `flo_heart_wall_a7` | NOT_USED | 0 |
+| `flo_heart_wall_c0` | NOT_USED | 0 |
+| `flo_heart_wall_c1` | NOT_USED | 0 |
+| `flo_heart_wall_c2` | NOT_USED | 0 |
+| `flo_heart_wall_c3` | NOT_USED | 0 |
 | `flo_heart_wall_diag` | NOT_USED | 0 |
 | `flo_heart_wall_diagb` | NOT_USED | 0 |
 | `flo_herb_bench` | NOT_USED | 0 |
@@ -83,9 +117,31 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `flo_hollow_floor_active` | NOT_USED | 0 |
 | `flo_hollow_floor_dormant` | NOT_USED | 0 |
 | `flo_hollow_wall_active` | NOT_USED | 0 |
+| `flo_hollow_wall_active_a1` | NOT_USED | 0 |
+| `flo_hollow_wall_active_a2` | NOT_USED | 0 |
+| `flo_hollow_wall_active_a3` | NOT_USED | 0 |
+| `flo_hollow_wall_active_a4` | NOT_USED | 0 |
+| `flo_hollow_wall_active_a5` | NOT_USED | 0 |
+| `flo_hollow_wall_active_a6` | NOT_USED | 0 |
+| `flo_hollow_wall_active_a7` | NOT_USED | 0 |
+| `flo_hollow_wall_active_c0` | NOT_USED | 0 |
+| `flo_hollow_wall_active_c1` | NOT_USED | 0 |
+| `flo_hollow_wall_active_c2` | NOT_USED | 0 |
+| `flo_hollow_wall_active_c3` | NOT_USED | 0 |
 | `flo_hollow_wall_active_diag` | NOT_USED | 0 |
 | `flo_hollow_wall_active_diagb` | NOT_USED | 0 |
 | `flo_hollow_wall_dormant` | NOT_USED | 0 |
+| `flo_hollow_wall_dormant_a1` | NOT_USED | 0 |
+| `flo_hollow_wall_dormant_a2` | NOT_USED | 0 |
+| `flo_hollow_wall_dormant_a3` | NOT_USED | 0 |
+| `flo_hollow_wall_dormant_a4` | NOT_USED | 0 |
+| `flo_hollow_wall_dormant_a5` | NOT_USED | 0 |
+| `flo_hollow_wall_dormant_a6` | NOT_USED | 0 |
+| `flo_hollow_wall_dormant_a7` | NOT_USED | 0 |
+| `flo_hollow_wall_dormant_c0` | NOT_USED | 0 |
+| `flo_hollow_wall_dormant_c1` | NOT_USED | 0 |
+| `flo_hollow_wall_dormant_c2` | NOT_USED | 0 |
+| `flo_hollow_wall_dormant_c3` | NOT_USED | 0 |
 | `flo_hollow_wall_dormant_diag` | NOT_USED | 0 |
 | `flo_hollow_wall_dormant_diagb` | NOT_USED | 0 |
 | `flo_hollow_wound_healing` | NOT_USED | 0 |
@@ -98,7 +154,29 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `flo_memory_tree_open` | NOT_USED | 0 |
 | `flo_memory_tree_sealed` | NOT_USED | 0 |
 | `flo_palisade_broken` | NOT_USED | 0 |
+| `flo_palisade_broken_a1` | NOT_USED | 0 |
+| `flo_palisade_broken_a2` | NOT_USED | 0 |
+| `flo_palisade_broken_a3` | NOT_USED | 0 |
+| `flo_palisade_broken_a4` | NOT_USED | 0 |
+| `flo_palisade_broken_a5` | NOT_USED | 0 |
+| `flo_palisade_broken_a6` | NOT_USED | 0 |
+| `flo_palisade_broken_a7` | NOT_USED | 0 |
+| `flo_palisade_broken_c0` | NOT_USED | 0 |
+| `flo_palisade_broken_c1` | NOT_USED | 0 |
+| `flo_palisade_broken_c2` | NOT_USED | 0 |
+| `flo_palisade_broken_c3` | NOT_USED | 0 |
 | `flo_palisade_organic` | NOT_USED | 0 |
+| `flo_palisade_organic_a1` | NOT_USED | 0 |
+| `flo_palisade_organic_a2` | NOT_USED | 0 |
+| `flo_palisade_organic_a3` | NOT_USED | 0 |
+| `flo_palisade_organic_a4` | NOT_USED | 0 |
+| `flo_palisade_organic_a5` | NOT_USED | 0 |
+| `flo_palisade_organic_a6` | NOT_USED | 0 |
+| `flo_palisade_organic_a7` | NOT_USED | 0 |
+| `flo_palisade_organic_c0` | NOT_USED | 0 |
+| `flo_palisade_organic_c1` | NOT_USED | 0 |
+| `flo_palisade_organic_c2` | NOT_USED | 0 |
+| `flo_palisade_organic_c3` | NOT_USED | 0 |
 | `flo_ranger_lodge` | NOT_USED | 0 |
 | `flo_ranger_shed` | NOT_USED | 0 |
 | `flo_ranger_watch` | NOT_USED | 0 |
@@ -120,14 +198,15 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `nat_altar_ancient` | NOT_USED | 0 |
 | `nat_altar_sand` | INTEGRATED | 1 |
 | `nat_bedroll` | INTEGRATED | 2 |
+| `nat_birch_tall` | INTEGRATED | 20 |
 | `nat_bones_desert` | INTEGRATED | 8 |
 | `nat_boulder_ice` | INTEGRATED | 11 |
 | `nat_boulder_sand` | NOT_USED | 0 |
-| `nat_bush_berry` | INTEGRATED | 7 |
+| `nat_bush_berry` | INTEGRATED | 8 |
 | `nat_bush_dry` | INTEGRATED | 8 |
-| `nat_bush_flowering` | INTEGRATED | 8 |
+| `nat_bush_flowering` | INTEGRATED | 11 |
 | `nat_bush_frost` | INTEGRATED | 7 |
-| `nat_bush_green` | INTEGRATED | 13 |
+| `nat_bush_green` | INTEGRATED | 15 |
 | `nat_cactus_round` | INTEGRATED | 5 |
 | `nat_cactus_tall` | INTEGRATED | 8 |
 | `nat_campfire` | INTEGRATED | 7 |
@@ -148,7 +227,7 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `nat_cliff_end_rock_bp` | INTEGRATED | 3 |
 | `nat_cliff_end_sand_am` | NOT_USED | 0 |
 | `nat_cliff_end_sand_ap` | NOT_USED | 0 |
-| `nat_cliff_end_sand_bm` | NOT_USED | 0 |
+| `nat_cliff_end_sand_bm` | INTEGRATED | 1 |
 | `nat_cliff_end_sand_bp` | INTEGRATED | 1 |
 | `nat_decal_dirt_a` | INTEGRATED | 0 |
 | `nat_decal_dry_a` | INTEGRATED | 0 |
@@ -162,15 +241,59 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `nat_dune_large` | INTEGRATED | 11 |
 | `nat_dune_small` | INTEGRATED | 6 |
 | `nat_fence_broken_a` | INTEGRATED | 4 |
+| `nat_fence_broken_a_a1` | NOT_USED | 0 |
+| `nat_fence_broken_a_a2` | NOT_USED | 0 |
+| `nat_fence_broken_a_a3` | NOT_USED | 0 |
+| `nat_fence_broken_a_a4` | INTEGRATED | 2 |
+| `nat_fence_broken_a_a5` | NOT_USED | 0 |
+| `nat_fence_broken_a_a6` | NOT_USED | 0 |
+| `nat_fence_broken_a_a7` | NOT_USED | 0 |
+| `nat_fence_broken_a_c0` | NOT_USED | 0 |
+| `nat_fence_broken_a_c1` | NOT_USED | 0 |
+| `nat_fence_broken_a_c2` | NOT_USED | 0 |
+| `nat_fence_broken_a_c3` | NOT_USED | 0 |
 | `nat_fence_broken_b` | NOT_USED | 0 |
+| `nat_fence_broken_b_a1` | NOT_USED | 0 |
+| `nat_fence_broken_b_a2` | NOT_USED | 0 |
+| `nat_fence_broken_b_a3` | NOT_USED | 0 |
+| `nat_fence_broken_b_a4` | NOT_USED | 0 |
+| `nat_fence_broken_b_a5` | NOT_USED | 0 |
+| `nat_fence_broken_b_a6` | NOT_USED | 0 |
+| `nat_fence_broken_b_a7` | NOT_USED | 0 |
+| `nat_fence_broken_b_c0` | NOT_USED | 0 |
+| `nat_fence_broken_b_c1` | NOT_USED | 0 |
+| `nat_fence_broken_b_c2` | NOT_USED | 0 |
+| `nat_fence_broken_b_c3` | NOT_USED | 0 |
 | `nat_fence_wood_a` | INTEGRATED | 13 |
+| `nat_fence_wood_a_a1` | NOT_USED | 0 |
+| `nat_fence_wood_a_a2` | NOT_USED | 0 |
+| `nat_fence_wood_a_a3` | NOT_USED | 0 |
+| `nat_fence_wood_a_a4` | INTEGRATED | 18 |
+| `nat_fence_wood_a_a5` | NOT_USED | 0 |
+| `nat_fence_wood_a_a6` | NOT_USED | 0 |
+| `nat_fence_wood_a_a7` | NOT_USED | 0 |
+| `nat_fence_wood_a_c0` | NOT_USED | 0 |
+| `nat_fence_wood_a_c1` | NOT_USED | 0 |
+| `nat_fence_wood_a_c2` | NOT_USED | 0 |
+| `nat_fence_wood_a_c3` | NOT_USED | 0 |
 | `nat_fence_wood_b` | NOT_USED | 0 |
+| `nat_fence_wood_b_a1` | NOT_USED | 0 |
+| `nat_fence_wood_b_a2` | NOT_USED | 0 |
+| `nat_fence_wood_b_a3` | NOT_USED | 0 |
+| `nat_fence_wood_b_a4` | NOT_USED | 0 |
+| `nat_fence_wood_b_a5` | NOT_USED | 0 |
+| `nat_fence_wood_b_a6` | NOT_USED | 0 |
+| `nat_fence_wood_b_a7` | NOT_USED | 0 |
+| `nat_fence_wood_b_c0` | NOT_USED | 0 |
+| `nat_fence_wood_b_c1` | NOT_USED | 0 |
+| `nat_fence_wood_b_c2` | NOT_USED | 0 |
+| `nat_fence_wood_b_c3` | NOT_USED | 0 |
 | `nat_fissure` | INTEGRATED | 1 |
 | `nat_flag_blue` | INTEGRATED | 5 |
 | `nat_flag_red` | INTEGRATED | 16 |
 | `nat_flowers_blue` | INTEGRATED | 4 |
-| `nat_flowers_meadow` | INTEGRATED | 19 |
-| `nat_flowers_red` | INTEGRATED | 8 |
+| `nat_flowers_meadow` | INTEGRATED | 18 |
+| `nat_flowers_red` | INTEGRATED | 5 |
 | `nat_ford_stones` | INTEGRATED | 2 |
 | `nat_gate_wood` | INTEGRATED | 1 |
 | `nat_grass_dry` | INTEGRATED | 3 |
@@ -179,15 +302,15 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `nat_hay_stack` | INTEGRATED | 4 |
 | `nat_hill_earth` | INTEGRATED | 2 |
 | `nat_hill_ice` | NOT_USED | 0 |
-| `nat_hill_low_earth` | INTEGRATED | 4 |
-| `nat_hill_low_ice` | INTEGRATED | 7 |
-| `nat_hill_low_rock` | INTEGRATED | 14 |
+| `nat_hill_low_earth` | INTEGRATED | 2 |
+| `nat_hill_low_ice` | INTEGRATED | 4 |
+| `nat_hill_low_rock` | INTEGRATED | 9 |
 | `nat_hill_low_sand` | INTEGRATED | 4 |
 | `nat_hill_sand` | NOT_USED | 0 |
-| `nat_hill_wide_earth` | INTEGRATED | 4 |
-| `nat_hill_wide_ice` | INTEGRATED | 1 |
-| `nat_hill_wide_rock` | INTEGRATED | 2 |
-| `nat_hill_wide_sand` | INTEGRATED | 3 |
+| `nat_hill_wide_earth` | INTEGRATED | 2 |
+| `nat_hill_wide_ice` | NOT_USED | 0 |
+| `nat_hill_wide_rock` | INTEGRATED | 1 |
+| `nat_hill_wide_sand` | INTEGRATED | 2 |
 | `nat_ice_letters` | INTEGRATED | 2 |
 | `nat_ice_monolith_adrian` | INTEGRATED | 1 |
 | `nat_ice_spire` | INTEGRATED | 7 |
@@ -195,17 +318,25 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `nat_log_fallen` | INTEGRATED | 5 |
 | `nat_log_pile` | INTEGRATED | 3 |
 | `nat_mushrooms` | INTEGRATED | 10 |
+| `nat_oak_a` | INTEGRATED | 25 |
+| `nat_oak_autumn` | INTEGRATED | 10 |
+| `nat_oak_b` | INTEGRATED | 17 |
+| `nat_oak_c` | INTEGRATED | 9 |
+| `nat_oak_golden` | INTEGRATED | 2 |
 | `nat_obelisk_rune` | INTEGRATED | 5 |
+| `nat_pine_tall_a` | INTEGRATED | 23 |
+| `nat_pine_tall_b` | INTEGRATED | 15 |
+| `nat_pine_tall_snow` | INTEGRATED | 0 |
 | `nat_pit_trap` | INTEGRATED | 2 |
-| `nat_plateau_earth_m` | INTEGRATED | 1 |
-| `nat_plateau_earth_s` | INTEGRATED | 3 |
+| `nat_plateau_earth_m` | NOT_USED | 0 |
+| `nat_plateau_earth_s` | INTEGRATED | 1 |
 | `nat_plateau_ice_m` | INTEGRATED | 1 |
-| `nat_plateau_ice_s` | INTEGRATED | 1 |
-| `nat_plateau_rock_m` | INTEGRATED | 2 |
-| `nat_plateau_rock_s` | INTEGRATED | 3 |
+| `nat_plateau_ice_s` | NOT_USED | 0 |
+| `nat_plateau_rock_m` | INTEGRATED | 1 |
+| `nat_plateau_rock_s` | INTEGRATED | 2 |
 | `nat_plateau_sand_m` | NOT_USED | 0 |
 | `nat_plateau_sand_s` | INTEGRATED | 1 |
-| `nat_ramp_earth` | INTEGRATED | 3 |
+| `nat_ramp_earth` | INTEGRATED | 2 |
 | `nat_ramp_ice` | NOT_USED | 0 |
 | `nat_ramp_rock` | INTEGRATED | 2 |
 | `nat_ramp_sand` | INTEGRATED | 2 |
@@ -213,22 +344,22 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `nat_res_crystal` | INTEGRATED | 3 |
 | `nat_res_herb` | INTEGRATED | 2 |
 | `nat_res_ore` | INTEGRATED | 3 |
-| `nat_ridge_earth_a` | INTEGRATED | 3 |
+| `nat_ridge_earth_a` | INTEGRATED | 2 |
 | `nat_ridge_earth_b` | INTEGRATED | 1 |
 | `nat_ridge_ice_a` | INTEGRATED | 3 |
-| `nat_ridge_ice_b` | INTEGRATED | 4 |
-| `nat_ridge_rock_a` | INTEGRATED | 5 |
-| `nat_ridge_rock_b` | INTEGRATED | 5 |
-| `nat_ridge_sand_a` | INTEGRATED | 2 |
-| `nat_ridge_sand_b` | INTEGRATED | 4 |
+| `nat_ridge_ice_b` | INTEGRATED | 2 |
+| `nat_ridge_rock_a` | INTEGRATED | 2 |
+| `nat_ridge_rock_b` | INTEGRATED | 6 |
+| `nat_ridge_sand_a` | INTEGRATED | 3 |
+| `nat_ridge_sand_b` | INTEGRATED | 1 |
 | `nat_rock_arch_natural` | NOT_USED | 0 |
 | `nat_rock_boulder` | INTEGRATED | 9 |
 | `nat_rock_ice` | INTEGRATED | 3 |
 | `nat_rock_medium` | INTEGRATED | 0 |
-| `nat_rock_mossy` | INTEGRATED | 19 |
+| `nat_rock_mossy` | INTEGRATED | 18 |
 | `nat_rock_pillars` | INTEGRATED | 0 |
 | `nat_rock_sand` | INTEGRATED | 7 |
-| `nat_rock_small` | INTEGRATED | 8 |
+| `nat_rock_small` | INTEGRATED | 7 |
 | `nat_rock_snow` | INTEGRATED | 2 |
 | `nat_ruin_arch` | INTEGRATED | 2 |
 | `nat_ruin_arch_sand` | INTEGRATED | 1 |
@@ -236,6 +367,17 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `nat_ruin_column_broken` | INTEGRATED | 4 |
 | `nat_ruin_column_sand` | INTEGRATED | 4 |
 | `nat_ruin_wall` | INTEGRATED | 2 |
+| `nat_ruin_wall_a1` | NOT_USED | 0 |
+| `nat_ruin_wall_a2` | NOT_USED | 0 |
+| `nat_ruin_wall_a3` | NOT_USED | 0 |
+| `nat_ruin_wall_a4` | NOT_USED | 0 |
+| `nat_ruin_wall_a5` | NOT_USED | 0 |
+| `nat_ruin_wall_a6` | NOT_USED | 0 |
+| `nat_ruin_wall_a7` | NOT_USED | 0 |
+| `nat_ruin_wall_c0` | NOT_USED | 0 |
+| `nat_ruin_wall_c1` | NOT_USED | 0 |
+| `nat_ruin_wall_c2` | NOT_USED | 0 |
+| `nat_ruin_wall_c3` | NOT_USED | 0 |
 | `nat_ruin_wall_sand` | INTEGRATED | 2 |
 | `nat_sarcophagus_open` | INTEGRATED | 2 |
 | `nat_scarecrow` | INTEGRATED | 1 |
@@ -250,19 +392,41 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `nat_tent_red` | INTEGRATED | 2 |
 | `nat_tent_small` | INTEGRATED | 5 |
 | `nat_trap_plate` | INTEGRATED | 2 |
-| `nat_tree_birch` | INTEGRATED | 24 |
+| `nat_tree_birch` | INTEGRATED | 2 |
 | `nat_tree_dead` | INTEGRATED | 4 |
 | `nat_tree_palm` | INTEGRATED | 5 |
-| `nat_tree_pine` | INTEGRATED | 49 |
-| `nat_tree_pine_snow` | INTEGRATED | 0 |
-| `nat_wall_cliff_ice_a` | INTEGRATED | 4 |
-| `nat_wall_cliff_ice_b` | INTEGRATED | 4 |
-| `nat_wall_cliff_rock_a` | INTEGRATED | 5 |
-| `nat_wall_cliff_rock_b` | INTEGRATED | 8 |
+| `nat_tree_pine` | INTEGRATED | 4 |
+| `nat_tree_pine_snow` | NOT_USED | 0 |
+| `nat_wall_cliff_ice_a` | INTEGRATED | 5 |
+| `nat_wall_cliff_ice_b` | INTEGRATED | 3 |
+| `nat_wall_cliff_rock_a` | INTEGRATED | 3 |
+| `nat_wall_cliff_rock_b` | INTEGRATED | 7 |
 | `nat_wall_cliff_sand_a` | INTEGRATED | 2 |
-| `nat_wall_cliff_sand_b` | INTEGRATED | 3 |
+| `nat_wall_cliff_sand_b` | INTEGRATED | 2 |
 | `nat_wall_low_a` | INTEGRATED | 2 |
+| `nat_wall_low_a_a1` | NOT_USED | 0 |
+| `nat_wall_low_a_a2` | NOT_USED | 0 |
+| `nat_wall_low_a_a3` | NOT_USED | 0 |
+| `nat_wall_low_a_a4` | INTEGRATED | 2 |
+| `nat_wall_low_a_a5` | NOT_USED | 0 |
+| `nat_wall_low_a_a6` | NOT_USED | 0 |
+| `nat_wall_low_a_a7` | NOT_USED | 0 |
+| `nat_wall_low_a_c0` | NOT_USED | 0 |
+| `nat_wall_low_a_c1` | NOT_USED | 0 |
+| `nat_wall_low_a_c2` | NOT_USED | 0 |
+| `nat_wall_low_a_c3` | NOT_USED | 0 |
 | `nat_wall_low_b` | NOT_USED | 0 |
+| `nat_wall_low_b_a1` | NOT_USED | 0 |
+| `nat_wall_low_b_a2` | NOT_USED | 0 |
+| `nat_wall_low_b_a3` | NOT_USED | 0 |
+| `nat_wall_low_b_a4` | NOT_USED | 0 |
+| `nat_wall_low_b_a5` | NOT_USED | 0 |
+| `nat_wall_low_b_a6` | NOT_USED | 0 |
+| `nat_wall_low_b_a7` | NOT_USED | 0 |
+| `nat_wall_low_b_c0` | NOT_USED | 0 |
+| `nat_wall_low_b_c1` | NOT_USED | 0 |
+| `nat_wall_low_b_c2` | NOT_USED | 0 |
+| `nat_wall_low_b_c3` | NOT_USED | 0 |
 | `nat_waterfall_front` | INTEGRATED | 1 |
 | `nat_web_ground` | INTEGRATED | 8 |
 | `nat_well_stone` | INTEGRATED | 4 |
@@ -270,9 +434,31 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `val_cart_wrecked` | INTEGRATED | 2 |
 | `val_pack_bones` | INTEGRATED | 4 |
 | `val_palisade_broken` | NOT_USED | 0 |
+| `val_palisade_broken_a1` | INTEGRATED | 1 |
+| `val_palisade_broken_a2` | INTEGRATED | 1 |
+| `val_palisade_broken_a3` | INTEGRATED | 1 |
+| `val_palisade_broken_a4` | INTEGRATED | 1 |
+| `val_palisade_broken_a5` | NOT_USED | 0 |
+| `val_palisade_broken_a6` | INTEGRATED | 1 |
+| `val_palisade_broken_a7` | INTEGRATED | 1 |
+| `val_palisade_broken_c0` | NOT_USED | 0 |
+| `val_palisade_broken_c1` | NOT_USED | 0 |
+| `val_palisade_broken_c2` | NOT_USED | 0 |
+| `val_palisade_broken_c3` | NOT_USED | 0 |
 | `val_paw_tracks` | INTEGRATED | 8 |
 | `val_ruin_floor_circle` | INTEGRATED | 1 |
 | `val_ruin_inscription_wall` | INTEGRATED | 2 |
+| `val_ruin_inscription_wall_a1` | NOT_USED | 0 |
+| `val_ruin_inscription_wall_a2` | NOT_USED | 0 |
+| `val_ruin_inscription_wall_a3` | NOT_USED | 0 |
+| `val_ruin_inscription_wall_a4` | NOT_USED | 0 |
+| `val_ruin_inscription_wall_a5` | NOT_USED | 0 |
+| `val_ruin_inscription_wall_a6` | NOT_USED | 0 |
+| `val_ruin_inscription_wall_a7` | NOT_USED | 0 |
+| `val_ruin_inscription_wall_c0` | NOT_USED | 0 |
+| `val_ruin_inscription_wall_c1` | NOT_USED | 0 |
+| `val_ruin_inscription_wall_c2` | NOT_USED | 0 |
+| `val_ruin_inscription_wall_c3` | NOT_USED | 0 |
 | `val_ruin_mechanism` | INTEGRATED | 1 |
 | `val_ruin_mechanism_dim` | INTEGRATED | 1 |
 | `val_ruin_root_arch` | INTEGRATED | 2 |
@@ -281,7 +467,7 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `val_wolf_bones` | INTEGRATED | 3 |
 | `val_wolf_den` | INTEGRATED | 1 |
 
-### city (46)
+### city (108)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -317,19 +503,81 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `str_watchtower_frost` | INTEGRATED | 1 |
 | `str_watchtower_stone` | INTEGRATED | 2 |
 | `str_windmill` | INTEGRATED | 1 |
+| `val_archive_hall` | INTEGRATED | 1 |
 | `val_archive_lamp` | INTEGRATED | 2 |
 | `val_banner_pole_tall` | NOT_USED | 0 |
 | `val_barricade_a` | INTEGRATED | 1 |
+| `val_barricade_a_a1` | INTEGRATED | 2 |
+| `val_barricade_a_a2` | INTEGRATED | 1 |
+| `val_barricade_a_a3` | NOT_USED | 0 |
+| `val_barricade_a_a4` | NOT_USED | 0 |
+| `val_barricade_a_a5` | NOT_USED | 0 |
+| `val_barricade_a_a6` | NOT_USED | 0 |
+| `val_barricade_a_a7` | NOT_USED | 0 |
+| `val_barricade_a_c0` | NOT_USED | 0 |
+| `val_barricade_a_c1` | NOT_USED | 0 |
+| `val_barricade_a_c2` | NOT_USED | 0 |
+| `val_barricade_a_c3` | NOT_USED | 0 |
 | `val_barricade_b` | NOT_USED | 0 |
+| `val_barricade_b_a1` | NOT_USED | 0 |
+| `val_barricade_b_a2` | NOT_USED | 0 |
+| `val_barricade_b_a3` | NOT_USED | 0 |
+| `val_barricade_b_a4` | NOT_USED | 0 |
+| `val_barricade_b_a5` | NOT_USED | 0 |
+| `val_barricade_b_a6` | NOT_USED | 0 |
+| `val_barricade_b_a7` | INTEGRATED | 1 |
+| `val_barricade_b_c0` | NOT_USED | 0 |
+| `val_barricade_b_c1` | NOT_USED | 0 |
+| `val_barricade_b_c2` | NOT_USED | 0 |
+| `val_barricade_b_c3` | NOT_USED | 0 |
 | `val_crown_monument` | INTEGRATED | 2 |
 | `val_gate_main` | INTEGRATED | 2 |
 | `val_gate_tower` | INTEGRATED | 2 |
+| `val_guild_hall` | INTEGRATED | 1 |
+| `val_house_body` | NOT_USED | 0 |
 | `val_notice_board` | INTEGRATED | 1 |
 | `val_supply_stack` | INTEGRATED | 3 |
+| `val_town_house_blue` | INTEGRATED | 6 |
+| `val_town_house_red` | INTEGRATED | 7 |
+| `val_town_house_wood` | INTEGRATED | 9 |
 | `val_training_dummy` | INTEGRATED | 2 |
 | `val_wall_breach` | NOT_USED | 0 |
+| `val_wall_breach_a1` | NOT_USED | 0 |
+| `val_wall_breach_a2` | INTEGRATED | 1 |
+| `val_wall_breach_a3` | NOT_USED | 0 |
+| `val_wall_breach_a4` | NOT_USED | 0 |
+| `val_wall_breach_a5` | NOT_USED | 0 |
+| `val_wall_breach_a6` | NOT_USED | 0 |
+| `val_wall_breach_a7` | NOT_USED | 0 |
+| `val_wall_breach_c0` | NOT_USED | 0 |
+| `val_wall_breach_c1` | NOT_USED | 0 |
+| `val_wall_breach_c2` | NOT_USED | 0 |
+| `val_wall_breach_c3` | NOT_USED | 0 |
 | `val_wall_repaired` | NOT_USED | 0 |
+| `val_wall_repaired_a1` | NOT_USED | 0 |
+| `val_wall_repaired_a2` | INTEGRATED | 1 |
+| `val_wall_repaired_a3` | NOT_USED | 0 |
+| `val_wall_repaired_a4` | NOT_USED | 0 |
+| `val_wall_repaired_a5` | NOT_USED | 0 |
+| `val_wall_repaired_a6` | INTEGRATED | 1 |
+| `val_wall_repaired_a7` | NOT_USED | 0 |
+| `val_wall_repaired_c0` | NOT_USED | 0 |
+| `val_wall_repaired_c1` | NOT_USED | 0 |
+| `val_wall_repaired_c2` | NOT_USED | 0 |
+| `val_wall_repaired_c3` | NOT_USED | 0 |
 | `val_wall_segment` | NOT_USED | 0 |
+| `val_wall_segment_a1` | NOT_USED | 0 |
+| `val_wall_segment_a2` | INTEGRATED | 17 |
+| `val_wall_segment_a3` | NOT_USED | 0 |
+| `val_wall_segment_a4` | NOT_USED | 0 |
+| `val_wall_segment_a5` | NOT_USED | 0 |
+| `val_wall_segment_a6` | INTEGRATED | 15 |
+| `val_wall_segment_a7` | NOT_USED | 0 |
+| `val_wall_segment_c0` | NOT_USED | 0 |
+| `val_wall_segment_c1` | NOT_USED | 0 |
+| `val_wall_segment_c2` | NOT_USED | 0 |
+| `val_wall_segment_c3` | NOT_USED | 0 |
+| `val_wall_tower` | INTEGRATED | 21 |
 | `val_weapon_rack` | INTEGRATED | 1 |
 
 ### dungeon (37)
@@ -422,267 +670,40 @@ Fonte atual: `game/data/reg001_asset_catalog.json`; status dos modelados: `game/
 | `val_archive_shelf_tall` | INTEGRATED | 4 |
 | `val_map_fragment_pedestal` | INTEGRATED | 1 |
 
-## APPROVED (256)
+## APPROVED (28)
 
 | Chave | Uso |
 |---|---|
 | `city_floor_clean` | INTEGRATED |
-| `city_floor_moss` | INTEGRATED |
 | `city_floor_worn` | INTEGRATED |
-| `city_tree_autumn` | INTEGRATED |
-| `city_tree_green` | INTEGRATED |
+| `city_floor_moss` | INTEGRATED |
 | `city_water_edge` | INTEGRATED |
-| `dungeon_arch` | INTEGRATED |
+| `city_wall` | INTEGRATED |
+| `city_wall_vegetation` | INTEGRATED |
+| `city_gate` | NOT_USED |
+| `city_house_door` | NOT_USED |
+| `city_house_window` | NOT_USED |
+| `city_roof_blue` | INTEGRATED |
+| `city_roof_red` | INTEGRATED |
+| `city_roof_wood` | INTEGRATED |
+| `city_store` | NOT_USED |
+| `city_tree_green` | NOT_USED |
+| `city_tree_autumn` | NOT_USED |
+| `dungeon_floor_stone` | INTEGRATED |
+| `dungeon_floor_broken` | INTEGRATED |
+| `dungeon_wall` | INTEGRATED |
 | `dungeon_corner` | INTEGRATED |
-| `dungeon_corridor` | INTEGRATED |
+| `dungeon_arch` | INTEGRATED |
+| `dungeon_door` | INTEGRATED |
+| `dungeon_rail` | INTEGRATED |
 | `dungeon_crystal_blue` | INTEGRATED |
 | `dungeon_crystal_purple` | INTEGRATED |
-| `dungeon_door` | INTEGRATED |
-| `dungeon_emissive_crystal` | INTEGRATED |
-| `dungeon_floor_broken` | INTEGRATED |
-| `dungeon_floor_stone` | INTEGRATED |
-| `dungeon_rail` | INTEGRATED |
-| `dungeon_spikes` | INTEGRATED |
 | `dungeon_torch` | INTEGRATED |
-| `dungeon_wall` | INTEGRATED |
-| `flo_barricade_improvised_a1` | NOT_USED |
-| `flo_barricade_improvised_a2` | NOT_USED |
-| `flo_barricade_improvised_a3` | NOT_USED |
-| `flo_barricade_improvised_a4` | NOT_USED |
-| `flo_barricade_improvised_a5` | NOT_USED |
-| `flo_barricade_improvised_a6` | NOT_USED |
-| `flo_barricade_improvised_a7` | NOT_USED |
-| `flo_barricade_improvised_c0` | NOT_USED |
-| `flo_barricade_improvised_c1` | NOT_USED |
-| `flo_barricade_improvised_c2` | NOT_USED |
-| `flo_barricade_improvised_c3` | NOT_USED |
-| `flo_cart_ruin_wall_a1` | NOT_USED |
-| `flo_cart_ruin_wall_a2` | NOT_USED |
-| `flo_cart_ruin_wall_a3` | NOT_USED |
-| `flo_cart_ruin_wall_a4` | NOT_USED |
-| `flo_cart_ruin_wall_a5` | NOT_USED |
-| `flo_cart_ruin_wall_a6` | NOT_USED |
-| `flo_cart_ruin_wall_a7` | NOT_USED |
-| `flo_cart_ruin_wall_c0` | NOT_USED |
-| `flo_cart_ruin_wall_c1` | NOT_USED |
-| `flo_cart_ruin_wall_c2` | NOT_USED |
-| `flo_cart_ruin_wall_c3` | NOT_USED |
-| `flo_heart_wall_a1` | NOT_USED |
-| `flo_heart_wall_a2` | NOT_USED |
-| `flo_heart_wall_a3` | NOT_USED |
-| `flo_heart_wall_a4` | NOT_USED |
-| `flo_heart_wall_a5` | NOT_USED |
-| `flo_heart_wall_a6` | NOT_USED |
-| `flo_heart_wall_a7` | NOT_USED |
-| `flo_heart_wall_c0` | NOT_USED |
-| `flo_heart_wall_c1` | NOT_USED |
-| `flo_heart_wall_c2` | NOT_USED |
-| `flo_heart_wall_c3` | NOT_USED |
-| `flo_hollow_wall_active_a1` | NOT_USED |
-| `flo_hollow_wall_active_a2` | NOT_USED |
-| `flo_hollow_wall_active_a3` | NOT_USED |
-| `flo_hollow_wall_active_a4` | NOT_USED |
-| `flo_hollow_wall_active_a5` | NOT_USED |
-| `flo_hollow_wall_active_a6` | NOT_USED |
-| `flo_hollow_wall_active_a7` | NOT_USED |
-| `flo_hollow_wall_active_c0` | NOT_USED |
-| `flo_hollow_wall_active_c1` | NOT_USED |
-| `flo_hollow_wall_active_c2` | NOT_USED |
-| `flo_hollow_wall_active_c3` | NOT_USED |
-| `flo_hollow_wall_dormant_a1` | NOT_USED |
-| `flo_hollow_wall_dormant_a2` | NOT_USED |
-| `flo_hollow_wall_dormant_a3` | NOT_USED |
-| `flo_hollow_wall_dormant_a4` | NOT_USED |
-| `flo_hollow_wall_dormant_a5` | NOT_USED |
-| `flo_hollow_wall_dormant_a6` | NOT_USED |
-| `flo_hollow_wall_dormant_a7` | NOT_USED |
-| `flo_hollow_wall_dormant_c0` | NOT_USED |
-| `flo_hollow_wall_dormant_c1` | NOT_USED |
-| `flo_hollow_wall_dormant_c2` | NOT_USED |
-| `flo_hollow_wall_dormant_c3` | NOT_USED |
-| `flo_palisade_broken_a1` | NOT_USED |
-| `flo_palisade_broken_a2` | NOT_USED |
-| `flo_palisade_broken_a3` | NOT_USED |
-| `flo_palisade_broken_a4` | NOT_USED |
-| `flo_palisade_broken_a5` | NOT_USED |
-| `flo_palisade_broken_a6` | NOT_USED |
-| `flo_palisade_broken_a7` | NOT_USED |
-| `flo_palisade_broken_c0` | NOT_USED |
-| `flo_palisade_broken_c1` | NOT_USED |
-| `flo_palisade_broken_c2` | NOT_USED |
-| `flo_palisade_broken_c3` | NOT_USED |
-| `flo_palisade_organic_a1` | NOT_USED |
-| `flo_palisade_organic_a2` | NOT_USED |
-| `flo_palisade_organic_a3` | NOT_USED |
-| `flo_palisade_organic_a4` | NOT_USED |
-| `flo_palisade_organic_a5` | NOT_USED |
-| `flo_palisade_organic_a6` | NOT_USED |
-| `flo_palisade_organic_a7` | NOT_USED |
-| `flo_palisade_organic_c0` | NOT_USED |
-| `flo_palisade_organic_c1` | NOT_USED |
-| `flo_palisade_organic_c2` | NOT_USED |
-| `flo_palisade_organic_c3` | NOT_USED |
-| `nat_fence_broken_a_a1` | NOT_USED |
-| `nat_fence_broken_a_a2` | NOT_USED |
-| `nat_fence_broken_a_a3` | NOT_USED |
-| `nat_fence_broken_a_a4` | INTEGRATED |
-| `nat_fence_broken_a_a5` | NOT_USED |
-| `nat_fence_broken_a_a6` | NOT_USED |
-| `nat_fence_broken_a_a7` | NOT_USED |
-| `nat_fence_broken_a_c0` | NOT_USED |
-| `nat_fence_broken_a_c1` | NOT_USED |
-| `nat_fence_broken_a_c2` | NOT_USED |
-| `nat_fence_broken_a_c3` | NOT_USED |
-| `nat_fence_broken_b_a1` | NOT_USED |
-| `nat_fence_broken_b_a2` | NOT_USED |
-| `nat_fence_broken_b_a3` | NOT_USED |
-| `nat_fence_broken_b_a4` | NOT_USED |
-| `nat_fence_broken_b_a5` | NOT_USED |
-| `nat_fence_broken_b_a6` | NOT_USED |
-| `nat_fence_broken_b_a7` | NOT_USED |
-| `nat_fence_broken_b_c0` | NOT_USED |
-| `nat_fence_broken_b_c1` | NOT_USED |
-| `nat_fence_broken_b_c2` | NOT_USED |
-| `nat_fence_broken_b_c3` | NOT_USED |
-| `nat_fence_wood_a_a1` | NOT_USED |
-| `nat_fence_wood_a_a2` | NOT_USED |
-| `nat_fence_wood_a_a3` | NOT_USED |
-| `nat_fence_wood_a_a4` | INTEGRATED |
-| `nat_fence_wood_a_a5` | NOT_USED |
-| `nat_fence_wood_a_a6` | NOT_USED |
-| `nat_fence_wood_a_a7` | NOT_USED |
-| `nat_fence_wood_a_c0` | NOT_USED |
-| `nat_fence_wood_a_c1` | NOT_USED |
-| `nat_fence_wood_a_c2` | NOT_USED |
-| `nat_fence_wood_a_c3` | NOT_USED |
-| `nat_fence_wood_b_a1` | NOT_USED |
-| `nat_fence_wood_b_a2` | NOT_USED |
-| `nat_fence_wood_b_a3` | NOT_USED |
-| `nat_fence_wood_b_a4` | NOT_USED |
-| `nat_fence_wood_b_a5` | NOT_USED |
-| `nat_fence_wood_b_a6` | NOT_USED |
-| `nat_fence_wood_b_a7` | NOT_USED |
-| `nat_fence_wood_b_c0` | NOT_USED |
-| `nat_fence_wood_b_c1` | NOT_USED |
-| `nat_fence_wood_b_c2` | NOT_USED |
-| `nat_fence_wood_b_c3` | NOT_USED |
-| `nat_ruin_wall_a1` | NOT_USED |
-| `nat_ruin_wall_a2` | NOT_USED |
-| `nat_ruin_wall_a3` | NOT_USED |
-| `nat_ruin_wall_a4` | NOT_USED |
-| `nat_ruin_wall_a5` | NOT_USED |
-| `nat_ruin_wall_a6` | NOT_USED |
-| `nat_ruin_wall_a7` | NOT_USED |
-| `nat_ruin_wall_c0` | NOT_USED |
-| `nat_ruin_wall_c1` | NOT_USED |
-| `nat_ruin_wall_c2` | NOT_USED |
-| `nat_ruin_wall_c3` | NOT_USED |
-| `nat_wall_low_a_a1` | NOT_USED |
-| `nat_wall_low_a_a2` | NOT_USED |
-| `nat_wall_low_a_a3` | NOT_USED |
-| `nat_wall_low_a_a4` | INTEGRATED |
-| `nat_wall_low_a_a5` | NOT_USED |
-| `nat_wall_low_a_a6` | NOT_USED |
-| `nat_wall_low_a_a7` | NOT_USED |
-| `nat_wall_low_a_c0` | NOT_USED |
-| `nat_wall_low_a_c1` | NOT_USED |
-| `nat_wall_low_a_c2` | NOT_USED |
-| `nat_wall_low_a_c3` | NOT_USED |
-| `nat_wall_low_b_a1` | NOT_USED |
-| `nat_wall_low_b_a2` | NOT_USED |
-| `nat_wall_low_b_a3` | NOT_USED |
-| `nat_wall_low_b_a4` | NOT_USED |
-| `nat_wall_low_b_a5` | NOT_USED |
-| `nat_wall_low_b_a6` | NOT_USED |
-| `nat_wall_low_b_a7` | NOT_USED |
-| `nat_wall_low_b_c0` | NOT_USED |
-| `nat_wall_low_b_c1` | NOT_USED |
-| `nat_wall_low_b_c2` | NOT_USED |
-| `nat_wall_low_b_c3` | NOT_USED |
-| `val_archive_hall` | INTEGRATED |
-| `val_barricade_a_a1` | INTEGRATED |
-| `val_barricade_a_a2` | INTEGRATED |
-| `val_barricade_a_a3` | NOT_USED |
-| `val_barricade_a_a4` | NOT_USED |
-| `val_barricade_a_a5` | NOT_USED |
-| `val_barricade_a_a6` | NOT_USED |
-| `val_barricade_a_a7` | NOT_USED |
-| `val_barricade_a_c0` | NOT_USED |
-| `val_barricade_a_c1` | NOT_USED |
-| `val_barricade_a_c2` | NOT_USED |
-| `val_barricade_a_c3` | NOT_USED |
-| `val_barricade_b_a1` | NOT_USED |
-| `val_barricade_b_a2` | NOT_USED |
-| `val_barricade_b_a3` | NOT_USED |
-| `val_barricade_b_a4` | NOT_USED |
-| `val_barricade_b_a5` | NOT_USED |
-| `val_barricade_b_a6` | NOT_USED |
-| `val_barricade_b_a7` | INTEGRATED |
-| `val_barricade_b_c0` | NOT_USED |
-| `val_barricade_b_c1` | NOT_USED |
-| `val_barricade_b_c2` | NOT_USED |
-| `val_barricade_b_c3` | NOT_USED |
-| `val_guild_hall` | INTEGRATED |
-| `val_palisade_broken_a1` | INTEGRATED |
-| `val_palisade_broken_a2` | INTEGRATED |
-| `val_palisade_broken_a3` | INTEGRATED |
-| `val_palisade_broken_a4` | INTEGRATED |
-| `val_palisade_broken_a5` | NOT_USED |
-| `val_palisade_broken_a6` | INTEGRATED |
-| `val_palisade_broken_a7` | INTEGRATED |
-| `val_palisade_broken_c0` | NOT_USED |
-| `val_palisade_broken_c1` | NOT_USED |
-| `val_palisade_broken_c2` | NOT_USED |
-| `val_palisade_broken_c3` | NOT_USED |
-| `val_ruin_inscription_wall_a1` | NOT_USED |
-| `val_ruin_inscription_wall_a2` | NOT_USED |
-| `val_ruin_inscription_wall_a3` | NOT_USED |
-| `val_ruin_inscription_wall_a4` | NOT_USED |
-| `val_ruin_inscription_wall_a5` | NOT_USED |
-| `val_ruin_inscription_wall_a6` | NOT_USED |
-| `val_ruin_inscription_wall_a7` | NOT_USED |
-| `val_ruin_inscription_wall_c0` | NOT_USED |
-| `val_ruin_inscription_wall_c1` | NOT_USED |
-| `val_ruin_inscription_wall_c2` | NOT_USED |
-| `val_ruin_inscription_wall_c3` | NOT_USED |
-| `val_town_house_blue` | INTEGRATED |
-| `val_town_house_red` | INTEGRATED |
-| `val_town_house_wood` | INTEGRATED |
-| `val_wall_breach_a1` | NOT_USED |
-| `val_wall_breach_a2` | INTEGRATED |
-| `val_wall_breach_a3` | NOT_USED |
-| `val_wall_breach_a4` | NOT_USED |
-| `val_wall_breach_a5` | NOT_USED |
-| `val_wall_breach_a6` | NOT_USED |
-| `val_wall_breach_a7` | NOT_USED |
-| `val_wall_breach_c0` | NOT_USED |
-| `val_wall_breach_c1` | NOT_USED |
-| `val_wall_breach_c2` | NOT_USED |
-| `val_wall_breach_c3` | NOT_USED |
-| `val_wall_repaired_a1` | NOT_USED |
-| `val_wall_repaired_a2` | INTEGRATED |
-| `val_wall_repaired_a3` | NOT_USED |
-| `val_wall_repaired_a4` | NOT_USED |
-| `val_wall_repaired_a5` | NOT_USED |
-| `val_wall_repaired_a6` | INTEGRATED |
-| `val_wall_repaired_a7` | NOT_USED |
-| `val_wall_repaired_c0` | NOT_USED |
-| `val_wall_repaired_c1` | NOT_USED |
-| `val_wall_repaired_c2` | NOT_USED |
-| `val_wall_repaired_c3` | NOT_USED |
-| `val_wall_segment_a1` | NOT_USED |
-| `val_wall_segment_a2` | INTEGRATED |
-| `val_wall_segment_a3` | NOT_USED |
-| `val_wall_segment_a4` | NOT_USED |
-| `val_wall_segment_a5` | NOT_USED |
-| `val_wall_segment_a6` | INTEGRATED |
-| `val_wall_segment_a7` | NOT_USED |
-| `val_wall_segment_c0` | NOT_USED |
-| `val_wall_segment_c1` | NOT_USED |
-| `val_wall_segment_c2` | NOT_USED |
-| `val_wall_segment_c3` | NOT_USED |
-| `val_wall_tower` | INTEGRATED |
+| `dungeon_emissive_crystal` | INTEGRATED |
+| `dungeon_spikes` | INTEGRATED |
+| `dungeon_corridor` | INTEGRATED |
 
 ## IDs persistentes
 
-- POIs: 67; objetos: 1118; transições: 10; trilhas: 21; passagens: 3; fragmentos de lore: 12.
+- POIs: 67 (`REG001_POI_*`); objetos: 1088 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 21; passagens: 3; fragmentos de lore: 12.
+

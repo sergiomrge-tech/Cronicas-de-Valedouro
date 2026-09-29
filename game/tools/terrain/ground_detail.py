@@ -166,8 +166,10 @@ WORLD_RULES = [
     dict(name='ter_dec_grass_tall', on=['grass_a', 'grass_b', 'meadow', 'valley'], cell=60, p=.4, field='clump_b', lo=.55, hi=.75),
     dict(name='ter_dec_flowers', on=['meadow', 'valley', 'grass_a'], cell=34, p=.55, field='flower', lo=.62, hi=.8),
     dict(name='ter_dec_pebbles', on=['grass_a', 'grass_b', 'meadow', 'valley', 'dirt', 'road'], cell=80, p=.2),
-    dict(name='ter_dec_cracks_dirt', on=['dirt'], cell=30, p=.5),
-    dict(name='ter_dec_grass_dry', on=['dirt', 'road'], cell=70, p=.12),
+    dict(name='ter_dec_cracks_dirt', on=['dirt'], cell=120, p=.1),                 # rachaduras RARAS (antes liam como lamaçal)
+    dict(name='ter_dec_grass_dry', on=['dirt', 'road'], cell=46, p=.22),
+    dict(name='ter_dec_pebbles', on=['dirt', 'road'], cell=40, p=.3),
+    dict(name='ter_dec_grass', on=['dirt'], cell=38, p=.25),
     # floresta
     dict(name='ter_dec_leaves', on=['forest_floor', 'grass_b'], cell=34, p=.4, field='clump_a', lo=.45, hi=.7),
     dict(name='ter_dec_grass', on=['forest_floor'], cell=44, p=.3, field='clump_b', lo=.5, hi=.72),

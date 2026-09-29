@@ -7840,6 +7840,41 @@
   "pipeline": "blender-pro"
  },
  {
+  "id": "nat_birch_tall",
+  "path": "res://assets/modeled/nature/trees/nat_birch_tall.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "revisao_visual",
+   "betula"
+  ],
+  "sha256": "43dc1c2f1825c5bff0a54d4d30d320289859f80aea43884116994605058c0668",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    9.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
   "id": "nat_boulder_ice",
   "path": "res://assets/modeled/nature/rocks/nat_boulder_ice.png",
   "group": "nature",
@@ -12042,6 +12077,187 @@
   "pipeline": "blender-pro"
  },
  {
+  "id": "nat_oak_a",
+  "path": "res://assets/modeled/nature/trees/nat_oak_a.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "revisao_visual",
+   "carvalho",
+   "verde"
+  ],
+  "sha256": "a6ffe88df58e7e192da4a30dfbc17c0a814a4aba4a145baff4fa08d1362af13e",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    12.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_oak_autumn",
+  "path": "res://assets/modeled/nature/trees/nat_oak_autumn.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "revisao_visual",
+   "carvalho",
+   "outono"
+  ],
+  "sha256": "fd8ffd870c260d63d67dd234e1c611bb1fedc44053c286ff39543b755e38782c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    12.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_oak_b",
+  "path": "res://assets/modeled/nature/trees/nat_oak_b.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "revisao_visual",
+   "carvalho",
+   "verde"
+  ],
+  "sha256": "db85bfed36946f72fe164e0ea3ab1df2bccf7f2636ef71b2065eb8a3c4c5d40f",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    12.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_oak_c",
+  "path": "res://assets/modeled/nature/trees/nat_oak_c.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "revisao_visual",
+   "carvalho",
+   "verde",
+   "grande"
+  ],
+  "sha256": "6f802880fb9258f2e68870396ddb878ee8191502d89fcf6d1f144927b2ee5c05",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    12.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_oak_golden",
+  "path": "res://assets/modeled/nature/trees/nat_oak_golden.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "revisao_visual",
+   "carvalho",
+   "dourada"
+  ],
+  "sha256": "1f78e99bc47969cb607dcabb897ad4558285df3db28df6e62370779a4f8fa44c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    12.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
   "id": "nat_obelisk_rune",
   "path": "res://assets/modeled/nature/ruins/nat_obelisk_rune.png",
   "group": "nature",
@@ -12066,6 +12282,112 @@
   "sha256": "def7d985e0a95a55efd832a64ce42ef517a86afeeba56d9bc4bb05b70d2c449d",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_pine_tall_a",
+  "path": "res://assets/modeled/nature/trees/nat_pine_tall_a.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "revisao_visual",
+   "pinheiro"
+  ],
+  "sha256": "9f809b7544a8824536e46676b43372b927e329de6921ee9470f3d2e84af43600",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_pine_tall_b",
+  "path": "res://assets/modeled/nature/trees/nat_pine_tall_b.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "revisao_visual",
+   "pinheiro"
+  ],
+  "sha256": "4f65431b0847aab1d495d47b6416edd8488ae92f2ebd62c9dd84b9d39a887b8c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_pine_tall_snow",
+  "path": "res://assets/modeled/nature/trees/nat_pine_tall_snow.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "revisao_visual",
+   "pinheiro",
+   "neve"
+  ],
+  "sha256": "477f183f547347289763a099768377f3017d3be14b659da59599063ee211f6f9",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ],
   "pipeline": "blender-pro"
  },
  {

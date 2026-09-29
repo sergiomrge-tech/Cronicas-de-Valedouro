@@ -37,3 +37,15 @@ Capturas: `docs/visual_qa/story/estrutural_catA/`.
 - Validar sempre com captura REAL do Godot (`tests/qa_capture_reg001.gd` / `tests/qa_capture_act02.gd`), olhando o resultado antes de declarar pronto.
 - Rodar a suíte Godot completa, QC (`asset_qc.py`: 0 FAIL), `validate_reg001.py` e `audit_logic.py`.
 - Assets novos ficam `MODELED_PENDING_GATE` até o gate visual do Diretor.
+
+## 6. Árvores (revisão visual — padrão aprovado)
+- Usar as árvores finais de `tools/art_pipeline/pro_trees.py` (`nat_oak_a/b/c`, `nat_oak_autumn`, `nat_oak_golden`, `nat_pine_tall_a/b`, `nat_pine_tall_snow`, `nat_birch_tall`). As copas APPROVED `city_tree_*` não voltam ao mundo.
+- Copa com volume: massa interna escura coberta por folhas pequenas em três camadas (sombra embaixo, meio-tom em volta, luz no topo alto-esquerdo) e tufos soltos na borda. Nunca bola lisa nem lascas grandes facetadas.
+- Tronco com raízes aparentes, tufos na base e sombra de contato; árvore adulta ≈ 6–7,5 u (escala das casas de dois andares).
+- Variar espécie e cor por bioma e seed (`asset_for` em `scripts/reg001_procedural.gd`).
+
+## 7. Terreno e level design
+- Trilhas: chão batido com pedrisco; terra nua só em manchas. Rachaduras de terra seca são raras (não ler como lamaçal).
+- Relevo (platôs, cristas, paredões) nunca encosta em construções, muros, cercas ou POIs: folga de pátio em `_elev_ok` (`_BUILDING_KEYS`).
+- Marcos e edifícios nunca em cima de trilha; trilha de acesso termina na porta/base do marco.
+- Após mexer em relevo, marcos ou construções: `build_world.py`, `audit_logic.py`, `bake_ground.py`, `validate_reg001.py`, `tests/world_travel.gd` e captura real.

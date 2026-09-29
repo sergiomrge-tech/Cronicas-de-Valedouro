@@ -111,7 +111,7 @@ def ford(pid, y, note):
 # ============================================================================================
 trail('REG001_TRAIL_LENHADOR', [(420, 1160), (340, 1030), (262, 930), (250, 800), (285, 620), (300, 470)], note='rota secundária: acampamento -> clareira do ancião')
 trail('REG001_TRAIL_CASA', [(520, 1160), (548, 960), (540, 760), (520, 650)], note='rota secundária: casa abandonada')
-trail('REG001_TRAIL_MIRANTE', [(300, 1160), (330, 1120), (360, 1085)], note='acesso ao mirante da Torre do Oeste')
+trail('REG001_TRAIL_MIRANTE', [(300, 1160), (290, 1125), (280, 1100)], note='acesso ao mirante da Torre do Oeste')
 trail('REG001_TRAIL_RUINAS', [(1536, 430), (1330, 410), (1100, 395), (880, 378)], note='rota principal ao arco dos antigos')
 trail('REG001_TRAIL_ANCIAO', [(1290, 405), (1230, 300), (1180, 215)], note='rota secundária: elite do bosque')
 
@@ -149,9 +149,9 @@ P('REG001_POI_CHEST_CASA', 'chest', 'BAÚ DA CASA', 590, 648, tier=1, layer='sec
   data={'loot': {'gold': 40, 'materials': {'Seda sombria': 2}, 'item': item('Arco da Clareira', 'bow', 1, 1, 0, 5, 0)}})
 
 # --- Mirante da Torre do Oeste (estrutura legada em 360,1110)
-P('REG001_POI_MIRANTE_OESTE', 'viewpoint', 'MIRANTE DA TORRE DO OESTE', 360, 1110, tier=1, layer='secondary', radius=90, region='floresta',
+P('REG001_POI_MIRANTE_OESTE', 'viewpoint', 'MIRANTE DA TORRE DO OESTE', 272, 1078, tier=1, layer='secondary', radius=90, region='floresta',
   data={'text': 'Do alto da torre: fumaça a noroeste (acampamento), ruínas ao norte e o brilho do rio a leste.', 'reveal': ['REG001_POI_CAMP_LENHADOR', 'REG001_POI_ANCIAO_CLAREIRA', 'REG001_POI_RUINAS_PRIMEIRO_VENTO']})
-W.obj('nat_flag_blue', 318, 1086, 'MIRANTE', poi='REG001_POI_MIRANTE_OESTE', anim=1)
+W.obj('nat_flag_blue', 232, 1052, 'MIRANTE', poi='REG001_POI_MIRANTE_OESTE', anim=1)
 W.obj('nat_signpost', 400, 1092, 'MIRANTE')
 W.obj('nat_flowers_meadow', 300, 1136, 'MIRANTE')
 
@@ -873,7 +873,7 @@ def bosque_free(x, y):
 
 
 for tx, ty in LEGACY_TRUNKS:
-    fo('APP:city_tree_green', tx, ty + 30, scale=.78)
+    fo(['nat_oak_a', 'nat_oak_b', 'nat_oak_c'][int(tx + ty) % 3], tx, ty + 30, scale=.9)
 _rb = random.Random(88012)
 _placed = [(tx, ty) for tx, ty in LEGACY_TRUNKS]
 _tries = 0
@@ -885,14 +885,14 @@ while len(_placed) < 200 and _tries < 9000:
     _placed.append((x, y))
     kind = _rb.random()
     if kind < .42:
-        fo('nat_tree_pine', x, y, solid=None)
+        fo('nat_pine_tall_a' if _rb.random() < .6 else 'nat_pine_tall_b', x, y, solid=None)
     elif kind < .62:
-        fo('nat_tree_birch', x, y, solid=None)
+        fo('nat_birch_tall', x, y, solid=None)
     elif kind < .9:
-        fo('APP:city_tree_green', x, y)
+        fo(_rb.choice(['nat_oak_a', 'nat_oak_b', 'nat_oak_c']), x, y)
         W.collider('circle', x, y - 6, 13, zone='floresta')
     else:
-        fo('APP:city_tree_autumn', x, y)
+        fo(_rb.choice(['nat_oak_autumn', 'nat_oak_golden']), x, y)
         W.collider('circle', x, y - 6, 13, zone='floresta')
 for _ in range(34):
     for _t in range(30):
@@ -1028,16 +1028,16 @@ _rt = random.Random(4242)
 for _tx, _ty in ((760, 255), (1040, 250), (1200, 250), (1330, 250), (60, 470), (60, 700), (340, 520), (560, 560),
                  (760, 720), (1130, 560), (1200, 740), (1400, 520), (1720, 640), (1720, 300), (700, 480), (1060, 470)):
     if _town_free(_tx, _ty, w=60, h=40, pad=0):
-        W.obj('APP:city_tree_autumn' if _rt.random() < .25 else 'APP:city_tree_green', TX + _tx, TY + _ty, 'CIDADE_ARV', scale=.5, solid=False, check=False)
+        W.obj('nat_oak_autumn' if _rt.random() < .25 else _rt.choice(['nat_oak_a', 'nat_oak_b']), TX + _tx, TY + _ty, 'CIDADE_ARV', scale=.72, solid=False, check=False)
         W.collider('circle', TX + _tx, TY + _ty - 4, 14)
 
 # ============================================================================================
 # FINALIZAÇÃO DE ASSETS — estruturas modeladas, fazenda, cais, cachoeira e elevações
 # ============================================================================================
 # marcos que eram sprites legados (STRUCTURES em world_map.gd continua fornecendo colisão/exclusão de vegetação)
-W.obj('str_watchtower_stone', 360, 1112, 'MARCO', poi='REG001_POI_MIRANTE_OESTE', check=False)
+W.obj('str_watchtower_stone', 272, 1080, 'MARCO', poi='REG001_POI_MIRANTE_OESTE', check=False)      # (level design) fora da trilha do Lenhador
 W.obj('str_watchtower_stone', 1320, 347, 'MARCO', poi='REG001_POI_MIRANTE_NORTE', check=False)
-W.obj('str_windmill', 1110, 1882, 'MARCO', anim=1, check=False)
+W.obj('str_windmill', 1060, 1920, 'MARCO', anim=1, check=False)      # (level design) afastado das casas, junto à lavoura que ele serve
 W.obj('str_shrine_stone', 1660, 2022, 'MARCO', anim=1, poi='REG001_POI_SANTUARIO_VALE', check=False)
 W.obj('nat_obelisk_rune', 1608, 2062, 'MARCO', anim=1, scale=.7)      # LORE_07: erguido por quem cruzou o Limiar
 W.obj('nat_obelisk_rune', 1712, 2062, 'MARCO', anim=1, scale=.7)
@@ -1206,6 +1206,9 @@ def _erad(asset):
     return 60
 
 
+_BUILDING_KEYS = ('town_house', 'hall', 'windmill', 'barn', 'lodge', 'outpost', 'watchtower', 'shrine', 'gate', 'wall_tower', 'mine_portal', 'str_dock', 'val_wall_segment', 'cave_entrance', 'nat_wall_low', 'nat_fence', 'nat_gate_wood')
+
+
 def _elev_ok(x, y, rad, group=None):
     if not (60 < x < 3010 and 60 < y < 2240):
         return False
@@ -1224,7 +1227,14 @@ def _elev_ok(x, y, rad, group=None):
     for o in W.objects:
         if o['zone'] != 'cidade':
             continue
-        if math.hypot(x - o['pos'][0], y - o['pos'][1]) < (rad * .5 + 16 if o.get('solid') else rad * .3 + 6):
+        d = math.hypot(x - o['pos'][0], y - o['pos'][1])
+        if any(k in o['asset'] for k in _BUILDING_KEYS):      # level design: relevo nunca encosta em construção (folga de pátio)
+            if d < rad * .5 + 125:
+                return False
+        elif d < (rad * .5 + 16 if o.get('solid') else rad * .3 + 6):
+            return False
+    for p in W.pois:
+        if p.get('zone', 'cidade') == 'cidade' and math.hypot(x - p['pos'][0], y - p['pos'][1]) < rad * .4 + 70:
             return False
     for px, py, pr, pg in _elev_done:
         same = group is not None and pg == group

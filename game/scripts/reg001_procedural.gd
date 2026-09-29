@@ -31,13 +31,18 @@ static func item(sy: float, asset: String, x: float, y: float, anim: float, scal
 static func asset_for(kind: String, biome_name: String, seed: int) -> String:
 	match kind:
 		"tree":
-			if biome_name in ["campos", "vale", "pradaria"] and seed % 10 < 3:
-				return "nat_tree_birch"
-			return "APP:city_tree_autumn" if seed % 9 == 0 else "APP:city_tree_green"
+			# árvores finais (revisão visual): copa em volume, escala das casas; variação por bioma e seed
+			if biome_name in ["campos", "vale", "pradaria"] and seed % 10 < 2:
+				return "nat_birch_tall"
+			if seed % 11 == 0:
+				return "nat_oak_autumn"
+			if seed % 13 == 0:
+				return "nat_oak_golden"
+			return ["nat_oak_a", "nat_oak_b", "nat_oak_c"][seed % 3]
 		"pine":
-			return "nat_tree_pine"
+			return "nat_pine_tall_a" if seed % 3 else "nat_pine_tall_b"
 		"frost_tree":
-			return "nat_tree_pine_snow"
+			return "nat_pine_tall_snow"
 		"bush":
 			if biome_name == "gelo":
 				return "nat_bush_frost"
