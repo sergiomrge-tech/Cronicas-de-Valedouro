@@ -1,0 +1,573 @@
+{
+  "schema_version": 1,
+  "registry_id": "MAIN_STORY_LOCATIONS_V1",
+  "rule": "Toda construção/landmark principal deve ter função de missão, sistema, lore ou exploração persistente. Nenhuma construção de grande destaque existe apenas como decoração.",
+  "locations": [
+    {
+      "id": "LOC_VAL_GATE",
+      "name": "Portão de Valedouro",
+      "region": "berco_valedouro",
+      "kind": "fortification",
+      "status": "EXISTING_RUNTIME",
+      "existing_poi": "",
+      "post": "Defesa narrativa, entrada da cidade e marco de retorno.",
+      "missions": [
+        "Q_MS01_ARRIVAL",
+        "Q_MS05_SIEGE"
+      ]
+    },
+    {
+      "id": "LOC_VAL_GUILD",
+      "name": "Guilda dos Aventureiros de Valedouro",
+      "region": "berco_valedouro",
+      "kind": "service_building",
+      "status": "EXISTING_RUNTIME",
+      "existing_poi": "",
+      "post": "Contratos, domínio, recompensas e reputação.",
+      "missions": [
+        "Q_MS01_GUILD"
+      ]
+    },
+    {
+      "id": "LOC_VAL_NORTH_ROAD",
+      "name": "Estrada Norte",
+      "region": "berco_valedouro",
+      "kind": "road",
+      "status": "EXISTING_REG001",
+      "existing_poi": "REG001_POI_CAMP_LENHADOR",
+      "post": "Rota de exploração e contratos iniciais.",
+      "missions": [
+        "Q_MS01_WOLVES"
+      ]
+    },
+    {
+      "id": "LOC_FIRST_WIND_RUINS",
+      "name": "Ruínas do Primeiro Vento",
+      "region": "berco_valedouro",
+      "kind": "ruins",
+      "status": "EXISTING_REG001",
+      "existing_poi": "REG001_POI_RUINAS_PRIMEIRO_VENTO",
+      "post": "Lore do Primeiro Viajante e âncora de exploração.",
+      "missions": [
+        "Q_MS01_FIRST_WIND"
+      ]
+    },
+    {
+      "id": "LOC_ALPHA_CLEARING",
+      "name": "Clareira do Alfa",
+      "region": "berco_valedouro",
+      "kind": "arena",
+      "status": "EXISTING_REG001_ADAPT",
+      "existing_poi": "REG001_POI_ANCIAO_CLAREIRA",
+      "post": "Arena de revanche/caçada.",
+      "missions": [
+        "Q_MS01_ALPHA"
+      ]
+    },
+    {
+      "id": "LOC_ECHO_MINE",
+      "name": "Mina do Eco",
+      "region": "berco_valedouro",
+      "kind": "dungeon_entrance",
+      "status": "EXISTING_RUNTIME_ADAPT",
+      "existing_poi": "REG001_POI_CRIPTA_ENTRADA",
+      "post": "Dungeon repetível após a história.",
+      "missions": [
+        "Q_MS01_MINE"
+      ]
+    },
+    {
+      "id": "LOC_ECHO_MINE_CORE",
+      "name": "Câmara do Guardião",
+      "region": "berco_valedouro",
+      "kind": "boss_arena",
+      "status": "EXISTING_RUNTIME",
+      "existing_poi": "REG001_POI_DG_CHECKPOINT",
+      "post": "Revanche do Guardião e crafting.",
+      "missions": [
+        "Q_MS01_GUARDIAN"
+      ]
+    },
+    {
+      "id": "LOC_SIX_CROWNS_ARCHIVE",
+      "name": "Arquivo das Seis Coroas",
+      "region": "berco_valedouro",
+      "kind": "archive",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Codex, registros históricos e exposição do mapa.",
+      "missions": [
+        "Q_MS01_ARCHIVE"
+      ]
+    },
+    {
+      "id": "LOC_FOREST_STONE_BRIDGE",
+      "name": "Ponte de Pedra da Fronteira",
+      "region": "floresta_ancestral",
+      "kind": "bridge",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Fast travel e ligação visual entre regiões.",
+      "missions": [
+        "Q_MS02_BORDER"
+      ]
+    },
+    {
+      "id": "LOC_FOREST_RANGER_LODGE",
+      "name": "Casa dos Guardas Verdes",
+      "region": "floresta_ancestral",
+      "kind": "lodge",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Contratos e suporte da floresta.",
+      "missions": [
+        "Q_MS02_RANGERS"
+      ]
+    },
+    {
+      "id": "LOC_FOREST_ROOT_SHRINES",
+      "name": "Santuários de Raiz",
+      "region": "floresta_ancestral",
+      "kind": "shrines",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Pontos de lore e recursos naturais.",
+      "missions": [
+        "Q_MS02_ROOTS"
+      ]
+    },
+    {
+      "id": "LOC_MEMORY_TREE",
+      "name": "Árvore-Memória",
+      "region": "floresta_ancestral",
+      "kind": "landmark",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Landmark central e memória/codex.",
+      "missions": [
+        "Q_MS02_MEMORY_TREE"
+      ]
+    },
+    {
+      "id": "LOC_HOLLOW_ROOT_ARENA",
+      "name": "Coração da Raiz Oca",
+      "region": "floresta_ancestral",
+      "kind": "boss_arena",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Revanche opcional.",
+      "missions": [
+        "Q_MS02_HOLLOW_ROOT"
+      ]
+    },
+    {
+      "id": "LOC_FOREST_CARTOGRAPHER_SHRINE",
+      "name": "Santuário dos Cartógrafos",
+      "region": "floresta_ancestral",
+      "kind": "ruins",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Atualização do mapa-múndi e lore.",
+      "missions": [
+        "Q_MS02_VEIL_SHRINE"
+      ]
+    },
+    {
+      "id": "LOC_AMBER_CARAVAN",
+      "name": "Caravana de Âmbar",
+      "region": "deserto_ruinas",
+      "kind": "mobile_camp",
+      "status": "EXISTING_REG001",
+      "existing_poi": "REG001_POI_CARAVANA",
+      "post": "Mercador itinerante e contratos.",
+      "missions": [
+        "Q_MS03_CARAVAN"
+      ]
+    },
+    {
+      "id": "LOC_AMBER_POST",
+      "name": "Posto de Âmbar",
+      "region": "deserto_ruinas",
+      "kind": "outpost",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Hub menor, comércio e fast travel.",
+      "missions": [
+        "Q_MS03_AMBER_POST"
+      ]
+    },
+    {
+      "id": "LOC_EDRAVAR_OCCUPIED_CITY",
+      "name": "Edravar Ocupada",
+      "region": "deserto_ruinas",
+      "kind": "city_ruins",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Grande zona urbana de exploração.",
+      "missions": [
+        "Q_MS03_EDRAVAR"
+      ]
+    },
+    {
+      "id": "LOC_EDRAVAR_RESISTANCE_CISTERN",
+      "name": "Cisterna da Resistência",
+      "region": "deserto_ruinas",
+      "kind": "hideout",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Base de resistência e secundárias.",
+      "missions": [
+        "Q_MS03_CISTERN"
+      ]
+    },
+    {
+      "id": "LOC_ASH_OBSERVATORY",
+      "name": "Observatório de Cinzas",
+      "region": "deserto_ruinas",
+      "kind": "dungeon",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Dungeon repetível.",
+      "missions": [
+        "Q_MS03_OBSERVATORY"
+      ]
+    },
+    {
+      "id": "LOC_ASH_CITADEL",
+      "name": "Cidadela da Cinza",
+      "region": "deserto_ruinas",
+      "kind": "fortress",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Revanche do General e materiais.",
+      "missions": [
+        "Q_MS03_GENERAL_ASH"
+      ]
+    },
+    {
+      "id": "LOC_MARSH_STILT_VILLAGE",
+      "name": "Vila das Lanternas",
+      "region": "pantanos_sombrios",
+      "kind": "stilt_village",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Hub do pântano.",
+      "missions": [
+        "Q_MS04_STILTS"
+      ]
+    },
+    {
+      "id": "LOC_DROWNED_BELL_TOWER",
+      "name": "Torre do Sino Afogado",
+      "region": "pantanos_sombrios",
+      "kind": "tower",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Landmark, puzzle e navegação.",
+      "missions": [
+        "Q_MS04_BELL"
+      ]
+    },
+    {
+      "id": "LOC_FLOODED_MONASTERY",
+      "name": "Mosteiro Inundado",
+      "region": "pantanos_sombrios",
+      "kind": "dungeon",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Dungeon/recompensas.",
+      "missions": [
+        "Q_MS04_MONASTERY"
+      ]
+    },
+    {
+      "id": "LOC_REED_SANCTUM",
+      "name": "Santuário dos Juncos",
+      "region": "pantanos_sombrios",
+      "kind": "sanctum",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Lore e acesso ao boss.",
+      "missions": [
+        "Q_MS04_REED_SANCTUM"
+      ]
+    },
+    {
+      "id": "LOC_REED_THRONE",
+      "name": "Trono dos Juncos",
+      "region": "pantanos_sombrios",
+      "kind": "boss_arena",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Revanche da Dama.",
+      "missions": [
+        "Q_MS04_LADY_REEDS"
+      ]
+    },
+    {
+      "id": "LOC_MARSH_ECHO_SLICE",
+      "name": "Comporta dos Ecos",
+      "region": "pantanos_sombrios",
+      "kind": "ritual_gate",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Controle ambiental pós-história.",
+      "missions": [
+        "Q_MS04_SLICE_GATE"
+      ]
+    },
+    {
+      "id": "LOC_FROST_REST",
+      "name": "Pouso da Geada",
+      "region": "montanhas_nevadas",
+      "kind": "settlement",
+      "status": "EXISTING_REG001",
+      "existing_poi": "REG001_POI_POUSO_GEADA",
+      "post": "Hub, Kaya, comércio e fast travel.",
+      "missions": [
+        "Q_MS05_FROST_REST"
+      ]
+    },
+    {
+      "id": "LOC_FROZEN_EXPEDITION_STATION",
+      "name": "Estação da Expedição",
+      "region": "montanhas_nevadas",
+      "kind": "station",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Abrigo, quests e lore.",
+      "missions": [
+        "Q_MS05_EXPEDITION"
+      ]
+    },
+    {
+      "id": "LOC_FROZEN_COMMAND_POST",
+      "name": "Posto do Capitão",
+      "region": "montanhas_nevadas",
+      "kind": "boss_arena",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Revanche do Capitão.",
+      "missions": [
+        "Q_MS05_CAPTAIN"
+      ]
+    },
+    {
+      "id": "LOC_FROZEN_ARCHIVE",
+      "name": "Arquivo Congelado",
+      "region": "montanhas_nevadas",
+      "kind": "archive",
+      "status": "EXISTING_REG001_ADAPT",
+      "existing_poi": "REG001_POI_SEGREDO_GELO",
+      "post": "Arquivo histórico permanente.",
+      "missions": [
+        "Q_MS05_ARCHIVE"
+      ]
+    },
+    {
+      "id": "LOC_BLACK_FROST_CITADEL",
+      "name": "Cidadela da Geada Negra",
+      "region": "montanhas_nevadas",
+      "kind": "fortress",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Revanche do General.",
+      "missions": [
+        "Q_MS05_BLACK_FROST"
+      ]
+    },
+    {
+      "id": "LOC_MIST_PORT",
+      "name": "Porto das Brumas",
+      "region": "costas_ilhas_perdidas",
+      "kind": "port",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Hub marítimo e transporte.",
+      "missions": [
+        "Q_MS06_MIST_PORT"
+      ]
+    },
+    {
+      "id": "LOC_TWIN_LIGHTHOUSE",
+      "name": "Farol Gêmeo",
+      "region": "costas_ilhas_perdidas",
+      "kind": "lighthouse",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Fast travel marítimo e landmark.",
+      "missions": [
+        "Q_MS06_LIGHTHOUSE"
+      ]
+    },
+    {
+      "id": "LOC_SUNKEN_TEMPLE",
+      "name": "Templo Submerso",
+      "region": "costas_ilhas_perdidas",
+      "kind": "dungeon",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Dungeon repetível.",
+      "missions": [
+        "Q_MS06_SUNKEN_TEMPLE"
+      ]
+    },
+    {
+      "id": "LOC_LOST_ISLAND_SHIPYARD",
+      "name": "Estaleiro das Ilhas Perdidas",
+      "region": "costas_ilhas_perdidas",
+      "kind": "shipyard",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Base naval e contratos.",
+      "missions": [
+        "Q_MS06_HOLLOW_FLEET"
+      ]
+    },
+    {
+      "id": "LOC_TIDAL_OBSERVATORY",
+      "name": "Observatório das Marés",
+      "region": "costas_ilhas_perdidas",
+      "kind": "observatory",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Revanche do General e navegação.",
+      "missions": [
+        "Q_MS06_GENERAL_TIDE"
+      ]
+    },
+    {
+      "id": "LOC_LAST_BASTION",
+      "name": "Último Bastião",
+      "region": "terras_corrompidas",
+      "kind": "fortress",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Hub militar da frente final.",
+      "missions": [
+        "Q_MS07_LAST_BASTION"
+      ]
+    },
+    {
+      "id": "LOC_WAR_OBELISKS",
+      "name": "Obeliscos de Guerra",
+      "region": "terras_corrompidas",
+      "kind": "ritual_network",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Eventos mundiais pós-campanha.",
+      "missions": [
+        "Q_MS07_OBELISKS"
+      ]
+    },
+    {
+      "id": "LOC_BROKEN_CATHEDRAL",
+      "name": "Catedral Partida",
+      "region": "terras_corrompidas",
+      "kind": "dungeon",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Dungeon e arquivo do Pacto.",
+      "missions": [
+        "Q_MS07_CATHEDRAL"
+      ]
+    },
+    {
+      "id": "LOC_ALLIANCE_WAR_COUNCIL",
+      "name": "Conselho de Guerra das Seis Coroas",
+      "region": "terras_corrompidas",
+      "kind": "war_camp",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Mandatos e conteúdo de alto nível.",
+      "missions": [
+        "Q_MS07_COUNCIL"
+      ]
+    },
+    {
+      "id": "LOC_HOLLOW_CROWN_CITADEL",
+      "name": "Cidadela da Coroa Oca",
+      "region": "terras_corrompidas",
+      "kind": "fortress",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Revanche do último general.",
+      "missions": [
+        "Q_MS07_GENERAL_VOID"
+      ]
+    },
+    {
+      "id": "LOC_LAST_MAP_GATE",
+      "name": "Portão do Último Mapa",
+      "region": "coracao_abissal",
+      "kind": "portal",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Entrada do conteúdo final.",
+      "missions": [
+        "Q_MS08_LAST_MAP_GATE"
+      ]
+    },
+    {
+      "id": "LOC_HALL_LOST_PATHS",
+      "name": "Salão dos Caminhos Perdidos",
+      "region": "coracao_abissal",
+      "kind": "surreal_dungeon",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Desafio pós-jogo.",
+      "missions": [
+        "Q_MS08_LOST_PATHS"
+      ]
+    },
+    {
+      "id": "LOC_VOID_ARCHIVE",
+      "name": "Arquivo do Vazio",
+      "region": "coracao_abissal",
+      "kind": "boss_arena",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Revanche bloqueada após conclusão se desejado.",
+      "missions": [
+        "Q_MS08_CARTOGRAPHER"
+      ]
+    },
+    {
+      "id": "LOC_EMPTY_THRONE_ANTECHAMBER",
+      "name": "Antecâmara do Trono Vazio",
+      "region": "coracao_abissal",
+      "kind": "story_room",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Memórias de Adrian.",
+      "missions": [
+        "Q_MS08_FIRST_TRAVELER"
+      ]
+    },
+    {
+      "id": "LOC_EMPTY_THRONE",
+      "name": "Trono da Coroa Oca",
+      "region": "coracao_abissal",
+      "kind": "final_boss_arena",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Memorial da campanha.",
+      "missions": [
+        "Q_MS08_AZHAREL"
+      ]
+    },
+    {
+      "id": "LOC_EARTH_GATE",
+      "name": "Limiar da Terra",
+      "region": "coracao_abissal",
+      "kind": "world_gate",
+      "status": "TO_BUILD",
+      "existing_poi": "",
+      "post": "Portal estabilizado e epílogo.",
+      "missions": [
+        "Q_MS08_EARTH_GATE",
+        "Q_MS08_CHOICE"
+      ]
+    }
+  ]
+}

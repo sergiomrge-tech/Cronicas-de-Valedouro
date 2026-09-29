@@ -1,0 +1,615 @@
+{
+  "schema_version": 1,
+  "story_id": "MAIN_STORY_SECOND_TRAVELER_V1",
+  "title": "O Segundo Viajante",
+  "world": "Elyndor",
+  "conflict": "Guerra da Coroa Oca",
+  "war_years": 23,
+  "protagonist": {
+    "origin": "Terra",
+    "role": "Segundo Viajante",
+    "player_named": true
+  },
+  "antagonist": {
+    "id": "BOSS_AZHAREL_001",
+    "name": "Azharel",
+    "human_identity": "Adrian Vale",
+    "role": "Primeiro Viajante"
+  },
+  "acts": [
+    {
+      "id": "ACT_MAIN_01",
+      "n": 1,
+      "title": "O Segundo Viajante",
+      "region": "berco_valedouro",
+      "region_name": "Berço de Valedouro",
+      "theme": "Chegada, sobrevivência e o primeiro vestígio do caminho entre mundos.",
+      "min_level": 1,
+      "max_level": 12
+    },
+    {
+      "id": "ACT_MAIN_02",
+      "n": 2,
+      "title": "A Floresta que Lembra",
+      "region": "floresta_ancestral",
+      "region_name": "Floresta Ancestral",
+      "theme": "A memória viva da floresta revela que outro viajante já passou por Elyndor.",
+      "min_level": 12,
+      "max_level": 24
+    },
+    {
+      "id": "ACT_MAIN_03",
+      "n": 3,
+      "title": "Cinzas de Edravar",
+      "region": "deserto_ruinas",
+      "region_name": "Deserto e Ruínas",
+      "theme": "A capital ocupada prova que Adrian Vale foi herói antes de se tornar Azharel.",
+      "min_level": 24,
+      "max_level": 36
+    },
+    {
+      "id": "ACT_MAIN_04",
+      "n": 4,
+      "title": "As Lanternas Afundadas",
+      "region": "pantanos_sombrios",
+      "region_name": "Pântanos Sombrios",
+      "theme": "O pântano mostra como a Coroa Oca transforma memória, vida e juramentos em combustível.",
+      "min_level": 36,
+      "max_level": 48
+    },
+    {
+      "id": "ACT_MAIN_05",
+      "n": 5,
+      "title": "O Arquivo sob o Gelo",
+      "region": "montanhas_nevadas",
+      "region_name": "Montanhas Nevadas",
+      "theme": "A identidade de Azharel é revelada e Valedouro sofre a consequência direta da descoberta.",
+      "min_level": 48,
+      "max_level": 60
+    },
+    {
+      "id": "ACT_MAIN_06",
+      "n": 6,
+      "title": "Maré sem Lua",
+      "region": "costas_ilhas_perdidas",
+      "region_name": "Costas e Ilhas Perdidas",
+      "theme": "O herói descobre que existe uma forma segura de reabrir o caminho para a Terra.",
+      "min_level": 60,
+      "max_level": 72
+    },
+    {
+      "id": "ACT_MAIN_07",
+      "n": 7,
+      "title": "A Terra que Sangra",
+      "region": "terras_corrompidas",
+      "region_name": "Terras Corrompidas",
+      "theme": "A guerra chega ao coração das linhas da Coroa Oca e as Seis Coroas preparam o ataque final.",
+      "min_level": 72,
+      "max_level": 88
+    },
+    {
+      "id": "ACT_MAIN_08",
+      "n": 8,
+      "title": "O Coração da Coroa Oca",
+      "region": "coracao_abissal",
+      "region_name": "Coração Abissal",
+      "theme": "O Segundo Viajante enfrenta o Primeiro e decide o destino do caminho entre Elyndor e a Terra.",
+      "min_level": 88,
+      "max_level": 100
+    }
+  ],
+  "start_quest": "Q_MS01_ARRIVAL",
+  "final_quest": "Q_MS08_CHOICE",
+  "quests": [
+    {
+      "id": "Q_MS01_ARRIVAL",
+      "act": 1,
+      "title": "A Queda",
+      "type": "arrive",
+      "loc": "LOC_VAL_GATE",
+      "objective": "Sobreviva à chegada e alcance o Portão de Valedouro.",
+      "summary": "O protagonista desperta em Elyndor durante um ataque menor da Coroa Oca. Não sabe como atravessou mundos, apenas que veio da Terra.",
+      "next": "Q_MS01_GUILD"
+    },
+    {
+      "id": "Q_MS01_GUILD",
+      "act": 1,
+      "title": "Sem Nome neste Mundo",
+      "type": "talk",
+      "loc": "LOC_VAL_GUILD",
+      "objective": "Procure abrigo e registre-se na Guilda dos Aventureiros.",
+      "summary": "A Guilda percebe que o recém-chegado não pertence a nenhum reino conhecido. A campanha não depende de Rank da Guilda.",
+      "next": "Q_MS01_WOLVES"
+    },
+    {
+      "id": "Q_MS01_WOLVES",
+      "act": 1,
+      "title": "Contrato de Cobre",
+      "type": "kill",
+      "loc": "LOC_VAL_NORTH_ROAD",
+      "objective": "Afaste os lobos das trilhas ao norte.",
+      "summary": "Uma tarefa simples introduz o herói à guerra cotidiana de Valedouro e ao Eco que altera a fauna.",
+      "next": "Q_MS01_FIRST_WIND"
+    },
+    {
+      "id": "Q_MS01_FIRST_WIND",
+      "act": 1,
+      "title": "O Primeiro Vento",
+      "type": "investigate",
+      "loc": "LOC_FIRST_WIND_RUINS",
+      "objective": "Investigue as Ruínas do Primeiro Vento.",
+      "summary": "As ruínas reagem à presença do protagonista e exibem símbolos de um caminho entre mundos.",
+      "next": "Q_MS01_ALPHA"
+    },
+    {
+      "id": "Q_MS01_ALPHA",
+      "act": 1,
+      "title": "A Matilha que Escuta",
+      "type": "boss",
+      "loc": "LOC_ALPHA_CLEARING",
+      "objective": "Derrote o Alfa da Matilha.",
+      "summary": "O Alfa carrega um fragmento de Eco marcado com o mesmo padrão das ruínas.",
+      "boss": "BOSS_ALPHA_MATILHA_001",
+      "next": "Q_MS01_MINE"
+    },
+    {
+      "id": "Q_MS01_MINE",
+      "act": 1,
+      "title": "A Mina que Recorda",
+      "type": "dungeon",
+      "loc": "LOC_ECHO_MINE",
+      "objective": "Abra a Mina do Eco e alcance sua câmara central.",
+      "summary": "Abaixo de Valedouro, inscrições antigas descrevem um 'homem de outro céu' que esteve ali antes da guerra.",
+      "next": "Q_MS01_GUARDIAN"
+    },
+    {
+      "id": "Q_MS01_GUARDIAN",
+      "act": 1,
+      "title": "O Guardião do Eco",
+      "type": "boss",
+      "loc": "LOC_ECHO_MINE_CORE",
+      "objective": "Derrote o Guardião e recupere o Fragmento do Primeiro Mapa.",
+      "summary": "O fragmento projeta oito linhas sobre Elyndor. Uma delas aponta para a Floresta Ancestral.",
+      "boss": "BOSS_GUARDIAO_PEDRA_001",
+      "next": "Q_MS01_ARCHIVE"
+    },
+    {
+      "id": "Q_MS01_ARCHIVE",
+      "act": 1,
+      "title": "O Homem que Veio Antes",
+      "type": "reveal",
+      "loc": "LOC_SIX_CROWNS_ARCHIVE",
+      "objective": "Leve o fragmento ao Arquivo das Seis Coroas.",
+      "summary": "Registros de 23 anos atrás citam Adrian Vale, um estrangeiro sem origem conhecida que ajudou Elyndor antes de desaparecer. A guerra começou pouco depois.",
+      "next": "Q_MS02_BORDER"
+    },
+    {
+      "id": "Q_MS02_BORDER",
+      "act": 2,
+      "title": "Além da Ponte de Pedra",
+      "type": "travel",
+      "loc": "LOC_FOREST_STONE_BRIDGE",
+      "objective": "Atravesse a fronteira da Floresta Ancestral.",
+      "summary": "A floresta rejeita soldados e aceita o Segundo Viajante. Velhas trilhas se abrem apenas quando ele se aproxima.",
+      "next": "Q_MS02_RANGERS"
+    },
+    {
+      "id": "Q_MS02_RANGERS",
+      "act": 2,
+      "title": "Os Guardas Verdes",
+      "type": "defend",
+      "loc": "LOC_FOREST_RANGER_LODGE",
+      "objective": "Ajude os Guardas Verdes a conter criaturas corrompidas.",
+      "summary": "Os guardas contam que uma árvore sagrada pronuncia um nome humano durante as noites de Eco: Adrian.",
+      "next": "Q_MS02_ROOTS"
+    },
+    {
+      "id": "Q_MS02_ROOTS",
+      "act": 2,
+      "title": "Três Raízes",
+      "type": "activate",
+      "loc": "LOC_FOREST_ROOT_SHRINES",
+      "objective": "Purifique os três Santuários de Raiz.",
+      "summary": "Cada santuário preserva uma memória do Primeiro Viajante ajudando aldeias anos antes da guerra.",
+      "next": "Q_MS02_MEMORY_TREE"
+    },
+    {
+      "id": "Q_MS02_MEMORY_TREE",
+      "act": 2,
+      "title": "A Árvore-Memória",
+      "type": "investigate",
+      "loc": "LOC_MEMORY_TREE",
+      "objective": "Entre no coração da Árvore-Memória.",
+      "summary": "A árvore mostra Adrian pesquisando os Cartógrafos do Véu e buscando desesperadamente um caminho de volta à Terra.",
+      "next": "Q_MS02_HOLLOW_ROOT"
+    },
+    {
+      "id": "Q_MS02_HOLLOW_ROOT",
+      "act": 2,
+      "title": "A Raiz Oca",
+      "type": "boss",
+      "loc": "LOC_HOLLOW_ROOT_ARENA",
+      "objective": "Derrote o Arauto da Raiz Oca.",
+      "summary": "A corrupção não nasceu na floresta: foi enviada para drenar sua memória e alimentar uma âncora da Coroa Oca.",
+      "boss": "BOSS_RAIZ_OCA_001",
+      "next": "Q_MS02_VEIL_SHRINE"
+    },
+    {
+      "id": "Q_MS02_VEIL_SHRINE",
+      "act": 2,
+      "title": "A Segunda Linha",
+      "type": "reveal",
+      "loc": "LOC_FOREST_CARTOGRAPHER_SHRINE",
+      "objective": "Recupere o Selo Verde do antigo Santuário dos Cartógrafos.",
+      "summary": "O mapa do Guardião ganha uma segunda camada e aponta para Edravar, reino ocupado nas terras de areia.",
+      "next": "Q_MS03_CARAVAN"
+    },
+    {
+      "id": "Q_MS03_CARAVAN",
+      "act": 3,
+      "title": "A Caravana de Âmbar",
+      "type": "escort",
+      "loc": "LOC_AMBER_CARAVAN",
+      "objective": "Viaje com Sahir até o Posto de Âmbar.",
+      "summary": "A única rota segura para Edravar passa por caravanas que negociam com sobreviventes do reino ocupado.",
+      "next": "Q_MS03_AMBER_POST"
+    },
+    {
+      "id": "Q_MS03_AMBER_POST",
+      "act": 3,
+      "title": "O Posto sob Cinzas",
+      "type": "talk",
+      "loc": "LOC_AMBER_POST",
+      "objective": "Encontre o contato da resistência de Edravar.",
+      "summary": "Sahir revela que o posto comercial encobre uma rede de fuga para civis de Edravar.",
+      "next": "Q_MS03_EDRAVAR"
+    },
+    {
+      "id": "Q_MS03_EDRAVAR",
+      "act": 3,
+      "title": "A Cidade que Não Caiu",
+      "type": "infiltrate",
+      "loc": "LOC_EDRAVAR_OCCUPIED_CITY",
+      "objective": "Entre nas ruínas ocupadas de Edravar.",
+      "summary": "Edravar está militarmente ocupada, mas sua população mantém rotas subterrâneas sob a cidadela.",
+      "next": "Q_MS03_CISTERN"
+    },
+    {
+      "id": "Q_MS03_CISTERN",
+      "act": 3,
+      "title": "O Nome nas Pedras",
+      "type": "investigate",
+      "loc": "LOC_EDRAVAR_RESISTANCE_CISTERN",
+      "objective": "Examine os registros escondidos da resistência.",
+      "summary": "Documentos preservados mostram Adrian Vale lutando ao lado de Edravar antes de se tornar Azharel.",
+      "next": "Q_MS03_OBSERVATORY"
+    },
+    {
+      "id": "Q_MS03_OBSERVATORY",
+      "act": 3,
+      "title": "Observatório de Cinzas",
+      "type": "dungeon",
+      "loc": "LOC_ASH_OBSERVATORY",
+      "objective": "Desative o mecanismo que drena o Eco do deserto.",
+      "summary": "O observatório converte calor, morte e ruína em energia para a Coroa Oca.",
+      "next": "Q_MS03_GENERAL_ASH"
+    },
+    {
+      "id": "Q_MS03_GENERAL_ASH",
+      "act": 3,
+      "title": "O General da Cinza",
+      "type": "boss",
+      "loc": "LOC_ASH_CITADEL",
+      "objective": "Derrote o General da Cinza.",
+      "summary": "O primeiro general cai e confirma que Azharel precisa de oito regiões sincronizadas para completar seu caminho.",
+      "boss": "BOSS_GENERAL_CINZA_001",
+      "next": "Q_MS04_STILTS"
+    },
+    {
+      "id": "Q_MS04_STILTS",
+      "act": 4,
+      "title": "Luzes sobre Água Negra",
+      "type": "travel",
+      "loc": "LOC_MARSH_STILT_VILLAGE",
+      "objective": "Alcance a vila de palafitas.",
+      "summary": "Lanternas desaparecem uma a uma enquanto moradores perdem lembranças inteiras após as marés de Eco.",
+      "next": "Q_MS04_BELL"
+    },
+    {
+      "id": "Q_MS04_BELL",
+      "act": 4,
+      "title": "O Sino Afogado",
+      "type": "investigate",
+      "loc": "LOC_DROWNED_BELL_TOWER",
+      "objective": "Faça o sino submerso soar.",
+      "summary": "O som revela canais ocultos que levam ao antigo mosteiro e interrompe a névoa que apaga memórias.",
+      "next": "Q_MS04_MONASTERY"
+    },
+    {
+      "id": "Q_MS04_MONASTERY",
+      "act": 4,
+      "title": "Os Nomes dos Mortos",
+      "type": "dungeon",
+      "loc": "LOC_FLOODED_MONASTERY",
+      "objective": "Recupere o registro dos habitantes desaparecidos.",
+      "summary": "O mosteiro prova que o pântano está sendo usado para transformar memórias roubadas em força demoníaca.",
+      "next": "Q_MS04_REED_SANCTUM"
+    },
+    {
+      "id": "Q_MS04_REED_SANCTUM",
+      "act": 4,
+      "title": "O Santuário dos Juncos",
+      "type": "travel",
+      "loc": "LOC_REED_SANCTUM",
+      "objective": "Abra o caminho para o santuário.",
+      "summary": "Sobreviventes revelam que a antiga guardiã do pântano tornou-se hospedeira do General dos Juncos Mortos.",
+      "next": "Q_MS04_LADY_REEDS"
+    },
+    {
+      "id": "Q_MS04_LADY_REEDS",
+      "act": 4,
+      "title": "A Dama dos Juncos",
+      "type": "boss",
+      "loc": "LOC_REED_THRONE",
+      "objective": "Derrote a Dama e quebre o vínculo do General.",
+      "summary": "A derrota da Dama encerra a drenagem do pântano e liberta as memórias presas no santuário.",
+      "boss": "BOSS_DAMA_JUNCOS_001",
+      "next": "Q_MS04_SLICE_GATE"
+    },
+    {
+      "id": "Q_MS04_SLICE_GATE",
+      "act": 4,
+      "title": "A Comporta dos Ecos",
+      "type": "activate",
+      "loc": "LOC_MARSH_ECHO_SLICE",
+      "objective": "Feche a grande comporta ritual.",
+      "summary": "O fluxo de Eco aponta para o norte congelado, onde uma expedição de vinte e três anos atrás desapareceu.",
+      "next": "Q_MS05_FROST_REST"
+    },
+    {
+      "id": "Q_MS05_FROST_REST",
+      "act": 5,
+      "title": "Pouso da Geada",
+      "type": "talk",
+      "loc": "LOC_FROST_REST",
+      "objective": "Encontre Kaya e os rastros da antiga expedição.",
+      "summary": "Kaya reconhece o símbolo do mapa em marcos de pedra proibidos pelos caçadores.",
+      "next": "Q_MS05_EXPEDITION"
+    },
+    {
+      "id": "Q_MS05_EXPEDITION",
+      "act": 5,
+      "title": "A Expedição sem Nome",
+      "type": "investigate",
+      "loc": "LOC_FROZEN_EXPEDITION_STATION",
+      "objective": "Explore a estação congelada.",
+      "summary": "O grupo enviado há 23 anos encontrou provas sobre Adrian e foi silenciado antes de retornar.",
+      "next": "Q_MS05_CAPTAIN"
+    },
+    {
+      "id": "Q_MS05_CAPTAIN",
+      "act": 5,
+      "title": "O Último Capitão",
+      "type": "boss",
+      "loc": "LOC_FROZEN_COMMAND_POST",
+      "objective": "Derrote o Capitão da Expedição corrompido.",
+      "summary": "O capitão guardou os registros mesmo após perder a razão para a Geada Negra.",
+      "boss": "BOSS_CAPITAO_GELO_001",
+      "next": "Q_MS05_ARCHIVE"
+    },
+    {
+      "id": "Q_MS05_ARCHIVE",
+      "act": 5,
+      "title": "Adrian Vale",
+      "type": "reveal",
+      "loc": "LOC_FROZEN_ARCHIVE",
+      "objective": "Leia o arquivo intacto da expedição.",
+      "summary": "A verdade é confirmada: Adrian Vale, Primeiro Viajante vindo da Terra, tornou-se Azharel, Rei Demônio. O protagonista é o Segundo Viajante previsto pelos Cartógrafos do Véu.",
+      "next": "Q_MS05_BLACK_FROST"
+    },
+    {
+      "id": "Q_MS05_BLACK_FROST",
+      "act": 5,
+      "title": "Geada Negra",
+      "type": "boss",
+      "loc": "LOC_BLACK_FROST_CITADEL",
+      "objective": "Derrote o General da Geada Negra e recupere o Selo Boreal.",
+      "summary": "O general tenta destruir o arquivo e impedir que a Aliança descubra a origem de Azharel.",
+      "boss": "BOSS_GENERAL_GEADA_NEGRA_001",
+      "next": "Q_MS05_SIEGE"
+    },
+    {
+      "id": "Q_MS05_SIEGE",
+      "act": 5,
+      "title": "As Muralhas de Valedouro",
+      "type": "defend",
+      "loc": "LOC_VAL_GATE",
+      "objective": "Retorne e defenda Valedouro da retaliação.",
+      "summary": "Azharel responde à descoberta atacando o reino do Segundo Viajante. A defesa prova que a guerra agora gira em torno dele.",
+      "next": "Q_MS06_MIST_PORT"
+    },
+    {
+      "id": "Q_MS06_MIST_PORT",
+      "act": 6,
+      "title": "Porto das Brumas",
+      "type": "travel",
+      "loc": "LOC_MIST_PORT",
+      "objective": "Encontre passagem para as Ilhas Perdidas.",
+      "summary": "O mar ao redor das ilhas muda de rota todas as noites por influência da Coroa Oca.",
+      "next": "Q_MS06_LIGHTHOUSE"
+    },
+    {
+      "id": "Q_MS06_LIGHTHOUSE",
+      "act": 6,
+      "title": "O Farol Partido",
+      "type": "activate",
+      "loc": "LOC_TWIN_LIGHTHOUSE",
+      "objective": "Reacenda o Farol Gêmeo.",
+      "summary": "A luz revela uma rota marítima invisível e as ruínas de uma frota desaparecida.",
+      "next": "Q_MS06_SUNKEN_TEMPLE"
+    },
+    {
+      "id": "Q_MS06_SUNKEN_TEMPLE",
+      "act": 6,
+      "title": "O Templo sob a Maré",
+      "type": "dungeon",
+      "loc": "LOC_SUNKEN_TEMPLE",
+      "objective": "Recupere o Astrolábio das Marés.",
+      "summary": "O astrolábio demonstra que um caminho entre mundos pode ser aberto sem drenar Elyndor, desde que os oito selos sejam harmonizados.",
+      "next": "Q_MS06_HOLLOW_FLEET"
+    },
+    {
+      "id": "Q_MS06_HOLLOW_FLEET",
+      "act": 6,
+      "title": "A Frota Oca",
+      "type": "defend",
+      "loc": "LOC_LOST_ISLAND_SHIPYARD",
+      "objective": "Proteja o estaleiro e quebre o bloqueio demoníaco.",
+      "summary": "A Aliança recupera mobilidade marítima e prepara apoio logístico para o ataque final.",
+      "next": "Q_MS06_GENERAL_TIDE"
+    },
+    {
+      "id": "Q_MS06_GENERAL_TIDE",
+      "act": 6,
+      "title": "A Maré Oca",
+      "type": "boss",
+      "loc": "LOC_TIDAL_OBSERVATORY",
+      "objective": "Derrote o General da Maré Oca.",
+      "summary": "Com o general morto, o herói obtém o Selo das Marés e a fórmula segura para sincronizar os selos.",
+      "boss": "BOSS_GENERAL_MARE_OCA_001",
+      "next": "Q_MS07_LAST_BASTION"
+    },
+    {
+      "id": "Q_MS07_LAST_BASTION",
+      "act": 7,
+      "title": "O Último Bastião",
+      "type": "travel",
+      "loc": "LOC_LAST_BASTION",
+      "objective": "Atravesse a frente de guerra e alcance o bastião da Aliança.",
+      "summary": "As Terras Corrompidas são a ferida aberta de 23 anos de guerra. Aqui, a Coroa Oca é uma presença física.",
+      "next": "Q_MS07_OBELISKS"
+    },
+    {
+      "id": "Q_MS07_OBELISKS",
+      "act": 7,
+      "title": "Três Obeliscos de Guerra",
+      "type": "destroy",
+      "loc": "LOC_WAR_OBELISKS",
+      "objective": "Destrua os três obeliscos que sustentam o corredor demoníaco.",
+      "summary": "Cada obelisco alimenta o Coração Abissal com o sofrimento da guerra.",
+      "next": "Q_MS07_CATHEDRAL"
+    },
+    {
+      "id": "Q_MS07_CATHEDRAL",
+      "act": 7,
+      "title": "A Catedral Partida",
+      "type": "dungeon",
+      "loc": "LOC_BROKEN_CATHEDRAL",
+      "objective": "Recupere o Pacto original das Seis Coroas.",
+      "summary": "O documento prova que Azharel manteve os reinos divididos para prolongar a guerra e produzir Eco suficiente para seu retorno.",
+      "next": "Q_MS07_COUNCIL"
+    },
+    {
+      "id": "Q_MS07_COUNCIL",
+      "act": 7,
+      "title": "As Seis Coroas",
+      "type": "council",
+      "loc": "LOC_ALLIANCE_WAR_COUNCIL",
+      "objective": "Entregue o pacto e obtenha autorização para o ataque final.",
+      "summary": "A Aliança das Seis Coroas coordena um único avanço enquanto o Segundo Viajante entra no corredor central.",
+      "next": "Q_MS07_GENERAL_VOID"
+    },
+    {
+      "id": "Q_MS07_GENERAL_VOID",
+      "act": 7,
+      "title": "O General do Eco Vazio",
+      "type": "boss",
+      "loc": "LOC_HOLLOW_CROWN_CITADEL",
+      "objective": "Derrote o último general e abra o Portão do Último Mapa.",
+      "summary": "O general oferece ao protagonista um acordo: abandonar Elyndor e receber passagem imediata à Terra. A recusa abre o caminho para o Coração Abissal.",
+      "boss": "BOSS_GENERAL_ECO_VAZIO_001",
+      "next": "Q_MS08_LAST_MAP_GATE"
+    },
+    {
+      "id": "Q_MS08_LAST_MAP_GATE",
+      "act": 8,
+      "title": "O Portão do Último Mapa",
+      "type": "enter",
+      "loc": "LOC_LAST_MAP_GATE",
+      "objective": "Use os selos para entrar no Coração Abissal.",
+      "summary": "As oito linhas do mapa se tornam uma só. O interior da Coroa Oca mistura fragmentos de todas as regiões de Elyndor.",
+      "next": "Q_MS08_LOST_PATHS"
+    },
+    {
+      "id": "Q_MS08_LOST_PATHS",
+      "act": 8,
+      "title": "Caminhos que Não Existiram",
+      "type": "traverse",
+      "loc": "LOC_HALL_LOST_PATHS",
+      "objective": "Atravesse o Salão dos Caminhos Perdidos.",
+      "summary": "O herói vê possibilidades de vidas que poderia ter vivido na Terra e em Elyndor, usadas pela Coroa para fazê-lo desistir.",
+      "next": "Q_MS08_CARTOGRAPHER"
+    },
+    {
+      "id": "Q_MS08_CARTOGRAPHER",
+      "act": 8,
+      "title": "O Cartógrafo Vazio",
+      "type": "boss",
+      "loc": "LOC_VOID_ARCHIVE",
+      "objective": "Derrote o Cartógrafo Vazio e recupere o Fragmento do Último Mapa.",
+      "summary": "O Cartógrafo é uma construção formada pelas memórias que Adrian descartou para conseguir tornar-se Azharel.",
+      "boss": "BOSS_CARTOGRAFO_VAZIO_001",
+      "next": "Q_MS08_FIRST_TRAVELER"
+    },
+    {
+      "id": "Q_MS08_FIRST_TRAVELER",
+      "act": 8,
+      "title": "Adrian",
+      "type": "confront",
+      "loc": "LOC_EMPTY_THRONE_ANTECHAMBER",
+      "objective": "Confronte o Primeiro Viajante.",
+      "summary": "Adrian admite que criou a Coroa Oca para voltar à Terra. Quando métodos seguros falharam, transformou a guerra em uma máquina de Eco e passou a considerar Elyndor um preço aceitável.",
+      "next": "Q_MS08_AZHAREL"
+    },
+    {
+      "id": "Q_MS08_AZHAREL",
+      "act": 8,
+      "title": "A Coroa Oca",
+      "type": "boss",
+      "loc": "LOC_EMPTY_THRONE",
+      "objective": "Derrote Azharel.",
+      "summary": "A batalha atravessa três estados: Adrian Vale, Rei Demônio e a Coroa Oca tentando fundir-se ao portal.",
+      "boss": "BOSS_AZHAREL_001",
+      "next": "Q_MS08_EARTH_GATE"
+    },
+    {
+      "id": "Q_MS08_EARTH_GATE",
+      "act": 8,
+      "title": "O Caminho de Casa",
+      "type": "finale",
+      "loc": "LOC_EARTH_GATE",
+      "objective": "Use os oito selos e o Astrolábio para reabrir o caminho entre Elyndor e a Terra.",
+      "summary": "O caminho é reaberto sem consumir Elyndor. O objetivo do protagonista é finalmente alcançado.",
+      "next": "Q_MS08_CHOICE"
+    },
+    {
+      "id": "Q_MS08_CHOICE",
+      "act": 8,
+      "title": "Entre Dois Mundos",
+      "type": "choice",
+      "loc": "LOC_EARTH_GATE",
+      "objective": "Escolha retornar agora à Terra ou permanecer em Elyndor por enquanto.",
+      "summary": "Ambas as escolhas encerram a campanha. 'Retornar' conclui a jornada pessoal; 'Permanecer' mantém o herói em Elyndor. O pós-jogo recarrega o mundo salvo após a vitória, com o portal estabilizado.",
+      "next": ""
+    }
+  ],
+  "ending": {
+    "requirement": "Derrotar Azharel e sincronizar os oito selos com o Astrolábio das Marés.",
+    "result": "O caminho entre Elyndor e a Terra é reaberto sem consumir as regiões de Elyndor.",
+    "player_choice": [
+      "RETURN_TO_EARTH",
+      "STAY_IN_ELYNDOR_FOR_NOW"
+    ],
+    "postgame": "O pós-jogo usa o mundo após a vitória; o portal permanece estabilizado como elemento narrativo, sem apagar o save."
+  }
+}

@@ -9211,5 +9211,2433 @@
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_archive_hall",
+  "path": "res://assets/modeled/city/ato1/val_archive_hall.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   932,
+   752
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   466.0,
+   566.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 100.0,
+  "tags": [
+   "ato1",
+   "arquivo",
+   "landmark",
+   "seis_coroas",
+   "six_crowns_archive"
+  ],
+  "sha256": "9a9ba578ad15fcb324e899e5ac10ff70e62569b28b7f58999ef651c0f5a3487b",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    37.7,
+    -52.8,
+    12.5
+   ],
+   [
+    54.7,
+    -44.3,
+    12.5
+   ],
+   [
+    71.7,
+    -35.8,
+    12.5
+   ],
+   [
+    88.6,
+    -27.3,
+    12.5
+   ],
+   [
+    105.6,
+    -18.9,
+    12.5
+   ],
+   [
+    19.8,
+    -43.8,
+    12.5
+   ],
+   [
+    36.8,
+    -35.4,
+    12.5
+   ],
+   [
+    53.7,
+    -26.9,
+    12.5
+   ],
+   [
+    70.7,
+    -18.4,
+    12.5
+   ],
+   [
+    87.7,
+    -9.9,
+    12.5
+   ],
+   [
+    1.9,
+    -34.9,
+    12.5
+   ],
+   [
+    18.9,
+    -26.4,
+    12.5
+   ],
+   [
+    35.8,
+    -17.9,
+    12.5
+   ],
+   [
+    52.8,
+    -9.4,
+    12.5
+   ],
+   [
+    69.8,
+    -0.9,
+    12.5
+   ],
+   [
+    -16.0,
+    -25.9,
+    12.5
+   ],
+   [
+    0.9,
+    -17.4,
+    12.5
+   ],
+   [
+    17.9,
+    -9.0,
+    12.5
+   ],
+   [
+    34.9,
+    -0.5,
+    12.5
+   ],
+   [
+    51.9,
+    8.0,
+    12.5
+   ],
+   [
+    -33.9,
+    -17.0,
+    12.5
+   ],
+   [
+    -17.0,
+    -8.5,
+    12.5
+   ],
+   [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   [
+    17.0,
+    8.5,
+    12.5
+   ],
+   [
+    33.9,
+    17.0,
+    12.5
+   ],
+   [
+    -51.9,
+    -8.0,
+    12.5
+   ],
+   [
+    -34.9,
+    0.5,
+    12.5
+   ],
+   [
+    -17.9,
+    9.0,
+    12.5
+   ],
+   [
+    -0.9,
+    17.4,
+    12.5
+   ],
+   [
+    16.0,
+    25.9,
+    12.5
+   ],
+   [
+    -69.8,
+    0.9,
+    12.5
+   ],
+   [
+    -52.8,
+    9.4,
+    12.5
+   ],
+   [
+    -35.8,
+    17.9,
+    12.5
+   ],
+   [
+    -18.9,
+    26.4,
+    12.5
+   ],
+   [
+    -1.9,
+    34.9,
+    12.5
+   ],
+   [
+    -87.7,
+    9.9,
+    12.5
+   ],
+   [
+    -70.7,
+    18.4,
+    12.5
+   ],
+   [
+    -53.7,
+    26.9,
+    12.5
+   ],
+   [
+    -36.8,
+    35.4,
+    12.5
+   ],
+   [
+    -19.8,
+    43.8,
+    12.5
+   ],
+   [
+    -105.6,
+    18.9,
+    12.5
+   ],
+   [
+    -88.6,
+    27.3,
+    12.5
+   ],
+   [
+    -71.7,
+    35.8,
+    12.5
+   ],
+   [
+    -54.7,
+    44.3,
+    12.5
+   ],
+   [
+    -37.7,
+    52.8,
+    12.5
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_archive_lamp",
+  "path": "res://assets/modeled/city/ato1/val_archive_lamp.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   192,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   96.0,
+   306.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 6.0,
+  "footprint": 8.0,
+  "tags": [
+   "ato1",
+   "arquivo",
+   "prop",
+   "iluminacao"
+  ],
+  "sha256": "5a88c5076268f1b1721fdf93d30a9b0494cfc2c1aee2fe4356b610f25152bceb",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_archive_lectern",
+  "path": "res://assets/modeled/interior/ato1/val_archive_lectern.png",
+  "group": "interior",
+  "folder": "ato1",
+  "frame_size": [
+   200,
+   260
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   100.0,
+   190.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 8.0,
+  "footprint": 10.0,
+  "tags": [
+   "ato1",
+   "arquivo",
+   "interior",
+   "atril"
+  ],
+  "sha256": "568e672d3820b444ce88927a9fd11c5a6836178948bebb59e4d71f9aeaf56cda",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_archive_map_table",
+  "path": "res://assets/modeled/interior/ato1/val_archive_map_table.png",
+  "group": "interior",
+  "folder": "ato1",
+  "frame_size": [
+   340,
+   260
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   170.0,
+   190.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 16.0,
+  "footprint": 24.0,
+  "tags": [
+   "ato1",
+   "arquivo",
+   "interior",
+   "mapas"
+  ],
+  "sha256": "31d9076290ecd47dfefc18a5859b972a0fe62e136eb3e0c03ada5ee98c2f1c7b",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_archive_shelf_tall",
+  "path": "res://assets/modeled/interior/ato1/val_archive_shelf_tall.png",
+  "group": "interior",
+  "folder": "ato1",
+  "frame_size": [
+   420,
+   520
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   210.0,
+   400.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 14.0,
+  "footprint": 22.0,
+  "tags": [
+   "ato1",
+   "arquivo",
+   "interior",
+   "estante"
+  ],
+  "sha256": "c4aa8fa4ed940c84e6fc6a5f0540eaf562013f4d18c62a6d743b7606055e9417",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_banner_pole_tall",
+  "path": "res://assets/modeled/city/ato1/val_banner_pole_tall.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   332,
+   572
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   166.0,
+   466.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 6.0,
+  "footprint": 8.0,
+  "tags": [
+   "ato1",
+   "bandeira",
+   "val_gate"
+  ],
+  "sha256": "1ce70c815e2ed5ba190874b4d363d0f754e626b390d8c86ac47b556dc0fb4cb4",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_barricade_a",
+  "path": "res://assets/modeled/city/ato1/val_barricade_a.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   392,
+   332
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   196.0,
+   216.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 36.0,
+  "tags": [
+   "ato1",
+   "barricada",
+   "intacta",
+   "val_gate"
+  ],
+  "sha256": "6089185f45aef59c3bf4f926910b7fe9e5f389c8a62a47060e056c39330500d5",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    25.5,
+    -12.7,
+    11.8
+   ],
+   [
+    8.5,
+    -4.2,
+    11.8
+   ],
+   [
+    -8.5,
+    4.2,
+    11.8
+   ],
+   [
+    -25.5,
+    12.7,
+    11.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_barricade_b",
+  "path": "res://assets/modeled/city/ato1/val_barricade_b.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   392,
+   332
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   196.0,
+   216.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 36.0,
+  "tags": [
+   "ato1",
+   "barricada",
+   "quebrada",
+   "val_gate"
+  ],
+  "sha256": "7d636528e7f1d66f4dc6dddd1e7b7722d815a87a2e1c41fdc2c70c8e4a221fc8",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    25.5,
+    -12.7,
+    11.8
+   ],
+   [
+    8.5,
+    -4.2,
+    11.8
+   ],
+   [
+    -8.5,
+    4.2,
+    11.8
+   ],
+   [
+    -25.5,
+    12.7,
+    11.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_camp_remains",
+  "path": "res://assets/modeled/nature/ato1/val_camp_remains.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   372,
+   312
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   186.0,
+   196.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 24.0,
+  "tags": [
+   "ato1",
+   "estrada_norte",
+   "acampamento",
+   "abandonado"
+  ],
+  "sha256": "5076c750459de8dc8a714e2cbe96baf6ea00755ab0debb8f18e12b8848d7e10d",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    19.1,
+    -3.2,
+    10
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_cart_wrecked",
+  "path": "res://assets/modeled/nature/ato1/val_cart_wrecked.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   432,
+   352
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   216.0,
+   226.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 34.0,
+  "tags": [
+   "ato1",
+   "estrada_norte",
+   "carroca",
+   "ataque"
+  ],
+  "sha256": "df4aa873d6f0213f4079d4b2f0293d7f485f99b475952abbe7b8440b6afc8ef9",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    10.6,
+    -5.3,
+    12
+   ],
+   [
+    -6.4,
+    7.4,
+    12
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_core_floor_ring",
+  "path": "res://assets/modeled/dungeon/ato1/val_core_floor_ring.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   812,
+   452
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   226.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato1",
+   "nucleo_do_eco",
+   "arena",
+   "piso",
+   "decalque"
+  ],
+  "sha256": "03aa06c56e1db44671e677018f95e585634d2c761a66711767ec27e1930ac332",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_crown_monument",
+  "path": "res://assets/modeled/city/ato1/val_crown_monument.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   252,
+   372
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   126.0,
+   276.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 12.0,
+  "footprint": 18.0,
+  "tags": [
+   "ato1",
+   "arquivo",
+   "monumento",
+   "seis_coroas"
+  ],
+  "sha256": "882bc11471d8d3c072bc5cfeaaa920050d4762fc22afc21442367431f8c21e18",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_eco_core",
+  "path": "res://assets/modeled/dungeon/ato1/val_eco_core.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   552,
+   692
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   276.0,
+   496.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 60.0,
+  "tags": [
+   "ato1",
+   "nucleo_do_eco",
+   "boss",
+   "echo_mine_core",
+   "centro"
+  ],
+  "sha256": "aaaa41f17d555ed52d4c68bffd830920bb402244b0c72837b90180f4b40463ff",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    14
+   ],
+   [
+    0.0,
+    10.6,
+    14
+   ],
+   [
+    0.0,
+    -10.6,
+    14
+   ],
+   [
+    -21.2,
+    0.0,
+    14
+   ],
+   [
+    21.2,
+    0.0,
+    14
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_eco_crystal_cluster",
+  "path": "res://assets/modeled/dungeon/ato1/val_eco_crystal_cluster.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   352,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   176.0,
+   266.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 20.0,
+  "tags": [
+   "ato1",
+   "nucleo_do_eco",
+   "cristal",
+   "prop"
+  ],
+  "sha256": "100c4fa8e555b49d6b690b5efdf9bc2ede5843fd7f16bbdc6c0275a7cb6ac8e9",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    11
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_eco_vein",
+  "path": "res://assets/modeled/dungeon/ato1/val_eco_vein.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   332,
+   312
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   166.0,
+   196.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 16.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "eco",
+   "cristal",
+   "prop"
+  ],
+  "sha256": "d042704b3a6d2ccf6667c5dae8ea384733646453c59ffc57c5c15a793d9ecd1e",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_gate_main",
+  "path": "res://assets/modeled/city/ato1/val_gate_main.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   672,
+   652
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   336.0,
+   496.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 70.0,
+  "tags": [
+   "ato1",
+   "portao",
+   "fortificacao",
+   "val_gate"
+  ],
+  "sha256": "c265d562c7ef5c5ebf62d65f4210bb6e8a2398d921dc178f7fa67feaa610c5a5",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    52.8,
+    -34.9,
+    12.2
+   ],
+   [
+    69.7,
+    -26.4,
+    12.2
+   ],
+   [
+    35.3,
+    -26.1,
+    12.2
+   ],
+   [
+    52.2,
+    -17.6,
+    12.2
+   ],
+   [
+    17.8,
+    -17.4,
+    12.2
+   ],
+   [
+    34.7,
+    -8.9,
+    12.2
+   ],
+   [
+    0.3,
+    -8.6,
+    12.2
+   ],
+   [
+    17.2,
+    -0.1,
+    12.2
+   ],
+   [
+    -17.2,
+    0.1,
+    12.2
+   ],
+   [
+    -0.3,
+    8.6,
+    12.2
+   ],
+   [
+    -34.7,
+    8.9,
+    12.2
+   ],
+   [
+    -17.8,
+    17.4,
+    12.2
+   ],
+   [
+    -52.2,
+    17.6,
+    12.2
+   ],
+   [
+    -35.3,
+    26.1,
+    12.2
+   ],
+   [
+    -69.7,
+    26.4,
+    12.2
+   ],
+   [
+    -52.8,
+    34.9,
+    12.2
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_gate_tower",
+  "path": "res://assets/modeled/city/ato1/val_gate_tower.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   572,
+   772
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   286.0,
+   586.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 44.0,
+  "tags": [
+   "ato1",
+   "torre",
+   "guarita",
+   "val_gate"
+  ],
+  "sha256": "f065f9b8b777c76b8f3b57c0dfe9252cb2704740acc8fc83d23d2c94e2221321",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -18.4,
+    12.8
+   ],
+   [
+    18.4,
+    -9.2,
+    12.8
+   ],
+   [
+    36.8,
+    -0.0,
+    12.8
+   ],
+   [
+    -18.4,
+    -9.2,
+    12.8
+   ],
+   [
+    0.0,
+    0.0,
+    12.8
+   ],
+   [
+    18.4,
+    9.2,
+    12.8
+   ],
+   [
+    -36.8,
+    -0.0,
+    12.8
+   ],
+   [
+    -18.4,
+    9.2,
+    12.8
+   ],
+   [
+    0.0,
+    18.4,
+    12.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_guild_hall",
+  "path": "res://assets/modeled/city/ato1/val_guild_hall.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   812,
+   672
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   496.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 90.0,
+  "tags": [
+   "ato1",
+   "guilda",
+   "servico",
+   "val_guild",
+   "landmark"
+  ],
+  "sha256": "df4d1cc083680d779d66ccfc46dc495544542e9ee89e40721beedfeff8d3f695",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    30.8,
+    -44.0,
+    13.3
+   ],
+   [
+    49.9,
+    -34.5,
+    13.3
+   ],
+   [
+    68.9,
+    -24.9,
+    13.3
+   ],
+   [
+    88.0,
+    -15.4,
+    13.3
+   ],
+   [
+    13.8,
+    -35.5,
+    13.3
+   ],
+   [
+    32.9,
+    -26.0,
+    13.3
+   ],
+   [
+    52.0,
+    -16.4,
+    13.3
+   ],
+   [
+    71.1,
+    -6.9,
+    13.3
+   ],
+   [
+    -3.2,
+    -27.0,
+    13.3
+   ],
+   [
+    15.9,
+    -17.5,
+    13.3
+   ],
+   [
+    35.0,
+    -8.0,
+    13.3
+   ],
+   [
+    54.1,
+    1.6,
+    13.3
+   ],
+   [
+    -20.2,
+    -18.6,
+    13.3
+   ],
+   [
+    -1.1,
+    -9.0,
+    13.3
+   ],
+   [
+    18.0,
+    0.5,
+    13.3
+   ],
+   [
+    37.1,
+    10.1,
+    13.3
+   ],
+   [
+    -37.1,
+    -10.1,
+    13.3
+   ],
+   [
+    -18.0,
+    -0.5,
+    13.3
+   ],
+   [
+    1.1,
+    9.0,
+    13.3
+   ],
+   [
+    20.2,
+    18.6,
+    13.3
+   ],
+   [
+    -54.1,
+    -1.6,
+    13.3
+   ],
+   [
+    -35.0,
+    8.0,
+    13.3
+   ],
+   [
+    -15.9,
+    17.5,
+    13.3
+   ],
+   [
+    3.2,
+    27.0,
+    13.3
+   ],
+   [
+    -71.1,
+    6.9,
+    13.3
+   ],
+   [
+    -52.0,
+    16.4,
+    13.3
+   ],
+   [
+    -32.9,
+    26.0,
+    13.3
+   ],
+   [
+    -13.8,
+    35.5,
+    13.3
+   ],
+   [
+    -88.0,
+    15.4,
+    13.3
+   ],
+   [
+    -68.9,
+    24.9,
+    13.3
+   ],
+   [
+    -49.9,
+    34.5,
+    13.3
+   ],
+   [
+    -30.8,
+    44.0,
+    13.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_map_fragment_pedestal",
+  "path": "res://assets/modeled/interior/ato1/val_map_fragment_pedestal.png",
+  "group": "interior",
+  "folder": "ato1",
+  "frame_size": [
+   240,
+   320
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   120.0,
+   240.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 14.0,
+  "footprint": 16.0,
+  "tags": [
+   "ato1",
+   "arquivo",
+   "interior",
+   "fragmento_do_primeiro_mapa",
+   "chave"
+  ],
+  "sha256": "8e93c60f03e8875a8dfe632838e32f2eedb6fbf4bf7930655368d53f95a784c8",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_mine_beam_arch",
+  "path": "res://assets/modeled/dungeon/ato1/val_mine_beam_arch.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   372,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   186.0,
+   296.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "interior",
+   "suporte",
+   "modular"
+  ],
+  "sha256": "dd135cdf2f3aaf7f8ee85a080486489f4bc6b08addb61d043523b55208ad6ae8",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_mine_cart",
+  "path": "res://assets/modeled/dungeon/ato1/val_mine_cart.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   332,
+   272
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   166.0,
+   176.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 20.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "vagonete",
+   "prop"
+  ],
+  "sha256": "01e24362eba98e598607494cb18ffbd407110eb8e4df06d1711350092d0a4f46",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_mine_floor",
+  "path": "res://assets/modeled/dungeon/ato1/val_mine_floor.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   300,
+   192
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   150.0,
+   96.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "interior",
+   "chao"
+  ],
+  "sha256": "46726a22676219a0e61dfacd918bf3373b1008c9f06fdcccc9a73adda0bb8c74",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_mine_lantern_post",
+  "path": "res://assets/modeled/dungeon/ato1/val_mine_lantern_post.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   192,
+   372
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   96.0,
+   286.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 5.0,
+  "footprint": 6.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "lanterna",
+   "prop"
+  ],
+  "sha256": "0984dc873852eba64190e351cec59b3b16bbfc632add19675bc53c6f8bf319d7",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_mine_machine",
+  "path": "res://assets/modeled/dungeon/ato1/val_mine_machine.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   452,
+   412
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   226.0,
+   266.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 34.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "maquinario",
+   "antigo"
+  ],
+  "sha256": "b13a65317ee5ad22369f4376bc1659f4365d1ad42f3d6644e4d451786e90c716",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    12.7,
+    -6.4,
+    12
+   ],
+   [
+    -12.7,
+    6.4,
+    12
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_mine_portal",
+  "path": "res://assets/modeled/dungeon/ato1/val_mine_portal.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   812,
+   752
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   406.0,
+   586.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 80.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "entrada",
+   "echo_mine"
+  ],
+  "sha256": "7450ed0da5deb45ebc694f7572be3fc4b5b9e45372ccb8f757c13a8f1e55f63c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    39.4,
+    -36.7,
+    13.1
+   ],
+   [
+    56.4,
+    -28.2,
+    13.1
+   ],
+   [
+    73.3,
+    -19.7,
+    13.1
+   ],
+   [
+    20.6,
+    -27.3,
+    13.1
+   ],
+   [
+    37.6,
+    -18.8,
+    13.1
+   ],
+   [
+    54.5,
+    -10.3,
+    13.1
+   ],
+   [
+    1.8,
+    -17.9,
+    13.1
+   ],
+   [
+    18.8,
+    -9.4,
+    13.1
+   ],
+   [
+    35.8,
+    -0.9,
+    13.1
+   ],
+   [
+    -17.0,
+    -8.5,
+    13.1
+   ],
+   [
+    0.0,
+    0.0,
+    13.1
+   ],
+   [
+    17.0,
+    8.5,
+    13.1
+   ],
+   [
+    -35.8,
+    0.9,
+    13.1
+   ],
+   [
+    -18.8,
+    9.4,
+    13.1
+   ],
+   [
+    -1.8,
+    17.9,
+    13.1
+   ],
+   [
+    -54.5,
+    10.3,
+    13.1
+   ],
+   [
+    -37.6,
+    18.8,
+    13.1
+   ],
+   [
+    -20.6,
+    27.3,
+    13.1
+   ],
+   [
+    -73.3,
+    19.7,
+    13.1
+   ],
+   [
+    -56.4,
+    28.2,
+    13.1
+   ],
+   [
+    -39.4,
+    36.7,
+    13.1
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_mine_rails_a",
+  "path": "res://assets/modeled/dungeon/ato1/val_mine_rails_a.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   292,
+   172
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   146.0,
+   86.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "trilhos",
+   "modular"
+  ],
+  "sha256": "bb738538ac0163c99c086a0ed1591f71ab7678da05ed860966cfed9997810cdb",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_mine_rails_b",
+  "path": "res://assets/modeled/dungeon/ato1/val_mine_rails_b.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   292,
+   172
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   146.0,
+   86.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "trilhos",
+   "modular"
+  ],
+  "sha256": "3836ca72dddcdf8e8b9eadeb89649b90b53ed9fa3d2276a9dfad469dfbbc362d",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_mine_rock_wall",
+  "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   472,
+   512
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   406.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "interior",
+   "parede",
+   "modular"
+  ],
+  "sha256": "7449efae38031e9e16439b7aaa99a233d17455c9e0cd20892d3085d034b3d9f1",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_mine_rock_wall_eco",
+  "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   472,
+   512
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   406.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "interior",
+   "parede",
+   "modular",
+   "eco"
+  ],
+  "sha256": "af66dadf98907e06ed29d1f64bc1736debc089722fe89e0b5dab9fe8ef55b771",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_mine_winch",
+  "path": "res://assets/modeled/dungeon/ato1/val_mine_winch.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   352,
+   452
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   176.0,
+   326.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 20.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "guincho",
+   "prop"
+  ],
+  "sha256": "e2ad960086b955e587e04b0dfaeeb6d398e7b26843729d6c28d7373d2c1e432f",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    -12.7,
+    9
+   ],
+   [
+    0.0,
+    12.7,
+    9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_notice_board",
+  "path": "res://assets/modeled/city/ato1/val_notice_board.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   312,
+   372
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   156.0,
+   266.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 10.0,
+  "footprint": 12.0,
+  "tags": [
+   "ato1",
+   "guilda",
+   "prop",
+   "contratos"
+  ],
+  "sha256": "b79be21f2b0e68a6c9d926c6d6f06450a678a0916a7e83f4b63d5cd05318e80b",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_ore_pile",
+  "path": "res://assets/modeled/dungeon/ato1/val_ore_pile.png",
+  "group": "dungeon",
+  "folder": "ato1",
+  "frame_size": [
+   372,
+   292
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   186.0,
+   186.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 24.0,
+  "tags": [
+   "ato1",
+   "mina_do_eco",
+   "minerio",
+   "prop"
+  ],
+  "sha256": "966737e5131e0729883cfa7af58e2bc8c4057cee67542bf90ab213535cfa5daa",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    11
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_pack_bones",
+  "path": "res://assets/modeled/nature/ato1/val_pack_bones.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   352,
+   252
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   176.0,
+   146.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 18.0,
+  "tags": [
+   "ato1",
+   "clareira_do_alfa",
+   "ossos",
+   "territorio"
+  ],
+  "sha256": "286b4f6e54c8d643ce63f4f4c0853c495125b98ab433ee3da7d39993b0f7c971",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_palisade_broken",
+  "path": "res://assets/modeled/nature/ato1/val_palisade_broken.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   392,
+   312
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   196.0,
+   196.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 28.0,
+  "tags": [
+   "ato1",
+   "estrada_norte",
+   "cerca",
+   "quebrada"
+  ],
+  "sha256": "c1f4a3547290a0cc2a54575d8fa53ae849a31b07bce617e338c59499590ac676",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    21.2,
+    -10.6,
+    9
+   ],
+   [
+    -21.2,
+    10.6,
+    9
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_paw_tracks",
+  "path": "res://assets/modeled/nature/ato1/val_paw_tracks.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   332,
+   212
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   166.0,
+   106.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato1",
+   "estrada_norte",
+   "rastros",
+   "decalque"
+  ],
+  "sha256": "1655c694d11a3827fdf0045327c9d08e0fa405097221c641c49f113b14dc5d71",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_ruin_floor_circle",
+  "path": "res://assets/modeled/nature/ato1/val_ruin_floor_circle.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   472,
+   312
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   156.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato1",
+   "ruinas",
+   "piso",
+   "decalque",
+   "first_wind"
+  ],
+  "sha256": "7aa7d2f8b3bb6ebefa357036d6922ea236108c2ff20a57284ee8295093328faf",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_ruin_inscription_wall",
+  "path": "res://assets/modeled/nature/ato1/val_ruin_inscription_wall.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   452,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   226.0,
+   276.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 36.0,
+  "tags": [
+   "ato1",
+   "ruinas",
+   "inscricao",
+   "eco",
+   "first_wind",
+   "a_vale"
+  ],
+  "sha256": "0e43d3dde1815a4434c59a6aeeb9228baa8174606f1690ef08bd223570c1578e",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -19.1,
+    -13.8,
+    10
+   ],
+   [
+    4.2,
+    -2.1,
+    10
+   ],
+   [
+    27.6,
+    9.5,
+    10
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_ruin_mechanism",
+  "path": "res://assets/modeled/nature/ato1/val_ruin_mechanism.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   312,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   156.0,
+   276.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 20.0,
+  "tags": [
+   "ato1",
+   "ruinas",
+   "mecanismo",
+   "eco",
+   "first_wind"
+  ],
+  "sha256": "af7eaffdd6e1d04b90351eb72c46168d8860e48b58cbe9fd61d8447134875207",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    11
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_ruin_root_arch",
+  "path": "res://assets/modeled/nature/ato1/val_ruin_root_arch.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   472,
+   472
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   356.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 44.0,
+  "tags": [
+   "ato1",
+   "ruinas",
+   "arco",
+   "raizes",
+   "first_wind"
+  ],
+  "sha256": "00d83e6d3fc36192b061031632dc469a2489222b6489bb6827c08beb3e484651",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -31.8,
+    -15.9,
+    12
+   ],
+   [
+    31.8,
+    15.9,
+    12
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_supply_stack",
+  "path": "res://assets/modeled/city/ato1/val_supply_stack.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   332,
+   292
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   166.0,
+   196.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 28.0,
+  "tags": [
+   "ato1",
+   "suprimentos",
+   "val_gate",
+   "prop"
+  ],
+  "sha256": "544f42724ee1d4cfd56c6a9ae22c8f24270c0b32c64de46de5a094349e9a91b7",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    1.1,
+    -8.0,
+    11.8
+   ],
+   [
+    15.9,
+    -0.5,
+    11.8
+   ],
+   [
+    -15.9,
+    0.5,
+    11.8
+   ],
+   [
+    -1.1,
+    8.0,
+    11.8
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_training_dummy",
+  "path": "res://assets/modeled/city/ato1/val_training_dummy.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   252,
+   332
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   126.0,
+   236.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 8.0,
+  "footprint": 10.0,
+  "tags": [
+   "ato1",
+   "guilda",
+   "prop",
+   "treino"
+  ],
+  "sha256": "4f4a67d26dd1834728e9a6450bab369e4673f8a1e82d8b06163c73482a757937",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_trampled_earth",
+  "path": "res://assets/modeled/nature/ato1/val_trampled_earth.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   472,
+   312
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   236.0,
+   156.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato1",
+   "clareira_do_alfa",
+   "solo",
+   "decalque"
+  ],
+  "sha256": "8ae30328caa8a7b6d8e60e7d703c651182105f3221a71bdca26273b5658d128c",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_wall_breach",
+  "path": "res://assets/modeled/city/ato1/val_wall_breach.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   412,
+   352
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   206.0,
+   256.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 40.0,
+  "tags": [
+   "ato1",
+   "muralha",
+   "modular",
+   "quebrado",
+   "ataque"
+  ],
+  "sha256": "15d6d359baf2000777466fed10e2d781baec4921275ce881616ab1cfdef57b64",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    23.3,
+    -17.0,
+    13.3
+   ],
+   [
+    33.9,
+    -11.7,
+    13.3
+   ],
+   [
+    4.2,
+    -7.4,
+    13.3
+   ],
+   [
+    14.8,
+    -2.1,
+    13.3
+   ],
+   [
+    -14.8,
+    2.1,
+    13.3
+   ],
+   [
+    -4.2,
+    7.4,
+    13.3
+   ],
+   [
+    -33.9,
+    11.7,
+    13.3
+   ],
+   [
+    -23.3,
+    17.0,
+    13.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_wall_repaired",
+  "path": "res://assets/modeled/city/ato1/val_wall_repaired.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   412,
+   352
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   206.0,
+   256.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 40.0,
+  "tags": [
+   "ato1",
+   "muralha",
+   "modular",
+   "reparado"
+  ],
+  "sha256": "5e6b1ef92c196afb96dd540f3c08a3073831d0ad4e41095904767fd5b7531ec4",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    23.3,
+    -17.0,
+    13.3
+   ],
+   [
+    33.9,
+    -11.7,
+    13.3
+   ],
+   [
+    4.2,
+    -7.4,
+    13.3
+   ],
+   [
+    14.8,
+    -2.1,
+    13.3
+   ],
+   [
+    -14.8,
+    2.1,
+    13.3
+   ],
+   [
+    -4.2,
+    7.4,
+    13.3
+   ],
+   [
+    -33.9,
+    11.7,
+    13.3
+   ],
+   [
+    -23.3,
+    17.0,
+    13.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_wall_segment",
+  "path": "res://assets/modeled/city/ato1/val_wall_segment.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   412,
+   352
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   206.0,
+   256.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 40.0,
+  "tags": [
+   "ato1",
+   "muralha",
+   "modular",
+   "intacto"
+  ],
+  "sha256": "fcb086f482ad36a08badd9e61a163d911ad9e2ffeb892d6ba4fb678dca6f17af",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    23.3,
+    -17.0,
+    13.3
+   ],
+   [
+    33.9,
+    -11.7,
+    13.3
+   ],
+   [
+    4.2,
+    -7.4,
+    13.3
+   ],
+   [
+    14.8,
+    -2.1,
+    13.3
+   ],
+   [
+    -14.8,
+    2.1,
+    13.3
+   ],
+   [
+    -4.2,
+    7.4,
+    13.3
+   ],
+   [
+    -33.9,
+    11.7,
+    13.3
+   ],
+   [
+    -23.3,
+    17.0,
+    13.3
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_warning_post",
+  "path": "res://assets/modeled/nature/ato1/val_warning_post.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   272,
+   412
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   136.0,
+   316.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 6.0,
+  "footprint": 8.0,
+  "tags": [
+   "ato1",
+   "estrada_norte",
+   "placa",
+   "aviso"
+  ],
+  "sha256": "a87ca6b6af5f189e97c9d45256cd3df8524684d6c1a687080402f4178235affc",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_weapon_rack",
+  "path": "res://assets/modeled/city/ato1/val_weapon_rack.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   312,
+   312
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   156.0,
+   206.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 10.0,
+  "footprint": 14.0,
+  "tags": [
+   "ato1",
+   "guilda",
+   "prop",
+   "armas"
+  ],
+  "sha256": "005e789b7679f11bf9c852626bb4346024af5a41ff7c5d7bad95e9a16ed68eb4",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_wolf_bones",
+  "path": "res://assets/modeled/nature/ato1/val_wolf_bones.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   292,
+   232
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   146.0,
+   136.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 10.0,
+  "tags": [
+   "ato1",
+   "estrada_norte",
+   "ossos",
+   "lobo"
+  ],
+  "sha256": "9c0e5a9bb852f598126da579cb9e3f43626cc44d17a7d48b3a3dd6b9cf2465b2",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "val_wolf_den",
+  "path": "res://assets/modeled/nature/ato1/val_wolf_den.png",
+  "group": "nature",
+  "folder": "ato1",
+  "frame_size": [
+   492,
+   412
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   246.0,
+   276.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 44.0,
+  "tags": [
+   "ato1",
+   "clareira_do_alfa",
+   "toca",
+   "matilha"
+  ],
+  "sha256": "49004c1118319cb0d6d2facd7bda4d3bf1c226945300af6e4a4e060dd7656c68",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    -8.5,
+    -17.0,
+    12
+   ],
+   [
+    33.9,
+    4.2,
+    12
+   ],
+   [
+    -31.8,
+    -11.7,
+    12
+   ],
+   [
+    23.3,
+    15.9,
+    12
+   ]
+  ],
+  "pipeline": "blender-pro"
  }
 ]
