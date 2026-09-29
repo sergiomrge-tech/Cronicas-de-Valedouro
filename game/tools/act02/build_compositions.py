@@ -28,8 +28,9 @@ def orient_kit():
 
 
 class Comp:
-    def __init__(self, cid, name, origin, story, tint=(.04, .16, .1, .2)):
-        self.d = {'id': cid, 'name': name, 'origin': list(origin), 'story': story, 'ground_tint': list(tint), 'water': [], 'objects': [], 'captures': [], 'light_shafts': [], 'exclusions': []}
+    def __init__(self, cid, name, origin, story, tint=(.04, .16, .1, .2), slug=None, terrain='forest'):
+        self.d = {'id': cid, 'name': name, 'origin': list(origin), 'story': story, 'ground_tint': list(tint), 'water': [], 'objects': [], 'captures': [], 'light_shafts': [], 'exclusions': [],
+                  'slug': slug or cid.lower(), 'terrain': terrain}
         self.o = origin
         self.placed = []
 
@@ -102,6 +103,41 @@ class Comp:
         t = {'pts': [[self.o[0] + x, self.o[1] + y] for x, y in pts], 'half': half, 'seed': seed}
         t.update(state)                                  # show_when / hide_when
         self.d.setdefault('trails', []).append(t)
+        self._exclude_line(pts, half * .9)
+
+    def _exclude_line(self, pts, r):
+        """Exclusão ao longo de uma polilinha (trilha/rio curvos): círculos encadeados em vez de retângulos cartesianos."""
+        for (x0, y0), (x1, y1) in zip(pts[:-1], pts[1:]):
+            n = max(1, int(math.hypot(x1 - x0, y1 - y0) / (r * .8)))
+            for i in range(n + 1):
+                self.exclude_circle(x0 + (x1 - x0) * i / n, y0 + (y1 - y0) * i / n, r)
+
+    def river(self, pts, half=60, wobble=.35):
+        """Rio/riacho sinuoso de largura variável (assado no chão por tools/act02/bake_act02_ground.py). Nunca retângulo nem largura constante."""
+        self.d.setdefault('rivers', []).append({'pts': [[self.o[0] + x, self.o[1] + y] for x, y in pts], 'half': half, 'wobble': wobble})
+        self._exclude_line(pts, half * 1.05)
+
+    def bank_scatter(self, assets, pts, off, n, seed, min_d=40, **kw):
+        """Espalha na MARGEM de um rio: pontos deslocados perpendicularmente à polilinha, dos dois lados."""
+        rr = random.Random(seed)
+        got = 0
+        for _ in range(n * 30):
+            if got >= n:
+                break
+            i = rr.randrange(len(pts) - 1)
+            (x0, y0), (x1, y1) = pts[i], pts[i + 1]
+            t = rr.random()
+            dx, dy = x1 - x0, y1 - y0
+            L = math.hypot(dx, dy) or 1
+            side = rr.choice((-1, 1))
+            d = off * rr.uniform(.9, 1.25)
+            x, y = x0 + dx * t - dy / L * d * side, y0 + dy * t + dx / L * d * side
+            if not (10 < x < 950 and 30 < y < 530):
+                continue
+            if any(math.hypot(x - px, y - py) < min_d for px, py in self.placed):
+                continue
+            self.add(rr.choice(assets), x, y, flip=rr.random() < .5, **kw)
+            got += 1
 
     def shot(self, name, flags=()):
         self.d['captures'].append({'name': name, 'flags': list(flags)})
@@ -111,12 +147,11 @@ comps = []
 
 # ============================================================== LOC_FOREST_STONE_BRIDGE (Q_MS02_BORDER)
 b = Comp('LOC_FOREST_STONE_BRIDGE', 'Ponte de Pedra da Fronteira', (300, 90),
-         'Entrada da região: margem oeste ainda parecida com o Berço; depois da ponte, a floresta antiga (troncos largos, raízes, musgo, luz filtrada).')
-b.exclude_rect(0, 296, 960, 46)                    # trilha antiga (leste-oeste) atravessando a ponte
-b.exclude_rect(400, 0, 160, 540)                   # rio sob a ponte
+         'Entrada da região: margem oeste ainda parecida com o Berço; depois da ponte, a floresta antiga (troncos largos, raízes, musgo, luz filtrada).', slug='ponte_fronteira')
 b.exclude_circle(770, 420, 60)                     # plataforma de descanso
-b.d['water'].append({'tex': 'ter_tex_water_shallow', 'x': b.o[0] + 408, 'y': b.o[1] + 0, 'w': 144, 'h': 540})
-b.trail([(-20, 300), (120, 330), (260, 322), (352, 322), (480, 322), (608, 322), (720, 326), (860, 316), (980, 320)], half=22, seed=3)
+_RIO = [(540, -40), (505, 60), (470, 150), (492, 250), (480, 336), (452, 420), (478, 500), (520, 580)]
+b.river(_RIO, half=64, wobble=.3)                  # rio sinuoso da fronteira: estreita sob a ponte, alarga nas curvas
+b.trail([(-20, 292), (110, 318), (240, 336), (330, 330), (480, 324), (620, 328), (730, 342), (850, 328), (980, 300)], half=22, seed=3)
 b.add('flo_bridge_ramp', 352, 336, flip=True)
 b.add('flo_bridge_span_broken', 480, 336)
 b.add('flo_bridge_ramp', 608, 336)
@@ -137,9 +172,8 @@ b.add('flo_ancient_tree_b', 640, 530, scale=.7)
 b.add('flo_stone_moss', 620, 430)
 b.add('flo_stone_moss', 340, 470)
 b.add('nat_rock_mossy', 395, 250)
-b.add('nat_rock_mossy', 565, 262)
-b.scatter(['nat_reeds'], 6, (380, 60, 20, 440), 3, min_d=50)
-b.scatter(['nat_reeds'], 6, (558, 60, 24, 440), 4, min_d=50)
+b.add('nat_rock_mossy', 592, 262)
+b.bank_scatter(['nat_reeds'], _RIO, 88, 10, 3, min_d=46)          # juncos na beira d'água (sprites largos como samambaia sobrepõem a lâmina)
 b.scatter(['nat_bush_green', 'nat_bush_flowering', 'nat_flowers_meadow', 'nat_grass_tall'], 12, (20, 60, 360, 470), 11, min_d=44)
 b.scatter(['flo_fern_patch', 'flo_glow_mushrooms', 'flo_fern_patch'], 10, (580, 60, 370, 470), 12, min_d=50)
 b.d['light_shafts'] = [[b.o[0] + 700, b.o[1] + 0], [b.o[0] + 840, b.o[1] + 40]]
@@ -149,13 +183,12 @@ comps.append(b.d)
 
 # ============================================================== LOC_FOREST_RANGER_LODGE (Q_MS02_RANGERS)
 r = Comp('LOC_FOREST_RANGER_LODGE', 'Casa dos Guardas Verdes', (520, 250),
-         'Hub leve: clareira defendida com casa, posto de observação, depósito, ervas, mesa de mapas, alvos e arsenal; sinais de ataque até a defesa.', tint=(.05, .15, .08, .18))
+         'Hub leve: clareira defendida com casa, posto de observação, depósito, ervas, mesa de mapas, alvos e arsenal; sinais de ataque até a defesa.', tint=(.05, .15, .08, .18), slug='posto_guardas')
 r.exclude_rect(390, 350, 190, 190)                 # pátio à frente da varanda + trilha de acesso
-r.exclude_rect(0, 400, 960, 44)                    # trilha de patrulha
 r.exclude_circle(480, 420, 40)                     # fogueira
-r.trail([(-20, 420), (200, 436), (480, 430), (760, 442), (980, 430)], half=20, seed=5)
-r.trail([(480, 410), (474, 470), (470, 560)], half=22, seed=8)
-r.trail([(470, 420), (330, 240), (320, 60)], half=16, seed=11)
+r.trail([(-20, 404), (140, 432), (300, 452), (440, 446), (560, 454), (720, 470), (860, 452), (980, 420)], half=20, seed=5)   # patrulha: curva suave
+r.trail([(520, 452), (500, 490), (470, 530), (452, 580)], half=21, seed=8)          # acesso sul: sai em Y da patrulha
+r.trail([(420, 440), (380, 380), (340, 300), (300, 200), (318, 60)], half=15, seed=11)   # picada norte: bifurca em ângulo agudo
 r.add('flo_ranger_lodge', 470, 330)
 r.add('flo_ranger_watch', 730, 270)
 r.add('flo_ranger_shed', 250, 300)
@@ -194,11 +227,10 @@ comps.append(r.d)
 # ============================================================== LOC_FOREST_ROOT_SHRINES (Q_MS02_ROOTS) — três braços (uma composição por microárea)
 def shrine_arm(key, name, origin, story, build):
     sd = sum(map(ord, key))                                      # semente determinística (hash() de str varia por processo)
-    c = Comp('LOC_FOREST_ROOT_SHRINES', name, origin, story, tint=(.05, .14, .09, .2))
+    c = Comp('LOC_FOREST_ROOT_SHRINES', name, origin, story, tint=(.05, .14, .09, .2), slug='santuario_' + key)
     flag = 'quest:Q_MS02_ROOTS:' + key                         # sub-objetivo purificado deste braço (mesma fonte de verdade da quest)
     c.exclude_circle(480, 330, 120)                              # área do santuário
-    c.exclude_rect(0, 440, 960, 40)                              # trilha de aproximação
-    c.trail([(-20, 500), (200, 470), (360, 440), (470, 400)], half=18, seed=sd % 17)
+    c.trail([(-20, 512), (130, 498), (260, 470), (380, 446), (470, 404)], half=18, seed=sd % 17)
     c.add('flo_shrine_' + key + '_corrupt', 480, 340, hide_when=flag)
     c.add('flo_shrine_' + key + '_pure', 480, 340, show_when=flag)
     c.add('flo_shrine_path_marker', 330, 470)
@@ -219,11 +251,12 @@ def shrine_arm(key, name, origin, story, build):
 
 
 def build_water(c, flag):
-    c.d['water'].append({'tex': 'ter_tex_water_shallow', 'x': c.o[0] + 40, 'y': c.o[1] + 150, 'w': 250, 'h': 150})
+    _st = [(170, 150), (150, 205), (196, 250), (168, 300), (96, 332), (20, 350), (-40, 372)]
+    c.river(_st, half=46, wobble=.42)                          # riacho que desce da queda: largura variável, sem espelho retangular
     c.add('nat_waterfall_front', 165, 160)
-    for x, y in ((60, 320), (120, 340), (250, 320), (300, 260)):
+    for x, y in ((64, 282), (140, 384), (262, 296), (250, 200)):        # pedras nas MARGENS do riacho, não dentro da água
         c.add('nat_rock_mossy', x, y)
-    c.scatter(['nat_reeds'], 6, (40, 300, 260, 40), 5, min_d=40)
+    c.bank_scatter(['nat_reeds'], _st, 66, 7, 5, min_d=40)
     c.add('flo_ancient_tree_a', 780, 200, scale=.7)
     c.add('flo_ancient_tree_b', 880, 470, scale=.65)
 
@@ -259,10 +292,9 @@ shrine_arm('wind', 'Santuário — Raiz do Vento', (520, 210), 'Braço elevado: 
 
 # ============================================================== LOC_MEMORY_TREE (Q_MS02_MEMORY_TREE) — exterior e coração
 m = Comp('LOC_MEMORY_TREE', 'Árvore-Memória — exterior', (380, 130),
-         'Landmark dominante: tronco colossal, raízes em arcos e passagens, clareira central com espelho d\'água e pedras memoriais. Fechada até purificar as três raízes; depois as raízes se afastam.', tint=(.05, .15, .1, .18))
+         'Landmark dominante: tronco colossal, raízes em arcos e passagens, clareira central com espelho d\'água e pedras memoriais. Fechada até purificar as três raízes; depois as raízes se afastam.', tint=(.05, .15, .1, .18), slug='arvore_memoria_exterior')
 m.exclude_circle(480, 430, 190)
-m.exclude_rect(0, 470, 960, 40)
-m.trail([(-20, 500), (200, 490), (400, 480), (480, 470)], half=20, seed=9)
+m.trail([(-20, 520), (120, 506), (260, 488), (390, 482), (470, 470)], half=20, seed=9)
 m.add('flo_memory_pool', 480, 500, layer='ground', scale=1.1)
 m.add('flo_memory_tree_sealed', 480, 440, scale=.55, hide_when='quest:Q_MS02_ROOTS')
 m.add('flo_memory_tree_open', 480, 440, scale=.55, show_when='quest:Q_MS02_ROOTS')
@@ -280,7 +312,7 @@ m.shot('FLO_2C_ARVORE_ABERTA', ['quest:Q_MS02_ROOTS'])
 comps.append(m.d)
 
 h = Comp('LOC_MEMORY_TREE', 'Árvore-Memória — coração', (380, 130),
-         'Interior/coração acessível na missão: piso de raízes com anel de luz, semente-memória sobre pedestal, inscrições, arcos de raiz como paredes; espaço para as memórias de Adrian.', tint=(.02, .06, .04, .35))
+         'Interior/coração acessível na missão: piso de raízes com anel de luz, semente-memória sobre pedestal, inscrições, arcos de raiz como paredes; espaço para as memórias de Adrian.', tint=(.02, .06, .04, .35), terrain='none')
 h.d['ground_solid'] = [.05, .09, .06]
 h.add('flo_heart_floor', 480, 330, layer='ground', scale=1.15)
 h.add('flo_heart_seed', 480, 330, hide_when='quest:Q_MS02_MEMORY_TREE:active')
@@ -303,7 +335,7 @@ comps.append(h.d)
 # Regra do Guardião aplicada: primeira derrota = flag persistente "elites:BOSS_RAIZ_OCA_001"; revanche = leitura visual temporária ("rematch:<ID>").
 BOSS = 'elites:BOSS_RAIZ_OCA_001'
 a = Comp('LOC_HOLLOW_ROOT_ARENA', 'Coração da Raiz Oca — arena', (380, 130),
-         'Arena feita para o boss: piso com anéis e cunhas de telegráfico, raízes gigantes delimitando o campo, núcleo ao fundo; circulação livre no campo. Ativa até a primeira derrota; depois dormente/purificada; a revanche reativa só a apresentação.', tint=(.03, .04, .08, .3))
+         'Arena feita para o boss: piso com anéis e cunhas de telegráfico, raízes gigantes delimitando o campo, núcleo ao fundo; circulação livre no campo. Ativa até a primeira derrota; depois dormente/purificada; a revanche reativa só a apresentação.', tint=(.03, .04, .08, .3), terrain='none')
 a.d['ground_solid'] = [.06, .05, .09]
 a.exclude_circle(480, 340, 250)                        # campo de combate livre de props
 # fundo em V angulado (eixos isométricos): lado direito desce em +Y (diagonal ↘), lado esquerdo em -X espelhado (diagonal ↙); frente aberta para a câmera
@@ -328,10 +360,9 @@ a.shot('FLO_2D_ARENA_REVANCHE_ATIVA', [BOSS, 'rematch:BOSS_RAIZ_OCA_001'])
 comps.append(a.d)
 
 w = Comp('LOC_HOLLOW_ROOT_ARENA', 'Coração da Raiz Oca — aproximação e ferida', (500, 200),
-         'Acesso: uma ferida aberta na floresta sob/atrás da Árvore-Memória; a corrupção aumenta no caminho (solo escurecido, veios, espinhos). Depois da derrota a ferida cicatriza.', tint=(.05, .1, .09, .22))
-w.exclude_rect(0, 400, 700, 50)
+         'Acesso: uma ferida aberta na floresta sob/atrás da Árvore-Memória; a corrupção aumenta no caminho (solo escurecido, veios, espinhos). Depois da derrota a ferida cicatriza.', tint=(.05, .1, .09, .22), slug='raiz_oca_ferida')
 w.exclude_circle(740, 330, 130)
-w.trail([(-20, 430), (200, 420), (400, 410), (600, 390), (700, 350)], half=18, seed=6)
+w.trail([(-20, 448), (140, 432), (300, 426), (460, 410), (590, 388), (690, 352)], half=18, seed=6)
 w.add('flo_hollow_wound_open', 760, 350, hide_when=BOSS)
 w.add('flo_hollow_wound_healing', 760, 350, show_when=BOSS)
 for x, y in ((400, 400), (480, 410), (350, 380)):
@@ -356,11 +387,11 @@ comps.append(w.d)
 # F5 = boss derrotado (elites:BOSS_RAIZ_OCA_001) abre o caminho; F6 = Selo Verde recuperado (quest concluída) acende o anel e projeta a segunda linha.
 SEAL = 'quest:Q_MS02_VEIL_SHRINE'
 c = Comp('LOC_FOREST_CARTOGRAPHER_SHRINE', 'Santuário dos Cartógrafos', (400, 120),
-         'Ruína anterior aos Guardas numa clareira elevada com vista; anel de oito linhas que recebe o Selo Verde; a saída aponta para o deserto (Ato III).', tint=(.06, .13, .08, .16))
+         'Ruína anterior aos Guardas numa clareira elevada com vista; anel de oito linhas que recebe o Selo Verde; a saída aponta para o deserto (Ato III).', tint=(.06, .13, .08, .16), slug='cartografos')
+c.d['ecotone_x'] = 600                               # o solo seca rumo à saída do Ato III
 c.exclude_circle(480, 340, 230)
-c.exclude_rect(0, 470, 960, 50)
 BOSSF = 'elites:BOSS_RAIZ_OCA_001'
-c.trail([(-20, 500), (160, 495), (320, 470), (430, 430)], half=18, seed=4, show_when=BOSSF)          # trilha visível só depois do boss
+c.trail([(-20, 512), (160, 498), (320, 472), (430, 430)], half=18, seed=4, show_when=BOSSF)          # trilha visível só depois do boss
 for x, y in ((80, 505), (200, 500), (300, 480)):                                                     # antes: caminho encoberto por raízes e mato
     c.add('flo_cart_path_covered', x, y, hide_when=BOSSF)
     c.add('flo_cart_path_open', x, y, show_when=BOSSF, layer='ground')
@@ -375,7 +406,7 @@ c.add('flo_ancient_tree_a', 90, 130, scale=.65)
 c.add('flo_ancient_tree_b', 880, 130, scale=.6, flip=True)
 c.add('flo_stone_moss', 150, 420)
 # ecótono para o Ato III: à direita o solo seca (grama seca, arbustos secos, dunas baixas) e o marco de saída aponta o caminho
-c.trail([(560, 470), (700, 480), (860, 470), (980, 455)], half=17, seed=8, show_when=BOSSF)
+c.trail([(540, 452), (640, 478), (760, 486), (870, 468), (980, 440)], half=17, seed=8, show_when=BOSSF)
 c.add('flo_exit_marker', 900, 450, show_when=BOSSF)
 for x, y in ((660, 500), (760, 440), (830, 500), (930, 420)):
     c.add('nat_bush_dry', x, y)

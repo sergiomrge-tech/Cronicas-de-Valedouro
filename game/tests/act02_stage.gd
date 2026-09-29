@@ -10,9 +10,14 @@ var comp: Dictionary = {}
 var flags: Dictionary = {}
 var time_acc: float = 3.7
 var approved: Dictionary = {}
+var tex_cache: Dictionary = {}
 
 func set_scene(composition: Dictionary, active_flags: Array) -> void:
 	comp = composition
+	# texturas do chão carregadas FORA do _draw (no renderer Compatibility/mobile, carregar dentro do draw usa placeholder no 1º quadro)
+	for path in [str(comp.get("ground_png", ""))] + comp.get("ground_overlays", []).map(func(ov: Dictionary) -> String: return str(ov["png"])):
+		if not path.is_empty() and not tex_cache.has(path):
+			tex_cache[path] = load(path)
 	flags = {}
 	for f in active_flags:
 		flags[str(f)] = true
@@ -74,28 +79,44 @@ func _draw() -> void:
 	var origin: Array = comp.get("origin", [0, 0])
 	var view: Rect2 = Rect2(Vector2(float(origin[0]), float(origin[1])), Vector2(960, 540))
 	draw_set_transform(-view.position)
-	if comp.has("ground_solid"):
+	var baked: bool = comp.has("ground_png")
+	if baked:
+		# chão assado por cena (tools/act02/bake_act02_ground.py): terreno, trilhas curvas, rio sinuoso e sombra de contato numa só textura
+		var gtex: Texture2D = tex_cache.get(str(comp["ground_png"])) as Texture2D
+		if gtex != null:
+			draw_texture(gtex, view.position)
+		for ov_value in comp.get("ground_overlays", []):
+			var ov: Dictionary = ov_value
+			if visible_obj(ov):
+				var otex: Texture2D = tex_cache.get(str(ov["png"])) as Texture2D
+				if otex != null:
+					draw_texture(otex, view.position)
+		# brilhos da água animados (poucos retângulos por quadro, custo mínimo no mobile)
+		var glints: Array = comp.get("water_glints", [])
+		for i in glints.size():
+			var g: Array = glints[i]
+			var ph: float = sin(time_acc * 2.2 + float(i) * 1.7)
+			if ph > 0.2:
+				draw_rect(Rect2(float(g[0]) + ph * 2.0, float(g[1]), 3.0 + ph * 2.0, 1.0), Color(.85, 1, .95, .5 * ph))
+	elif comp.has("ground_solid"):
 		var gs: Array = comp["ground_solid"]
 		draw_rect(view, Color(float(gs[0]), float(gs[1]), float(gs[2]), 1.0))
 	else:
 		GROUND.draw_bosque(self, view)
 	var tint: Array = comp.get("ground_tint", [0.05, 0.16, 0.1, 0.22])
-	draw_rect(view, Color(float(tint[0]), float(tint[1]), float(tint[2]), float(tint[3])))
-	for w_value in comp.get("water", []):
-		var w: Dictionary = w_value
-		var tex: Texture2D = MODELED.texture(str(w.get("tex", "ter_tex_water_shallow")))
-		var r: Rect2 = Rect2(float(w["x"]), float(w["y"]), float(w["w"]), float(w["h"]))
-		if tex != null:
-			draw_texture_rect(tex, r, true, Color(.55, .82, .78, 1.0))
-		draw_rect(r, Color(.05, .25, .3, .18))
-		draw_rect(Rect2(r.position.x - 6, r.position.y, 12, r.size.y), Color(.08, .2, .1, .45))
-		draw_rect(Rect2(r.end.x - 6, r.position.y, 12, r.size.y), Color(.08, .2, .1, .45))
-		for i in 10:
-			var gp: Vector2 = r.position + Vector2(fposmod(float(i) * 37.0 + time_acc * 6.0, r.size.x), fposmod(float(i) * 53.0, r.size.y))
-			draw_rect(Rect2(gp, Vector2(4, 1)), Color(.9, 1, 1, .45))
-	for t_value in comp.get("trails", []):
-		if visible_obj(t_value as Dictionary):
-			draw_trail(t_value as Dictionary)
+	var tint_a: float = float(tint[3]) * (0.5 if baked else 1.0)
+	draw_rect(view, Color(float(tint[0]), float(tint[1]), float(tint[2]), tint_a))
+	if not baked:
+		for w_value in comp.get("water", []):
+			var w: Dictionary = w_value
+			var tex: Texture2D = MODELED.texture(str(w.get("tex", "ter_tex_water_shallow")))
+			var r: Rect2 = Rect2(float(w["x"]), float(w["y"]), float(w["w"]), float(w["h"]))
+			if tex != null:
+				draw_texture_rect(tex, r, true, Color(.55, .82, .78, 1.0))
+			draw_rect(r, Color(.05, .25, .3, .18))
+		for t_value in comp.get("trails", []):
+			if visible_obj(t_value as Dictionary):
+				draw_trail(t_value as Dictionary)
 	var items: Array = []
 	for o_value in comp["objects"]:
 		var o: Dictionary = o_value
