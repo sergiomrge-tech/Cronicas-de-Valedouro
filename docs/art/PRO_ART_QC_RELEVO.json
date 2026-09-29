@@ -1,0 +1,640 @@
+{
+  "summary": {
+    "total": 30,
+    "pass": 30,
+    "warn": 0,
+    "fail": 0
+  },
+  "results": [
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_earth.png",
+      "width": 372,
+      "height": 292,
+      "bbox": [
+        87,
+        121,
+        286,
+        245
+      ],
+      "opaque_pixels": 17325,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.159495,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_ice.png",
+      "width": 372,
+      "height": 292,
+      "bbox": [
+        88,
+        126,
+        283,
+        250
+      ],
+      "opaque_pixels": 17905,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.164835,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_low_earth.png",
+      "width": 492,
+      "height": 312,
+      "bbox": [
+        117,
+        134,
+        386,
+        268
+      ],
+      "opaque_pixels": 24428,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.159136,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_low_ice.png",
+      "width": 492,
+      "height": 312,
+      "bbox": [
+        127,
+        139,
+        370,
+        270
+      ],
+      "opaque_pixels": 22922,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.149325,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_low_rock.png",
+      "width": 492,
+      "height": 312,
+      "bbox": [
+        123,
+        127,
+        384,
+        274
+      ],
+      "opaque_pixels": 25547,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.166426,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_low_sand.png",
+      "width": 492,
+      "height": 312,
+      "bbox": [
+        123,
+        131,
+        384,
+        274
+      ],
+      "opaque_pixels": 25304,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.164843,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_sand.png",
+      "width": 372,
+      "height": 292,
+      "bbox": [
+        82,
+        125,
+        289,
+        250
+      ],
+      "opaque_pixels": 19076,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.175615,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_wide_earth.png",
+      "width": 612,
+      "height": 412,
+      "bbox": [
+        137,
+        174,
+        478,
+        355
+      ],
+      "opaque_pixels": 42056,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.166794,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_wide_ice.png",
+      "width": 612,
+      "height": 412,
+      "bbox": [
+        143,
+        175,
+        475,
+        358
+      ],
+      "opaque_pixels": 42166,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.16723,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_wide_rock.png",
+      "width": 612,
+      "height": 412,
+      "bbox": [
+        129,
+        174,
+        471,
+        360
+      ],
+      "opaque_pixels": 43106,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.170958,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_hill_wide_sand.png",
+      "width": 612,
+      "height": 412,
+      "bbox": [
+        131,
+        181,
+        471,
+        359
+      ],
+      "opaque_pixels": 41685,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.165322,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_corner_ice.png",
+      "width": 472,
+      "height": 432,
+      "bbox": [
+        89,
+        140,
+        411,
+        392
+      ],
+      "opaque_pixels": 43612,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.213885,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_corner_rock.png",
+      "width": 472,
+      "height": 432,
+      "bbox": [
+        103,
+        128,
+        408,
+        386
+      ],
+      "opaque_pixels": 43215,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.211938,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_corner_sand.png",
+      "width": 472,
+      "height": 432,
+      "bbox": [
+        113,
+        140,
+        397,
+        390
+      ],
+      "opaque_pixels": 40208,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.197191,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_end_ice_am.png",
+      "width": 432,
+      "height": 392,
+      "bbox": [
+        102,
+        153,
+        315,
+        349
+      ],
+      "opaque_pixels": 22843,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.134891,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_end_ice_ap.png",
+      "width": 432,
+      "height": 392,
+      "bbox": [
+        119,
+        108,
+        378,
+        342
+      ],
+      "opaque_pixels": 26798,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.158246,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_end_ice_bm.png",
+      "width": 432,
+      "height": 392,
+      "bbox": [
+        118,
+        152,
+        375,
+        350
+      ],
+      "opaque_pixels": 22081,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.130391,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_end_ice_bp.png",
+      "width": 432,
+      "height": 392,
+      "bbox": [
+        112,
+        104,
+        310,
+        349
+      ],
+      "opaque_pixels": 26278,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.155175,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_end_rock_am.png",
+      "width": 432,
+      "height": 392,
+      "bbox": [
+        110,
+        156,
+        332,
+        350
+      ],
+      "opaque_pixels": 23342,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.137838,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_end_rock_ap.png",
+      "width": 432,
+      "height": 392,
+      "bbox": [
+        126,
+        102,
+        373,
+        345
+      ],
+      "opaque_pixels": 25830,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.15253,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_end_rock_bm.png",
+      "width": 432,
+      "height": 392,
+      "bbox": [
+        121,
+        156,
+        381,
+        347
+      ],
+      "opaque_pixels": 21896,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.129299,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_end_rock_bp.png",
+      "width": 432,
+      "height": 392,
+      "bbox": [
+        114,
+        96,
+        313,
+        345
+      ],
+      "opaque_pixels": 26002,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.153545,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_end_sand_am.png",
+      "width": 432,
+      "height": 392,
+      "bbox": [
+        105,
+        157,
+        322,
+        347
+      ],
+      "opaque_pixels": 22140,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.13074,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_end_sand_ap.png",
+      "width": 432,
+      "height": 392,
+      "bbox": [
+        118,
+        96,
+        368,
+        345
+      ],
+      "opaque_pixels": 27050,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.159734,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_end_sand_bm.png",
+      "width": 432,
+      "height": 392,
+      "bbox": [
+        100,
+        155,
+        376,
+        346
+      ],
+      "opaque_pixels": 22296,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.131661,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_cliff_end_sand_bp.png",
+      "width": 432,
+      "height": 392,
+      "bbox": [
+        101,
+        98,
+        327,
+        345
+      ],
+      "opaque_pixels": 26561,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.156846,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ramp_earth.png",
+      "width": 612,
+      "height": 472,
+      "bbox": [
+        171,
+        173,
+        473,
+        394
+      ],
+      "opaque_pixels": 37366,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.129355,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ramp_ice.png",
+      "width": 612,
+      "height": 472,
+      "bbox": [
+        170,
+        172,
+        473,
+        392
+      ],
+      "opaque_pixels": 37154,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.128621,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ramp_rock.png",
+      "width": 612,
+      "height": 472,
+      "bbox": [
+        170,
+        172,
+        473,
+        394
+      ],
+      "opaque_pixels": 37254,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.128967,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "path": "/home/user/Cronicas-de-Valedouro/game/assets/modeled/nature/elevation/nat_ramp_sand.png",
+      "width": 612,
+      "height": 472,
+      "bbox": [
+        170,
+        172,
+        473,
+        394
+      ],
+      "opaque_pixels": 37254,
+      "soft_alpha_pixels": 0,
+      "soft_alpha_ratio": 0.0,
+      "unique_opaque_rgb": 64,
+      "edge_touch_pixels": 0,
+      "occupancy_ratio": 0.128967,
+      "manifest_id": null,
+      "status": "PASS",
+      "warnings": [],
+      "failures": []
+    }
+  ]
+}

@@ -25,8 +25,15 @@ Status: implementação técnica (não altera arte APPROVED). Gerado por `game/t
 | Deserto | Caravana de Âmbar, Ruínas das Dunas, Oásis | Serra ao sul, cânion (duas paredes com corredor) a leste da caravana, três mesas | Dunas abertas entre a caravana e as ruínas | Duna Móvel (leste), baú enterrado, arco natural |
 
 ## Peças de relevo (`build_world.py`)
-`poly` (cadeia de cristas/paredões + colinas de pé + tampas), `mesa`, `terraces`, `arc`, `scatter`, todas por `best(region, fn, ...)`: testa deslocamentos ≤ 90 px, mantém o que coloca mais peças e prefere o menor deslocamento (âncoras são sugestões). Total atual: 104 peças (antes 45).
+`poly` (cadeia de cristas/paredões + colinas de pé + tampas), `mesa`, `terraces`, `arc`, `scatter`, todas por `best(region, fn, ...)`: testa deslocamentos ≤ 90 px, mantém o que coloca mais peças e prefere o menor deslocamento (âncoras são sugestões). Total atual: 112 peças (antes 45).
+
+## Assets dedicados de relevo (`tools/art_pipeline/pro_relief.py`, Blender, MODELED_PENDING_GATE)
+27 assets novos: `nat_hill_wide_{earth,rock,sand,ice}` (colinas amplas em patamares, bloqueiam), `nat_hill_low_*` (ondulações caminháveis, sem colisão), `nat_cliff_end_{rock,sand,ice}_{a,b}{p,m}` (fins de paredão que descem ao chão; `p`/`m` = sentido da queda), `nat_cliff_corner_{rock,sand,ice}` (canto em L com colisão composta) e `nat_ramp_*` (rampas de acesso, sem colisão, espelháveis). Paleta reduzida a 64 cores (Oklab); QC 30/30 PASS.
+As formações usam: fins nas pontas de cada cordilheira (`poly`), rampa em vez de degraus nas mesas/terraços, colinas amplas e baixas no pé das cristas e no preenchimento.
+
+## Sombra projetada do relevo
+`ground_detail.relief_shadows` (no bake do piso): cada peça de relevo do mundo projeta no chão uma sombra varrida na direção da luz (cima‑esquerda → baixo‑direita), com comprimento proporcional à altura, escura junto ao pé e esmaecendo (3 faixas), penumbra em 4 degraus com dither de Bayer, tom frio (mais perda de vermelho/verde que de azul). Não afeta água, pontes e calçada. 106 peças projetam sombra. Não altera colisão nem jogabilidade.
 
 ## Pendências propostas (aguardam ordem do Diretor)
-- Assets de relevo dedicados (colinas amplas que casem com a cor do piso, tampas/cantos de penhasco, rampas) — hoje reaproveita o kit MODELED_PENDING_GATE.
-- Camada de altura real (sombras projetadas do relevo no chão) — hoje só `macro_shade` no bake.
+- Sombra projetada de estruturas altas (torres, moinho, casas) e árvores procedurais (hoje só relevo e o Bosque não recebe).
+- Decalques específicos de ecótono e camada de altura real.

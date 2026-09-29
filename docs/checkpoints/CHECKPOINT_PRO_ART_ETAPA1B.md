@@ -49,3 +49,10 @@ Terreno: 18 decalques modelados, relevo macro, lábios de estrada/água, transi�
 - **Level design**: `docs/planning/REG001_LEVEL_DESIGN.md` (foco, massas, espaço negativo, segredos por região).
 - **Validação**: 14/14 testes Godot em PASS (`reg001_world`: 870 objetos, 4975 células conectadas), capturas reais 59–66 e 16/17/21/50/51/57 em `docs/visual_qa/pro/game/`.
 - **Limites honestos**: relevo ainda usa o kit MODELED_PENDING_GATE (nenhuma promoção a APPROVED); algumas formações colocam menos peças que o ideal por causa de POIs/trilhas; ecótono de decalques específico e sombras projetadas do relevo ficam para a próxima etapa.
+
+## Atualização — assets de relevo e sombra projetada (2026-09-29)
+- **27 assets novos de relevo** (`pro_relief.py`, Blender, 64 cores, QC 30/30): colinas amplas/baixas, fins e cantos de paredão, rampas. Manifesto 337 assets (nature 150), catálogo e SHA atualizados.
+- **Sombra projetada**: `relief_shadows` no bake do piso (106 peças), luz cima‑esquerda, 3 faixas de intensidade + dither de Bayer.
+- **Formações**: fins de paredão nas pontas, rampas nas mesas/terraços, colinas amplas/baixas no pé e no preenchimento; 112 peças elevadas.
+- **Validação**: 14/14 testes Godot PASS (`reg001_world`: 878 objetos, 4951 células conectadas, 165 ms de montagem de chunks, pico visível 192), validador estático PASS, capturas reais ANTES/DEPOIS em `docs/visual_qa/pro/relevo/`.
+- **Limites honestos**: nada foi promovido a APPROVED; colina baixa de grama é mais saturada que o piso; o Bosque (instância separada) e as estruturas altas ainda não projetam sombra; algumas formações colocam menos peças que o desenhado.
