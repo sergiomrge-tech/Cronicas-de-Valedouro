@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 28 | 0 |
-| MODELED_PENDING_GATE | 173 | 85 |
+| MODELED_PENDING_GATE | 171 | 87 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -236,8 +236,8 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `int_fireplace` | NOT_USED | 0 |
 | `int_floor_carpet` | NOT_USED | 0 |
 | `int_floor_stone` | NOT_USED | 0 |
-| `int_floor_wood` | INTEGRATED | 0 |
-| `int_floor_wood_dark` | INTEGRATED | 0 |
+| `int_floor_wood` | NOT_USED | 0 |
+| `int_floor_wood_dark` | NOT_USED | 0 |
 | `int_forge` | INTEGRATED | 1 |
 | `int_quest_board` | INTEGRATED | 1 |
 | `int_rug_round` | INTEGRATED | 3 |
@@ -291,5 +291,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 61 (`REG001_POI_*`); objetos: 780 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 20; passagens: 3; fragmentos de lore: 12.
+- POIs: 61 (`REG001_POI_*`); objetos: 795 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 20; passagens: 3; fragmentos de lore: 12.
 

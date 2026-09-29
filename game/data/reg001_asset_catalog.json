@@ -22,8 +22,8 @@
    "INTEGRATED": 28
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 173,
-   "NOT_USED": 85
+   "INTEGRATED": 171,
+   "NOT_USED": 87
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -218,7 +218,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 780
+  "object_count": 795
  },
  "entries": [
   {
@@ -837,7 +837,7 @@
    "key": "int_floor_wood",
    "group": "interior",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "placed": 0,
    "source": "game/tools/modeling/build_assets.py"
   },
@@ -846,7 +846,7 @@
    "key": "int_floor_wood_dark",
    "group": "interior",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "placed": 0,
    "source": "game/tools/modeling/build_assets.py"
   },

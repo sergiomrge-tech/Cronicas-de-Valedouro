@@ -1343,8 +1343,9 @@ func draw_crypt() -> void:
 
 func draw_interior() -> void:
 	var room_size: Vector2 = FORGE_SIZE if zone == "ferreiro" else SIZE
-	var floor_main: Texture2D = MODELED.texture("int_floor_wood_dark" if zone == "ferreiro" else "int_floor_wood")
-	var floor_alt: Texture2D = floor_main
+	# Pisos e muralhas dos interiores usam as peças APPROVED de Cidade; o mobiliário é modelado (REG_001).
+	var floor_main: Texture2D = null
+	var floor_alt: Texture2D = null
 	for row in 31:
 		for column in 23:
 			var ground: Vector2 = Vector2(35.0 + column * 70.0 + float(row % 2) * 35.0, 72.0 + row * 35.0)

@@ -784,6 +784,12 @@ for _wx, _wy in ((215, 470), (1560, 470)):
 W.obj('APP:city_store', TX + 1720, TY + 470, 'CIDADE_LOJAS', scale=.58, solid=False, check=False)
 W.collider('rect', TX + 1720 - 70, TY + 470 - 36, 140, 40)
 
+# povoados: mais casas compostas APPROVED (Vila dos Campos, Aldeia do Vale, casa da fazenda)
+for _x, _y, _roof, _grp, _poi in ((345, 1835, 'city_roof_red', 'VILA_C', 'REG001_POI_VILA_CAMPOS'), (700, 1820, 'city_roof_wood', 'VILA_C', 'REG001_POI_VILA_CAMPOS'),
+                                  (1185, 1690, 'city_roof_red', 'ALDEIA_V', 'REG001_POI_ALDEIA_VALE'), (1425, 1700, 'city_roof_wood', 'ALDEIA_V', 'REG001_POI_ALDEIA_VALE'),
+                                  (600, 2070, 'city_roof_blue', 'FAZENDA', None)):
+    W.house(_x, _y, _roof, _grp, poi=_poi)
+
 # árvores aprovadas: alamedas ao longo das ruas e jardins
 _rt = random.Random(4242)
 for _tx, _ty in ((370, 250), (525, 250), (760, 255), (1040, 250), (1200, 250), (1330, 250), (60, 470), (60, 700), (340, 520), (560, 560),
