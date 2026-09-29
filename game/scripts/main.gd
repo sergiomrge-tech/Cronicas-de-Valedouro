@@ -363,7 +363,7 @@ func walkable(p: Vector2) -> bool:
 				return false # visible water beside the eastern quay
 			if not MAP.bridge_at(p) and town_point.y < 149 and town_point.x > 170 and town_point.x < 1570 and (town_point.x < 793 or town_point.x > 1008):
 				return false # northern wall; the center gate stays open
-			for rect in [Rect2(1085, 145, 325, 193), Rect2(292, 390, 335, 214), Rect2(1110, 390, 340, 224)]:
+			for rect in [Rect2(1085, 145, 325, 193), Rect2(1110, 390, 340, 224)]:
 				if rect.grow(7).has_point(town_point):
 					return false
 	if zone == "floresta":
