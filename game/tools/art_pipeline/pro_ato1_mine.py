@@ -23,6 +23,19 @@ def fp(sx, sy):
     return footprint_circles(sx, sy, .9, .9)
 
 
+def m_eco_d():
+    # Eco DORMENTE (pós-Guardião): cristal quase apagado, azul-acinzentado, emissão mínima
+    return X('eco_d', lambda: mats.emissive('eco_d', '#3d7a90', 0.9))
+
+
+def m_eco_dd():
+    return X('eco_dd', lambda: mats.emissive('eco_dd', '#27485a', 0.35))
+
+
+def _pal(dorm):
+    return (m_eco_d(), m_eco_dd()) if dorm else (m_eco(), m_eco_dim())
+
+
 def crystal(x, y, z, h, r, mat, tilt=(0, 0)):
     o = geo.cyl((x, y, z), r, h, mat, sides=6, r2=r * .12)
     o.rotation_euler = (tilt[0], tilt[1], 0)
@@ -165,7 +178,13 @@ def mine_rock_wall_eco(f):
     _rockwall(1)
 
 
+@landmark('val_mine_rock_wall_eco_dormant', group='dungeon', folder='ato1', size=(420, 460), origin=(210, 380), tags=('ato1', 'mina_do_eco', 'interior', 'parede', 'modular', 'eco', 'estado_dormente'), footprint=0, collision=(), samples=24)
+def mine_rock_wall_eco_dormant(f):
+    _rockwall(2)
+
+
 def _rockwall(state):
+    me = m_eco_d() if state == 2 else m_eco()
     rr = random.Random(90 + state)
     rk = M('rock') if state == 0 else M('rock_grey')
     parts.rock_mass((0, 0, 0), (1.3, 3.4, 3.2), rk, 91 + state, subdiv=4, rough=.32, terrace=.4, step=.45, taper=.08, flat_top=True)
@@ -180,9 +199,9 @@ def _rockwall(state):
     else:                                                            # contato com o Eco: fissuras e cristais
         for k in range(5):
             y = -1.3 + k * .65
-            geo.beam((.68, y, rr.uniform(.4, 1.2)), (.68, y + rr.uniform(-.3, .3), rr.uniform(1.6, 2.7)), .03, .02, m_eco(), bevel=0)
+            geo.beam((.68, y, rr.uniform(.4, 1.2)), (.68, y + rr.uniform(-.3, .3), rr.uniform(1.6, 2.7)), .03, .02, me, bevel=0)
         for k in range(6):
-            crystal(.7, rr.uniform(-1.4, 1.4), rr.uniform(.4, 2.2), rr.uniform(.3, .6), .08, m_eco(), tilt=(0, 1.2))
+            crystal(.7, rr.uniform(-1.4, 1.4), rr.uniform(.4, 2.2), rr.uniform(.3, .6), .08, me, tilt=(0, 1.2))
     geo.rotate_all(45)
 
 
@@ -202,13 +221,24 @@ def mine_beam_arch(f):
 
 @landmark('val_eco_vein', group='dungeon', folder='ato1', size=(280, 260), origin=(140, 170), tags=('ato1', 'mina_do_eco', 'eco', 'cristal', 'prop'), footprint=16, collision=circ([(0, 0)], 9), samples=24)
 def eco_vein(f):
+    _eco_vein(False)
+
+
+def _eco_vein(dorm):
+    me, md = _pal(dorm)
     rr = random.Random(31)
     parts.rock_mass((0, 0, 0), (1.3, 1.1, .8), M('rock_grey'), 33, subdiv=3, rough=.3, taper=.3, flat_top=False)
     for k in range(9):
         a = rr.uniform(0, 6.28)
         d = rr.uniform(.1, .5)
-        crystal(math.cos(a) * d, math.sin(a) * d, .35, rr.uniform(.4, 1.1), rr.uniform(.08, .16), m_eco(), tilt=(rr.uniform(-.4, .4), rr.uniform(-.4, .4)))
-    geo.cyl((0, 0, 0), 1.0, .01, m_eco_dim(), sides=16)
+        crystal(math.cos(a) * d, math.sin(a) * d, .35, rr.uniform(.4, 1.1), rr.uniform(.08, .16), me, tilt=(rr.uniform(-.4, .4), rr.uniform(-.4, .4)))
+    geo.cyl((0, 0, 0), 1.0, .01, md, sides=16)
+
+
+@landmark('val_eco_vein_dormant', group='dungeon', folder='ato1', size=(280, 260), origin=(140, 170), tags=('estado_dormente', 'ato1', 'mina_do_eco', 'eco', 'cristal', 'prop'), footprint=16, collision=circ([(0, 0)], 9), samples=24)
+def eco_vein_dormant(f):
+    _eco_vein(True)
+
 
 
 @landmark('val_mine_machine', group='dungeon', folder='ato1', size=(400, 360), origin=(200, 240), tags=('ato1', 'mina_do_eco', 'maquinario', 'antigo'), footprint=34, collision=circ([(-.6, 0), (.6, 0)], 12), samples=24)
@@ -234,37 +264,64 @@ def mine_machine(f):
 # ============================================================== LOC_ECHO_MINE_CORE
 @landmark('val_eco_core', group='dungeon', folder='ato1', size=(500, 640), origin=(250, 470), tags=('ato1', 'nucleo_do_eco', 'boss', 'echo_mine_core', 'centro'), footprint=60, collision=circ([(0, 0), (.5, .5), (-.5, -.5), (.5, -.5), (-.5, .5)], 14), samples=24)
 def eco_core(f):
+    _eco_core(False)
+
+
+def _eco_core(dorm):
+    me, md = _pal(dorm)
     rk = M('rock_grey')
     # base ritual: três degraus de pedra com anéis de runas, pilares curtos e o núcleo cristalino alto com aros flutuantes
     for i, r in enumerate((2.5, 2.0, 1.5)):
         geo.cyl((0, 0, i * .22), r, .24, rk, sides=16, r2=r * .96)
     for k in range(8):
         a = k * math.pi / 4
-        geo.box((math.cos(a) * 2.2, math.sin(a) * 2.2, .3), (.3, .08, .05), m_eco(), rot=(0, 0, a + math.pi / 2), bevel=0)
+        geo.box((math.cos(a) * 2.2, math.sin(a) * 2.2, .3), (.3, .08, .05), me, rot=(0, 0, a + math.pi / 2), bevel=0)
     for k in range(4):
         a = k * math.pi / 2 + math.pi / 4
         geo.box((math.cos(a) * 1.9, math.sin(a) * 1.9, .9), (.4, .4, 1.2), rk, rot=(0, 0, a), bevel=0.04)
-        crystal(math.cos(a) * 1.9, math.sin(a) * 1.9, 1.5, .4, .1, m_eco_dim())
-    core = crystal(0, 0, .7, 3.6, .55, m_eco())
+        crystal(math.cos(a) * 1.9, math.sin(a) * 1.9, 1.5, .4, .1, md)
+    core = crystal(0, 0, .7, 3.6, .55, me)
     for k, (h, r, t) in enumerate(((1.4, .35, .5), (1.0, .28, -.6), (1.6, .3, .9), (.9, .25, -.9))):
-        crystal(.35 * math.cos(k * 1.6), .35 * math.sin(k * 1.6), .7, h + 1.2, r, m_eco(), tilt=(t * .2, -t * .2))
+        crystal(.35 * math.cos(k * 1.6), .35 * math.sin(k * 1.6), .7, h + 1.2, r, me, tilt=(t * .2, -t * .2))
     for h, r in ((1.6, 1.1), (2.4, .8), (3.1, .6)):                     # anéis de energia
-        geo.cyl((0, 0, h), r, .05, m_eco_dim(), sides=24, r2=r)
+        geo.cyl((0, 0, h), r, .05, md, sides=24, r2=r)
     parts.rubble(0, 0, 2.6, 12, rk, seed=6, rmin=.08, rmax=.22)
+
+
+@landmark('val_eco_core_dormant', group='dungeon', folder='ato1', size=(500, 640), origin=(250, 470), tags=('estado_dormente', 'ato1', 'nucleo_do_eco', 'boss', 'echo_mine_core', 'centro'), footprint=60, collision=circ([(0, 0), (.5, .5), (-.5, -.5), (.5, -.5), (-.5, .5)], 14), samples=24)
+def eco_core_dormant(f):
+    _eco_core(True)
+
 
 
 @landmark('val_eco_crystal_cluster', group='dungeon', folder='ato1', size=(300, 340), origin=(150, 240), tags=('ato1', 'nucleo_do_eco', 'cristal', 'prop'), footprint=20, collision=circ([(0, 0)], 11), samples=24)
 def eco_cluster(f):
+    _eco_cluster(False)
+
+
+def _eco_cluster(dorm):
+    me, md = _pal(dorm)
     rr = random.Random(41)
     parts.rock_mass((0, 0, 0), (1.3, 1.1, .5), M('rock_grey'), 43, subdiv=3, rough=.25, taper=.2, flat_top=True)
     for k in range(11):
         a = k * 2.4
         d = rr.uniform(.05, .5)
-        crystal(math.cos(a) * d, math.sin(a) * d, .3, rr.uniform(.5, 1.6), rr.uniform(.07, .17), m_eco() if k % 3 else m_eco_dim(), tilt=(rr.uniform(-.35, .35), rr.uniform(-.35, .35)))
+        crystal(math.cos(a) * d, math.sin(a) * d, .3, rr.uniform(.5, 1.6), rr.uniform(.07, .17), me if k % 3 else md, tilt=(rr.uniform(-.35, .35), rr.uniform(-.35, .35)))
+
+
+@landmark('val_eco_crystal_cluster_dormant', group='dungeon', folder='ato1', size=(300, 340), origin=(150, 240), tags=('estado_dormente', 'ato1', 'nucleo_do_eco', 'cristal', 'prop'), footprint=20, collision=circ([(0, 0)], 11), samples=24)
+def eco_cluster_dormant(f):
+    _eco_cluster(True)
+
 
 
 @landmark('val_core_floor_ring', group='dungeon', folder='ato1', size=(760, 400), origin=(380, 200), tags=('ato1', 'nucleo_do_eco', 'arena', 'piso', 'decalque'), footprint=0, collision=(), samples=16, catcher=False, outline=0)
 def core_floor_ring(f):
+    _core_floor_ring(False)
+
+
+def _core_floor_ring(dorm):
+    me, md = _pal(dorm)
     rr = random.Random(5)
     dark = mats.flat('cfloor', '#22202e', rough=.9, bevel_wear=0)
     geo.cyl((0, 0, 0), 6.6, .03, dark, sides=40)
@@ -273,11 +330,16 @@ def core_floor_ring(f):
             a = k * 2 * math.pi / 64
             if rr.random() < .25:
                 continue
-            geo.box((math.cos(a) * ring, math.sin(a) * ring, .05), (.42, w, .02), m_eco_dim(), rot=(0, 0, a + math.pi / 2), bevel=0)
+            geo.box((math.cos(a) * ring, math.sin(a) * ring, .05), (.42, w, .02), md, rot=(0, 0, a + math.pi / 2), bevel=0)
     for k in range(8):                                                   # 8 linhas de Eco (8 selos) até o centro
         a = k * math.pi / 4
-        geo.box((math.cos(a) * 3.6, math.sin(a) * 3.6, .05), (4.4, .09, .02), m_eco(), rot=(0, 0, a), bevel=0)
+        geo.box((math.cos(a) * 3.6, math.sin(a) * 3.6, .05), (4.4, .09, .02), me, rot=(0, 0, a), bevel=0)
     for k in range(9):                                                   # fissuras de energia e lajes rachadas
         a = rr.uniform(0, 6.28)
         geo.cyl_between((math.cos(a) * 1.2, math.sin(a) * 1.2, .05), (math.cos(a + .3) * 6.0, math.sin(a + .3) * 6.0, .05), .03, M('hole'), sides=4)
-    geo.cyl((0, 0, .05), 1.0, .02, m_eco_dim(), sides=24)
+    geo.cyl((0, 0, .05), 1.0, .02, md, sides=24)
+
+
+@landmark('val_core_floor_ring_dormant', group='dungeon', folder='ato1', size=(760, 400), origin=(380, 200), tags=('estado_dormente', 'ato1', 'nucleo_do_eco', 'arena', 'piso', 'decalque'), footprint=0, collision=(), samples=16, catcher=False, outline=0)
+def core_floor_ring_dormant(f):
+    _core_floor_ring(True)

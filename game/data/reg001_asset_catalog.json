@@ -22,7 +22,7 @@
    "INTEGRATED": 28
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 243,
+   "INTEGRATED": 248,
    "NOT_USED": 150
   },
   "LEGACY_BASELINE": {
@@ -225,7 +225,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 1088
+  "object_count": 1110
  },
  "entries": [
   {
@@ -3639,6 +3639,15 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_VAL_CORE_FLOOR_RING_DORMANT",
+   "key": "val_core_floor_ring_dormant",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_VAL_CROWN_MONUMENT",
    "key": "val_crown_monument",
    "group": "city",
@@ -3657,6 +3666,15 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_VAL_ECO_CORE_DORMANT",
+   "key": "val_eco_core_dormant",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_VAL_ECO_CRYSTAL_CLUSTER",
    "key": "val_eco_crystal_cluster",
    "group": "dungeon",
@@ -3666,8 +3684,26 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_VAL_ECO_CRYSTAL_CLUSTER_DORMANT",
+   "key": "val_eco_crystal_cluster_dormant",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_VAL_ECO_VEIN",
    "key": "val_eco_vein",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_ECO_VEIN_DORMANT",
+   "key": "val_eco_vein_dormant",
    "group": "dungeon",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
@@ -3794,6 +3830,15 @@
   {
    "id": "MOD_VAL_MINE_ROCK_WALL_ECO",
    "key": "val_mine_rock_wall_eco",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 14,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_DORMANT",
+   "key": "val_mine_rock_wall_eco_dormant",
    "group": "dungeon",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",

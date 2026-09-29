@@ -31,6 +31,10 @@ static var trail_grid: Dictionary = {}
 static var ford_rects: Array = []
 static var crypt_walls: Array = []
 static var state: Dictionary = {}
+# ID canônico do Guardião da Mina do Eco (data/main_story_v1.json → Q_MS01_GUARDIAN.boss). Flag persistente: "elites:" + este ID.
+const GUARDIAN_BOSS_ID: String = "BOSS_GUARDIAO_PEDRA_001"
+# Boss cuja flag "elites:" é lida como FALSA só para a apresentação visual durante uma revanche (temporário, fora do save).
+static var rematch_boss: String = ""
 
 const ZONE_IDS: Dictionary = {"cidade": 0, "floresta": 1, "masmorra": 2, "ferreiro": 3, "loja": 4, "alquimia": 5, "guilda": 6, "cripta": 7, "arquivo": 8}
 
@@ -233,6 +237,8 @@ static func chunk_of(p: Vector2) -> Vector2i:
 static func _flag(found: Dictionary, key: String) -> bool:
 	# "elites:ID" e "lore:ID" consultam essas seções do estado salvo; sem prefixo, a seção "found" (segredos/portões).
 	if key.begins_with("elites:"):
+		if key.substr(7) == rematch_boss:
+			return false
 		return (state["elites"] as Dictionary).has(key.substr(7))
 	if key.begins_with("lore:"):
 		return (state["lore"] as Dictionary).has(key.substr(5))

@@ -51,6 +51,21 @@ func capture_all() -> void:
 			game.reg_game.update_elites()
 			for enemy in game.enemies:
 				enemy["hp"] = int(float(enemy["hp"]) * .55)
+		if spot.has("rematch"):
+			# revanche real: ativa (Guardião presente, Núcleo pulsando) ou concluída (Guardião morto pelo fluxo normal de combate)
+			game.start_guardian_rematch()
+			if str(spot["rematch"]) == "after":
+				for enemy in game.enemies:
+					if str(enemy["kind"]) == "Guardião":
+						enemy["hp"] = 1
+				game.player = Vector2(485, 300)
+				game.facing = Vector2.RIGHT
+				game.attack_cooldown = 0.0
+				game.enemies[0]["pos"] = game.player + Vector2(24, 0)
+				game.attack()
+				game.update_enemies(.8)
+				assert(not game.rematch_active)
+				game.enemies.clear()
 		game.hero_walking = false
 		game.refresh_ui()
 		game.queue_redraw()

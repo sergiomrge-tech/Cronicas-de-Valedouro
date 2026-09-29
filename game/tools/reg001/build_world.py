@@ -686,12 +686,17 @@ for _x, _y, _w, _h, _eco in MINE_WALLS:
     W.collider('rect', _x, _y, _w, _h, zone='masmorra')
     for _i in range(int(_w // 100) + 1):
         _wx = _x + 50 + _i * (_w - 100) / max(1, int(_w // 100))
-        dg('val_mine_rock_wall_eco' if _eco else 'val_mine_rock_wall', _wx, _y + _h + 6, solid=False)
+        if _eco:
+            dg('val_mine_rock_wall_eco', _wx, _y + _h + 6, solid=False, hide_when='elites:BOSS_GUARDIAO_PEDRA_001')
+            dg('val_mine_rock_wall_eco_dormant', _wx, _y + _h + 6, solid=False, show_when='elites:BOSS_GUARDIAO_PEDRA_001')
+        else:
+            dg('val_mine_rock_wall', _wx, _y + _h + 6, solid=False)
 for _k in range(9):     # parede de fundo da arena (norte), com o vão da porta atrás do Guardião
     _wx = 60 + _k * 105
     if 400 < _wx < 560:
         continue
-    dg('val_mine_rock_wall_eco', _wx, 200, solid=False)
+    dg('val_mine_rock_wall_eco', _wx, 200, solid=False, hide_when='elites:BOSS_GUARDIAO_PEDRA_001')
+    dg('val_mine_rock_wall_eco_dormant', _wx, 200, solid=False, show_when='elites:BOSS_GUARDIAO_PEDRA_001')
 dg('val_mine_beam_arch', 480, 618, solid=False)          # boca da zona 2 (madeira nova)
 dg('val_mine_beam_arch', 330, 790, solid=False)
 dg('val_mine_beam_arch', 630, 790, solid=False)
@@ -714,21 +719,29 @@ dg('dg_sarcophagus', 150, 520)
 dg('dg_sarcophagus', 810, 520, flip=True)
 dg('dg_bones_pile', 330, 540)
 dg('dg_bones_pile', 640, 545)
-dg('val_eco_vein', 90, 470, solid=False)
-dg('val_eco_vein', 870, 470, solid=False, flip=True)
+dg('val_eco_vein', 90, 470, solid=False, hide_when='elites:BOSS_GUARDIAO_PEDRA_001')
+dg('val_eco_vein_dormant', 90, 470, solid=False, show_when='elites:BOSS_GUARDIAO_PEDRA_001')
+dg('val_eco_vein', 870, 470, solid=False, flip=True, hide_when='elites:BOSS_GUARDIAO_PEDRA_001')
+dg('val_eco_vein_dormant', 870, 470, solid=False, flip=True, show_when='elites:BOSS_GUARDIAO_PEDRA_001')
 dg('val_mine_beam_arch', 250, 560, solid=False, scale=.8)
 dg('dg_stalagmites', 700, 470)
 # zona 3 / arena do Guardião: piso rúnico, núcleo ao fundo, cristais nas bordas, pilares como cobertura
-dg('val_core_floor_ring', 480, 320, layer='ground', scale=1.3, solid=False)
-dg('dg_rune_circle', 480, 300, layer='ground', anim=1)
-dg('val_eco_core', 480, 225, solid=False)
+# ESTADO DO NÚCLEO (flag canônica do Guardião: elites:BOSS_GUARDIAO_PEDRA_001): ativo antes da 1ª derrota, dormente depois; a revanche reativa só a apresentação
+_GUARD = 'elites:BOSS_GUARDIAO_PEDRA_001'
+dg('val_core_floor_ring', 480, 320, layer='ground', scale=1.3, solid=False, hide_when=_GUARD)
+dg('val_core_floor_ring_dormant', 480, 320, layer='ground', scale=1.3, solid=False, show_when=_GUARD)
+dg('dg_rune_circle', 480, 300, layer='ground', anim=1, hide_when=_GUARD)
+dg('val_eco_core', 480, 225, solid=False, hide_when=_GUARD)
+dg('val_eco_core_dormant', 480, 225, solid=False, show_when=_GUARD)
 for _x, _y, _f in ((110, 300, False), (850, 300, True), (130, 390, False), (830, 390, True)):
-    dg('val_eco_crystal_cluster', _x, _y, solid=False, flip=_f)
+    dg('val_eco_crystal_cluster', _x, _y, solid=False, flip=_f, hide_when=_GUARD)
+    dg('val_eco_crystal_cluster_dormant', _x, _y, solid=False, flip=_f, show_when=_GUARD)
 for px, py in [(6, 8), (11, 8), (18, 8), (24, 8)]:
     dg('dg_pillar' if (px + py) % 3 else 'dg_pillar_broken', px * 32 + 16, py * 32 + 32, solid=False)
 for bx in (285, 675):
     dg('dg_brazier', bx, 275, anim=1)
-W.emitter('sparkle', 480, 300, 200, zone='masmorra')
+W.emitter('sparkle', 480, 300, 200, zone='masmorra', hide_when=_GUARD)        # partículas do Eco ativo
+W.emitter('sparkle', 480, 250, 46, zone='masmorra', show_when=_GUARD)         # brilho residual do Núcleo dormente
 dg('dg_crystal_checkpoint', 760, 700, anim=1, poi='REG001_POI_DG_CHECKPOINT')
 P('REG001_POI_DG_CHECKPOINT', 'checkpoint', 'CRISTAL DE REPOUSO', 760, 700, zone='masmorra', tier=2, layer='main', radius=70, region='masmorra',
   data={'heal': True, 'hint': 'O cristal restaura suas forças.'})

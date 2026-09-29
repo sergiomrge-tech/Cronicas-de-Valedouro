@@ -947,5 +947,52 @@
   "elites": [
    "REG001_POI_ANCIAO_CLAREIRA"
   ]
+ },
+ {
+  "zone": "masmorra",
+  "pos": [
+   480,
+   330
+  ],
+  "time": 3.7,
+  "name": "MINA_ANTES_GUARDIAO"
+ },
+ {
+  "zone": "masmorra",
+  "pos": [
+   480,
+   330
+  ],
+  "time": 3.7,
+  "name": "MINA_POS_GUARDIAO",
+  "elites": [
+   "BOSS_GUARDIAO_PEDRA_001"
+  ]
+ },
+ {
+  "zone": "masmorra",
+  "pos": [
+   480,
+   330
+  ],
+  "time": 3.7,
+  "name": "MINA_REVANCHE_ATIVA",
+  "elites": [
+   "BOSS_GUARDIAO_PEDRA_001"
+  ],
+  "rematch": "active"
+ },
+ {
+  "zone": "masmorra",
+  "pos": [
+   480,
+   330
+  ],
+  "time": 3.7,
+  "name": "MINA_APOS_REVANCHE",
+  "elites": [
+   "BOSS_GUARDIAO_PEDRA_001"
+  ],
+  "rematch": "after"
  }
 ]

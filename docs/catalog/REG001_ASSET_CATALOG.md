@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (28): Lote 01, únicos aprovados pelo Diretor. Cidade 15 + Dungeon 13.
-- **MODELED_PENDING_GATE** (393): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (398): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 28 | 0 |
-| MODELED_PENDING_GATE | 243 | 150 |
+| MODELED_PENDING_GATE | 248 | 150 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -268,7 +268,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_wall_segment` | NOT_USED | 0 |
 | `val_weapon_rack` | INTEGRATED | 1 |
 
-### dungeon (32)
+### dungeon (37)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -289,9 +289,13 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `dg_stalagmites` | INTEGRATED | 3 |
 | `str_cave_entrance` | INTEGRATED | 1 |
 | `val_core_floor_ring` | INTEGRATED | 1 |
+| `val_core_floor_ring_dormant` | INTEGRATED | 1 |
 | `val_eco_core` | INTEGRATED | 1 |
+| `val_eco_core_dormant` | INTEGRATED | 1 |
 | `val_eco_crystal_cluster` | INTEGRATED | 4 |
+| `val_eco_crystal_cluster_dormant` | INTEGRATED | 4 |
 | `val_eco_vein` | INTEGRATED | 2 |
+| `val_eco_vein_dormant` | INTEGRATED | 2 |
 | `val_mine_beam_arch` | INTEGRATED | 4 |
 | `val_mine_cart` | INTEGRATED | 2 |
 | `val_mine_floor` | NOT_USED | 0 |
@@ -302,6 +306,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_mine_rails_b` | NOT_USED | 0 |
 | `val_mine_rock_wall` | INTEGRATED | 8 |
 | `val_mine_rock_wall_eco` | INTEGRATED | 14 |
+| `val_mine_rock_wall_eco_dormant` | INTEGRATED | 14 |
 | `val_mine_winch` | INTEGRATED | 1 |
 | `val_ore_pile` | INTEGRATED | 4 |
 
@@ -388,5 +393,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 67 (`REG001_POI_*`); objetos: 1088 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 21; passagens: 3; fragmentos de lore: 12.
+- POIs: 67 (`REG001_POI_*`); objetos: 1110 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 21; passagens: 3; fragmentos de lore: 12.
 

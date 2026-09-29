@@ -123,6 +123,8 @@ static func draw_emitters(canvas: CanvasItem, rect: Rect2, zone: String, time: f
 		var pos: Vector2 = em["pos"]
 		if not margin.has_point(pos):
 			continue
+		if (em.has("hide_when") or em.has("show_when")) and REG.is_hidden(em):
+			continue
 		var kind: String = str(em["kind"])
 		var radius: float = float(em["radius"])
 		var seed: float = pos.x * .013 + pos.y * .007

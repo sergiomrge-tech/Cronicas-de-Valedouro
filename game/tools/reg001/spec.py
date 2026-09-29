@@ -155,8 +155,13 @@ class World:
     def clear(self, x, y, r):
         self.clear_zones.append([round(x, 1), round(y, 1), round(r, 1)])
 
-    def emitter(self, kind, x, y, radius=24.0, zone='cidade'):
-        self.emitters.append({'kind': kind, 'pos': [round(x, 1), round(y, 1)], 'radius': radius, 'zone': zone})
+    def emitter(self, kind, x, y, radius=24.0, zone='cidade', hide_when=None, show_when=None):
+        em = {'kind': kind, 'pos': [round(x, 1), round(y, 1)], 'radius': radius, 'zone': zone}
+        if hide_when:
+            em['hide_when'] = hide_when
+        if show_when:
+            em['show_when'] = show_when
+        self.emitters.append(em)
 
     # ------------------------------------------------------------------ POIs / passagens
     def poi(self, pid, kind, label, x, y, tier=1, layer='main', radius=70.0, zone='cidade', region='', data=None, show_label=True, clear=None):

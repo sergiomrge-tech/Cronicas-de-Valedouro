@@ -69,6 +69,7 @@ for p in world['pois']:
         check(d['lore'] in world['lore'], f"{p['id']}: lore inexistente")
     if p['kind'] == 'elite':
         check(d['chest'] in poi_ids and d['enemy'], f"elite incompleto: {p['id']}")
+boss_ids = {q['boss'] for q in json.load(open(ROOT / 'data' / 'main_story_v1.json'))['quests'] if q.get('boss')}
 for o in world['objects']:
     check(re.fullmatch(r'REG001_OBJ_[A-Z0-9_]+_\d{3}', o['id']) is not None, f"ID de objeto fora do padrão: {o['id']}")
     check(o['id'] not in seen, f"objeto duplicado: {o['id']}")
@@ -82,7 +83,7 @@ for o in world['objects']:
         check(status in {'APPROVED', 'MODELED_PENDING_GATE'}, f'asset com status bloqueado no mundo: {a} ({status})')
     for key in ('poi', 'hide_when', 'show_when'):
         if key in o:
-            check(o[key].split(':', 1)[-1] in poi_ids or o[key].startswith('lore:'), f"{o['id']}: {key} -> {o[key]} inexistente")
+            check(o[key].split(':', 1)[-1] in poi_ids or o[key].startswith('lore:') or o[key].split(':', 1)[-1] in boss_ids, f"{o['id']}: {key} -> {o[key]} inexistente")
 check(len(world['objects']) >= 450 and len(world['pois']) >= 55, 'conteúdo insuficiente')
 kinds = {p['kind'] for p in world['pois']}
 for needed in ('elite', 'chest', 'secret', 'gate', 'resource', 'camp', 'settlement', 'viewpoint', 'lore', 'npc', 'entrance', 'trap', 'checkpoint', 'shrine'):

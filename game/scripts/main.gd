@@ -35,6 +35,7 @@ var stored_items: Array = []
 var equipped_weapon: Dictionary = {"name": "Espada de Aprendiz", "kind": "sword", "tier": 0, "req": 1, "chapter": 0, "atk": 0}
 var equipped_armor: Dictionary = {"name": "Roupa de Aprendiz", "kind": "armor", "tier": 0, "req": 1, "chapter": 0, "def": 0}
 var inventory_page: int = 0
+var rematch_active: bool = false # revanche do Guardião em curso (temporário, nunca salvo)
 var quest: int = 0 # 0 disponível, 1 caçada, 2 pronta, 3 masmorra, 4 pronta, 5 concluída
 var enemies: Array = []
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
@@ -601,6 +602,10 @@ func finish_enemy(index: int) -> void:
 	if quest == 1 and int(kills.get("Lobo", 0)) >= 3:
 		quest = 2
 		message("Caçada concluída. Volte à guilda!")
+	if kind == "Guardião":
+		# fonte única de verdade: elites:<ID canônico do boss> no estado do mundo (permanente; a revanche nunca a apaga)
+		REG.mark("elites", REG.GUARDIAN_BOSS_ID)
+		end_guardian_rematch()
 	if quest == 3 and kind == "Guardião":
 		quest = 4
 		message("O Guardião caiu! Volte à guilda.")
@@ -742,7 +747,29 @@ func use_potion() -> void:
 		message("Você recuperou vida.")
 		save_game()
 
+func guardian_alive() -> bool:
+	for enemy in enemies:
+		if str(enemy["kind"]) == "Guardião" and not bool(enemy.get("dead", false)):
+			return true
+	return false
+
+func end_guardian_rematch() -> void:
+	# estado TEMPORÁRIO da revanche (nunca salvo): ao terminar ou sair, o mundo volta ao estado narrativo persistente
+	rematch_active = false
+	REG.rematch_boss = ""
+
+func start_guardian_rematch() -> void:
+	if zone != "masmorra" or not REG.has_mark("elites", REG.GUARDIAN_BOSS_ID) or rematch_active:
+		return
+	rematch_active = true
+	REG.rematch_boss = REG.GUARDIAN_BOSS_ID
+	enemies.append(make_enemy("Guardião", Vector2(485, 240)))
+	message("O Núcleo do Eco desperta! O Guardião retorna.")
+	queue_redraw()
+
 func change_zone(new_zone: String, entry: Vector2) -> void:
+	if rematch_active and new_zone != "masmorra":
+		end_guardian_rematch()
 	zone = new_zone
 	player = entry
 	populate()
@@ -775,7 +802,9 @@ func interact() -> void:
 		else:
 			message("Explore os gramados livremente; a saída fica ao sul da trilha central.")
 	elif zone == "masmorra":
-		if player.y > 720:
+		if player.y < 420 and REG.has_mark("elites", REG.GUARDIAN_BOSS_ID) and not rematch_active and not guardian_alive():
+			show_dialog("Núcleo do Eco", "O Núcleo dorme, mas ainda responde. Despertá-lo trará o Guardião de volta.", [["Despertar o Núcleo (revanche)", func(): start_guardian_rematch()], ["Deixar dormir", func(): pass]])
+		elif player.y > 720:
 			# a saída leva de volta à boca da Mina do Eco, no talude do Vale
 			var dungeon_poi: Dictionary = REG.poi_by_id.get("REG001_POI_CRIPTA_ENTRADA", {}) as Dictionary
 			var dungeon_back: Vector2 = (dungeon_poi["pos"] as Vector2) + Vector2(0, 62) if not dungeon_poi.is_empty() else MAP.TOWN + Vector2(883, 188)
@@ -996,6 +1025,11 @@ func load_game() -> void:
 			equipped_weapon = saved_weapon
 		if saved_armor is Dictionary and saved_armor.get("kind", "") == "armor":
 			equipped_armor = saved_armor
+	# migração: saves anteriores à flag canônica do Guardião (versão sem "elites:BOSS_...") mas com o boss já derrotado
+	if int(kills.get("Guardião", 0)) > 0 or quest >= 4:
+		REG.ensure_loaded()
+		REG.mark("elites", REG.GUARDIAN_BOSS_ID)
+	end_guardian_rematch()
 
 func _draw() -> void:
 	var world_bounds: Vector2 = MAP.SIZE if zone == "cidade" else FOREST_SIZE if zone == "floresta" else FORGE_SIZE if zone == "ferreiro" else SIZE
