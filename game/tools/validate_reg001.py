@@ -33,7 +33,10 @@ modeled = load('modeled_assets_manifest.json')
 world = load('reg001_world.json')
 catalog = load('reg001_asset_catalog.json')
 check(approved['count'] == 28, 'esperados 28 APPROVED')
-approved_keys = {k.replace('/', '_') for k in approved['city'] + approved['dungeon']}
+sys.path.insert(0, str(ROOT / 'tools' / 'reg001'))
+from spec import APP_KEYS  # chaves curtas do renderer para as 28 peças APPROVED
+approved_keys = set(APP_KEYS)
+check(len(approved_keys) == 28, 'chaves APPROVED != 28')
 
 # ---- assets modelados: arquivos, quadros, hashes, status
 ids = set()

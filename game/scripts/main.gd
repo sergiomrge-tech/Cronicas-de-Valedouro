@@ -105,7 +105,7 @@ const APPROVED_VISUAL_PATHS: Dictionary = {
 
 func _ready() -> void:
 	rng.seed = 27109
-	for name in ["hero", "wolf", "slime", "boss", "deer", "fox", "hare", "goat", "camel", "bird", "fish", "ui_wood_panel", "ui_wood_button", "scorpion", "ice_wolf", "hero_body", "wolf_anim", "slime_anim", "scorpion_anim", "ice_wolf_anim", "boss_anim", "wolf_full", "slime_full", "spider_full", "boar_full", "flower_beast_full", "scorpion_full", "amber_beetle_full", "ice_wolf_full", "ice_golem_full", "boss_full", "watchtower", "windmill", "desert_outpost", "ice_lodge", "shrine", "ruin_arch", "bird_anim", "ui_round_button", "ui_portrait", "icon_heart", "icon_coin", "icon_potion", "icon_xp", "btn_attack", "btn_interact", "btn_map", "btn_bag", "btn_potion"]:
+	for name in ["hero", "wolf", "slime", "boss", "deer", "fox", "hare", "goat", "camel", "bird", "fish", "ui_wood_panel", "ui_wood_button", "scorpion", "ice_wolf", "hero_body", "wolf_anim", "slime_anim", "scorpion_anim", "ice_wolf_anim", "boss_anim", "wolf_full", "slime_full", "spider_full", "boar_full", "flower_beast_full", "scorpion_full", "amber_beetle_full", "ice_wolf_full", "ice_golem_full", "boss_full", "bird_anim", "ui_round_button", "ui_portrait", "icon_heart", "icon_coin", "icon_potion", "icon_xp", "btn_attack", "btn_interact", "btn_map", "btn_bag", "btn_potion"]:
 		textures[name] = load("res://assets/%s.png" % name)
 	for family in ["sword", "bow", "staff"]:
 		for tier in 4:
@@ -1072,7 +1072,7 @@ func draw_overworld(camera: Vector2, _x_start: int, _x_end: int, _y_start: int, 
 			var drift: float = fposmod(time_acc * 41.0 + i * 9.0, 35.0)
 			draw_line(Vector2(fx, falls.y - 8 + drift), Vector2(fx - 3, falls.y + 29 + drift), Color(.78, .94, .99, .9), 3)
 
-	# Marcos legados (torres, moinho, posto, abrigo, santuário) — catálogo REG_001: LEGACY_BASELINE.
+	# Marcos: torres, moinho, postos e santuário são str_* modelados (REG_001); aqui só os rótulos.
 	for entry in MAP.STRUCTURES:
 		var center: Vector2 = entry["pos"] as Vector2
 		if camera.distance_to(center) < 720:
@@ -1177,13 +1177,9 @@ func draw_approved_town_border(camera: Vector2) -> void:
 		draw_approved_tree(point, point_index % 7 == 0, .42)
 
 func draw_world_structure(entry: Dictionary) -> void:
+	# O corpo da estrutura é um objeto modelado da REG_001 (str_*); aqui fica apenas o rótulo do marco.
 	var center: Vector2 = entry["pos"] as Vector2
-	var kind: String = entry["kind"]
-	var tex: Texture2D = textures[kind] as Texture2D
-	var sz: Vector2 = tex.get_size()
-	draw_shadow_oval(center + Vector2(0, 12), Vector2(maxf(24.0, sz.x * .34), 10), Color(0, 0, 0, .24))
-	draw_texture(tex, center - Vector2(sz.x * .5, sz.y - 18.0))
-	draw_label(str(entry["label"]), center + Vector2(-90, -sz.y + 1), Color(1, .9, .65))
+	draw_label(str(entry["label"]), center + Vector2(-90, -150), Color(1, .9, .65))
 
 func draw_animals(camera: Vector2) -> void:
 	for creature in animals:

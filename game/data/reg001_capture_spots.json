@@ -1,39 +1,351 @@
 [
- {"name":"01_cidade_praca","zone":"cidade","pos":[1534,1376]},
- {"name":"02_cidade_mercado","zone":"cidade","pos":[1550,1250]},
- {"name":"03_cidade_portao_norte","zone":"cidade","pos":[1534,900]},
- {"name":"04_floresta_acampamento","zone":"cidade","pos":[345,905]},
- {"name":"05_floresta_casa_abandonada","zone":"cidade","pos":[520,690]},
- {"name":"06_floresta_clareira_anciao","zone":"cidade","pos":[300,470],"elite":"REG001_POI_ANCIAO_CLAREIRA"},
- {"name":"07_ruinas_primeiro_vento","zone":"cidade","pos":[790,440]},
- {"name":"08_segredo_mata_fechado","zone":"cidade","pos":[128,730]},
- {"name":"09_segredo_mata_aberto","zone":"cidade","pos":[128,730],"found":["REG001_POI_SEGREDO_MATA"]},
- {"name":"10_campos_vila","zone":"cidade","pos":[535,1960]},
- {"name":"11_campos_fazenda","zone":"cidade","pos":[300,2080]},
- {"name":"12_vale_aldeia","zone":"cidade","pos":[1330,1810]},
- {"name":"13_vale_cripta_entrada","zone":"cidade","pos":[1225,2250]},
- {"name":"14_vale_santuario","zone":"cidade","pos":[1660,2060]},
- {"name":"15_vale_elite","zone":"cidade","pos":[1810,2170],"elite":"REG001_POI_ELITE_VALE"},
- {"name":"16_transicao_floresta_vale","zone":"cidade","pos":[900,1560]},
- {"name":"17_transicao_campos_cidade","zone":"cidade","pos":[700,1560]},
- {"name":"18_gelo_pouso","zone":"cidade","pos":[2460,610]},
- {"name":"19_gelo_canyon","zone":"cidade","pos":[2510,420]},
- {"name":"20_gelo_circulo_elite","zone":"cidade","pos":[2800,320],"elite":"REG001_POI_ELITE_GELO"},
- {"name":"21_transicao_colinas_gelo","zone":"cidade","pos":[2800,900]},
- {"name":"22_colinas_estacao","zone":"cidade","pos":[2700,1160]},
- {"name":"23_deserto_caravana","zone":"cidade","pos":[2520,1650]},
- {"name":"24_deserto_ruinas_dunas","zone":"cidade","pos":[2430,2180]},
- {"name":"25_deserto_oasis","zone":"cidade","pos":[2900,2120],"elite":"REG001_POI_OASIS"},
- {"name":"26_transicao_vale_deserto","zone":"cidade","pos":[1990,1900]},
- {"name":"27_rio_vau_sul","zone":"cidade","pos":[2170,2160]},
- {"name":"28_ponte_rio","zone":"cidade","pos":[2210,1250]},
- {"name":"29_cachoeira","zone":"cidade","pos":[2200,540]},
- {"name":"30_masmorra_guardiao","zone":"masmorra","pos":[485,420]},
- {"name":"31_cripta_salao","zone":"cripta","pos":[480,760]},
- {"name":"32_cripta_camara_central","zone":"cripta","pos":[480,470],"elite":"REG001_POI_CRIPTA_ELITE"},
- {"name":"33_cripta_tesouro","zone":"cripta","pos":[480,200]},
- {"name":"34_interior_guilda","zone":"guilda","pos":[480,430]},
- {"name":"35_interior_ferreiro","zone":"ferreiro","pos":[760,700]},
- {"name":"36_interior_alquimia","zone":"alquimia","pos":[480,440]},
- {"name":"37_interior_loja","zone":"loja","pos":[480,470]}
+ {
+  "name": "01_cidade_praca",
+  "zone": "cidade",
+  "pos": [
+   1534,
+   1376
+  ]
+ },
+ {
+  "name": "02_cidade_mercado",
+  "zone": "cidade",
+  "pos": [
+   1550,
+   1250
+  ]
+ },
+ {
+  "name": "03_cidade_portao_norte",
+  "zone": "cidade",
+  "pos": [
+   1534,
+   900
+  ]
+ },
+ {
+  "name": "04_floresta_acampamento",
+  "zone": "cidade",
+  "pos": [
+   345,
+   905
+  ]
+ },
+ {
+  "name": "05_floresta_casa_abandonada",
+  "zone": "cidade",
+  "pos": [
+   520,
+   690
+  ]
+ },
+ {
+  "name": "06_floresta_clareira_anciao",
+  "zone": "cidade",
+  "pos": [
+   300,
+   470
+  ],
+  "elite": "REG001_POI_ANCIAO_CLAREIRA"
+ },
+ {
+  "name": "07_ruinas_primeiro_vento",
+  "zone": "cidade",
+  "pos": [
+   790,
+   440
+  ]
+ },
+ {
+  "name": "08_segredo_mata_fechado",
+  "zone": "cidade",
+  "pos": [
+   128,
+   730
+  ]
+ },
+ {
+  "name": "09_segredo_mata_aberto",
+  "zone": "cidade",
+  "pos": [
+   128,
+   730
+  ],
+  "found": [
+   "REG001_POI_SEGREDO_MATA"
+  ]
+ },
+ {
+  "name": "10_campos_vila",
+  "zone": "cidade",
+  "pos": [
+   535,
+   1960
+  ]
+ },
+ {
+  "name": "11_campos_fazenda",
+  "zone": "cidade",
+  "pos": [
+   300,
+   2080
+  ]
+ },
+ {
+  "name": "12_vale_aldeia",
+  "zone": "cidade",
+  "pos": [
+   1330,
+   1810
+  ]
+ },
+ {
+  "name": "13_vale_cripta_entrada",
+  "zone": "cidade",
+  "pos": [
+   1225,
+   2250
+  ]
+ },
+ {
+  "name": "14_vale_santuario",
+  "zone": "cidade",
+  "pos": [
+   1660,
+   2060
+  ]
+ },
+ {
+  "name": "15_vale_elite",
+  "zone": "cidade",
+  "pos": [
+   1810,
+   2170
+  ],
+  "elite": "REG001_POI_ELITE_VALE"
+ },
+ {
+  "name": "16_transicao_floresta_vale",
+  "zone": "cidade",
+  "pos": [
+   900,
+   1560
+  ]
+ },
+ {
+  "name": "17_transicao_campos_cidade",
+  "zone": "cidade",
+  "pos": [
+   700,
+   1560
+  ]
+ },
+ {
+  "name": "18_gelo_pouso",
+  "zone": "cidade",
+  "pos": [
+   2460,
+   610
+  ]
+ },
+ {
+  "name": "19_gelo_canyon",
+  "zone": "cidade",
+  "pos": [
+   2510,
+   420
+  ]
+ },
+ {
+  "name": "20_gelo_circulo_elite",
+  "zone": "cidade",
+  "pos": [
+   2800,
+   320
+  ],
+  "elite": "REG001_POI_ELITE_GELO"
+ },
+ {
+  "name": "21_transicao_colinas_gelo",
+  "zone": "cidade",
+  "pos": [
+   2800,
+   900
+  ]
+ },
+ {
+  "name": "22_colinas_estacao",
+  "zone": "cidade",
+  "pos": [
+   2700,
+   1160
+  ]
+ },
+ {
+  "name": "23_deserto_caravana",
+  "zone": "cidade",
+  "pos": [
+   2520,
+   1650
+  ]
+ },
+ {
+  "name": "24_deserto_ruinas_dunas",
+  "zone": "cidade",
+  "pos": [
+   2430,
+   2180
+  ]
+ },
+ {
+  "name": "25_deserto_oasis",
+  "zone": "cidade",
+  "pos": [
+   2900,
+   2120
+  ],
+  "elite": "REG001_POI_OASIS"
+ },
+ {
+  "name": "26_transicao_vale_deserto",
+  "zone": "cidade",
+  "pos": [
+   1990,
+   1900
+  ]
+ },
+ {
+  "name": "27_rio_vau_sul",
+  "zone": "cidade",
+  "pos": [
+   2170,
+   2160
+  ]
+ },
+ {
+  "name": "28_ponte_rio",
+  "zone": "cidade",
+  "pos": [
+   2210,
+   1250
+  ]
+ },
+ {
+  "name": "29_cachoeira",
+  "zone": "cidade",
+  "pos": [
+   2200,
+   540
+  ]
+ },
+ {
+  "name": "30_masmorra_guardiao",
+  "zone": "masmorra",
+  "pos": [
+   485,
+   420
+  ]
+ },
+ {
+  "name": "31_cripta_salao",
+  "zone": "cripta",
+  "pos": [
+   480,
+   760
+  ]
+ },
+ {
+  "name": "32_cripta_camara_central",
+  "zone": "cripta",
+  "pos": [
+   480,
+   470
+  ],
+  "elite": "REG001_POI_CRIPTA_ELITE"
+ },
+ {
+  "name": "33_cripta_tesouro",
+  "zone": "cripta",
+  "pos": [
+   480,
+   200
+  ]
+ },
+ {
+  "name": "34_interior_guilda",
+  "zone": "guilda",
+  "pos": [
+   480,
+   430
+  ]
+ },
+ {
+  "name": "35_interior_ferreiro",
+  "zone": "ferreiro",
+  "pos": [
+   760,
+   700
+  ]
+ },
+ {
+  "name": "36_interior_alquimia",
+  "zone": "alquimia",
+  "pos": [
+   480,
+   440
+  ]
+ },
+ {
+  "name": "37_interior_loja",
+  "zone": "loja",
+  "pos": [
+   480,
+   470
+  ]
+ },
+ {
+  "name": "38_cidade_oeste",
+  "zone": "cidade",
+  "pos": [
+   850,
+   1170
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "39_cidade_leste",
+  "zone": "cidade",
+  "pos": [
+   2200,
+   1170
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "40_cidade_muralha_sul",
+  "zone": "cidade",
+  "pos": [
+   1950,
+   1440
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "41_cidade_bairro_noroeste",
+  "zone": "cidade",
+  "pos": [
+   830,
+   1000
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "42_cidade_bairro_sudoeste",
+  "zone": "cidade",
+  "pos": [
+   830,
+   1400
+  ],
+  "time": 3.7
+ }
 ]

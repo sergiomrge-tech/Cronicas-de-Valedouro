@@ -14,7 +14,7 @@ from registry import REGISTRY
 from kit import Scene
 import manifest_lib
 
-MODULES = ['nature_a', 'nature_b', 'nature_c', 'city_extra', 'dungeon_extra', 'interior_kit']
+MODULES = ['nature_a', 'nature_b', 'nature_c', 'city_extra', 'dungeon_extra', 'interior_kit', 'terrain_forms', 'structures']
 GAME = HERE.parents[1]
 OUT = GAME / 'assets' / 'modeled'
 MANIFEST = GAME / 'data' / 'modeled_assets_manifest.json'
@@ -29,7 +29,7 @@ def load_modules():
 
 
 def render(spec, frame=0, row=0):
-    sc = Scene(spec.size[0], spec.size[1], spec.origin, scale=spec.scale, seed=spec.seed)
+    sc = Scene(spec.size[0], spec.size[1], spec.origin, scale=spec.scale, seed=spec.seed, az=spec.az)
     sc.ground_shadow = False
     if spec.contact is not None:
         sc.contact = spec.contact
@@ -80,7 +80,8 @@ def main(argv):
 
 def manifest_entry(spec, im, path):
     return manifest_lib.make_entry(spec.id, path, spec.group, spec.folder, spec.size, spec.frames, spec.rows, spec.origin, spec.draw_scale,
-                                   spec.blocks[0] if spec.blocks else 0.0, spec.footprint, spec.tags, 'game/tools/modeling/build_assets.py')
+                                   spec.blocks[0] if spec.blocks else 0.0, spec.footprint, spec.tags, 'game/tools/modeling/build_assets.py',
+                                   extra={'collision': [list(c) for c in spec.collision]} if spec.collision else None)
 
 
 def write_manifest(entries):

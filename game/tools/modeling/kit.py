@@ -23,6 +23,15 @@ UP = np.array([-math.sin(EL) * math.cos(AZ), -math.sin(EL) * math.sin(AZ), math.
 _L = -RIGHT * 0.78 + np.array([math.cos(AZ), math.sin(AZ), 0.0], dtype=np.float32) * 0.30 + np.array([0, 0, 1.25], dtype=np.float32)
 LIGHT = (_L / np.linalg.norm(_L)).astype(np.float32)
 
+def camera_vectors(az_deg=45.0, el_deg=30.0):
+    az, el = math.radians(az_deg), math.radians(el_deg)
+    cam = np.array([math.cos(el) * math.cos(az), math.cos(el) * math.sin(az), math.sin(el)], dtype=np.float32)
+    right = np.array([-math.sin(az), math.cos(az), 0.0], dtype=np.float32)
+    up = np.array([-math.sin(el) * math.cos(az), -math.sin(el) * math.sin(az), math.cos(el)], dtype=np.float32)
+    lv = -right * 0.78 + np.array([math.cos(az), math.sin(az), 0.0], dtype=np.float32) * 0.30 + np.array([0, 0, 1.25], dtype=np.float32)
+    return cam, right, up, (lv / np.linalg.norm(lv)).astype(np.float32)
+
+
 BAYER = np.array([[0, 8, 2, 10], [12, 4, 14, 6], [3, 11, 1, 9], [15, 7, 13, 5]], dtype=np.float32) / 16.0 - 0.5
 
 
@@ -91,6 +100,8 @@ class Ctx:
     L: np.ndarray        # (N,3) coordenadas locais normalizadas na primitiva
     prim: int
     seed: int
+    right: np.ndarray = None
+    up: np.ndarray = None
 
 
 # ----------------------------------------------------------------------------- primitivas
@@ -288,7 +299,8 @@ class Cylinder(Prim):
 
 # ----------------------------------------------------------------------------- cena
 class Scene:
-    def __init__(self, w: int, h: int, origin: tuple, scale: float = 64.0, seed: int = 1):
+    def __init__(self, w: int, h: int, origin: tuple, scale: float = 64.0, seed: int = 1, az: float = 45.0, el: float = 30.0):
+        self.cam, self.right, self.up, self.light = camera_vectors(az, el)
         self.w, self.h = w, h
         self.origin = origin      # pixel de (0,0,0)
         self.s = scale
@@ -311,7 +323,7 @@ class Scene:
 
     def project(self, P):
         P = np.asarray(P, dtype=np.float32)
-        return (self.origin[0] + self.s * (P @ RIGHT), self.origin[1] - self.s * (P @ UP))
+        return (self.origin[0] + self.s * (P @ self.right), self.origin[1] - self.s * (P @ self.up))
 
     # -- render
     def render(self) -> Image.Image:
@@ -320,8 +332,8 @@ class Scene:
         sx = (xx.reshape(-1) + .5 - self.origin[0]) / s
         sy = (self.origin[1] - (yy.reshape(-1) + .5)) / s
         T = 60.0
-        O = RIGHT[None] * sx[:, None] + UP[None] * sy[:, None] + CAM[None] * T
-        D = np.broadcast_to(-CAM, O.shape).astype(np.float32)
+        O = self.right[None] * sx[:, None] + self.up[None] * sy[:, None] + self.cam[None] * T
+        D = np.broadcast_to(-self.cam, O.shape).astype(np.float32)
         n_px = O.shape[0]
         best = np.full(n_px, np.inf, dtype=np.float32)
         which = np.full(n_px, -1, dtype=np.int32)
@@ -371,8 +383,8 @@ class Scene:
                 gz = fbm(pm + np.array([0, 0, e], dtype=np.float32), fq, self.seed + 31, 2) - g0
                 nm = nm - np.stack([gx, gy, gz], -1) / e * am * .05
                 nm = nm / np.maximum(np.linalg.norm(nm, axis=-1, keepdims=True), 1e-6)
-            ctx = Ctx(P[m], nm, local[m], i, self.seed)
-            ndl = np.clip((nm * LIGHT).sum(-1), 0, 1)
+            ctx = Ctx(P[m], nm, local[m], i, self.seed, self.right, self.up)
+            ndl = np.clip((nm * self.light).sum(-1), 0, 1)
             tone = self._shade(mat, ctx, ndl, shadow[m])
             K = len(mat.ramp)
             fidx = tone * (K - 1)
@@ -422,7 +434,7 @@ class Scene:
         return outline_selective(base)
 
     def _in_shadow(self, Pts):
-        Ls = np.broadcast_to(LIGHT, Pts.shape).astype(np.float32)
+        Ls = np.broadcast_to(self.light, Pts.shape).astype(np.float32)
         sh = np.zeros(len(Pts), dtype=bool)
         for prim in self.prims:
             if getattr(prim.mat, 'no_shadow', False):
@@ -504,7 +516,7 @@ def tex_stone_blocks(scale=3.0, mortar=.22, seed=3, grain=.16, joints=True):
             return g
         # cortes horizontais em Z e verticais alternados por fileira
         row = np.floor(P[:, 2] * scale)
-        pos = (P[:, 0] * RIGHT[0] + P[:, 1] * RIGHT[1]) * scale + (row % 2) * .5
+        pos = (P[:, 0] * ctx.right[0] + P[:, 1] * ctx.right[1]) * scale + (row % 2) * .5
         fz = P[:, 2] * scale - row
         fx = pos - np.floor(pos)
         line = (fz < .09) | (fx < .07)
@@ -543,8 +555,8 @@ def tex_leaf(petals=5, spread=.72, amp=.42, seed=5):
     """Aglomerado de folhas com realce em estrela (linguagem dos assets aprovados)."""
     def f(ctx: Ctx):
         loc = ctx.L
-        px = loc @ RIGHT
-        py = loc @ UP
+        px = loc @ ctx.right
+        py = loc @ ctx.up
         rad = np.hypot(px, py)
         th = np.arctan2(py, px)
         ph = _hash3((ctx.P[:, 0] * 3).astype(np.int64) * 0 + ctx.prim, ctx.prim * 7 + 3, ctx.prim, seed) * 6.28

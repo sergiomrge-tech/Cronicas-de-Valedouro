@@ -71,6 +71,12 @@ class World:
             o['sy'] = round(sy, 1)
         if is_solid and r > 0:
             o['solid'] = round(r, 1)
+        comp = None if asset.startswith('APP:') else ASSETS[asset].get('collision')
+        if comp and solid is not False:
+            # colisão composta do asset (círculos em px de jogo relativos ao pé), sem depender de nomes
+            k = 1.0 if scale is None else float(scale)
+            for dx, dy, cr_ in comp:
+                self.collider('circle', round(x + dx * k, 1), round(y + dy * k, 1), round(cr_ * k, 1), zone=zone, hide_when=hide_when)
         if hide_when:
             o['hide_when'] = hide_when
         if show_when:

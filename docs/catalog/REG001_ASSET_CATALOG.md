@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (28): Lote 01, únicos aprovados pelo Diretor. Cidade 15 + Dungeon 13.
-- **MODELED_PENDING_GATE** (211): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (258): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -13,8 +13,8 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
-| APPROVED | 27 | 1 |
-| MODELED_PENDING_GATE | 130 | 81 |
+| APPROVED | 28 | 0 |
+| MODELED_PENDING_GATE | 173 | 85 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -40,11 +40,11 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## MODELED_PENDING_GATE — por grupo
 
-### nature (87)
+### nature (116)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
-| `nat_altar_ancient` | INTEGRATED | 2 |
+| `nat_altar_ancient` | INTEGRATED | 1 |
 | `nat_altar_sand` | INTEGRATED | 1 |
 | `nat_bedroll` | INTEGRATED | 2 |
 | `nat_bones_desert` | INTEGRATED | 8 |
@@ -89,6 +89,9 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_grass_tall` | INTEGRATED | 8 |
 | `nat_hay_bale` | INTEGRATED | 4 |
 | `nat_hay_stack` | INTEGRATED | 1 |
+| `nat_hill_earth` | INTEGRATED | 9 |
+| `nat_hill_ice` | INTEGRATED | 1 |
+| `nat_hill_sand` | INTEGRATED | 3 |
 | `nat_ice_spire` | INTEGRATED | 7 |
 | `nat_ice_stones` | NOT_USED | 0 |
 | `nat_log_fallen` | INTEGRATED | 2 |
@@ -96,14 +99,32 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_mushrooms` | INTEGRATED | 8 |
 | `nat_obelisk_rune` | INTEGRATED | 2 |
 | `nat_pit_trap` | INTEGRATED | 2 |
+| `nat_plateau_earth_m` | INTEGRATED | 1 |
+| `nat_plateau_earth_s` | INTEGRATED | 3 |
+| `nat_plateau_ice_m` | INTEGRATED | 2 |
+| `nat_plateau_ice_s` | INTEGRATED | 1 |
+| `nat_plateau_rock_m` | INTEGRATED | 3 |
+| `nat_plateau_rock_s` | INTEGRATED | 2 |
+| `nat_plateau_sand_m` | INTEGRATED | 2 |
+| `nat_plateau_sand_s` | INTEGRATED | 2 |
 | `nat_reeds` | INTEGRATED | 14 |
 | `nat_res_crystal` | INTEGRATED | 3 |
 | `nat_res_herb` | INTEGRATED | 2 |
 | `nat_res_ore` | INTEGRATED | 3 |
+| `nat_ridge_earth_a` | INTEGRATED | 1 |
+| `nat_ridge_earth_b` | NOT_USED | 0 |
+| `nat_ridge_ice_a` | INTEGRATED | 2 |
+| `nat_ridge_ice_b` | INTEGRATED | 2 |
+| `nat_ridge_rock_a` | INTEGRATED | 1 |
+| `nat_ridge_rock_b` | INTEGRATED | 2 |
+| `nat_ridge_sand_a` | INTEGRATED | 2 |
+| `nat_ridge_sand_b` | INTEGRATED | 2 |
+| `nat_rock_arch_natural` | NOT_USED | 0 |
 | `nat_rock_boulder` | INTEGRATED | 11 |
 | `nat_rock_ice` | INTEGRATED | 3 |
 | `nat_rock_medium` | INTEGRATED | 0 |
 | `nat_rock_mossy` | INTEGRATED | 18 |
+| `nat_rock_pillars` | NOT_USED | 0 |
 | `nat_rock_sand` | INTEGRATED | 7 |
 | `nat_rock_small` | INTEGRATED | 8 |
 | `nat_rock_snow` | INTEGRATED | 2 |
@@ -118,6 +139,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_signpost` | INTEGRATED | 5 |
 | `nat_snow_mound` | INTEGRATED | 2 |
 | `nat_statue_guardian` | INTEGRATED | 3 |
+| `nat_steps_stone` | NOT_USED | 0 |
 | `nat_stump` | INTEGRATED | 2 |
 | `nat_tent_frost` | INTEGRATED | 2 |
 | `nat_tent_red` | INTEGRATED | 2 |
@@ -128,11 +150,18 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_tree_palm` | INTEGRATED | 5 |
 | `nat_tree_pine` | INTEGRATED | 49 |
 | `nat_tree_pine_snow` | INTEGRATED | 0 |
+| `nat_wall_cliff_ice_a` | INTEGRATED | 2 |
+| `nat_wall_cliff_ice_b` | INTEGRATED | 1 |
+| `nat_wall_cliff_rock_a` | INTEGRATED | 1 |
+| `nat_wall_cliff_rock_b` | INTEGRATED | 1 |
+| `nat_wall_cliff_sand_a` | INTEGRATED | 2 |
+| `nat_wall_cliff_sand_b` | INTEGRATED | 1 |
 | `nat_wall_low_a` | INTEGRATED | 3 |
 | `nat_wall_low_b` | INTEGRATED | 3 |
+| `nat_waterfall_front` | INTEGRATED | 1 |
 | `nat_well_stone` | INTEGRATED | 3 |
 
-### city (15)
+### city (32)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -151,8 +180,25 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `city_stairs` | NOT_USED | 0 |
 | `city_stall_blue` | INTEGRATED | 1 |
 | `city_stall_striped` | INTEGRATED | 1 |
+| `str_barn` | INTEGRATED | 1 |
+| `str_boat_row` | INTEGRATED | 2 |
+| `str_boat_sail` | INTEGRATED | 1 |
+| `str_crop_cabbage` | INTEGRATED | 1 |
+| `str_crop_corn` | INTEGRATED | 1 |
+| `str_crop_wheat` | INTEGRATED | 1 |
+| `str_dock_a` | INTEGRATED | 2 |
+| `str_dock_b` | INTEGRATED | 1 |
+| `str_dock_end` | INTEGRATED | 3 |
+| `str_lodge_ice` | INTEGRATED | 1 |
+| `str_outpost_amber` | INTEGRATED | 1 |
+| `str_scarecrow` | INTEGRATED | 1 |
+| `str_shelter_wood` | INTEGRATED | 1 |
+| `str_shrine_stone` | INTEGRATED | 1 |
+| `str_watchtower_frost` | INTEGRATED | 1 |
+| `str_watchtower_stone` | INTEGRATED | 2 |
+| `str_windmill` | INTEGRATED | 1 |
 
-### dungeon (15)
+### dungeon (16)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -171,6 +217,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `dg_sarcophagus` | INTEGRATED | 4 |
 | `dg_stairs` | NOT_USED | 0 |
 | `dg_stalagmites` | INTEGRATED | 4 |
+| `str_cave_entrance` | INTEGRATED | 1 |
 
 ### interior (32)
 
@@ -216,7 +263,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `city_floor_clean` | INTEGRATED |
 | `city_floor_worn` | INTEGRATED |
 | `city_floor_moss` | INTEGRATED |
-| `city_water_edge` | NOT_USED |
+| `city_water_edge` | INTEGRATED |
 | `city_wall` | INTEGRATED |
 | `city_wall_vegetation` | INTEGRATED |
 | `city_gate` | INTEGRATED |
@@ -244,5 +291,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 61 (`REG001_POI_*`); objetos: 649 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 20; passagens: 3; fragmentos de lore: 12.
+- POIs: 61 (`REG001_POI_*`); objetos: 780 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 20; passagens: 3; fragmentos de lore: 12.
 

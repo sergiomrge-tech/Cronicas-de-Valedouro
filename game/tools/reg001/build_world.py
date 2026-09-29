@@ -236,7 +236,6 @@ P('REG001_POI_SANTUARIO_VALE', 'shrine', 'SANTUÁRIO DO VALE', 1660, 2010, tier=
 for i in range(5):
     a = -1.2 + i * .6
     W.obj('nat_ruin_column', 1660 + math.cos(a) * 118, 2010 + math.sin(a) * 90, 'SANT_V')
-W.obj('nat_altar_ancient', 1660, 2030, 'SANT_V', anim=1, poi='REG001_POI_SANTUARIO_VALE')
 W.obj('nat_flowers_blue', 1620, 2085, 'SANT_V')
 W.obj('nat_flowers_blue', 1730, 2080, 'SANT_V')
 W.obj('nat_bush_flowering', 1630, 1950, 'SANT_V')
@@ -734,6 +733,167 @@ P('REG001_POI_CRIPTA_CHEST', 'chest', 'BAÚ DA CRIPTA', 600, 150, zone='cripta',
   data={'requires_elite': 'REG001_POI_CRIPTA_ELITE', 'loot': {'gold': 180, 'materials': {'Fragmento de Eco': 2, 'Seda sombria': 4}, 'item': item('Lâmina da Cripta', 'sword', 2, 6, 3, 10, 0), 'potions': 3}})
 for i, (sx, sy) in enumerate([(480, 690), (400, 740), (560, 740)]):
     P('REG001_POI_CRIPTA_TRAP_%d' % (i + 1), 'trap', 'ARMADILHA', sx, sy, zone='cripta', tier=2, layer='secondary', radius=34, region='cripta', show_label=False, data={'damage': 5, 'period': 2.6, 'phase': i * .8})
+
+# ============================================================================================
+# CIDADE DE VALEDOURO — arquitetura com peças APPROVED (casas compostas, muralha, água, lojas, árvores)
+# ============================================================================================
+# As 4 casas de interior (guilda, ferreiro, loja, alquimia) e a muralha norte/portão são desenhadas em main.gd com as
+# mesmas peças; aqui entram as colisões delas e as demais construções, respeitando ruas e portas.
+TOWN_ROADS = [(810, 0, 160, 887), (0, 413, 1774, 130), (401, 0, 94, 478), (1254, 478, 92, 409)]   # x, y, w, h (locais)
+
+
+def _town_free(x, y, w=176, h=44, pad=6):
+    rx0, ry0, rx1, ry1 = x - w / 2 - pad, y - 38 - pad, x + w / 2 + pad, y + 6 + pad
+    for a, b, c, d in TOWN_ROADS:
+        if rx0 < a + c and rx1 > a and ry0 < b + d and ry1 > b:
+            return False
+    return True
+
+
+def town_house(x, y, roof, group='CIDADE_CASAS'):
+    if not _town_free(x, y):
+        W.warnings.append('casa da cidade sobre a rua: (%d,%d)' % (x, y))
+    W.house(TX + x, TY + y, roof, group)
+
+
+for _hx, _hy in ((485, 330), (1245, 340), (470, 615), (1280, 625)):     # casas de interior (desenhadas em main.gd)
+    W.collider('rect', TX + _hx - 88, TY + _hy - 38, 176, 44)
+W.collider('rect', TX + 1570 - 70, TY + 630 - 36, 140, 40)           # loja decorativa
+for _hx, _hy, _roof in ((120, 300, 'city_roof_blue'), (275, 285, 'city_roof_wood'), (640, 335, 'city_roof_red'), (1075, 345, 'city_roof_wood'),
+                        (1440, 330, 'city_roof_blue'), (1640, 300, 'city_roof_red'), (120, 640, 'city_roof_wood'), (285, 665, 'city_roof_blue'),
+                        (640, 665, 'city_roof_red'), (1100, 690, 'city_roof_blue'), (1470, 690, 'city_roof_wood')):
+    town_house(_hx, _hy, _roof)
+
+# muralha sul com vãos na rua sul (x≈1300) e no portal das ruínas (x≈955); portões aprovados nos dois vãos
+_WALL_S = 800
+for _i in range(15):
+    _wx = 60 + _i * 116
+    if abs(_wx - 1300) < 110 or abs(_wx - 955) < 110:
+        continue
+    _wy = TY + _WALL_S
+    W.obj('APP:city_wall_vegetation' if _i % 4 == 0 else 'APP:city_wall', TX + _wx, _wy, 'CIDADE_MURO', scale=.58, solid=False, check=False)
+    W.collider('rect', TX + _wx - 58, _wy - 26, 116, 24)
+W.obj('APP:city_gate', TX + 1300, TY + _WALL_S + 6, 'CIDADE_MURO', scale=.58, solid=False, check=False, sy=TY + _WALL_S - 60)
+W.collider('rect', TX + 1300 - 128, TY + _WALL_S - 26, 40, 24)
+W.collider('rect', TX + 1300 + 88, TY + _WALL_S - 26, 40, 24)
+
+# lagoas com a peça aprovada water_edge (jardins) e lojas de mercado aprovadas
+for _wx, _wy in ((215, 470), (1560, 470)):
+    W.obj('APP:city_water_edge', TX + _wx, TY + _wy, 'CIDADE_AGUA', scale=.58, solid=False, check=False)
+    W.collider('rect', TX + _wx - 60, TY + _wy - 46, 120, 50)
+W.obj('APP:city_store', TX + 1720, TY + 470, 'CIDADE_LOJAS', scale=.58, solid=False, check=False)
+W.collider('rect', TX + 1720 - 70, TY + 470 - 36, 140, 40)
+
+# árvores aprovadas: alamedas ao longo das ruas e jardins
+_rt = random.Random(4242)
+for _tx, _ty in ((370, 250), (525, 250), (760, 255), (1040, 250), (1200, 250), (1330, 250), (60, 470), (60, 700), (340, 520), (560, 560),
+                 (760, 720), (1130, 560), (1200, 740), (1400, 520), (1720, 640), (1720, 300), (700, 480), (1060, 470)):
+    if _town_free(_tx, _ty, w=60, h=40, pad=0):
+        W.obj('APP:city_tree_autumn' if _rt.random() < .25 else 'APP:city_tree_green', TX + _tx, TY + _ty, 'CIDADE_ARV', scale=.5, solid=False, check=False)
+        W.collider('circle', TX + _tx, TY + _ty - 4, 14)
+
+# ============================================================================================
+# FINALIZAÇÃO DE ASSETS — estruturas modeladas, fazenda, cais, cachoeira e elevações
+# ============================================================================================
+# marcos que eram sprites legados (STRUCTURES em world_map.gd continua fornecendo colisão/exclusão de vegetação)
+W.obj('str_watchtower_stone', 360, 1112, 'MARCO', poi='REG001_POI_MIRANTE_OESTE', check=False)
+W.obj('str_watchtower_stone', 1320, 347, 'MARCO', poi='REG001_POI_MIRANTE_NORTE', check=False)
+W.obj('str_windmill', 1110, 1882, 'MARCO', anim=1, check=False)
+W.obj('str_shrine_stone', 1660, 2022, 'MARCO', anim=1, poi='REG001_POI_SANTUARIO_VALE', check=False)
+W.obj('str_outpost_amber', 2690, 1800, 'MARCO', check=False)
+W.obj('str_lodge_ice', 2700, 604, 'MARCO', check=False)
+W.obj('str_watchtower_frost', 2905, 655, 'MARCO', poi='REG001_POI_MIRANTE_GELO', check=False)
+W.obj('str_cave_entrance', 3010, 118, 'SEG_GELO', show_when='REG001_POI_SEGREDO_GELO', layer='secret_show', solid=False, check=False)
+
+# cachoeira frontal na cabeceira do rio (rochas laterais colidem; a água central já é intransitável)
+W.obj('nat_waterfall_front', geo.river_x(471), 480, 'CACHOEIRA', anim=1, check=False)
+
+# fazenda: canteiros dentro da cerca em losango + celeiro fora do portão
+W.obj('str_crop_wheat', 268, 2050, 'FAZENDA', layer='ground', scale=.62, solid=False, check=False)
+W.obj('str_crop_cabbage', 344, 2066, 'FAZENDA', layer='ground', scale=.62, solid=False, check=False)
+W.obj('str_crop_corn', 300, 2094, 'FAZENDA', layer='ground', scale=.62, solid=False, check=False)
+W.obj('str_scarecrow', 322, 2030, 'FAZENDA', check=False)
+W.obj('str_barn', 470, 2150, 'FAZENDA', check=False)
+
+# cais e barcos ao longo do rio (margem oeste)
+for _y, _kind in ((990, 'str_dock_a'), (1400, 'str_dock_a'), (2000, 'str_dock_b')):
+    _rx, _hw = geo.river_x(_y), geo.river_hw(_y)
+    W.obj(_kind, _rx - _hw + 4, _y, 'CAIS', check=False)
+    W.obj('str_dock_end', _rx - _hw - 4, _y + 46, 'CAIS', check=False)
+W.obj('str_boat_row', geo.river_x(1400) + 4, 1428, 'CAIS', solid=False, anim=1, check=False)
+W.obj('str_boat_sail', geo.river_x(990) + 20, 1030, 'CAIS', solid=False, anim=1, check=False)
+W.obj('str_boat_row', geo.river_x(2000) + 6, 2040, 'CAIS', solid=False, anim=1, check=False)
+
+
+# elevações: colocação com folgas (trilhas, POIs, água, estradas, objetos sólidos e zonas de exclusão)
+_re = random.Random(60117)
+_elev_done = []
+
+
+ELEV_RAD = {'hill': 55, 'plateau_s': 58, 'plateau_m': 78, 'ridge': 74, 'wall': 62}
+
+
+def _erad(asset):
+    for k, v in (('hill', 55), ('plateau_earth_s', 58), ('plateau_rock_s', 58), ('plateau_sand_s', 58), ('plateau_ice_s', 58), ('plateau', 78), ('ridge', 74), ('wall', 62), ('arch', 60), ('pillars', 40), ('steps', 50)):
+        if k in asset:
+            return v
+    return 60
+
+
+def _elev_ok(x, y, rad):
+    if not (60 < x < 3010 and 60 < y < 2240):
+        return False
+    for dx, dy in ((0, 0), (rad * .8, 0), (-rad * .8, 0), (0, rad * .5), (0, -rad * .5)):
+        if geo.terrain(x + dx, y + dy) in ('water', 'shallow', 'bridge', 'path', 'bank', 'cidade'):
+            return False
+    if geo.near_structure(x, y, rad + 14):
+        return False
+    for cx, cy, cr in W.clear_zones:
+        if math.hypot(x - cx, y - cy) < cr * .62 + rad * .4:
+            return False
+    for t in TRAILS:
+        for a, b in zip(t['pts'], t['pts'][1:]):
+            if _seg_dist(x, y, a[0], a[1], b[0], b[1]) < t['half'] + rad * .8 + 24:
+                return False
+    for o in W.objects:
+        if o['zone'] != 'cidade':
+            continue
+        if math.hypot(x - o['pos'][0], y - o['pos'][1]) < (rad * .7 + 22 if o.get('solid') else rad * .45 + 10):
+            return False
+    for px, py, pr in _elev_done:
+        if math.hypot(x - px, y - py) < rad + pr + 14:
+            return False
+    return True
+
+
+def elevations(region, assets, n, box_, tries=6000):
+    """Coloca até n elevações (assets alternados) dentro de box_=(x0,y0,x1,y1) que pertençam à região."""
+    placed = 0
+    for _ in range(tries):
+        if placed >= n:
+            break
+        a = assets[placed % len(assets)]
+        rad = _erad(a)
+        x, y = _re.uniform(box_[0], box_[2]), _re.uniform(box_[1], box_[3])
+        if geo.biome(x, y) != region or not _elev_ok(x, y, rad):
+            continue
+        W.obj(a, x, y, 'ELEV', check=False)
+        _elev_done.append((x, y, rad))
+        placed += 1
+    return placed
+
+
+_ELEV_LOG = {}
+_ELEV_LOG['gelo'] = elevations('gelo', ['nat_plateau_ice_m', 'nat_ridge_ice_a', 'nat_wall_cliff_ice_a', 'nat_ridge_ice_b', 'nat_hill_ice', 'nat_plateau_ice_s', 'nat_wall_cliff_ice_b'], 12, (2060, 60, 3040, 840))
+_ELEV_LOG['deserto'] = elevations('deserto', ['nat_plateau_sand_m', 'nat_ridge_sand_a', 'nat_hill_sand', 'nat_wall_cliff_sand_a', 'nat_ridge_sand_b', 'nat_plateau_sand_s', 'nat_hill_sand', 'nat_wall_cliff_sand_b'], 14, (1990, 1380, 3040, 2260))
+_ELEV_LOG['pradaria'] = elevations('pradaria', ['nat_hill_earth', 'nat_plateau_earth_m', 'nat_hill_earth', 'nat_ridge_earth_a', 'nat_plateau_earth_s', 'nat_ridge_earth_b'], 14, (2430, 860, 3040, 1380))
+_ELEV_LOG['vale'] = elevations('vale', ['nat_hill_earth', 'nat_plateau_rock_s', 'nat_ridge_rock_a', 'nat_wall_cliff_rock_a', 'nat_hill_earth', 'nat_plateau_rock_m'], 8, (760, 1570, 2010, 2280))
+_ELEV_LOG['campos'] = elevations('campos', ['nat_hill_earth', 'nat_plateau_earth_s', 'nat_hill_earth'], 5, (40, 1570, 760, 2280))
+_ELEV_LOG['floresta'] = elevations('floresta', ['nat_plateau_rock_m', 'nat_ridge_rock_b', 'nat_wall_cliff_rock_b', 'nat_hill_earth'], 6, (40, 900, 1040, 1570))
+for _asset, _x, _y, _sol in (('nat_rock_arch_natural', 2420, 700, None), ('nat_steps_stone', 1580, 1120, False), ('str_shelter_wood', 1420, 640, None), ('nat_rock_pillars', 2350, 1900, None)):
+    if _elev_ok(_x, _y, _erad(_asset)):
+        W.obj(_asset, _x, _y, 'ELEV', solid=_sol, check=False)
+print('ELEVAÇÕES', _ELEV_LOG)
 
 LORE = {
     'REG001_LORE_01': {'title': 'Diário do lenhador', 'text': 'O vento mudou de direção três noites seguidas. Ouvi passos no bosque que não eram de lobo. Deixei o fogo aceso para enganá-los.'},

@@ -24,10 +24,12 @@ class AssetSpec:
     rows: int = 1           # linhas da folha (ex.: direções de uma animação)
     contact: Optional[tuple] = None  # (rx, ry, alpha) em unidades de mundo: sombra de contato baked
     status_note: str = ''
+    az: float = 45.0
+    collision: Optional[tuple] = None   # ((dx,dy,r), ...) em px de jogo relativos ao pé: colisão composta
 
 
-def asset(id, group, folder, size, origin, scale=60.0, draw_scale=.5, frames=1, blocks=None, tags=(), seed=1, shadow=True, footprint=0.0, rows=1, contact=None):
+def asset(id, group, folder, size, origin, scale=60.0, draw_scale=.5, frames=1, blocks=None, tags=(), seed=1, shadow=True, footprint=0.0, rows=1, contact=None, az=45.0, collision=None):
     def deco(fn):
-        REGISTRY.append(AssetSpec(id, group, folder, size, origin, fn, scale, draw_scale, frames, blocks, tags, seed, shadow, footprint, rows, contact))
+        REGISTRY.append(AssetSpec(id, group, folder, size, origin, fn, scale, draw_scale, frames, blocks, tags, seed, shadow, footprint, rows, contact, '', az, collision))
         return fn
     return deco

@@ -19,12 +19,11 @@
  },
  "counts": {
   "APPROVED": {
-   "INTEGRATED": 27,
-   "NOT_USED": 1
+   "INTEGRATED": 28
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 130,
-   "NOT_USED": 81
+   "INTEGRATED": 173,
+   "NOT_USED": 85
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -219,7 +218,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 649
+  "object_count": 780
  },
  "entries": [
   {
@@ -251,7 +250,7 @@
    "key": "city_water_edge",
    "group": "city",
    "approval": "APPROVED",
-   "usage": "NOT_USED",
+   "usage": "INTEGRATED",
    "source": "approved_assets_bundle (Lote 01, QA Claude)"
   },
   {
@@ -1010,7 +1009,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 1,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1410,6 +1409,33 @@
    "source": "game/tools/modeling/build_assets.py"
   },
   {
+   "id": "MOD_NAT_HILL_EARTH",
+   "key": "nat_hill_earth",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 9,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_HILL_ICE",
+   "key": "nat_hill_ice",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_HILL_SAND",
+   "key": "nat_hill_sand",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
    "id": "MOD_NAT_ICE_SPIRE",
    "key": "nat_ice_spire",
    "group": "nature",
@@ -1473,6 +1499,78 @@
    "source": "game/tools/modeling/build_assets.py"
   },
   {
+   "id": "MOD_NAT_PLATEAU_EARTH_M",
+   "key": "nat_plateau_earth_m",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_PLATEAU_EARTH_S",
+   "key": "nat_plateau_earth_s",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_PLATEAU_ICE_M",
+   "key": "nat_plateau_ice_m",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_PLATEAU_ICE_S",
+   "key": "nat_plateau_ice_s",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_PLATEAU_ROCK_M",
+   "key": "nat_plateau_rock_m",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_PLATEAU_ROCK_S",
+   "key": "nat_plateau_rock_s",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_PLATEAU_SAND_M",
+   "key": "nat_plateau_sand_m",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_PLATEAU_SAND_S",
+   "key": "nat_plateau_sand_s",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
    "id": "MOD_NAT_REEDS",
    "key": "nat_reeds",
    "group": "nature",
@@ -1509,6 +1607,87 @@
    "source": "game/tools/modeling/build_assets.py"
   },
   {
+   "id": "MOD_NAT_RIDGE_EARTH_A",
+   "key": "nat_ridge_earth_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RIDGE_EARTH_B",
+   "key": "nat_ridge_earth_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RIDGE_ICE_A",
+   "key": "nat_ridge_ice_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RIDGE_ICE_B",
+   "key": "nat_ridge_ice_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RIDGE_ROCK_A",
+   "key": "nat_ridge_rock_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RIDGE_ROCK_B",
+   "key": "nat_ridge_rock_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RIDGE_SAND_A",
+   "key": "nat_ridge_sand_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_RIDGE_SAND_B",
+   "key": "nat_ridge_sand_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ROCK_ARCH_NATURAL",
+   "key": "nat_rock_arch_natural",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
    "id": "MOD_NAT_ROCK_BOULDER",
    "key": "nat_rock_boulder",
    "group": "nature",
@@ -1542,6 +1721,15 @@
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
    "placed": 18,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_ROCK_PILLARS",
+   "key": "nat_rock_pillars",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1671,6 +1859,15 @@
    "source": "game/tools/modeling/build_assets.py"
   },
   {
+   "id": "MOD_NAT_STEPS_STONE",
+   "key": "nat_steps_stone",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
    "id": "MOD_NAT_STUMP",
    "key": "nat_stump",
    "group": "nature",
@@ -1761,6 +1958,60 @@
    "source": "game/tools/modeling/build_assets.py"
   },
   {
+   "id": "MOD_NAT_WALL_CLIFF_ICE_A",
+   "key": "nat_wall_cliff_ice_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_CLIFF_ICE_B",
+   "key": "nat_wall_cliff_ice_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_CLIFF_ROCK_A",
+   "key": "nat_wall_cliff_rock_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_CLIFF_ROCK_B",
+   "key": "nat_wall_cliff_rock_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_CLIFF_SAND_A",
+   "key": "nat_wall_cliff_sand_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_CLIFF_SAND_B",
+   "key": "nat_wall_cliff_sand_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
    "id": "MOD_NAT_WALL_LOW_A",
    "key": "nat_wall_low_a",
    "group": "nature",
@@ -1779,12 +2030,183 @@
    "source": "game/tools/modeling/build_assets.py"
   },
   {
+   "id": "MOD_NAT_WATERFALL_FRONT",
+   "key": "nat_waterfall_front",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
    "id": "MOD_NAT_WELL_STONE",
    "key": "nat_well_stone",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
    "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_BARN",
+   "key": "str_barn",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_BOAT_ROW",
+   "key": "str_boat_row",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_BOAT_SAIL",
+   "key": "str_boat_sail",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_CAVE_ENTRANCE",
+   "key": "str_cave_entrance",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_CROP_CABBAGE",
+   "key": "str_crop_cabbage",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_CROP_CORN",
+   "key": "str_crop_corn",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_CROP_WHEAT",
+   "key": "str_crop_wheat",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_DOCK_A",
+   "key": "str_dock_a",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_DOCK_B",
+   "key": "str_dock_b",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_DOCK_END",
+   "key": "str_dock_end",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_LODGE_ICE",
+   "key": "str_lodge_ice",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_OUTPOST_AMBER",
+   "key": "str_outpost_amber",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_SCARECROW",
+   "key": "str_scarecrow",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_SHELTER_WOOD",
+   "key": "str_shelter_wood",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_SHRINE_STONE",
+   "key": "str_shrine_stone",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_WATCHTOWER_FROST",
+   "key": "str_watchtower_frost",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_WATCHTOWER_STONE",
+   "key": "str_watchtower_stone",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_STR_WINDMILL",
+   "key": "str_windmill",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
