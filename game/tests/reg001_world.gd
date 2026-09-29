@@ -4,7 +4,7 @@ const WORLD = preload("res://scripts/world_map.gd")
 const REG = preload("res://scripts/reg001_world.gd")
 const PROC = preload("res://scripts/reg001_procedural.gd")
 const MODELED = preload("res://scripts/modeled_assets.gd")
-const APPROVED_KEYS: Array[String] = ["city_house_door", "city_house_window", "city_roof_blue", "city_roof_red", "city_roof_wood", "city_wall", "city_wall_vegetation", "city_gate", "city_store", "city_water_edge", "city_floor_clean", "city_floor_worn", "city_floor_moss", "city_tree_green", "city_tree_autumn", "dungeon_floor_stone", "dungeon_floor_broken", "dungeon_wall", "dungeon_corner", "dungeon_arch", "dungeon_door", "dungeon_rail", "dungeon_crystal_blue", "dungeon_crystal_purple", "dungeon_torch", "dungeon_emissive_crystal", "dungeon_spikes", "dungeon_corridor"]
+const APPROVED_KEYS: Array[String] = ["city_water_edge", "city_floor_clean", "city_floor_worn", "city_floor_moss", "city_tree_green", "city_tree_autumn", "dungeon_floor_stone", "dungeon_floor_broken", "dungeon_wall", "dungeon_corner", "dungeon_arch", "dungeon_door", "dungeon_rail", "dungeon_crystal_blue", "dungeon_crystal_purple", "dungeon_torch", "dungeon_emissive_crystal", "dungeon_spikes", "dungeon_corridor"]
 
 var game: Node2D
 
@@ -44,6 +44,7 @@ func check() -> void:
 	if FileAccess.file_exists("user://valedouro_v1.json"):
 		DirAccess.remove_absolute(ProjectSettings.globalize_path("user://valedouro_v1.json"))
 	REG.ensure_loaded()
+	assert(APPROVED_KEYS.size() == 19, "gate deve refletir os 19 APPROVED legados ativos")
 	# ---- dados e IDs persistentes
 	assert(REG.pois.size() >= 55, "POIs insuficientes: %d" % REG.pois.size())
 	assert(REG.objects.size() >= 450, "objetos insuficientes: %d" % REG.objects.size())
