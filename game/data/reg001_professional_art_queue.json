@@ -1,0 +1,133 @@
+{
+  "project": "Cronicas de Valedouro",
+  "branch_origin": "ccr-bb54cda9-tvw178",
+  "purpose": "Professional art replacement queue for REG_001",
+  "status_policy": {
+    "new_art": "MODELED_PENDING_GATE",
+    "director_only_can_set": "APPROVED",
+    "forbidden_renderer_statuses": ["REWORKED", "HOLD"]
+  },
+  "tiers": [
+    {
+      "tier": "P0",
+      "reason": "Largest visual impact at normal gameplay zoom",
+      "groups": [
+        {
+          "id": "MISSING_GROUND_TILES",
+          "target": "grass/dirt/road/sand/snow/stone/shallow_water/deep_water plus transitions",
+          "method": "hand-authored tile family + macro decals + controlled variants",
+          "definition": "No checkerboard read; seams visually secondary to terrain masses"
+        },
+        {
+          "id": "MISSING_HILL_ELEVATION",
+          "target": "cliffs, scarps, ledges, natural steps, canyon pieces",
+          "method": "Blender pre-render + pixel cleanup",
+          "definition": "World gains readable height and occlusion without breaking navigation"
+        },
+        {
+          "id": "MISSING_NPC_ARTISTS",
+          "target": "villager/merchant/traveler/guard/guild/blacksmith/alchemist families",
+          "method": "character sheets + sprite animation",
+          "definition": "No tinted hero clone visible as final NPC"
+        },
+        {
+          "id": "MISSING_FAUNA_APPROVED",
+          "target": "deer/fox/hare/goat/camel/bird/fish",
+          "method": "species silhouettes + idle/locomotion sprite animation",
+          "definition": "Ambient wildlife reads by species and is grounded"
+        }
+      ]
+    },
+    {
+      "tier": "P1",
+      "reason": "Hero-facing landmarks that currently expose primitive/simple construction",
+      "groups": [
+        {
+          "id": "MISSING_STRUCT_WATCHTOWER",
+          "target": "watchtower",
+          "method": "game/tools/art_pipeline/blender_landmarks_reg001.py",
+          "definition": "Foundation, posts, braces, deck, rails, ladder, roof and asymmetry readable"
+        },
+        {
+          "id": "MISSING_STRUCT_WINDMILL",
+          "target": "windmill",
+          "method": "game/tools/art_pipeline/blender_landmarks_reg001.py",
+          "definition": "Structural blades, axle, tapered body, roof, entrance and farm storytelling props"
+        },
+        {
+          "id": "MISSING_CAVE_ENTRANCE",
+          "target": "rock cave entrance",
+          "method": "game/tools/art_pipeline/blender_landmarks_reg001.py",
+          "definition": "Opening is carved into a rock mass; no portal-on-rock appearance"
+        },
+        {
+          "id": "MISSING_WATERFALL_CLIFF",
+          "target": "Aurora waterfall + cliff",
+          "method": "game/tools/art_pipeline/blender_landmarks_reg001.py + 2D foam/mist pass",
+          "definition": "Recognizable landmark with elevation, basin, water impact and surrounding rock"
+        }
+      ]
+    },
+    {
+      "tier": "P2",
+      "reason": "Regional storytelling and interior cohesion",
+      "groups": [
+        {
+          "id": "MISSING_STRUCT_OUTPOST",
+          "target": "Amber outpost + Frost shelter",
+          "method": "Blender modular structure + region-specific props",
+          "definition": "Each outpost has distinct regional material language"
+        },
+        {
+          "id": "MISSING_STRUCT_SHRINE",
+          "target": "Valley shrine",
+          "method": "Blender pre-render + emissive pixel accents",
+          "definition": "Shrine reads as sacred focal point, not altar prop alone"
+        },
+        {
+          "id": "MISSING_CROPS",
+          "target": "farm crop rows and beds",
+          "method": "2D modular sprites + controlled variants",
+          "definition": "Rows look cultivated without exposing repetitive stamps"
+        },
+        {
+          "id": "MISSING_BOAT_DOCK",
+          "target": "dock, pier, small boats",
+          "method": "Blender pre-render + water-edge integration",
+          "definition": "Construction logic and water contact are believable"
+        },
+        {
+          "id": "MISSING_INTERIOR_WALLS_APPROVED",
+          "target": "interior wall/door/window/corner families",
+          "method": "modular 3D pre-render + hand pixel cleanup",
+          "definition": "Guild/forge/alchemy/shop read as rooms, not prop collections on a floor"
+        }
+      ]
+    },
+    {
+      "tier": "P3",
+      "reason": "Interaction polish before combat stage",
+      "groups": [
+        {
+          "id": "MISSING_HERO_ANIM_FX",
+          "target": "chest/harvest/mine/dig/shrine/secret interaction FX",
+          "method": "hand-authored sprite animation",
+          "definition": "Short readable effects with no stylistic mismatch"
+        }
+      ]
+    }
+  ],
+  "global_quality_checks": [
+    "silhouette",
+    "2:1_projection_consistency",
+    "hero_scale_reference",
+    "secondary_forms",
+    "material_readability",
+    "contact_shadow",
+    "controlled_palette",
+    "hard_alpha",
+    "no_visible_primitive_blockout",
+    "gameplay_zoom_readability",
+    "godot_4_7_2_capture"
+  ]
+}
