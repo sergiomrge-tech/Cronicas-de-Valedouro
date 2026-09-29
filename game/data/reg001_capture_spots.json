@@ -902,5 +902,50 @@
    560
   ],
   "time": 3.7
+ },
+ {
+  "name": "A01_20_portao_depois_do_alfa",
+  "zone": "cidade",
+  "pos": [
+   1533,
+   800
+  ],
+  "time": 3.7,
+  "elites": [
+   "REG001_POI_ANCIAO_CLAREIRA"
+  ]
+ },
+ {
+  "name": "A01_21_ruinas_runas_acesas",
+  "zone": "cidade",
+  "pos": [
+   790,
+   400
+  ],
+  "time": 3.7,
+  "lore": [
+   "REG001_LORE_05"
+  ]
+ },
+ {
+  "name": "A01_22_casa_abandonada",
+  "zone": "cidade",
+  "pos": [
+   520,
+   660
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "A01_23_clareira_depois_do_alfa",
+  "zone": "cidade",
+  "pos": [
+   300,
+   470
+  ],
+  "time": 3.7,
+  "elites": [
+   "REG001_POI_ANCIAO_CLAREIRA"
+  ]
  }
 ]

@@ -35,6 +35,8 @@ func capture_all() -> void:
 			REG.mark("opened", str(id))
 		for id in spot.get("elites", []):
 			REG.mark("elites", str(id))
+		for id in spot.get("lore", []):
+			REG.mark("lore", str(id))
 		game.zone = str(spot["zone"])
 		var pos: Array = spot["pos"]
 		game.player = Vector2(float(pos[0]), float(pos[1]))

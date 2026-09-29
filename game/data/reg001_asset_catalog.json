@@ -22,7 +22,7 @@
    "INTEGRATED": 28
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 242,
+   "INTEGRATED": 243,
    "NOT_USED": 150
   },
   "LEGACY_BASELINE": {
@@ -225,7 +225,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 1079
+  "object_count": 1088
  },
  "entries": [
   {
@@ -1259,7 +1259,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 6,
+   "placed": 8,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1286,7 +1286,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 12,
+   "placed": 13,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1322,7 +1322,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 6,
+   "placed": 7,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -1871,7 +1871,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 5,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2168,7 +2168,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 18,
+   "placed": 19,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2519,7 +2519,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 7,
+   "placed": 8,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3882,6 +3882,15 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_VAL_RUIN_MECHANISM_DIM",
+   "key": "val_ruin_mechanism_dim",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_VAL_RUIN_ROOT_ARCH",
    "key": "val_ruin_root_arch",
    "group": "nature",
@@ -3932,7 +3941,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {

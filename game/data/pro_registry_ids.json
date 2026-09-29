@@ -235,6 +235,7 @@
 "val_ruin_floor_circle",
 "val_ruin_inscription_wall",
 "val_ruin_mechanism",
+"val_ruin_mechanism_dim",
 "val_ruin_root_arch",
 "val_supply_stack",
 "val_training_dummy",

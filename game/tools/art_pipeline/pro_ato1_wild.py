@@ -145,17 +145,26 @@ def _glow_lines(x, z0, y0, y1, n, mat, seed):
 
 @landmark('val_ruin_mechanism', group='nature', folder='ato1', size=(260, 340), origin=(130, 250), tags=('ato1', 'ruinas', 'mecanismo', 'eco', 'first_wind'), footprint=20, collision=circ([(0, 0)], 11), samples=24)
 def ruin_mechanism(f):
+    _mechanism(True)
+
+
+@landmark('val_ruin_mechanism_dim', group='nature', folder='ato1', size=(260, 340), origin=(130, 250), tags=('ato1', 'ruinas', 'mecanismo', 'eco', 'first_wind', 'estado_apagado'), footprint=20, collision=circ([(0, 0)], 11), samples=24)
+def ruin_mechanism_dim(f):
+    _mechanism(False)
+
+
+def _mechanism(lit):
     rk = M('rock_grey')
     geo.cyl((0, 0, 0), .8, .25, rk, sides=10, r2=.7)                    # base circular gasta
     parts.rock_mass((0, 0, .2), (.75, .75, 1.0), rk, 21, subdiv=3, rough=.12, taper=.12, flat_top=True)
     geo.box((0, 0, 1.25), (.9, .9, .12), rk, bevel=0.03)
     # placa central com anel e oito raios de Eco (símbolos de um caminho entre mundos), aceso
     geo.cyl((0, 0, 1.31), .36, .04, mats.flat('plate', '#2c2a3c', rough=.8, bevel_wear=0), sides=24)
-    geo.cyl((0, 0, 1.34), .3, .02, m_eco(), sides=24, r2=.3)
+    geo.cyl((0, 0, 1.34), .3, .02, m_eco() if lit else mats.flat('plate_off', '#3a384a', rough=.85, bevel_wear=0), sides=24, r2=.3)
     geo.cyl((0, 0, 1.36), .24, .02, mats.flat('plate2', '#2c2a3c', rough=.8, bevel_wear=0), sides=24)
     for k in range(8):
         a = k * math.pi / 4
-        geo.box((math.cos(a) * .17, math.sin(a) * .17, 1.38), (.22, .03, .02), m_eco(), rot=(0, 0, a), bevel=0)
+        geo.box((math.cos(a) * .17, math.sin(a) * .17, 1.38), (.22, .03, .02), m_eco() if lit else mats.flat('rune_off', '#454358', rough=.85, bevel_wear=0), rot=(0, 0, a), bevel=0)
     for k in range(4):                                                   # pilares baixos e raízes invasoras
         a = k * math.pi / 2 + .4
         geo.box((math.cos(a) * .7, math.sin(a) * .7, .5), (.18, .18, .9), rk, rot=(0, 0, a), bevel=0.03)

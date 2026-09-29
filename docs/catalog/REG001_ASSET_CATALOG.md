@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (28): Lote 01, únicos aprovados pelo Diretor. Cidade 15 + Dungeon 13.
-- **MODELED_PENDING_GATE** (392): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (393): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 28 | 0 |
-| MODELED_PENDING_GATE | 242 | 150 |
+| MODELED_PENDING_GATE | 243 | 150 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -40,7 +40,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## MODELED_PENDING_GATE — por grupo
 
-### nature (169)
+### nature (170)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -58,14 +58,14 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_boulder_ice` | INTEGRATED | 11 |
 | `nat_boulder_sand` | NOT_USED | 0 |
 | `nat_bush_berry` | INTEGRATED | 7 |
-| `nat_bush_dry` | INTEGRATED | 6 |
+| `nat_bush_dry` | INTEGRATED | 8 |
 | `nat_bush_flowering` | INTEGRATED | 8 |
 | `nat_bush_frost` | INTEGRATED | 7 |
-| `nat_bush_green` | INTEGRATED | 12 |
+| `nat_bush_green` | INTEGRATED | 13 |
 | `nat_cactus_round` | INTEGRATED | 5 |
 | `nat_cactus_tall` | INTEGRATED | 8 |
 | `nat_campfire` | INTEGRATED | 7 |
-| `nat_cart_wood` | INTEGRATED | 6 |
+| `nat_cart_wood` | INTEGRATED | 7 |
 | `nat_chest_closed` | INTEGRATED | 4 |
 | `nat_chest_open` | INTEGRATED | 0 |
 | `nat_chest_rare` | INTEGRATED | 11 |
@@ -126,7 +126,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_ice_monolith_adrian` | INTEGRATED | 1 |
 | `nat_ice_spire` | INTEGRATED | 7 |
 | `nat_ice_stones` | NOT_USED | 0 |
-| `nat_log_fallen` | INTEGRATED | 4 |
+| `nat_log_fallen` | INTEGRATED | 5 |
 | `nat_log_pile` | INTEGRATED | 3 |
 | `nat_mushrooms` | INTEGRATED | 10 |
 | `nat_obelisk_rune` | INTEGRATED | 5 |
@@ -159,7 +159,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_rock_boulder` | INTEGRATED | 9 |
 | `nat_rock_ice` | INTEGRATED | 3 |
 | `nat_rock_medium` | INTEGRATED | 0 |
-| `nat_rock_mossy` | INTEGRATED | 18 |
+| `nat_rock_mossy` | INTEGRATED | 19 |
 | `nat_rock_pillars` | INTEGRATED | 0 |
 | `nat_rock_sand` | INTEGRATED | 7 |
 | `nat_rock_small` | INTEGRATED | 8 |
@@ -198,7 +198,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_wall_low_a` | INTEGRATED | 3 |
 | `nat_wall_low_b` | INTEGRATED | 3 |
 | `nat_waterfall_front` | INTEGRATED | 1 |
-| `nat_web_ground` | INTEGRATED | 7 |
+| `nat_web_ground` | INTEGRATED | 8 |
 | `nat_well_stone` | INTEGRATED | 4 |
 | `val_camp_remains` | INTEGRATED | 1 |
 | `val_cart_wrecked` | INTEGRATED | 2 |
@@ -208,6 +208,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_ruin_floor_circle` | INTEGRATED | 1 |
 | `val_ruin_inscription_wall` | INTEGRATED | 2 |
 | `val_ruin_mechanism` | INTEGRATED | 1 |
+| `val_ruin_mechanism_dim` | INTEGRATED | 1 |
 | `val_ruin_root_arch` | INTEGRATED | 2 |
 | `val_trampled_earth` | INTEGRATED | 3 |
 | `val_warning_post` | INTEGRATED | 4 |
@@ -263,7 +264,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_supply_stack` | INTEGRATED | 3 |
 | `val_training_dummy` | INTEGRATED | 2 |
 | `val_wall_breach` | INTEGRATED | 1 |
-| `val_wall_repaired` | INTEGRATED | 1 |
+| `val_wall_repaired` | INTEGRATED | 2 |
 | `val_wall_segment` | NOT_USED | 0 |
 | `val_weapon_rack` | INTEGRATED | 1 |
 
@@ -387,5 +388,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 67 (`REG001_POI_*`); objetos: 1079 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 21; passagens: 3; fragmentos de lore: 12.
+- POIs: 67 (`REG001_POI_*`); objetos: 1088 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 21; passagens: 3; fragmentos de lore: 12.
 

@@ -1336,16 +1336,30 @@ func draw_label(text: String, p: Vector2, color: Color = Color(1, .88, .64)) -> 
 	draw_string_outline(ui_font, p, text, HORIZONTAL_ALIGNMENT_CENTER, 180, 16, 4, Color(.1, .05, .16))
 	draw_string(ui_font, p, text, HORIZONTAL_ALIGNMENT_CENTER, 180, 16, color)
 
+func draw_floor_mesh(floor_tex: Texture2D, area: Vector2, seed_offset: int, variance: float, base: Color = Color(0, 0, 0, 0), tile_alpha: float = 1.0) -> void:
+	if base.a > 0.0:
+		draw_rect(Rect2(Vector2.ZERO, area), base)
+	# Malha 2:1 sem aparência de grade: espelhamento e brilho variam por célula, blocos com leve sobreposição (esconde emendas) e manchas de sujeira/desgaste por hash.
+	for row in int(area.y / 31.0) + 4:
+		for column in int(area.x / 124.0) + 3:
+			var seed: int = MAP.cell_hash(column + seed_offset, row + seed_offset * 2)
+			var center: Vector2 = Vector2(float(column) * 124.0 + (62.0 if row % 2 == 1 else 0.0) - 62.0, float(row) * 31.0 - 31.0)
+			var shade: float = 1.0 - variance * 0.5 + variance * float(seed % 17) / 16.0
+			var tint: Color = Color(shade, shade * (1.0 + float(seed % 5 - 2) * .012), shade * (1.0 + float(seed % 3 - 1) * .02), tile_alpha)
+			var half_w: float = 65.0
+			draw_set_transform(center, 0.0, Vector2(-1.0 if seed % 2 == 1 else 1.0, 1.0))
+			draw_texture_rect(floor_tex, Rect2(Vector2(-half_w, -36.5), Vector2(half_w * 2.0, 73.0)), false, tint)
+			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+			if seed % 6 == 0:
+				draw_circle(center + Vector2(float((seed >> 3) % 40 - 20), float((seed >> 7) % 14 - 7)), 6.0 + float(seed % 5), Color(0, 0, 0, .10))
+
 func draw_dungeon() -> void:
 	# Mina do Eco (Lote 1 / Ato I): piso de cascalho modelado em malha 2:1; paredes de rocha, vigas, trilhos, veios e Núcleo do Eco são objetos da zona.
 	var floor_tex: Texture2D = MODELED.texture("val_mine_floor")
 	if floor_tex == null:
 		draw_dungeon_legacy()
 		return
-	for row in int(SIZE.y / 31.0) + 4:
-		for column in int(SIZE.x / 124.0) + 3:
-			var center: Vector2 = Vector2(float(column) * 124.0 + (62.0 if row % 2 == 1 else 0.0) - 62.0, float(row) * 31.0 - 31.0)
-			draw_texture_rect(floor_tex, Rect2(center - Vector2(62.0, 35.0), Vector2(124.0, 70.0)), false)
+	draw_floor_mesh(floor_tex, SIZE, 700, .3, Color(.16, .11, .09), .42)
 	draw_approved_visual("dungeon_arch", Vector2(480, 194), .62)
 	draw_approved_visual("dungeon_door", Vector2(480, 196), .54)
 	draw_label("NÚCLEO DO ECO", Vector2(395, 92), Color(.5, .9, 1))
@@ -1413,12 +1427,7 @@ func draw_interior() -> void:
 	var floor_id: String = "int_floor_stone" if zone == "ferreiro" or zone == "arquivo" else "int_floor_wood_dark" if zone == "alquimia" else "int_floor_wood"
 	var floor_tex: Texture2D = MODELED.texture(floor_id)
 	if floor_tex != null:
-		var rows_n: int = int(room_size.y / 31.0) + 4
-		var cols_n: int = int(room_size.x / 124.0) + 3
-		for row in rows_n:
-			for column in cols_n:
-				var center: Vector2 = Vector2(float(column) * 124.0 + (62.0 if row % 2 == 1 else 0.0) - 62.0, float(row) * 31.0 - 31.0)
-				draw_texture_rect(floor_tex, Rect2(center - Vector2(62.0, 35.0), Vector2(124.0, 70.0)), false)
+		draw_floor_mesh(floor_tex, room_size, 1700, .1)
 	else:
 		for row in 31:
 			for column in 23:

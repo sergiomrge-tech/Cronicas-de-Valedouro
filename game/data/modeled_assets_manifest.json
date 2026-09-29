@@ -10,7 +10,7 @@
   "note": "MODELED_PENDING_GATE = modelado no estilo dos 28 APPROVED, aguardando gate visual do Diretor. Mude o status de um asset para REJECTED/HOLD para removê-lo do renderer."
  },
  "counts": {
-  "total": 392
+  "total": 393
  },
  "assets": [
   {
@@ -14871,6 +14871,44 @@
     "first_wind"
    ],
    "sha256": "af7eaffdd6e1d04b90351eb72c46168d8860e48b58cbe9fd61d8447134875207",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     0.0,
+     0.0,
+     11
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_ruin_mechanism_dim",
+   "path": "res://assets/modeled/nature/ato1/val_ruin_mechanism_dim.png",
+   "group": "nature",
+   "folder": "ato1",
+   "frame_size": [
+    312,
+    392
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    156.0,
+    276.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 20.0,
+   "tags": [
+    "ato1",
+    "ruinas",
+    "mecanismo",
+    "eco",
+    "first_wind",
+    "estado_apagado"
+   ],
+   "sha256": "c633081b4180117425ebf843958d1bca39e89a2c4b4aa641b39df5c7d4df2810",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "collision": [
