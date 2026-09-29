@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (28): Lote 01, únicos aprovados pelo Diretor. Cidade 15 + Dungeon 13.
-- **MODELED_PENDING_GATE** (398): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (421): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 28 | 0 |
-| MODELED_PENDING_GATE | 248 | 150 |
+| MODELED_PENDING_GATE | 248 | 173 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -40,7 +40,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## MODELED_PENDING_GATE — por grupo
 
-### nature (170)
+### nature (193)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -51,6 +51,29 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `fau_fox` | NOT_USED | 0 |
 | `fau_goat` | NOT_USED | 0 |
 | `fau_hare` | NOT_USED | 0 |
+| `flo_ancient_tree_a` | NOT_USED | 0 |
+| `flo_ancient_tree_b` | NOT_USED | 0 |
+| `flo_barricade_improvised` | NOT_USED | 0 |
+| `flo_border_marker` | NOT_USED | 0 |
+| `flo_bridge_ramp` | NOT_USED | 0 |
+| `flo_bridge_span` | NOT_USED | 0 |
+| `flo_bridge_span_broken` | NOT_USED | 0 |
+| `flo_claw_tree` | NOT_USED | 0 |
+| `flo_fern_patch` | NOT_USED | 0 |
+| `flo_glow_mushrooms` | NOT_USED | 0 |
+| `flo_herb_bench` | NOT_USED | 0 |
+| `flo_map_table` | NOT_USED | 0 |
+| `flo_palisade_broken` | NOT_USED | 0 |
+| `flo_palisade_organic` | NOT_USED | 0 |
+| `flo_ranger_lodge` | NOT_USED | 0 |
+| `flo_ranger_shed` | NOT_USED | 0 |
+| `flo_ranger_watch` | NOT_USED | 0 |
+| `flo_rest_platform` | NOT_USED | 0 |
+| `flo_root_arch` | NOT_USED | 0 |
+| `flo_root_run` | NOT_USED | 0 |
+| `flo_stone_moss` | NOT_USED | 0 |
+| `flo_training_target` | NOT_USED | 0 |
+| `flo_weapon_rack_green` | NOT_USED | 0 |
 | `nat_altar_ancient` | NOT_USED | 0 |
 | `nat_altar_sand` | INTEGRATED | 1 |
 | `nat_bedroll` | INTEGRATED | 2 |

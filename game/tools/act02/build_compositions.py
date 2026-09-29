@@ -1,0 +1,163 @@
+#!/usr/bin/env python3
+"""Composições do Lote 2 (Ato II — Floresta Ancestral) → data/act02_compositions.json.
+
+Cada composição é uma janela de 960x540 (coordenadas do palco = coordenadas de bosque) com objetos de arte, água, estados e capturas.
+NÃO é a implantação final no mapa (essa é do Gerente GPT, ver LOTE02_ATO2_STORY_TO_MAP_v1.md §11): o dado usa coordenadas LOCAIS por LOC_*
+e chaves de estado canônicas ("quest:<ID>" = concluída; "quest:<ID>:active" = em curso; "boss:<ID>" = primeira derrota) para o Gerente importar.
+Vegetação obedece exclusões (trilhas, rio, portas, arenas, NPCs) e distância mínima (sem grade)."""
+import json
+import math
+import random
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / 'data' / 'act02_compositions.json'
+MAN = json.load(open(ROOT / 'data' / 'modeled_assets_manifest.json'))
+IDS = {a['id'] for a in MAN['assets']}
+
+
+class Comp:
+    def __init__(self, cid, name, origin, story, tint=(.04, .16, .1, .2)):
+        self.d = {'id': cid, 'name': name, 'origin': list(origin), 'story': story, 'ground_tint': list(tint), 'water': [], 'objects': [], 'captures': [], 'light_shafts': [], 'exclusions': []}
+        self.o = origin
+        self.placed = []
+
+    def add(self, asset, x, y, **kw):
+        assert asset in IDS or asset.startswith('APP:'), 'asset inexistente: ' + asset
+        obj = {'asset': asset, 'x': round(self.o[0] + x, 1), 'y': round(self.o[1] + y, 1)}
+        obj.update({k: v for k, v in kw.items() if v not in (None, False)})
+        self.d['objects'].append(obj)
+        self.placed.append((x, y))
+        return obj
+
+    def exclude_rect(self, x, y, w, h):
+        self.d['exclusions'].append({'rect': [x, y, w, h]})
+
+    def exclude_circle(self, x, y, r):
+        self.d['exclusions'].append({'circle': [x, y, r]})
+
+    def blocked(self, x, y, pad=0):
+        for e in self.d['exclusions']:
+            if 'rect' in e:
+                rx, ry, rw, rh = e['rect']
+                if rx - pad <= x <= rx + rw + pad and ry - pad <= y <= ry + rh + pad:
+                    return True
+            else:
+                cx, cy, r = e['circle']
+                if math.hypot(x - cx, y - cy) < r + pad:
+                    return True
+        return False
+
+    def scatter(self, assets, n, region, seed, min_d=46, tries=400, weights=None, **kw):
+        """Espalha n objetos em `region`=(x,y,w,h) respeitando exclusões e distância mínima."""
+        rr = random.Random(seed)
+        got = 0
+        for _ in range(tries):
+            if got >= n:
+                break
+            x, y = region[0] + rr.random() * region[2], region[1] + rr.random() * region[3]
+            if self.blocked(x, y, pad=12):
+                continue
+            if any(math.hypot(x - px, y - py) < min_d for px, py in self.placed):
+                continue
+            a = rr.choices(assets, weights=weights)[0] if weights else rr.choice(assets)
+            self.add(a, x, y, flip=rr.random() < .5, **kw)
+            got += 1
+        return got
+
+    def trail(self, pts, half=22, seed=1):
+        self.d.setdefault('trails', []).append({'pts': [[self.o[0] + x, self.o[1] + y] for x, y in pts], 'half': half, 'seed': seed})
+
+    def shot(self, name, flags=()):
+        self.d['captures'].append({'name': name, 'flags': list(flags)})
+
+
+comps = []
+
+# ============================================================== LOC_FOREST_STONE_BRIDGE (Q_MS02_BORDER)
+b = Comp('LOC_FOREST_STONE_BRIDGE', 'Ponte de Pedra da Fronteira', (300, 90),
+         'Entrada da região: margem oeste ainda parecida com o Berço; depois da ponte, a floresta antiga (troncos largos, raízes, musgo, luz filtrada).')
+b.exclude_rect(0, 296, 960, 46)                    # trilha antiga (leste-oeste) atravessando a ponte
+b.exclude_rect(400, 0, 160, 540)                   # rio sob a ponte
+b.exclude_circle(770, 420, 60)                     # plataforma de descanso
+b.d['water'].append({'tex': 'ter_tex_water_shallow', 'x': b.o[0] + 408, 'y': b.o[1] + 0, 'w': 144, 'h': 540})
+b.trail([(-20, 300), (120, 330), (260, 322), (352, 322), (480, 322), (608, 322), (720, 326), (860, 316), (980, 320)], half=22, seed=3)
+b.add('flo_bridge_ramp', 352, 336, flip=True)
+b.add('flo_bridge_span_broken', 480, 336)
+b.add('flo_bridge_ramp', 608, 336)
+b.add('flo_border_marker', 318, 372)
+b.add('flo_border_marker', 642, 372, flip=True)
+b.add('flo_rest_platform', 770, 440)
+b.add('flo_root_arch', 770, 340, scale=.8)                    # porta natural depois da ponte
+for i, (x, y) in enumerate(((690, 330), (730, 336), (820, 332), (860, 326), (905, 322))):
+    b.add('flo_root_run', x, y, show_when='!quest:Q_MS02_BORDER', layer='ground', flip=i % 2 == 0)   # antes: trilha interior fechada por raízes
+# margem oeste (Berço): árvores comuns e vegetação leve
+for x, y, a in ((60, 190, 'nat_tree_pine'), (150, 120, 'nat_tree_birch'), (230, 200, 'nat_tree_pine'), (120, 440, 'nat_tree_birch'), (240, 480, 'nat_tree_pine'), (330, 130, 'nat_tree_birch')):
+    b.add(a, x, y)
+# margem leste (floresta ancestral): árvores largas, feixe de luz, pedras engolidas
+b.add('flo_ancient_tree_a', 690, 200, scale=.72)
+b.add('flo_ancient_tree_b', 880, 240, scale=.72)
+b.add('flo_ancient_tree_a', 900, 520, flip=True, scale=.72)
+b.add('flo_ancient_tree_b', 640, 530, scale=.7)
+b.add('flo_stone_moss', 620, 430)
+b.add('flo_stone_moss', 340, 470)
+b.add('nat_rock_mossy', 395, 250)
+b.add('nat_rock_mossy', 565, 262)
+b.scatter(['nat_reeds'], 6, (380, 60, 20, 440), 3, min_d=50)
+b.scatter(['nat_reeds'], 6, (558, 60, 24, 440), 4, min_d=50)
+b.scatter(['nat_bush_green', 'nat_bush_flowering', 'nat_flowers_meadow', 'nat_grass_tall'], 12, (20, 60, 360, 470), 11, min_d=44)
+b.scatter(['flo_fern_patch', 'flo_glow_mushrooms', 'flo_fern_patch'], 10, (580, 60, 370, 470), 12, min_d=50)
+b.d['light_shafts'] = [[b.o[0] + 700, b.o[1] + 0], [b.o[0] + 840, b.o[1] + 40]]
+b.shot('FLO_2A_PONTE_ANTES', [])
+b.shot('FLO_2A_PONTE_DEPOIS', ['quest:Q_MS02_BORDER'])
+comps.append(b.d)
+
+# ============================================================== LOC_FOREST_RANGER_LODGE (Q_MS02_RANGERS)
+r = Comp('LOC_FOREST_RANGER_LODGE', 'Casa dos Guardas Verdes', (520, 250),
+         'Hub leve: clareira defendida com casa, posto de observação, depósito, ervas, mesa de mapas, alvos e arsenal; sinais de ataque até a defesa.', tint=(.05, .15, .08, .18))
+r.exclude_rect(390, 350, 190, 190)                 # pátio à frente da varanda + trilha de acesso
+r.exclude_rect(0, 400, 960, 44)                    # trilha de patrulha
+r.exclude_circle(480, 420, 40)                     # fogueira
+r.trail([(-20, 420), (200, 436), (480, 430), (760, 442), (980, 430)], half=20, seed=5)
+r.trail([(480, 410), (474, 470), (470, 560)], half=22, seed=8)
+r.trail([(470, 420), (330, 240), (320, 60)], half=16, seed=11)
+r.add('flo_ranger_lodge', 470, 330)
+r.add('flo_ranger_watch', 730, 270)
+r.add('flo_ranger_shed', 250, 300)
+r.add('flo_herb_bench', 340, 390)
+r.add('flo_map_table', 610, 400)
+r.add('flo_training_target', 810, 430)
+r.add('flo_training_target', 870, 400, flip=True)
+r.add('flo_weapon_rack_green', 720, 420)
+r.add('nat_campfire', 480, 440, anim=1)
+r.add('nat_log_fallen', 420, 462, layer='ground')
+r.add('flo_claw_tree', 880, 320, scale=.75)                   # árvore arranhada pelo ataque
+# paliçada orgânica: trechos parciais em arco, nunca um muro contínuo
+for x, y, flip in ((90, 360, False), (150, 420, False), (210, 470, False), (760, 500, True), (830, 490, True)):
+    r.add('flo_palisade_organic', x, y, flip=flip, show_when='quest:Q_MS02_RANGERS')          # reparada (pós-defesa)
+    r.add('flo_palisade_broken', x, y, flip=flip, hide_when='quest:Q_MS02_RANGERS')           # quebrada (pré/durante)
+r.add('flo_palisade_organic', 100, 300)
+r.add('flo_palisade_organic', 850, 350, flip=True)
+r.add('flo_barricade_improvised', 250, 480, hide_when='quest:Q_MS02_RANGERS')
+r.add('flo_barricade_improvised', 660, 490, hide_when='quest:Q_MS02_RANGERS', flip=True)
+# pontos claros de entrada das criaturas (durante a defesa): pegadas de Eco e mato pisoteado
+for x, y in ((60, 460), (900, 510)):
+    r.add('flo_root_run', x, y, show_when='quest:Q_MS02_RANGERS:active', layer='ground')
+r.add('flo_ancient_tree_a', 110, 200, scale=.75)
+r.add('flo_ancient_tree_b', 405, 235, scale=.6)       # duas árvores ancestrais abraçam a casa (a construção se apoia nelas)
+r.add('flo_ancient_tree_a', 560, 230, flip=True, scale=.6)
+r.add('flo_ancient_tree_b', 900, 150, scale=.75)
+r.add('flo_ancient_tree_a', 700, 95, flip=True, scale=.7)
+r.scatter(['flo_fern_patch', 'flo_glow_mushrooms', 'nat_bush_green', 'nat_flowers_meadow'], 12, (20, 60, 920, 470), 21, min_d=44)
+r.d['light_shafts'] = [[r.o[0] + 380, r.o[1] + 0], [r.o[0] + 560, r.o[1] + 20]]
+r.shot('FLO_2A_CASA_PRE', [])
+r.shot('FLO_2A_CASA_DURANTE', ['quest:Q_MS02_RANGERS:active'])
+r.shot('FLO_2A_CASA_POS', ['quest:Q_MS02_RANGERS'])
+comps.append(r.d)
+
+# ------------------------------------------------------------------ saída
+# flags negativas: "!<flag>" em show_when/hide_when é resolvido pelo palco/Gerente como "flag ausente"
+json.dump(comps, open(OUT, 'w'), ensure_ascii=False, indent=1)
+OUT.write_text(OUT.read_text() + '\n')
+print('composições:', len(comps), '| objetos:', sum(len(c['objects']) for c in comps), '->', OUT.relative_to(ROOT))
