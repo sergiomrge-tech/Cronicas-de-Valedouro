@@ -370,6 +370,8 @@ def bake_world(textures, world):
     img = colorize(ter, textures, 0, 0, seeds)
     img = draw_bridge_rails(img, 0, 0)
     img = finish_ground(img, ter, seeds, W, H)
+    img, n_sh = GD.relief_shadows(img, ter, IDX, world.get('objects', []), W, H, bayer(H, W))
+    print('  sombras projetadas do relevo:', n_sh)
     dom, nb, dist = GD.biome_grid(ter, IDX)
     rows = [''.join(GD.FAM_LETTER[int(v)] for v in r) for r in dom]
     nbs = [''.join(GD.FAM_LETTER[int(v)] for v in r) for r in nb]

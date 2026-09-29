@@ -282,3 +282,92 @@ def biome_grid(ter, IDX, cell=32, max_d=6):
             nb = np.where(hit, o, nb)
             dist = np.where(hit, d - 1, dist)
     return dom, nb, dist
+
+
+# ------------------------------------------------------------------ sombras projetadas do relevo (sol no alto à esquerda)
+SHADOW_PX = 30.0                       # px de jogo por unidade de mundo (60 px/u renderizados × draw_scale .5)
+
+
+def _proj(x, y):
+    """Coordenadas locais do asset (unidades) -> deslocamento em tela (px), mesma projeção 2:1 do rig."""
+    return (.7071 * (y - x) * SHADOW_PX, .5 * .7071 * (x + y) * SHADOW_PX)
+
+
+def shadow_spec(asset):
+    """(formas, altura em unidades). forma: ('rect', cx, cy, sx, sy) em unidades locais ou ('ell', cx, cy, rx, ry)."""
+    a = asset
+    if a.startswith('nat_plateau_') and a.endswith('_s'):
+        return [('rect', 0, 0, 2.0, 2.0)], 1.6
+    if a.startswith('nat_plateau_') and a.endswith('_m'):
+        return [('rect', 0, 0, 3.2, 3.2)], 2.1
+    if a.startswith('nat_ridge_'):
+        return ([('rect', 0, 0, 4.6, 1.8)] if a.endswith('_a') else [('rect', 0, 0, 1.8, 4.6)]), 1.7
+    if a.startswith('nat_wall_cliff_'):
+        return ([('rect', 0, 0, 3.6, 1.15)] if a.endswith('_a') else [('rect', 0, 0, 1.15, 3.6)]), 2.7
+    if a.startswith('nat_cliff_end_'):
+        ax = '_a' in a
+        return ([('rect', 0, 0, 2.6, 1.0)] if ax else [('rect', 0, 0, 1.0, 2.6)]), 1.7
+    if a.startswith('nat_cliff_corner_'):
+        return [('rect', -.7, 0, 2.6, 1.15), ('rect', .7, -.72, 1.15, 1.45)], 2.6
+    if a.startswith('nat_hill_wide_'):
+        return [('ell', 0, 0, 2.6, 2.3)], 1.1
+    if a.startswith('nat_hill_low_'):
+        return [('ell', 0, 0, 2.0, 1.8)], .4
+    if a.startswith('nat_hill_'):
+        return [('ell', 0, 0, 1.4, 1.3)], .8
+    if a in ('nat_rock_pillars',):
+        return [('ell', 0, 0, .9, .9)], 2.0
+    return None
+
+
+def relief_shadows(img, ter, IDX, objects, w, h, bay, strength=.5):
+    """Sombra projetada do relevo no piso: varredura da base na direção da luz, mais escura junto ao pé e esmaecendo; penumbra pontilhada."""
+    from PIL import ImageDraw, ImageFilter
+    mask = Image.new('L', (w, h), 0)
+    dr = ImageDraw.Draw(mask)
+    casters = []
+    for o in objects:
+        if o.get('zone') != 'cidade':
+            continue
+        spec = shadow_spec(str(o['asset']))
+        if spec is not None:
+            casters.append((float(o['pos'][0]), float(o['pos'][1]), spec))
+    for (t, val) in ((1.0, 100), (.66, 170), (.33, 240)):          # do fim da sombra até o pé: cada passada só escurece
+        for px, py, (shapes, hu) in casters:
+            hp = hu * SHADOW_PX
+            vx, vy = hp * 1.05 * t, hp * .42 * t                     # luz de cima-esquerda: sombra cai para baixo-direita
+            for shp in shapes:
+                if shp[0] == 'rect':
+                    _, cx, cy, sx, sy = shp
+                    pts = [_proj(cx + dx * sx / 2, cy + dy * sy / 2) for dx, dy in ((-1, -1), (1, -1), (1, 1), (-1, 1))]
+                else:
+                    _, cx, cy, rx, ry = shp
+                    pts = [_proj(cx + math.cos(k * .5236) * rx, cy + math.sin(k * .5236) * ry) for k in range(12)]
+                allp = [(px + a, py + b) for a, b in pts] + [(px + a + vx, py + b + vy) for a, b in pts]
+                dr.polygon(_hull(allp), fill=val)
+    m = np.asarray(mask.filter(ImageFilter.GaussianBlur(2.2)), dtype=np.float32) / 255.0
+    lvl = np.clip(m * 1.35, 0, 1)
+    lvl = np.floor(lvl * 4 + (bay - .5) * .9 + .5) / 4.0              # 4 degraus com dither de Bayer (pixel art)
+    skip = np.isin(ter, [IDX[k] for k in ('water_deep', 'water_shallow', 'cobble', 'deck_wood', 'deck_stone', 'deck_wood_v')])
+    lvl = np.where(skip, 0.0, lvl)
+    mul = np.stack([1 - strength * 1.05 * lvl, 1 - strength * lvl, 1 - strength * .72 * lvl], -1)
+    return np.clip(img.astype(np.float32) * mul, 0, 255).astype(np.uint8), len(casters)
+
+
+def _hull(points):
+    pts = sorted(set((round(x, 2), round(y, 2)) for x, y in points))
+    if len(pts) <= 2:
+        return pts
+
+    def cross(o, a, b):
+        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+    lower, upper = [], []
+    for p in pts:
+        while len(lower) >= 2 and cross(lower[-2], lower[-1], p) <= 0:
+            lower.pop()
+        lower.append(p)
+    for p in reversed(pts):
+        while len(upper) >= 2 and cross(upper[-2], upper[-1], p) <= 0:
+            upper.pop()
+        upper.append(p)
+    return lower[:-1] + upper[:-1]
