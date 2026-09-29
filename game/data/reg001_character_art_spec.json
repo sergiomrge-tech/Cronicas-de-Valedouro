@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "project": "Cronicas de Valedouro",
+  "status": "MODELED_PENDING_GATE",
+  "hero_reference": {
+    "frame_px": [48, 56],
+    "directions": 8,
+    "foot_anchor_rule": "stable across every direction/frame"
+  },
+  "npcs": {
+    "families": [
+      "npc_villager",
+      "npc_merchant",
+      "npc_traveler",
+      "npc_guard",
+      "npc_blacksmith",
+      "npc_alchemist",
+      "npc_guild"
+    ],
+    "target_frame_px": [48, 56],
+    "directions": 8,
+    "animations": {
+      "idle": {"frames": 4, "fps": 5},
+      "walk": {"frames": 8, "fps": 10},
+      "interact": {"frames": 6, "fps": 9}
+    },
+    "quality": [
+      "unique silhouette by profession",
+      "no tinted hero clone",
+      "stable foot anchor",
+      "readable profession at gameplay zoom",
+      "palette compatible with APPROVED city/dungeon art"
+    ]
+  },
+  "fauna": {
+    "species": {
+      "deer": {"frame_px": [64, 56], "idle": 5, "walk": 8},
+      "fox": {"frame_px": [56, 44], "idle": 5, "walk": 8},
+      "hare": {"frame_px": [40, 36], "idle": 4, "walk": 7},
+      "goat": {"frame_px": [56, 48], "idle": 5, "walk": 8},
+      "camel": {"frame_px": [72, 64], "idle": 5, "walk": 8},
+      "bird": {"frame_px": [36, 32], "idle": 4, "walk": 0, "fly": 8},
+      "fish": {"frame_px": [40, 28], "idle": 0, "swim": 8}
+    },
+    "directions": 8,
+    "quality": [
+      "species-specific gait",
+      "species-readable silhouette",
+      "no sliding feet on land animals",
+      "contact shadow compatible with renderer",
+      "no mechanical perfect looping"
+    ]
+  },
+  "render": {
+    "camera": "Valedouro locked AZ45 EL30 orthographic",
+    "background": "transparent",
+    "sampling": "final pixel output nearest",
+    "manual_cleanup_required": true
+  }
+}
