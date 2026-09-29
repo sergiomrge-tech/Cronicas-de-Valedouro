@@ -2,7 +2,7 @@
 """Catálogo REG_001: APPROVED / MODELED_PENDING_GATE / LEGACY_BASELINE x INTEGRATED / NOT_USED / MISSING_APPROVED_ASSET.
 
 Gera game/data/reg001_asset_catalog.json e docs/catalog/REG001_ASSET_CATALOG.md a partir das fontes de verdade:
-approved_visual_manifest.json (28 APPROVED), modeled_assets_manifest.json, reg001_world.json, asset_catalog.json (legado) e scripts/*.gd.
+approved_visual_manifest.json (bundle base aprovado), modeled_assets_manifest.json (incluindo promoções do Diretor), reg001_world.json, asset_catalog.json (legado) e scripts/*.gd.
 """
 import json
 import re
@@ -107,7 +107,7 @@ DOCS.mkdir(parents=True, exist_ok=True)
 lines = ['# Catálogo de assets REG_001 — Etapa 1 (Mundo Rico)', '',
          'Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/reg001_asset_catalog.json`.', '',
          '## Política', '',
-         '- **APPROVED** (28): Lote 01, únicos aprovados pelo Diretor. Cidade 15 + Dungeon 13.',
+         '- **APPROVED** (%d): inclui o bundle base do Lote 01 e assets modelados posteriormente promovidos pelo Diretor.' % sum(1 for e in entries if e['approval'] == 'APPROVED'),
          '- **MODELED_PENDING_GATE** (%d): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.' % sum(1 for e in entries if e['approval'] == 'MODELED_PENDING_GATE'),
          '- **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.',
          '- **REWORKED (%d) / HOLD (%d)**: fora do renderer final, sem exceção.' % (excluded['REWORKED'], excluded['HOLD']), '',
