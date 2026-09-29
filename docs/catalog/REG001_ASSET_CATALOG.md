@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (28): Lote 01, únicos aprovados pelo Diretor. Cidade 15 + Dungeon 13.
-- **MODELED_PENDING_GATE** (696): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (697): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 28 | 0 |
-| MODELED_PENDING_GATE | 258 | 438 |
+| MODELED_PENDING_GATE | 259 | 438 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -458,7 +458,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_wolf_bones` | INTEGRATED | 3 |
 | `val_wolf_den` | INTEGRATED | 1 |
 
-### city (103)
+### city (104)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -525,6 +525,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_gate_main` | INTEGRATED | 1 |
 | `val_gate_tower` | INTEGRATED | 2 |
 | `val_guild_hall` | INTEGRATED | 1 |
+| `val_house_body` | INTEGRATED | 21 |
 | `val_notice_board` | INTEGRATED | 1 |
 | `val_supply_stack` | INTEGRATED | 3 |
 | `val_training_dummy` | INTEGRATED | 2 |
@@ -691,5 +692,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 67 (`REG001_POI_*`); objetos: 1117 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 21; passagens: 3; fragmentos de lore: 12.
+- POIs: 67 (`REG001_POI_*`); objetos: 1138 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 21; passagens: 3; fragmentos de lore: 12.
 

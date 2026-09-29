@@ -994,5 +994,14 @@
    "BOSS_GUARDIAO_PEDRA_001"
   ],
   "rematch": "after"
+ },
+ {
+  "name": "QA_CASAS",
+  "zone": "cidade",
+  "pos": [
+   1720,
+   1150
+  ],
+  "time": 3.7
  }
 ]

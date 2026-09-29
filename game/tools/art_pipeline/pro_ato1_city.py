@@ -535,3 +535,17 @@ def fragment_pedestal(f):
         a = k * 1.05
         geo.cyl((math.cos(a) * .55, math.sin(a) * .55, 1.3 + (k % 3) * .25), .03, .1, m_eco_dim(), sides=4, r2=.0)
     geo.cyl((0, 0, 1.15), .06, .45, m_eco_dim(), sides=6, r2=.03)
+
+
+# ============================================================== correção estrutural: corpo das casas da cidade
+def m_house_stone():
+    """Pedra bege quente das peças APPROVED de casa (porta/janela)."""
+    return X('house_stone2', lambda: mats.masonry('house_stone2', ('#d8a874', '#f4cc98', '#ffe2b0', '#fff6dc'), '#8a6a48', block=(.5, .3), moss=.05, wear=.5))
+
+
+@landmark('val_house_body', group='city', folder='ato1', size=(440, 340), origin=(220, 290), tags=('ato1', 'casa', 'corpo', 'modular', 'correcao_estrutural'), footprint=0, collision=(), samples=24)
+def house_body(f):
+    """Corpo da casa: parede contínua de pedra atrás da porta/janela APPROVED e sob o telhado (o telhado deixa de flutuar)."""
+    st = m_house_stone()
+    geo.box((0, 0, 1.75), (.4, 4.6, 3.5), st, bevel=0.02)
+    geo.rotate_all(45)

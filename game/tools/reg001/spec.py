@@ -135,6 +135,7 @@ class World:
     def house(self, x, y, roof, group, poi=None, zone='cidade', ruined=False):
         """Casa composta só por módulos APPROVED (porta + janela + telhado), com colisão de base."""
         s = .52
+        self.obj('val_house_body', x, y - 4, group, zone=zone, poi=poi, solid=False, check=False)      # corpo contínuo: o telhado não flutua entre porta e janela
         self.obj('APP:city_house_door', x - 42, y, group, zone=zone, poi=poi, scale=s, solid=False, check=False)
         self.obj('APP:city_house_window', x + 43, y, group, zone=zone, poi=poi, scale=s, solid=False, check=False)
         self.obj('APP:' + roof, x, y - 78, group, zone=zone, poi=poi, scale=s, sy=y + 1, solid=False, check=False)

@@ -35,3 +35,7 @@ A primeira versão do kit existia como assets, mas as cenas ainda usavam as peç
 - Peça T e curva de raio fixo (hoje curva = encadeamento de segmentos de 22,5°).
 - Prefixos dos assets legados (`nat_fence_*` na fazenda/moinho/estação/casa abandonada) ainda usam `iso_run` retilíneo; migrar para `krun`.
 - 17 avisos de sombra na borda: aceitos.
+
+## Correção adicional: casas da cidade com telhado flutuante
+Diagnóstico: as casas eram só três peças APPROVED (porta, janela, telhado) sem parede entre elas, então o telhado ficava solto no ar. Correção: novo `val_house_body` (parede contínua de pedra, 4,6 u × 3,5 u) atrás de porta/janela e sob o telhado, usado em todas as `W.house()` do mundo e no desenho legado (`draw_house_body` em `main.gd`). O render passa por `tint_house_body.py` (paleta bege sombreada, amostrada das peças APPROVED). Suíte 17/17. Captura: `CASAS_cidade_telhado_ancorado.jpg`.
+Limite: a parede é um fundo liso; para o Diretor decidir se prefere uma casa modelada inteira (corpo + janelas + telhado) no lugar das três peças.

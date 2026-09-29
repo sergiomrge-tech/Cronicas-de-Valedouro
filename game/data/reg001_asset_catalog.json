@@ -22,7 +22,7 @@
    "INTEGRATED": 28
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 258,
+   "INTEGRATED": 259,
    "NOT_USED": 438
   },
   "LEGACY_BASELINE": {
@@ -225,7 +225,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 1117
+  "object_count": 1138
  },
  "entries": [
   {
@@ -5922,6 +5922,15 @@
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
    "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_HOUSE_BODY",
+   "key": "val_house_body",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 21,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {

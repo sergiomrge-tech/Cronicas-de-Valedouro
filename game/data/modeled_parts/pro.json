@@ -21143,6 +21143,36 @@
   "pipeline": "blender-pro"
  },
  {
+  "id": "val_house_body",
+  "path": "res://assets/modeled/city/ato1/val_house_body.png",
+  "group": "city",
+  "folder": "ato1",
+  "frame_size": [
+   492,
+   392
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   246.0,
+   316.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "ato1",
+   "casa",
+   "corpo",
+   "modular",
+   "correcao_estrutural"
+  ],
+  "sha256": "612472004d5959a5d75aab880242de9252aa2cbe5c774fb6238e6e0b740309a8",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
   "id": "val_map_fragment_pedestal",
   "path": "res://assets/modeled/interior/ato1/val_map_fragment_pedestal.png",
   "group": "interior",

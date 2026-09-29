@@ -462,6 +462,7 @@
 "val_gate_main",
 "val_gate_tower",
 "val_guild_hall",
+"val_house_body",
 "val_map_fragment_pedestal",
 "val_mine_beam_arch",
 "val_mine_cart",
