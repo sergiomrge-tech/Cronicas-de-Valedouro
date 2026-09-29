@@ -253,6 +253,17 @@ def windmill(f):
     parts.flowers(0, 0, 2.5, 8, seed=14)
 
 
+class _LazyCollision:
+    def __init__(self, holder):
+        self.holder = holder
+
+    def __bool__(self):
+        return bool(self.holder.get('coll'))
+
+    def __iter__(self):
+        return iter(self.holder.get('coll') or ())
+
+
 def run(ids, preview_dir=None, write=True):
     from terrain_forms_data import footprint_circles
     ents = []
@@ -269,7 +280,10 @@ def run(ids, preview_dir=None, write=True):
             kw['size'] = (w0 + 2 * pad, h0 + 2 * pad)
             kw['origin'] = (ox + pad, oy + pad)
         coll = kw.pop('coll', None)
+        holder = kw.pop('collision_holder', None)
         collision = footprint_circles(coll[0], coll[1], .85, .9) if coll else kw.pop('collision', None)
+        if holder is not None:
+            collision = _LazyCollision(holder)          # colisão calculada da geometria durante a construção (kit multi-ângulo)
         e = asset.produce(id, kw.pop('group'), kw.pop('folder'), kw.pop('size'), kw.pop('origin'), fn, collision=collision,
                           preview=(str(Path(preview_dir) / f'{id}.png') if preview_dir else None), out_dir=(preview_dir if (not write and preview_dir) else None), **kw)
         ents.append(e)

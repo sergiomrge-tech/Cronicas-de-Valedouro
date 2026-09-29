@@ -22,8 +22,8 @@
    "INTEGRATED": 28
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 248,
-   "NOT_USED": 217
+   "INTEGRATED": 258,
+   "NOT_USED": 438
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -225,7 +225,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 1110
+  "object_count": 1117
  },
  "entries": [
   {
@@ -813,6 +813,105 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_FLO_BARRICADE_IMPROVISED_A1",
+   "key": "flo_barricade_improvised_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_BARRICADE_IMPROVISED_A2",
+   "key": "flo_barricade_improvised_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_BARRICADE_IMPROVISED_A3",
+   "key": "flo_barricade_improvised_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_BARRICADE_IMPROVISED_A4",
+   "key": "flo_barricade_improvised_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_BARRICADE_IMPROVISED_A5",
+   "key": "flo_barricade_improvised_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_BARRICADE_IMPROVISED_A6",
+   "key": "flo_barricade_improvised_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_BARRICADE_IMPROVISED_A7",
+   "key": "flo_barricade_improvised_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_BARRICADE_IMPROVISED_C0",
+   "key": "flo_barricade_improvised_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_BARRICADE_IMPROVISED_C1",
+   "key": "flo_barricade_improvised_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_BARRICADE_IMPROVISED_C2",
+   "key": "flo_barricade_improvised_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_BARRICADE_IMPROVISED_C3",
+   "key": "flo_barricade_improvised_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_FLO_BORDER_MARKER",
    "key": "flo_border_marker",
    "group": "nature",
@@ -896,6 +995,105 @@
   {
    "id": "MOD_FLO_CART_RUIN_WALL",
    "key": "flo_cart_ruin_wall",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CART_RUIN_WALL_A1",
+   "key": "flo_cart_ruin_wall_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CART_RUIN_WALL_A2",
+   "key": "flo_cart_ruin_wall_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CART_RUIN_WALL_A3",
+   "key": "flo_cart_ruin_wall_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CART_RUIN_WALL_A4",
+   "key": "flo_cart_ruin_wall_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CART_RUIN_WALL_A5",
+   "key": "flo_cart_ruin_wall_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CART_RUIN_WALL_A6",
+   "key": "flo_cart_ruin_wall_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CART_RUIN_WALL_A7",
+   "key": "flo_cart_ruin_wall_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CART_RUIN_WALL_C0",
+   "key": "flo_cart_ruin_wall_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CART_RUIN_WALL_C1",
+   "key": "flo_cart_ruin_wall_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CART_RUIN_WALL_C2",
+   "key": "flo_cart_ruin_wall_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_CART_RUIN_WALL_C3",
+   "key": "flo_cart_ruin_wall_c3",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "NOT_USED",
@@ -1011,6 +1209,105 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_FLO_HEART_WALL_A1",
+   "key": "flo_heart_wall_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_WALL_A2",
+   "key": "flo_heart_wall_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_WALL_A3",
+   "key": "flo_heart_wall_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_WALL_A4",
+   "key": "flo_heart_wall_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_WALL_A5",
+   "key": "flo_heart_wall_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_WALL_A6",
+   "key": "flo_heart_wall_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_WALL_A7",
+   "key": "flo_heart_wall_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_WALL_C0",
+   "key": "flo_heart_wall_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_WALL_C1",
+   "key": "flo_heart_wall_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_WALL_C2",
+   "key": "flo_heart_wall_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HEART_WALL_C3",
+   "key": "flo_heart_wall_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_FLO_HEART_WALL_DIAG",
    "key": "flo_heart_wall_diag",
    "group": "nature",
@@ -1083,6 +1380,105 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_FLO_HOLLOW_WALL_ACTIVE_A1",
+   "key": "flo_hollow_wall_active_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_ACTIVE_A2",
+   "key": "flo_hollow_wall_active_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_ACTIVE_A3",
+   "key": "flo_hollow_wall_active_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_ACTIVE_A4",
+   "key": "flo_hollow_wall_active_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_ACTIVE_A5",
+   "key": "flo_hollow_wall_active_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_ACTIVE_A6",
+   "key": "flo_hollow_wall_active_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_ACTIVE_A7",
+   "key": "flo_hollow_wall_active_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_ACTIVE_C0",
+   "key": "flo_hollow_wall_active_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_ACTIVE_C1",
+   "key": "flo_hollow_wall_active_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_ACTIVE_C2",
+   "key": "flo_hollow_wall_active_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_ACTIVE_C3",
+   "key": "flo_hollow_wall_active_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_FLO_HOLLOW_WALL_ACTIVE_DIAG",
    "key": "flo_hollow_wall_active_diag",
    "group": "nature",
@@ -1103,6 +1499,105 @@
   {
    "id": "MOD_FLO_HOLLOW_WALL_DORMANT",
    "key": "flo_hollow_wall_dormant",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_DORMANT_A1",
+   "key": "flo_hollow_wall_dormant_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_DORMANT_A2",
+   "key": "flo_hollow_wall_dormant_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_DORMANT_A3",
+   "key": "flo_hollow_wall_dormant_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_DORMANT_A4",
+   "key": "flo_hollow_wall_dormant_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_DORMANT_A5",
+   "key": "flo_hollow_wall_dormant_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_DORMANT_A6",
+   "key": "flo_hollow_wall_dormant_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_DORMANT_A7",
+   "key": "flo_hollow_wall_dormant_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_DORMANT_C0",
+   "key": "flo_hollow_wall_dormant_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_DORMANT_C1",
+   "key": "flo_hollow_wall_dormant_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_DORMANT_C2",
+   "key": "flo_hollow_wall_dormant_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_HOLLOW_WALL_DORMANT_C3",
+   "key": "flo_hollow_wall_dormant_c3",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "NOT_USED",
@@ -1218,8 +1713,206 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_FLO_PALISADE_BROKEN_A1",
+   "key": "flo_palisade_broken_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_BROKEN_A2",
+   "key": "flo_palisade_broken_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_BROKEN_A3",
+   "key": "flo_palisade_broken_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_BROKEN_A4",
+   "key": "flo_palisade_broken_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_BROKEN_A5",
+   "key": "flo_palisade_broken_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_BROKEN_A6",
+   "key": "flo_palisade_broken_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_BROKEN_A7",
+   "key": "flo_palisade_broken_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_BROKEN_C0",
+   "key": "flo_palisade_broken_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_BROKEN_C1",
+   "key": "flo_palisade_broken_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_BROKEN_C2",
+   "key": "flo_palisade_broken_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_BROKEN_C3",
+   "key": "flo_palisade_broken_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_FLO_PALISADE_ORGANIC",
    "key": "flo_palisade_organic",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_ORGANIC_A1",
+   "key": "flo_palisade_organic_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_ORGANIC_A2",
+   "key": "flo_palisade_organic_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_ORGANIC_A3",
+   "key": "flo_palisade_organic_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_ORGANIC_A4",
+   "key": "flo_palisade_organic_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_ORGANIC_A5",
+   "key": "flo_palisade_organic_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_ORGANIC_A6",
+   "key": "flo_palisade_organic_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_ORGANIC_A7",
+   "key": "flo_palisade_organic_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_ORGANIC_C0",
+   "key": "flo_palisade_organic_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_ORGANIC_C1",
+   "key": "flo_palisade_organic_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_ORGANIC_C2",
+   "key": "flo_palisade_organic_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_FLO_PALISADE_ORGANIC_C3",
+   "key": "flo_palisade_organic_c3",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "NOT_USED",
@@ -2199,6 +2892,105 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_NAT_FENCE_BROKEN_A_A1",
+   "key": "nat_fence_broken_a_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_A_A2",
+   "key": "nat_fence_broken_a_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_A_A3",
+   "key": "nat_fence_broken_a_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_A_A4",
+   "key": "nat_fence_broken_a_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_A_A5",
+   "key": "nat_fence_broken_a_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_A_A6",
+   "key": "nat_fence_broken_a_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_A_A7",
+   "key": "nat_fence_broken_a_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_A_C0",
+   "key": "nat_fence_broken_a_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_A_C1",
+   "key": "nat_fence_broken_a_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_A_C2",
+   "key": "nat_fence_broken_a_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_A_C3",
+   "key": "nat_fence_broken_a_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_NAT_FENCE_BROKEN_B",
    "key": "nat_fence_broken_b",
    "group": "nature",
@@ -2208,12 +3000,210 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_NAT_FENCE_BROKEN_B_A1",
+   "key": "nat_fence_broken_b_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_B_A2",
+   "key": "nat_fence_broken_b_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_B_A3",
+   "key": "nat_fence_broken_b_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_B_A4",
+   "key": "nat_fence_broken_b_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_B_A5",
+   "key": "nat_fence_broken_b_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_B_A6",
+   "key": "nat_fence_broken_b_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_B_A7",
+   "key": "nat_fence_broken_b_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_B_C0",
+   "key": "nat_fence_broken_b_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_B_C1",
+   "key": "nat_fence_broken_b_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_B_C2",
+   "key": "nat_fence_broken_b_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_BROKEN_B_C3",
+   "key": "nat_fence_broken_b_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_NAT_FENCE_WOOD_A",
    "key": "nat_fence_wood_a",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 14,
+   "placed": 12,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_A_A1",
+   "key": "nat_fence_wood_a_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_A_A2",
+   "key": "nat_fence_wood_a_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_A_A3",
+   "key": "nat_fence_wood_a_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_A_A4",
+   "key": "nat_fence_wood_a_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_A_A5",
+   "key": "nat_fence_wood_a_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_A_A6",
+   "key": "nat_fence_wood_a_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_A_A7",
+   "key": "nat_fence_wood_a_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_A_C0",
+   "key": "nat_fence_wood_a_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_A_C1",
+   "key": "nat_fence_wood_a_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_A_C2",
+   "key": "nat_fence_wood_a_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_A_C3",
+   "key": "nat_fence_wood_a_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2222,7 +3212,106 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 11,
+   "placed": 10,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_B_A1",
+   "key": "nat_fence_wood_b_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_B_A2",
+   "key": "nat_fence_wood_b_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_B_A3",
+   "key": "nat_fence_wood_b_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_B_A4",
+   "key": "nat_fence_wood_b_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_B_A5",
+   "key": "nat_fence_wood_b_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_B_A6",
+   "key": "nat_fence_wood_b_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_B_A7",
+   "key": "nat_fence_wood_b_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_B_C0",
+   "key": "nat_fence_wood_b_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_B_C1",
+   "key": "nat_fence_wood_b_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_B_C2",
+   "key": "nat_fence_wood_b_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_FENCE_WOOD_B_C3",
+   "key": "nat_fence_wood_b_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2865,6 +3954,105 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_NAT_RUIN_WALL_A1",
+   "key": "nat_ruin_wall_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_WALL_A2",
+   "key": "nat_ruin_wall_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_WALL_A3",
+   "key": "nat_ruin_wall_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_WALL_A4",
+   "key": "nat_ruin_wall_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_WALL_A5",
+   "key": "nat_ruin_wall_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_WALL_A6",
+   "key": "nat_ruin_wall_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_WALL_A7",
+   "key": "nat_ruin_wall_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_WALL_C0",
+   "key": "nat_ruin_wall_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_WALL_C1",
+   "key": "nat_ruin_wall_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_WALL_C2",
+   "key": "nat_ruin_wall_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_RUIN_WALL_C3",
+   "key": "nat_ruin_wall_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_NAT_RUIN_WALL_SAND",
    "key": "nat_ruin_wall_sand",
    "group": "nature",
@@ -3099,12 +4287,210 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_NAT_WALL_LOW_A_A1",
+   "key": "nat_wall_low_a_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_A_A2",
+   "key": "nat_wall_low_a_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_A_A3",
+   "key": "nat_wall_low_a_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_A_A4",
+   "key": "nat_wall_low_a_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_A_A5",
+   "key": "nat_wall_low_a_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_A_A6",
+   "key": "nat_wall_low_a_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_A_A7",
+   "key": "nat_wall_low_a_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_A_C0",
+   "key": "nat_wall_low_a_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_A_C1",
+   "key": "nat_wall_low_a_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_A_C2",
+   "key": "nat_wall_low_a_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_A_C3",
+   "key": "nat_wall_low_a_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_NAT_WALL_LOW_B",
    "key": "nat_wall_low_b",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
    "placed": 3,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_B_A1",
+   "key": "nat_wall_low_b_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_B_A2",
+   "key": "nat_wall_low_b_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_B_A3",
+   "key": "nat_wall_low_b_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_B_A4",
+   "key": "nat_wall_low_b_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_B_A5",
+   "key": "nat_wall_low_b_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_B_A6",
+   "key": "nat_wall_low_b_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_B_A7",
+   "key": "nat_wall_low_b_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_B_C0",
+   "key": "nat_wall_low_b_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_B_C1",
+   "key": "nat_wall_low_b_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_B_C2",
+   "key": "nat_wall_low_b_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_WALL_LOW_B_C3",
+   "key": "nat_wall_low_b_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4201,8 +5587,107 @@
    "key": "val_barricade_a",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_A_A1",
+   "key": "val_barricade_a_a1",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
    "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_A_A2",
+   "key": "val_barricade_a_a2",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_A_A3",
+   "key": "val_barricade_a_a3",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_A_A4",
+   "key": "val_barricade_a_a4",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_A_A5",
+   "key": "val_barricade_a_a5",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_A_A6",
+   "key": "val_barricade_a_a6",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_A_A7",
+   "key": "val_barricade_a_a7",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_A_C0",
+   "key": "val_barricade_a_c0",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_A_C1",
+   "key": "val_barricade_a_c1",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_A_C2",
+   "key": "val_barricade_a_c2",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_A_C3",
+   "key": "val_barricade_a_c3",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4210,8 +5695,107 @@
    "key": "val_barricade_b",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_B_A1",
+   "key": "val_barricade_b_a1",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_B_A2",
+   "key": "val_barricade_b_a2",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_B_A3",
+   "key": "val_barricade_b_a3",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_B_A4",
+   "key": "val_barricade_b_a4",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_B_A5",
+   "key": "val_barricade_b_a5",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_B_A6",
+   "key": "val_barricade_b_a6",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_B_A7",
+   "key": "val_barricade_b_a7",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
    "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_B_C0",
+   "key": "val_barricade_b_c0",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_B_C1",
+   "key": "val_barricade_b_c1",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_B_C2",
+   "key": "val_barricade_b_c2",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_BARRICADE_B_C3",
+   "key": "val_barricade_b_c3",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4489,8 +6073,107 @@
    "key": "val_palisade_broken",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PALISADE_BROKEN_A1",
+   "key": "val_palisade_broken_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PALISADE_BROKEN_A2",
+   "key": "val_palisade_broken_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PALISADE_BROKEN_A3",
+   "key": "val_palisade_broken_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PALISADE_BROKEN_A4",
+   "key": "val_palisade_broken_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PALISADE_BROKEN_A5",
+   "key": "val_palisade_broken_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PALISADE_BROKEN_A6",
+   "key": "val_palisade_broken_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PALISADE_BROKEN_A7",
+   "key": "val_palisade_broken_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PALISADE_BROKEN_C0",
+   "key": "val_palisade_broken_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PALISADE_BROKEN_C1",
+   "key": "val_palisade_broken_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PALISADE_BROKEN_C2",
+   "key": "val_palisade_broken_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_PALISADE_BROKEN_C3",
+   "key": "val_palisade_broken_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4518,6 +6201,105 @@
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
    "placed": 2,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_INSCRIPTION_WALL_A1",
+   "key": "val_ruin_inscription_wall_a1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_INSCRIPTION_WALL_A2",
+   "key": "val_ruin_inscription_wall_a2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_INSCRIPTION_WALL_A3",
+   "key": "val_ruin_inscription_wall_a3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_INSCRIPTION_WALL_A4",
+   "key": "val_ruin_inscription_wall_a4",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_INSCRIPTION_WALL_A5",
+   "key": "val_ruin_inscription_wall_a5",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_INSCRIPTION_WALL_A6",
+   "key": "val_ruin_inscription_wall_a6",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_INSCRIPTION_WALL_A7",
+   "key": "val_ruin_inscription_wall_a7",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_INSCRIPTION_WALL_C0",
+   "key": "val_ruin_inscription_wall_c0",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_INSCRIPTION_WALL_C1",
+   "key": "val_ruin_inscription_wall_c1",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_INSCRIPTION_WALL_C2",
+   "key": "val_ruin_inscription_wall_c2",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_RUIN_INSCRIPTION_WALL_C3",
+   "key": "val_ruin_inscription_wall_c3",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4584,6 +6366,105 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_VAL_WALL_BREACH_A1",
+   "key": "val_wall_breach_a1",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_BREACH_A2",
+   "key": "val_wall_breach_a2",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_BREACH_A3",
+   "key": "val_wall_breach_a3",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_BREACH_A4",
+   "key": "val_wall_breach_a4",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_BREACH_A5",
+   "key": "val_wall_breach_a5",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_BREACH_A6",
+   "key": "val_wall_breach_a6",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_BREACH_A7",
+   "key": "val_wall_breach_a7",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_BREACH_C0",
+   "key": "val_wall_breach_c0",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_BREACH_C1",
+   "key": "val_wall_breach_c1",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_BREACH_C2",
+   "key": "val_wall_breach_c2",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_BREACH_C3",
+   "key": "val_wall_breach_c3",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_VAL_WALL_REPAIRED",
    "key": "val_wall_repaired",
    "group": "city",
@@ -4593,8 +6474,206 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_VAL_WALL_REPAIRED_A1",
+   "key": "val_wall_repaired_a1",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_REPAIRED_A2",
+   "key": "val_wall_repaired_a2",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_REPAIRED_A3",
+   "key": "val_wall_repaired_a3",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_REPAIRED_A4",
+   "key": "val_wall_repaired_a4",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_REPAIRED_A5",
+   "key": "val_wall_repaired_a5",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_REPAIRED_A6",
+   "key": "val_wall_repaired_a6",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_REPAIRED_A7",
+   "key": "val_wall_repaired_a7",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_REPAIRED_C0",
+   "key": "val_wall_repaired_c0",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_REPAIRED_C1",
+   "key": "val_wall_repaired_c1",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_REPAIRED_C2",
+   "key": "val_wall_repaired_c2",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_REPAIRED_C3",
+   "key": "val_wall_repaired_c3",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_VAL_WALL_SEGMENT",
    "key": "val_wall_segment",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_SEGMENT_A1",
+   "key": "val_wall_segment_a1",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_SEGMENT_A2",
+   "key": "val_wall_segment_a2",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_SEGMENT_A3",
+   "key": "val_wall_segment_a3",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_SEGMENT_A4",
+   "key": "val_wall_segment_a4",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_SEGMENT_A5",
+   "key": "val_wall_segment_a5",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_SEGMENT_A6",
+   "key": "val_wall_segment_a6",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_SEGMENT_A7",
+   "key": "val_wall_segment_a7",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_SEGMENT_C0",
+   "key": "val_wall_segment_c0",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_SEGMENT_C1",
+   "key": "val_wall_segment_c1",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_SEGMENT_C2",
+   "key": "val_wall_segment_c2",
+   "group": "city",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_WALL_SEGMENT_C3",
+   "key": "val_wall_segment_c3",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "NOT_USED",

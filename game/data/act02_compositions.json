@@ -526,92 +526,136 @@
     "scale": 0.75
    },
    {
-    "asset": "flo_palisade_organic",
-    "x": 610,
-    "y": 610,
+    "asset": "flo_palisade_organic_a5",
+    "x": 575.0,
+    "y": 535.0,
     "show_when": "quest:Q_MS02_RANGERS"
    },
    {
-    "asset": "flo_palisade_broken",
-    "x": 610,
-    "y": 610,
-    "hide_when": "quest:Q_MS02_RANGERS"
-   },
-   {
-    "asset": "flo_palisade_organic",
-    "x": 670,
-    "y": 670,
+    "asset": "flo_palisade_organic_a6",
+    "x": 615.0,
+    "y": 600.0,
     "show_when": "quest:Q_MS02_RANGERS"
    },
    {
-    "asset": "flo_palisade_broken",
-    "x": 670,
-    "y": 670,
-    "hide_when": "quest:Q_MS02_RANGERS"
-   },
-   {
-    "asset": "flo_palisade_organic",
-    "x": 730,
-    "y": 720,
+    "asset": "flo_palisade_organic_a6",
+    "x": 675.0,
+    "y": 655.0,
     "show_when": "quest:Q_MS02_RANGERS"
    },
    {
-    "asset": "flo_palisade_broken",
-    "x": 730,
-    "y": 720,
-    "hide_when": "quest:Q_MS02_RANGERS"
-   },
-   {
-    "asset": "flo_palisade_organic",
-    "x": 1280,
-    "y": 750,
-    "flip": true,
+    "asset": "flo_palisade_organic_a7",
+    "x": 750.0,
+    "y": 700.0,
     "show_when": "quest:Q_MS02_RANGERS"
    },
    {
-    "asset": "flo_palisade_broken",
-    "x": 1280,
-    "y": 750,
-    "flip": true,
-    "hide_when": "quest:Q_MS02_RANGERS"
-   },
-   {
-    "asset": "flo_palisade_organic",
-    "x": 1350,
-    "y": 740,
-    "flip": true,
+    "asset": "flo_palisade_organic_a7",
+    "x": 825.0,
+    "y": 735.0,
     "show_when": "quest:Q_MS02_RANGERS"
    },
    {
-    "asset": "flo_palisade_broken",
-    "x": 1350,
-    "y": 740,
-    "flip": true,
+    "asset": "flo_palisade_broken_a5",
+    "x": 575.0,
+    "y": 535.0,
     "hide_when": "quest:Q_MS02_RANGERS"
    },
    {
-    "asset": "flo_palisade_organic",
-    "x": 620,
-    "y": 550
-   },
-   {
-    "asset": "flo_palisade_organic",
-    "x": 1370,
-    "y": 600,
-    "flip": true
-   },
-   {
-    "asset": "flo_barricade_improvised",
-    "x": 770,
-    "y": 730,
+    "asset": "flo_palisade_broken_a6",
+    "x": 615.0,
+    "y": 600.0,
     "hide_when": "quest:Q_MS02_RANGERS"
    },
    {
-    "asset": "flo_barricade_improvised",
-    "x": 1180,
-    "y": 740,
-    "hide_when": "quest:Q_MS02_RANGERS",
-    "flip": true
+    "asset": "flo_palisade_broken_a6",
+    "x": 675.0,
+    "y": 655.0,
+    "hide_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_palisade_broken_a7",
+    "x": 750.0,
+    "y": 700.0,
+    "hide_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_palisade_broken_a7",
+    "x": 825.0,
+    "y": 735.0,
+    "hide_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_palisade_organic_a4",
+    "x": 1425.0,
+    "y": 545.0,
+    "show_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_palisade_organic_a4",
+    "x": 1390.0,
+    "y": 615.0,
+    "show_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_palisade_organic_a3",
+    "x": 1340.0,
+    "y": 677.5,
+    "show_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_palisade_organic_a3",
+    "x": 1275.0,
+    "y": 722.5,
+    "show_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_palisade_organic_a2",
+    "x": 1205.0,
+    "y": 750.0,
+    "show_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_palisade_broken_a4",
+    "x": 1425.0,
+    "y": 545.0,
+    "hide_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_palisade_broken_a4",
+    "x": 1390.0,
+    "y": 615.0,
+    "hide_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_palisade_broken_a3",
+    "x": 1340.0,
+    "y": 677.5,
+    "hide_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_palisade_broken_a3",
+    "x": 1275.0,
+    "y": 722.5,
+    "hide_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_palisade_broken_a2",
+    "x": 1205.0,
+    "y": 750.0,
+    "hide_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_barricade_improvised_a1",
+    "x": 885.0,
+    "y": 762.5,
+    "hide_when": "quest:Q_MS02_RANGERS"
+   },
+   {
+    "asset": "flo_barricade_improvised_a3",
+    "x": 1115.0,
+    "y": 762.5,
+    "hide_when": "quest:Q_MS02_RANGERS"
    },
    {
     "asset": "flo_root_run",
@@ -671,31 +715,10 @@
     "flip": true
    },
    {
-    "asset": "flo_glow_mushrooms",
-    "x": 1398.2,
-    "y": 511.2
-   },
-   {
-    "asset": "flo_fern_patch",
-    "x": 753.7,
-    "y": 419.4,
-    "flip": true
-   },
-   {
     "asset": "nat_bush_green",
-    "x": 1178.4,
-    "y": 614.9,
+    "x": 558.0,
+    "y": 385.7,
     "flip": true
-   },
-   {
-    "asset": "flo_glow_mushrooms",
-    "x": 1283.9,
-    "y": 319.2
-   },
-   {
-    "asset": "flo_glow_mushrooms",
-    "x": 855.5,
-    "y": 537.8
    },
    {
     "asset": "flo_fern_patch",
@@ -705,27 +728,47 @@
    },
    {
     "asset": "nat_flowers_meadow",
-    "x": 894.9,
-    "y": 777.6,
-    "flip": true
-   },
-   {
-    "asset": "nat_flowers_meadow",
-    "x": 1307.4,
-    "y": 384.7,
-    "flip": true
-   },
-   {
-    "asset": "flo_fern_patch",
-    "x": 833.1,
-    "y": 770.6,
+    "x": 725.0,
+    "y": 743.9,
     "flip": true
    },
    {
     "asset": "nat_bush_green",
-    "x": 696.5,
-    "y": 473.7,
+    "x": 832.5,
+    "y": 537.7,
     "flip": true
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 1228.3,
+    "y": 414.4
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1112.8,
+    "y": 394.9
+   },
+   {
+    "asset": "nat_bush_green",
+    "x": 1307.0,
+    "y": 466.2,
+    "flip": true
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 700.1,
+    "y": 511.5
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 1161.8,
+    "y": 732.4,
+    "flip": true
+   },
+   {
+    "asset": "flo_glow_mushrooms",
+    "x": 991.6,
+    "y": 486.5
    }
   ],
   "captures": [
@@ -1897,49 +1940,84 @@
     "show_when": "quest:Q_MS02_MEMORY_TREE:active"
    },
    {
-    "asset": "flo_heart_wall_diag",
-    "x": 860,
-    "y": 280
+    "asset": "flo_heart_wall_a5",
+    "x": 1225.7,
+    "y": 423.4
    },
    {
-    "asset": "flo_heart_wall_diag",
-    "x": 944,
-    "y": 322
+    "asset": "flo_heart_wall_a5",
+    "x": 1203.1,
+    "y": 390.8
    },
    {
-    "asset": "flo_heart_wall_diagb",
-    "x": 776,
-    "y": 322
+    "asset": "flo_heart_wall_a6",
+    "x": 1170.1,
+    "y": 360.7
    },
    {
-    "asset": "flo_heart_wall_diag",
-    "x": 1028,
-    "y": 364
+    "asset": "flo_heart_wall_a6",
+    "x": 1127.7,
+    "y": 334.1
    },
    {
-    "asset": "flo_heart_wall_diagb",
-    "x": 692,
-    "y": 364
+    "asset": "flo_heart_wall_a7",
+    "x": 1077.1,
+    "y": 311.8
    },
    {
-    "asset": "flo_heart_wall_diag",
-    "x": 1112,
-    "y": 406
+    "asset": "flo_heart_wall_a7",
+    "x": 1020.0,
+    "y": 294.4
    },
    {
-    "asset": "flo_heart_wall_diagb",
-    "x": 608,
-    "y": 406
+    "asset": "flo_heart_wall",
+    "x": 958.0,
+    "y": 282.5
    },
    {
-    "asset": "flo_heart_wall_diag",
-    "x": 1196,
-    "y": 448
+    "asset": "flo_heart_wall",
+    "x": 893.0,
+    "y": 276.5
    },
    {
-    "asset": "flo_heart_wall_diagb",
-    "x": 524,
-    "y": 448
+    "asset": "flo_heart_wall",
+    "x": 827.0,
+    "y": 276.5
+   },
+   {
+    "asset": "flo_heart_wall_a1",
+    "x": 762.0,
+    "y": 282.5
+   },
+   {
+    "asset": "flo_heart_wall_a1",
+    "x": 700.0,
+    "y": 294.4
+   },
+   {
+    "asset": "flo_heart_wall_a2",
+    "x": 642.9,
+    "y": 311.8
+   },
+   {
+    "asset": "flo_heart_wall_a2",
+    "x": 592.3,
+    "y": 334.1
+   },
+   {
+    "asset": "flo_heart_wall_a3",
+    "x": 549.9,
+    "y": 360.7
+   },
+   {
+    "asset": "flo_heart_wall_a3",
+    "x": 516.9,
+    "y": 390.8
+   },
+   {
+    "asset": "flo_heart_wall_a3",
+    "x": 494.3,
+    "y": 423.4
    },
    {
     "asset": "flo_memory_root_arch",
@@ -2045,111 +2123,171 @@
   "water": [],
   "objects": [
    {
-    "asset": "flo_hollow_wall_active_diag",
-    "x": 860,
-    "y": 280,
+    "asset": "flo_hollow_wall_active_a6",
+    "x": 1250.4,
+    "y": 463.9,
     "hide_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_dormant_diag",
-    "x": 860,
-    "y": 280,
+    "asset": "flo_hollow_wall_active_a6",
+    "x": 1225.6,
+    "y": 420.7,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active_a7",
+    "x": 1184.4,
+    "y": 381.3,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active",
+    "x": 1128.7,
+    "y": 347.4,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active",
+    "x": 1061.0,
+    "y": 320.5,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active_a1",
+    "x": 984.3,
+    "y": 301.9,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active_a1",
+    "x": 902.1,
+    "y": 292.4,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active_a2",
+    "x": 817.9,
+    "y": 292.4,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active_a2",
+    "x": 735.7,
+    "y": 301.9,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active_a3",
+    "x": 659.0,
+    "y": 320.5,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active_a3",
+    "x": 591.3,
+    "y": 347.4,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active_a4",
+    "x": 535.6,
+    "y": 381.3,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active_a4",
+    "x": 494.4,
+    "y": 420.7,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_active_a5",
+    "x": 469.6,
+    "y": 463.9,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant_a5",
+    "x": 1250.4,
+    "y": 463.9,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active_diag",
-    "x": 944,
-    "y": 322,
-    "hide_when": "elites:BOSS_RAIZ_OCA_001"
-   },
-   {
-    "asset": "flo_hollow_wall_dormant_diag",
-    "x": 944,
-    "y": 322,
+    "asset": "flo_hollow_wall_dormant_a6",
+    "x": 1225.6,
+    "y": 420.7,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active_diagb",
-    "x": 776,
-    "y": 322,
-    "hide_when": "elites:BOSS_RAIZ_OCA_001"
-   },
-   {
-    "asset": "flo_hollow_wall_dormant_diagb",
-    "x": 776,
-    "y": 322,
+    "asset": "flo_hollow_wall_dormant_a6",
+    "x": 1184.4,
+    "y": 381.3,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active_diag",
-    "x": 1028,
-    "y": 364,
-    "hide_when": "elites:BOSS_RAIZ_OCA_001"
-   },
-   {
-    "asset": "flo_hollow_wall_dormant_diag",
-    "x": 1028,
-    "y": 364,
+    "asset": "flo_hollow_wall_dormant_a7",
+    "x": 1128.7,
+    "y": 347.4,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active_diagb",
-    "x": 692,
-    "y": 364,
-    "hide_when": "elites:BOSS_RAIZ_OCA_001"
-   },
-   {
-    "asset": "flo_hollow_wall_dormant_diagb",
-    "x": 692,
-    "y": 364,
+    "asset": "flo_hollow_wall_dormant_a7",
+    "x": 1061.0,
+    "y": 320.5,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active_diag",
-    "x": 1112,
-    "y": 406,
-    "hide_when": "elites:BOSS_RAIZ_OCA_001"
-   },
-   {
-    "asset": "flo_hollow_wall_dormant_diag",
-    "x": 1112,
-    "y": 406,
+    "asset": "flo_hollow_wall_dormant",
+    "x": 984.3,
+    "y": 301.9,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active_diagb",
-    "x": 608,
-    "y": 406,
-    "hide_when": "elites:BOSS_RAIZ_OCA_001"
-   },
-   {
-    "asset": "flo_hollow_wall_dormant_diagb",
-    "x": 608,
-    "y": 406,
+    "asset": "flo_hollow_wall_dormant",
+    "x": 902.1,
+    "y": 292.4,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active_diag",
-    "x": 1196,
-    "y": 448,
-    "hide_when": "elites:BOSS_RAIZ_OCA_001"
-   },
-   {
-    "asset": "flo_hollow_wall_dormant_diag",
-    "x": 1196,
-    "y": 448,
+    "asset": "flo_hollow_wall_dormant_a1",
+    "x": 817.9,
+    "y": 292.4,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_active_diagb",
-    "x": 524,
-    "y": 448,
-    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+    "asset": "flo_hollow_wall_dormant_a2",
+    "x": 735.7,
+    "y": 301.9,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_wall_dormant_diagb",
-    "x": 524,
-    "y": 448,
+    "asset": "flo_hollow_wall_dormant_a2",
+    "x": 659.0,
+    "y": 320.5,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant_a3",
+    "x": 591.3,
+    "y": 347.4,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant_a3",
+    "x": 535.6,
+    "y": 381.3,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant_a4",
+    "x": 494.4,
+    "y": 420.7,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "asset": "flo_hollow_wall_dormant_a4",
+    "x": 469.6,
+    "y": 463.9,
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {

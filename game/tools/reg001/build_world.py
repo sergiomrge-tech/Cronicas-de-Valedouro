@@ -15,6 +15,31 @@ from spec import World, GAME, ASSETS
 
 OUT = GAME / 'data' / 'reg001_world.json'
 W = World()
+
+_KIT = {}
+
+
+def krun(family, pts, group, **kw):
+    """Encadeia peças do KIT MULTI-ÂNGULO (data/orient_kit.json) ao longo de uma polilinha em coordenadas de mundo: cada trecho usa a variante
+    de ângulo mais próximo, então muros/paliçadas/cercas fazem curvas em vez de repetir a mesma diagonal."""
+    import math as _m
+    if not _KIT:
+        import json as _j
+        _KIT.update(_j.load(open(GAME / 'data' / 'orient_kit.json')))
+    vs = [(v['deg'], vid, v) for vid, v in _KIT.items() if v['family'] == family and v['kind'] == 'seg']
+    out = []
+    for (x0, y0), (x1, y1) in zip(pts[:-1], pts[1:]):
+        dx, dy = x1 - x0, y1 - y0
+        dist = _m.hypot(dx, dy)
+        if dist < 1:
+            continue
+        want = _m.degrees(_m.atan2(dy, dx)) % 180.0
+        deg, vid, v = min(vs, key=lambda t: min(abs(t[0] - want), 180 - abs(t[0] - want)))
+        n = max(1, int(round(dist / max(24.0, v['len_px']))))
+        for i in range(n):
+            t = (i + .5) / n
+            out.append(W.obj(vid, x0 + dx * t, y0 + dy * t, group, check=False, **kw))
+    return out
 P = W.poi
 
 
@@ -1054,9 +1079,9 @@ town('val_wall_repaired', _GX + 236, 182, show_when=_ALFA_MORTO, flip=True)
 town('val_banner_pole_tall', _GX - 300, 160)
 town('val_banner_pole_tall', _GX + 300, 160, flip=True)
 # lado de fora: barricadas que deixam a estrada livre, fogueira de vigia, cercas, carroça queimada, sinais de ataque
-town('val_barricade_a', _GX - 160, 112, hide_when=_ALFA_MORTO)
-town('val_barricade_a', _GX + 160, 112, hide_when=_ALFA_MORTO)
-town('val_barricade_b', _GX + 300, 128, hide_when=_ALFA_MORTO)
+krun('val_barricade_a', [T(_GX - 250, 98), T(_GX - 190, 118), T(_GX - 120, 116)], 'CIDADE', hide_when=_ALFA_MORTO)      # barricadas em curva, deixando a estrada livre
+krun('val_barricade_a', [T(_GX + 120, 116), T(_GX + 190, 118), T(_GX + 250, 100)], 'CIDADE', hide_when=_ALFA_MORTO)
+krun('val_barricade_b', [T(_GX + 290, 132), T(_GX + 340, 150)], 'CIDADE', hide_when=_ALFA_MORTO)
 town('nat_campfire', _GX - 232, 96, anim=1)
 town('nat_log_fallen', _GX - 270, 112, solid=False)
 town('nat_hay_bale', _GX + 232, 92)
@@ -1117,12 +1142,11 @@ P('REG001_POI_ARQUIVO_SEIS_COROAS', 'landmark', 'ARQUIVO DAS SEIS COROAS', TX + 
 for _x, _y in ((1400, 596), (1400, 640), (1690, 606), (1690, 650)):
     W.obj('str_crop_wheat', _x, _y, 'ESTRADA_N', layer='ground', scale=.62, solid=False, check=False)
 W.obj('str_scarecrow', 1672, 578, 'ESTRADA_N', check=False)
-for _x, _y, _k in ((1370, 560, 'a'), (1402, 576, 'b'), (1434, 592, 'a')):
-    W.obj('nat_fence_wood_' + _k, _x, _y, 'ESTRADA_N', check=False)
+krun('nat_fence_wood_a', [(1340, 552), (1390, 566), (1440, 592), (1470, 636)], 'ESTRADA_N')          # cerca da lavoura acompanha a curva do campo
 W.obj('nat_hay_stack', 1350, 620, 'ESTRADA_N', check=False)
 W.obj('nat_signpost', 1610, 660, 'ESTRADA_N', check=False)
-W.obj('val_palisade_broken', 1455, 470, 'ESTRADA_N', check=False)
-W.obj('val_palisade_broken', 1625, 500, 'ESTRADA_N', check=False, flip=True)
+krun('val_palisade_broken', [(1380, 505), (1420, 478), (1470, 462), (1510, 470)], 'ESTRADA_N')      # paliçada em ARCO (oeste da estrada)
+krun('val_palisade_broken', [(1570, 470), (1620, 478), (1665, 505), (1690, 540)], 'ESTRADA_N')      # arco leste
 W.obj('val_cart_wrecked', 1655, 420, 'ESTRADA_N', check=False)
 W.obj('val_warning_post', 1475, 380, 'ESTRADA_N', check=False, solid=False)
 W.obj('val_warning_post', 1600, 330, 'ESTRADA_N', check=False, solid=False, flip=True)

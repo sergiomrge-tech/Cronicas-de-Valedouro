@@ -1,0 +1,2018 @@
+{
+ "val_wall_segment_a1": {
+  "deg": 168.6,
+  "len_px": 108.1,
+  "depth_px": 20.0,
+  "kind": "seg",
+  "family": "val_wall_segment",
+  "k": 1
+ },
+ "val_wall_segment_a2": {
+  "deg": 153.4,
+  "len_px": 90.1,
+  "depth_px": 19.5,
+  "kind": "seg",
+  "family": "val_wall_segment",
+  "k": 2
+ },
+ "val_wall_segment_a3": {
+  "deg": 130.3,
+  "len_px": 69.0,
+  "depth_px": 20.0,
+  "kind": "seg",
+  "family": "val_wall_segment",
+  "k": 3
+ },
+ "val_wall_segment_a4": {
+  "deg": 90.0,
+  "len_px": 57.0,
+  "depth_px": 19.5,
+  "kind": "seg",
+  "family": "val_wall_segment",
+  "k": 4
+ },
+ "val_wall_segment_a5": {
+  "deg": 51.1,
+  "len_px": 68.0,
+  "depth_px": 20.0,
+  "kind": "seg",
+  "family": "val_wall_segment",
+  "k": 5
+ },
+ "val_wall_segment_a6": {
+  "deg": 26.6,
+  "len_px": 90.1,
+  "depth_px": 19.5,
+  "kind": "seg",
+  "family": "val_wall_segment",
+  "k": 6
+ },
+ "val_wall_segment_a7": {
+  "deg": 12.1,
+  "len_px": 107.6,
+  "depth_px": 20.0,
+  "kind": "seg",
+  "family": "val_wall_segment",
+  "k": 7
+ },
+ "val_wall_segment_c0": {
+  "deg": 26.6,
+  "len_px": 149.2,
+  "depth_px": 54.1,
+  "kind": "corner",
+  "family": "val_wall_segment",
+  "k": 0
+ },
+ "val_wall_segment_c1": {
+  "deg": 153.4,
+  "len_px": 149.2,
+  "depth_px": 54.1,
+  "kind": "corner",
+  "family": "val_wall_segment",
+  "k": 1
+ },
+ "val_wall_segment_c2": {
+  "deg": 26.6,
+  "len_px": 149.2,
+  "depth_px": 54.1,
+  "kind": "corner",
+  "family": "val_wall_segment",
+  "k": 2
+ },
+ "val_wall_segment_c3": {
+  "deg": 153.4,
+  "len_px": 149.2,
+  "depth_px": 54.1,
+  "kind": "corner",
+  "family": "val_wall_segment",
+  "k": 3
+ },
+ "val_wall_segment": {
+  "deg": 0.0,
+  "len_px": 114.0,
+  "depth_px": 19.5,
+  "kind": "seg",
+  "family": "val_wall_segment",
+  "k": 0
+ },
+ "val_wall_repaired_a1": {
+  "deg": 167.9,
+  "len_px": 107.6,
+  "depth_px": 34.3,
+  "kind": "seg",
+  "family": "val_wall_repaired",
+  "k": 1
+ },
+ "val_wall_repaired_a2": {
+  "deg": 153.4,
+  "len_px": 90.1,
+  "depth_px": 34.1,
+  "kind": "seg",
+  "family": "val_wall_repaired",
+  "k": 2
+ },
+ "val_wall_repaired_a3": {
+  "deg": 128.9,
+  "len_px": 68.0,
+  "depth_px": 34.3,
+  "kind": "seg",
+  "family": "val_wall_repaired",
+  "k": 3
+ },
+ "val_wall_repaired_a4": {
+  "deg": 90.0,
+  "len_px": 57.0,
+  "depth_px": 34.1,
+  "kind": "seg",
+  "family": "val_wall_repaired",
+  "k": 4
+ },
+ "val_wall_repaired_a5": {
+  "deg": 49.7,
+  "len_px": 69.0,
+  "depth_px": 34.3,
+  "kind": "seg",
+  "family": "val_wall_repaired",
+  "k": 5
+ },
+ "val_wall_repaired_a6": {
+  "deg": 26.6,
+  "len_px": 90.1,
+  "depth_px": 34.1,
+  "kind": "seg",
+  "family": "val_wall_repaired",
+  "k": 6
+ },
+ "val_wall_repaired_a7": {
+  "deg": 11.4,
+  "len_px": 108.1,
+  "depth_px": 34.3,
+  "kind": "seg",
+  "family": "val_wall_repaired",
+  "k": 7
+ },
+ "val_wall_repaired_c0": {
+  "deg": 19.9,
+  "len_px": 163.4,
+  "depth_px": 57.6,
+  "kind": "corner",
+  "family": "val_wall_repaired",
+  "k": 0
+ },
+ "val_wall_repaired_c1": {
+  "deg": 145.5,
+  "len_px": 135.1,
+  "depth_px": 57.6,
+  "kind": "corner",
+  "family": "val_wall_repaired",
+  "k": 1
+ },
+ "val_wall_repaired_c2": {
+  "deg": 19.9,
+  "len_px": 163.4,
+  "depth_px": 57.6,
+  "kind": "corner",
+  "family": "val_wall_repaired",
+  "k": 2
+ },
+ "val_wall_repaired_c3": {
+  "deg": 145.5,
+  "len_px": 135.1,
+  "depth_px": 57.6,
+  "kind": "corner",
+  "family": "val_wall_repaired",
+  "k": 3
+ },
+ "val_wall_repaired": {
+  "deg": 0.0,
+  "len_px": 114.0,
+  "depth_px": 34.1,
+  "kind": "seg",
+  "family": "val_wall_repaired",
+  "k": 0
+ },
+ "val_wall_breach_a1": {
+  "deg": 167.4,
+  "len_px": 108.0,
+  "depth_px": 36.0,
+  "kind": "seg",
+  "family": "val_wall_breach",
+  "k": 1
+ },
+ "val_wall_breach_a2": {
+  "deg": 151.8,
+  "len_px": 89.7,
+  "depth_px": 36.0,
+  "kind": "seg",
+  "family": "val_wall_breach",
+  "k": 2
+ },
+ "val_wall_breach_a3": {
+  "deg": 127.6,
+  "len_px": 68.0,
+  "depth_px": 36.0,
+  "kind": "seg",
+  "family": "val_wall_breach",
+  "k": 3
+ },
+ "val_wall_breach_a4": {
+  "deg": 86.2,
+  "len_px": 58.0,
+  "depth_px": 36.0,
+  "kind": "seg",
+  "family": "val_wall_breach",
+  "k": 4
+ },
+ "val_wall_breach_a5": {
+  "deg": 48.3,
+  "len_px": 70.6,
+  "depth_px": 36.0,
+  "kind": "seg",
+  "family": "val_wall_breach",
+  "k": 5
+ },
+ "val_wall_breach_a6": {
+  "deg": 25.0,
+  "len_px": 93.2,
+  "depth_px": 36.0,
+  "kind": "seg",
+  "family": "val_wall_breach",
+  "k": 6
+ },
+ "val_wall_breach_a7": {
+  "deg": 10.9,
+  "len_px": 109.7,
+  "depth_px": 36.0,
+  "kind": "seg",
+  "family": "val_wall_breach",
+  "k": 7
+ },
+ "val_wall_breach_c0": {
+  "deg": 19.9,
+  "len_px": 163.7,
+  "depth_px": 57.6,
+  "kind": "corner",
+  "family": "val_wall_breach",
+  "k": 0
+ },
+ "val_wall_breach_c1": {
+  "deg": 145.5,
+  "len_px": 135.3,
+  "depth_px": 57.6,
+  "kind": "corner",
+  "family": "val_wall_breach",
+  "k": 1
+ },
+ "val_wall_breach_c2": {
+  "deg": 19.9,
+  "len_px": 163.7,
+  "depth_px": 57.6,
+  "kind": "corner",
+  "family": "val_wall_breach",
+  "k": 2
+ },
+ "val_wall_breach_c3": {
+  "deg": 145.5,
+  "len_px": 135.3,
+  "depth_px": 57.6,
+  "kind": "corner",
+  "family": "val_wall_breach",
+  "k": 3
+ },
+ "val_wall_breach": {
+  "deg": 179.0,
+  "len_px": 115.7,
+  "depth_px": 36.0,
+  "kind": "seg",
+  "family": "val_wall_breach",
+  "k": 0
+ },
+ "val_palisade_broken_a1": {
+  "deg": 60.0,
+  "len_px": 52.2,
+  "depth_px": 40.6,
+  "kind": "seg",
+  "family": "val_palisade_broken",
+  "k": 1
+ },
+ "val_palisade_broken_a2": {
+  "deg": 31.8,
+  "len_px": 69.7,
+  "depth_px": 40.6,
+  "kind": "seg",
+  "family": "val_palisade_broken",
+  "k": 2
+ },
+ "val_palisade_broken_a3": {
+  "deg": 15.6,
+  "len_px": 85.5,
+  "depth_px": 40.6,
+  "kind": "seg",
+  "family": "val_palisade_broken",
+  "k": 3
+ },
+ "val_palisade_broken_a4": {
+  "deg": 3.1,
+  "len_px": 93.6,
+  "depth_px": 40.6,
+  "kind": "seg",
+  "family": "val_palisade_broken",
+  "k": 4
+ },
+ "val_palisade_broken_a5": {
+  "deg": 171.9,
+  "len_px": 91.4,
+  "depth_px": 40.6,
+  "kind": "seg",
+  "family": "val_palisade_broken",
+  "k": 5
+ },
+ "val_palisade_broken_a6": {
+  "deg": 158.0,
+  "len_px": 78.8,
+  "depth_px": 40.6,
+  "kind": "seg",
+  "family": "val_palisade_broken",
+  "k": 6
+ },
+ "val_palisade_broken_a7": {
+  "deg": 137.9,
+  "len_px": 61.4,
+  "depth_px": 40.6,
+  "kind": "seg",
+  "family": "val_palisade_broken",
+  "k": 7
+ },
+ "val_palisade_broken_c0": {
+  "deg": 148.2,
+  "len_px": 126.1,
+  "depth_px": 50.8,
+  "kind": "corner",
+  "family": "val_palisade_broken",
+  "k": 0
+ },
+ "val_palisade_broken_c1": {
+  "deg": 22.0,
+  "len_px": 142.5,
+  "depth_px": 50.8,
+  "kind": "corner",
+  "family": "val_palisade_broken",
+  "k": 1
+ },
+ "val_palisade_broken_c2": {
+  "deg": 148.2,
+  "len_px": 126.1,
+  "depth_px": 50.8,
+  "kind": "corner",
+  "family": "val_palisade_broken",
+  "k": 2
+ },
+ "val_palisade_broken_c3": {
+  "deg": 22.0,
+  "len_px": 142.5,
+  "depth_px": 50.8,
+  "kind": "corner",
+  "family": "val_palisade_broken",
+  "k": 3
+ },
+ "val_palisade_broken": {
+  "deg": 101.8,
+  "len_px": 47.7,
+  "depth_px": 40.6,
+  "kind": "seg",
+  "family": "val_palisade_broken",
+  "k": 0
+ },
+ "flo_palisade_organic_a1": {
+  "deg": 175.6,
+  "len_px": 98.7,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_organic",
+  "k": 1
+ },
+ "flo_palisade_organic_a2": {
+  "deg": 163.3,
+  "len_px": 89.0,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_organic",
+  "k": 2
+ },
+ "flo_palisade_organic_a3": {
+  "deg": 145.5,
+  "len_px": 71.0,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_organic",
+  "k": 3
+ },
+ "flo_palisade_organic_a4": {
+  "deg": 116.6,
+  "len_px": 54.2,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_organic",
+  "k": 4
+ },
+ "flo_palisade_organic_a5": {
+  "deg": 72.4,
+  "len_px": 51.6,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_organic",
+  "k": 5
+ },
+ "flo_palisade_organic_a6": {
+  "deg": 39.8,
+  "len_px": 66.9,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_organic",
+  "k": 6
+ },
+ "flo_palisade_organic_a7": {
+  "deg": 19.9,
+  "len_px": 85.9,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_organic",
+  "k": 7
+ },
+ "flo_palisade_organic_c0": {
+  "deg": 31.8,
+  "len_px": 119.0,
+  "depth_px": 48.1,
+  "kind": "corner",
+  "family": "flo_palisade_organic",
+  "k": 0
+ },
+ "flo_palisade_organic_c1": {
+  "deg": 158.0,
+  "len_px": 134.5,
+  "depth_px": 48.1,
+  "kind": "corner",
+  "family": "flo_palisade_organic",
+  "k": 1
+ },
+ "flo_palisade_organic_c2": {
+  "deg": 31.8,
+  "len_px": 119.0,
+  "depth_px": 48.1,
+  "kind": "corner",
+  "family": "flo_palisade_organic",
+  "k": 2
+ },
+ "flo_palisade_organic_c3": {
+  "deg": 158.0,
+  "len_px": 134.5,
+  "depth_px": 48.1,
+  "kind": "corner",
+  "family": "flo_palisade_organic",
+  "k": 3
+ },
+ "flo_palisade_organic": {
+  "deg": 7.1,
+  "len_px": 97.3,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_organic",
+  "k": 0
+ },
+ "flo_palisade_broken_a1": {
+  "deg": 175.6,
+  "len_px": 98.7,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_broken",
+  "k": 1
+ },
+ "flo_palisade_broken_a2": {
+  "deg": 163.3,
+  "len_px": 89.0,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_broken",
+  "k": 2
+ },
+ "flo_palisade_broken_a3": {
+  "deg": 145.5,
+  "len_px": 71.0,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_broken",
+  "k": 3
+ },
+ "flo_palisade_broken_a4": {
+  "deg": 116.6,
+  "len_px": 54.2,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_broken",
+  "k": 4
+ },
+ "flo_palisade_broken_a5": {
+  "deg": 72.4,
+  "len_px": 51.6,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_broken",
+  "k": 5
+ },
+ "flo_palisade_broken_a6": {
+  "deg": 39.8,
+  "len_px": 66.9,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_broken",
+  "k": 6
+ },
+ "flo_palisade_broken_a7": {
+  "deg": 19.9,
+  "len_px": 85.9,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_broken",
+  "k": 7
+ },
+ "flo_palisade_broken_c0": {
+  "deg": 31.8,
+  "len_px": 119.0,
+  "depth_px": 48.1,
+  "kind": "corner",
+  "family": "flo_palisade_broken",
+  "k": 0
+ },
+ "flo_palisade_broken_c1": {
+  "deg": 158.0,
+  "len_px": 134.5,
+  "depth_px": 48.1,
+  "kind": "corner",
+  "family": "flo_palisade_broken",
+  "k": 1
+ },
+ "flo_palisade_broken_c2": {
+  "deg": 31.8,
+  "len_px": 119.0,
+  "depth_px": 48.1,
+  "kind": "corner",
+  "family": "flo_palisade_broken",
+  "k": 2
+ },
+ "flo_palisade_broken_c3": {
+  "deg": 158.0,
+  "len_px": 134.5,
+  "depth_px": 48.1,
+  "kind": "corner",
+  "family": "flo_palisade_broken",
+  "k": 3
+ },
+ "flo_palisade_broken": {
+  "deg": 7.1,
+  "len_px": 97.3,
+  "depth_px": 36.6,
+  "kind": "seg",
+  "family": "flo_palisade_broken",
+  "k": 0
+ },
+ "val_barricade_a_a1": {
+  "deg": 176.9,
+  "len_px": 108.2,
+  "depth_px": 38.7,
+  "kind": "seg",
+  "family": "val_barricade_a",
+  "k": 1
+ },
+ "val_barricade_a_a2": {
+  "deg": 164.4,
+  "len_px": 98.8,
+  "depth_px": 38.7,
+  "kind": "seg",
+  "family": "val_barricade_a",
+  "k": 2
+ },
+ "val_barricade_a_a3": {
+  "deg": 148.2,
+  "len_px": 80.6,
+  "depth_px": 38.7,
+  "kind": "seg",
+  "family": "val_barricade_a",
+  "k": 3
+ },
+ "val_barricade_a_a4": {
+  "deg": 120.0,
+  "len_px": 60.4,
+  "depth_px": 38.7,
+  "kind": "seg",
+  "family": "val_barricade_a",
+  "k": 4
+ },
+ "val_barricade_a_a5": {
+  "deg": 78.2,
+  "len_px": 55.2,
+  "depth_px": 38.7,
+  "kind": "seg",
+  "family": "val_barricade_a",
+  "k": 5
+ },
+ "val_barricade_a_a6": {
+  "deg": 42.1,
+  "len_px": 71.0,
+  "depth_px": 38.7,
+  "kind": "seg",
+  "family": "val_barricade_a",
+  "k": 6
+ },
+ "val_barricade_a_a7": {
+  "deg": 22.0,
+  "len_px": 91.1,
+  "depth_px": 38.7,
+  "kind": "seg",
+  "family": "val_barricade_a",
+  "k": 7
+ },
+ "val_barricade_a_c0": {
+  "deg": 36.4,
+  "len_px": 131.9,
+  "depth_px": 59.6,
+  "kind": "corner",
+  "family": "val_barricade_a",
+  "k": 0
+ },
+ "val_barricade_a_c1": {
+  "deg": 161.4,
+  "len_px": 166.0,
+  "depth_px": 59.6,
+  "kind": "corner",
+  "family": "val_barricade_a",
+  "k": 1
+ },
+ "val_barricade_a_c2": {
+  "deg": 36.4,
+  "len_px": 131.9,
+  "depth_px": 59.6,
+  "kind": "corner",
+  "family": "val_barricade_a",
+  "k": 2
+ },
+ "val_barricade_a_c3": {
+  "deg": 161.4,
+  "len_px": 166.0,
+  "depth_px": 59.6,
+  "kind": "corner",
+  "family": "val_barricade_a",
+  "k": 3
+ },
+ "val_barricade_a": {
+  "deg": 8.1,
+  "len_px": 105.7,
+  "depth_px": 38.7,
+  "kind": "seg",
+  "family": "val_barricade_a",
+  "k": 0
+ },
+ "val_barricade_b_a1": {
+  "deg": 176.5,
+  "len_px": 105.7,
+  "depth_px": 40.0,
+  "kind": "seg",
+  "family": "val_barricade_b",
+  "k": 1
+ },
+ "val_barricade_b_a2": {
+  "deg": 164.4,
+  "len_px": 96.3,
+  "depth_px": 39.9,
+  "kind": "seg",
+  "family": "val_barricade_b",
+  "k": 2
+ },
+ "val_barricade_b_a3": {
+  "deg": 147.5,
+  "len_px": 77.7,
+  "depth_px": 40.0,
+  "kind": "seg",
+  "family": "val_barricade_b",
+  "k": 3
+ },
+ "val_barricade_b_a4": {
+  "deg": 120.0,
+  "len_px": 58.9,
+  "depth_px": 39.9,
+  "kind": "seg",
+  "family": "val_barricade_b",
+  "k": 4
+ },
+ "val_barricade_b_a5": {
+  "deg": 76.1,
+  "len_px": 54.4,
+  "depth_px": 40.0,
+  "kind": "seg",
+  "family": "val_barricade_b",
+  "k": 5
+ },
+ "val_barricade_b_a6": {
+  "deg": 42.1,
+  "len_px": 69.2,
+  "depth_px": 39.9,
+  "kind": "seg",
+  "family": "val_barricade_b",
+  "k": 6
+ },
+ "val_barricade_b_a7": {
+  "deg": 21.3,
+  "len_px": 89.7,
+  "depth_px": 40.0,
+  "kind": "seg",
+  "family": "val_barricade_b",
+  "k": 7
+ },
+ "val_barricade_b_c0": {
+  "deg": 34.5,
+  "len_px": 128.0,
+  "depth_px": 51.6,
+  "kind": "corner",
+  "family": "val_barricade_b",
+  "k": 0
+ },
+ "val_barricade_b_c1": {
+  "deg": 160.1,
+  "len_px": 154.9,
+  "depth_px": 51.6,
+  "kind": "corner",
+  "family": "val_barricade_b",
+  "k": 1
+ },
+ "val_barricade_b_c2": {
+  "deg": 34.5,
+  "len_px": 128.0,
+  "depth_px": 51.6,
+  "kind": "corner",
+  "family": "val_barricade_b",
+  "k": 2
+ },
+ "val_barricade_b_c3": {
+  "deg": 160.1,
+  "len_px": 154.9,
+  "depth_px": 51.6,
+  "kind": "corner",
+  "family": "val_barricade_b",
+  "k": 3
+ },
+ "val_barricade_b": {
+  "deg": 8.1,
+  "len_px": 103.0,
+  "depth_px": 39.9,
+  "kind": "seg",
+  "family": "val_barricade_b",
+  "k": 0
+ },
+ "flo_barricade_improvised_a1": {
+  "deg": 8.7,
+  "len_px": 117.8,
+  "depth_px": 34.8,
+  "kind": "seg",
+  "family": "flo_barricade_improvised",
+  "k": 1
+ },
+ "flo_barricade_improvised_a2": {
+  "deg": 177.5,
+  "len_px": 121.0,
+  "depth_px": 34.9,
+  "kind": "seg",
+  "family": "flo_barricade_improvised",
+  "k": 2
+ },
+ "flo_barricade_improvised_a3": {
+  "deg": 165.2,
+  "len_px": 111.2,
+  "depth_px": 34.8,
+  "kind": "seg",
+  "family": "flo_barricade_improvised",
+  "k": 3
+ },
+ "flo_barricade_improvised_a4": {
+  "deg": 149.2,
+  "len_px": 90.8,
+  "depth_px": 34.9,
+  "kind": "seg",
+  "family": "flo_barricade_improvised",
+  "k": 4
+ },
+ "flo_barricade_improvised_a5": {
+  "deg": 121.6,
+  "len_px": 68.1,
+  "depth_px": 34.8,
+  "kind": "seg",
+  "family": "flo_barricade_improvised",
+  "k": 5
+ },
+ "flo_barricade_improvised_a6": {
+  "deg": 80.1,
+  "len_px": 61.2,
+  "depth_px": 34.9,
+  "kind": "seg",
+  "family": "flo_barricade_improvised",
+  "k": 6
+ },
+ "flo_barricade_improvised_a7": {
+  "deg": 43.1,
+  "len_px": 78.4,
+  "depth_px": 34.8,
+  "kind": "seg",
+  "family": "flo_barricade_improvised",
+  "k": 7
+ },
+ "flo_barricade_improvised_c0": {
+  "deg": 58.4,
+  "len_px": 99.6,
+  "depth_px": 57.1,
+  "kind": "corner",
+  "family": "flo_barricade_improvised",
+  "k": 0
+ },
+ "flo_barricade_improvised_c1": {
+  "deg": 171.3,
+  "len_px": 172.2,
+  "depth_px": 57.1,
+  "kind": "corner",
+  "family": "flo_barricade_improvised",
+  "k": 1
+ },
+ "flo_barricade_improvised_c2": {
+  "deg": 58.4,
+  "len_px": 99.6,
+  "depth_px": 57.1,
+  "kind": "corner",
+  "family": "flo_barricade_improvised",
+  "k": 2
+ },
+ "flo_barricade_improvised_c3": {
+  "deg": 171.3,
+  "len_px": 172.2,
+  "depth_px": 57.1,
+  "kind": "corner",
+  "family": "flo_barricade_improvised",
+  "k": 3
+ },
+ "flo_barricade_improvised": {
+  "deg": 22.7,
+  "len_px": 100.8,
+  "depth_px": 34.9,
+  "kind": "seg",
+  "family": "flo_barricade_improvised",
+  "k": 0
+ },
+ "nat_fence_wood_a_a1": {
+  "deg": 128.9,
+  "len_px": 31.2,
+  "depth_px": 12.3,
+  "kind": "seg",
+  "family": "nat_fence_wood_a",
+  "k": 1
+ },
+ "nat_fence_wood_a_a2": {
+  "deg": 90.0,
+  "len_px": 26.2,
+  "depth_px": 12.3,
+  "kind": "seg",
+  "family": "nat_fence_wood_a",
+  "k": 2
+ },
+ "nat_fence_wood_a_a3": {
+  "deg": 49.7,
+  "len_px": 31.6,
+  "depth_px": 12.3,
+  "kind": "seg",
+  "family": "nat_fence_wood_a",
+  "k": 3
+ },
+ "nat_fence_wood_a_a4": {
+  "deg": 26.6,
+  "len_px": 41.4,
+  "depth_px": 12.3,
+  "kind": "seg",
+  "family": "nat_fence_wood_a",
+  "k": 4
+ },
+ "nat_fence_wood_a_a5": {
+  "deg": 11.4,
+  "len_px": 49.5,
+  "depth_px": 12.3,
+  "kind": "seg",
+  "family": "nat_fence_wood_a",
+  "k": 5
+ },
+ "nat_fence_wood_a_a6": {
+  "deg": 0.0,
+  "len_px": 52.3,
+  "depth_px": 12.3,
+  "kind": "seg",
+  "family": "nat_fence_wood_a",
+  "k": 6
+ },
+ "nat_fence_wood_a_a7": {
+  "deg": 167.9,
+  "len_px": 49.3,
+  "depth_px": 12.3,
+  "kind": "seg",
+  "family": "nat_fence_wood_a",
+  "k": 7
+ },
+ "nat_fence_wood_a_c0": {
+  "deg": 2.5,
+  "len_px": 80.8,
+  "depth_px": 23.8,
+  "kind": "corner",
+  "family": "nat_fence_wood_a",
+  "k": 0
+ },
+ "nat_fence_wood_a_c1": {
+  "deg": 99.9,
+  "len_px": 40.8,
+  "depth_px": 23.8,
+  "kind": "corner",
+  "family": "nat_fence_wood_a",
+  "k": 1
+ },
+ "nat_fence_wood_a_c2": {
+  "deg": 2.5,
+  "len_px": 80.8,
+  "depth_px": 23.8,
+  "kind": "corner",
+  "family": "nat_fence_wood_a",
+  "k": 2
+ },
+ "nat_fence_wood_a_c3": {
+  "deg": 99.9,
+  "len_px": 40.8,
+  "depth_px": 23.8,
+  "kind": "corner",
+  "family": "nat_fence_wood_a",
+  "k": 3
+ },
+ "nat_fence_wood_a": {
+  "deg": 153.4,
+  "len_px": 41.4,
+  "depth_px": 12.3,
+  "kind": "seg",
+  "family": "nat_fence_wood_a",
+  "k": 0
+ },
+ "nat_fence_wood_b_a1": {
+  "deg": 22.0,
+  "len_px": 43.7,
+  "depth_px": 14.9,
+  "kind": "seg",
+  "family": "nat_fence_wood_b",
+  "k": 1
+ },
+ "nat_fence_wood_b_a2": {
+  "deg": 8.1,
+  "len_px": 50.6,
+  "depth_px": 14.9,
+  "kind": "seg",
+  "family": "nat_fence_wood_b",
+  "k": 2
+ },
+ "nat_fence_wood_b_a3": {
+  "deg": 176.9,
+  "len_px": 51.8,
+  "depth_px": 14.9,
+  "kind": "seg",
+  "family": "nat_fence_wood_b",
+  "k": 3
+ },
+ "nat_fence_wood_b_a4": {
+  "deg": 164.4,
+  "len_px": 47.3,
+  "depth_px": 14.9,
+  "kind": "seg",
+  "family": "nat_fence_wood_b",
+  "k": 4
+ },
+ "nat_fence_wood_b_a5": {
+  "deg": 148.2,
+  "len_px": 38.6,
+  "depth_px": 14.9,
+  "kind": "seg",
+  "family": "nat_fence_wood_b",
+  "k": 5
+ },
+ "nat_fence_wood_b_a6": {
+  "deg": 120.0,
+  "len_px": 28.9,
+  "depth_px": 14.9,
+  "kind": "seg",
+  "family": "nat_fence_wood_b",
+  "k": 6
+ },
+ "nat_fence_wood_b_a7": {
+  "deg": 78.2,
+  "len_px": 26.4,
+  "depth_px": 14.9,
+  "kind": "seg",
+  "family": "nat_fence_wood_b",
+  "k": 7
+ },
+ "nat_fence_wood_b_c0": {
+  "deg": 105.7,
+  "len_px": 39.6,
+  "depth_px": 21.7,
+  "kind": "corner",
+  "family": "nat_fence_wood_b",
+  "k": 0
+ },
+ "nat_fence_wood_b_c1": {
+  "deg": 4.0,
+  "len_px": 76.1,
+  "depth_px": 21.7,
+  "kind": "corner",
+  "family": "nat_fence_wood_b",
+  "k": 1
+ },
+ "nat_fence_wood_b_c2": {
+  "deg": 105.7,
+  "len_px": 39.6,
+  "depth_px": 21.7,
+  "kind": "corner",
+  "family": "nat_fence_wood_b",
+  "k": 2
+ },
+ "nat_fence_wood_b_c3": {
+  "deg": 4.0,
+  "len_px": 76.1,
+  "depth_px": 21.7,
+  "kind": "corner",
+  "family": "nat_fence_wood_b",
+  "k": 3
+ },
+ "nat_fence_wood_b": {
+  "deg": 42.1,
+  "len_px": 34.0,
+  "depth_px": 14.9,
+  "kind": "seg",
+  "family": "nat_fence_wood_b",
+  "k": 0
+ },
+ "nat_fence_broken_a_a1": {
+  "deg": 82.0,
+  "len_px": 23.8,
+  "depth_px": 18.0,
+  "kind": "seg",
+  "family": "nat_fence_broken_a",
+  "k": 1
+ },
+ "nat_fence_broken_a_a2": {
+  "deg": 45.6,
+  "len_px": 29.6,
+  "depth_px": 18.0,
+  "kind": "seg",
+  "family": "nat_fence_broken_a",
+  "k": 2
+ },
+ "nat_fence_broken_a_a3": {
+  "deg": 23.4,
+  "len_px": 38.6,
+  "depth_px": 18.0,
+  "kind": "seg",
+  "family": "nat_fence_broken_a",
+  "k": 3
+ },
+ "nat_fence_broken_a_a4": {
+  "deg": 9.8,
+  "len_px": 45.2,
+  "depth_px": 18.0,
+  "kind": "seg",
+  "family": "nat_fence_broken_a",
+  "k": 4
+ },
+ "nat_fence_broken_a_a5": {
+  "deg": 178.1,
+  "len_px": 46.9,
+  "depth_px": 18.0,
+  "kind": "seg",
+  "family": "nat_fence_broken_a",
+  "k": 5
+ },
+ "nat_fence_broken_a_a6": {
+  "deg": 166.3,
+  "len_px": 43.6,
+  "depth_px": 18.0,
+  "kind": "seg",
+  "family": "nat_fence_broken_a",
+  "k": 6
+ },
+ "nat_fence_broken_a_a7": {
+  "deg": 150.2,
+  "len_px": 35.6,
+  "depth_px": 18.0,
+  "kind": "seg",
+  "family": "nat_fence_broken_a",
+  "k": 7
+ },
+ "nat_fence_broken_a_c0": {
+  "deg": 175.6,
+  "len_px": 72.9,
+  "depth_px": 22.5,
+  "kind": "corner",
+  "family": "nat_fence_broken_a",
+  "k": 0
+ },
+ "nat_fence_broken_a_c1": {
+  "deg": 72.4,
+  "len_px": 38.1,
+  "depth_px": 22.5,
+  "kind": "corner",
+  "family": "nat_fence_broken_a",
+  "k": 1
+ },
+ "nat_fence_broken_a_c2": {
+  "deg": 175.6,
+  "len_px": 72.9,
+  "depth_px": 22.5,
+  "kind": "corner",
+  "family": "nat_fence_broken_a",
+  "k": 2
+ },
+ "nat_fence_broken_a_c3": {
+  "deg": 72.4,
+  "len_px": 38.1,
+  "depth_px": 22.5,
+  "kind": "corner",
+  "family": "nat_fence_broken_a",
+  "k": 3
+ },
+ "nat_fence_broken_a": {
+  "deg": 124.6,
+  "len_px": 27.1,
+  "depth_px": 18.0,
+  "kind": "seg",
+  "family": "nat_fence_broken_a",
+  "k": 0
+ },
+ "nat_fence_broken_b_a1": {
+  "deg": 162.7,
+  "len_px": 44.0,
+  "depth_px": 20.7,
+  "kind": "seg",
+  "family": "nat_fence_broken_b",
+  "k": 1
+ },
+ "nat_fence_broken_b_a2": {
+  "deg": 144.4,
+  "len_px": 35.0,
+  "depth_px": 20.7,
+  "kind": "seg",
+  "family": "nat_fence_broken_b",
+  "k": 2
+ },
+ "nat_fence_broken_b_a3": {
+  "deg": 114.7,
+  "len_px": 26.6,
+  "depth_px": 20.7,
+  "kind": "seg",
+  "family": "nat_fence_broken_b",
+  "k": 3
+ },
+ "nat_fence_broken_b_a4": {
+  "deg": 70.6,
+  "len_px": 26.0,
+  "depth_px": 20.7,
+  "kind": "seg",
+  "family": "nat_fence_broken_b",
+  "k": 4
+ },
+ "nat_fence_broken_b_a5": {
+  "deg": 38.6,
+  "len_px": 33.6,
+  "depth_px": 20.7,
+  "kind": "seg",
+  "family": "nat_fence_broken_b",
+  "k": 5
+ },
+ "nat_fence_broken_b_a6": {
+  "deg": 19.3,
+  "len_px": 43.1,
+  "depth_px": 20.7,
+  "kind": "seg",
+  "family": "nat_fence_broken_b",
+  "k": 6
+ },
+ "nat_fence_broken_b_a7": {
+  "deg": 6.6,
+  "len_px": 48.6,
+  "depth_px": 20.7,
+  "kind": "seg",
+  "family": "nat_fence_broken_b",
+  "k": 7
+ },
+ "nat_fence_broken_b_c0": {
+  "deg": 12.1,
+  "len_px": 80.0,
+  "depth_px": 29.0,
+  "kind": "corner",
+  "family": "nat_fence_broken_b",
+  "k": 0
+ },
+ "nat_fence_broken_b_c1": {
+  "deg": 130.3,
+  "len_px": 51.3,
+  "depth_px": 29.0,
+  "kind": "corner",
+  "family": "nat_fence_broken_b",
+  "k": 1
+ },
+ "nat_fence_broken_b_c2": {
+  "deg": 12.1,
+  "len_px": 80.0,
+  "depth_px": 29.0,
+  "kind": "corner",
+  "family": "nat_fence_broken_b",
+  "k": 2
+ },
+ "nat_fence_broken_b_c3": {
+  "deg": 130.3,
+  "len_px": 51.3,
+  "depth_px": 29.0,
+  "kind": "corner",
+  "family": "nat_fence_broken_b",
+  "k": 3
+ },
+ "nat_fence_broken_b": {
+  "deg": 175.0,
+  "len_px": 49.0,
+  "depth_px": 20.7,
+  "kind": "seg",
+  "family": "nat_fence_broken_b",
+  "k": 0
+ },
+ "nat_wall_low_a_a1": {
+  "deg": 137.9,
+  "len_px": 54.0,
+  "depth_px": 29.3,
+  "kind": "seg",
+  "family": "nat_wall_low_a",
+  "k": 1
+ },
+ "nat_wall_low_a_a2": {
+  "deg": 103.9,
+  "len_px": 42.5,
+  "depth_px": 29.3,
+  "kind": "seg",
+  "family": "nat_wall_low_a",
+  "k": 2
+ },
+ "nat_wall_low_a_a3": {
+  "deg": 60.0,
+  "len_px": 46.0,
+  "depth_px": 29.3,
+  "kind": "seg",
+  "family": "nat_wall_low_a",
+  "k": 3
+ },
+ "nat_wall_low_a_a4": {
+  "deg": 32.5,
+  "len_px": 60.7,
+  "depth_px": 29.3,
+  "kind": "seg",
+  "family": "nat_wall_low_a",
+  "k": 4
+ },
+ "nat_wall_low_a_a5": {
+  "deg": 15.6,
+  "len_px": 75.2,
+  "depth_px": 29.3,
+  "kind": "seg",
+  "family": "nat_wall_low_a",
+  "k": 5
+ },
+ "nat_wall_low_a_a6": {
+  "deg": 3.5,
+  "len_px": 82.6,
+  "depth_px": 29.3,
+  "kind": "seg",
+  "family": "nat_wall_low_a",
+  "k": 6
+ },
+ "nat_wall_low_a_a7": {
+  "deg": 171.9,
+  "len_px": 80.4,
+  "depth_px": 29.3,
+  "kind": "seg",
+  "family": "nat_wall_low_a",
+  "k": 7
+ },
+ "nat_wall_low_a_c0": {
+  "deg": 1.0,
+  "len_px": 125.3,
+  "depth_px": 34.4,
+  "kind": "corner",
+  "family": "nat_wall_low_a",
+  "k": 0
+ },
+ "nat_wall_low_a_c1": {
+  "deg": 93.8,
+  "len_px": 62.8,
+  "depth_px": 34.4,
+  "kind": "corner",
+  "family": "nat_wall_low_a",
+  "k": 1
+ },
+ "nat_wall_low_a_c2": {
+  "deg": 1.0,
+  "len_px": 125.3,
+  "depth_px": 34.4,
+  "kind": "corner",
+  "family": "nat_wall_low_a",
+  "k": 2
+ },
+ "nat_wall_low_a_c3": {
+  "deg": 93.8,
+  "len_px": 62.8,
+  "depth_px": 34.4,
+  "kind": "corner",
+  "family": "nat_wall_low_a",
+  "k": 3
+ },
+ "nat_wall_low_a": {
+  "deg": 158.7,
+  "len_px": 70.0,
+  "depth_px": 29.3,
+  "kind": "seg",
+  "family": "nat_wall_low_a",
+  "k": 0
+ },
+ "nat_wall_low_b_a1": {
+  "deg": 13.0,
+  "len_px": 76.9,
+  "depth_px": 25.3,
+  "kind": "seg",
+  "family": "nat_wall_low_b",
+  "k": 1
+ },
+ "nat_wall_low_b_a2": {
+  "deg": 1.5,
+  "len_px": 82.7,
+  "depth_px": 25.3,
+  "kind": "seg",
+  "family": "nat_wall_low_b",
+  "k": 2
+ },
+ "nat_wall_low_b_a3": {
+  "deg": 169.7,
+  "len_px": 78.9,
+  "depth_px": 25.3,
+  "kind": "seg",
+  "family": "nat_wall_low_b",
+  "k": 3
+ },
+ "nat_wall_low_b_a4": {
+  "deg": 155.8,
+  "len_px": 67.4,
+  "depth_px": 25.3,
+  "kind": "seg",
+  "family": "nat_wall_low_b",
+  "k": 4
+ },
+ "nat_wall_low_b_a5": {
+  "deg": 133.0,
+  "len_px": 51.2,
+  "depth_px": 25.3,
+  "kind": "seg",
+  "family": "nat_wall_low_b",
+  "k": 5
+ },
+ "nat_wall_low_b_a6": {
+  "deg": 96.1,
+  "len_px": 41.6,
+  "depth_px": 25.3,
+  "kind": "seg",
+  "family": "nat_wall_low_b",
+  "k": 6
+ },
+ "nat_wall_low_b_a7": {
+  "deg": 53.9,
+  "len_px": 48.1,
+  "depth_px": 25.3,
+  "kind": "seg",
+  "family": "nat_wall_low_b",
+  "k": 7
+ },
+ "nat_wall_low_b_c0": {
+  "deg": 90.0,
+  "len_px": 62.6,
+  "depth_px": 33.6,
+  "kind": "corner",
+  "family": "nat_wall_low_b",
+  "k": 0
+ },
+ "nat_wall_low_b_c1": {
+  "deg": 0.0,
+  "len_px": 125.1,
+  "depth_px": 33.6,
+  "kind": "corner",
+  "family": "nat_wall_low_b",
+  "k": 1
+ },
+ "nat_wall_low_b_c2": {
+  "deg": 90.0,
+  "len_px": 62.6,
+  "depth_px": 33.6,
+  "kind": "corner",
+  "family": "nat_wall_low_b",
+  "k": 2
+ },
+ "nat_wall_low_b_c3": {
+  "deg": 0.0,
+  "len_px": 125.1,
+  "depth_px": 33.6,
+  "kind": "corner",
+  "family": "nat_wall_low_b",
+  "k": 3
+ },
+ "nat_wall_low_b": {
+  "deg": 28.9,
+  "len_px": 63.3,
+  "depth_px": 25.3,
+  "kind": "seg",
+  "family": "nat_wall_low_b",
+  "k": 0
+ },
+ "flo_hollow_wall_active_a1": {
+  "deg": 5.0,
+  "len_px": 145.6,
+  "depth_px": 46.0,
+  "kind": "seg",
+  "family": "flo_hollow_wall_active",
+  "k": 1
+ },
+ "flo_hollow_wall_active_a2": {
+  "deg": 174.0,
+  "len_px": 145.0,
+  "depth_px": 46.0,
+  "kind": "seg",
+  "family": "flo_hollow_wall_active",
+  "k": 2
+ },
+ "flo_hollow_wall_active_a3": {
+  "deg": 160.7,
+  "len_px": 128.1,
+  "depth_px": 46.0,
+  "kind": "seg",
+  "family": "flo_hollow_wall_active",
+  "k": 3
+ },
+ "flo_hollow_wall_active_a4": {
+  "deg": 142.3,
+  "len_px": 101.4,
+  "depth_px": 46.0,
+  "kind": "seg",
+  "family": "flo_hollow_wall_active",
+  "k": 4
+ },
+ "flo_hollow_wall_active_a5": {
+  "deg": 109.4,
+  "len_px": 77.1,
+  "depth_px": 46.0,
+  "kind": "seg",
+  "family": "flo_hollow_wall_active",
+  "k": 5
+ },
+ "flo_hollow_wall_active_a6": {
+  "deg": 67.1,
+  "len_px": 78.5,
+  "depth_px": 46.0,
+  "kind": "seg",
+  "family": "flo_hollow_wall_active",
+  "k": 6
+ },
+ "flo_hollow_wall_active_a7": {
+  "deg": 35.6,
+  "len_px": 104.0,
+  "depth_px": 46.0,
+  "kind": "seg",
+  "family": "flo_hollow_wall_active",
+  "k": 7
+ },
+ "flo_hollow_wall_active_c0": {
+  "deg": 90.0,
+  "len_px": 118.3,
+  "depth_px": 66.0,
+  "kind": "corner",
+  "family": "flo_hollow_wall_active",
+  "k": 0
+ },
+ "flo_hollow_wall_active_c1": {
+  "deg": 0.0,
+  "len_px": 236.5,
+  "depth_px": 66.0,
+  "kind": "corner",
+  "family": "flo_hollow_wall_active",
+  "k": 1
+ },
+ "flo_hollow_wall_active_c2": {
+  "deg": 90.0,
+  "len_px": 118.3,
+  "depth_px": 66.0,
+  "kind": "corner",
+  "family": "flo_hollow_wall_active",
+  "k": 2
+ },
+ "flo_hollow_wall_active_c3": {
+  "deg": 0.0,
+  "len_px": 236.5,
+  "depth_px": 66.0,
+  "kind": "corner",
+  "family": "flo_hollow_wall_active",
+  "k": 3
+ },
+ "flo_hollow_wall_active": {
+  "deg": 18.0,
+  "len_px": 130.4,
+  "depth_px": 46.0,
+  "kind": "seg",
+  "family": "flo_hollow_wall_active",
+  "k": 0
+ },
+ "flo_hollow_wall_dormant_a1": {
+  "deg": 176.5,
+  "len_px": 139.9,
+  "depth_px": 46.3,
+  "kind": "seg",
+  "family": "flo_hollow_wall_dormant",
+  "k": 1
+ },
+ "flo_hollow_wall_dormant_a2": {
+  "deg": 164.4,
+  "len_px": 127.6,
+  "depth_px": 46.4,
+  "kind": "seg",
+  "family": "flo_hollow_wall_dormant",
+  "k": 2
+ },
+ "flo_hollow_wall_dormant_a3": {
+  "deg": 147.5,
+  "len_px": 102.8,
+  "depth_px": 46.3,
+  "kind": "seg",
+  "family": "flo_hollow_wall_dormant",
+  "k": 3
+ },
+ "flo_hollow_wall_dormant_a4": {
+  "deg": 120.0,
+  "len_px": 78.0,
+  "depth_px": 46.4,
+  "kind": "seg",
+  "family": "flo_hollow_wall_dormant",
+  "k": 4
+ },
+ "flo_hollow_wall_dormant_a5": {
+  "deg": 76.1,
+  "len_px": 71.9,
+  "depth_px": 46.3,
+  "kind": "seg",
+  "family": "flo_hollow_wall_dormant",
+  "k": 5
+ },
+ "flo_hollow_wall_dormant_a6": {
+  "deg": 42.1,
+  "len_px": 91.7,
+  "depth_px": 46.4,
+  "kind": "seg",
+  "family": "flo_hollow_wall_dormant",
+  "k": 6
+ },
+ "flo_hollow_wall_dormant_a7": {
+  "deg": 21.3,
+  "len_px": 118.7,
+  "depth_px": 46.3,
+  "kind": "seg",
+  "family": "flo_hollow_wall_dormant",
+  "k": 7
+ },
+ "flo_hollow_wall_dormant_c0": {
+  "deg": 40.9,
+  "len_px": 162.2,
+  "depth_px": 73.5,
+  "kind": "corner",
+  "family": "flo_hollow_wall_dormant",
+  "k": 0
+ },
+ "flo_hollow_wall_dormant_c1": {
+  "deg": 163.9,
+  "len_px": 221.1,
+  "depth_px": 73.5,
+  "kind": "corner",
+  "family": "flo_hollow_wall_dormant",
+  "k": 1
+ },
+ "flo_hollow_wall_dormant_c2": {
+  "deg": 40.9,
+  "len_px": 162.2,
+  "depth_px": 73.5,
+  "kind": "corner",
+  "family": "flo_hollow_wall_dormant",
+  "k": 2
+ },
+ "flo_hollow_wall_dormant_c3": {
+  "deg": 163.9,
+  "len_px": 221.1,
+  "depth_px": 73.5,
+  "kind": "corner",
+  "family": "flo_hollow_wall_dormant",
+  "k": 3
+ },
+ "flo_hollow_wall_dormant": {
+  "deg": 8.1,
+  "len_px": 136.5,
+  "depth_px": 46.4,
+  "kind": "seg",
+  "family": "flo_hollow_wall_dormant",
+  "k": 0
+ },
+ "flo_heart_wall_a1": {
+  "deg": 170.8,
+  "len_px": 118.3,
+  "depth_px": 42.2,
+  "kind": "seg",
+  "family": "flo_heart_wall",
+  "k": 1
+ },
+ "flo_heart_wall_a2": {
+  "deg": 156.6,
+  "len_px": 100.7,
+  "depth_px": 42.2,
+  "kind": "seg",
+  "family": "flo_heart_wall",
+  "k": 2
+ },
+ "flo_heart_wall_a3": {
+  "deg": 135.4,
+  "len_px": 78.2,
+  "depth_px": 42.2,
+  "kind": "seg",
+  "family": "flo_heart_wall",
+  "k": 3
+ },
+ "flo_heart_wall_a4": {
+  "deg": 98.0,
+  "len_px": 61.9,
+  "depth_px": 42.2,
+  "kind": "seg",
+  "family": "flo_heart_wall",
+  "k": 4
+ },
+ "flo_heart_wall_a5": {
+  "deg": 57.0,
+  "len_px": 69.9,
+  "depth_px": 42.2,
+  "kind": "seg",
+  "family": "flo_heart_wall",
+  "k": 5
+ },
+ "flo_heart_wall_a6": {
+  "deg": 29.8,
+  "len_px": 92.8,
+  "depth_px": 42.2,
+  "kind": "seg",
+  "family": "flo_heart_wall",
+  "k": 6
+ },
+ "flo_heart_wall_a7": {
+  "deg": 14.3,
+  "len_px": 112.9,
+  "depth_px": 42.2,
+  "kind": "seg",
+  "family": "flo_heart_wall",
+  "k": 7
+ },
+ "flo_heart_wall_c0": {
+  "deg": 22.7,
+  "len_px": 174.5,
+  "depth_px": 62.8,
+  "kind": "corner",
+  "family": "flo_heart_wall",
+  "k": 0
+ },
+ "flo_heart_wall_c1": {
+  "deg": 149.2,
+  "len_px": 157.3,
+  "depth_px": 62.8,
+  "kind": "corner",
+  "family": "flo_heart_wall",
+  "k": 1
+ },
+ "flo_heart_wall_c2": {
+  "deg": 22.7,
+  "len_px": 174.5,
+  "depth_px": 62.8,
+  "kind": "corner",
+  "family": "flo_heart_wall",
+  "k": 2
+ },
+ "flo_heart_wall_c3": {
+  "deg": 149.2,
+  "len_px": 157.3,
+  "depth_px": 62.8,
+  "kind": "corner",
+  "family": "flo_heart_wall",
+  "k": 3
+ },
+ "flo_heart_wall": {
+  "deg": 1.9,
+  "len_px": 122.3,
+  "depth_px": 42.2,
+  "kind": "seg",
+  "family": "flo_heart_wall",
+  "k": 0
+ },
+ "val_ruin_inscription_wall_a1": {
+  "deg": 21.3,
+  "len_px": 92.1,
+  "depth_px": 51.8,
+  "kind": "seg",
+  "family": "val_ruin_inscription_wall",
+  "k": 1
+ },
+ "val_ruin_inscription_wall_a2": {
+  "deg": 7.7,
+  "len_px": 106.6,
+  "depth_px": 51.9,
+  "kind": "seg",
+  "family": "val_ruin_inscription_wall",
+  "k": 2
+ },
+ "val_ruin_inscription_wall_a3": {
+  "deg": 176.5,
+  "len_px": 108.5,
+  "depth_px": 51.8,
+  "kind": "seg",
+  "family": "val_ruin_inscription_wall",
+  "k": 3
+ },
+ "val_ruin_inscription_wall_a4": {
+  "deg": 163.9,
+  "len_px": 98.6,
+  "depth_px": 51.9,
+  "kind": "seg",
+  "family": "val_ruin_inscription_wall",
+  "k": 4
+ },
+ "val_ruin_inscription_wall_a5": {
+  "deg": 147.5,
+  "len_px": 79.8,
+  "depth_px": 51.8,
+  "kind": "seg",
+  "family": "val_ruin_inscription_wall",
+  "k": 5
+ },
+ "val_ruin_inscription_wall_a6": {
+  "deg": 118.3,
+  "len_px": 60.0,
+  "depth_px": 51.9,
+  "kind": "seg",
+  "family": "val_ruin_inscription_wall",
+  "k": 6
+ },
+ "val_ruin_inscription_wall_a7": {
+  "deg": 76.1,
+  "len_px": 55.8,
+  "depth_px": 51.8,
+  "kind": "seg",
+  "family": "val_ruin_inscription_wall",
+  "k": 7
+ },
+ "val_ruin_inscription_wall_c0": {
+  "deg": 136.9,
+  "len_px": 132.5,
+  "depth_px": 68.8,
+  "kind": "corner",
+  "family": "val_ruin_inscription_wall",
+  "k": 0
+ },
+ "val_ruin_inscription_wall_c1": {
+  "deg": 14.8,
+  "len_px": 188.0,
+  "depth_px": 68.8,
+  "kind": "corner",
+  "family": "val_ruin_inscription_wall",
+  "k": 1
+ },
+ "val_ruin_inscription_wall_c2": {
+  "deg": 136.9,
+  "len_px": 132.5,
+  "depth_px": 68.8,
+  "kind": "corner",
+  "family": "val_ruin_inscription_wall",
+  "k": 2
+ },
+ "val_ruin_inscription_wall_c3": {
+  "deg": 14.8,
+  "len_px": 188.0,
+  "depth_px": 68.8,
+  "kind": "corner",
+  "family": "val_ruin_inscription_wall",
+  "k": 3
+ },
+ "val_ruin_inscription_wall": {
+  "deg": 40.9,
+  "len_px": 72.3,
+  "depth_px": 51.9,
+  "kind": "seg",
+  "family": "val_ruin_inscription_wall",
+  "k": 0
+ },
+ "flo_cart_ruin_wall_a1": {
+  "deg": 176.5,
+  "len_px": 109.0,
+  "depth_px": 51.8,
+  "kind": "seg",
+  "family": "flo_cart_ruin_wall",
+  "k": 1
+ },
+ "flo_cart_ruin_wall_a2": {
+  "deg": 163.9,
+  "len_px": 99.1,
+  "depth_px": 51.9,
+  "kind": "seg",
+  "family": "flo_cart_ruin_wall",
+  "k": 2
+ },
+ "flo_cart_ruin_wall_a3": {
+  "deg": 147.5,
+  "len_px": 80.1,
+  "depth_px": 51.8,
+  "kind": "seg",
+  "family": "flo_cart_ruin_wall",
+  "k": 3
+ },
+ "flo_cart_ruin_wall_a4": {
+  "deg": 118.3,
+  "len_px": 60.3,
+  "depth_px": 51.9,
+  "kind": "seg",
+  "family": "flo_cart_ruin_wall",
+  "k": 4
+ },
+ "flo_cart_ruin_wall_a5": {
+  "deg": 76.1,
+  "len_px": 56.1,
+  "depth_px": 51.8,
+  "kind": "seg",
+  "family": "flo_cart_ruin_wall",
+  "k": 5
+ },
+ "flo_cart_ruin_wall_a6": {
+  "deg": 40.9,
+  "len_px": 72.7,
+  "depth_px": 51.9,
+  "kind": "seg",
+  "family": "flo_cart_ruin_wall",
+  "k": 6
+ },
+ "flo_cart_ruin_wall_a7": {
+  "deg": 21.3,
+  "len_px": 92.5,
+  "depth_px": 51.8,
+  "kind": "seg",
+  "family": "flo_cart_ruin_wall",
+  "k": 7
+ },
+ "flo_cart_ruin_wall_c0": {
+  "deg": 58.4,
+  "len_px": 115.6,
+  "depth_px": 68.8,
+  "kind": "corner",
+  "family": "flo_cart_ruin_wall",
+  "k": 0
+ },
+ "flo_cart_ruin_wall_c1": {
+  "deg": 171.3,
+  "len_px": 199.8,
+  "depth_px": 68.8,
+  "kind": "corner",
+  "family": "flo_cart_ruin_wall",
+  "k": 1
+ },
+ "flo_cart_ruin_wall_c2": {
+  "deg": 58.4,
+  "len_px": 115.6,
+  "depth_px": 68.8,
+  "kind": "corner",
+  "family": "flo_cart_ruin_wall",
+  "k": 2
+ },
+ "flo_cart_ruin_wall_c3": {
+  "deg": 171.3,
+  "len_px": 199.8,
+  "depth_px": 68.8,
+  "kind": "corner",
+  "family": "flo_cart_ruin_wall",
+  "k": 3
+ },
+ "flo_cart_ruin_wall": {
+  "deg": 7.7,
+  "len_px": 107.1,
+  "depth_px": 51.9,
+  "kind": "seg",
+  "family": "flo_cart_ruin_wall",
+  "k": 0
+ },
+ "nat_ruin_wall_a1": {
+  "deg": 144.4,
+  "len_px": 76.5,
+  "depth_px": 40.0,
+  "kind": "seg",
+  "family": "nat_ruin_wall",
+  "k": 1
+ },
+ "nat_ruin_wall_a2": {
+  "deg": 112.9,
+  "len_px": 57.8,
+  "depth_px": 40.0,
+  "kind": "seg",
+  "family": "nat_ruin_wall",
+  "k": 2
+ },
+ "nat_ruin_wall_a3": {
+  "deg": 70.6,
+  "len_px": 56.8,
+  "depth_px": 40.0,
+  "kind": "seg",
+  "family": "nat_ruin_wall",
+  "k": 3
+ },
+ "nat_ruin_wall_a4": {
+  "deg": 37.7,
+  "len_px": 74.6,
+  "depth_px": 40.0,
+  "kind": "seg",
+  "family": "nat_ruin_wall",
+  "k": 4
+ },
+ "nat_ruin_wall_a5": {
+  "deg": 19.3,
+  "len_px": 94.3,
+  "depth_px": 40.0,
+  "kind": "seg",
+  "family": "nat_ruin_wall",
+  "k": 5
+ },
+ "nat_ruin_wall_a6": {
+  "deg": 6.0,
+  "len_px": 106.8,
+  "depth_px": 40.0,
+  "kind": "seg",
+  "family": "nat_ruin_wall",
+  "k": 6
+ },
+ "nat_ruin_wall_a7": {
+  "deg": 175.0,
+  "len_px": 107.2,
+  "depth_px": 40.0,
+  "kind": "seg",
+  "family": "nat_ruin_wall",
+  "k": 7
+ },
+ "nat_ruin_wall_c0": {
+  "deg": 6.6,
+  "len_px": 178.3,
+  "depth_px": 53.6,
+  "kind": "corner",
+  "family": "nat_ruin_wall",
+  "k": 0
+ },
+ "nat_ruin_wall_c1": {
+  "deg": 114.7,
+  "len_px": 97.5,
+  "depth_px": 53.6,
+  "kind": "corner",
+  "family": "nat_ruin_wall",
+  "k": 1
+ },
+ "nat_ruin_wall_c2": {
+  "deg": 6.6,
+  "len_px": 178.3,
+  "depth_px": 53.6,
+  "kind": "corner",
+  "family": "nat_ruin_wall",
+  "k": 2
+ },
+ "nat_ruin_wall_c3": {
+  "deg": 114.7,
+  "len_px": 97.5,
+  "depth_px": 53.6,
+  "kind": "corner",
+  "family": "nat_ruin_wall",
+  "k": 3
+ },
+ "nat_ruin_wall": {
+  "deg": 162.0,
+  "len_px": 96.0,
+  "depth_px": 40.0,
+  "kind": "seg",
+  "family": "nat_ruin_wall",
+  "k": 0
+ }
+}

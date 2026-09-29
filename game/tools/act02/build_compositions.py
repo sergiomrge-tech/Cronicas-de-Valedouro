@@ -17,6 +17,16 @@ MAN = json.load(open(ROOT / 'data' / 'modeled_assets_manifest.json'))
 IDS = {a['id'] for a in MAN['assets']}
 
 
+_KIT = {}
+
+
+def orient_kit():
+    """Direção de corrida na tela de cada variante do kit multi-ângulo (gerado por tools/art_pipeline/orient_analyze.py)."""
+    if not _KIT:
+        _KIT.update(json.load(open(ROOT / 'data' / 'orient_kit.json')))
+    return _KIT
+
+
 class Comp:
     def __init__(self, cid, name, origin, story, tint=(.04, .16, .1, .2)):
         self.d = {'id': cid, 'name': name, 'origin': list(origin), 'story': story, 'ground_tint': list(tint), 'water': [], 'objects': [], 'captures': [], 'light_shafts': [], 'exclusions': []}
@@ -30,6 +40,28 @@ class Comp:
         self.d['objects'].append(obj)
         self.placed.append((x, y))
         return obj
+
+    def run(self, family, pts, step_gap=0.0, **kw):
+        """Encadeia peças de uma família modular ao longo de uma POLILINHA (coordenadas locais). Escolhe, para cada trecho, a variante do
+        kit multi-ângulo (data/orient_kit.json) cuja direção de corrida na tela é a mais próxima — assim muros/paliçadas fazem curvas e
+        recintos em vez de repetir a mesma diagonal. Retorna a lista de objetos criados."""
+        kit = orient_kit()
+        vs = [(v['deg'], vid, v) for vid, v in kit.items() if v['family'] == family and v['kind'] == 'seg']
+        assert vs, 'família sem kit: ' + family
+        made = []
+        for (x0, y0), (x1, y1) in zip(pts[:-1], pts[1:]):
+            dx, dy = x1 - x0, y1 - y0
+            dist = math.hypot(dx, dy)
+            if dist < 1:
+                continue
+            want = math.degrees(math.atan2(dy, dx)) % 180.0
+            deg, vid, v = min(vs, key=lambda t: min(abs(t[0] - want), 180 - abs(t[0] - want)))
+            seg = max(24.0, v['len_px'] + step_gap)
+            n = max(1, int(round(dist / seg)))
+            for i in range(n):
+                t = (i + .5) / n
+                made.append(self.add(vid, x0 + dx * t, y0 + dy * t, **kw))
+        return made
 
     def exclude_rect(self, x, y, w, h):
         self.d['exclusions'].append({'rect': [x, y, w, h]})
@@ -136,13 +168,14 @@ r.add('nat_campfire', 480, 440, anim=1)
 r.add('nat_log_fallen', 420, 462, layer='ground')
 r.add('flo_claw_tree', 880, 320, scale=.75)                   # árvore arranhada pelo ataque
 # paliçada orgânica: trechos parciais em arco, nunca um muro contínuo
-for x, y, flip in ((90, 360, False), (150, 420, False), (210, 470, False), (760, 500, True), (830, 490, True)):
-    r.add('flo_palisade_organic', x, y, flip=flip, show_when='quest:Q_MS02_RANGERS')          # reparada (pós-defesa)
-    r.add('flo_palisade_broken', x, y, flip=flip, hide_when='quest:Q_MS02_RANGERS')           # quebrada (pré/durante)
-r.add('flo_palisade_organic', 100, 300)
-r.add('flo_palisade_organic', 850, 350, flip=True)
-r.add('flo_barricade_improvised', 250, 480, hide_when='quest:Q_MS02_RANGERS')
-r.add('flo_barricade_improvised', 660, 490, hide_when='quest:Q_MS02_RANGERS', flip=True)
+_DEF = 'quest:Q_MS02_RANGERS'
+_pal_w = [(40, 250), (70, 320), (120, 380), (190, 430), (270, 470), (340, 500)]                # arco oeste da paliçada
+_pal_e = [(920, 260), (890, 330), (850, 400), (790, 455), (720, 490), (650, 510)]              # arco leste
+for _pts in (_pal_w, _pal_e):
+    r.run('flo_palisade_organic', _pts, show_when=_DEF, step_gap=26)        # reparada (pós-defesa)
+    r.run('flo_palisade_broken', _pts, hide_when=_DEF, step_gap=26)         # quebrada (pré/durante)
+r.run('flo_barricade_improvised', [(330, 505), (400, 520)], hide_when=_DEF)
+r.run('flo_barricade_improvised', [(560, 520), (630, 505)], hide_when=_DEF)
 # pontos claros de entrada das criaturas (durante a defesa): pegadas de Eco e mato pisoteado
 for x, y in ((60, 460), (900, 510)):
     r.add('flo_root_run', x, y, show_when='quest:Q_MS02_RANGERS:active', layer='ground')
@@ -252,10 +285,7 @@ h.d['ground_solid'] = [.05, .09, .06]
 h.add('flo_heart_floor', 480, 330, layer='ground', scale=1.15)
 h.add('flo_heart_seed', 480, 330, hide_when='quest:Q_MS02_MEMORY_TREE:active')
 h.add('flo_heart_seed_active', 480, 330, show_when='quest:Q_MS02_MEMORY_TREE:active')
-for k in range(0, 5):                                   # coração em V angulado: raízes vivas nas duas diagonais isométricas
-    h.add('flo_heart_wall_diag', 480 + 84 * k, 150 + 42 * k)
-    if k > 0:
-        h.add('flo_heart_wall_diagb', 480 - 84 * k, 150 + 42 * k)
+h.run('flo_heart_wall', [(480 + 380 * math.cos(math.radians(a)), 345 - 200 * math.sin(math.radians(a))) for a in range(10, 171, 10)])   # parede viva CURVA (a árvore por dentro), kit multi-ângulo
 h.add('flo_memory_root_arch', 110, 330, scale=.8)
 h.add('flo_memory_root_arch', 860, 340, scale=.8, flip=True)
 for i, (x, y) in enumerate(((300, 400), (660, 400), (240, 330), (720, 330))):
@@ -277,12 +307,14 @@ a = Comp('LOC_HOLLOW_ROOT_ARENA', 'Coração da Raiz Oca — arena', (380, 130),
 a.d['ground_solid'] = [.06, .05, .09]
 a.exclude_circle(480, 340, 250)                        # campo de combate livre de props
 # fundo em V angulado (eixos isométricos): lado direito desce em +Y (diagonal ↘), lado esquerdo em -X espelhado (diagonal ↙); frente aberta para a câmera
-for k in range(0, 5):
-    a.add('flo_hollow_wall_active_diag', 480 + 84 * k, 150 + 42 * k, hide_when=BOSS)
-    a.add('flo_hollow_wall_dormant_diag', 480 + 84 * k, 150 + 42 * k, show_when=BOSS)
-    if k > 0:
-        a.add('flo_hollow_wall_active_diagb', 480 - 84 * k, 150 + 42 * k, hide_when=BOSS)
-        a.add('flo_hollow_wall_dormant_diagb', 480 - 84 * k, 150 + 42 * k, show_when=BOSS)
+def arc_pts(cx, cy, rx, ry, a0, a1, n):
+    """Polilinha em arco (elipse 2:1 = círculo em perspectiva isométrica), para muros curvos."""
+    return [(cx + rx * math.cos(math.radians(a0 + (a1 - a0) * i / n)), cy - ry * math.sin(math.radians(a0 + (a1 - a0) * i / n))) for i in range(n + 1)]
+
+
+_arena_arc = arc_pts(480, 375, 400, 215, 5, 175, 14)                # muro CURVO envolvendo o fundo do campo (kit multi-ângulo: 8 direções)
+a.run('flo_hollow_wall_active', _arena_arc, hide_when=BOSS)
+a.run('flo_hollow_wall_dormant', _arena_arc, show_when=BOSS)
 a.add('flo_hollow_floor_active', 480, 350, layer='ground', hide_when=BOSS)
 a.add('flo_hollow_floor_dormant', 480, 350, layer='ground', show_when=BOSS)
 a.add('flo_hollow_core_active', 480, 352, hide_when=BOSS)
