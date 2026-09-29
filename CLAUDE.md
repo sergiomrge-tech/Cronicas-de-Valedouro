@@ -14,6 +14,7 @@ Este repositório é a fonte técnica colaborativa de **Crônicas de Valedouro**
 - Vegetação procedural deve respeitar exclusões de estradas, portas, pontes, NPCs, triggers, arenas e caminhos mínimos.
 - Árvores finais precisam ser refinadas, com volume de copa, luz/sombra e sombra de contato no chão; não aceitar árvores chapadas ou genéricas.
 - Não usar os assets Claude `REWORKED`/`HOLD` em produção sem novo gate visual. Apenas `APPROVED` pode ser candidato à integração.
+- Ao posicionar/mover construções, vilas, marcos e entradas de dungeon: seguir `.claude/skills/valedouro-map-logic/SKILL.md` (teste "por que aqui?", ligação missão ↔ lugar) e rodar `game/tools/reg001/audit_logic.py`.
 - Antes de liberar ZIP jogável: parser/runtime Godot 4.7.2, smoke test, referências, higiene, CRC/SHA e fluxo crítico.
 
 ## Estado atual
