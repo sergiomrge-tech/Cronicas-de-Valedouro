@@ -491,5 +491,77 @@
    500
   ],
   "time": 3.7
+ },
+ {
+  "name": "59_transicao_bosque_pradaria",
+  "zone": "cidade",
+  "pos": [
+   1040,
+   640
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "60_transicao_floresta_campos",
+  "zone": "cidade",
+  "pos": [
+   420,
+   1580
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "61_transicao_pradaria_deserto",
+  "zone": "cidade",
+  "pos": [
+   2760,
+   1380
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "62_transicao_gelo_pradaria",
+  "zone": "cidade",
+  "pos": [
+   2800,
+   860
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "63_relevo_gelo_muralha",
+  "zone": "cidade",
+  "pos": [
+   2110,
+   340
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "64_relevo_deserto_canyon",
+  "zone": "cidade",
+  "pos": [
+   2700,
+   1720
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "65_relevo_vale_crista",
+  "zone": "cidade",
+  "pos": [
+   1050,
+   1700
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "66_relevo_campos_colinas",
+  "zone": "cidade",
+  "pos": [
+   260,
+   1720
+  ],
+  "time": 3.7
  }
 ]
