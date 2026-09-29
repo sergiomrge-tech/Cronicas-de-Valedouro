@@ -347,5 +347,149 @@
    1400
   ],
   "time": 3.7
+ },
+ {
+  "name": "43_torre_oeste",
+  "zone": "cidade",
+  "pos": [
+   360,
+   1190
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "44_moinho_vale",
+  "zone": "cidade",
+  "pos": [
+   1110,
+   1960
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "45_posto_ambar",
+  "zone": "cidade",
+  "pos": [
+   2690,
+   1880
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "46_abrigo_geada",
+  "zone": "cidade",
+  "pos": [
+   2700,
+   680
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "47_santuario_vale",
+  "zone": "cidade",
+  "pos": [
+   1660,
+   2090
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "48_cais_rio",
+  "zone": "cidade",
+  "pos": [
+   2160,
+   1490
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "49_fazenda_celeiro",
+  "zone": "cidade",
+  "pos": [
+   420,
+   2160
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "50_elevacoes_gelo",
+  "zone": "cidade",
+  "pos": [
+   2400,
+   300
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "51_elevacoes_deserto",
+  "zone": "cidade",
+  "pos": [
+   2700,
+   1600
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "52_fauna_bosque_campos",
+  "zone": "cidade",
+  "pos": [
+   520,
+   720
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "53_fauna_deserto_camelos",
+  "zone": "cidade",
+  "pos": [
+   2660,
+   1780
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "54_fauna_gelo_cabras",
+  "zone": "cidade",
+  "pos": [
+   2630,
+   470
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "55_npc_viajante_cartografa",
+  "zone": "cidade",
+  "pos": [
+   1470,
+   570
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "56_fauna_rio_peixes",
+  "zone": "cidade",
+  "pos": [
+   2215,
+   1000
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "57_colinas_leste_elevacoes",
+  "zone": "cidade",
+  "pos": [
+   2760,
+   1010
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "58_bosque_arvores_novas",
+  "zone": "cidade",
+  "pos": [
+   1000,
+   500
+  ],
+  "time": 3.7
  }
 ]

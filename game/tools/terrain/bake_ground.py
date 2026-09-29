@@ -148,7 +148,7 @@ def build_terrain_ids(x0, y0, w, h, trails_mask, ford_mask, seeds):
     # gelo
     ter = np.where(bio == 1, np.where(gt(patch1, .74, bay), IDX['ice'], np.where(gt(patch3, .93, bay, .04), IDX['stone'], IDX['snow'])), ter)
     # deserto
-    ter = np.where(bio == 2, np.where(gt(patch1, .48, bay, .1), IDX['sand_dune'], np.where(gt(patch3, .94, bay, .04), IDX['stone'], np.where(gt(patch2, .92, bay, .04), IDX['dirt'], IDX['sand']))), ter)
+    ter = np.where(bio == 2, np.where(gt(patch3, .94, bay, .04), IDX['stone'], np.where(gt(patch2, .92, bay, .04), IDX['dirt'], IDX['sand'])), ter)
     # margem/água (geometria exata do rio, sem warp): água profunda, rasa, margem
     rx = river_x_v(yy)
     hw = river_hw_v(yy)
@@ -214,6 +214,32 @@ def colorize(ter, textures, x0, y0, seeds):
             else:
                 col = sample_tex(tex, xx, yy, sh)
             out[mk] = col[mk]
+    out = shade_dunes(out, ter, seeds, x0, y0, w, h, bay)
+    return out
+
+
+def shade_dunes(out, ter, seeds, x0, y0, w, h, bay):
+    """Dunas (deserto) e derivas de neve (gelo) com direção do vento: barlavento suave e claro, sotavento íngreme e escuro,
+    crista com filete de luz; amplitude macro varia o porte e deixa áreas planas. Luz principal: alto-esquerda."""
+    for names, fld, amp_key, period, lee_dark, tint in ((('sand',), 'dune', 'dune_amp', 4.2, .66, (1.0, .85, .75)), (('snow', 'ice'), 'drift', 'drift_amp', 2.4, .84, (.88, .93, 1.05))):
+        m = np.isin(ter, [IDX[n] for n in names])
+        if not m.any() or fld not in seeds:
+            continue
+        D = seeds[fld][y0:y0 + h, x0:x0 + w]
+        A = seeds[amp_key][y0:y0 + h, x0:x0 + w]
+        ph = (D * period) % 1.0
+        strength = np.clip((A - .28) * 3.2, 0, 1)
+        on = strength > (bay * .8 + .1)                      # dither de entrada/saída das dunas
+        lee = ph >= .72
+        crest = (ph >= .68) & (ph < .74)
+        f = np.where(lee, lee_dark + (1 - lee_dark) * (1 - (ph - .72) / .28) * .35, 1.03 + .12 * ph / .72)
+        f = np.where(crest, 1.22, f)
+        f = 1 + (f - 1) * np.where(on, 1.0, 0.0)
+        tint_a = np.array(tint, dtype=np.float32)
+        col = out.astype(np.float32) * f[..., None]
+        col = np.where(lee[..., None] & on[..., None], col * tint_a, col)
+        res = np.clip(col, 0, 255).astype(np.uint8)
+        out = np.where(m[..., None], res, out)
     return out
 
 
@@ -283,6 +309,15 @@ def make_seeds(w, h):
     s['p3'] = smooth_field(w, h, 34, 26, 108, 2)
     s['macro'] = smooth_field(w, h, 6, 5, 109)
     s['road_soft'] = smooth_field(w, h, 160, 120, 110)
+    # dunas: cristas alongadas cisalhadas pelo vento (fase), amplitude macro que varia o tamanho/some em manchas planas
+    base = smooth_field(w, h, 22, 9, 111, 2)
+    yy_i = np.arange(h)[:, None]
+    xx_i = np.arange(w)[None, :]
+    s['dune'] = base[yy_i, (xx_i + (yy_i * .55).astype(np.int32)) % w]
+    s['dune_amp'] = smooth_field(w, h, 7, 6, 112, 2)
+    drift = smooth_field(w, h, 30, 8, 113, 2)
+    s['drift'] = drift[yy_i, (xx_i + (yy_i * .35).astype(np.int32)) % w]
+    s['drift_amp'] = smooth_field(w, h, 8, 6, 114, 2)
     return s
 
 

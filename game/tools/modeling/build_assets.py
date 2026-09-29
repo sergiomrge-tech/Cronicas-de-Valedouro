@@ -22,6 +22,15 @@ SHEETS = GAME.parent / 'docs' / 'visual_qa'
 DEFAULT_STATUS = 'MODELED_PENDING_GATE'
 
 
+def pro_ids():
+    f = GAME / 'data' / 'modeled_parts' / 'pro.json'
+    ids = {e['id'] for e in json.loads(f.read_text(encoding='utf-8'))} if f.exists() else set()
+    reg = GAME / 'data' / 'pro_registry_ids.json'
+    if reg.exists():
+        ids |= set(json.loads(reg.read_text(encoding='utf-8')))
+    return ids
+
+
 def load_modules():
     for name in MODULES:
         if (HERE / f'{name}.py').exists():
@@ -59,7 +68,8 @@ def main(argv):
         else:
             filters.append(a)
     load_modules()
-    specs = [s for s in REGISTRY if not filters or any(s.id.startswith(f) for f in filters)]
+    skip = pro_ids()
+    specs = [s for s in REGISTRY if s.id not in skip and (not filters or any(s.id.startswith(f) for f in filters))]
     tiles = []
     entries = {}
     for spec in specs:

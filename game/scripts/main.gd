@@ -10,6 +10,7 @@ const LOOT = preload("res://scripts/loot_system.gd")
 const REG = preload("res://scripts/reg001_world.gd")
 const PROC = preload("res://scripts/reg001_procedural.gd")
 const REGR = preload("res://scripts/reg001_render.gd")
+const LIFE = preload("res://scripts/life_art.gd")
 const REGG = preload("res://scripts/reg001_gameplay.gd")
 const MODELED = preload("res://scripts/modeled_assets.gd")
 const GROUND = preload("res://scripts/ground_bake.gd")
@@ -1064,13 +1065,7 @@ func _draw() -> void:
 
 func draw_overworld(camera: Vector2, _x_start: int, _x_end: int, _y_start: int, _y_end: int) -> void:
 	# Água, margens, estradas e pontes vêm do chão assado; brilhos/espuma são sprites (camada REG_001).
-	# Cascata: queda animada (efeito); as rochas laterais são objetos modelados da REG_001.
-	var falls: Vector2 = Vector2(MAP.river_x(471.0), 471.0)
-	if camera.distance_to(falls) < 820:
-		for i in 10:
-			var fx: float = falls.x - 50.0 + i * 11.0
-			var drift: float = fposmod(time_acc * 41.0 + i * 9.0, 35.0)
-			draw_line(Vector2(fx, falls.y - 8 + drift), Vector2(fx - 3, falls.y + 29 + drift), Color(.78, .94, .99, .9), 3)
+	# A Cachoeira da Aurora é o landmark modelado nat_waterfall_front (animado, com lagoa, espuma e névoa).
 
 	# Marcos: torres, moinho, postos e santuário são str_* modelados (REG_001); aqui só os rótulos.
 	for entry in MAP.STRUCTURES:
@@ -1184,13 +1179,20 @@ func draw_world_structure(entry: Dictionary) -> void:
 func draw_animals(camera: Vector2) -> void:
 	for creature in animals:
 		var p: Vector2 = creature["pos"]
-		if not Rect2(camera - Vector2(40, 40), VIEW_SIZE + Vector2(80, 80)).has_point(p):
+		if not Rect2(camera - Vector2(60, 60), VIEW_SIZE + Vector2(120, 120)).has_point(p):
 			continue
 		var kind: String = creature["kind"]
+		var facing_right: bool = cos(float(creature["angle"])) >= 0
+		var lift: float = 0.0
+		if kind == "bird":
+			lift = 26.0 + sin(float(creature["phase"])) * 3.0
+		if LIFE.draw_animal(self, kind, p - Vector2(0, lift), facing_right, float(creature["phase"]), true):
+			continue
+		# reserva (arte legada) caso a folha modelada não esteja disponível
 		if kind != "fish" and kind != "bird":
 			draw_shadow_oval(p + Vector2(0, 8), Vector2(12, 4), Color(0, 0, 0, .22))
 		var bob: float = sin(float(creature["phase"])) * (3.0 if kind == "bird" else 1.5)
-		var flip: float = -1.0 if cos(float(creature["angle"])) < 0 else 1.0
+		var flip: float = -1.0 if not facing_right else 1.0
 		draw_set_transform(p - camera, 0, Vector2(flip, 1))
 		if kind == "bird":
 			var frame: int = int(float(creature["phase"]) * 1.3) % 4
@@ -1221,6 +1223,8 @@ func draw_ambient_life(camera: Vector2) -> void:
 			var drift: float = fposmod(lx + time_acc * 32.0, VIEW_SIZE.x)
 			draw_line(camera + Vector2(drift, ly), camera + Vector2(drift + 13, ly - 2), Color(.94, .82, .55, .24), 1)
 
+const TOWN_FAMILIES: Array[String] = ["villager_m", "villager_f", "merchant", "child", "elder", "guard", "villager_f", "villager_m", "farmer", "shopkeeper"]
+
 func draw_town_life(camera: Vector2) -> void:
 	# Pessoas, banca de mercado, iluminação e pequenos props tornam a cidade habitada.
 	var npc_local: Array[Vector2] = [
@@ -1233,6 +1237,10 @@ func draw_town_life(camera: Vector2) -> void:
 		var walk: Vector2 = Vector2(sin(time_acc * (.45 + i * .03) + i) * 18.0, cos(time_acc * (.31 + i * .02) + i * .7) * 8.0)
 		var p: Vector2 = base + walk
 		if not Rect2(camera - Vector2(48, 64), VIEW_SIZE + Vector2(96, 128)).has_point(p):
+			continue
+		var p_next: Vector2 = base + Vector2(sin((time_acc + .1) * (.45 + i * .03) + i) * 18.0, cos((time_acc + .1) * (.31 + i * .02) + i * .7) * 8.0)
+		var family: String = TOWN_FAMILIES[i % TOWN_FAMILIES.size()]
+		if LIFE.draw_npc(self, family, p, p_next - p, true, time_acc, float(i) * .37):
 			continue
 		draw_shadow_oval(p + Vector2(0, 4), Vector2(11, 4), Color(0, 0, 0, .28))
 		var frame: int = int(time_acc * 5.0 + i * 2) % 8
@@ -1343,36 +1351,77 @@ func draw_crypt() -> void:
 
 func draw_interior() -> void:
 	var room_size: Vector2 = FORGE_SIZE if zone == "ferreiro" else SIZE
-	# Pisos e muralhas dos interiores usam as peças APPROVED de Cidade; o mobiliário é modelado (REG_001).
-	var floor_main: Texture2D = null
-	var floor_alt: Texture2D = null
-	for row in 31:
-		for column in 23:
-			var ground: Vector2 = Vector2(35.0 + column * 70.0 + float(row % 2) * 35.0, 72.0 + row * 35.0)
-			if ground.x > room_size.x + 90.0 or ground.y > room_size.y + 90.0:
-				continue
-			var seed: int = MAP.cell_hash(column + 1300, row + 1500)
-			if floor_main != null:
-				var floor_tex: Texture2D = floor_alt if seed % 6 == 0 else floor_main
-				draw_texture_rect(floor_tex, Rect2(ground - Vector2(124.0 * .58, 140.0 * .58), Vector2(248.0, 140.0) * .58), false)
-			else:
+	# Piso modelado (tábuas/lajes com padrão contínuo) em malha de losangos 2:1; fallback: pisos APPROVED de Cidade.
+	var floor_id: String = "int_floor_stone" if zone == "ferreiro" else "int_floor_wood_dark" if zone == "alquimia" else "int_floor_wood"
+	var floor_tex: Texture2D = MODELED.texture(floor_id)
+	if floor_tex != null:
+		var rows_n: int = int(room_size.y / 31.0) + 4
+		var cols_n: int = int(room_size.x / 124.0) + 3
+		for row in rows_n:
+			for column in cols_n:
+				var center: Vector2 = Vector2(float(column) * 124.0 + (62.0 if row % 2 == 1 else 0.0) - 62.0, float(row) * 31.0 - 31.0)
+				draw_texture_rect(floor_tex, Rect2(center - Vector2(62.0, 35.0), Vector2(124.0, 70.0)), false)
+	else:
+		for row in 31:
+			for column in 23:
+				var ground: Vector2 = Vector2(35.0 + column * 70.0 + float(row % 2) * 35.0, 72.0 + row * 35.0)
+				if ground.x > room_size.x + 90.0 or ground.y > room_size.y + 90.0:
+					continue
+				var seed: int = MAP.cell_hash(column + 1300, row + 1500)
 				draw_approved_visual("city_floor_moss" if seed % 13 == 0 else "city_floor_worn" if seed % 4 == 0 else "city_floor_clean", ground, .58)
-	for wall_index in 9:
-		draw_approved_visual("city_wall_vegetation" if wall_index % 4 == 0 else "city_wall", Vector2(120.0 + wall_index * 110.0, 190), .52)
+	draw_interior_walls(room_size)
 	if zone == "loja":
-		draw_interior_person(Vector2(520, 500), Color(.9, .78, .6), 4)
+		draw_interior_person(Vector2(520, 500), Color(.9, .78, .6), 4, "shopkeeper")
 	elif zone == "guilda":
-		draw_approved_visual("city_gate", Vector2(480, 350), .58)
-		draw_interior_person(Vector2(335, 500), Color(.78, .68, .9), 4)
-		draw_interior_person(Vector2(625, 500), Color(.65, .82, .7), 4)
+		draw_interior_person(Vector2(335, 500), Color(.78, .68, .9), 4, "guildmaster")
+		draw_interior_person(Vector2(625, 500), Color(.65, .82, .7), 4, "guard")
 	elif zone == "ferreiro":
-		draw_interior_person(Vector2(700, 500), Color(.82, .68, .55), 0)
+		draw_interior_person(Vector2(700, 500), Color(.82, .68, .55), 0, "smith")
 	elif zone == "alquimia":
-		draw_interior_person(Vector2(480, 500), Color(.64, .52, .86), 0)
+		draw_interior_person(Vector2(480, 500), Color(.64, .52, .86), 0, "alchemist")
 	draw_label(zone.to_upper(), Vector2(400, 113))
 	draw_label("E conversar  •  ↓ sair", Vector2(386, 637), Color.WHITE)
 
-func draw_interior_person(p: Vector2, tint: Color, facing_index: int = 0) -> void:
+const INTERIOR_BAYS: Dictionary = {
+	"guilda": ["window", "plain", "niche", "window", "plain", "door", "plain", "window", "niche", "plain", "window", "plain", "niche"],
+	"ferreiro": ["window", "plain", "hearth", "plain", "window", "niche", "plain", "window", "plain", "hearth", "plain", "window", "niche", "plain", "window", "plain", "hearth", "plain", "window", "plain", "niche"],
+	"alquimia": ["niche", "window", "niche", "plain", "window", "door", "window", "plain", "niche", "window", "niche", "plain", "niche"],
+	"loja": ["window", "niche", "plain", "niche", "window", "door", "window", "niche", "plain", "niche", "window", "plain", "niche"]
+}
+
+func draw_interior_walls(room_size: Vector2) -> void:
+	# Parede de fundo em baias modeladas (vigas, enxaimel, janelas, nichos, lareira) + postes de canto; fallback: muralha APPROVED.
+	var pattern: Array = INTERIOR_BAYS.get(zone, INTERIOR_BAYS["guilda"]) as Array
+	var bay_tex: Texture2D = MODELED.texture("int_wall_plain")
+	if bay_tex == null:
+		for wall_index in 9:
+			draw_approved_visual("city_wall_vegetation" if wall_index % 4 == 0 else "city_wall", Vector2(120.0 + wall_index * 110.0, 190), .52)
+		return
+	var bay_w: float = 72.0
+	var count: int = int(ceil(room_size.x / bay_w))
+	for i in count:
+		var kind: String = str(pattern[i % pattern.size()])
+		var tex: Texture2D = MODELED.texture("int_wall_" + kind)
+		if tex == null:
+			continue
+		var entry: Dictionary = MODELED.entry("int_wall_" + kind)
+		var fs: Array = entry["frame_size"]
+		var anchor: Array = entry["foot"]
+		var ds: float = float(entry.get("draw_scale", .5))
+		var foot: Vector2 = Vector2(bay_w * .5 + i * bay_w, 236.0)
+		draw_texture_rect(tex, Rect2(foot - Vector2(float(anchor[0]), float(anchor[1])) * ds, Vector2(float(fs[0]), float(fs[1])) * ds), false)
+	var post_tex: Texture2D = MODELED.texture("int_post")
+	if post_tex != null:
+		var pe: Dictionary = MODELED.entry("int_post")
+		var pfs: Array = pe["frame_size"]
+		var pa: Array = pe["foot"]
+		var pds: float = float(pe.get("draw_scale", .5))
+		for px in [0.0, room_size.x]:
+			draw_texture_rect(post_tex, Rect2(Vector2(px, 240.0) - Vector2(float(pa[0]), float(pa[1])) * pds, Vector2(float(pfs[0]), float(pfs[1])) * pds), false)
+
+func draw_interior_person(p: Vector2, tint: Color, facing_index: int = 0, family: String = "") -> void:
+	if not family.is_empty() and LIFE.draw_npc(self, family, p, Vector2(0, 1), false, time_acc, p.x * .01):
+		return
 	draw_shadow_oval(p + Vector2(0, 4), Vector2(11, 4), Color(0, 0, 0, .28))
 	var frame: int = int(time_acc * 4.0 + p.x * .01) % 8
 	var src: Rect2 = Rect2(Vector2(frame * 48, facing_index * 56), Vector2(48, 56))

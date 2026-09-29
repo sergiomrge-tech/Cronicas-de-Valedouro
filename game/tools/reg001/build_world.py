@@ -155,7 +155,7 @@ P('REG001_POI_MIRANTE_NORTE', 'viewpoint', 'MIRANTE DA TORRE DO NORTE', 1320, 34
   data={'text': 'Torre do Norte: a estrada segue até o Portal do Bosque. A oeste, ruínas e uma clareira sombria.', 'reveal': ['REG001_POI_RUINAS_PRIMEIRO_VENTO', 'REG001_POI_ELITE_BOSQUE']})
 W.obj('nat_flag_red', 1370, 370, 'MIRANTE_N', anim=1)
 P('REG001_POI_VIAJANTE_NORTE', 'npc', 'VIAJANTE', 1470, 520, tier=1, layer='secondary', radius=70, region='floresta',
-  data={'npc': 'traveler', 'tint': [.78, .9, .7], 'name': 'Mara, a Cartógrafa',
+  data={'npc': 'traveler', 'tint': [.78, .9, .7], 'name': 'Mara, a Cartógrafa', 'family': 'traveler',
         'lines': ['Estou mapeando o Bosque do Primeiro Vento.', 'Dizem que uma passagem se esconde atrás dos arbustos a noroeste.', 'Há uma cripta esquecida no Vale dos Lírios.'],
         'path': [[1470, 520], [1500, 545], [1440, 560]]})
 W.obj('nat_tent_small', 1425, 505, 'VIAJ_N')
@@ -183,7 +183,7 @@ trail('REG001_TRAIL_VALE_FORD', [(1590, 1900), (1760, 1890), (1900, 2000), (1965
 
 # --- Vila dos Campos (assentamento com casas APPROVED)
 P('REG001_POI_VILA_CAMPOS', 'settlement', 'VILA DOS CAMPOS', 535, 1880, tier=1, layer='main', radius=230, region='campos',
-  data={'npc': 'farmer', 'name': 'Dona Alma', 'lines': ['Os limos andam ariscos nos campos.', 'Meu espantalho cansou de vigiar, mas os corvos têm medo dele.']})
+  data={'npc': 'farmer', 'name': 'Dona Alma', 'family': 'farmer', 'lines': ['Os limos andam ariscos nos campos.', 'Meu espantalho cansou de vigiar, mas os corvos têm medo dele.']})
 W.house(440, 1900, 'city_roof_wood', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
 W.house(540, 1830, 'city_roof_blue', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
 W.house(650, 1905, 'city_roof_red', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
@@ -217,7 +217,7 @@ P('REG001_POI_CHEST_FAZENDA', 'chest', 'BAÚ DA FAZENDA', 236, 2050, tier=1, lay
 
 # --- Aldeia do Vale + Moinho + Santuário
 P('REG001_POI_ALDEIA_VALE', 'settlement', 'ALDEIA DO VALE', 1330, 1760, tier=1, layer='main', radius=200, region='vale',
-  data={'npc': 'miller', 'name': 'Tio Bento', 'lines': ['O moinho gira sozinho quando o vento do bosque sopra.', 'A cripta ao sul não é lugar para curiosos... mas há tesouros.']})
+  data={'npc': 'miller', 'name': 'Tio Bento', 'family': 'miller', 'lines': ['O moinho gira sozinho quando o vento do bosque sopra.', 'A cripta ao sul não é lugar para curiosos... mas há tesouros.']})
 W.house(1290, 1690, 'city_roof_blue', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
 W.house(1375, 1840, 'city_roof_red', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
 W.house(1170, 1790, 'city_roof_wood', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
@@ -233,9 +233,7 @@ W.obj('nat_signpost', 1610, 1745, 'ALDEIA_V')
 
 P('REG001_POI_SANTUARIO_VALE', 'shrine', 'SANTUÁRIO DO VALE', 1660, 2010, tier=1, layer='secondary', radius=150, region='vale',
   data={'heal': True, 'lore': 'REG001_LORE_07', 'hint': 'A luz do santuário restaura suas forças.'})
-for i in range(5):
-    a = -1.2 + i * .6
-    W.obj('nat_ruin_column', 1660 + math.cos(a) * 118, 2010 + math.sin(a) * 90, 'SANT_V')
+# (o santuário modelado str_shrine_stone já traz seus próprios pilares)
 W.obj('nat_flowers_blue', 1620, 2085, 'SANT_V')
 W.obj('nat_flowers_blue', 1730, 2080, 'SANT_V')
 W.obj('nat_bush_flowering', 1630, 1950, 'SANT_V')
@@ -277,7 +275,7 @@ trail('REG001_TRAIL_ABRIGO', [(2510, 640), (2600, 640), (2660, 610)], note='rama
 
 # --- Pouso da Geada (assentamento de tendas)
 P('REG001_POI_POUSO_GEADA', 'settlement', 'POUSO DA GEADA', 2460, 560, tier=2, layer='main', radius=190, region='gelo',
-  data={'npc': 'hunter', 'name': 'Kaya, Caçadora', 'lines': ['O golem dorme no círculo de gelo ao norte.', 'Cristais raros crescem onde o vento não chega.']})
+  data={'npc': 'hunter', 'name': 'Kaya, Caçadora', 'family': 'hunter', 'lines': ['O golem dorme no círculo de gelo ao norte.', 'Cristais raros crescem onde o vento não chega.']})
 W.obj('nat_tent_frost', 2400, 540, 'POUSO', poi='REG001_POI_POUSO_GEADA')
 W.obj('nat_tent_frost', 2440, 620, 'POUSO')
 W.obj('nat_tent_small', 2380, 610, 'POUSO')
@@ -339,7 +337,7 @@ W.obj('nat_rock_snow', 2860, 680, 'MIRANTE_G')
 # ============================================================================================
 trail('REG001_TRAIL_COLINAS', [(2560, 1250), (2610, 1180), (2680, 1120)], note='ramal à estação das colinas')
 P('REG001_POI_ESTACAO_LESTE', 'settlement', 'ESTAÇÃO DAS COLINAS', 2700, 1100, tier=2, layer='secondary', radius=160, region='pradaria',
-  data={'npc': 'traveler', 'name': 'Ruan, Mercador Viajante', 'tint': [.95, .8, .55], 'lines': ['Levo peles do gelo até as caravanas do deserto.', 'Siga as bandeiras: elas marcam os caminhos seguros.'],
+  data={'npc': 'traveler', 'name': 'Ruan, Mercador Viajante', 'family': 'merchant', 'tint': [.95, .8, .55], 'lines': ['Levo peles do gelo até as caravanas do deserto.', 'Siga as bandeiras: elas marcam os caminhos seguros.'],
         'path': [[2700, 1110], [2740, 1130], [2670, 1140]]})
 W.obj('nat_tent_small', 2650, 1080, 'ESTACAO', poi='REG001_POI_ESTACAO_LESTE')
 W.obj('nat_campfire', 2710, 1120, 'ESTACAO', anim=1)
@@ -360,7 +358,7 @@ trail('REG001_TRAIL_DUNAS', [(2450, 1840), (2440, 1960), (2430, 2040)], note='ra
 trail('REG001_TRAIL_OASIS', [(2690, 1840), (2790, 1900), (2870, 1990), (2900, 2035)], note='rota ao oásis')
 
 P('REG001_POI_CARAVANA', 'settlement', 'CARAVANA DE ÂMBAR', 2520, 1590, tier=2, layer='main', radius=190, region='deserto',
-  data={'npc': 'merchant', 'name': 'Sahir, Caravaneiro', 'lines': ['As dunas engolem os descuidados.', 'O Posto de Âmbar vende água e histórias.']})
+  data={'npc': 'merchant', 'name': 'Sahir, Caravaneiro', 'family': 'merchant', 'lines': ['As dunas engolem os descuidados.', 'O Posto de Âmbar vende água e histórias.']})
 W.obj('nat_tent_red', 2470, 1580, 'CARAVANA', poi='REG001_POI_CARAVANA')
 W.obj('nat_tent_red', 2560, 1640, 'CARAVANA')
 W.obj('nat_tent_small', 2600, 1570, 'CARAVANA')
@@ -549,6 +547,34 @@ room('loja', 'int_sacks', 210, 500)
 room('loja', 'city_crates', 780, 500)
 room('loja', 'city_barrels', 220, 590)
 room('loja', 'int_rug_round', 480, 570, layer='ground')
+
+
+# composição extra dos interiores: pontos focais, apoio, props pequenos e áreas livres de circulação
+room('guilda', 'city_planter', 130, 300)
+room('guilda', 'city_planter', 830, 300)
+room('guilda', 'int_rug_round', 480, 470, layer='ground', scale=1.9)
+room('guilda', 'int_stool', 700, 440)
+room('guilda', 'int_stool', 880, 440)
+room('guilda', 'city_barrels', 120, 610)
+room('guilda', 'city_crates', 860, 620)
+room('guilda', 'int_candle_stand', 300, 520, anim=1)
+room('ferreiro', 'city_planter', 380, 560)
+room('ferreiro', 'int_rug_round', 760, 560, layer='ground', scale=1.8)
+room('ferreiro', 'city_barrels', 300, 460)
+room('ferreiro', 'city_crates', 1200, 610)
+room('ferreiro', 'int_stool', 840, 470)
+room('ferreiro', 'int_candle_stand', 540, 500, anim=1)
+room('alquimia', 'city_planter', 130, 470)
+room('alquimia', 'city_planter', 830, 400)
+room('alquimia', 'int_table_round', 470, 400)
+room('alquimia', 'int_stool', 400, 440)
+room('alquimia', 'int_stool', 540, 440)
+room('alquimia', 'city_barrels', 130, 600)
+room('loja', 'city_planter', 130, 430)
+room('loja', 'city_planter', 830, 430)
+room('loja', 'int_stool', 380, 480)
+room('loja', 'city_barrels', 840, 610)
+room('loja', 'int_candle_stand', 520, 320, anim=1)
 
 # ============================================================================================
 # MASMORRA DO GUARDIÃO — ambientação com módulos modelados (layout em coordenadas locais)

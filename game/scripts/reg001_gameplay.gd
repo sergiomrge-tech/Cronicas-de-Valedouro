@@ -5,6 +5,9 @@ extends RefCounted
 
 const REG = preload("res://scripts/reg001_world.gd")
 const MAP = preload("res://scripts/world_map.gd")
+const LIFE = preload("res://scripts/life_art.gd")
+const MODELED = preload("res://scripts/modeled_assets.gd")
+const FX_LIFE: float = .95
 
 const INTERACT_PRIORITY: Array = [["chest", "resource", "secret", "gate", "entrance", "checkpoint"], ["lore", "camp", "shrine", "viewpoint", "landmark"]]
 
@@ -12,6 +15,7 @@ var game: Node2D
 var elite_timer: float = 0.0
 var trap_cooldown: float = 0.0
 var npc_line: Dictionary = {}
+var fx_list: Array = []      # efeitos de interação ativos: {id, pos, age}
 var discover_timer: float = 0.0
 
 func _init(g: Node2D) -> void:
@@ -30,6 +34,31 @@ func tick(delta: float) -> void:
 		discover_timer = .6
 		update_discovery()
 	update_traps()
+	for i in range(fx_list.size() - 1, -1, -1):
+		(fx_list[i] as Dictionary)["age"] = float((fx_list[i] as Dictionary)["age"]) + delta
+		if float((fx_list[i] as Dictionary)["age"]) > FX_LIFE:
+			fx_list.remove_at(i)
+
+func spawn_fx(fx_id: String, pos: Vector2) -> void:
+	if MODELED.has(fx_id):
+		fx_list.append({"id": fx_id, "pos": pos, "age": 0.0})
+
+func draw_fx(canvas: CanvasItem) -> void:
+	for value in fx_list:
+		var fx: Dictionary = value
+		var id: String = str(fx["id"])
+		var tex: Texture2D = MODELED.texture(id)
+		if tex == null:
+			continue
+		var entry: Dictionary = MODELED.entry(id)
+		var fs: Array = entry["frame_size"]
+		var anchor: Array = entry["foot"]
+		var ds: float = float(entry.get("draw_scale", 1.0))
+		var frames: int = int(entry["frames"])
+		var col: int = mini(frames - 1, int(float(fx["age"]) / FX_LIFE * float(frames)))
+		var pos: Vector2 = fx["pos"]
+		canvas.draw_texture_rect_region(tex, Rect2(pos - Vector2(float(anchor[0]), float(anchor[1])) * ds, Vector2(float(fs[0]), float(fs[1])) * ds), Rect2(Vector2(col * float(fs[0]), 0), Vector2(float(fs[0]), float(fs[1]))))
+
 
 func update_discovery() -> void:
 	for poi_value in REG.pois_in_zone(game.zone):
@@ -236,6 +265,7 @@ func heal_at(poi: Dictionary) -> void:
 	else:
 		game.message("%s • Você já está bem." % str(poi["label"]))
 	REG.mark("visited", str(poi["id"]))
+	spawn_fx("fx_shrine", poi["pos"])
 	game.save_game()
 
 func show_lore(lore_id: String, poi: Dictionary) -> void:
@@ -282,6 +312,7 @@ func open_chest(poi: Dictionary) -> void:
 		game.stored_items.append(item.duplicate(true))
 		found_text = "Baú aberto: %s!" % str(item["name"])
 	REG.mark("opened", id)
+	spawn_fx("fx_chest_open", poi["pos"])
 	game.message(found_text)
 	game.save_game()
 
@@ -295,6 +326,8 @@ func gather(poi: Dictionary) -> void:
 	var amount: int = int(d.get("amount", 1))
 	game.materials[mat] = int(game.materials.get(mat, 0)) + amount
 	REG.mark("gathered", id)
+	var mined: bool = mat.findn("cristal") >= 0 or mat.findn("âmbar") >= 0 or mat.findn("minério") >= 0 or mat.findn("ferro") >= 0
+	spawn_fx("fx_mine" if mined else "fx_harvest", poi["pos"])
 	game.message("Colhido: %s x%d" % [mat, amount])
 	game.save_game()
 
@@ -305,6 +338,8 @@ func reveal_secret(poi: Dictionary) -> void:
 		return
 	var d: Dictionary = poi["data"] as Dictionary
 	REG.mark("found", id)
+	spawn_fx("fx_dig" if str(d.get("prompt", "")).findn("Cavar") >= 0 else "fx_secret", poi["pos"])
+	spawn_fx("fx_secret", poi["pos"])
 	game.message(str(d.get("found_text", "Você descobriu um segredo!")))
 	var lore_id: String = str(d.get("lore", ""))
 	if not lore_id.is_empty():
@@ -313,6 +348,9 @@ func reveal_secret(poi: Dictionary) -> void:
 
 # ------------------------------------------------------------------ NPCs
 func npc_position(poi: Dictionary) -> Vector2:
+	return npc_position_at(poi, game.time_acc)
+
+func npc_position_at(poi: Dictionary, at_time: float) -> Vector2:
 	var d: Dictionary = poi["data"] as Dictionary
 	var base: Vector2 = poi["pos"]
 	if d.has("path"):
@@ -324,7 +362,7 @@ func npc_position(poi: Dictionary) -> Vector2:
 				var seg: float = Vector2(float(pts[i][0]), float(pts[i][1])).distance_to(Vector2(float(pts[i + 1][0]), float(pts[i + 1][1])))
 				lens.append(seg)
 				total += seg
-			var travel: float = fposmod(game.time_acc * 9.0, total * 2.0)
+			var travel: float = fposmod(at_time * 9.0, total * 2.0)
 			if travel > total:
 				travel = total * 2.0 - travel
 			for i in range(lens.size()):
@@ -359,6 +397,17 @@ func draw_npcs(canvas: CanvasItem, rect: Rect2) -> void:
 		var tint_a: Array = d.get("tint", [.9, .78, .66]) as Array
 		var tint: Color = Color(float(tint_a[0]), float(tint_a[1]), float(tint_a[2]))
 		var moving: bool = d.has("path")
+		var family: String = str(d.get("family", LIFE.FAMILY_BY_NPC.get(str(d["npc"]), "villager_m")))
+		var face: Vector2 = Vector2(0, 1)
+		if moving:
+			var ahead: Vector2 = npc_position_at(poi, game.time_acc + .2)
+			face = ahead - p
+		elif game.player.distance_to(p) < 240.0:
+			face = game.player - p
+		if LIFE.draw_npc(canvas, family, p, face, moving, game.time_acc, p.x * .013):
+			if p.distance_to(game.player) < 130.0:
+				game.draw_label(str(d.get("name", "Viajante")), p + Vector2(-90, -50), Color(.86, 1, .8))
+			continue
 		game.draw_shadow_oval(p + Vector2(0, 4), Vector2(11, 4), Color(0, 0, 0, .28))
 		var frame: int = int(game.time_acc * 5.0 + p.x * .01) % 8 if moving else 0
 		var direction: int = 2 if cos(game.time_acc * .3) > 0 else 6
@@ -368,6 +417,7 @@ func draw_npcs(canvas: CanvasItem, rect: Rect2) -> void:
 			game.draw_label(str(d.get("name", "Viajante")), p + Vector2(-90, -50), Color(.86, 1, .8))
 
 func draw_overlay(canvas: CanvasItem, rect: Rect2) -> void:
+	draw_fx(canvas)
 	var margin: Rect2 = rect.grow(140.0)
 	var nearest_id: String = ""
 	var interact_poi: Dictionary = {}
