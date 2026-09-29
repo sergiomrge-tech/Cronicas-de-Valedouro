@@ -13,6 +13,7 @@ const REGR = preload("res://scripts/reg001_render.gd")
 const LIFE = preload("res://scripts/life_art.gd")
 const REGG = preload("res://scripts/reg001_gameplay.gd")
 const MODELED = preload("res://scripts/modeled_assets.gd")
+const CHARART = preload("res://scripts/character_art.gd")
 const GROUND = preload("res://scripts/ground_bake.gd")
 const SAVE_PATH: String = "user://valedouro_v1.json"
 const RANGES: Dictionary = {"cidade": 0, "floresta": 1, "masmorra": 2, "ferreiro": 3, "loja": 4, "alquimia": 5, "guilda": 6, "cripta": 7}
@@ -1195,8 +1196,8 @@ func draw_animals(camera: Vector2) -> void:
 		var flip: float = -1.0 if not facing_right else 1.0
 		draw_set_transform(p - camera, 0, Vector2(flip, 1))
 		if kind == "bird":
-			var frame: int = int(float(creature["phase"]) * 1.3) % 4
-			draw_texture_rect_region(textures["bird_anim"], Rect2(Vector2(-16, -16 - bob), Vector2(32, 32)), Rect2(frame * 32, 0, 32, 32))
+			var legacy_frame: int = int(float(creature["phase"]) * 1.3) % 4
+			draw_texture_rect_region(textures["bird_anim"], Rect2(Vector2(-16, -16 - bob), Vector2(32, 32)), Rect2(legacy_frame * 32, 0, 32, 32))
 		else:
 			draw_texture_rect(textures[kind], Rect2(Vector2(-16, -16 - bob), Vector2(32, 32)), false)
 		draw_set_transform(-camera)
@@ -1245,6 +1246,19 @@ func draw_town_life(camera: Vector2) -> void:
 		draw_shadow_oval(p + Vector2(0, 4), Vector2(11, 4), Color(0, 0, 0, .28))
 		var frame: int = int(time_acc * 5.0 + i * 2) % 8
 		var direction: int = 2 if sin(time_acc + i) > 0 else 6
+
+		# segunda opção: candidatos da v2 (character_art.gd); só cai no tint legado se nenhum existir
+		var candidate: Dictionary = CHARART.candidate(CHARART.town_family(i), "walk")
+		if not candidate.is_empty():
+			var texture_value: Variant = candidate.get("texture", null)
+			if texture_value is Texture2D:
+				var source: Rect2 = CHARART.source_rect(candidate, frame, direction)
+				var candidate_size: Vector2 = CHARART.frame_size(candidate)
+				var anchor: Vector2 = p - Vector2(candidate_size.x * .5, candidate_size.y - 4.0)
+				draw_texture_rect_region(texture_value as Texture2D, Rect2(anchor, candidate_size), source)
+				continue
+
+		# Fallback legado: tint do hero_body permanece até existir arte própria.
 		var src: Rect2 = Rect2(Vector2(frame * 48, direction * 56), Vector2(48, 56))
 		var tint: Color = [Color(.9, .75, .65), Color(.68, .86, .76), Color(.76, .72, .95), Color(.95, .8, .55)][i % 4]
 		draw_texture_rect_region(textures["hero_body"], Rect2(p - Vector2(17, 37), Vector2(34, 40)), src, tint)
@@ -1424,6 +1438,17 @@ func draw_interior_person(p: Vector2, tint: Color, facing_index: int = 0, family
 		return
 	draw_shadow_oval(p + Vector2(0, 4), Vector2(11, 4), Color(0, 0, 0, .28))
 	var frame: int = int(time_acc * 4.0 + p.x * .01) % 8
+	var candidate: Dictionary = CHARART.candidate(family, "idle")
+	if not candidate.is_empty():
+		var texture_value: Variant = candidate.get("texture", null)
+		if texture_value is Texture2D:
+			var source: Rect2 = CHARART.source_rect(candidate, frame, facing_index)
+			var candidate_size: Vector2 = CHARART.frame_size(candidate)
+			var anchor: Vector2 = p - Vector2(candidate_size.x * .5, candidate_size.y - 4.0)
+			draw_texture_rect_region(texture_value as Texture2D, Rect2(anchor, candidate_size), source)
+			return
+
+	# Fallback legado permanece idêntico até a família candidata existir.
 	var src: Rect2 = Rect2(Vector2(frame * 48, facing_index * 56), Vector2(48, 56))
 	draw_texture_rect_region(textures["hero_body"], Rect2(p - Vector2(18, 38), Vector2(36, 42)), src, tint)
 

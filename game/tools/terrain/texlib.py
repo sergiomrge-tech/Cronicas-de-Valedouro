@@ -93,24 +93,24 @@ def flower(colors):
 
 
 # ------------------------------------------------------------------ paletas
-GRASS = ramp('#1a5a26', '#2a7c2a', '#3f9a36', '#5db648', '#86d060', '#b2e878')
-GRASS_D = ramp('#123f22', '#1c5a26', '#2a7a2c', '#419a3a', '#62b64a', '#8ad064')
-MEADOW = ramp('#2c7a30', '#42983c', '#5fb448', '#82cc5c', '#a8e072', '#ccf294')
+GRASS = ramp('#174c28', '#1f6f2e', '#2f9638', '#4fba43', '#83d64b', '#b5e965')
+GRASS_D = ramp('#102f22', '#174c28', '#1f6e31', '#31913a', '#54af45', '#7ccc55')
+MEADOW = ramp('#256b2f', '#348d37', '#4caf41', '#6dca49', '#9cdd58', '#c8ed75')
 VALLEY = ramp('#1a5a3a', '#2a7c48', '#3f9a58', '#5cb46a', '#82ce7e', '#aae49a')
-FOREST = ramp('#0e3220', '#164a28', '#1f6a2c', '#2f8a34', '#46a442', '#6cbf58')
-DIRT = ramp('#4a2c1c', '#6e4428', '#946038', '#b88348', '#d4a462', '#eac686')
-ROAD = ramp('#5a3a22', '#7e5430', '#a4743e', '#c49452', '#dcb46c', '#f0d08c')
+FOREST = ramp('#0d2920', '#123f27', '#18582d', '#237433', '#35913b', '#57af49')
+DIRT = ramp('#3f241b', '#633820', '#8c542b', '#b77739', '#d99a4c', '#efbd6a')
+ROAD = ramp('#4b2c20', '#73492b', '#9f6936', '#c98b44', '#e4aa59', '#f3ca78')
 MUD = ramp('#2a1c16', '#3e2a1e', '#583e2a', '#74543a', '#90704c', '#ac8c62')
-SAND = ramp('#b87a44', '#d29a58', '#e6b872', '#f2ce8c', '#fbe0a4', '#fff0c4')
+SAND = ramp('#9d5e2f', '#bc7638', '#d89447', '#ecb45d', '#f5d07a', '#ffe6a4')
 SAND_D = ramp('#a06a3c', '#bc8848', '#d4a862', '#e8c47e', '#f6dc9c', '#fdeebe')
-SNOW = ramp('#8aa6d4', '#a8c4e8', '#c6dcf4', '#deecfa', '#f0f8ff', '#ffffff')
+SNOW = ramp('#7893c4', '#9ab4dc', '#bbd0ec', '#d7e4f4', '#eef5fb', '#ffffff')
 ICE = ramp('#5a86c4', '#7aa6dc', '#9cc4ee', '#bedcf8', '#dcf0ff', '#f4fcff')
-STONE = ramp('#3a3448', '#54506a', '#726c86', '#928ca2', '#b0aabe', '#cec8d8')
-COBBLE = ramp('#4a3c3c', '#6a5850', '#8c7864', '#b09a7c', '#ccb896', '#e4d4b0')
+STONE = ramp('#242441', '#3b3f63', '#565c82', '#777da0', '#9ba0bf', '#c2c5dc')
+COBBLE = ramp('#5d3d40', '#7b5148', '#a16c53', '#c88b68', '#e1ad7d', '#f0ca93')
 WATER_DEEP = ramp('#0a2a6a', '#12408a', '#1e5aa8', '#2e78c4', '#4494dc', '#66b0ee')
 WATER_SH = ramp('#1e6ea8', '#2e8cc8', '#48a8dc', '#6cc4ec', '#98dcf6', '#c4f0fc')
 BED = ramp('#5a4a3a', '#7a6650', '#9c8464', '#bca280', '#d6bc9c', '#eed6b8')
-WOOD_DECK = ramp('#3a2014', '#5e3820', '#84542c', '#a87438', '#c89448', '#e6b466')
+WOOD_DECK = ramp('#3f2118', '#68331f', '#914824', '#ba622b', '#db8237', '#f0a84d')
 STONE_DECK = ramp('#4a3c3c', '#6e5c52', '#927e68', '#b29a7e', '#ceb89a', '#e6d4b4')
 
 
@@ -120,15 +120,15 @@ def _speckle(img, rng, cols, n):
     scatter(img, rng, n, f)
 
 
-def make_grass(seed, colors=GRASS, flowers=True, tufts=900, clover=False):
+def make_grass(seed, colors=GRASS, flowers=True, tufts=420, clover=False):
     rng = np.random.default_rng(seed)
     base = .55 * tile_noise(N, 2.2, seed) + .3 * tile_noise(N, 1.2, seed + 1) + .15 * tile_noise(N, 3.0, seed + 2)
     img = map_ramp(base, colors, bias=.03, contrast=1.7)
     scatter(img, rng, tufts // 2, tuft(colors[1], colors[-2]))
     scatter(img, rng, tufts // 3, tuft(colors[2], colors[-1]))
-    _speckle(img, rng, [colors[1], colors[4]], 300)
+    _speckle(img, rng, [colors[1], colors[4]], 110)
     if flowers:
-        scatter(img, rng, 14, flower([hexc('#ffffff'), hexc('#ffe45a'), hexc('#ff8ab8'), hexc('#b8a4ff')]))
+        scatter(img, rng, 8, flower([hexc('#ffffff'), hexc('#ffe45a'), hexc('#ff8ab8'), hexc('#b8a4ff')]))
     return img
 
 
@@ -143,7 +143,7 @@ def make_dirt(seed, colors=DIRT, pebbles=70, ruts=False):
         ru = np.repeat(ru, N, axis=1) * (.6 + .4 * tile_noise(N, 2.0, seed + 7))
         img = np.where((ru > .93)[..., None], colors[1], img)
     scatter(img, rng, pebbles, pebble([colors[0], colors[1], colors[3], colors[5]]))
-    _speckle(img, rng, [colors[1], colors[4]], 500)
+    _speckle(img, rng, [colors[1], colors[4]], 170)
     return img
 
 
@@ -156,7 +156,7 @@ def make_sand(seed, colors=SAND, ripples=True):
         rip = np.sin((yy * 1.0 + xx * .4 + warp) / N * np.pi * 2 * 10)
         base = base * .65 + (rip * .5 + .5) * .35
     img = map_ramp(base, colors, contrast=1.5)
-    _speckle(img, rng, [colors[1], colors[5]], 700)
+    _speckle(img, rng, [colors[1], colors[5]], 220)
     scatter(img, rng, 30, pebble([colors[0], colors[1], colors[3], colors[4]]))
     return img
 
@@ -171,7 +171,7 @@ def make_snow(seed, colors=SNOW):
     def sparkle(im, x, y, r):
         wrap_put(im, x, y, colors[5]); wrap_put(im, x + 1, y, colors[4]); wrap_put(im, x, y + 1, colors[4])
     scatter(img, rng, 90, sparkle)
-    _speckle(img, rng, [colors[1], colors[2]], 500)
+    _speckle(img, rng, [colors[1], colors[2]], 140)
     scatter(img, rng, 10, pebble([hexc('#6a6a80'), hexc('#8a8aa0'), hexc('#aab0c4'), hexc('#dfe4f0')]))
     return img
 
@@ -273,10 +273,10 @@ def make_deck(seed, colors=WOOD_DECK, horizontal=True):
 
 LIB = {
     'grass_a': lambda: make_grass(11, GRASS),
-    'grass_b': lambda: make_grass(12, GRASS, tufts=1300),
-    'meadow': lambda: make_grass(13, MEADOW, flowers=True, tufts=700),
-    'valley': lambda: make_grass(14, VALLEY, tufts=900),
-    'forest_floor': lambda: make_grass(15, FOREST, flowers=False, tufts=1100),
+    'grass_b': lambda: make_grass(12, GRASS, tufts=560),
+    'meadow': lambda: make_grass(13, MEADOW, flowers=True, tufts=360),
+    'valley': lambda: make_grass(14, VALLEY, tufts=420),
+    'forest_floor': lambda: make_grass(15, FOREST, flowers=False, tufts=500),
     'dirt': lambda: make_dirt(21, DIRT),
     'road': lambda: make_dirt(22, ROAD, pebbles=90, ruts=True),
     'mud': lambda: make_dirt(23, MUD, pebbles=40),

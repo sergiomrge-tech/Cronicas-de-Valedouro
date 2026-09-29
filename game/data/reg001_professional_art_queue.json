@@ -5,114 +5,138 @@
   "status_policy": {
     "new_art": "MODELED_PENDING_GATE",
     "director_only_can_set": "APPROVED",
-    "forbidden_renderer_statuses": ["REWORKED", "HOLD"]
+    "forbidden_renderer_statuses": [
+      "REWORKED",
+      "HOLD"
+    ]
   },
   "tiers": [
     {
       "tier": "P0",
-      "reason": "Largest visual impact at normal gameplay zoom",
+      "reason": "Still visibly provisional in real Godot captures and/or still legacy at runtime",
       "groups": [
         {
           "id": "MISSING_GROUND_TILES",
-          "target": "grass/dirt/road/sand/snow/stone/shallow_water/deep_water plus transitions",
-          "method": "hand-authored tile family + macro decals + controlled variants",
-          "definition": "No checkerboard read; seams visually secondary to terrain masses"
-        },
-        {
-          "id": "MISSING_HILL_ELEVATION",
-          "target": "cliffs, scarps, ledges, natural steps, canyon pieces",
-          "method": "Blender pre-render + pixel cleanup",
-          "definition": "World gains readable height and occlusion without breaking navigation"
+          "target": "world terrain bake: grass/dirt/road/sand/snow/water/banks/transitions",
+          "current_state": "MODELED terrain bake exists but real captures show square/grid transitions and excessive procedural micro-noise",
+          "method": "refine bake_ground.py + texlib.py, use organic macro warp, calmer texture, grid metrics and real Godot screenshots",
+          "definition": "No obvious 32/64px grid; biome boundaries form organic masses; roads and riverbanks read naturally"
         },
         {
           "id": "MISSING_NPC_ARTISTS",
-          "target": "villager/merchant/traveler/guard/guild/blacksmith/alchemist families",
-          "method": "character sheets + sprite animation",
-          "definition": "No tinted hero clone visible as final NPC"
+          "target": "villager/merchant/traveler/guard/guild/blacksmith/alchemist",
+          "current_state": "runtime still uses tinted hero_body for town/interior NPCs",
+          "method": "dedicated 8-direction character source -> pixel cleanup -> directional sheets",
+          "definition": "No tinted hero clone visible as final NPC; profession readable at gameplay zoom"
         },
         {
           "id": "MISSING_FAUNA_APPROVED",
           "target": "deer/fox/hare/goat/camel/bird/fish",
-          "method": "species silhouettes + idle/locomotion sprite animation",
-          "definition": "Ambient wildlife reads by species and is grounded"
+          "current_state": "runtime still uses LEGACY_BASELINE fauna sprites",
+          "method": "species-specific source geometry + directional animation sheets",
+          "definition": "Each species has distinct silhouette/gait and correct ground contact"
         }
       ]
     },
     {
-      "tier": "P1",
-      "reason": "Hero-facing landmarks that currently expose primitive/simple construction",
+      "tier": "P1_REVIEW",
+      "reason": "Claude has now produced modeled candidates; priority is visual refinement/gate, not duplicate production",
       "groups": [
         {
+          "id": "MISSING_HILL_ELEVATION",
+          "candidates": [
+            "nat_hill_*",
+            "nat_plateau_*",
+            "nat_ridge_*",
+            "nat_wall_cliff_*",
+            "nat_steps_stone",
+            "nat_rock_arch_natural",
+            "nat_rock_pillars"
+          ],
+          "action": "compare against APPROVED style bible and real Godot captures; remodel only weak candidates"
+        },
+        {
           "id": "MISSING_STRUCT_WATCHTOWER",
-          "target": "watchtower",
-          "method": "game/tools/art_pipeline/blender_landmarks_reg001.py",
-          "definition": "Foundation, posts, braces, deck, rails, ladder, roof and asymmetry readable"
+          "candidates": [
+            "str_watchtower_stone",
+            "str_watchtower_frost"
+          ],
+          "action": "review silhouette/material/detail; use professional Blender source only if Claude candidate remains visibly simpler than approved city gate/buildings"
         },
         {
           "id": "MISSING_STRUCT_WINDMILL",
-          "target": "windmill",
-          "method": "game/tools/art_pipeline/blender_landmarks_reg001.py",
-          "definition": "Structural blades, axle, tapered body, roof, entrance and farm storytelling props"
+          "candidates": [
+            "str_windmill"
+          ],
+          "action": "review blades/body/construction logic and in-world grounding"
         },
         {
-          "id": "MISSING_CAVE_ENTRANCE",
-          "target": "rock cave entrance",
-          "method": "game/tools/art_pipeline/blender_landmarks_reg001.py",
-          "definition": "Opening is carved into a rock mass; no portal-on-rock appearance"
+          "id": "MISSING_STRUCT_OUTPOST",
+          "candidates": [
+            "str_outpost_amber",
+            "str_lodge_ice",
+            "str_shelter_wood"
+          ],
+          "action": "review regional identity and material richness"
+        },
+        {
+          "id": "MISSING_STRUCT_SHRINE",
+          "candidates": [
+            "str_shrine_stone"
+          ],
+          "action": "review focal readability, sacred identity and approved-style accents"
         },
         {
           "id": "MISSING_WATERFALL_CLIFF",
-          "target": "Aurora waterfall + cliff",
-          "method": "game/tools/art_pipeline/blender_landmarks_reg001.py + 2D foam/mist pass",
-          "definition": "Recognizable landmark with elevation, basin, water impact and surrounding rock"
+          "candidates": [
+            "nat_waterfall_front",
+            "nat_wall_cliff_*"
+          ],
+          "action": "review as one landmark composition; waterfall must not read as flat strip over generic rocks"
+        },
+        {
+          "id": "MISSING_CROPS",
+          "candidates": [
+            "str_crop_wheat",
+            "str_crop_corn",
+            "str_crop_cabbage"
+          ],
+          "action": "review repetition and farm composition"
+        },
+        {
+          "id": "MISSING_BOAT_DOCK",
+          "candidates": [
+            "str_boat_row",
+            "str_boat_sail",
+            "str_dock_a",
+            "str_dock_b",
+            "str_dock_end"
+          ],
+          "action": "review water contact, construction and scale"
+        },
+        {
+          "id": "MISSING_CAVE_ENTRANCE",
+          "candidates": [
+            "str_cave_entrance"
+          ],
+          "action": "review whether opening feels carved into natural rock rather than a portal prop"
         }
       ]
     },
     {
       "tier": "P2",
-      "reason": "Regional storytelling and interior cohesion",
+      "reason": "Interior architecture and interaction polish after the dominant world issues",
       "groups": [
-        {
-          "id": "MISSING_STRUCT_OUTPOST",
-          "target": "Amber outpost + Frost shelter",
-          "method": "Blender modular structure + region-specific props",
-          "definition": "Each outpost has distinct regional material language"
-        },
-        {
-          "id": "MISSING_STRUCT_SHRINE",
-          "target": "Valley shrine",
-          "method": "Blender pre-render + emissive pixel accents",
-          "definition": "Shrine reads as sacred focal point, not altar prop alone"
-        },
-        {
-          "id": "MISSING_CROPS",
-          "target": "farm crop rows and beds",
-          "method": "2D modular sprites + controlled variants",
-          "definition": "Rows look cultivated without exposing repetitive stamps"
-        },
-        {
-          "id": "MISSING_BOAT_DOCK",
-          "target": "dock, pier, small boats",
-          "method": "Blender pre-render + water-edge integration",
-          "definition": "Construction logic and water contact are believable"
-        },
         {
           "id": "MISSING_INTERIOR_WALLS_APPROVED",
-          "target": "interior wall/door/window/corner families",
-          "method": "modular 3D pre-render + hand pixel cleanup",
-          "definition": "Guild/forge/alchemy/shop read as rooms, not prop collections on a floor"
-        }
-      ]
-    },
-    {
-      "tier": "P3",
-      "reason": "Interaction polish before combat stage",
-      "groups": [
+          "target": "wall/door/window/corner families",
+          "current_state": "Claude now uses APPROVED city floor/wall pieces where possible; modeled furniture remains",
+          "action": "evaluate real interior captures and only create dedicated interior architecture where composition still reads as exterior modules reused indoors"
+        },
         {
           "id": "MISSING_HERO_ANIM_FX",
           "target": "chest/harvest/mine/dig/shrine/secret interaction FX",
-          "method": "hand-authored sprite animation",
-          "definition": "Short readable effects with no stylistic mismatch"
+          "action": "hand-authored pixel animation after environment gate"
         }
       ]
     }
@@ -129,5 +153,7 @@
     "no_visible_primitive_blockout",
     "gameplay_zoom_readability",
     "godot_4_7_2_capture"
-  ]
+  ],
+  "last_synced_with": "ccr-bb54cda9-tvw178@4b072166af529218ce9c01d0076e5eecb27ac537",
+  "sync_note": "Claude already produced modeled candidates for structures, crops, dock/boats, cave entrance, waterfall and elevation. Do not duplicate; review/refine those candidates against APPROVED style instead."
 }

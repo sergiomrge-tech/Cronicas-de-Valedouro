@@ -34,3 +34,8 @@ Capturas REAIS (58): `docs/visual_qa/pro/game/`; folhas ANTES/DEPOIS: `docs/visu
 * 25 assets B (refino leve) e o mobiliário A dependem de nova rodada; terreno base ainda é assado por ruído (macroformas de dunas/neve novas, mas sem tiles pintados à mão).
 * Cachoeira/caverna: integração de colisão e profundidade validada, ajuste fino de composição do lago com a margem recomendado.
 * Gate visual do Diretor é o único passo de aprovação restante.
+
+## Merge da v2 (art/pro-pixel-modeling-pipeline-v2)
+Incorporados: `character_art.gd` (candidatos NPC/fauna com fallback), gates `visual_complexity_gate.py`, `terrain_visual_metrics.py`, `qa_capture_art_gate.gd`, teste `character_art`, benchmarks e scripts Blender de NPC/fauna.
+Resolução de conflitos: **`life_art.gd` mantido como caminho principal** de NPC/fauna (cidade, interiores, POIs, animais); `character_art.gd` fica como segunda opção antes do tint legado. `asset_qc.py` e SKILL mantidos na versão desta branch (com regras §18 e alpha único de sombra); fila de arte (`reg001_professional_art_queue.json`) tomada da v2.
+Gate de complexidade vs APPROVED (`docs/art/PRO_ART_COMPLEXITY_VS_APPROVED.json`): 15 de 17 amostras abaixo de ~0,4x–0,5x da densidade de arestas/variação local dos APPROVED — diagnóstico de que ainda falta detalhe fino (rachaduras, juntas, texturas) nos landmarks e elevações.

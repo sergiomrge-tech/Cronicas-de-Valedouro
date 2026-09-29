@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "pairs": [
+    {
+      "id": "watchtower_stone",
+      "candidate": "res://assets/modeled/city/structures/str_watchtower_stone.png",
+      "references": [
+        "res://assets/approved/city/walls/gate_large.png",
+        "res://assets/approved/city/special/store.png",
+        "res://assets/approved/city/buildings/roof_blue.png"
+      ]
+    },
+    {
+      "id": "watchtower_frost",
+      "candidate": "res://assets/modeled/city/structures/str_watchtower_frost.png",
+      "references": [
+        "res://assets/approved/city/walls/gate_large.png",
+        "res://assets/approved/city/special/store.png"
+      ]
+    },
+    {
+      "id": "windmill",
+      "candidate": "res://assets/modeled/city/structures/str_windmill.png",
+      "references": [
+        "res://assets/approved/city/special/store.png",
+        "res://assets/approved/city/walls/gate_large.png",
+        "res://assets/approved/city/buildings/roof_wood.png"
+      ]
+    },
+    {
+      "id": "outpost_amber",
+      "candidate": "res://assets/modeled/city/structures/str_outpost_amber.png",
+      "references": [
+        "res://assets/approved/city/special/store.png",
+        "res://assets/approved/city/buildings/house_door.png",
+        "res://assets/approved/city/buildings/roof_red.png"
+      ]
+    },
+    {
+      "id": "lodge_ice",
+      "candidate": "res://assets/modeled/city/structures/str_lodge_ice.png",
+      "references": [
+        "res://assets/approved/city/special/store.png",
+        "res://assets/approved/city/buildings/house_window.png",
+        "res://assets/approved/city/buildings/roof_blue.png"
+      ]
+    },
+    {
+      "id": "cave_entrance",
+      "candidate": "res://assets/modeled/dungeon/structures/str_cave_entrance.png",
+      "references": [
+        "res://assets/approved/dungeon/walls/arch.png",
+        "res://assets/approved/dungeon/tunnels/corridor_straight.png",
+        "res://assets/approved/dungeon/walls/door.png"
+      ]
+    },
+    {
+      "id": "cliff_rock",
+      "candidate": "res://assets/modeled/nature/elevation/nat_wall_cliff_rock_a.png",
+      "references": [
+        "res://assets/approved/dungeon/walls/wall_straight.png",
+        "res://assets/approved/dungeon/walls/corner_inside.png"
+      ]
+    },
+    {
+      "id": "rock_arch",
+      "candidate": "res://assets/modeled/nature/elevation/nat_rock_arch_natural.png",
+      "references": [
+        "res://assets/approved/dungeon/walls/arch.png",
+        "res://assets/approved/dungeon/natural/crystal_blue.png"
+      ]
+    },
+    {
+      "id": "interior_wall_window",
+      "candidate": "res://assets/modeled/interior/walls/int_wall_window_a.png",
+      "references": [
+        "res://assets/approved/city/walls/wall_straight.png",
+        "res://assets/approved/city/buildings/house_window.png"
+      ]
+    }
+  ]
+}
