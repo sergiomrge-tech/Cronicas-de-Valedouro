@@ -1,0 +1,45 @@
+{
+ "note": "Snapshot ANTES da fase de finalização de assets (commit 774445c)",
+ "APPROVED": {
+  "INTEGRATED": 27,
+  "NOT_USED": 1
+ },
+ "MODELED_PENDING_GATE": {
+  "INTEGRATED": 130,
+  "NOT_USED": 19
+ },
+ "LEGACY_BASELINE": {
+  "total": 119,
+  "by_group": {
+   "enemy": 21,
+   "fauna": 7,
+   "structure": 9,
+   "ui": 13,
+   "terrain_prop": 28,
+   "equipment_icon": 16,
+   "font": 1,
+   "environment_art": 6,
+   "hero": 18
+  }
+ },
+ "MISSING_APPROVED_ASSET": 14,
+ "missing_ids": [
+  "MISSING_NPC_ARTISTS",
+  "MISSING_FAUNA_APPROVED",
+  "MISSING_STRUCT_WATCHTOWER",
+  "MISSING_STRUCT_WINDMILL",
+  "MISSING_STRUCT_OUTPOST",
+  "MISSING_STRUCT_SHRINE",
+  "MISSING_GROUND_TILES",
+  "MISSING_WATERFALL_CLIFF",
+  "MISSING_CROPS",
+  "MISSING_BOAT_DOCK",
+  "MISSING_HILL_ELEVATION",
+  "MISSING_CAVE_ENTRANCE",
+  "MISSING_INTERIOR_WALLS_APPROVED",
+  "MISSING_HERO_ANIM_FX"
+ ],
+ "REWORKED_excluded": 61,
+ "HOLD_excluded": 22,
+ "modeled_total": 149
+}

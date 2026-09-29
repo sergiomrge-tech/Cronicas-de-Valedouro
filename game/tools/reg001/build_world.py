@@ -5,6 +5,7 @@ Uso: python3 game/tools/reg001/build_world.py [--preview arquivo.png]
 """
 import json
 import math
+import random
 import sys
 from pathlib import Path
 
@@ -609,6 +610,68 @@ fo('nat_chest_rare', 1250, 236, poi='REG001_POI_BOSQUE_CHEST', solid=None)
 P('REG001_POI_BOSQUE_CHEST', 'chest', 'BAÚ DO JAVALI', 1250, 236, zone='floresta', tier=1, layer='secondary', radius=52, region='bosque', show_label=False,
   data={'requires_elite': 'REG001_POI_BOSQUE_ELITE', 'loot': {'gold': 70, 'materials': {'Presa musgosa': 2}, 'item': item('Espada do Javali', 'sword', 1, 3, 0, 6, 0), 'potions': 2}})
 P('REG001_POI_BOSQUE_CAMP', 'camp', 'FOGUEIRA DO BOSQUE', 900, 520, zone='floresta', tier=1, layer='secondary', radius=90, region='bosque', data={'heal': True, 'hint': 'O fogo aquece e restaura suas forças.'})
+
+# --- Bosque: mata fechada em modelados + APPROVED (trilhas, riacho e clareiras livres); troncos grandes nos obstáculos legados
+BOSQUE_TRAILS = [([(1000, 862), (1000, 760), (985, 620), (930, 470), (900, 330), (880, 120)], 60),
+                 ([(930, 470), (760, 500), (560, 470), (400, 480)], 46),
+                 ([(900, 330), (1080, 300), (1250, 300)], 46),
+                 ([(985, 620), (1150, 640), (1330, 700)], 40)]
+LEGACY_TRUNKS = [(166, 178), (495, 87), (739, 52), (1397, 127), (1735, 128), (398, 487), (660, 252), (1106, 290)]
+
+
+def _seg_dist(px, py, ax, ay, bx, by):
+    dx, dy = bx - ax, by - ay
+    t = max(0, min(1, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy or 1)))
+    return math.hypot(px - (ax + dx * t), py - (ay + dy * t))
+
+
+def bosque_free(x, y):
+    for pts, wd in BOSQUE_TRAILS:
+        for a, b in zip(pts, pts[1:]):
+            if _seg_dist(x, y, a[0], a[1], b[0], b[1]) < wd / 2 + 46:
+                return False
+    if 20 < y < 720 and abs(x - (1515 + math.sin(y * .012) * 38)) < 105:
+        return False
+    if math.hypot(x - 1000, y - 790) < 160 or math.hypot(x - 900, y - 520) < 100 or math.hypot(x - 1250, y - 300) < 190:
+        return False
+    return True
+
+
+for tx, ty in LEGACY_TRUNKS:
+    fo('APP:city_tree_green', tx, ty + 30, scale=.78)
+_rb = random.Random(88012)
+_placed = [(tx, ty) for tx, ty in LEGACY_TRUNKS]
+_tries = 0
+while len(_placed) < 200 and _tries < 9000:
+    _tries += 1
+    x, y = _rb.uniform(44, 1780), _rb.uniform(70, 830)
+    if not bosque_free(x, y) or any(math.hypot(x - px, y - py) < 78 for px, py in _placed):
+        continue
+    _placed.append((x, y))
+    kind = _rb.random()
+    if kind < .42:
+        fo('nat_tree_pine', x, y, solid=None)
+    elif kind < .62:
+        fo('nat_tree_birch', x, y, solid=None)
+    elif kind < .9:
+        fo('APP:city_tree_green', x, y)
+        W.collider('circle', x, y - 6, 13, zone='floresta')
+    else:
+        fo('APP:city_tree_autumn', x, y)
+        W.collider('circle', x, y - 6, 13, zone='floresta')
+for _ in range(34):
+    for _t in range(30):
+        x, y = _rb.uniform(50, 1770), _rb.uniform(80, 820)
+        if bosque_free(x, y):
+            fo(_rb.choice(['nat_bush_green', 'nat_bush_berry', 'nat_bush_flowering', 'nat_flowers_red', 'nat_flowers_meadow', 'nat_grass_tall', 'nat_mushrooms', 'nat_rock_mossy', 'nat_rock_small']), x, y)
+            break
+
+# --- lampiões nas pontes (as vigas/tabuado/sombras estão pintadas no chão assado)
+for _by in geo.BRIDGE_YS:
+    _rx, _hw = geo.river_x(_by), geo.river_hw(_by)
+    for _sx in (-1, 1):
+        for _sy in (-1, 1):
+            W.obj('city_lamp_post_a', _rx + _sx * (_hw + 66), _by + _sy * 64, 'PONTE', check=False)
 
 # ============================================================================================
 # CRIPTA ESQUECIDA — mini-dungeon opcional (zona 'cripta', 960x896)

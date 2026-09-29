@@ -301,6 +301,7 @@ class Scene:
         self.outline_depth = .10
         self.shadow_range = 3.0
         self.shadow_radius = 2.6
+        self.contact = None                  # (rx, ry, alpha): sombra de contato pontilhada no chão
 
     # -- construção
     def add(self, prim: Prim, tag: int = 0):
@@ -384,6 +385,19 @@ class Scene:
                 col = mat.tint(ctx, col, tone)
             rgb[m] = col
             alpha[m] = 1.0
+        # sombra de contato (assenta o objeto no terreno; pontilhada para manter o pixel-art nítido)
+        if self.contact is not None:
+            with np.errstate(divide='ignore', invalid='ignore'):
+                tg2 = (0 - O[:, 2]) / D[:, 2]
+            gp2 = O + D * tg2[:, None]
+            crx, cry, cal = self.contact
+            d2 = (gp2[:, 0] / crx) ** 2 + (gp2[:, 1] / cry) ** 2
+            xs2 = np.arange(n_px) % w
+            ys2 = np.arange(n_px) // w
+            thr = BAYER[ys2 % 4, xs2 % 4] + .5
+            cmask = (d2 < 1) & ((cal * (1 - d2) ** .7) > thr * cal) & (~hit) & (alpha < .5)
+            rgb[cmask] = np.array([22, 12, 40], dtype=np.float32)
+            alpha[cmask] = .5
         # sombra no chão: pixels translúcidos
         gs_mask = ground_shadow
         rgb[gs_mask] = np.array([22, 12, 40], dtype=np.float32)

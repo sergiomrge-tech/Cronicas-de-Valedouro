@@ -4,7 +4,7 @@
 Uso: python3 build_assets.py [id_ou_prefixo ...] [--sheet arquivo.png]
 Determinístico. Os PNGs gerados são versionados; o gerador fica como fonte.
 """
-import sys, json, hashlib, importlib
+import sys, json, hashlib, importlib, inspect
 from pathlib import Path
 from PIL import Image, ImageDraw
 
@@ -12,6 +12,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from registry import REGISTRY
 from kit import Scene
+import manifest_lib
 
 MODULES = ['nature_a', 'nature_b', 'nature_c', 'city_extra', 'dungeon_extra', 'interior_kit']
 GAME = HERE.parents[1]
@@ -27,11 +28,25 @@ def load_modules():
             importlib.import_module(name)
 
 
-def render(spec, frame=0):
+def render(spec, frame=0, row=0):
     sc = Scene(spec.size[0], spec.size[1], spec.origin, scale=spec.scale, seed=spec.seed)
     sc.ground_shadow = False
-    spec.build(sc, frame)
+    if spec.contact is not None:
+        sc.contact = spec.contact
+    if 'row' in inspect.signature(spec.build).parameters:
+        spec.build(sc, frame, row=row)
+    else:
+        spec.build(sc, frame)
     return sc.render()
+
+
+def render_sheet(spec):
+    fw, fh = spec.size
+    im = Image.new('RGBA', (fw * spec.frames, fh * spec.rows), (0, 0, 0, 0))
+    for r in range(spec.rows):
+        for i in range(spec.frames):
+            im.paste(render(spec, i, r), (i * fw, r * fh))
+    return im
 
 
 def main(argv):
@@ -48,13 +63,7 @@ def main(argv):
     tiles = []
     entries = {}
     for spec in specs:
-        if spec.frames > 1:
-            frames = [render(spec, i) for i in range(spec.frames)]
-            im = Image.new('RGBA', (spec.size[0] * spec.frames, spec.size[1]), (0, 0, 0, 0))
-            for i, fr in enumerate(frames):
-                im.paste(fr, (i * spec.size[0], 0))
-        else:
-            im = render(spec)
+        im = render_sheet(spec)
         folder = OUT / spec.group / spec.folder
         folder.mkdir(parents=True, exist_ok=True)
         path = folder / f'{spec.id}.png'
@@ -70,46 +79,13 @@ def main(argv):
 
 
 def manifest_entry(spec, im, path):
-    w, h = spec.size
-    return {
-        'id': spec.id,
-        'path': 'res://assets/modeled/%s/%s/%s.png' % (spec.group, spec.folder, spec.id),
-        'group': spec.group,
-        'folder': spec.folder,
-        'frame_size': [w, h],
-        'frames': spec.frames,
-        'foot': [spec.origin[0], spec.origin[1]],
-        'draw_scale': spec.draw_scale,
-        'blocks_radius': float(spec.blocks[0]) if spec.blocks else 0.0,
-        'footprint': float(spec.footprint or (spec.blocks[0] if spec.blocks else 0.0)),
-        'tags': list(spec.tags),
-        'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
-        'source': 'game/tools/modeling/build_assets.py',
-        'status': DEFAULT_STATUS,
-    }
+    return manifest_lib.make_entry(spec.id, path, spec.group, spec.folder, spec.size, spec.frames, spec.rows, spec.origin, spec.draw_scale,
+                                   spec.blocks[0] if spec.blocks else 0.0, spec.footprint, spec.tags, 'game/tools/modeling/build_assets.py')
 
 
 def write_manifest(entries):
-    old = {}
-    if MANIFEST.exists():
-        for e in json.loads(MANIFEST.read_text(encoding='utf-8')).get('assets', []):
-            old[e['id']] = e.get('status', DEFAULT_STATUS)
-    for k, e in entries.items():
-        e['status'] = old.get(k, DEFAULT_STATUS)
-    doc = {
-        'schema_version': 1,
-        'manifest_id': 'MAN_MODELED_ASSETS_001',
-        'policy': {
-            'ids_are_persistent': True,
-            'renderer_uses_statuses': ['APPROVED', 'MODELED_PENDING_GATE'],
-            'note': 'MODELED_PENDING_GATE = modelado no estilo dos 28 APPROVED, aguardando gate visual do Diretor. Mude o status de um asset para REJECTED/HOLD para removê-lo do renderer.',
-        },
-        'counts': {'total': len(entries)},
-        'assets': [entries[k] for k in sorted(entries)],
-    }
-    MANIFEST.parent.mkdir(parents=True, exist_ok=True)
-    MANIFEST.write_text(json.dumps(doc, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
-    print('MANIFEST', len(entries))
+    manifest_lib.write_part('kit', list(entries.values()))
+    print('MANIFEST', manifest_lib.merge())
 
 
 def make_group_sheets(tiles):

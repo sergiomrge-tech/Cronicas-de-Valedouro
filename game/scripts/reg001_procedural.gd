@@ -127,18 +127,26 @@ static func build_chunk(ck: Vector2i) -> Dictionary:
 				var asset: String = asset_for(prop, biome_name, visual_seed)
 				if not asset.is_empty():
 					objs.append(item(foot.y, asset, foot.x, foot.y, float(visual_seed % 97) * .11, 1.0, visual_seed % 2 == 1 and not asset.begins_with("APP:"), null, prop))
-			# transições suaves: decalques do bioma vizinho + poucos props de borda
-			if MAP.town_area(p) or MAP.path_at(p) or MAP.river_at(p) or MAP.shallow_at(p) or MAP.bridge_at(p):
+			# água: brilhos, ondulações e espuma são sprites animados sobre o chão assado
+			var wh: int = MAP.cell_hash(cx + 71, cy + 131)
+			var in_deep: bool = (MAP.river_at(p) and not MAP.bridge_at(p)) or (REG.ford_at(p) and wh % 2 == 0)
+			if in_deep:
+				var jx: float = float((visual_seed % 25) - 12)
+				var jy: float = float((int(visual_seed / 25) % 21) - 10)
+				if wh % 5 < 2:
+					ground.append(item(p.y, "ter_water_glint", p.x + jx, p.y + jy, float(wh % 89) * .09, 1.0, false, null, "water"))
+				if wh % 13 == 0:
+					ground.append(item(p.y, "ter_water_ripple", p.x + jx, p.y + jy, float(wh % 71) * .13, 1.0, false, null, "water"))
 				continue
-			# bordas de estradas/trilhas: terra e tufos suavizam o degrau dos tiles de caminho
-			var beside_path: bool = MAP.path_at(p + Vector2(32, 0)) or MAP.path_at(p + Vector2(-32, 0)) or MAP.path_at(p + Vector2(0, 32)) or MAP.path_at(p + Vector2(0, -32))
-			if beside_path and MAP.cell_hash(cx + 41, cy + 43) % 100 < 46:
-				var pj: Vector2 = Vector2(float((visual_seed % 25) - 12), float((int(visual_seed / 25) % 15) - 7))
-				ground.append(item(p.y, "nat_decal_dirt_a" if visual_seed % 3 != 0 else "nat_decal_grass_b", p.x + pj.x, p.y + pj.y + 14, 0.0, .8, visual_seed % 2 == 0, null, "decal"))
-			if MAP.river_bank_at(p):
-				if MAP.cell_hash(cx + 5, cy + 9) % 5 == 0:
-					ground.append(item(p.y, "nat_decal_mud_bank", p.x, p.y + 10, 0.0, 1.0, visual_seed % 2 == 0, null, "decal"))
+			if MAP.shallow_at(p):
+				if wh % 3 == 0:
+					ground.append(item(p.y, "ter_water_foam", p.x + float((visual_seed % 17) - 8), p.y + float((int(visual_seed / 17) % 9) - 4), float(wh % 53) * .17, 1.0, false, null, "water"))
+				elif wh % 4 == 1:
+					ground.append(item(p.y, "ter_water_glint", p.x, p.y, float(wh % 89) * .09, 1.0, false, null, "water"))
 				continue
+			if MAP.town_area(p) or MAP.path_at(p) or MAP.bridge_at(p):
+				continue
+			# transições de bioma: o chão assado já mistura os terrenos; aqui entram só props de borda
 			var tr: Dictionary = transition_at(p, biome_name)
 			if tr.is_empty():
 				continue
@@ -147,13 +155,7 @@ static func build_chunk(ck: Vector2i) -> Dictionary:
 			var roll: float = float(MAP.cell_hash(cx + 331, cy + 71) % 1000) / 1000.0
 			var style_other: Dictionary = REG.biome_style.get(other, {}) as Dictionary
 			var style_here: Dictionary = REG.biome_style.get(biome_name, {}) as Dictionary
-			if roll < .06 + .34 * w:
-				var decals: Array = style_other.get("decals", []) as Array
-				if not decals.is_empty():
-					var jx: float = float((visual_seed % 21) - 10)
-					var jy: float = float((int(visual_seed / 21) % 15) - 7)
-					ground.append(item(p.y, str(decals[visual_seed % decals.size()]), p.x + jx, p.y + jy + 14, 0.0, 1.0, visual_seed % 2 == 0, null, "decal"))
-			elif roll > 1.0 - .10 * w and not REG.clear_at(p):
+			if roll > 1.0 - .10 * w and not REG.clear_at(p):
 				var pool: Array = []
 				pool.append_array(style_other.get("edge", []) as Array)
 				pool.append_array(style_here.get("edge", []) as Array)

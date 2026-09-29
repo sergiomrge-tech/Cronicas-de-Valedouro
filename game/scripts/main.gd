@@ -12,6 +12,7 @@ const PROC = preload("res://scripts/reg001_procedural.gd")
 const REGR = preload("res://scripts/reg001_render.gd")
 const REGG = preload("res://scripts/reg001_gameplay.gd")
 const MODELED = preload("res://scripts/modeled_assets.gd")
+const GROUND = preload("res://scripts/ground_bake.gd")
 const SAVE_PATH: String = "user://valedouro_v1.json"
 const RANGES: Dictionary = {"cidade": 0, "floresta": 1, "masmorra": 2, "ferreiro": 3, "loja": 4, "alquimia": 5, "guilda": 6, "cripta": 7}
 var zone: String = "cidade"
@@ -104,7 +105,7 @@ const APPROVED_VISUAL_PATHS: Dictionary = {
 
 func _ready() -> void:
 	rng.seed = 27109
-	for name in ["grass", "grass2", "path", "stone", "water", "shallow_water", "riverbank", "valley_grass", "desert_dune", "plank", "tree", "bush", "wall", "roof", "hero", "wolf", "slime", "boss", "meadow", "sand", "sand2", "snow", "snow2", "bridge", "river", "pine", "frost_tree", "cactus", "ice_rock", "sand_rock", "valley_rock", "reed", "dead_bush", "ice_crystal", "flower", "deer", "fox", "hare", "goat", "camel", "bird", "fish", "valedouro_art", "valedouro_blended", "outskirts_ground", "path_ground", "forest_art", "forge_art", "ui_wood_panel", "ui_wood_button", "scorpion", "ice_wolf", "hero_body", "wolf_anim", "slime_anim", "scorpion_anim", "ice_wolf_anim", "boss_anim", "wolf_full", "slime_full", "spider_full", "boar_full", "flower_beast_full", "scorpion_full", "amber_beetle_full", "ice_wolf_full", "ice_golem_full", "boss_full", "watchtower", "windmill", "desert_outpost", "ice_lodge", "shrine", "ruin_arch", "bird_anim", "ui_round_button", "ui_portrait", "icon_heart", "icon_coin", "icon_potion", "icon_xp", "btn_attack", "btn_interact", "btn_map", "btn_bag", "btn_potion"]:
+	for name in ["hero", "wolf", "slime", "boss", "deer", "fox", "hare", "goat", "camel", "bird", "fish", "ui_wood_panel", "ui_wood_button", "scorpion", "ice_wolf", "hero_body", "wolf_anim", "slime_anim", "scorpion_anim", "ice_wolf_anim", "boss_anim", "wolf_full", "slime_full", "spider_full", "boar_full", "flower_beast_full", "scorpion_full", "amber_beetle_full", "ice_wolf_full", "ice_golem_full", "boss_full", "watchtower", "windmill", "desert_outpost", "ice_lodge", "shrine", "ruin_arch", "bird_anim", "ui_round_button", "ui_portrait", "icon_heart", "icon_coin", "icon_potion", "icon_xp", "btn_attack", "btn_interact", "btn_map", "btn_bag", "btn_potion"]:
 		textures[name] = load("res://assets/%s.png" % name)
 	for family in ["sword", "bow", "staff"]:
 		for tier in 4:
@@ -992,35 +993,13 @@ func _draw() -> void:
 	var y_start: int = maxi(0, int(camera.y / TILE) - 2)
 	var x_end: int = mini(int(ceil(world_bounds.x / TILE)), x_start + 36)
 	var y_end: int = mini(int(ceil(world_bounds.y / TILE)), y_start + 23)
-	if zone == "floresta":
-		draw_texture(textures["forest_art"], Vector2.ZERO)
-	elif zone == "ferreiro":
-		pass
-	else:
-		if zone == "cidade":
-			# Repeated painterly ground replaces the flat 32px grass around Valedouro.
-			draw_texture_rect(textures["outskirts_ground"], Rect2(Vector2.ZERO, MAP.SIZE), true)
-		for y in range(y_start, y_end):
-			for x in range(x_start, x_end):
-				var index: int = x * 71 + y * 139
-				var tex: Texture2D
-				if zone == "cidade":
-					var name: String = MAP.ground_at(Vector2(x * TILE + 16, y * TILE + 16))
-					if name in ["grass", "grass2", "meadow"]:
-						continue
-					if name == "path":
-						var tile_source: Rect2 = Rect2(Vector2((x * 32) % 512, (y * 32) % 512), Vector2(32, 32))
-						draw_texture_rect_region(textures["path_ground"], Rect2(x * TILE, y * TILE, TILE, TILE), tile_source)
-						continue
-					tex = textures[name]
-				elif zone in ["loja", "alquimia", "guilda"]:
-					tex = textures["plank"]
-				elif zone == "masmorra":
-					tex = textures["stone"]
-				else:
-					tex = textures["grass2"] if index % 7 == 0 else textures["grass"]
-				draw_texture_rect(tex, Rect2(x * TILE, y * TILE, TILE, TILE), false)
 	view_rect = Rect2(camera, VIEW_SIZE)
+	if zone == "cidade":
+		GROUND.draw_world(self, view_rect)
+	elif zone == "floresta":
+		GROUND.draw_bosque(self, view_rect)
+	else:
+		draw_rect(view_rect, GROUND.base_color(zone))
 	if zone == "cidade":
 		view_items = PROC.view(view_rect)
 		REGR.draw_ground(self, view_items, view_rect, time_acc, approved_visuals)
@@ -1083,29 +1062,8 @@ func _draw() -> void:
 	if zone == "cidade" and map_visible:
 		draw_world_minimap()
 
-func draw_overworld(camera: Vector2, x_start: int, x_end: int, y_start: int, y_end: int) -> void:
-	# Água, pontes, cascata, marcos legados e rótulos. Vegetação, props e transições vêm da camada REG_001 (chunks).
-	for y in range(y_start, y_end):
-		for x in range(x_start, x_end):
-			var p: Vector2 = Vector2(x * 32 + 16, y * 32 + 16)
-			var name: String = MAP.ground_at(p)
-			if name == "water" and (x + y) % 3 == 0:
-				var current: float = sin(time_acc * 2.5 + x * 1.4 + y) * 6.0
-				draw_line(p + Vector2(-9 + current, -3), p + Vector2(6 + current, -3), Color(.72, .93, .95, .62), 2)
-			elif name == "shallow_water" and (x + y) % 2 == 0:
-				var shimmer: float = sin(time_acc * 3.1 + x + y * .7) * 3.0
-				draw_line(p + Vector2(-10 + shimmer, 2), p + Vector2(7 + shimmer, 2), Color(.84, 1, .93, .58), 1)
-			elif name == "bridge":
-				draw_line(p + Vector2(-14, -12), p + Vector2(14, -12), Color(.48, .34, .25), 2)
-				draw_line(p + Vector2(-14, 10), p + Vector2(14, 10), Color(.48, .34, .25), 2)
-
-	# Três travessias reutilizam a mesma linguagem de madeira/pedra, mas com silhuetas próprias.
-	for index in range(MAP.BRIDGE_YS.size()):
-		var by: float = float(MAP.BRIDGE_YS[index])
-		var bridge_center: Vector2 = Vector2(MAP.river_x(float(by)), float(by))
-		if camera.distance_to(bridge_center) < 700:
-			draw_bridge_details(bridge_center, index)
-
+func draw_overworld(camera: Vector2, _x_start: int, _x_end: int, _y_start: int, _y_end: int) -> void:
+	# Água, margens, estradas e pontes vêm do chão assado; brilhos/espuma são sprites (camada REG_001).
 	# Cascata: queda animada (efeito); as rochas laterais são objetos modelados da REG_001.
 	var falls: Vector2 = Vector2(MAP.river_x(471.0), 471.0)
 	if camera.distance_to(falls) < 820:
@@ -1217,22 +1175,6 @@ func draw_approved_town_border(camera: Vector2) -> void:
 		if absf(local.x - 890.0) < 150.0 or absf(local.y - 478.0) < 125.0:
 			continue
 		draw_approved_tree(point, point_index % 7 == 0, .42)
-
-func draw_bridge_details(center: Vector2, variant: int) -> void:
-	var rail: Color = Color(.38, .25, .18) if variant != 0 else Color(.42, .43, .48)
-	var glow: Color = Color(1, .75, .28, .82)
-	for side in [-1.0, 1.0]:
-		var y: float = center.y + side * 37.0
-		draw_line(Vector2(center.x - 86, y), Vector2(center.x + 86, y), rail, 4)
-		for xoff in [-74.0, -34.0, 34.0, 74.0]:
-			draw_line(Vector2(center.x + xoff, y - 3), Vector2(center.x + xoff, y + 15 * side), rail, 3)
-	if variant == 1:
-		for xoff in [-76.0, 76.0]:
-			draw_circle(center + Vector2(xoff, -48), 5, Color(.32, .2, .15))
-			draw_circle(center + Vector2(xoff, -50), 3 + sin(time_acc * 6.0 + xoff) * .5, glow)
-	elif variant == 0:
-		for xoff in [-70.0, 70.0]:
-			draw_rect(Rect2(center + Vector2(xoff - 5, -49), Vector2(10, 20)), Color(.45, .47, .55))
 
 func draw_world_structure(entry: Dictionary) -> void:
 	var center: Vector2 = entry["pos"] as Vector2

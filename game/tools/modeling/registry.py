@@ -21,10 +21,13 @@ class AssetSpec:
     seed: int = 1
     shadow: bool = True
     footprint: float = 0.0  # raio de exclusão da vegetação (px de jogo); 0 = usa blocks
+    rows: int = 1           # linhas da folha (ex.: direções de uma animação)
+    contact: Optional[tuple] = None  # (rx, ry, alpha) em unidades de mundo: sombra de contato baked
+    status_note: str = ''
 
 
-def asset(id, group, folder, size, origin, scale=60.0, draw_scale=.5, frames=1, blocks=None, tags=(), seed=1, shadow=True, footprint=0.0):
+def asset(id, group, folder, size, origin, scale=60.0, draw_scale=.5, frames=1, blocks=None, tags=(), seed=1, shadow=True, footprint=0.0, rows=1, contact=None):
     def deco(fn):
-        REGISTRY.append(AssetSpec(id, group, folder, size, origin, fn, scale, draw_scale, frames, blocks, tags, seed, shadow, footprint))
+        REGISTRY.append(AssetSpec(id, group, folder, size, origin, fn, scale, draw_scale, frames, blocks, tags, seed, shadow, footprint, rows, contact))
         return fn
     return deco

@@ -1,5 +1,5 @@
 {
- "schema_version": 1,
+ "schema_version": 2,
  "manifest_id": "MAN_MODELED_ASSETS_001",
  "policy": {
   "ids_are_persistent": true,
@@ -10,7 +10,7 @@
   "note": "MODELED_PENDING_GATE = modelado no estilo dos 28 APPROVED, aguardando gate visual do Diretor. Mude o status de um asset para REJECTED/HOLD para removê-lo do renderer."
  },
  "counts": {
-  "total": 149
+  "total": 211
  },
  "assets": [
   {
@@ -23,9 +23,10 @@
     250
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    65,
-    226
+    65.0,
+    226.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 5.0,
@@ -48,9 +49,10 @@
     250
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    65,
-    226
+    65.0,
+    226.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 5.0,
@@ -73,9 +75,10 @@
     150
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    118
+    85.0,
+    118.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -99,9 +102,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    96
+    85.0,
+    96.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 10.0,
@@ -124,9 +128,10 @@
     160
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    105,
-    128
+    105.0,
+    128.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 16.0,
@@ -149,9 +154,10 @@
     150
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    118
+    85.0,
+    118.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 15.0,
@@ -175,9 +181,10 @@
     260
    ],
    "frames": 4,
+   "rows": 1,
    "foot": [
-    140,
-    214
+    140.0,
+    214.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 30.0,
@@ -200,9 +207,10 @@
     220
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    60,
-    196
+    60.0,
+    196.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 5.0,
@@ -225,9 +233,10 @@
     220
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    196
+    100.0,
+    196.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 5.0,
@@ -250,9 +259,10 @@
     320
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    282
+    85.0,
+    282.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -275,9 +285,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    96
+    75.0,
+    96.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 11.0,
@@ -300,9 +311,10 @@
     170
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    140
+    100.0,
+    140.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -325,9 +337,10 @@
     170
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    115,
-    136
+    115.0,
+    136.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -350,9 +363,10 @@
     250
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    115,
-    204
+    115.0,
+    204.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 20.0,
@@ -375,9 +389,10 @@
     250
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    115,
-    204
+    115.0,
+    204.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 20.0,
@@ -400,9 +415,10 @@
     190
    ],
    "frames": 2,
+   "rows": 1,
    "foot": [
-    100,
-    156
+    100.0,
+    156.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 16.0,
@@ -425,9 +441,10 @@
     130
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    65,
-    104
+    65.0,
+    104.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 10.0,
@@ -450,9 +467,10 @@
     110
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    82
+    75.0,
+    82.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -475,9 +493,10 @@
     300
    ],
    "frames": 2,
+   "rows": 1,
    "foot": [
-    150,
-    256
+    150.0,
+    256.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 26.0,
@@ -501,9 +520,10 @@
     200
    ],
    "frames": 4,
+   "rows": 1,
    "foot": [
-    75,
-    172
+    75.0,
+    172.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 9.0,
@@ -526,9 +546,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    65,
-    98
+    65.0,
+    98.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 10.0,
@@ -551,9 +572,10 @@
     260
    ],
    "frames": 2,
+   "rows": 1,
    "foot": [
-    85,
-    226
+    85.0,
+    226.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -577,9 +599,10 @@
     130
    ],
    "frames": 2,
+   "rows": 1,
    "foot": [
-    65,
-    100
+    65.0,
+    100.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -602,9 +625,10 @@
     250
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    222
+    75.0,
+    222.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 11.0,
@@ -627,9 +651,10 @@
     170
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    142
+    85.0,
+    142.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 11.0,
@@ -652,9 +677,10 @@
     260
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    120,
-    220
+    120.0,
+    220.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 20.0,
@@ -678,9 +704,10 @@
     140
    ],
    "frames": 2,
+   "rows": 1,
    "foot": [
-    124,
-    70
+    124.0,
+    70.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -704,9 +731,10 @@
     160
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    105,
-    128
+    105.0,
+    128.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 16.0,
@@ -729,9 +757,10 @@
     200
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    130,
-    160
+    130.0,
+    160.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 16.0,
@@ -754,9 +783,10 @@
     200
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    170
+    85.0,
+    170.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -779,9 +809,10 @@
     190
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    115,
-    156
+    115.0,
+    156.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 18.0,
@@ -804,9 +835,10 @@
     150
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    122
+    75.0,
+    122.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -829,9 +861,10 @@
     220
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    192
+    75.0,
+    192.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 9.0,
@@ -854,9 +887,10 @@
     170
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    138
+    100.0,
+    138.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 18.0,
@@ -879,9 +913,10 @@
     230
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    192
+    85.0,
+    192.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -904,9 +939,10 @@
     200
    ],
    "frames": 4,
+   "rows": 1,
    "foot": [
-    50,
-    178
+    50.0,
+    178.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 6.0,
@@ -929,9 +965,10 @@
     160
    ],
    "frames": 4,
+   "rows": 1,
    "foot": [
-    85,
-    128
+    85.0,
+    128.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -954,9 +991,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    55,
-    112
+    55.0,
+    112.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 7.0,
@@ -979,9 +1017,10 @@
     170
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    115,
-    138
+    115.0,
+    138.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 20.0,
@@ -1005,9 +1044,10 @@
     170
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    115,
-    138
+    115.0,
+    138.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 18.0,
@@ -1030,9 +1070,10 @@
     260
    ],
    "frames": 4,
+   "rows": 1,
    "foot": [
-    115,
-    206
+    115.0,
+    206.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 20.0,
@@ -1055,9 +1096,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    124,
-    70
+    124.0,
+    70.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -1080,9 +1122,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    124,
-    70
+    124.0,
+    70.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -1106,9 +1149,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    124,
-    70
+    124.0,
+    70.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -1131,9 +1175,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    124,
-    70
+    124.0,
+    70.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -1156,9 +1201,10 @@
     280
    ],
    "frames": 4,
+   "rows": 1,
    "foot": [
-    125,
-    226
+    125.0,
+    226.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 24.0,
@@ -1181,9 +1227,10 @@
     220
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    186
+    100.0,
+    186.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -1206,9 +1253,10 @@
     110
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    60
+    100.0,
+    60.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -1231,9 +1279,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    70,
-    96
+    70.0,
+    96.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -1256,9 +1305,10 @@
     230
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    192
+    85.0,
+    192.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -1281,9 +1331,10 @@
     230
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    192
+    85.0,
+    192.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -1306,9 +1357,10 @@
     100
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    45,
-    80
+    45.0,
+    80.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 6.0,
@@ -1331,9 +1383,10 @@
     160
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    125,
-    130
+    125.0,
+    130.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 18.0,
@@ -1356,9 +1409,10 @@
     150
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    122
+    85.0,
+    122.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -1381,9 +1435,10 @@
     230
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    196
+    100.0,
+    196.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -1406,9 +1461,10 @@
     230
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    196
+    100.0,
+    196.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -1431,9 +1487,10 @@
     230
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    196
+    100.0,
+    196.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -1456,9 +1513,10 @@
     230
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    196
+    100.0,
+    196.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -1481,9 +1539,10 @@
     230
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    196
+    100.0,
+    196.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -1506,9 +1565,10 @@
     230
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    196
+    100.0,
+    196.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -1531,9 +1591,10 @@
     200
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    170
+    100.0,
+    170.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -1556,9 +1617,10 @@
     160
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    110,
-    130
+    110.0,
+    130.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 18.0,
@@ -1581,9 +1643,10 @@
     190
    ],
    "frames": 2,
+   "rows": 1,
    "foot": [
-    100,
-    158
+    100.0,
+    158.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 16.0,
@@ -1606,9 +1669,10 @@
     190
    ],
    "frames": 2,
+   "rows": 1,
    "foot": [
-    100,
-    158
+    100.0,
+    158.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 16.0,
@@ -1632,9 +1696,10 @@
     100
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    70,
-    78
+    70.0,
+    78.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -1656,9 +1721,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    92
+    85.0,
+    92.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -1681,9 +1747,10 @@
     190
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    115,
-    152
+    115.0,
+    152.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 24.0,
@@ -1707,9 +1774,10 @@
     190
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    115,
-    152
+    115.0,
+    152.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 24.0,
@@ -1733,9 +1801,10 @@
     110
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    70,
-    82
+    70.0,
+    82.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -1759,9 +1828,10 @@
     110
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    70,
-    82
+    70.0,
+    82.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -1784,9 +1854,10 @@
     110
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    70,
-    82
+    70.0,
+    82.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -1810,9 +1881,10 @@
     110
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    70,
-    82
+    70.0,
+    82.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -1835,9 +1907,10 @@
     110
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    70,
-    82
+    70.0,
+    82.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -1860,9 +1933,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    65,
-    92
+    65.0,
+    92.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 8.0,
@@ -1885,9 +1959,10 @@
     240
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    212
+    85.0,
+    212.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 9.0,
@@ -1910,9 +1985,10 @@
     150
    ],
    "frames": 4,
+   "rows": 1,
    "foot": [
-    75,
-    112
+    75.0,
+    112.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -1935,9 +2011,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    95,
-    108
+    95.0,
+    108.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 16.0,
@@ -1961,9 +2038,10 @@
     130
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    100
+    75.0,
+    100.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 13.0,
@@ -1985,9 +2063,10 @@
     130
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    100
+    75.0,
+    100.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 13.0,
@@ -2009,9 +2088,10 @@
     130
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    100
+    75.0,
+    100.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 13.0,
@@ -2034,9 +2114,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    60
+    100.0,
+    60.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2059,9 +2140,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    60
+    100.0,
+    60.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2084,9 +2166,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    60
+    100.0,
+    60.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2109,9 +2192,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    60
+    100.0,
+    60.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2134,9 +2218,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    60
+    100.0,
+    60.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2159,9 +2244,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    60
+    100.0,
+    60.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2184,9 +2270,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    60
+    100.0,
+    60.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2209,9 +2296,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    60
+    100.0,
+    60.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2234,9 +2322,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    60
+    100.0,
+    60.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2259,9 +2348,10 @@
     270
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    250,
-    160
+    250.0,
+    160.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 40.0,
@@ -2285,9 +2375,10 @@
     190
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    165,
-    112
+    165.0,
+    112.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2310,9 +2401,10 @@
     110
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    88
+    85.0,
+    88.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 8.0,
@@ -2335,9 +2427,10 @@
     110
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    88
+    85.0,
+    88.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 8.0,
@@ -2360,9 +2453,10 @@
     110
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    88
+    85.0,
+    88.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 10.0,
@@ -2386,9 +2480,10 @@
     110
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    88
+    85.0,
+    88.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 10.0,
@@ -2412,9 +2507,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    120,
-    100
+    120.0,
+    100.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 20.0,
@@ -2437,9 +2533,10 @@
     240
    ],
    "frames": 4,
+   "rows": 1,
    "foot": [
-    75,
-    214
+    75.0,
+    214.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 6.0,
@@ -2461,9 +2558,10 @@
     240
    ],
    "frames": 4,
+   "rows": 1,
    "foot": [
-    75,
-    214
+    75.0,
+    214.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 6.0,
@@ -2485,9 +2583,10 @@
     90
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    55,
-    66
+    55.0,
+    66.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2510,9 +2609,10 @@
     90
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    55,
-    66
+    55.0,
+    66.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2536,9 +2636,10 @@
     90
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    55,
-    66
+    55.0,
+    66.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2561,9 +2662,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    110,
-    100
+    110.0,
+    100.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2587,9 +2689,10 @@
     130
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    95,
-    104
+    95.0,
+    104.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 10.0,
@@ -2612,9 +2715,10 @@
     100
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    55,
-    76
+    55.0,
+    76.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2637,9 +2741,10 @@
     100
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    55,
-    76
+    55.0,
+    76.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2662,9 +2767,10 @@
     100
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    65,
-    76
+    65.0,
+    76.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 11.0,
@@ -2687,9 +2793,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    112
+    75.0,
+    112.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -2712,9 +2819,10 @@
     230
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    194
+    85.0,
+    194.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -2737,9 +2845,10 @@
     130
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    100
+    100.0,
+    100.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2763,9 +2872,10 @@
     130
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    115,
-    96
+    115.0,
+    96.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 16.0,
@@ -2789,9 +2899,10 @@
     130
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    100
+    85.0,
+    100.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -2815,9 +2926,10 @@
     90
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    55,
-    68
+    55.0,
+    68.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2840,9 +2952,10 @@
     290
    ],
    "frames": 2,
+   "rows": 1,
    "foot": [
-    75,
-    256
+    75.0,
+    256.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 10.0,
@@ -2865,9 +2978,10 @@
     130
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    96
+    100.0,
+    96.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2889,9 +3003,10 @@
     130
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    55,
-    108
+    55.0,
+    108.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2914,9 +3029,10 @@
     150
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    118
+    75.0,
+    118.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -2939,9 +3055,10 @@
     130
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    65,
-    100
+    65.0,
+    100.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -2964,9 +3081,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    108
+    75.0,
+    108.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -2989,9 +3107,10 @@
     190
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    115,
-    152
+    115.0,
+    152.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 24.0,
@@ -3014,9 +3133,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    108
+    85.0,
+    108.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -3039,9 +3159,10 @@
     130
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    80,
-    100
+    80.0,
+    100.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 13.0,
@@ -3064,9 +3185,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    108
+    85.0,
+    108.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -3090,9 +3212,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    108
+    85.0,
+    108.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -3115,9 +3238,10 @@
     90
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    55,
-    68
+    55.0,
+    68.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -3140,9 +3264,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    108
+    85.0,
+    108.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -3165,9 +3290,10 @@
     282
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    130,
-    248
+    130.0,
+    248.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -3190,9 +3316,10 @@
     282
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    130,
-    248
+    130.0,
+    248.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 14.0,
@@ -3216,9 +3343,10 @@
     250
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    220
+    75.0,
+    220.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 11.0,
@@ -3241,9 +3369,10 @@
     190
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    95,
-    158
+    95.0,
+    158.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 11.0,
@@ -3266,9 +3395,10 @@
     262
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    75,
-    232
+    75.0,
+    232.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 11.0,
@@ -3292,9 +3422,10 @@
     206
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    120,
-    172
+    120.0,
+    172.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 16.0,
@@ -3317,9 +3448,10 @@
     206
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    120,
-    172
+    120.0,
+    172.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 16.0,
@@ -3343,9 +3475,10 @@
     190
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    70,
-    166
+    70.0,
+    166.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 7.0,
@@ -3369,9 +3502,10 @@
     140
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    60,
-    116
+    60.0,
+    116.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 6.0,
@@ -3394,9 +3528,10 @@
     150
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    125,
-    90
+    125.0,
+    90.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -3419,9 +3554,10 @@
     270
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    85,
-    236
+    85.0,
+    236.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -3444,9 +3580,10 @@
     110
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    65,
-    84
+    65.0,
+    84.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 9.0,
@@ -3469,9 +3606,10 @@
     170
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    138
+    100.0,
+    138.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 16.0,
@@ -3495,9 +3633,10 @@
     190
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    110,
-    152
+    110.0,
+    152.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 18.0,
@@ -3521,9 +3660,10 @@
     170
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    138
+    100.0,
+    138.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 16.0,
@@ -3546,9 +3686,10 @@
     100
    ],
    "frames": 2,
+   "rows": 1,
    "foot": [
-    80,
-    72
+    80.0,
+    72.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 0.0,
@@ -3570,9 +3711,10 @@
     260
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    228
+    100.0,
+    228.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 13.0,
@@ -3596,9 +3738,10 @@
     260
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    232
+    100.0,
+    232.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -3622,9 +3765,10 @@
     270
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    110,
-    242
+    110.0,
+    242.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -3648,9 +3792,10 @@
     270
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    238
+    100.0,
+    238.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 15.0,
@@ -3674,9 +3819,10 @@
     270
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    100,
-    238
+    100.0,
+    238.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 15.0,
@@ -3699,9 +3845,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    90,
-    96
+    90.0,
+    96.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -3725,9 +3872,10 @@
     120
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    90,
-    96
+    90.0,
+    96.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 12.0,
@@ -3751,9 +3899,10 @@
     220
    ],
    "frames": 1,
+   "rows": 1,
    "foot": [
-    95,
-    184
+    95.0,
+    184.0
    ],
    "draw_scale": 0.5,
    "blocks_radius": 18.0,
@@ -3764,6 +3913,1680 @@
    ],
    "sha256": "548554ef9be9a42588ffd8592fe5a85db992951f2544635918c429f23c3da5ec",
    "source": "game/tools/modeling/build_assets.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_bosque_0_0",
+   "path": "res://assets/modeled/terrain/ground/ter_bosque_0_0.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "bosque"
+   ],
+   "sha256": "388dda16c3e4a292e46e32b4c4567d3f9e7c16d473862e45511c048e57064374",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_bosque_0_1",
+   "path": "res://assets/modeled/terrain/ground/ter_bosque_0_1.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    350
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "bosque"
+   ],
+   "sha256": "59d61b13c38db0ea7cd002c29e357aa47d7283fd27c983e176f878d9d7145009",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_bosque_1_0",
+   "path": "res://assets/modeled/terrain/ground/ter_bosque_1_0.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "bosque"
+   ],
+   "sha256": "d8640b18f13f076bf5c1e4cc443e1c5fbb63b78c415854518df30e582d8cb168",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_bosque_1_1",
+   "path": "res://assets/modeled/terrain/ground/ter_bosque_1_1.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    350
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "bosque"
+   ],
+   "sha256": "2d066296f04f87c622886c1b052c616207b02ff2a525b1e446d2f7d54ad6d649",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_bosque_2_0",
+   "path": "res://assets/modeled/terrain/ground/ter_bosque_2_0.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "bosque"
+   ],
+   "sha256": "06ff26e0c9753dffa18167ca628b3dfcf3b0b67e531dd4b31c13a677ec73c09a",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_bosque_2_1",
+   "path": "res://assets/modeled/terrain/ground/ter_bosque_2_1.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    350
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "bosque"
+   ],
+   "sha256": "cf918a8df2057cd6b4668758bc71faf583c3fbb2add36c045abd878a5fe36e15",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_bosque_3_0",
+   "path": "res://assets/modeled/terrain/ground/ter_bosque_3_0.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    289,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "bosque"
+   ],
+   "sha256": "86bf3404f38d9f4fcc1f1ce08211093683a6c041d7aa50ed8d2a06b28ae42382",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_bosque_3_1",
+   "path": "res://assets/modeled/terrain/ground/ter_bosque_3_1.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    289,
+    350
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "bosque"
+   ],
+   "sha256": "b7ad84475c9b49839a65ff61854084e9ca0ef97452f741dd538b076e03e15d50",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_0_0",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_0_0.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "f5dd058594026797b3bf40aa97afa56a1a41a463daf9cf8aba7d0dedc5e8c2a7",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_0_1",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_0_1.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "1d6dd00223d418aafe9bc84ffc953dc6eddf4680829360fa506896166ddb915b",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_0_2",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_0_2.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "41bbbc02bde11d11ea9bd0d53cd3b1b3e975e7576f8abd1038b4ceae52103079",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_0_3",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_0_3.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "a42c2a41f1d6207238507cc24846a036ee685a8cfa49db3d49711fe444092a46",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_0_4",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_0_4.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "f548b17e1ac4cc5892ab39b01c6c07d3705089913966c447b1c7866b708d95e3",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_1_0",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_1_0.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "f8babae3396f5e073661a4ea1300ae2b03fa13bce4cbe3aa2a4da46d410942bf",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_1_1",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_1_1.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "a111165c7bbd4bf01e8c5b82ee3d5b6c2c1ee632833f1de500d29fc8fd481e41",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_1_2",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_1_2.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "f9ba94e720cc4df806e001d454f251f6c60bbdf8b641eae07d305afa6d44c0a9",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_1_3",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_1_3.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "dc8be52a189338c66c7606265b22142776242f1856137f21d1c6abe86f38fbe3",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_1_4",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_1_4.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "5f2d9ad8439a84129710f204ba7bcf63980677f4aff3ba615f506ff6a280cdcd",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_2_0",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_2_0.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "16821fa46683f5bfc69a915a63b312bbc73aac9cab24023663594f5e06b96bf6",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_2_1",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_2_1.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "e632216a542eaf92691c9df879d81fa0c332d9540a3e109c7f8959d7fc657579",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_2_2",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_2_2.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "82130480562ad5dd1836a7aac62b3626049fb91d7728efcee36dcf6384720ebb",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_2_3",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_2_3.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "c9618b26579af14d6f8b8d2d604d85e24377c9458782017a28cba5ac563fc0ce",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_2_4",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_2_4.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "24b1ecea67546b11fee8fc50c15911d8b3e0ad46e72e1fb42a16d9658ebe203a",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_3_0",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_3_0.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "5e3ba9ae616853be78fb70b58df3706a5ae1c1ab044b2bb866a62b49988b132c",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_3_1",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_3_1.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "9e209b16b1f87fbb0ccbff1d495f1e8fd398330137cce9254f560cdf2a6d199c",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_3_2",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_3_2.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "60dce1bc137260f592235570780bd214c50ef17f440fb4dbffcb9a0dcdaa6a5e",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_3_3",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_3_3.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "43661fa7556e774bf617e1386a68578b2fea48f328affc50c12f93726c7f1d9f",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_3_4",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_3_4.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "7862cf3a288fe7936ea0f1bd1b3089d0ffd5db7c25d0795d6718b2ba1e292078",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_4_0",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_4_0.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "f00167d9574bb8a96a9c6da43f3331516e01188fcb9a693533e869618bd9cfd7",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_4_1",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_4_1.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "55975765fce3ce6965fb64c056a3dfedbfdc7b73d1ba41dc7d7a0dd05fc6b538",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_4_2",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_4_2.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "fc9ae913890e36734100eadc1fb83cd9e6c323ac487ba5670464c5c5f22a3c28",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_4_3",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_4_3.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "277c6a01a0dde68af313961da23c7bb0a40e5b5049d16273df0d96c7ed19492d",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_4_4",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_4_4.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "fa3dd0bce2f1a15978494ef314d610e8bcfae5f49d762412b31ab9db389a7aed",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_5_0",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_5_0.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "1e5e9a23d9a605d788243af92809db58f5cf2d13d1c31c3cddcfe262fdebf0a0",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_5_1",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_5_1.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "bde7c5350288d244d8d53b5232c6986f2a78b7661fcf82fb7aa7bd45712a9ecb",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_5_2",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_5_2.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "c72b95bb90bd1f12d4b3a979c2bf3eb195cdf732327358813c789e83b6cd5997",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_5_3",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_5_3.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    512
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "e2f0b9384396e025fac7e5bd4484d0da680b45b9fce419f9a12667c6d1f89689",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_ground_5_4",
+   "path": "res://assets/modeled/terrain/ground/ter_ground_5_4.png",
+   "group": "terrain",
+   "folder": "ground",
+   "frame_size": [
+    512,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "chao",
+    "baked",
+    "mundo"
+   ],
+   "sha256": "34f2f6034c41b5f5455c3bb7c17859806f087fdd8077cc76b94da61a2de450b2",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_cobble",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_cobble.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "cobble"
+   ],
+   "sha256": "d0c69aa8c4860e22b88142913f30c8a629fb4bbd12cbeda49f67fd98eea0ec82",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_deck_stone",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_deck_stone.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "deck_stone"
+   ],
+   "sha256": "5c0cf0ba234264ba9710e3bb6f5ab9223989ec44724c03ed7266eb9d8c54bfe5",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_deck_wood",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_deck_wood.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "deck_wood"
+   ],
+   "sha256": "449d62e655db56ebab93a5f5d7eb4bfe04d2c61f35f9834a2e19d06bf6d92f05",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_dirt",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_dirt.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "dirt"
+   ],
+   "sha256": "303cddcc23818f34c44ae182580aa715b5eac473ad7206ce703db805956680d8",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_forest_floor",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_forest_floor.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "forest_floor"
+   ],
+   "sha256": "26c7b067a8033fd430f701fa191d751167af03589e16d3ec6a6915fb87bf318b",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_grass_a",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_grass_a.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "grass_a"
+   ],
+   "sha256": "f6f9e3a94c84dac68ff4f37314617135f5e68bc9e5b72001f0f68629f5163323",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_grass_b",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_grass_b.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "grass_b"
+   ],
+   "sha256": "7d054a6c524ab0d5b1b6e92458f0357ac1e5f08cd4b7981c6c1959b9eae423ad",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_ice",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_ice.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "ice"
+   ],
+   "sha256": "7ba2b23d148d7a4cac276745d98a4b281dce58891d335d3f5627394f0c66a351",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_meadow",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_meadow.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "meadow"
+   ],
+   "sha256": "93ae21c846aadb9c2a631dc0269436c9900dc1c3d095a9f174c73041bdb5a36c",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_mud",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_mud.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "mud"
+   ],
+   "sha256": "2cb8586be933c8328d6a9379f8e65bcd625f2fbb351f05554371b15f03166daf",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_riverbed",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_riverbed.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "riverbed"
+   ],
+   "sha256": "f64d721c43cd1df1483849195e42b4c37de52c96c1d0241500106698656d6e1e",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_road",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_road.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "road"
+   ],
+   "sha256": "232b1120e78eb099fe7e6ce2a70411a14d498a25b3a0ba5a4bf54712d9d2564c",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_road_sand",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_road_sand.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "road_sand"
+   ],
+   "sha256": "bac2fd73ce0fadd477ec06091f0b408607b0474dedec36d125490437da8b954d",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_road_snow",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_road_snow.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "road_snow"
+   ],
+   "sha256": "c8811e56f56ca78ced30efe0ddaf7215b4a8d91c3ba65f12db888febd5443cdc",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_sand",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_sand.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "sand"
+   ],
+   "sha256": "f3f0aa69b2cca75a7029ef9e6815b1aa3fa4a7775e8584b7e64e186710d1a491",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_sand_dune",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_sand_dune.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "sand_dune"
+   ],
+   "sha256": "849fa7acef88b309596b91ecdd5485104270a0e19807b84ed58a80cbc81b6463",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_snow",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_snow.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "snow"
+   ],
+   "sha256": "e1e0e170da03803c16f97784c7591ba2db333517730bca46a3529a55a0bb425b",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_stone",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_stone.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "stone"
+   ],
+   "sha256": "4503be32104636aaef5a8368bbaacc94c7eb26d165901662ff37e46be74db415",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_valley",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_valley.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "valley"
+   ],
+   "sha256": "8ab24250f847dbe6eecdb83cad1921abc6da34af6b4af17b7ffb3b9873dc14df",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_water_deep",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_water_deep.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "water_deep"
+   ],
+   "sha256": "5add46e2f43c7184f827432a1d12f72335150abf1dc9d85dcabeda6ca96354ed",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_tex_water_shallow",
+   "path": "res://assets/modeled/terrain/tiles/ter_tex_water_shallow.png",
+   "group": "terrain",
+   "folder": "tiles",
+   "frame_size": [
+    256,
+    256
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    0.0,
+    0.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "tile",
+    "contínuo",
+    "water_shallow"
+   ],
+   "sha256": "004e7f7d338287098355c96cdc6ec74e21a01b1036e922566dfd1209d6db4c80",
+   "source": "game/tools/terrain/texlib.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_water_foam",
+   "path": "res://assets/modeled/terrain/fx/ter_water_foam.png",
+   "group": "terrain",
+   "folder": "fx",
+   "frame_size": [
+    28,
+    6
+   ],
+   "frames": 4,
+   "rows": 1,
+   "foot": [
+    14.0,
+    3.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "agua",
+    "efeito",
+    "animado"
+   ],
+   "sha256": "2130733d5fc1ab453bb85ac6c6ceb7081e67833cccec8852a751c25cdc46c3b5",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_water_glint",
+   "path": "res://assets/modeled/terrain/fx/ter_water_glint.png",
+   "group": "terrain",
+   "folder": "fx",
+   "frame_size": [
+    16,
+    8
+   ],
+   "frames": 8,
+   "rows": 1,
+   "foot": [
+    8.0,
+    4.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "agua",
+    "efeito",
+    "animado"
+   ],
+   "sha256": "7b3405ec7f7827a81fe09b0ca2583d825c2ddc7e38d4e0f1b58213e5fec92319",
+   "source": "game/tools/terrain/bake_ground.py",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ter_water_ripple",
+   "path": "res://assets/modeled/terrain/fx/ter_water_ripple.png",
+   "group": "terrain",
+   "folder": "fx",
+   "frame_size": [
+    28,
+    14
+   ],
+   "frames": 8,
+   "rows": 1,
+   "foot": [
+    14.0,
+    7.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "agua",
+    "efeito",
+    "animado"
+   ],
+   "sha256": "14b9decf20ecb2d9a529beedd57eab6364455847bf975b190de9fdc29741bd3f",
+   "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   }
  ]

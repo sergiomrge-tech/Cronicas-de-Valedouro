@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (28): Lote 01, únicos aprovados pelo Diretor. Cidade 15 + Dungeon 13.
-- **MODELED_PENDING_GATE** (149): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (211): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 27 | 1 |
-| MODELED_PENDING_GATE | 130 | 19 |
+| MODELED_PENDING_GATE | 130 | 81 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -50,11 +50,11 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_bones_desert` | INTEGRATED | 8 |
 | `nat_boulder_ice` | INTEGRATED | 11 |
 | `nat_boulder_sand` | NOT_USED | 0 |
-| `nat_bush_berry` | INTEGRATED | 3 |
+| `nat_bush_berry` | INTEGRATED | 7 |
 | `nat_bush_dry` | INTEGRATED | 6 |
-| `nat_bush_flowering` | INTEGRATED | 7 |
+| `nat_bush_flowering` | INTEGRATED | 8 |
 | `nat_bush_frost` | INTEGRATED | 7 |
-| `nat_bush_green` | INTEGRATED | 10 |
+| `nat_bush_green` | INTEGRATED | 12 |
 | `nat_cactus_round` | INTEGRATED | 5 |
 | `nat_cactus_tall` | INTEGRATED | 8 |
 | `nat_campfire` | INTEGRATED | 6 |
@@ -81,19 +81,19 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_flag_blue` | INTEGRATED | 5 |
 | `nat_flag_red` | INTEGRATED | 5 |
 | `nat_flowers_blue` | INTEGRATED | 4 |
-| `nat_flowers_meadow` | INTEGRATED | 12 |
-| `nat_flowers_red` | INTEGRATED | 4 |
+| `nat_flowers_meadow` | INTEGRATED | 19 |
+| `nat_flowers_red` | INTEGRATED | 8 |
 | `nat_ford_stones` | INTEGRATED | 2 |
 | `nat_gate_wood` | INTEGRATED | 1 |
 | `nat_grass_dry` | INTEGRATED | 3 |
-| `nat_grass_tall` | INTEGRATED | 6 |
+| `nat_grass_tall` | INTEGRATED | 8 |
 | `nat_hay_bale` | INTEGRATED | 4 |
 | `nat_hay_stack` | INTEGRATED | 1 |
 | `nat_ice_spire` | INTEGRATED | 7 |
 | `nat_ice_stones` | NOT_USED | 0 |
 | `nat_log_fallen` | INTEGRATED | 2 |
 | `nat_log_pile` | INTEGRATED | 3 |
-| `nat_mushrooms` | INTEGRATED | 4 |
+| `nat_mushrooms` | INTEGRATED | 8 |
 | `nat_obelisk_rune` | INTEGRATED | 2 |
 | `nat_pit_trap` | INTEGRATED | 2 |
 | `nat_reeds` | INTEGRATED | 14 |
@@ -103,9 +103,9 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_rock_boulder` | INTEGRATED | 11 |
 | `nat_rock_ice` | INTEGRATED | 3 |
 | `nat_rock_medium` | INTEGRATED | 0 |
-| `nat_rock_mossy` | INTEGRATED | 13 |
+| `nat_rock_mossy` | INTEGRATED | 18 |
 | `nat_rock_sand` | INTEGRATED | 7 |
-| `nat_rock_small` | INTEGRATED | 3 |
+| `nat_rock_small` | INTEGRATED | 8 |
 | `nat_rock_snow` | INTEGRATED | 2 |
 | `nat_ruin_arch` | INTEGRATED | 2 |
 | `nat_ruin_arch_sand` | INTEGRATED | 1 |
@@ -123,10 +123,10 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_tent_red` | INTEGRATED | 2 |
 | `nat_tent_small` | INTEGRATED | 5 |
 | `nat_trap_plate` | INTEGRATED | 2 |
-| `nat_tree_birch` | INTEGRATED | 2 |
+| `nat_tree_birch` | INTEGRATED | 24 |
 | `nat_tree_dead` | INTEGRATED | 1 |
 | `nat_tree_palm` | INTEGRATED | 5 |
-| `nat_tree_pine` | INTEGRATED | 4 |
+| `nat_tree_pine` | INTEGRATED | 49 |
 | `nat_tree_pine_snow` | INTEGRATED | 0 |
 | `nat_wall_low_a` | INTEGRATED | 3 |
 | `nat_wall_low_b` | INTEGRATED | 3 |
@@ -143,7 +143,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `city_cart_market` | INTEGRATED | 1 |
 | `city_crates` | INTEGRATED | 5 |
 | `city_fountain` | INTEGRATED | 1 |
-| `city_lamp_post_a` | INTEGRATED | 8 |
+| `city_lamp_post_a` | INTEGRATED | 20 |
 | `city_lamp_post_b` | NOT_USED | 0 |
 | `city_monument` | INTEGRATED | 1 |
 | `city_planter` | INTEGRATED | 6 |
@@ -244,5 +244,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 61 (`REG001_POI_*`); objetos: 493 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 20; passagens: 3; fragmentos de lore: 12.
+- POIs: 61 (`REG001_POI_*`); objetos: 649 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 20; passagens: 3; fragmentos de lore: 12.
 

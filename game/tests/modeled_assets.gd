@@ -27,7 +27,11 @@ func check() -> void:
 	for id_value in entries.keys():
 		var e: Dictionary = entries[id_value] as Dictionary
 		var id: String = str(id_value)
-		assert(id.begins_with("nat_") or id.begins_with("city_") or id.begins_with("dg_") or id.begins_with("int_"), "prefixo inválido: " + id)
+		var known_prefix: bool = false
+		for prefix in ["nat_", "city_", "dg_", "int_", "ter_", "str_", "npc_", "fau_", "fx_"]:
+			if id.begins_with(prefix):
+				known_prefix = true
+		assert(known_prefix, "prefixo inválido: " + id)
 		assert(ALLOWED_STATUSES.has(str(e["status"])), "status inválido em " + id)
 		assert(str(e["status"]) != "REWORKED", "REWORKED não pode entrar: " + id)
 		var path: String = str(e["path"])
@@ -35,7 +39,7 @@ func check() -> void:
 		var tex: Texture2D = load(path) as Texture2D
 		assert(tex != null, "PNG inválido: " + path)
 		var fs: Array = e["frame_size"]
-		assert(tex.get_width() == int(fs[0]) * int(e["frames"]) and tex.get_height() == int(fs[1]), "dimensões divergem do manifesto: " + id)
+		assert(tex.get_width() == int(fs[0]) * int(e["frames"]) and tex.get_height() == int(fs[1]) * int(e.get("rows", 1)), "dimensões divergem do manifesto: " + id)
 		var foot: Array = e["foot"]
 		assert(float(foot[0]) >= 0 and float(foot[0]) <= float(fs[0]) and float(foot[1]) >= 0 and float(foot[1]) <= float(fs[1]), "âncora fora do quadro: " + id)
 		var abs_path: String = ProjectSettings.globalize_path(path)

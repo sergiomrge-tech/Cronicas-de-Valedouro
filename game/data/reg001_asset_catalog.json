@@ -24,7 +24,7 @@
   },
   "MODELED_PENDING_GATE": {
    "INTEGRATED": 130,
-   "NOT_USED": 19
+   "NOT_USED": 81
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -219,7 +219,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 493
+  "object_count": 649
  },
  "entries": [
   {
@@ -515,7 +515,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 8,
+   "placed": 20,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1064,7 +1064,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 3,
+   "placed": 7,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1082,7 +1082,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 7,
+   "placed": 8,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1100,7 +1100,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 10,
+   "placed": 12,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1343,7 +1343,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 12,
+   "placed": 19,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1352,7 +1352,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 8,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1388,7 +1388,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 6,
+   "placed": 8,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1451,7 +1451,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 8,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1541,7 +1541,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 13,
+   "placed": 18,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1559,7 +1559,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 3,
+   "placed": 8,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1721,7 +1721,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 24,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1748,7 +1748,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 49,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -1786,6 +1786,564 @@
    "usage": "INTEGRATED",
    "placed": 3,
    "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_TER_BOSQUE_0_0",
+   "key": "ter_bosque_0_0",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_BOSQUE_0_1",
+   "key": "ter_bosque_0_1",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_BOSQUE_1_0",
+   "key": "ter_bosque_1_0",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_BOSQUE_1_1",
+   "key": "ter_bosque_1_1",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_BOSQUE_2_0",
+   "key": "ter_bosque_2_0",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_BOSQUE_2_1",
+   "key": "ter_bosque_2_1",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_BOSQUE_3_0",
+   "key": "ter_bosque_3_0",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_BOSQUE_3_1",
+   "key": "ter_bosque_3_1",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_0_0",
+   "key": "ter_ground_0_0",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_0_1",
+   "key": "ter_ground_0_1",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_0_2",
+   "key": "ter_ground_0_2",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_0_3",
+   "key": "ter_ground_0_3",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_0_4",
+   "key": "ter_ground_0_4",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_1_0",
+   "key": "ter_ground_1_0",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_1_1",
+   "key": "ter_ground_1_1",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_1_2",
+   "key": "ter_ground_1_2",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_1_3",
+   "key": "ter_ground_1_3",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_1_4",
+   "key": "ter_ground_1_4",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_2_0",
+   "key": "ter_ground_2_0",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_2_1",
+   "key": "ter_ground_2_1",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_2_2",
+   "key": "ter_ground_2_2",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_2_3",
+   "key": "ter_ground_2_3",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_2_4",
+   "key": "ter_ground_2_4",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_3_0",
+   "key": "ter_ground_3_0",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_3_1",
+   "key": "ter_ground_3_1",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_3_2",
+   "key": "ter_ground_3_2",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_3_3",
+   "key": "ter_ground_3_3",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_3_4",
+   "key": "ter_ground_3_4",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_4_0",
+   "key": "ter_ground_4_0",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_4_1",
+   "key": "ter_ground_4_1",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_4_2",
+   "key": "ter_ground_4_2",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_4_3",
+   "key": "ter_ground_4_3",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_4_4",
+   "key": "ter_ground_4_4",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_5_0",
+   "key": "ter_ground_5_0",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_5_1",
+   "key": "ter_ground_5_1",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_5_2",
+   "key": "ter_ground_5_2",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_5_3",
+   "key": "ter_ground_5_3",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_GROUND_5_4",
+   "key": "ter_ground_5_4",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_TEX_COBBLE",
+   "key": "ter_tex_cobble",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_DECK_STONE",
+   "key": "ter_tex_deck_stone",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_DECK_WOOD",
+   "key": "ter_tex_deck_wood",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_DIRT",
+   "key": "ter_tex_dirt",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_FOREST_FLOOR",
+   "key": "ter_tex_forest_floor",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_GRASS_A",
+   "key": "ter_tex_grass_a",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_GRASS_B",
+   "key": "ter_tex_grass_b",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_ICE",
+   "key": "ter_tex_ice",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_MEADOW",
+   "key": "ter_tex_meadow",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_MUD",
+   "key": "ter_tex_mud",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_RIVERBED",
+   "key": "ter_tex_riverbed",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_ROAD",
+   "key": "ter_tex_road",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_ROAD_SAND",
+   "key": "ter_tex_road_sand",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_ROAD_SNOW",
+   "key": "ter_tex_road_snow",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_SAND",
+   "key": "ter_tex_sand",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_SAND_DUNE",
+   "key": "ter_tex_sand_dune",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_SNOW",
+   "key": "ter_tex_snow",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_STONE",
+   "key": "ter_tex_stone",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_VALLEY",
+   "key": "ter_tex_valley",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_WATER_DEEP",
+   "key": "ter_tex_water_deep",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_TEX_WATER_SHALLOW",
+   "key": "ter_tex_water_shallow",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/texlib.py"
+  },
+  {
+   "id": "MOD_TER_WATER_FOAM",
+   "key": "ter_water_foam",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_WATER_GLINT",
+   "key": "ter_water_glint",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
+  },
+  {
+   "id": "MOD_TER_WATER_RIPPLE",
+   "key": "ter_water_ripple",
+   "group": "terrain",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/terrain/bake_ground.py"
   },
   {
    "id": "AST_V06_AMBER_BEETLE_FULL",

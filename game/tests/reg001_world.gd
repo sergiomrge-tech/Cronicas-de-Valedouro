@@ -55,7 +55,7 @@ func check() -> void:
 		seen[oid] = true
 		var asset: String = str(o["asset"])
 		if asset.begins_with("APP:"):
-			assert(asset.substr(4) in ["city_house_door", "city_house_window", "city_roof_blue", "city_roof_red", "city_roof_wood", "dungeon_torch", "dungeon_crystal_blue", "dungeon_crystal_purple", "dungeon_spikes", "dungeon_arch"], "APPROVED não previsto: " + asset)
+			assert(asset.substr(4) in ["city_house_door", "city_house_window", "city_roof_blue", "city_roof_red", "city_roof_wood", "dungeon_torch", "dungeon_crystal_blue", "dungeon_crystal_purple", "dungeon_spikes", "dungeon_arch", "city_tree_green", "city_tree_autumn"], "APPROVED não previsto: " + asset)
 		else:
 			assert(MODELED.has(asset), "asset modelado ausente/bloqueado no manifesto: " + asset + " em " + oid)
 	for poi_value in REG.pois:
@@ -158,6 +158,31 @@ func check() -> void:
 				if cp.distance_to(base_cell) < float(poi4["radius"]) * .6 and WORLD.prop_at(cx, cy) != "":
 					bad += 1
 	assert(bad == 0, "vegetação procedural invadiu %d células de POIs" % bad)
+	# ---- Bosque (instância): spawn conectado às trilhas e ao elite
+	game.zone = "floresta"
+	var forest_start: Vector2i = Vector2i(31, 24)
+	var forest_queue: Array[Vector2i] = [forest_start]
+	var forest_seen: Dictionary = {forest_start: true}
+	var fh: int = 0
+	while fh < forest_queue.size():
+		var fp: Vector2i = forest_queue[fh]
+		fh += 1
+		for offset in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
+			var nx: Vector2i = fp + offset
+			if forest_seen.has(nx) or nx.x < 1 or nx.x >= 57 or nx.y < 1 or nx.y >= 26:
+				continue
+			if game.walkable(Vector2(nx.x * 32 + 16, nx.y * 32 + 16)):
+				forest_seen[nx] = true
+				forest_queue.append(nx)
+	assert(forest_seen.size() > 600, "Bosque com malha pequena: %d" % forest_seen.size())
+	for fid in ["REG001_POI_BOSQUE_ELITE", "REG001_POI_BOSQUE_CAMP"]:
+		var fpos: Vector2 = (REG.poi_by_id[fid] as Dictionary)["pos"]
+		var fbest: float = 1.0e9
+		for cell in forest_seen.keys():
+			var fv: Vector2i = cell
+			fbest = minf(fbest, Vector2(fv.x * 32 + 16, fv.y * 32 + 16).distance_to(fpos))
+		assert(fbest <= 90.0, "Bosque: POI inalcançável " + fid)
+	game.zone = "cidade"
 	# ---- performance: chunks, culling e cache
 	var t0: int = Time.get_ticks_msec()
 	var total_items: int = 0

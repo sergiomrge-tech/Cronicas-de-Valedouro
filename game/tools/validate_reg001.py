@@ -47,7 +47,7 @@ for e in modeled['assets']:
     check((file.with_name(file.name + '.import')).is_file(), f'.import ausente: {e["path"]}')
     check(hashlib.sha256(file.read_bytes()).hexdigest() == e['sha256'], f'hash divergente: {e["id"]}')
     with Image.open(file) as im:
-        check(im.size == (e['frame_size'][0] * e['frames'], e['frame_size'][1]), f'dimensões divergem: {e["id"]}')
+        check(im.size == (e['frame_size'][0] * e['frames'], e['frame_size'][1] * e.get('rows', 1)), f'dimensões divergem: {e["id"]}')
         check(im.mode == 'RGBA', f'esperado RGBA: {e["id"]}')
     check(0 <= e['foot'][0] <= e['frame_size'][0] and 0 <= e['foot'][1] <= e['frame_size'][1], f'âncora fora do quadro: {e["id"]}')
 check(len(ids) >= 140, 'manifesto de assets modelados incompleto')
