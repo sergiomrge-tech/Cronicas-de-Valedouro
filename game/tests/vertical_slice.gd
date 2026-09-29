@@ -1,6 +1,7 @@
 extends SceneTree
 const WORLD = preload("res://scripts/world_map.gd")
 const LOOT = preload("res://scripts/loot_system.gd")
+const REG = preload("res://scripts/reg001_world.gd")
 
 func _initialize() -> void:
 	call_deferred("run_gate")
@@ -89,7 +90,10 @@ func run_gate() -> void:
 	assert(game.zone == "cidade")
 
 	# Dungeon -> Guardião -> segunda mecânica de boss -> recompensa.
-	game.player = WORLD.TOWN + Vector2(955, 795)
+	REG.ensure_loaded()
+	var dungeon_gate: Dictionary = REG.poi_by_id.get("REG001_POI_MASMORRA_ENTRADA", {}) as Dictionary
+	assert(not dungeon_gate.is_empty())
+	game.player = (dungeon_gate["pos"] as Vector2) + Vector2(0, 30)
 	game.interact()
 	await process_frame
 	first_button(game).pressed.emit()

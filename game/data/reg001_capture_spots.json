@@ -563,5 +563,77 @@
    1720
   ],
   "time": 3.7
+ },
+ {
+  "name": "67_masmorra_portao_limiar",
+  "zone": "cidade",
+  "pos": [
+   790,
+   350
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "68_cripta_encaixada",
+  "zone": "cidade",
+  "pos": [
+   1225,
+   2225
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "69_taverna_praca",
+  "zone": "cidade",
+  "pos": [
+   1700,
+   1130
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "70_estacao_casa_posta",
+  "zone": "cidade",
+  "pos": [
+   2720,
+   1110
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "71_moinho_lavouras",
+  "zone": "cidade",
+  "pos": [
+   1090,
+   1930
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "72_cais_carga",
+  "zone": "cidade",
+  "pos": [
+   2140,
+   1420
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "73_muralha_sul_fechada",
+  "zone": "cidade",
+  "pos": [
+   1590,
+   1500
+  ],
+  "time": 3.7
+ },
+ {
+  "name": "74_rota_ruinas_estrada",
+  "zone": "cidade",
+  "pos": [
+   1150,
+   395
+  ],
+  "time": 3.7
  }
 ]

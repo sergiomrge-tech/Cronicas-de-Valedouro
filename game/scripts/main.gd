@@ -761,8 +761,6 @@ func interact() -> void:
 			change_zone("loja", Vector2(480, 719))
 		elif local_pos.distance_to(Vector2(464, 645)) < 82:
 			change_zone("alquimia", Vector2(480, 719))
-		elif local_pos.distance_to(Vector2(955, 795)) < 95:
-			show_dialog("Portão da masmorra", "Desça às ruínas antigas. O Guardião aguarda no fundo.", [["Entrar", func(): dialog.hide(); change_zone("masmorra", Vector2(476, 745))]])
 		elif player.distance_to(MAP.TOWN + Vector2(883, 65)) < 103:
 			change_zone("floresta", Vector2(1000, 760))
 		else:
@@ -774,7 +772,10 @@ func interact() -> void:
 			message("Explore os gramados livremente; a saída fica ao sul da trilha central.")
 	elif zone == "masmorra":
 		if player.y > 720:
-			change_zone("cidade", MAP.TOWN + Vector2(955, 748))
+			# a saída leva de volta ao Portão do Primeiro Limiar, nas Ruínas do Primeiro Vento
+			var dungeon_poi: Dictionary = REG.poi_by_id.get("REG001_POI_MASMORRA_ENTRADA", {}) as Dictionary
+			var dungeon_back: Vector2 = (dungeon_poi["pos"] as Vector2) + Vector2(0, 62) if not dungeon_poi.is_empty() else MAP.TOWN + Vector2(883, 188)
+			change_zone("cidade", dungeon_back)
 		else:
 			message("A saída fica ao sul.")
 	elif zone == "cripta":
@@ -809,7 +810,7 @@ func claim_hunt_reward() -> void:
 	quest = 3
 	gain_xp(45)
 	dialog.hide()
-	message("Novo contrato: explore as ruínas a sudeste.")
+	message("Novo contrato: o Guardião espera sob as Ruínas do Primeiro Vento, a noroeste, seguindo a estrada do Bosque.")
 	save_game()
 
 func claim_boss_reward() -> void:
@@ -1014,11 +1015,6 @@ func _draw() -> void:
 			var gate: Vector2 = MAP.TOWN + Vector2(883, 65)
 			draw_arc(gate, 28, 0, TAU, 26, Color(.71, .94, .56, .86), 4)
 			draw_label("BOSQUE • E", gate + Vector2(-88, -42))
-		var ruins: Vector2 = MAP.TOWN + Vector2(955, 795)
-		if camera.distance_to(ruins) < 670:
-			draw_circle(ruins, 29, Color(.26, .12, .52, .55))
-			draw_arc(ruins, 30, 0, TAU, 25, Color(.64, .48, .99), 4)
-			draw_label("RUÍNAS • E", ruins + Vector2(-76, -42))
 		draw_animals(camera)
 		draw_ambient_life(camera)
 		REGR.draw_emitters(self, view_rect, zone, time_acc)

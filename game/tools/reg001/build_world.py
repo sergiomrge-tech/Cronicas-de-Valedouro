@@ -129,14 +129,29 @@ W.collider('circle', 832, 350, 16)
 W.obj('nat_altar_ancient', 790, 428, 'RUINAS', poi='REG001_POI_RUINAS_PRIMEIRO_VENTO', anim=1)
 W.obj('nat_obelisk_rune', 690, 380, 'RUINAS', anim=1)
 W.obj('nat_obelisk_rune', 890, 384, 'RUINAS', anim=1)
-W.obj('nat_statue_guardian', 720, 292, 'RUINAS')
+W.obj('nat_statue_guardian', 738, 302, 'RUINAS')
+# Portão do Primeiro Limiar: entrada da masmorra do Guardião, encaixada na rocha logo além do arco dos antigos
+# (rota principal Cidade -> Bosque -> Ruínas -> Dungeon; a sala de baixo é a arena do Guardião)
+P('REG001_POI_MASMORRA_ENTRADA', 'entrance', 'PORTÃO DO PRIMEIRO LIMIAR', 790, 298, tier=2, layer='main', radius=56, clear=70, region='floresta',
+  data={'zone': 'masmorra', 'entry': [476, 745], 'text': 'Além do arco dos antigos, uma grade de pedra range na rocha. O Guardião aguarda lá embaixo. Entrar?'})
+W.obj('dg_portcullis', 790, 296, 'RUINAS', poi='REG001_POI_MASMORRA_ENTRADA', solid=False)
+W.obj('nat_statue_guardian', 842, 304, 'RUINAS', flip=True)
+W.obj('APP:dungeon_torch', 752, 322, 'RUINAS', scale=.44, solid=False)
+W.obj('APP:dungeon_torch', 828, 322, 'RUINAS', scale=.44, solid=False)
+W.collider('rect', 745, 268, 34, 26)
+W.collider('rect', 800, 268, 34, 26)
+# moldura de relevo: paredão atrás e nos flancos (o portão está dentro da rocha, não solto no mato)
+for _a, _x, _y in (('nat_cliff_corner_rock', 790, 236), ('nat_wall_cliff_rock_b', 706, 268), ('nat_wall_cliff_rock_a', 874, 268),
+                   ('nat_cliff_end_rock_bp', 660, 318), ('nat_cliff_end_rock_am', 920, 322), ('nat_hill_low_rock', 712, 214), ('nat_hill_low_rock', 870, 210)):
+    W.obj(_a, _x, _y, 'RUINAS_R', check=False, **({'solid': False} if 'hill_low' in _a else {}))
 W.obj('nat_ruin_wall', 700, 470, 'RUINAS')
 W.obj('nat_ruin_wall', 880, 476, 'RUINAS')
-W.obj('nat_ruin_column', 856, 300, 'RUINAS')
+W.obj('nat_ruin_column', 905, 336, 'RUINAS')
 W.obj('nat_ruin_column_broken', 660, 320, 'RUINAS')
 W.obj('nat_fissure', 800, 520, 'RUINAS', solid=False)
 W.collider('rect', 750, 505, 100, 24)
 W.emitter('sparkle', 790, 420, 60)
+W.emitter('sparkle', 790, 300, 40)
 
 # --- Área de elite do bosque: Ancião do Bosque (norte)
 P('REG001_POI_ELITE_BOSQUE', 'elite', 'ÁREA DO ELITE DO BOSQUE', 1180, 200, tier=2, layer='secondary', radius=170, region='floresta',
@@ -266,6 +281,9 @@ W.obj('APP:dungeon_torch', 1188, 2196, 'CRIPTA', scale=.44, solid=False)
 W.obj('APP:dungeon_torch', 1262, 2196, 'CRIPTA', scale=.44, solid=False)
 W.obj('nat_ruin_column_broken', 1310, 2245, 'CRIPTA')
 W.emitter('sparkle', 1225, 2150, 50)
+# moldura de relevo: a cripta está escavada num flanco de colina (paredões laterais e ao fundo), a trilha chega pelo vão
+for _a, _x, _y in (('nat_wall_cliff_rock_b', 1082, 2176), ('nat_wall_cliff_rock_a', 1372, 2176), ('nat_cliff_end_rock_am', 1050, 2124), ('nat_cliff_end_rock_bp', 1402, 2126), ('nat_hill_low_rock', 1150, 2262), ('nat_hill_low_rock', 1305, 2262)):
+    W.obj(_a, _x, _y, 'CRIPTA_R', check=False, **({'solid': False} if 'hill_low' in _a else {}))
 
 # ============================================================================================
 # GELO (Picos de Gelo)
@@ -346,6 +364,12 @@ W.obj('nat_cart_wood', 2760, 1070, 'ESTACAO')
 W.obj('nat_flag_red', 2630, 1100, 'ESTACAO', anim=1)
 W.obj('nat_signpost', 2645, 1170, 'ESTACAO')
 W.obj('nat_hay_bale', 2780, 1120, 'ESTACAO')
+# casa de posta (troca de montarias e carroças): casa, estábulo improvisado de feno e cerca; o comércio de peles é o motivo do lugar
+W.house(2735, 1042, 'city_roof_wood', 'ESTACAO', poi='REG001_POI_ESTACAO_LESTE')
+W.obj('nat_hay_stack', 2810, 1075, 'ESTACAO')
+W.obj('nat_fence_wood_a', 2700, 1155, 'ESTACAO')
+W.obj('nat_fence_wood_a', 2732, 1171, 'ESTACAO')
+W.obj('nat_fence_wood_b', 2764, 1155, 'ESTACAO')
 W.emitter('smoke', 2710, 1110, 20)
 for x, y in [(2680, 960), (2790, 940), (2860, 1010), (2960, 900), (2980, 1150), (2830, 1345), (2640, 1330)]:
     W.obj('nat_rock_boulder' if (x + y) % 3 else 'nat_rock_mossy', x, y, 'COLINAS')
@@ -480,14 +504,17 @@ town('city_sign_hanging', 1360, 676)
 town('city_sign_hanging', 396, 682)
 town('nat_flag_blue', 1500, 200)
 town('nat_flag_red', 250, 200)
-town('nat_well_stone', 1560, 480)
+town('nat_well_stone', 1400, 520)
 town('city_crates', 1480, 720)
+# Taverna do Viajante: a casa (1075,345) junto da praça e da estrada principal — placa, barris, bancos e ponto de descanso
+town('city_sign_hanging', 1040, 402)
+town('city_barrels', 1150, 405)
+town('city_bench', 1000, 425)
+town('city_bench', 1095, 425)
+P('REG001_POI_TAVERNA', 'camp', 'TAVERNA DO VIAJANTE', TX + 1070, TY + 418, tier=1, layer='main', radius=80, region='cidade', show_label=True,
+  data={'heal': True, 'hint': 'O taverneiro guarda uma cama e um caldo quente para quem volta da estrada. (descanso e save)'})
 town('city_barrels', 300, 720)
-# dungeon portal (ruínas) já tem marcador; adiciona colunas e tochas aprovadas
-W.obj('nat_ruin_column_broken', T(895, 780)[0], T(895, 780)[1], 'CIDADE', check=False)
-W.obj('nat_ruin_column_broken', T(1015, 786)[0], T(1015, 786)[1], 'CIDADE', check=False)
-W.obj('APP:dungeon_torch', T(925, 815)[0], T(925, 815)[1], 'CIDADE', scale=.42, solid=False, check=False)
-W.obj('APP:dungeon_torch', T(985, 815)[0], T(985, 815)[1], 'CIDADE', scale=.42, solid=False, check=False)
+# (o antigo portal das ruínas na muralha sul foi movido para as Ruínas do Primeiro Vento: entrada de dungeon não fica solta na cidade)
 
 # ============================================================================================
 # INTERIORES (coordenadas locais da zona)
@@ -791,11 +818,11 @@ for _hx, _hy, _roof in ((120, 300, 'city_roof_blue'), (275, 285, 'city_roof_wood
                         (640, 665, 'city_roof_red'), (1100, 690, 'city_roof_blue'), (1470, 690, 'city_roof_wood')):
     town_house(_hx, _hy, _roof)
 
-# muralha sul com vãos na rua sul (x≈1300) e no portal das ruínas (x≈955); portões aprovados nos dois vãos
+# muralha sul com vão só na rua sul (x≈1300), fechada no resto; portão aprovado no vão
 _WALL_S = 800
 for _i in range(15):
     _wx = 60 + _i * 116
-    if abs(_wx - 1300) < 110 or abs(_wx - 955) < 110:
+    if abs(_wx - 1300) < 110:
         continue
     _wy = TY + _WALL_S
     W.obj('APP:city_wall_vegetation' if _i % 4 == 0 else 'APP:city_wall', TX + _wx, _wy, 'CIDADE_MURO', scale=.58, solid=False, check=False)
@@ -848,11 +875,24 @@ W.obj('str_crop_corn', 300, 2094, 'FAZENDA', layer='ground', scale=.62, solid=Fa
 W.obj('str_scarecrow', 322, 2030, 'FAZENDA', check=False)
 W.obj('str_barn', 470, 2150, 'FAZENDA', check=False)
 
+# moinho do vale: trigo em faixa a oeste (vento aberto), feno junto ao moinho e cerca baixa — o moinho existe por causa das lavouras
+for _cy in (1832, 1900, 1968):
+    W.obj('str_crop_wheat', 1026, _cy, 'MOINHO_L', layer='ground', scale=.62, solid=False, check=False)
+W.obj('str_crop_wheat', 1080, 2018, 'MOINHO_L', layer='ground', scale=.62, solid=False, check=False)
+W.obj('nat_hay_stack', 1072, 1892, 'MOINHO_L', check=False)
+W.obj('nat_hay_bale', 1060, 1934, 'MOINHO_L', check=False)
+W.obj('nat_fence_wood_a', 968, 1856, 'MOINHO_L', check=False)
+W.obj('nat_fence_wood_b', 968, 1990, 'MOINHO_L', check=False)
+
 # cais e barcos ao longo do rio (margem oeste)
 for _y, _kind in ((990, 'str_dock_a'), (1400, 'str_dock_a'), (2000, 'str_dock_b')):
     _rx, _hw = geo.river_x(_y), geo.river_hw(_y)
     W.obj(_kind, _rx - _hw + 4, _y, 'CAIS', check=False)
     W.obj('str_dock_end', _rx - _hw - 4, _y + 46, 'CAIS', check=False)
+for _y, _s in ((990, 1), (1400, 1), (2000, 1)):
+    _rx, _hw = geo.river_x(_y), geo.river_hw(_y)
+    W.obj('city_crates', _rx - _hw - 44, _y - 34, 'CAIS_CARGA', check=False)
+    W.obj('city_barrels', _rx - _hw - 74, _y - 8, 'CAIS_CARGA', check=False)
 W.obj('str_boat_row', geo.river_x(1400) + 4, 1428, 'CAIS', solid=False, anim=1, check=False)
 W.obj('str_boat_sail', geo.river_x(990) + 20, 1030, 'CAIS', solid=False, anim=1, check=False)
 W.obj('str_boat_row', geo.river_x(2000) + 6, 2040, 'CAIS', solid=False, anim=1, check=False)
