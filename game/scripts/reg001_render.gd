@@ -172,10 +172,6 @@ static func cast_item(canvas: CanvasItem, entry: Array, time: float, approved: D
 		var atex: Texture2D = approved[key] as Texture2D
 		var ds: float = scale_mul if scale_mul != 1.0 else .5
 		var sz: Vector2 = atex.get_size() * ds
-		if key.begins_with("city_roof"):
-			# a casa (porta + janela + telhado) projeta UMA sombra de caixa, sem empilhar as três peças
-			CAST.box(canvas, ground + Vector2(0, 78), 86.0 * ds / .52, sz.y + 78.0 - 22.0, CAST.ALPHA_DEFAULT)
-			return true
 		var alpha_a: float = CAST.ALPHA_TREE if key.begins_with("city_tree") else CAST.ALPHA_DEFAULT
 		CAST.sprite(canvas, atex, Rect2(ground - Vector2(sz.x * .5, sz.y), sz), Rect2(Vector2.ZERO, atex.get_size()), ground, false, alpha_a, .8 if sz.y > 160.0 else 1.0)
 		return true
