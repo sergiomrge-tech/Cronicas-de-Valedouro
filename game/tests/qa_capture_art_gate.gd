@@ -1,7 +1,7 @@
 extends SceneTree
 # Real Godot 4.7.2 visual capture focused on professional art-gate targets.
 # Usage:
-# godot --path game --rendering-method gl_compatibility --script res://tests/qa_capture_art_gate.gd -- <out_dir> [prefix]
+# godot --path game --rendering-method gl_compatibility --script tests/qa_capture_art_gate.gd -- <out_dir> [prefix]
 
 const REG = preload("res://scripts/reg001_world.gd")
 var game: Node2D
