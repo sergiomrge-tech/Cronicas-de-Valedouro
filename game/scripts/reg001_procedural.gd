@@ -124,7 +124,7 @@ static func build_chunk(ck: Vector2i) -> Dictionary:
 			if not prop.is_empty():
 				var jitter: Vector2 = Vector2(float((visual_seed % 7) - 3), float((int(visual_seed / 7) % 5) - 2))
 				var foot: Vector2 = p + jitter + Vector2(0, 14)
-				var asset: String = asset_for(prop, biome_name, visual_seed)
+				var asset: String = asset_for(prop, MAP.veg_biome(cx, cy), visual_seed)
 				if not asset.is_empty():
 					objs.append(item(foot.y, asset, foot.x, foot.y, float(visual_seed % 97) * .11, 1.0, visual_seed % 2 == 1 and not asset.begins_with("APP:"), null, prop))
 			# água: brilhos, ondulações e espuma são sprites animados sobre o chão assado

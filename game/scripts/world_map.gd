@@ -67,6 +67,35 @@ static func biome(p: Vector2) -> String:
 		return "floresta"
 	return "pradaria"
 
+static func family_biome(letter: String, fallback: String) -> String:
+	match letter:
+		"F": return "floresta"
+		"G": return fallback if fallback in ["campos", "pradaria"] else "pradaria"
+		"V": return "vale"
+		"D": return "deserto"
+		"S": return "gelo"
+	return fallback
+
+static func veg_biome(x: int, y: int) -> String:
+	# Bioma da vegetação: segue a grade visual do piso e mistura a família vizinha perto da fronteira (ecótono gradual).
+	var p: Vector2 = Vector2(x * 32 + 16, y * 32 + 16)
+	var base: String = biome(p)
+	REG.ensure_loaded()
+	var dom: String = REG.grid_cell("dom", x, y)
+	if dom == "" or dom == "O" or dom == "T":
+		return base
+	var here: String = family_biome(dom, base)
+	var nb: String = REG.grid_cell("nb", x, y)
+	var d_text: String = REG.grid_cell("dist", x, y)
+	if nb == "" or d_text == "" or nb == "O" or nb == "T":
+		return here
+	var d: int = int(d_text)
+	if d >= 4:
+		return here
+	if cell_hash(x + 53, y + 91) % 8 < 4 - d:
+		return family_biome(nb, here)
+	return here
+
 static func path_at(p: Vector2) -> bool:
 	# Estradas principais da cidade + ramificações para as três pontes.
 	if town_area(p):
@@ -147,7 +176,7 @@ static func prop_at(x: int, y: int) -> String:
 		if seed % 11 == 0: return "valley_rock"
 		if seed % 13 == 0: return "bush"
 		return ""
-	match biome(p):
+	match veg_biome(x, y):
 		"floresta":
 			if seed % 7 == 0: return "pine"
 			if local_seed % 19 == 0: return "tree"

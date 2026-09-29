@@ -19,6 +19,10 @@ static var emitters: Array = []
 static var lore: Dictionary = {}
 static var transitions: Array = []
 static var biome_style: Dictionary = {}
+static var grid_dom: Array = []
+static var grid_nb: Array = []
+static var grid_dist: Array = []
+const GRID_PATH: String = "res://data/reg001_biome_grid.json"
 static var zone_objects: Dictionary = {}   # zona -> objetos ordenados por sort_y
 static var chunk_objects: Dictionary = {}  # Vector2i -> índices de objetos da zona "cidade"
 static var solid_grid: Dictionary = {}     # "zona:cx:cy" -> Array[Dictionary]
@@ -98,10 +102,32 @@ static func ensure_loaded() -> void:
 	for wall_value in crypt.get("walls", []):
 		var wr: Array = (wall_value as Dictionary)["rect"]
 		crypt_walls.append(Rect2(float(wr[0]), float(wr[1]), float(wr[2]), float(wr[3])))
+	_load_biome_grid()
 	_index_objects()
 	_index_colliders()
 	_index_clear_zones()
 	_index_trails()
+
+static func _load_biome_grid() -> void:
+	# Grade visual (32 px) exportada pelo bake do chão: a vegetação segue as mesmas famílias e transições do piso.
+	var gf: FileAccess = FileAccess.open(GRID_PATH, FileAccess.READ)
+	if gf == null:
+		return
+	var gp: Variant = JSON.parse_string(gf.get_as_text())
+	if not gp is Dictionary:
+		return
+	grid_dom = (gp as Dictionary).get("dom", []) as Array
+	grid_nb = (gp as Dictionary).get("nb", []) as Array
+	grid_dist = (gp as Dictionary).get("dist", []) as Array
+
+static func grid_cell(kind: String, cx: int, cy: int) -> String:
+	var rows: Array = grid_dom if kind == "dom" else (grid_nb if kind == "nb" else grid_dist)
+	if cy < 0 or cy >= rows.size():
+		return ""
+	var row: String = str(rows[cy])
+	if cx < 0 or cx >= row.length():
+		return ""
+	return row.substr(cx, 1)
 
 static func _index_objects() -> void:
 	var index: int = 0
