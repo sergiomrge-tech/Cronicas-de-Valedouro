@@ -3,8 +3,7 @@
   "PRO": 215,
   "A": 35,
   "B": 25,
-  "D": 11,
-  "C": 6
+  "D": 17
  },
  "rows": [
   {
@@ -570,16 +569,16 @@
   {
    "id": "int_wall_door_a",
    "group": "interior",
-   "class": "C",
-   "reason": "primitivas visíveis / detalhe insuficiente: remodelar",
+   "class": "D",
+   "reason": "substituído pelas baias modulares int_wall_* (Blender)",
    "status": "MODELED_PENDING_GATE",
    "pipeline": "kit"
   },
   {
    "id": "int_wall_door_b",
    "group": "interior",
-   "class": "C",
-   "reason": "primitivas visíveis / detalhe insuficiente: remodelar",
+   "class": "D",
+   "reason": "substituído pelas baias modulares int_wall_* (Blender)",
    "status": "MODELED_PENDING_GATE",
    "pipeline": "kit"
   },
@@ -610,16 +609,16 @@
   {
    "id": "int_wall_plain_a",
    "group": "interior",
-   "class": "C",
-   "reason": "primitivas visíveis / detalhe insuficiente: remodelar",
+   "class": "D",
+   "reason": "substituído pelas baias modulares int_wall_* (Blender)",
    "status": "MODELED_PENDING_GATE",
    "pipeline": "kit"
   },
   {
    "id": "int_wall_plain_b",
    "group": "interior",
-   "class": "C",
-   "reason": "primitivas visíveis / detalhe insuficiente: remodelar",
+   "class": "D",
+   "reason": "substituído pelas baias modulares int_wall_* (Blender)",
    "status": "MODELED_PENDING_GATE",
    "pipeline": "kit"
   },
@@ -634,16 +633,16 @@
   {
    "id": "int_wall_window_a",
    "group": "interior",
-   "class": "C",
-   "reason": "primitivas visíveis / detalhe insuficiente: remodelar",
+   "class": "D",
+   "reason": "substituído pelas baias modulares int_wall_* (Blender)",
    "status": "MODELED_PENDING_GATE",
    "pipeline": "kit"
   },
   {
    "id": "int_wall_window_b",
    "group": "interior",
-   "class": "C",
-   "reason": "primitivas visíveis / detalhe insuficiente: remodelar",
+   "class": "D",
+   "reason": "substituído pelas baias modulares int_wall_* (Blender)",
    "status": "MODELED_PENDING_GATE",
    "pipeline": "kit"
   },
