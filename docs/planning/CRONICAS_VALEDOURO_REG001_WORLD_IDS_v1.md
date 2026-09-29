@@ -21,6 +21,7 @@ Todos os IDs são persistentes: nada crítico depende de nomes exibidos.
 | `REG001_POI_RES_MINERIO_A` | resource | Minério Bruto | floresta | cidade | 1 | secondary |
 | `REG001_POI_RES_CRISTAL_A` | resource | Cristal Verde | floresta | cidade | 1 | secondary |
 | `REG001_POI_RUINAS_PRIMEIRO_VENTO` | lore | Ruínas Do Primeiro Vento | floresta | cidade | 2 | main |
+| `REG001_POI_MASMORRA_ENTRADA` | entrance | Portão Do Primeiro Limiar | floresta | cidade | 2 | main |
 | `REG001_POI_ELITE_BOSQUE` | elite | Área Do Elite Do Bosque | floresta | cidade | 2 | secondary |
 | `REG001_POI_CHEST_ELITE_BOSQUE` | chest | Baú Da Tecelã | floresta | cidade | 2 | secondary |
 | `REG001_POI_MIRANTE_NORTE` | viewpoint | Mirante Da Torre Do Norte | floresta | cidade | 1 | secondary |
@@ -55,6 +56,7 @@ Todos os IDs são persistentes: nada crítico depende de nomes exibidos.
 | `REG001_POI_CHEST_SEGREDO_DUNA` | chest | Baú Enterrado | deserto | cidade | 3 | secret |
 | `REG001_POI_RES_AMBAR_A` | resource | Âmbar Bruto | deserto | cidade | 2 | secondary |
 | `REG001_POI_RES_AMBAR_B` | resource | Âmbar Bruto | deserto | cidade | 2 | secondary |
+| `REG001_POI_TAVERNA` | camp | Taverna Do Viajante | cidade | cidade | 1 | main |
 | `REG001_POI_DG_CHECKPOINT` | checkpoint | Cristal De Repouso | masmorra | masmorra | 2 | main |
 | `REG001_POI_DG_ELITE` | elite | Elite Da Masmorra | masmorra | masmorra | 2 | secondary |
 | `REG001_POI_DG_CHEST` | chest | Baú Da Masmorra | masmorra | masmorra | 2 | secondary |

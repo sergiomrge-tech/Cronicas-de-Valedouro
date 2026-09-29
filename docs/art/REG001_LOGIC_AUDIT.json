@@ -1,0 +1,429 @@
+{
+ "sites": [
+  {
+   "site": "Entrada da masmorra (Guardião)",
+   "pos": [
+    790,
+    298
+   ],
+   "why": "encaixada nas Ruínas do Primeiro Vento (rota Cidade→Bosque→Ruínas→Dungeon); relevo emoldura, tochas e ruínas em volta",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 94 px (máx 120)"
+    },
+    {
+     "ok": true,
+     "msg": "fora da área urbana"
+    },
+    {
+     "ok": true,
+     "msg": "5 peças de relevo em 260 px (mín 4)"
+    },
+    {
+     "ok": true,
+     "msg": "2× APP:dungeon_torch em 160 px (mín 2)"
+    },
+    {
+     "ok": true,
+     "msg": "5× nat_ruin em 260 px (mín 3)"
+    },
+    {
+     "ok": true,
+     "msg": "a 74 px de RUINAS_PRIMEIRO_VENTO (máx 260)"
+    }
+   ]
+  },
+  {
+   "site": "Cripta Esquecida",
+   "pos": [
+    1225,
+    2185
+   ],
+   "why": "flanco de colina no sul do Vale, fim de trilha; grade + tochas + estátuas guardiãs",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 10 px (máx 130)"
+    },
+    {
+     "ok": true,
+     "msg": "7 peças de relevo em 260 px (mín 4)"
+    },
+    {
+     "ok": true,
+     "msg": "2× APP:dungeon_torch em 120 px (mín 2)"
+    },
+    {
+     "ok": true,
+     "msg": "2× nat_statue_guardian em 200 px (mín 2)"
+    }
+   ]
+  },
+  {
+   "site": "Ruínas do Primeiro Vento (altar dos Viajantes)",
+   "pos": [
+    790,
+    372
+   ],
+   "why": "marco de chegada dos Viajantes; ponta da rota principal do Bosque, obeliscos e altar",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 64 px (máx 130)"
+    },
+    {
+     "ok": true,
+     "msg": "2× nat_obelisk_rune em 200 px (mín 2)"
+    },
+    {
+     "ok": true,
+     "msg": "1× nat_altar_ancient em 120 px (mín 1)"
+    }
+   ]
+  },
+  {
+   "site": "Santuário do Vale",
+   "pos": [
+    1660,
+    2022
+   ],
+   "why": "erguido por quem cruzou o Limiar antes; ramal da estrada sul",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 0 px (máx 130)"
+    },
+    {
+     "ok": true,
+     "msg": "4 peças de relevo em 300 px (mín 2)"
+    }
+   ]
+  },
+  {
+   "site": "Moinho do Vale",
+   "pos": [
+    1110,
+    1882
+   ],
+   "why": "borda da aldeia, trilha própria, vento aberto; lavouras de trigo e feno em volta",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 14 px (máx 90)"
+    },
+    {
+     "ok": true,
+     "msg": "4× str_crop_wheat em 260 px (mín 3)"
+    },
+    {
+     "ok": true,
+     "msg": "2× nat_hay em 260 px (mín 1)"
+    },
+    {
+     "ok": true,
+     "msg": "a 251 px de ALDEIA_VALE (máx 320)"
+    }
+   ]
+  },
+  {
+   "site": "Celeiro da Fazenda",
+   "pos": [
+    470,
+    2150
+   ],
+   "why": "encostado nas lavouras da fazenda, cercas e poço da vila perto",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "3× str_crop em 300 px (mín 3)"
+    },
+    {
+     "ok": true,
+     "msg": "13× nat_fence_wood em 300 px (mín 6)"
+    },
+    {
+     "ok": true,
+     "msg": "a 180 px de FAZENDA (máx 260)"
+    }
+   ]
+  },
+  {
+   "site": "Torre do Oeste",
+   "pos": [
+    360,
+    1112
+   ],
+   "why": "cruzamento das trilhas da floresta com a estrada oeste, visada sobre o acampamento e as ruínas",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 0 px (máx 110)"
+    },
+    {
+     "ok": true,
+     "msg": "3 peças de relevo em 260 px (mín 1)"
+    }
+   ]
+  },
+  {
+   "site": "Torre do Norte",
+   "pos": [
+    1320,
+    347
+   ],
+   "why": "junto da estrada norte, vigia o portal do Bosque",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 28 px (máx 130)"
+    }
+   ]
+  },
+  {
+   "site": "Torre das Geadas",
+   "pos": [
+    2905,
+    655
+   ],
+   "why": "mirante sobre o Pouso e o Círculo de Gelo, em mesa de gelo",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 48 px (máx 260)"
+    },
+    {
+     "ok": true,
+     "msg": "3 peças de relevo em 260 px (mín 2)"
+    },
+    {
+     "ok": true,
+     "msg": "bioma gelo (esperado gelo)"
+    }
+   ]
+  },
+  {
+   "site": "Abrigo da Geada",
+   "pos": [
+    2700,
+    604
+   ],
+   "why": "ramal da estrada norte, abrigo de viajantes; fora do vento",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 14 px (máx 120)"
+    },
+    {
+     "ok": true,
+     "msg": "bioma gelo (esperado gelo)"
+    }
+   ]
+  },
+  {
+   "site": "Posto de Âmbar",
+   "pos": [
+    2690,
+    1800
+   ],
+   "why": "bifurcação da estrada sul para o oásis; água e provisões antes das dunas",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 0 px (máx 130)"
+    },
+    {
+     "ok": true,
+     "msg": "bioma deserto (esperado deserto)"
+    },
+    {
+     "ok": true,
+     "msg": "a 270 px de CARAVANA (máx 320)"
+    }
+   ]
+  },
+  {
+   "site": "Estação das Colinas (casa de posta)",
+   "pos": [
+    2700,
+    1100
+   ],
+   "why": "ramal da estrada central; casa de posta com carroça, feno e cerca (comércio de peles do gelo ao deserto)",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 2 px (máx 130)"
+    },
+    {
+     "ok": true,
+     "msg": "1× APP:city_roof em 200 px (mín 1)"
+    },
+    {
+     "ok": true,
+     "msg": "2× nat_hay em 200 px (mín 1)"
+    }
+   ]
+  },
+  {
+   "site": "Taverna do Viajante (cidade)",
+   "pos": [
+    1720,
+    1098
+   ],
+   "why": "junto da praça e da estrada principal; placa, barris, bancos, ponto de descanso (save)",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "2× city_sign_hanging em 160 px (mín 1)"
+    },
+    {
+     "ok": true,
+     "msg": "2× city_barrels em 220 px (mín 1)"
+    },
+    {
+     "ok": true,
+     "msg": "4× city_bench em 260 px (mín 2)"
+    },
+    {
+     "ok": true,
+     "msg": "1× APP:city_roof em 180 px (mín 1)"
+    }
+   ]
+  },
+  {
+   "site": "Cais norte",
+   "pos": [
+    2118,
+    990
+   ],
+   "why": "orla do rio junto à ponte norte",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "água a 0 px (máx 70)"
+    },
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 108 px (máx 320)"
+    }
+   ]
+  },
+  {
+   "site": "Cais central",
+   "pos": [
+    2189,
+    1400
+   ],
+   "why": "orla do rio junto ao porto da cidade",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "água a 0 px (máx 70)"
+    },
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 108 px (máx 320)"
+    }
+   ]
+  },
+  {
+   "site": "Cais sul",
+   "pos": [
+    2132,
+    2000
+   ],
+   "why": "orla do rio junto ao vau/ponte sul",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "água a 0 px (máx 70)"
+    },
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 120 px (máx 320)"
+    }
+   ]
+  },
+  {
+   "site": "Acampamento do lenhador",
+   "pos": [
+    345,
+    860
+   ],
+   "why": "clareira na floresta oeste, trilha própria, lenha e tenda",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 63 px (máx 140)"
+    },
+    {
+     "ok": true,
+     "msg": "1× nat_log_pile em 140 px (mín 1)"
+    },
+    {
+     "ok": true,
+     "msg": "1× nat_tent em 140 px (mín 1)"
+    }
+   ]
+  },
+  {
+   "site": "Casa abandonada",
+   "pos": [
+    520,
+    590
+   ],
+   "why": "família fugiu para a Vila dos Campos; ponta de trilha, cerca quebrada, feno",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 34 px (máx 140)"
+    },
+    {
+     "ok": true,
+     "msg": "3× nat_fence_broken em 160 px (mín 1)"
+    },
+    {
+     "ok": true,
+     "msg": "1× APP:city_roof em 100 px (mín 1)"
+    }
+   ]
+  },
+  {
+   "site": "Caravana de Âmbar",
+   "pos": [
+    2520,
+    1590
+   ],
+   "why": "entroncamento do ramal do deserto; tendas, carroça, fogueira",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "estrada/trilha a 14 px (máx 130)"
+    },
+    {
+     "ok": true,
+     "msg": "bioma deserto (esperado deserto)"
+    },
+    {
+     "ok": true,
+     "msg": "3× nat_tent em 160 px (mín 2)"
+    }
+   ]
+  },
+  {
+   "site": "Poço da cidade",
+   "pos": [
+    2050,
+    1200
+   ],
+   "why": "abastecimento; nunca dentro d'água",
+   "checks": [
+    {
+     "ok": true,
+     "msg": "água a 156 px (mín 40)"
+    }
+   ]
+  }
+ ],
+ "falhas": 0
+}

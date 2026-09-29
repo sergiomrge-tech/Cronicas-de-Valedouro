@@ -37,3 +37,6 @@ As formações usam: fins nas pontas de cada cordilheira (`poly`), rampa em vez 
 ## Pendências propostas (aguardam ordem do Diretor)
 - Sombra projetada de estruturas altas (torres, moinho, casas) e árvores procedurais (hoje só relevo e o Bosque não recebe).
 - Decalques específicos de ecótono e camada de altura real.
+
+## Lógica das construções
+Ver `docs/planning/REG001_STORY_TO_MAP.md` (matriz história → lugar) e a skill `.claude/skills/valedouro-map-logic/SKILL.md`.

@@ -56,3 +56,11 @@ Terreno: 18 decalques modelados, relevo macro, lábios de estrada/água, transi�
 - **Formações**: fins de paredão nas pontas, rampas nas mesas/terraços, colinas amplas/baixas no pé e no preenchimento; 112 peças elevadas.
 - **Validação**: 14/14 testes Godot PASS (`reg001_world`: 878 objetos, 4951 células conectadas, 165 ms de montagem de chunks, pico visível 192), validador estático PASS, capturas reais ANTES/DEPOIS em `docs/visual_qa/pro/relevo/`.
 - **Limites honestos**: nada foi promovido a APPROVED; colina baixa de grama é mais saturada que o piso; o Bosque (instância separada) e as estruturas altas ainda não projetam sombra; algumas formações colocam menos peças que o desenhado.
+
+## Atualização — lógica das construções conforme a história (2026-09-29)
+- **Skill salva** em `.claude/skills/valedouro-map-logic/SKILL.md` (adaptada de jwynia/agent-skills *settlement-design*, Worldographer, Azgaar e H. M. Turnbull; com regras do projeto, teste "por que aqui?", regras por tipo de construção, anti‑padrões) e referenciada em `CLAUDE.md`.
+- **Auditoria automática** `game/tools/reg001/audit_logic.py` (estrada/água/POI/relevo/lavouras por construção): antes 7 falhas em 20 construções, agora 0 (`docs/art/REG001_LOGIC_AUDIT.json`).
+- **Matriz história → mapa** em `docs/planning/REG001_STORY_TO_MAP.md` (canon, quest flow, level design, lore) com lacunas conhecidas.
+- **Correções**: entrada da masmorra saiu da muralha da cidade e foi para o **Portão do Primeiro Limiar** nas Ruínas do Primeiro Vento (rota Cidade→Bosque→Ruínas→Dungeon; `main.gd`, teste `vertical_slice.gd` e texto do contrato ajustados; muralha sul fechada); **Cripta** escavada no flanco de colina; **Taverna do Viajante** na praça (descanso/save); **casa de posta** na Estação das Colinas; **moinho com lavouras**; **cais com carga**; **poço** que estava dentro do rio movido.
+- **Validação**: 14/14 testes Godot PASS (`reg001_world`: 916 objetos, 63 POIs, 4914 células conectadas), validador estático PASS, capturas reais 67–74 e ANTES/DEPOIS em `docs/visual_qa/pro/logica/`.
+- **Limites**: nada promovido a APPROVED; mecanismo do altar não gateia a dungeon (fluxo de missão intocado); faltam córregos (Bosque/Campos/Vale), templo e residência do NPC principal.
