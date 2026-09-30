@@ -53,7 +53,7 @@ func run() -> void:
 	assert(frost.get_node_or_null("WorldObjects/Player") != null)
 	assert(frost.story_zones.get_child_count() == 6)
 	assert(frost.pois.size() == 13)
-	assert(frost.monsters.size() == 5)
+	assert(frost.monsters.size() == 6)
 	assert(frost.map_overlay != null)
 	assert(frost.world_stream.active_count() >= 9)
 	frost._toggle_map()
