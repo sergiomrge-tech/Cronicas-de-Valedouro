@@ -119,7 +119,7 @@
         "linear_scale": 20,
         "region_class": "exploration_heavy"
       },
-      "build_status": "RESERVED_BY_MISSIONS",
+      "build_status": "IN_PROGRESS_PHYSICAL",
       "mandatory_route": [
         {
           "order": 1,
@@ -181,7 +181,18 @@
           "location_kind": "ruins",
           "post_function": "Atualização do mapa-múndi e lore."
         }
-      ]
+      ],
+      "implementation": {
+        "scene": "res://scenes/cartoon/ForestAncientCartoon.tscn",
+        "region_size": [
+          46000,
+          47000
+        ],
+        "active_chunk_radius": 2,
+        "mandatory_locations_placed": 6,
+        "root_subshrines_placed": 3,
+        "transition_from_previous": "TRANSITION_FOREST_ANCESTRAL"
+      }
     },
     {
       "act": 3,
