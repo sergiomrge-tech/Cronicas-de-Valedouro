@@ -171,6 +171,14 @@ func _attack() -> void:
 	if target == null:
 		_show_toast("Nenhum inimigo ao alcance.")
 		return
+	var target_tag: String = String(target.story_tag)
+	var target_boss: String = String(target.boss_id)
+	if target_tag == "forest_defense" and story_runtime.current_id != "Q_MS02_RANGERS":
+		_show_toast("A corrupção recua entre as árvores. Esta luta pertence a outra etapa da história.")
+		return
+	if target_boss == "BOSS_RAIZ_OCA_001" and story_runtime.current_id != "Q_MS02_HOLLOW_ROOT":
+		_show_toast("Raízes antigas protegem o Arauto. A história ainda não abriu esta batalha.")
+		return
 	var dead: bool = target.take_damage(20)
 	if not dead:
 		return
