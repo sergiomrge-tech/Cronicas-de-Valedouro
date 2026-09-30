@@ -170,7 +170,8 @@
    "REG001_POI_SENTINELA_PORTAO_A",
    "REG001_POI_SENTINELA_PORTAO_B",
    "REG001_POI_VAL_GATE",
-   "REG001_POI_ARQUIVO_SEIS_COROAS"
+   "REG001_POI_ARQUIVO_SEIS_COROAS",
+   "REG001_POI_ELITE_SAQUEADORES"
   ],
   "transitions": [
    "REG001_TR_CIDADE_CAMPOS",
@@ -205,7 +206,8 @@
    "REG001_TRAIL_COLINAS",
    "REG001_TRAIL_CARAVANA",
    "REG001_TRAIL_DUNAS",
-   "REG001_TRAIL_OASIS"
+   "REG001_TRAIL_OASIS",
+   "REG001_TRAIL_SAQUEADORES"
   ],
   "passages": [
    "REG001_PASS_FAZENDA",
@@ -226,7 +228,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 1141
+  "object_count": 1146
  },
  "entries": [
   {
@@ -432,7 +434,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 14,
+   "placed": 15,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3015,7 +3017,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 7,
+   "placed": 8,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3744,7 +3746,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 43,
+   "placed": 44,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3870,7 +3872,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 10,
+   "placed": 9,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3915,7 +3917,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4266,7 +4268,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4275,7 +4277,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 3,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4662,7 +4664,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 7,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4770,7 +4772,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4779,7 +4781,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 5,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6282,7 +6284,7 @@
    "group": "city",
    "approval": "APPROVED",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 3,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6858,7 +6860,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 3,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {

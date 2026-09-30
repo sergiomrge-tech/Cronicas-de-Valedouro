@@ -77,7 +77,7 @@ for row in rows:
 catalogable = {
     f"res://{p.relative_to(ROOT).as_posix()}"
     for p in (ROOT / "assets").rglob("*")
-    if p.is_file() and p.suffix.lower() in {".png", ".ttf"} and p.relative_to(ROOT / "assets").parts[0] not in {"approved", "modeled"}
+    if p.is_file() and p.suffix.lower() in {".png", ".ttf"} and p.relative_to(ROOT / "assets").parts[0] not in {"approved", "modeled", "external"}
 }
 check(paths == catalogable, f"catálogo incompleto: catalogados={len(paths)} arquivos={len(catalogable)}")
 check(catalog.get("counts", {}).get("total") == len(rows), "counts.total divergente")

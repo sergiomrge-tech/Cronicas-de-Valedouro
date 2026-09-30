@@ -16,6 +16,14 @@ const REGG = preload("res://scripts/reg001_gameplay.gd")
 const MODELED = preload("res://scripts/modeled_assets.gd")
 const CHARART = preload("res://scripts/character_art.gd")
 const GROUND = preload("res://scripts/ground_bake.gd")
+const CFX = preload("res://scripts/combat_fx.gd")
+# Inimigos que atacam à distância (assets Foozle): projétil ou feitiço com marca no chão
+const RANGED_ENEMIES: Dictionary = {"Goblin Fundeiro": "stone", "Arqueiro Ossudo": "vfx_energy_orb", "Cultista da Coroa Oca": "spell"}
+# Guardião surge logo à frente do Núcleo do Eco (y=225), no fundo da arena (y 240–425)
+const GUARDIAN_SPOT: Vector2 = Vector2(485, 240)
+const ECO_KINDS: Array = ["Esqueleto do Eco", "Arqueiro Ossudo", "Possesso do Eco", "Guardião"]
+const CROWN_KINDS: Array = ["Cultista da Coroa Oca"]
+var fx: RefCounted
 const SAVE_PATH: String = "user://valedouro_v1.json"
 const RANGES: Dictionary = {"cidade": 0, "floresta": 1, "masmorra": 2, "ferreiro": 3, "loja": 4, "alquimia": 5, "guilda": 6, "cripta": 7, "arquivo": 8}
 var zone: String = "cidade"
@@ -29,7 +37,7 @@ var gold: int = 35
 var potions: int = 2
 var weapon: int = 0
 var armor: int = 0
-var kills: Dictionary = {"Lobo": 0, "Limo": 0, "Aranha Sombria": 0, "Javali Musgoso": 0, "Flor Voraz": 0, "Escorpião": 0, "Escaravelho Âmbar": 0, "Lobo de Gelo": 0, "Golem de Geada": 0, "Guardião": 0}
+var kills: Dictionary = {"Lobo": 0, "Limo": 0, "Aranha Sombria": 0, "Javali Musgoso": 0, "Flor Voraz": 0, "Escorpião": 0, "Escaravelho Âmbar": 0, "Lobo de Gelo": 0, "Golem de Geada": 0, "Guardião": 0, "Goblin Saqueador": 0, "Goblin Fundeiro": 0, "Esqueleto do Eco": 0, "Arqueiro Ossudo": 0, "Cultista da Coroa Oca": 0, "Possesso do Eco": 0, "Brutamontes Goblin": 0}
 var materials: Dictionary = {}
 var stored_items: Array = []
 var equipped_weapon: Dictionary = {"name": "Espada de Aprendiz", "kind": "sword", "tier": 0, "req": 1, "chapter": 0, "atk": 0}
@@ -51,6 +59,7 @@ var spawn_timer: float = 0.0
 var hint: String = "Visite a guilda para aceitar uma missão."
 var hint_timer: float = 5.0
 var joystick_id: int = -1
+var draw_camera: Vector2 = Vector2.ZERO          # câmera do quadro atual (restaurada por quem troca a transformação)
 var qa_hide_hud: bool = false   # só para capturas de QA em mosaico (tests/qa_capture_mosaic.gd)
 var joystick_origin: Vector2 = Vector2.ZERO
 var joystick_vector: Vector2 = Vector2.ZERO
@@ -108,6 +117,9 @@ func _ready() -> void:
 		for tier in 4:
 			var key: String = "equip_%s_%d" % [family, tier]
 			textures[key] = load("res://assets/%s.png" % key)
+	for tier in range(0, 5):
+		textures["hero_extra_%d" % tier] = load("res://assets/hero_extra_%d.png" % tier)
+	fx = CFX.new()
 	for tier in range(1, 5):
 		var key: String = "equip_armor_%d" % tier
 		textures[key] = load("res://assets/%s.png" % key)
@@ -326,6 +338,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			interact()
 		update_enemies(delta)
+		resolve_fx(delta)
 		reg_game.tick(delta)
 		if zone == "cidade" and MAP.town_area(player):
 			enemies.clear()
@@ -340,6 +353,54 @@ func _process(delta: float) -> void:
 		hero_walk_time = 0.0
 	refresh_ui()
 	queue_redraw()
+
+func resolve_fx(delta: float) -> void:
+	# o dano de projéteis e feitiços é aplicado no QUADRO do impacto (VFX, hitbox e dano sincronizados)
+	for proj_value in fx.update(delta):
+		var proj: Dictionary = proj_value
+		var at: Vector2 = (proj["target"] as Vector2) + Vector2(0, 20)       # projéteis voam na altura do tronco; o hitbox é no chão
+		if str(proj["owner"]) == "hero":
+			for i in range(enemies.size() - 1, -1, -1):
+				var e: Dictionary = enemies[i]
+				if bool(e.get("dead", false)):
+					continue
+				if (e["pos"] as Vector2).distance_to(at) <= float(proj["aoe"]):
+					damage_enemy(e, int(proj["dmg"]) if (e["pos"] as Vector2).distance_to(at) < 20.0 else int(float(proj["dmg"]) * .6), at)
+		elif at.distance_to(player) < 22.0:
+			hurt_player(int(proj["dmg"]), Color(1, .5, .45))
+	for strike_value in fx.landed:
+		var st: Dictionary = strike_value
+		if (st["pos"] as Vector2).distance_to(player) < float(st["radius"]):
+			hurt_player(int(st["dmg"]), Color(.85, .55, 1))
+
+func hurt_player(amount: int, color: Color) -> void:
+	if invulnerable > 0:
+		return
+	var taken: int = maxi(1, amount - armor - int(equipped_armor.get("def", 0)))
+	hp = maxi(0, hp - taken)
+	invulnerable = .75
+	floaters.append({"pos": player + Vector2(0, -52), "text": "-%d" % taken, "t": .7, "color": color})
+	fx.spawn("vfx_slash_claw", player + Vector2(0, -34), .8)
+	if hp <= 0:
+		gold = maxi(0, gold - 8)
+		hp = max_hp
+		change_zone("cidade", MAP.TOWN + Vector2(884, 696))
+		message("Você desmaiou. A guilda o resgatou; perdeu 8 moedas.")
+
+func damage_enemy(enemy: Dictionary, damage: int, from: Vector2) -> void:
+	enemy["hp"] = int(enemy.get("hp", monster_health(str(enemy["kind"])))) - damage
+	enemy["flash"] = .14
+	enemy["action_time"] = .24
+	set_enemy_state(enemy, "hurt")
+	floaters.append({"pos": enemy["pos"] + Vector2(rng.randf_range(-6, 6), -30), "text": str(damage), "t": .7, "color": Color(1, .92, .45)})
+	var off: Vector2 = (enemy["pos"] as Vector2) - from
+	if off.length() > 0:
+		enemy["pos"] += off.normalized() * 10
+	if int(enemy["hp"]) <= 0:
+		enemy["hp"] = 0
+		enemy["dead"] = true
+		enemy["action_time"] = ENEMY_DEATH_TIME
+		set_enemy_state(enemy, "death")
 
 func walkable(p: Vector2) -> bool:
 	var bounds: Vector2 = MAP.SIZE if zone == "cidade" else FOREST_SIZE if zone == "floresta" else FORGE_SIZE if zone == "ferreiro" else SIZE
@@ -394,7 +455,7 @@ func populate() -> void:
 		for i in 3:
 			spawn_enemy()
 		if quest >= 3 and kills["Guardião"] == 0:
-			enemies.append(make_enemy("Guardião", Vector2(485, 240)))
+			enemies.append(make_enemy("Guardião", GUARDIAN_SPOT))
 
 func populate_animals() -> void:
 	# The same seed gives a stable local ecosystem without adding animals to saves.
@@ -445,22 +506,30 @@ func update_animals(delta: float) -> void:
 			creature["pos"] = next
 
 func enemy_pool_for_biome(which: String) -> Array:
+	# Progressão por bioma + facção da história (Foozle adaptados): Saqueadores da Fronteira na mata/colinas (Estrada Norte),
+	# Possessos e Cultistas da Coroa Oca onde o Eco aflora (vale da Mina, ruínas das dunas). Nível mínimo preserva a curva de loot.
 	var pool: Array = []
 	match which:
 		"floresta":
 			pool = ["Lobo"]
 			if level >= 2: pool.append("Aranha Sombria")
+			if level >= 3: pool.append("Goblin Saqueador")
 			if level >= 4: pool.append("Javali Musgoso")
+			if level >= 5: pool.append("Goblin Fundeiro")
 		"campos", "pradaria":
 			pool = ["Limo"]
+			if level >= 3 and which == "pradaria": pool.append("Goblin Saqueador")
 			if level >= 4: pool.append("Flor Voraz")
+			if level >= 5: pool.append("Goblin Fundeiro")
 		"vale":
 			pool = ["Limo"]
 			if level >= 4: pool.append("Javali Musgoso")
-			if level >= 6: pool.append("Flor Voraz")
+			if level >= 5: pool.append("Possesso do Eco")
+			if level >= 6: pool.append_array(["Flor Voraz", "Cultista da Coroa Oca"])
 		"deserto":
 			pool = ["Escorpião"]
 			if level >= 8: pool.append("Escaravelho Âmbar")
+			if level >= 9: pool.append_array(["Possesso do Eco", "Cultista da Coroa Oca"])
 		"gelo":
 			pool = ["Lobo de Gelo"]
 			if level >= 11: pool.append("Golem de Geada")
@@ -483,7 +552,10 @@ func spawn_enemy() -> void:
 		current_biome = "pradaria"
 	var pool: Array = enemy_pool_for_biome(current_biome)
 	if zone == "masmorra":
-		pool = ["Limo", "Aranha Sombria"] if level >= 2 else ["Limo"]
+		# Mina do Eco: mineiros mortos reanimados pelo Eco (Foozle esqueletos adaptados) entre as criaturas da caverna
+		pool = ["Limo", "Esqueleto do Eco"]
+		if level >= 2: pool.append("Aranha Sombria")
+		if level >= 3: pool.append("Arqueiro Ossudo")
 	if pool.is_empty():
 		return
 	var kind: String = str(pool[rng.randi_range(0, pool.size() - 1)])
@@ -503,6 +575,13 @@ func spawn_enemy() -> void:
 
 func monster_health(kind: String) -> int:
 	match kind:
+		"Goblin Saqueador": return 34
+		"Goblin Fundeiro": return 26
+		"Esqueleto do Eco": return 40
+		"Arqueiro Ossudo": return 30
+		"Cultista da Coroa Oca": return 48
+		"Possesso do Eco": return 55
+		"Brutamontes Goblin": return 60
 		"Lobo": return 19
 		"Limo": return 29
 		"Aranha Sombria": return 27
@@ -517,6 +596,13 @@ func monster_health(kind: String) -> int:
 
 func monster_damage(kind: String) -> int:
 	match kind:
+		"Goblin Saqueador": return 6
+		"Goblin Fundeiro": return 5
+		"Esqueleto do Eco": return 6
+		"Arqueiro Ossudo": return 6
+		"Cultista da Coroa Oca": return 8
+		"Possesso do Eco": return 9
+		"Brutamontes Goblin": return 9
 		"Lobo": return 4
 		"Limo": return 4
 		"Aranha Sombria": return 5
@@ -531,6 +617,11 @@ func monster_damage(kind: String) -> int:
 
 func monster_speed(kind: String) -> float:
 	match kind:
+		"Goblin Saqueador": return 52.0
+		"Possesso do Eco": return 46.0
+		"Brutamontes Goblin": return 36.0
+		"Cultista da Coroa Oca": return 38.0
+		"Esqueleto do Eco": return 40.0
 		"Guardião": return 30.0
 		"Golem de Geada": return 25.0
 		"Flor Voraz": return 22.0
@@ -541,6 +632,13 @@ func monster_speed(kind: String) -> float:
 
 func monster_gold(kind: String) -> int:
 	match kind:
+		"Goblin Saqueador": return 8
+		"Goblin Fundeiro": return 9
+		"Esqueleto do Eco": return 9
+		"Arqueiro Ossudo": return 10
+		"Cultista da Coroa Oca": return 14
+		"Possesso do Eco": return 12
+		"Brutamontes Goblin": return 20
 		"Lobo": return 4
 		"Limo": return 7
 		"Aranha Sombria": return 6
@@ -555,6 +653,13 @@ func monster_gold(kind: String) -> int:
 
 func monster_xp(kind: String) -> int:
 	match kind:
+		"Goblin Saqueador": return 18
+		"Goblin Fundeiro": return 19
+		"Esqueleto do Eco": return 20
+		"Arqueiro Ossudo": return 21
+		"Cultista da Coroa Oca": return 26
+		"Possesso do Eco": return 25
+		"Brutamontes Goblin": return 40
 		"Lobo": return 12
 		"Limo": return 18
 		"Aranha Sombria": return 15
@@ -573,7 +678,11 @@ func finish_enemy(index: int) -> void:
 	var enemy: Dictionary = enemies[index]
 	var kind: String = enemy["kind"]
 	var p: Vector2 = enemy["pos"]
-	floaters.append({"pos": p, "text": "", "t": .45, "color": Color(1, 1, 1), "puff": true})
+	if kind in CROWN_KINDS:
+		fx.spawn("vfx_black_burst", p + Vector2(0, -20))
+	elif kind in ECO_KINDS:
+		fx.spawn("vfx_hit_eco", p + Vector2(0, -20), 1.2)
+	fx.spawn("vfx_smoke", p + Vector2(0, -8), 1.2, false, Color(1, 1, 1, .85))
 	enemies.remove_at(index)
 	kills[kind] = int(kills.get(kind, 0)) + 1
 	gold += int(float(monster_gold(kind)) * float(enemy.get("gold_mult", 1.0)))
@@ -633,6 +742,11 @@ func update_enemies(delta: float) -> void:
 				set_enemy_state(enemy, "attack")
 				if float(enemy.get("action_time", 0.0)) < .28 and not bool(enemy.get("boss_hit_done", false)):
 					enemy["boss_hit_done"] = true
+					var bp: Vector2 = enemy["pos"]
+					for wd in [["vfx_wave_right", Vector2(70, 0)], ["vfx_wave_left", Vector2(-70, 0)], ["vfx_wave_up", Vector2(0, -44)], ["vfx_wave_down", Vector2(0, 44)]]:
+						fx.spawn(str(wd[0]), bp + (wd[1] as Vector2) + Vector2(0, -16))
+					for k in 4:
+						fx.spawn("vfx_lightning_eco", bp + Vector2(cos(k * TAU / 4.0 + .6), sin(k * TAU / 4.0 + .6) * .5) * 92.0 + Vector2(0, -58), .8)
 					if dist < 118.0 and invulnerable <= 0:
 						var wave_taken: int = maxi(1, 12 - armor - int(equipped_armor.get("def", 0)))
 						hp = maxi(0, hp - wave_taken)
@@ -653,8 +767,31 @@ func update_enemies(delta: float) -> void:
 					enemy["action_time"] = .74 if next_pattern == 0 else .62
 					enemy["boss_action"] = "charge" if next_pattern == 0 else "shockwave"
 					enemy["boss_hit_done"] = false
+					if next_pattern == 0:
+						var cd: Vector2 = player - (enemy["pos"] as Vector2)
+						fx.spawn("vfx_wave_right" if absf(cd.x) > absf(cd.y) and cd.x > 0 else "vfx_wave_left" if absf(cd.x) > absf(cd.y) else "vfx_wave_down" if cd.y > 0 else "vfx_wave_up", (enemy["pos"] as Vector2) + cd.normalized() * 50.0 + Vector2(0, -20))
 					set_enemy_state(enemy, "attack")
 					continue
+		var ranged: String = str(RANGED_ENEMIES.get(str(enemy["kind"]), ""))
+		if not ranged.is_empty() and dist < 190.0 and dist > 60.0 and float(enemy.get("cool", 0.0)) <= 0 and float(enemy.get("action_time", 0.0)) <= 0:
+			# atirador/conjurador: mantém distância, ANTECIPA (estado attack) e dispara no meio da animação
+			enemy["cool"] = 2.1 if ranged == "spell" else 1.6
+			enemy["action_time"] = .55
+			set_enemy_state(enemy, "attack")
+			var dmg: int = int(float(monster_damage(str(enemy["kind"]))) * float(enemy.get("dmg_mult", 1.0)))
+			var from: Vector2 = (enemy["pos"] as Vector2) + Vector2(0, -30)
+			if ranged == "spell":
+				fx.spawn("vfx_sparkles_cast", from + Vector2(0, -8), 1.0, false, Color(.85, .55, 1))
+				fx.strike(player, .75, 30.0, dmg + 2, "vfx_dark_bolt", Color(.72, .35, 1))
+			else:
+				fx.shoot("enemy", from, player + Vector2(0, -20), 260.0 if ranged == "stone" else 300.0, ranged, dmg, 0.0, "vfx_sparks" if ranged == "stone" else "vfx_hit_eco", "")
+			continue
+		if not ranged.is_empty() and dist <= 110.0 and float(enemy.get("action_time", 0.0)) <= 0:
+			var away: Vector2 = ((enemy["pos"] as Vector2) - player).normalized() * monster_speed(str(enemy["kind"])) * .8 * delta
+			if walkable((enemy["pos"] as Vector2) + away):
+				enemy["pos"] += away
+				set_enemy_state(enemy, "walk")
+			continue
 		if float(enemy.get("action_time", 0.0)) <= 0 and dist < 180 and dist > 23:
 			var movement: Vector2 = (player - enemy["pos"]).normalized() * monster_speed(str(enemy["kind"])) * delta
 			var next: Vector2 = enemy["pos"] + movement
@@ -669,6 +806,7 @@ func update_enemies(delta: float) -> void:
 			enemy["cool"] = 1.2
 			enemy["action_time"] = .42
 			set_enemy_state(enemy, "attack")
+			fx.spawn("vfx_slash_claw", player + Vector2(0, -34), .8, (enemy["pos"] as Vector2).x > player.x)
 			if hp <= 0:
 				gold = maxi(0, gold - 8)
 				hp = max_hp
@@ -693,8 +831,20 @@ func attack() -> void:
 			continue
 		var offset: Vector2 = enemy["pos"] - player
 		if offset.length() < reach and (offset.normalized().dot(facing) > (.42 if family != "sword" else .15) or offset.length() < 27):
-			if family != "sword":
+			if family != "sword" and offset.length() >= 40.0:
+				# CAST na mão -> PROJÉTIL (viagem) -> IMPACTO + ÁREA (cajado) -> DISSIPAÇÃO; o dano entra na chegada (resolve_fx)
 				swing_target = enemy["pos"]
+				var hand: Vector2 = player + facing * 16.0 + Vector2(0, -34)
+				var dmg: int = 9 + int(equipped_weapon.get("atk", 0)) + level * 2
+				if family == "staff":
+					fx.spawn("vfx_sparkles_cast", hand)
+					fx.shoot("hero", hand, enemy["pos"] as Vector2 + Vector2(0, -20), 420.0, "vfx_fireball", dmg, 46.0, "vfx_firebomb", "vfx_smoke")
+				else:
+					fx.shoot("hero", hand, enemy["pos"] as Vector2 + Vector2(0, -20), 620.0, "arrow", dmg, 16.0, "vfx_sparks", "")
+				break
+			if family != "sword":
+				fx.spawn("vfx_firebomb" if family == "staff" else "vfx_sparks", (enemy["pos"] as Vector2) + Vector2(0, -24), .8)   # queima-roupa: impacto imediato
+			fx.spawn("vfx_hit_eco" if str(enemy["kind"]) in ECO_KINDS else "vfx_hit", (enemy["pos"] as Vector2) + Vector2(0, -26), 1.0, offset.x < 0)
 			var forge_bonus: int = weapon * 5 if family == "sword" else 0
 			var damage: int = 9 + forge_bonus + int(equipped_weapon.get("atk", 0)) + level * 2
 			enemy["hp"] = int(enemy.get("hp", monster_health(str(enemy["kind"])))) - damage
@@ -755,7 +905,7 @@ func start_guardian_rematch() -> void:
 		return
 	rematch_active = true
 	REG.rematch_boss = REG.GUARDIAN_BOSS_ID
-	enemies.append(make_enemy("Guardião", Vector2(485, 240)))
+	enemies.append(make_enemy("Guardião", GUARDIAN_SPOT))
 	message("O Núcleo do Eco desperta! O Guardião retorna.")
 	queue_redraw()
 
@@ -1026,6 +1176,7 @@ func load_game() -> void:
 func _draw() -> void:
 	var world_bounds: Vector2 = MAP.SIZE if zone == "cidade" else FOREST_SIZE if zone == "floresta" else FORGE_SIZE if zone == "ferreiro" else SIZE
 	var camera: Vector2 = (player - VIEW_SIZE * .5).clamp(Vector2.ZERO, world_bounds - VIEW_SIZE)
+	draw_camera = camera
 	draw_set_transform(-camera)
 	var x_start: int = maxi(0, int(camera.x / TILE) - 2)
 	var y_start: int = maxi(0, int(camera.y / TILE) - 2)
@@ -1067,37 +1218,57 @@ func _draw() -> void:
 		REGR.draw_shadows(self, view_items, view_rect, time_acc, approved_visuals)
 		REGR.draw_emitters(self, view_rect, zone, time_acc)
 	reg_game.draw_npcs(self, view_rect)
-	REGR.draw_objects(self, view_items, view_rect, -1.0e9, player.y, time_acc, approved_visuals)
+	fx.draw_telegraphs(self, camera)
+	# atores (inimigos + herói) intercalados por Y com os objetos do mundo: quem está à frente cobre quem está atrás
+	var actors: Array = []
 	for enemy in enemies:
-		draw_enemy(enemy, camera)
-	draw_shadow_oval(player + Vector2(0, 3), Vector2(15, 5), Color(0, 0, 0, .4))
-	if invulnerable == 0 or int(time_acc * 15) % 2 == 0:
-		var avatar_rect: Rect2 = Rect2(player - Vector2(24, 53), Vector2(48, 56))
-		var direction_index: int = wrapi(roundi(atan2(facing.x, facing.y) / (PI / 4.0)), 0, 8)
-		var column: int = 8 + mini(9, int((.42 - hero_attack_time) / .42 * 10.0)) if hero_attack_time > 0 else int(hero_walk_time * 12.0) % 8 if hero_walking else 0
-		var source: Rect2 = Rect2(Vector2(column * 48, direction_index * 56), Vector2(48, 56))
-		draw_texture_rect_region(textures["hero_body"], avatar_rect, source)
-		var armor_tier: int = clampi(maxi(int(equipped_armor.get("tier", 0)), armor), 0, 4)
-		if armor_tier > 0:
-			draw_texture_rect_region(textures["hero_armor_%d" % armor_tier], avatar_rect, source)
-		var family: String = equipped_weapon.get("kind", "sword")
-		var weapon_tier: int = clampi(maxi(int(equipped_weapon.get("tier", 0)), weapon if family == "sword" else 0), 0, 3)
-		draw_texture_rect_region(textures["hero_%s_%d" % [family, weapon_tier]], avatar_rect, source)
-	REGR.draw_objects(self, view_items, view_rect, player.y, 1.0e9, time_acc, approved_visuals)
-	reg_game.draw_overlay(self, view_rect)
-	if swing > 0:
-		if swing_target != Vector2.ZERO:
-			var projectile_color: Color = Color(.7, .93, 1) if equipped_weapon.get("kind", "") == "staff" else Color(1, .8, .46)
-			draw_line(player + facing * 19, swing_target, projectile_color, 4)
-			draw_circle(swing_target, 5, projectile_color)
+		actors.append([(enemy["pos"] as Vector2).y, enemy])
+	actors.append([player.y, null])
+	actors.sort_custom(func(a: Array, b: Array) -> bool: return float(a[0]) < float(b[0]))
+	var band_from: float = -1.0e9
+	var objects_drawn: int = 0
+	for actor in actors:
+		objects_drawn += REGR.draw_objects(self, view_items, view_rect, band_from, float(actor[0]), time_acc, approved_visuals)
+		band_from = float(actor[0])
+		if actor[1] == null:
+			draw_hero()
 		else:
-			draw_arc(player + facing * 25, 22, facing.angle() - 1, facing.angle() + 1, 12, Color(1, .9, .48, swing * 5), 5)
+			draw_enemy(actor[1], camera)
+	objects_drawn += REGR.draw_objects(self, view_items, view_rect, band_from, 1.0e9, time_acc, approved_visuals)
+	REGR.last_draw_count = objects_drawn
+	reg_game.draw_overlay(self, view_rect)
+	fx.draw(self, camera)                                      # VFX gratuitos adaptados: projéteis, impactos, ondas, dissipação
 	draw_floaters()
 	draw_set_transform(Vector2.ZERO)
 	if not qa_hide_hud:
 		draw_hud()
 	if zone == "cidade" and map_visible:
 		draw_world_minimap()
+
+func draw_hero() -> void:
+	draw_shadow_oval(player + Vector2(0, 3), Vector2(15, 5), Color(0, 0, 0, .4))
+	if invulnerable == 0 or int(time_acc * 15) % 2 == 0:
+		# herói = animação Foozle Lucifer Warrior (CC0) redesenhada para o protagonista; célula 48x56 desenhada em 2x
+		var avatar_rect: Rect2 = Rect2(player - Vector2(48, 104), Vector2(96, 112))
+		var direction_index: int = wrapi(roundi(atan2(facing.x, facing.y) / (PI / 4.0)), 0, 8)
+		var column: int = 8 + mini(9, int((.42 - hero_attack_time) / .42 * 10.0)) if hero_attack_time > 0 else int(hero_walk_time * 12.0) % 8 if hero_walking else 0
+		var source: Rect2 = Rect2(Vector2(column * 48, direction_index * 56), Vector2(48, 56))
+		var armor_tier: int = clampi(maxi(int(equipped_armor.get("tier", 0)), armor), 0, 4)
+		var extra_col: int = -1
+		if hero_attack_time <= 0 and invulnerable > .45:
+			extra_col = 6 + mini(3, int((.75 - invulnerable) / .3 * 4.0))          # reação a dano (hurt)
+		elif hero_attack_time <= 0 and not hero_walking:
+			extra_col = int(time_acc * 7.0) % 6                                     # idle (respiração)
+		if extra_col >= 0:
+			draw_texture_rect_region(textures["hero_extra_%d" % armor_tier], avatar_rect, Rect2(Vector2(extra_col * 48, direction_index * 56), Vector2(48, 56)))
+		else:
+			draw_texture_rect_region(textures["hero_body"], avatar_rect, source)
+			if armor_tier > 0:
+				draw_texture_rect_region(textures["hero_armor_%d" % armor_tier], avatar_rect, source)
+		var family: String = equipped_weapon.get("kind", "sword")
+		var weapon_tier: int = clampi(maxi(int(equipped_weapon.get("tier", 0)), weapon if family == "sword" else 0), 0, 3)
+		if extra_col < 0 or family != "sword":
+			draw_texture_rect_region(textures["hero_%s_%d" % [family, weapon_tier]], avatar_rect, source if extra_col < 0 else Rect2(Vector2(0, direction_index * 56), Vector2(48, 56)))
 
 func draw_overworld(camera: Vector2, _x_start: int, _x_end: int, _y_start: int, _y_end: int) -> void:
 	# Água, margens, estradas e pontes vêm do chão assado; brilhos/espuma são sprites (camada REG_001).
@@ -1354,9 +1525,9 @@ func draw_floor_mesh(floor_tex: Texture2D, area: Vector2, seed_offset: int, vari
 			var shade: float = 1.0 - variance * 0.5 + variance * float(seed % 17) / 16.0
 			var tint: Color = Color(shade, shade * (1.0 + float(seed % 5 - 2) * .012), shade * (1.0 + float(seed % 3 - 1) * .02), tile_alpha)
 			var half_w: float = 65.0
-			draw_set_transform(center, 0.0, Vector2(-1.0 if seed % 2 == 1 else 1.0, 1.0))
+			draw_set_transform(center - draw_camera, 0.0, Vector2(-1.0 if seed % 2 == 1 else 1.0, 1.0))
 			draw_texture_rect(floor_tex, Rect2(Vector2(-half_w, -36.5), Vector2(half_w * 2.0, 73.0)), false, tint)
-			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+			draw_set_transform(-draw_camera)          # volta à câmera (antes zerava e deslocava objetos/NPCs da masmorra e interiores)
 			if seed % 6 == 0:
 				draw_circle(center + Vector2(float((seed >> 3) % 40 - 20), float((seed >> 7) % 14 - 7)), 6.0 + float(seed % 5), Color(0, 0, 0, .10))
 
@@ -1548,16 +1719,28 @@ func draw_enemy(enemy: Dictionary, camera: Vector2) -> void:
 		frame = int(state_time * fps + p.x * .006) % 8
 	var flip: float = -1.0 if player.x < p.x else 1.0
 	var tint: Color = Color(2.8, 2.8, 2.8) if float(enemy.get("flash", 0.0)) > 0 else Color.WHITE
+	if fx.has_mob(kind):
+		# monstro animado Foozle (CC0) redesenhado por facção: idle/andar/ataque/dano/morte (+ preparação/especial nos chefes)
+		var ext_state: String = state
+		if boss and state == "attack" and str(enemy.get("boss_action", "")) == "shockwave":
+			ext_state = "windup" if float(enemy.get("action_time", 0.0)) > .34 else "special"
+		if fx.draw_mob(self, enemy, player, camera, frame, ext_state, tint):
+			draw_enemy_bar(enemy, kind, boss, elite, dead, p)
+			return
 	draw_set_transform(p - camera, 0, Vector2(flip, 1))
 	var anchor: Vector2 = Vector2(-32, -52) if boss else Vector2(-size * .5, -size * .68)
 	var sheet_name: String = str(ENEMY_SHEETS.get(kind, "slime")) + "_full"
 	var row: int = int(ENEMY_STATE_ROW[state])
 	draw_texture_rect_region(textures[sheet_name], Rect2(anchor, Vector2(size, size)), Rect2(frame * size, row * size, size, size), tint)
 	draw_set_transform(-camera)
+	draw_enemy_bar(enemy, kind, boss, elite, dead, p)
+
+func draw_enemy_bar(enemy: Dictionary, kind: String, boss: bool, elite: bool, dead: bool, p: Vector2) -> void:
+	var tall: float = 1.9 if fx.has_mob(kind) else 1.0
 	var max_life: int = maxi(1, int(enemy.get("max_hp", monster_health(kind))))
 	if not dead and (int(enemy.get("hp", max_life)) < max_life or boss or elite):
 		var w: float = 48.0 if (boss or elite) else 32.0
-		var top: Vector2 = p + Vector2(-w * .5, -58.0 if boss else -46.0 if elite else -32.0)
+		var top: Vector2 = p + Vector2(-w * .5, (-58.0 if boss else -46.0 if elite else -32.0) * tall)
 		if elite:
 			draw_label("★ " + str(enemy.get("elite_name", "Elite")), top + Vector2(w * .5 - 90.0, -6.0), Color(1, .82, .5))
 		draw_rect(Rect2(top - Vector2(1, 1), Vector2(w + 2, 6)), Color(.1, .05, .16))

@@ -2,6 +2,126 @@
  "note": "Proveniência dos assets gratuitos integrados (fonte preservada em external_assets/free_reference_library).",
  "items": [
   {
+   "id": "mob_brutamontes_goblin",
+   "category": "boss/elite",
+   "source_paths": [
+    "external_assets/free_reference_library/animated_monsters/foozle_goblin_beast_boss/Foozle_2DC0016_Lucifer_Goblin_Beast_Pixel_Art"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/mobs/mob_brutamontes_goblin.png",
+   "modifications": "animações originais preservadas (idle/andar/ataque/dano/morte/especial/preparação, 3 direções: lado/baixo/cima) reamostradas p/ 8 quadros; paleta redesenhada para a facção Valedouro; crescente do golpe tingida; escala ×2.4 no jogo (nearest)",
+   "used_in": "elite/chefe dos Saqueadores — acampamento das colinas",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "mob_guardiao_eco",
+   "category": "boss/elite",
+   "source_paths": [
+    "external_assets/free_reference_library/animated_monsters/foozle_skeleton_king_boss/Foozle_2DC0021_Lucifer_Skeleton_King_Pixel_Art"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/mobs/mob_guardiao_eco.png",
+   "modifications": "animações originais preservadas (idle/andar/ataque/dano/morte/especial/preparação, 3 direções: lado/baixo/cima) reamostradas p/ 8 quadros; paleta redesenhada para a facção Valedouro; crescente do golpe tingida; escala ×3.2 no jogo (nearest)",
+   "used_in": "Guardião do Eco — boss da Mina do Eco (Ato I)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "hero_body",
+   "category": "heroi",
+   "source_paths": [
+    "external_assets/free_reference_library/animated_characters/foozle_lucifer_warrior/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/hero_body.png, hero_armor_1..4.png, hero_extra_0..4.png, hero_sword_0..3.png",
+   "modifications": "Foozle Lucifer Warrior como base de animação (andar 8, ataque combo A01+A02 10, idle 6, dano 4, morte 8) em 8 direções; traje recolorido para a identidade do protagonista (túnica azul, capa ferrugem); tiers de armadura = material da armadura (couro/ferro/aço-azul/ouro); tier da espada tinge o golpe e o cabo; contrato 864x448 preservado",
+   "used_in": "protagonista (todas as zonas)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "hero_bow_staff",
+   "category": "heroi",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/hero_bow_0..3.png, hero_staff_0..3.png",
+   "modifications": "ícones Osare reduzidos a 16px e ancorados na mão do herói em cada quadro",
+   "used_in": "herói com arco/cajado",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "mob_arqueiro_ossudo",
+   "category": "monstro",
+   "source_paths": [
+    "external_assets/free_reference_library/animated_monsters/foozle_skeleton_hunter/Foozle_2DC0019_Lucifer_Skeleton_Hunter_Pixel_Art"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/mobs/mob_arqueiro_ossudo.png",
+   "modifications": "animações originais preservadas (idle/andar/ataque/dano/morte, 3 direções: lado/baixo/cima) reamostradas p/ 8 quadros; paleta redesenhada para a facção Valedouro; crescente do golpe tingida; escala ×2.0 no jogo (nearest)",
+   "used_in": "Mina do Eco/Cripta — atirador",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "mob_cultista_coroa",
+   "category": "monstro",
+   "source_paths": [
+    "external_assets/free_reference_library/animated_monsters/foozle_cultist/Foozle_2DC0013_Lucifer_Cultist_Pixel_Art"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/mobs/mob_cultista_coroa.png",
+   "modifications": "animações originais preservadas (idle/andar/ataque/dano/morte, 3 direções: lado/baixo/cima) reamostradas p/ 8 quadros; paleta redesenhada para a facção Valedouro; crescente do golpe tingida; escala ×2.0 no jogo (nearest)",
+   "used_in": "agentes da Coroa Oca — vale (Santuário/Mina), ruínas",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "mob_esqueleto_eco",
+   "category": "monstro",
+   "source_paths": [
+    "external_assets/free_reference_library/animated_monsters/foozle_skeleton_grunt/Foozle_2DC0018_Lucifer_Skeleton_Grunt_Pixel_Art"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/mobs/mob_esqueleto_eco.png",
+   "modifications": "animações originais preservadas (idle/andar/ataque/dano/morte, 3 direções: lado/baixo/cima) reamostradas p/ 8 quadros; paleta redesenhada para a facção Valedouro; crescente do golpe tingida; escala ×2.0 no jogo (nearest)",
+   "used_in": "mineiros mortos reanimados pelo Eco — Mina do Eco/Cripta",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "mob_goblin_fundeiro",
+   "category": "monstro",
+   "source_paths": [
+    "external_assets/free_reference_library/animated_monsters/foozle_goblin_slinger/Foozle_2DC0014_Lucifer_Goblin_Slinger_Pixel_Art"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/mobs/mob_goblin_fundeiro.png",
+   "modifications": "animações originais preservadas (idle/andar/ataque/dano/morte, 3 direções: lado/baixo/cima) reamostradas p/ 8 quadros; paleta redesenhada para a facção Valedouro; crescente do golpe tingida; escala ×2.0 no jogo (nearest)",
+   "used_in": "Saqueadores da Fronteira — atiradores (colinas/campos)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "mob_goblin_saqueador",
+   "category": "monstro",
+   "source_paths": [
+    "external_assets/free_reference_library/animated_monsters/foozle_goblin_berserker/Foozle_2DC0015_Lucifer_Goblin_Berserker_Pixel_Art"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/mobs/mob_goblin_saqueador.png",
+   "modifications": "animações originais preservadas (idle/andar/ataque/dano/morte, 3 direções: lado/baixo/cima) reamostradas p/ 8 quadros; paleta redesenhada para a facção Valedouro; crescente do golpe tingida; escala ×2.0 no jogo (nearest)",
+   "used_in": "Saqueadores da Fronteira — floresta/colinas (Estrada Norte)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "mob_possesso_eco",
+   "category": "monstro",
+   "source_paths": [
+    "external_assets/free_reference_library/animated_monsters/foozle_possessed/Foozle_2DC0012_Lucifer_Possessed_Pixel_Art"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/mobs/mob_possesso_eco.png",
+   "modifications": "animações originais preservadas (idle/andar/ataque/dano/morte, 3 direções: lado/baixo/cima) reamostradas p/ 8 quadros; paleta redesenhada para a facção Valedouro; crescente do golpe tingida; escala ×2.0 no jogo (nearest)",
+   "used_in": "aldeões tomados pelo Eco — vale/ruínas/deserto",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
    "id": "ext_rock_beige_a",
    "category": "rocha",
    "source_paths": [
@@ -617,6 +737,210 @@
    "derived": "game/assets/external/nature/ext_tree_umbrella.png",
    "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
    "used_in": "Colinas secas/borda do deserto",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_black_burst",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/oga_2d_spell_effects/FX_unpacked/fx10_blackExplosion"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/vfx/vfx_black_burst.png",
+   "modifications": "recorte em 10 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "morte de Cultista/Possesso (dissipação sombria)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_dark_bolt",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/oga_gothicvania_magic_9/magic_pack_9_files_unpacked/Magic Pack 9 files/spritesheets"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/vfx/vfx_dark_bolt.png",
+   "modifications": "recorte em 8 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "feitiço do Cultista da Coroa Oca (impacto após marca no chão)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_energy_orb",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/oga_2d_spell_effects/FX_unpacked/fx7_energyBall"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/vfx/vfx_energy_orb.png",
+   "modifications": "recorte em 12 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "orbe do Eco (flechas do Arqueiro Ossudo / Possesso)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_fire",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/oga_animated_fire"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/vfx/vfx_fire.png",
+   "modifications": "recorte em 12 quadros (tira única), cores originais, velocidade/escala ajustadas",
+   "used_in": "fogueiras/tochas do mundo (emissor de fogo)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_fireball",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/oga_lpc_explosions_2/Pix2_unpacked"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/vfx/vfx_fireball.png",
+   "modifications": "recorte em 8 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "projétil do cajado (viagem)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_firebomb",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/oga_gothicvania_magic_9/magic_pack_9_files_unpacked/Magic Pack 9 files/spritesheets"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/vfx/vfx_firebomb.png",
+   "modifications": "recorte em 14 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "impacto + área do cajado (explosão)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_hit",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/foozle_lucifer_effects/Foozle_2DE0002_Lucifer_Effects_Pixel_Art/Effects/VFX"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/vfx/vfx_hit.png",
+   "modifications": "recorte em 5 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "impacto do golpe em inimigos (todas as armas)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_hit_eco",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/foozle_lucifer_effects/Foozle_2DE0002_Lucifer_Effects_Pixel_Art/Effects/VFX"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/vfx/vfx_hit_eco.png",
+   "modifications": "recorte em 5 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "impacto/morte de criaturas do Eco",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_lightning_eco",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/oga_gothicvania_magic_9/magic_pack_9_files_unpacked/Magic Pack 9 files/spritesheets"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/vfx/vfx_lightning_eco.png",
+   "modifications": "recorte em 5 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "golpe especial do Guardião do Eco (raios nas marcas)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_slash_claw",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/oga_pixel_sword_slash"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/vfx/vfx_slash_claw.png",
+   "modifications": "recorte em 9 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "golpe corpo a corpo dos inimigos acertando o herói",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_smoke",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/oga_lpc_explosions_2/Pix2_unpacked"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/vfx/vfx_smoke.png",
+   "modifications": "recorte em 10 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "dissipação de feitiços e queda de monstros",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_sparkles_cast",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/oga_lpc_explosions_2/Pix2_unpacked"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/vfx/vfx_sparkles_cast.png",
+   "modifications": "recorte em 8 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "conjuração/carga do cajado na mão do herói",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_sparks",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/oga_lpc_explosions_2/Pix2_unpacked"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/vfx/vfx_sparks.png",
+   "modifications": "recorte em 8 quadros (tira única), cores originais, velocidade/escala ajustadas",
+   "used_in": "impacto de flecha/pedra",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_wave_down",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/foozle_lucifer_effects/Foozle_2DE0002_Lucifer_Effects_Pixel_Art/Effects/Wave"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/vfx/vfx_wave_down.png",
+   "modifications": "recorte em 3 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "idem",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_wave_left",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/foozle_lucifer_effects/Foozle_2DE0002_Lucifer_Effects_Pixel_Art/Effects/Wave"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/vfx/vfx_wave_left.png",
+   "modifications": "recorte em 3 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "idem",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_wave_right",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/foozle_lucifer_effects/Foozle_2DE0002_Lucifer_Effects_Pixel_Art/Effects/Wave"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/vfx/vfx_wave_right.png",
+   "modifications": "recorte em 3 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "onda de choque direcional (Guardião, investida)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "vfx_wave_up",
+   "category": "vfx",
+   "source_paths": [
+    "external_assets/free_reference_library/vfx/foozle_lucifer_effects/Foozle_2DE0002_Lucifer_Effects_Pixel_Art/Effects/Wave"
+   ],
+   "license": "CC0 (Foozle, Lucifer series)",
+   "derived": "game/assets/external/vfx/vfx_wave_up.png",
+   "modifications": "recorte em 3 quadros (tira única), tingido para a linguagem de cor Valedouro, velocidade/escala ajustadas",
+   "used_in": "idem",
    "status": "MODELED_PENDING_GATE"
   }
  ]

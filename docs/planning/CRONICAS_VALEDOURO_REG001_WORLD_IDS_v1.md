@@ -74,6 +74,7 @@ Todos os IDs são persistentes: nada crítico depende de nomes exibidos.
 | `REG001_POI_SENTINELA_PORTAO_B` | npc | Sentinela | cidade | cidade | 1 | secondary |
 | `REG001_POI_VAL_GATE` | landmark | Portão De Valedouro | cidade | cidade | 1 | main |
 | `REG001_POI_ARQUIVO_SEIS_COROAS` | landmark | Arquivo Das Seis Coroas | cidade | cidade | 1 | main |
+| `REG001_POI_ELITE_SAQUEADORES` | elite | Acampamento Dos Saqueadores | floresta | cidade | 2 | secondary |
 
 ## Transições de bioma
 
@@ -115,6 +116,7 @@ Todos os IDs são persistentes: nada crítico depende de nomes exibidos.
 | `REG001_TRAIL_CARAVANA` | ramal à caravana |
 | `REG001_TRAIL_DUNAS` | ramal às ruínas das dunas |
 | `REG001_TRAIL_OASIS` | rota ao oásis |
+| `REG001_TRAIL_SAQUEADORES` | trilha de pilhagem: acampamento -> Estrada Norte |
 | `REG001_PASS_FAZENDA` | atalho: portão da fazenda (shortcut) |
 | `REG001_PASS_VAU_SUL` | vau raso ao sul do vale: liga o Vale ao Deserto sem ponte (ford) |
 | `REG001_PASS_VAU_CENTRAL` | vau raso fora da muralha sul: travessia secundária segura (ford) |

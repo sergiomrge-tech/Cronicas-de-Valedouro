@@ -12,7 +12,7 @@ func check() -> void:
 	game.zone = "masmorra"
 	game.player = Vector2(485, 360)
 	game.enemies.clear()
-	var guardian: Dictionary = game.make_enemy("Guardião", Vector2(485, 240))
+	var guardian: Dictionary = game.make_enemy("Guardião", game.GUARDIAN_SPOT)
 	guardian["special_cool"] = 0.0
 	game.enemies.append(guardian)
 

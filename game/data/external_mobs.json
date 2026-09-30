@@ -1,0 +1,169 @@
+{
+ "note": "mobs animados Foozle adaptados (tools/external/build_characters.py)",
+ "mobs": [
+  {
+   "id": "mob_goblin_saqueador",
+   "kind": "Goblin Saqueador",
+   "path": "res://assets/external/mobs/mob_goblin_saqueador.png",
+   "cell": 48,
+   "scale": 2.0,
+   "states": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt",
+    "death"
+   ],
+   "dirs": [
+    "side",
+    "down",
+    "up"
+   ],
+   "frames": 8
+  },
+  {
+   "id": "mob_goblin_fundeiro",
+   "kind": "Goblin Fundeiro",
+   "path": "res://assets/external/mobs/mob_goblin_fundeiro.png",
+   "cell": 48,
+   "scale": 2.0,
+   "states": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt",
+    "death"
+   ],
+   "dirs": [
+    "side",
+    "down",
+    "up"
+   ],
+   "frames": 8
+  },
+  {
+   "id": "mob_esqueleto_eco",
+   "kind": "Esqueleto do Eco",
+   "path": "res://assets/external/mobs/mob_esqueleto_eco.png",
+   "cell": 48,
+   "scale": 2.0,
+   "states": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt",
+    "death"
+   ],
+   "dirs": [
+    "side",
+    "down",
+    "up"
+   ],
+   "frames": 8
+  },
+  {
+   "id": "mob_arqueiro_ossudo",
+   "kind": "Arqueiro Ossudo",
+   "path": "res://assets/external/mobs/mob_arqueiro_ossudo.png",
+   "cell": 48,
+   "scale": 2.0,
+   "states": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt",
+    "death"
+   ],
+   "dirs": [
+    "side",
+    "down",
+    "up"
+   ],
+   "frames": 8
+  },
+  {
+   "id": "mob_cultista_coroa",
+   "kind": "Cultista da Coroa Oca",
+   "path": "res://assets/external/mobs/mob_cultista_coroa.png",
+   "cell": 48,
+   "scale": 2.0,
+   "states": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt",
+    "death"
+   ],
+   "dirs": [
+    "side",
+    "down",
+    "up"
+   ],
+   "frames": 8
+  },
+  {
+   "id": "mob_possesso_eco",
+   "kind": "Possesso do Eco",
+   "path": "res://assets/external/mobs/mob_possesso_eco.png",
+   "cell": 48,
+   "scale": 2.0,
+   "states": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt",
+    "death"
+   ],
+   "dirs": [
+    "side",
+    "down",
+    "up"
+   ],
+   "frames": 8
+  },
+  {
+   "id": "mob_brutamontes_goblin",
+   "kind": "Brutamontes Goblin",
+   "path": "res://assets/external/mobs/mob_brutamontes_goblin.png",
+   "cell": 64,
+   "scale": 2.4,
+   "states": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt",
+    "death",
+    "special",
+    "windup"
+   ],
+   "dirs": [
+    "side",
+    "down",
+    "up"
+   ],
+   "frames": 8
+  },
+  {
+   "id": "mob_guardiao_eco",
+   "kind": "Guardião",
+   "path": "res://assets/external/mobs/mob_guardiao_eco.png",
+   "cell": 64,
+   "scale": 3.2,
+   "states": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt",
+    "death",
+    "special",
+    "windup"
+   ],
+   "dirs": [
+    "side",
+    "down",
+    "up"
+   ],
+   "frames": 8
+  }
+ ]
+}

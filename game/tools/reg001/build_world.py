@@ -1459,6 +1459,25 @@ def formations():
 
 
 # ============================================================================================
+# ETAPA 5 — Acampamento dos Saqueadores (facção goblin, assets animados Foozle adaptados): quem ergueu as barricadas do Portão
+# Norte e ataca a Estrada Norte. Fica na mata a leste da estrada, fora da vista das torres, com trilha de pilhagem até a estrada.
+_SQ = (1790, 400)
+P('REG001_POI_ELITE_SAQUEADORES', 'elite', 'ACAMPAMENTO DOS SAQUEADORES', _SQ[0], _SQ[1], tier=2, layer='secondary', radius=160, region='floresta',
+  data={'enemy': 'Brutamontes Goblin', 'name': 'Brutamontes da Fronteira', 'hp_mult': 3.0, 'dmg_mult': 1.4, 'xp_mult': 4.0, 'gold_mult': 4.0, 'trigger': 220,
+        'drop': {'materials': {'Couro de lobo': 2, 'Minério bruto': 2}}, 'hint': 'As barricadas do portão norte foram erguidas contra ESTES saqueadores.',
+        'chest': 'REG001_POI_CHEST_SAQUEADORES'})
+W.clear(_SQ[0], _SQ[1], 150)
+for _dx, _dy, _a in ((-90, -40, 'nat_tent_small'), (70, -60, 'nat_tent_small'), (-20, 50, 'nat_campfire'), (110, 30, 'val_supply_stack'), (-120, 40, 'city_crates'), (40, -90, 'nat_flag_red')):
+    W.obj(_a, _SQ[0] + _dx, _SQ[1] + _dy, 'SAQUEADORES', check=False, anim=1 if _a in ('nat_campfire', 'nat_flag_red') else 0.0)
+W.emitter('smoke', _SQ[0] - 20, _SQ[1] + 44, 18)
+# o saque guardado na tenda: só abre depois que o Brutamontes cai (recompensa ligada ao elite)
+W.obj('nat_chest_rare', _SQ[0] + 60, _SQ[1] + 40, 'SAQUEADORES', poi='REG001_POI_CHEST_SAQUEADORES')
+P('REG001_POI_CHEST_SAQUEADORES', 'chest', 'SAQUE DOS SAQUEADORES', _SQ[0] + 60, _SQ[1] + 40, tier=2, layer='secondary', radius=52, region='floresta', show_label=False,
+  data={'requires_elite': 'REG001_POI_ELITE_SAQUEADORES', 'loot': {'gold': 80, 'materials': {'Couro de lobo': 2, 'Minério bruto': 3}, 'item': item('Arco do Saqueador', 'bow', 1, 3, 0, 5, 0), 'potions': 1}})
+krun('val_barricade_b', [(_SQ[0] - 160, _SQ[1] + 90), (_SQ[0] - 60, _SQ[1] + 120)], 'SAQUEADORES')
+trail('REG001_TRAIL_SAQUEADORES', [(_SQ[0] - 40, _SQ[1] + 60), (1700, 520), (1610, 590), (1548, 640)], half=18, note='trilha de pilhagem: acampamento -> Estrada Norte')
+
+# ============================================================================================
 # REMAPEAMENTO ETAPA 2 — Valedouro: anel de muralha orgânico (termina no rio) + portão oeste + quarteirões
 # ============================================================================================
 import remap_city as RC  # noqa: E402

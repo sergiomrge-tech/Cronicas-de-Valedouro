@@ -1,0 +1,141 @@
+{
+ "note": "VFX gratuitos adaptados (tools/external/build_vfx.py)",
+ "vfx": {
+  "vfx_hit": {
+   "path": "res://assets/external/vfx/vfx_hit.png",
+   "w": 48,
+   "h": 48,
+   "frames": 5,
+   "fps": 18,
+   "scale": 1.5
+  },
+  "vfx_hit_eco": {
+   "path": "res://assets/external/vfx/vfx_hit_eco.png",
+   "w": 48,
+   "h": 48,
+   "frames": 5,
+   "fps": 18,
+   "scale": 2.0
+  },
+  "vfx_wave_right": {
+   "path": "res://assets/external/vfx/vfx_wave_right.png",
+   "w": 64,
+   "h": 64,
+   "frames": 3,
+   "fps": 12,
+   "scale": 2.0
+  },
+  "vfx_wave_left": {
+   "path": "res://assets/external/vfx/vfx_wave_left.png",
+   "w": 64,
+   "h": 64,
+   "frames": 3,
+   "fps": 12,
+   "scale": 2.0
+  },
+  "vfx_wave_up": {
+   "path": "res://assets/external/vfx/vfx_wave_up.png",
+   "w": 64,
+   "h": 64,
+   "frames": 3,
+   "fps": 12,
+   "scale": 2.0
+  },
+  "vfx_wave_down": {
+   "path": "res://assets/external/vfx/vfx_wave_down.png",
+   "w": 64,
+   "h": 64,
+   "frames": 3,
+   "fps": 12,
+   "scale": 2.0
+  },
+  "vfx_dark_bolt": {
+   "path": "res://assets/external/vfx/vfx_dark_bolt.png",
+   "w": 88,
+   "h": 88,
+   "frames": 8,
+   "fps": 14,
+   "scale": 1.2
+  },
+  "vfx_lightning_eco": {
+   "path": "res://assets/external/vfx/vfx_lightning_eco.png",
+   "w": 128,
+   "h": 128,
+   "frames": 5,
+   "fps": 14,
+   "scale": 1.1
+  },
+  "vfx_firebomb": {
+   "path": "res://assets/external/vfx/vfx_firebomb.png",
+   "w": 64,
+   "h": 64,
+   "frames": 14,
+   "fps": 18,
+   "scale": 1.3
+  },
+  "vfx_fireball": {
+   "path": "res://assets/external/vfx/vfx_fireball.png",
+   "w": 32,
+   "h": 32,
+   "frames": 8,
+   "fps": 16,
+   "scale": 1.2
+  },
+  "vfx_sparkles_cast": {
+   "path": "res://assets/external/vfx/vfx_sparkles_cast.png",
+   "w": 32,
+   "h": 32,
+   "frames": 8,
+   "fps": 16,
+   "scale": 1.2
+  },
+  "vfx_sparks": {
+   "path": "res://assets/external/vfx/vfx_sparks.png",
+   "w": 32,
+   "h": 32,
+   "frames": 8,
+   "fps": 18,
+   "scale": 1.0
+  },
+  "vfx_smoke": {
+   "path": "res://assets/external/vfx/vfx_smoke.png",
+   "w": 32,
+   "h": 32,
+   "frames": 10,
+   "fps": 14,
+   "scale": 1.4
+  },
+  "vfx_energy_orb": {
+   "path": "res://assets/external/vfx/vfx_energy_orb.png",
+   "w": 80,
+   "h": 67,
+   "frames": 12,
+   "fps": 16,
+   "scale": 0.8
+  },
+  "vfx_fire": {
+   "path": "res://assets/external/vfx/vfx_fire.png",
+   "w": 64,
+   "h": 64,
+   "frames": 12,
+   "fps": 12,
+   "scale": 0.8
+  },
+  "vfx_black_burst": {
+   "path": "res://assets/external/vfx/vfx_black_burst.png",
+   "w": 50,
+   "h": 47,
+   "frames": 10,
+   "fps": 16,
+   "scale": 1.4
+  },
+  "vfx_slash_claw": {
+   "path": "res://assets/external/vfx/vfx_slash_claw.png",
+   "w": 64,
+   "h": 47,
+   "frames": 9,
+   "fps": 20,
+   "scale": 1.0
+  }
+ }
+}

@@ -8,8 +8,8 @@
     "claude_lote01_integrated": false
   },
   "counts": {
-    "total": 119,
-    "legacy_runtime": 119,
+    "total": 124,
+    "legacy_runtime": 124,
     "source_only": 0,
     "unreferenced_legacy": 0
   },
@@ -477,6 +477,46 @@
       "runtime_status": "LEGACY_RUNTIME",
       "visual_status": "LEGACY_V0_6_UNREVIEWED",
       "source_version": "v0.6.0"
+    },
+    {
+      "id": "AST_V06_HERO_EXTRA_0",
+      "path": "res://assets/hero_extra_0.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.2-ext (Foozle CC0 adaptado: idle/dano/morte; ver data/external_assets_provenance.json)"
+    },
+    {
+      "id": "AST_V06_HERO_EXTRA_1",
+      "path": "res://assets/hero_extra_1.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.2-ext (Foozle CC0 adaptado: idle/dano/morte; ver data/external_assets_provenance.json)"
+    },
+    {
+      "id": "AST_V06_HERO_EXTRA_2",
+      "path": "res://assets/hero_extra_2.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.2-ext (Foozle CC0 adaptado: idle/dano/morte; ver data/external_assets_provenance.json)"
+    },
+    {
+      "id": "AST_V06_HERO_EXTRA_3",
+      "path": "res://assets/hero_extra_3.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.2-ext (Foozle CC0 adaptado: idle/dano/morte; ver data/external_assets_provenance.json)"
+    },
+    {
+      "id": "AST_V06_HERO_EXTRA_4",
+      "path": "res://assets/hero_extra_4.png",
+      "category": "hero",
+      "runtime_status": "LEGACY_RUNTIME",
+      "visual_status": "LEGACY_V0_6_UNREVIEWED",
+      "source_version": "v0.6.2-ext (Foozle CC0 adaptado: idle/dano/morte; ver data/external_assets_provenance.json)"
     },
     {
       "id": "AST_V06_HERO_STAFF_0",
