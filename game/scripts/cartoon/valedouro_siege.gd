@@ -17,6 +17,7 @@ func _ready() -> void:
 	runtime = SiegeRuntimeScript.new()
 	hub.story_runtime = runtime
 	hub.hero.position = Region.world_from_hub(Vector2(1150,430))
+	_bind_campaign_save()
 	for monster in hub.monsters.duplicate():
 		if is_instance_valid(monster):
 			monster.queue_free()
@@ -35,7 +36,21 @@ func _process(delta: float) -> void:
 		if transition_timer > 1.0 and transition_timer < 3.0:
 			hub._show_toast("Ato V concluído — o próximo chamado vem do Porto das Brumas.")
 		if transition_timer > 3.2:
-			get_tree().change_scene_to_file("res://scenes/cartoon/CoastLostIslandsCartoon.tscn")
+			_change_scene_saved("res://scenes/cartoon/CoastLostIslandsCartoon.tscn")
+
+func _bind_campaign_save() -> void:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state == null or hub == null or hub.hero == null:
+		return
+	state.bind_scene("res://scenes/cartoon/ValedouroSiegeCartoon.tscn",hub,hub.hero,runtime,45,245,290,[])
+	hub._refresh_stats()
+	hub.objective_label.text = runtime.hud_text()
+
+func _change_scene_saved(path: String) -> void:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state != null:
+		state.prepare_transition(path)
+	get_tree().change_scene_to_file(path)
 
 func _spawn_attackers() -> void:
 	var center: Vector2 = Region.world_from_hub(Vector2(1150,320))
