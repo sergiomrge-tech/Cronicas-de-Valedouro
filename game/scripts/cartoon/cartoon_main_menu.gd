@@ -112,6 +112,12 @@ func _build_ui() -> void:
 	menu_panel.add_theme_stylebox_override("panel",style)
 	ui.add_child(menu_panel)
 
+	var menu_body: Control = Control.new()
+	menu_body.name = "MenuContent"
+	menu_body.custom_minimum_size = Vector2(312,416)
+	menu_body.mouse_filter = Control.MOUSE_FILTER_PASS
+	menu_panel.add_child(menu_body)
+
 	var crest: Label = Label.new()
 	crest.position = Vector2(30,16)
 	crest.size = Vector2(260,42)
@@ -119,33 +125,33 @@ func _build_ui() -> void:
 	crest.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	crest.add_theme_font_size_override("font_size",20)
 	crest.add_theme_color_override("font_color",Color(1.0,0.82,0.34))
-	menu_panel.add_child(crest)
+	menu_body.add_child(crest)
 
 	var new_game: Button = _menu_button("NOVO JOGO",Vector2(32,68))
 	new_game.name = "NewGameButton"
 	new_game.pressed.connect(_new_game)
-	menu_panel.add_child(new_game)
+	menu_body.add_child(new_game)
 
 	continue_button = _menu_button("CONTINUAR",Vector2(32,120))
 	continue_button.name = "ContinueButton"
 	continue_button.pressed.connect(_continue_game)
-	menu_panel.add_child(continue_button)
+	menu_body.add_child(continue_button)
 
 	var bag: Button = _menu_button("INVENTÁRIO",Vector2(32,172))
 	bag.name = "InventoryButton"
 	bag.pressed.connect(func(): inventory_ui.open_panel())
-	menu_panel.add_child(bag)
+	menu_body.add_child(bag)
 
 	var options: Button = _menu_button("OPÇÕES",Vector2(32,224))
 	options.name = "OptionsButton"
 	options.pressed.connect(_open_options)
-	menu_panel.add_child(options)
+	menu_body.add_child(options)
 
 	delete_button = _menu_button("EXCLUIR PROGRESSO",Vector2(32,276))
 	delete_button.name = "DeleteSaveButton"
 	_style_button(delete_button,Color(0.25,0.08,0.10),Color(0.80,0.31,0.34))
 	delete_button.pressed.connect(_delete_save)
-	menu_panel.add_child(delete_button)
+	menu_body.add_child(delete_button)
 
 	profile_label = Label.new()
 	profile_label.position = Vector2(24,334)
@@ -155,7 +161,7 @@ func _build_ui() -> void:
 	profile_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	profile_label.add_theme_font_size_override("font_size",12)
 	profile_label.add_theme_color_override("font_color",Color(0.72,0.82,0.86))
-	menu_panel.add_child(profile_label)
+	menu_body.add_child(profile_label)
 
 	inventory_ui = InventoryUIScript.new()
 	inventory_ui.name = "MenuInventory"
@@ -169,7 +175,7 @@ func _build_ui() -> void:
 	var version: Label = Label.new()
 	version.position = Vector2(18,508)
 	version.size = Vector2(924,24)
-	version.text = "2D Cartoon v0.16 • Godot 4.7.2 • save de campanha local"
+	version.text = "2D Cartoon v0.19 • Godot 4.7.2 • progresso local"
 	version.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	version.add_theme_font_size_override("font_size",12)
 	version.add_theme_color_override("font_color",Color(1,1,1,0.72))
@@ -285,6 +291,12 @@ func _build_options() -> void:
 	options_panel.add_theme_stylebox_override("panel",style)
 	ui.add_child(options_panel)
 
+	var options_body: Control = Control.new()
+	options_body.name = "OptionsContent"
+	options_body.custom_minimum_size = Vector2(352,232)
+	options_body.mouse_filter = Control.MOUSE_FILTER_PASS
+	options_panel.add_child(options_body)
+
 	var title: Label = Label.new()
 	title.position = Vector2(24,20)
 	title.size = Vector2(312,32)
@@ -292,14 +304,14 @@ func _build_options() -> void:
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size",22)
 	title.add_theme_color_override("font_color",Color(0.74,0.89,1.0))
-	options_panel.add_child(title)
+	options_body.add_child(title)
 
 	var zoom_title: Label = Label.new()
 	zoom_title.position = Vector2(28,72)
 	zoom_title.size = Vector2(130,30)
 	zoom_title.text = "Zoom da câmera"
 	zoom_title.add_theme_font_size_override("font_size",15)
-	options_panel.add_child(zoom_title)
+	options_body.add_child(zoom_title)
 
 	var minus: Button = Button.new()
 	minus.text = "−"
@@ -307,14 +319,14 @@ func _build_options() -> void:
 	minus.size = Vector2(46,42)
 	_style_button(minus,Color(0.11,0.15,0.21),Color(0.47,0.68,0.86))
 	minus.pressed.connect(func(): _change_zoom(-0.15))
-	options_panel.add_child(minus)
+	options_body.add_child(minus)
 
 	zoom_label = Label.new()
 	zoom_label.position = Vector2(220,72)
 	zoom_label.size = Vector2(70,28)
 	zoom_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	zoom_label.add_theme_font_size_override("font_size",16)
-	options_panel.add_child(zoom_label)
+	options_body.add_child(zoom_label)
 
 	var plus: Button = Button.new()
 	plus.text = "+"
@@ -322,19 +334,19 @@ func _build_options() -> void:
 	plus.size = Vector2(46,42)
 	_style_button(plus,Color(0.11,0.15,0.21),Color(0.47,0.68,0.86))
 	plus.pressed.connect(func(): _change_zoom(0.15))
-	options_panel.add_child(plus)
+	options_body.add_child(plus)
 
 	var reset: Button = _menu_button("PADRÃO 100%",Vector2(62,126))
 	reset.size = Vector2(236,42)
 	reset.add_theme_font_size_override("font_size",14)
 	reset.pressed.connect(func(): _set_zoom(1.0))
-	options_panel.add_child(reset)
+	options_body.add_child(reset)
 
 	var close: Button = _menu_button("VOLTAR",Vector2(62,180))
 	close.size = Vector2(236,42)
 	close.add_theme_font_size_override("font_size",14)
 	close.pressed.connect(func(): options_panel.visible=false)
-	options_panel.add_child(close)
+	options_body.add_child(close)
 	_refresh_zoom()
 
 func _build_confirmation() -> void:
@@ -353,6 +365,12 @@ func _build_confirmation() -> void:
 	confirmation_panel.add_theme_stylebox_override("panel",style)
 	ui.add_child(confirmation_panel)
 
+	var confirmation_body: Control = Control.new()
+	confirmation_body.name = "ConfirmationContent"
+	confirmation_body.custom_minimum_size = Vector2(392,242)
+	confirmation_body.mouse_filter = Control.MOUSE_FILTER_PASS
+	confirmation_panel.add_child(confirmation_body)
+
 	var title: Label = Label.new()
 	title.position = Vector2(26,20)
 	title.size = Vector2(348,34)
@@ -360,7 +378,7 @@ func _build_confirmation() -> void:
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size",22)
 	title.add_theme_color_override("font_color",Color(1.0,0.82,0.38))
-	confirmation_panel.add_child(title)
+	confirmation_body.add_child(title)
 
 	confirmation_label = Label.new()
 	confirmation_label.position = Vector2(30,66)
@@ -369,17 +387,17 @@ func _build_confirmation() -> void:
 	confirmation_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	confirmation_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	confirmation_label.add_theme_font_size_override("font_size",15)
-	confirmation_panel.add_child(confirmation_label)
+	confirmation_body.add_child(confirmation_label)
 
 	var confirm: Button = _menu_button("CONFIRMAR",Vector2(32,162))
 	confirm.size = Vector2(158,48)
 	confirm.pressed.connect(_confirm_action)
-	confirmation_panel.add_child(confirm)
+	confirmation_body.add_child(confirm)
 
 	var cancel: Button = _menu_button("CANCELAR",Vector2(208,162))
 	cancel.size = Vector2(158,48)
 	cancel.pressed.connect(_cancel_confirmation)
-	confirmation_panel.add_child(cancel)
+	confirmation_body.add_child(cancel)
 
 func _open_options() -> void:
 	inventory_ui.close_panel()
