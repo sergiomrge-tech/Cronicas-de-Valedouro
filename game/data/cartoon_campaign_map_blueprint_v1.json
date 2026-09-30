@@ -1,0 +1,615 @@
+{
+  "schema_version": 1,
+  "registry_id": "CARTOON_CAMPAIGN_MAP_BLUEPRINT_V1",
+  "policy": "MISSION_FIRST",
+  "source_of_truth": [
+    "game/data/main_story_v1.json",
+    "game/data/story_locations_v1.json"
+  ],
+  "sizing_policy": {
+    "hub_linear_scale": 7,
+    "open_region_linear_scale": 15,
+    "exploration_heavy_linear_scale": 20,
+    "dungeon_linear_scale_range": [
+      3,
+      8
+    ],
+    "note": "Escala linear; área cresce quadraticamente. Chunks e streaming são obrigatórios para regiões grandes."
+  },
+  "regions": [
+    {
+      "act": 1,
+      "act_id": "ACT_MAIN_01",
+      "title": "O Segundo Viajante",
+      "region": "berco_valedouro",
+      "scale": {
+        "linear_scale": 7,
+        "region_class": "hub_open"
+      },
+      "build_status": "IN_PROGRESS_PHYSICAL",
+      "mandatory_route": [
+        {
+          "order": 1,
+          "quest_id": "Q_MS01_ARRIVAL",
+          "quest_title": "A Queda",
+          "quest_type": "arrive",
+          "location_id": "LOC_VAL_GATE",
+          "location_name": "Portão de Valedouro",
+          "location_kind": "fortification",
+          "post_function": "Defesa narrativa, entrada da cidade e marco de retorno."
+        },
+        {
+          "order": 2,
+          "quest_id": "Q_MS01_GUILD",
+          "quest_title": "Sem Nome neste Mundo",
+          "quest_type": "talk",
+          "location_id": "LOC_VAL_GUILD",
+          "location_name": "Guilda dos Aventureiros de Valedouro",
+          "location_kind": "service_building",
+          "post_function": "Contratos, domínio, recompensas e reputação."
+        },
+        {
+          "order": 3,
+          "quest_id": "Q_MS01_WOLVES",
+          "quest_title": "Contrato de Cobre",
+          "quest_type": "kill",
+          "location_id": "LOC_VAL_NORTH_ROAD",
+          "location_name": "Estrada Norte",
+          "location_kind": "road",
+          "post_function": "Rota de exploração e contratos iniciais."
+        },
+        {
+          "order": 4,
+          "quest_id": "Q_MS01_FIRST_WIND",
+          "quest_title": "O Primeiro Vento",
+          "quest_type": "investigate",
+          "location_id": "LOC_FIRST_WIND_RUINS",
+          "location_name": "Ruínas do Primeiro Vento",
+          "location_kind": "ruins",
+          "post_function": "Lore do Primeiro Viajante e âncora de exploração."
+        },
+        {
+          "order": 5,
+          "quest_id": "Q_MS01_ALPHA",
+          "quest_title": "A Matilha que Escuta",
+          "quest_type": "boss",
+          "location_id": "LOC_ALPHA_CLEARING",
+          "location_name": "Clareira do Alfa",
+          "location_kind": "arena",
+          "post_function": "Arena de revanche/caçada."
+        },
+        {
+          "order": 6,
+          "quest_id": "Q_MS01_MINE",
+          "quest_title": "A Mina que Recorda",
+          "quest_type": "dungeon",
+          "location_id": "LOC_ECHO_MINE",
+          "location_name": "Mina do Eco",
+          "location_kind": "dungeon_entrance",
+          "post_function": "Dungeon repetível após a história."
+        },
+        {
+          "order": 7,
+          "quest_id": "Q_MS01_GUARDIAN",
+          "quest_title": "O Guardião do Eco",
+          "quest_type": "boss",
+          "location_id": "LOC_ECHO_MINE_CORE",
+          "location_name": "Câmara do Guardião",
+          "location_kind": "boss_arena",
+          "post_function": "Revanche do Guardião e crafting."
+        },
+        {
+          "order": 8,
+          "quest_id": "Q_MS01_ARCHIVE",
+          "quest_title": "O Homem que Veio Antes",
+          "quest_type": "reveal",
+          "location_id": "LOC_SIX_CROWNS_ARCHIVE",
+          "location_name": "Arquivo das Seis Coroas",
+          "location_kind": "archive",
+          "post_function": "Codex, registros históricos e exposição do mapa."
+        }
+      ]
+    },
+    {
+      "act": 2,
+      "act_id": "ACT_MAIN_02",
+      "title": "A Floresta que Lembra",
+      "region": "floresta_ancestral",
+      "scale": {
+        "linear_scale": 20,
+        "region_class": "exploration_heavy"
+      },
+      "build_status": "RESERVED_BY_MISSIONS",
+      "mandatory_route": [
+        {
+          "order": 1,
+          "quest_id": "Q_MS02_BORDER",
+          "quest_title": "Além da Ponte de Pedra",
+          "quest_type": "travel",
+          "location_id": "LOC_FOREST_STONE_BRIDGE",
+          "location_name": "Ponte de Pedra da Fronteira",
+          "location_kind": "bridge",
+          "post_function": "Fast travel e ligação visual entre regiões."
+        },
+        {
+          "order": 2,
+          "quest_id": "Q_MS02_RANGERS",
+          "quest_title": "Os Guardas Verdes",
+          "quest_type": "defend",
+          "location_id": "LOC_FOREST_RANGER_LODGE",
+          "location_name": "Casa dos Guardas Verdes",
+          "location_kind": "lodge",
+          "post_function": "Contratos e suporte da floresta."
+        },
+        {
+          "order": 3,
+          "quest_id": "Q_MS02_ROOTS",
+          "quest_title": "Três Raízes",
+          "quest_type": "activate",
+          "location_id": "LOC_FOREST_ROOT_SHRINES",
+          "location_name": "Santuários de Raiz",
+          "location_kind": "shrines",
+          "post_function": "Pontos de lore e recursos naturais."
+        },
+        {
+          "order": 4,
+          "quest_id": "Q_MS02_MEMORY_TREE",
+          "quest_title": "A Árvore-Memória",
+          "quest_type": "investigate",
+          "location_id": "LOC_MEMORY_TREE",
+          "location_name": "Árvore-Memória",
+          "location_kind": "landmark",
+          "post_function": "Landmark central e memória/codex."
+        },
+        {
+          "order": 5,
+          "quest_id": "Q_MS02_HOLLOW_ROOT",
+          "quest_title": "A Raiz Oca",
+          "quest_type": "boss",
+          "location_id": "LOC_HOLLOW_ROOT_ARENA",
+          "location_name": "Coração da Raiz Oca",
+          "location_kind": "boss_arena",
+          "post_function": "Revanche opcional."
+        },
+        {
+          "order": 6,
+          "quest_id": "Q_MS02_VEIL_SHRINE",
+          "quest_title": "A Segunda Linha",
+          "quest_type": "reveal",
+          "location_id": "LOC_FOREST_CARTOGRAPHER_SHRINE",
+          "location_name": "Santuário dos Cartógrafos",
+          "location_kind": "ruins",
+          "post_function": "Atualização do mapa-múndi e lore."
+        }
+      ]
+    },
+    {
+      "act": 3,
+      "act_id": "ACT_MAIN_03",
+      "title": "Cinzas de Edravar",
+      "region": "deserto_ruinas",
+      "scale": {
+        "linear_scale": 15,
+        "region_class": "open"
+      },
+      "build_status": "RESERVED_BY_MISSIONS",
+      "mandatory_route": [
+        {
+          "order": 1,
+          "quest_id": "Q_MS03_CARAVAN",
+          "quest_title": "A Caravana de Âmbar",
+          "quest_type": "escort",
+          "location_id": "LOC_AMBER_CARAVAN",
+          "location_name": "Caravana de Âmbar",
+          "location_kind": "mobile_camp",
+          "post_function": "Mercador itinerante e contratos."
+        },
+        {
+          "order": 2,
+          "quest_id": "Q_MS03_AMBER_POST",
+          "quest_title": "O Posto sob Cinzas",
+          "quest_type": "talk",
+          "location_id": "LOC_AMBER_POST",
+          "location_name": "Posto de Âmbar",
+          "location_kind": "outpost",
+          "post_function": "Hub menor, comércio e fast travel."
+        },
+        {
+          "order": 3,
+          "quest_id": "Q_MS03_EDRAVAR",
+          "quest_title": "A Cidade que Não Caiu",
+          "quest_type": "infiltrate",
+          "location_id": "LOC_EDRAVAR_OCCUPIED_CITY",
+          "location_name": "Edravar Ocupada",
+          "location_kind": "city_ruins",
+          "post_function": "Grande zona urbana de exploração."
+        },
+        {
+          "order": 4,
+          "quest_id": "Q_MS03_CISTERN",
+          "quest_title": "O Nome nas Pedras",
+          "quest_type": "investigate",
+          "location_id": "LOC_EDRAVAR_RESISTANCE_CISTERN",
+          "location_name": "Cisterna da Resistência",
+          "location_kind": "hideout",
+          "post_function": "Base de resistência e secundárias."
+        },
+        {
+          "order": 5,
+          "quest_id": "Q_MS03_OBSERVATORY",
+          "quest_title": "Observatório de Cinzas",
+          "quest_type": "dungeon",
+          "location_id": "LOC_ASH_OBSERVATORY",
+          "location_name": "Observatório de Cinzas",
+          "location_kind": "dungeon",
+          "post_function": "Dungeon repetível."
+        },
+        {
+          "order": 6,
+          "quest_id": "Q_MS03_GENERAL_ASH",
+          "quest_title": "O General da Cinza",
+          "quest_type": "boss",
+          "location_id": "LOC_ASH_CITADEL",
+          "location_name": "Cidadela da Cinza",
+          "location_kind": "fortress",
+          "post_function": "Revanche do General e materiais."
+        }
+      ]
+    },
+    {
+      "act": 4,
+      "act_id": "ACT_MAIN_04",
+      "title": "As Lanternas Afundadas",
+      "region": "pantanos_sombrios",
+      "scale": {
+        "linear_scale": 15,
+        "region_class": "open"
+      },
+      "build_status": "RESERVED_BY_MISSIONS",
+      "mandatory_route": [
+        {
+          "order": 1,
+          "quest_id": "Q_MS04_STILTS",
+          "quest_title": "Luzes sobre Água Negra",
+          "quest_type": "travel",
+          "location_id": "LOC_MARSH_STILT_VILLAGE",
+          "location_name": "Vila das Lanternas",
+          "location_kind": "stilt_village",
+          "post_function": "Hub do pântano."
+        },
+        {
+          "order": 2,
+          "quest_id": "Q_MS04_BELL",
+          "quest_title": "O Sino Afogado",
+          "quest_type": "investigate",
+          "location_id": "LOC_DROWNED_BELL_TOWER",
+          "location_name": "Torre do Sino Afogado",
+          "location_kind": "tower",
+          "post_function": "Landmark, puzzle e navegação."
+        },
+        {
+          "order": 3,
+          "quest_id": "Q_MS04_MONASTERY",
+          "quest_title": "Os Nomes dos Mortos",
+          "quest_type": "dungeon",
+          "location_id": "LOC_FLOODED_MONASTERY",
+          "location_name": "Mosteiro Inundado",
+          "location_kind": "dungeon",
+          "post_function": "Dungeon/recompensas."
+        },
+        {
+          "order": 4,
+          "quest_id": "Q_MS04_REED_SANCTUM",
+          "quest_title": "O Santuário dos Juncos",
+          "quest_type": "travel",
+          "location_id": "LOC_REED_SANCTUM",
+          "location_name": "Santuário dos Juncos",
+          "location_kind": "sanctum",
+          "post_function": "Lore e acesso ao boss."
+        },
+        {
+          "order": 5,
+          "quest_id": "Q_MS04_LADY_REEDS",
+          "quest_title": "A Dama dos Juncos",
+          "quest_type": "boss",
+          "location_id": "LOC_REED_THRONE",
+          "location_name": "Trono dos Juncos",
+          "location_kind": "boss_arena",
+          "post_function": "Revanche da Dama."
+        },
+        {
+          "order": 6,
+          "quest_id": "Q_MS04_SLICE_GATE",
+          "quest_title": "A Comporta dos Ecos",
+          "quest_type": "activate",
+          "location_id": "LOC_MARSH_ECHO_SLICE",
+          "location_name": "Comporta dos Ecos",
+          "location_kind": "ritual_gate",
+          "post_function": "Controle ambiental pós-história."
+        }
+      ]
+    },
+    {
+      "act": 5,
+      "act_id": "ACT_MAIN_05",
+      "title": "O Arquivo sob o Gelo",
+      "region": "montanhas_nevadas",
+      "scale": {
+        "linear_scale": 15,
+        "region_class": "open"
+      },
+      "build_status": "RESERVED_BY_MISSIONS",
+      "mandatory_route": [
+        {
+          "order": 1,
+          "quest_id": "Q_MS05_FROST_REST",
+          "quest_title": "Pouso da Geada",
+          "quest_type": "talk",
+          "location_id": "LOC_FROST_REST",
+          "location_name": "Pouso da Geada",
+          "location_kind": "settlement",
+          "post_function": "Hub, Kaya, comércio e fast travel."
+        },
+        {
+          "order": 2,
+          "quest_id": "Q_MS05_EXPEDITION",
+          "quest_title": "A Expedição sem Nome",
+          "quest_type": "investigate",
+          "location_id": "LOC_FROZEN_EXPEDITION_STATION",
+          "location_name": "Estação da Expedição",
+          "location_kind": "station",
+          "post_function": "Abrigo, quests e lore."
+        },
+        {
+          "order": 3,
+          "quest_id": "Q_MS05_CAPTAIN",
+          "quest_title": "O Último Capitão",
+          "quest_type": "boss",
+          "location_id": "LOC_FROZEN_COMMAND_POST",
+          "location_name": "Posto do Capitão",
+          "location_kind": "boss_arena",
+          "post_function": "Revanche do Capitão."
+        },
+        {
+          "order": 4,
+          "quest_id": "Q_MS05_ARCHIVE",
+          "quest_title": "Adrian Vale",
+          "quest_type": "reveal",
+          "location_id": "LOC_FROZEN_ARCHIVE",
+          "location_name": "Arquivo Congelado",
+          "location_kind": "archive",
+          "post_function": "Arquivo histórico permanente."
+        },
+        {
+          "order": 5,
+          "quest_id": "Q_MS05_BLACK_FROST",
+          "quest_title": "Geada Negra",
+          "quest_type": "boss",
+          "location_id": "LOC_BLACK_FROST_CITADEL",
+          "location_name": "Cidadela da Geada Negra",
+          "location_kind": "fortress",
+          "post_function": "Revanche do General."
+        },
+        {
+          "order": 6,
+          "quest_id": "Q_MS05_SIEGE",
+          "quest_title": "As Muralhas de Valedouro",
+          "quest_type": "defend",
+          "location_id": "LOC_VAL_GATE",
+          "location_name": "Portão de Valedouro",
+          "location_kind": "fortification",
+          "post_function": "Defesa narrativa, entrada da cidade e marco de retorno."
+        }
+      ]
+    },
+    {
+      "act": 6,
+      "act_id": "ACT_MAIN_06",
+      "title": "Maré sem Lua",
+      "region": "costas_ilhas_perdidas",
+      "scale": {
+        "linear_scale": 20,
+        "region_class": "exploration_heavy"
+      },
+      "build_status": "RESERVED_BY_MISSIONS",
+      "mandatory_route": [
+        {
+          "order": 1,
+          "quest_id": "Q_MS06_MIST_PORT",
+          "quest_title": "Porto das Brumas",
+          "quest_type": "travel",
+          "location_id": "LOC_MIST_PORT",
+          "location_name": "Porto das Brumas",
+          "location_kind": "port",
+          "post_function": "Hub marítimo e transporte."
+        },
+        {
+          "order": 2,
+          "quest_id": "Q_MS06_LIGHTHOUSE",
+          "quest_title": "O Farol Partido",
+          "quest_type": "activate",
+          "location_id": "LOC_TWIN_LIGHTHOUSE",
+          "location_name": "Farol Gêmeo",
+          "location_kind": "lighthouse",
+          "post_function": "Fast travel marítimo e landmark."
+        },
+        {
+          "order": 3,
+          "quest_id": "Q_MS06_SUNKEN_TEMPLE",
+          "quest_title": "O Templo sob a Maré",
+          "quest_type": "dungeon",
+          "location_id": "LOC_SUNKEN_TEMPLE",
+          "location_name": "Templo Submerso",
+          "location_kind": "dungeon",
+          "post_function": "Dungeon repetível."
+        },
+        {
+          "order": 4,
+          "quest_id": "Q_MS06_HOLLOW_FLEET",
+          "quest_title": "A Frota Oca",
+          "quest_type": "defend",
+          "location_id": "LOC_LOST_ISLAND_SHIPYARD",
+          "location_name": "Estaleiro das Ilhas Perdidas",
+          "location_kind": "shipyard",
+          "post_function": "Base naval e contratos."
+        },
+        {
+          "order": 5,
+          "quest_id": "Q_MS06_GENERAL_TIDE",
+          "quest_title": "A Maré Oca",
+          "quest_type": "boss",
+          "location_id": "LOC_TIDAL_OBSERVATORY",
+          "location_name": "Observatório das Marés",
+          "location_kind": "observatory",
+          "post_function": "Revanche do General e navegação."
+        }
+      ]
+    },
+    {
+      "act": 7,
+      "act_id": "ACT_MAIN_07",
+      "title": "A Terra que Sangra",
+      "region": "terras_corrompidas",
+      "scale": {
+        "linear_scale": 20,
+        "region_class": "exploration_heavy"
+      },
+      "build_status": "RESERVED_BY_MISSIONS",
+      "mandatory_route": [
+        {
+          "order": 1,
+          "quest_id": "Q_MS07_LAST_BASTION",
+          "quest_title": "O Último Bastião",
+          "quest_type": "travel",
+          "location_id": "LOC_LAST_BASTION",
+          "location_name": "Último Bastião",
+          "location_kind": "fortress",
+          "post_function": "Hub militar da frente final."
+        },
+        {
+          "order": 2,
+          "quest_id": "Q_MS07_OBELISKS",
+          "quest_title": "Três Obeliscos de Guerra",
+          "quest_type": "destroy",
+          "location_id": "LOC_WAR_OBELISKS",
+          "location_name": "Obeliscos de Guerra",
+          "location_kind": "ritual_network",
+          "post_function": "Eventos mundiais pós-campanha."
+        },
+        {
+          "order": 3,
+          "quest_id": "Q_MS07_CATHEDRAL",
+          "quest_title": "A Catedral Partida",
+          "quest_type": "dungeon",
+          "location_id": "LOC_BROKEN_CATHEDRAL",
+          "location_name": "Catedral Partida",
+          "location_kind": "dungeon",
+          "post_function": "Dungeon e arquivo do Pacto."
+        },
+        {
+          "order": 4,
+          "quest_id": "Q_MS07_COUNCIL",
+          "quest_title": "As Seis Coroas",
+          "quest_type": "council",
+          "location_id": "LOC_ALLIANCE_WAR_COUNCIL",
+          "location_name": "Conselho de Guerra das Seis Coroas",
+          "location_kind": "war_camp",
+          "post_function": "Mandatos e conteúdo de alto nível."
+        },
+        {
+          "order": 5,
+          "quest_id": "Q_MS07_GENERAL_VOID",
+          "quest_title": "O General do Eco Vazio",
+          "quest_type": "boss",
+          "location_id": "LOC_HOLLOW_CROWN_CITADEL",
+          "location_name": "Cidadela da Coroa Oca",
+          "location_kind": "fortress",
+          "post_function": "Revanche do último general."
+        }
+      ]
+    },
+    {
+      "act": 8,
+      "act_id": "ACT_MAIN_08",
+      "title": "O Coração da Coroa Oca",
+      "region": "coracao_abissal",
+      "scale": {
+        "linear_scale": 8,
+        "region_class": "final_dungeon_world"
+      },
+      "build_status": "RESERVED_BY_MISSIONS",
+      "mandatory_route": [
+        {
+          "order": 1,
+          "quest_id": "Q_MS08_LAST_MAP_GATE",
+          "quest_title": "O Portão do Último Mapa",
+          "quest_type": "enter",
+          "location_id": "LOC_LAST_MAP_GATE",
+          "location_name": "Portão do Último Mapa",
+          "location_kind": "portal",
+          "post_function": "Entrada do conteúdo final."
+        },
+        {
+          "order": 2,
+          "quest_id": "Q_MS08_LOST_PATHS",
+          "quest_title": "Caminhos que Não Existiram",
+          "quest_type": "traverse",
+          "location_id": "LOC_HALL_LOST_PATHS",
+          "location_name": "Salão dos Caminhos Perdidos",
+          "location_kind": "surreal_dungeon",
+          "post_function": "Desafio pós-jogo."
+        },
+        {
+          "order": 3,
+          "quest_id": "Q_MS08_CARTOGRAPHER",
+          "quest_title": "O Cartógrafo Vazio",
+          "quest_type": "boss",
+          "location_id": "LOC_VOID_ARCHIVE",
+          "location_name": "Arquivo do Vazio",
+          "location_kind": "boss_arena",
+          "post_function": "Revanche bloqueada após conclusão se desejado."
+        },
+        {
+          "order": 4,
+          "quest_id": "Q_MS08_FIRST_TRAVELER",
+          "quest_title": "Adrian",
+          "quest_type": "confront",
+          "location_id": "LOC_EMPTY_THRONE_ANTECHAMBER",
+          "location_name": "Antecâmara do Trono Vazio",
+          "location_kind": "story_room",
+          "post_function": "Memórias de Adrian."
+        },
+        {
+          "order": 5,
+          "quest_id": "Q_MS08_AZHAREL",
+          "quest_title": "A Coroa Oca",
+          "quest_type": "boss",
+          "location_id": "LOC_EMPTY_THRONE",
+          "location_name": "Trono da Coroa Oca",
+          "location_kind": "final_boss_arena",
+          "post_function": "Memorial da campanha."
+        },
+        {
+          "order": 6,
+          "quest_id": "Q_MS08_EARTH_GATE",
+          "quest_title": "O Caminho de Casa",
+          "quest_type": "finale",
+          "location_id": "LOC_EARTH_GATE",
+          "location_name": "Limiar da Terra",
+          "location_kind": "world_gate",
+          "post_function": "Portal estabilizado e epílogo."
+        },
+        {
+          "order": 7,
+          "quest_id": "Q_MS08_CHOICE",
+          "quest_title": "Entre Dois Mundos",
+          "quest_type": "choice",
+          "location_id": "LOC_EARTH_GATE",
+          "location_name": "Limiar da Terra",
+          "location_kind": "world_gate",
+          "post_function": "Portal estabilizado e epílogo."
+        }
+      ]
+    }
+  ]
+}
