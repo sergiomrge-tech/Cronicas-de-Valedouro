@@ -15,6 +15,7 @@ const MapOverlayScript = preload("res://scripts/cartoon/hub_map_overlay.gd")
 const CraftingUIScript = preload("res://scripts/cartoon/cartoon_crafting_ui.gd")
 const ZoomControlsScript = preload("res://scripts/cartoon/cartoon_zoom_controls.gd")
 const InventoryUIScript = preload("res://scripts/cartoon/cartoon_inventory_ui.gd")
+const HUDStatusScript = preload("res://scripts/cartoon/cartoon_hud_status.gd")
 
 var environment: ValedouroCartoonHubEnvironment
 var objects: Node2D
@@ -32,6 +33,7 @@ var map_overlay: Control
 var crafting_ui: Control
 var zoom_controls: Control
 var inventory_ui: Control
+var hud_status: Control
 var map_open: bool = false
 var objective_nav_label: Label
 var joystick_id: int = -1
@@ -88,6 +90,11 @@ func _ready() -> void:
 	camera.limit_right = int(environment.WORLD_SIZE.x); camera.limit_bottom = int(environment.WORLD_SIZE.y)
 	hero.add_child(camera)
 	_build_ui()
+	hud_status = HUDStatusScript.new()
+	hud_status.name = "PlayerStatusHUD"
+	ui.add_child(hud_status)
+	hud_status.setup("VALEDOURO",Color(0.96,0.69,0.17))
+	_refresh_stats()
 	zoom_controls = ZoomControlsScript.new()
 	zoom_controls.name = "ZoomControls"
 	ui.add_child(zoom_controls)
@@ -124,6 +131,7 @@ func _change_scene_saved(path: String) -> void:
 func _build_ui() -> void:
 	ui = CanvasLayer.new(); ui.name = "HUD"; add_child(ui)
 	var top = PanelContainer.new(); top.position = Vector2(14,14); top.size = Vector2(305,74); ui.add_child(top)
+	top.visible = false
 	var top_style = StyleBoxFlat.new(); top_style.bg_color = Color(0.08,0.07,0.12,0.94); top_style.border_color = Color(0.96,0.69,0.17); top_style.set_border_width_all(3); top_style.corner_radius_top_left=16; top_style.corner_radius_top_right=16; top_style.corner_radius_bottom_left=16; top_style.corner_radius_bottom_right=16; top.add_theme_stylebox_override("panel",top_style)
 	stats_label = Label.new(); stats_label.position=Vector2(18,10); stats_label.size=Vector2(275,55); stats_label.add_theme_font_size_override("font_size",16); stats_label.add_theme_color_override("font_color",Color(1,0.95,0.82)); top.add_child(stats_label); _refresh_stats()
 	var q = PanelContainer.new(); q.position=Vector2(690,14); q.size=Vector2(256,96); ui.add_child(q)
@@ -223,6 +231,7 @@ func _attack() -> void:
 		monsters.erase(target)
 		target.queue_free()
 		player_gold += 6
+	_grant_combat_xp(10,boss_id)
 		var story_advanced: bool = false
 		if story_runtime:
 			story_advanced = story_runtime.register_kill(story_tag,boss_id)
@@ -355,10 +364,29 @@ func _nearest_monster(radius: float) -> Node2D:
 			best = monster
 	return best
 
-func _refresh_stats() -> void:
-	if stats_label:
-		stats_label.text = "CRÔNICAS DE VALEDOURO\nNv 1   ❤ %d/%d   ◉ %d" % [player_hp,player_max_hp,player_gold]
+func _grant_combat_xp(base_amount: int,boss_id: String = "") -> void:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state == null:
+		return
+	var scaled: int = maxi(base_amount,int(round(float(state.player_level)*1.2)))
+	var reward: int = scaled * (3 if boss_id != "" else 1)
+	state.gain_xp(reward)
+	player_hp = int(state.player_hp)
+	player_max_hp = int(state.player_max_hp)
 
+func _refresh_stats() -> void:
+	var level_value: int = 1
+	var xp_value: int = 0
+	var xp_next: int = 0
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state != null:
+		level_value = int(state.player_level)
+		xp_value = int(state.player_xp)
+		xp_next = int(state.xp_to_next())
+	if stats_label:
+		stats_label.text = "VALEDOURO\nNv %d   ❤ %d/%d   ◉ %d" % [level_value,player_hp,player_max_hp,player_gold]
+	if hud_status != null:
+		hud_status.refresh(player_hp,player_max_hp,player_gold,level_value,xp_value,xp_next)
 
 func _spawn_outer_landmarks() -> void:
 	for data in ExplorationContent.landmarks():
