@@ -10,6 +10,7 @@ var last_chunk: Vector2i = Vector2i(99999,99999)
 var elapsed: float = 0.0
 
 func setup(player: Node2D) -> void:
+	z_index = -30
 	hero = player
 	_refresh(true)
 
@@ -50,9 +51,6 @@ func _refresh(force: bool) -> void:
 			node.queue_free()
 
 func _activate(coord: Vector2i) -> void:
-	var chunk_world_rect: Rect2 = Rect2(Vector2(coord.x * Region.CHUNK_SIZE,coord.y * Region.CHUNK_SIZE),Vector2(Region.CHUNK_SIZE,Region.CHUNK_SIZE))
-	if chunk_world_rect.intersects(Region.HUB_RECT.grow(140.0)):
-		return
 	var chunk: Node2D = ChunkScript.new()
 	chunk.name = "Chunk_%d_%d" % [coord.x,coord.y]
 	chunk.setup(coord)
