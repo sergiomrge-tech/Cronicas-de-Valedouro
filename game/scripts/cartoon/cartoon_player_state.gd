@@ -137,7 +137,8 @@ func save_profile() -> void:
 		"materials":materials,
 		"crafted":crafted,
 		"equipped_weapon":equipped_weapon,
-		"equipped_armor":equipped_armor
+		"equipped_armor":equipped_armor,
+		"camera_zoom":camera_zoom
 	}
 	file.store_string(JSON.stringify(data))
 
@@ -161,5 +162,6 @@ func reset_progress(delete_save: bool = true) -> void:
 	crafted.clear()
 	equipped_weapon = {"id":"starter_blade","label":"Espada de Viagem","tier":0,"attack":0,"slot":"weapon"}
 	equipped_armor = {"id":"starter_armor","label":"Túnica de Viagem","tier":0,"defense":0,"slot":"armor"}
+	camera_zoom = 1.0
 	if delete_save and FileAccess.file_exists(SAVE_PATH):
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(SAVE_PATH))
