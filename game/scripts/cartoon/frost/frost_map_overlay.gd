@@ -1,0 +1,64 @@
+class_name ValedouroCartoonFrostMapOverlay
+extends Control
+
+const Frost = preload("res://scripts/cartoon/frost/frost_region_config.gd")
+const StoryMap = preload("res://scripts/cartoon/frost/frost_story_map.gd")
+
+var player: Node2D
+var target_id: String = ""
+var map_rect: Rect2 = Rect2(48,42,754,366)
+
+func setup(player_node: Node2D) -> void:
+	player = player_node
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	queue_redraw()
+
+func set_target(id: String) -> void:
+	target_id = id
+	queue_redraw()
+
+func _process(_delta: float) -> void:
+	if visible:
+		queue_redraw()
+
+func _world_to_map(world_pos: Vector2) -> Vector2:
+	return map_rect.position+Vector2(world_pos.x/Frost.REGION_SIZE.x*map_rect.size.x,world_pos.y/Frost.REGION_SIZE.y*map_rect.size.y)
+
+func _draw() -> void:
+	draw_rect(Rect2(Vector2.ZERO,size),Color(0.035,0.065,0.09,0.97))
+	draw_rect(map_rect,Color(0.33,0.48,0.60,0.98))
+	draw_rect(map_rect,Color(0.76,0.91,1.0),false,4.0)
+	var font: Font = ThemeDB.fallback_font
+	draw_string(font,Vector2(48,28),"MAPA — MONTANHAS NEVADAS",HORIZONTAL_ALIGNMENT_LEFT,-1,20,Color(0.90,0.97,1.0))
+	draw_string(font,Vector2(620,28),"15x • exploração",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color(0.77,0.90,0.98))
+	var scaled: PackedVector2Array = PackedVector2Array()
+	for p in StoryMap.route_points():
+		scaled.append(_world_to_map(p))
+	if scaled.size() >= 2:
+		draw_polyline(scaled,Color(0.91,0.92,0.86),5.0,true)
+	for row in StoryMap.optional_pois():
+		draw_circle(_world_to_map(row.get("pos",Vector2.ZERO)),4.0,Color(0.78,0.88,0.93))
+	for row in StoryMap.locations():
+		var id: String = String(row.get("id",""))
+		var p: Vector2 = _world_to_map(row.get("pos",Vector2.ZERO))
+		var active: bool = id == target_id
+		var col: Color = Color(1.0,0.82,0.28) if active else Color(0.75,0.93,1.0)
+		draw_circle(p,8.0 if active else 6.0,col)
+		draw_circle(p,10.5 if active else 8.0,Color(0.03,0.06,0.08),false,2.0)
+		draw_string(font,p+Vector2(10,4),_short_label(id),HORIZONTAL_ALIGNMENT_LEFT,-1,12,col)
+	if player != null:
+		var pp: Vector2 = _world_to_map(player.position)
+		draw_circle(pp,8.5,Color(0.30,0.74,1.0))
+		draw_circle(pp,12.0,Color.WHITE,false,2.0)
+		draw_string(font,pp+Vector2(12,-8),"VOCÊ",HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color.WHITE)
+	draw_string(font,Vector2(48,432),"● missão principal   • exploração   azul: jogador",HORIZONTAL_ALIGNMENT_LEFT,-1,13,Color(0.88,0.94,0.98))
+
+func _short_label(id: String) -> String:
+	match id:
+		"LOC_FROST_REST": return "Pouso"
+		"LOC_FROZEN_EXPEDITION_STATION": return "Estação"
+		"LOC_FROZEN_COMMAND_POST": return "Capitão"
+		"LOC_FROZEN_ARCHIVE": return "Arquivo"
+		"LOC_BLACK_FROST_CITADEL": return "Cidadela"
+		"LOC_VAL_GATE": return "Valedouro"
+		_: return ""
