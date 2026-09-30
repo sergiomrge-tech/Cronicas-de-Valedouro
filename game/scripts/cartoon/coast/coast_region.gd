@@ -14,6 +14,7 @@ const ExplorationDirectorScript = preload("res://scripts/cartoon/cartoon_explora
 const CraftingUIScript = preload("res://scripts/cartoon/cartoon_crafting_ui.gd")
 const ZoomControlsScript = preload("res://scripts/cartoon/cartoon_zoom_controls.gd")
 const InventoryUIScript = preload("res://scripts/cartoon/cartoon_inventory_ui.gd")
+const HUDStatusScript = preload("res://scripts/cartoon/cartoon_hud_status.gd")
 
 var story_zones: Node2D
 var objects: Node2D
@@ -25,6 +26,7 @@ var exploration_director: Node
 var crafting_ui: Control
 var zoom_controls: Control
 var inventory_ui: Control
+var hud_status: Control
 var monsters: Array[Node2D] = []
 var pois: Array[Dictionary] = []
 
@@ -89,6 +91,11 @@ func _ready() -> void:
 	camera.limit_bottom = int(Coast.REGION_SIZE.y)
 	hero.add_child(camera)
 	_build_ui()
+	hud_status = HUDStatusScript.new()
+	hud_status.name = "PlayerStatusHUD"
+	ui.add_child(hud_status)
+	hud_status.setup("COSTAS E ILHAS PERDIDAS",Color(0.36,0.78,0.84))
+	_refresh_stats()
 	zoom_controls = ZoomControlsScript.new()
 	zoom_controls.name = "ZoomControls"
 	ui.add_child(zoom_controls)
@@ -193,6 +200,7 @@ func _attack() -> void:
 	monsters.erase(target)
 	target.queue_free()
 	player_gold += 16
+	_grant_combat_xp(65,boss_id)
 	var advanced: bool = false
 	if story_tag == "hollow_fleet":
 		advanced = story_runtime.register_fleet_kill(story_tag)
@@ -288,6 +296,7 @@ func _build_ui() -> void:
 	top.position = Vector2(14,14)
 	top.size = Vector2(320,76)
 	ui.add_child(top)
+	top.visible = false
 	var top_style: StyleBoxFlat = StyleBoxFlat.new()
 	top_style.bg_color = Color(0.02,0.08,0.10,0.95)
 	top_style.border_color = Color(0.36,0.78,0.84)
@@ -423,9 +432,29 @@ func _add_action_button(text_value: String, pos: Vector2, button_size: float, ca
 	button.pressed.connect(callback)
 	ui.add_child(button)
 
+func _grant_combat_xp(base_amount: int,boss_id: String = "") -> void:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state == null:
+		return
+	var scaled: int = maxi(base_amount,int(round(float(state.player_level)*1.2)))
+	var reward: int = scaled * (3 if boss_id != "" else 1)
+	state.gain_xp(reward)
+	player_hp = int(state.player_hp)
+	player_max_hp = int(state.player_max_hp)
+
 func _refresh_stats() -> void:
+	var level_value: int = 52
+	var xp_value: int = 0
+	var xp_next: int = 0
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state != null:
+		level_value = int(state.player_level)
+		xp_value = int(state.player_xp)
+		xp_next = int(state.xp_to_next())
 	if stats_label:
-		stats_label.text = "COSTAS E ILHAS PERDIDAS\nNv 52   ❤ %d/%d   ◉ %d" % [player_hp,player_max_hp,player_gold]
+		stats_label.text = "COSTAS E ILHAS PERDIDAS\nNv %d   ❤ %d/%d   ◉ %d" % [level_value,player_hp,player_max_hp,player_gold]
+	if hud_status != null:
+		hud_status.refresh(player_hp,player_max_hp,player_gold,level_value,xp_value,xp_next)
 
 func _refresh_objective() -> void:
 	if objective_label and story_runtime:
