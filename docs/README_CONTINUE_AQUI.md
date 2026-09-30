@@ -3,7 +3,7 @@
 **Diretor:** Sergio  
 **Mundo:** Elyndor  
 **Engine:** Godot 4.7.2  
-**Base oficial atual:** 2D Cartoon v0.17  
+**Base oficial atual:** 2D Cartoon v0.18  
 **Cena inicial:** `res://scenes/cartoon/CartoonMainMenu.tscn`
 
 ## ATENÇÃO
@@ -32,7 +32,7 @@ Elyndor vive a Guerra da Coroa Oca há 23 anos. O protagonista é um humano da T
 - Story runtime/mapa principal: scripts `cartoon_*` correspondentes.
 
 ## Checkpoint da sessão — 30/09/2026
-A versão Cartoon é a única base ativa. A **v0.16** adicionou save global e menu Novo/Continuar/Excluir. A **v0.17** adicionou inventário RPG visual com slots, grade, filtros, raridades e comparação. O próximo marco é **v0.18 — HUD/layout mobile e progressão real nível 1–100**.
+A versão Cartoon é a única base ativa. A **v0.16** adicionou save/menu; a **v0.17** adicionou inventário RPG visual; a **v0.18** adicionou HUD mobile compartilhado e progressão real nível 1–100. Próxima prioridade: refinar loot/consumíveis, melhorar feedback de combate e consolidar o layout final antes do próximo APK de teste.
 
 ## Regra para agentes
 Se encontrar documentação antiga falando em “v0.6.x pixel art”, “REG_001 como versão atual” ou equivalente, trate-a como histórico e não como estado corrente. Não ressuscitar a implementação antiga.
