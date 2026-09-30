@@ -148,6 +148,7 @@ func _build(show_toggle: bool) -> void:
 	weapon_slot.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	weapon_slot.mouse_filter = Control.MOUSE_FILTER_STOP
 	_style_button(weapon_slot,Color(0.10,0.14,0.21),Color(0.78,0.58,0.24))
+	weapon_slot.pressed.connect(_select_equipped_slot.bind("weapon"))
 	content.add_child(weapon_slot)
 
 	armor_slot = Button.new()
@@ -157,6 +158,7 @@ func _build(show_toggle: bool) -> void:
 	armor_slot.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	armor_slot.mouse_filter = Control.MOUSE_FILTER_STOP
 	_style_button(armor_slot,Color(0.10,0.14,0.21),Color(0.49,0.69,0.90))
+	armor_slot.pressed.connect(_select_equipped_slot.bind("armor"))
 	content.add_child(armor_slot)
 
 	equipment_label = Label.new()
@@ -320,12 +322,13 @@ func _refresh_equipped_slots(state) -> void:
 	var armor: Dictionary = state.equipped_armor
 	weapon_slot.text = "ARMA\n%s\n+%d ATQ" % [String(weapon.get("label","Espada de Viagem")),int(weapon.get("attack",0))]
 	armor_slot.text = "ARMADURA\n%s\n+%d DEF" % [String(armor.get("label","Túnica de Viagem")),int(armor.get("defense",0))]
-	for connection in weapon_slot.pressed.get_connections():
-		weapon_slot.pressed.disconnect(connection.callable)
-	for connection in armor_slot.pressed.get_connections():
-		armor_slot.pressed.disconnect(connection.callable)
-	weapon_slot.pressed.connect(_select_item.bind(String(weapon.get("id",""))))
-	armor_slot.pressed.connect(_select_item.bind(String(armor.get("id",""))))
+
+func _select_equipped_slot(slot: String) -> void:
+	var state = _state()
+	if state == null:
+		return
+	var item: Dictionary = state.equipped_weapon if slot == "weapon" else state.equipped_armor
+	_select_item(String(item.get("id","")))
 
 func _fill_equipment(state) -> void:
 	var items: Array[Dictionary] = state.owned_equipment()
