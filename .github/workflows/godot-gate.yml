@@ -313,7 +313,7 @@ jobs:
         run: |
           mkdir -p game/ci_output_desert
           timeout 180s xvfb-run -a /tmp/godot/godot --path game --rendering-method gl_compatibility --script res://tests/qa_capture_desert_act3.gd -- "$PWD/game/ci_output_desert"
-          test "$(find game/ci_output_desert -maxdepth 1 -type f -name '*.png' | wc -l)" -ge 7
+          test "$(find game/ci_output_desert -maxdepth 1 -type f -name '*.png' | wc -l)" -ge 8
           ls -lh game/ci_output_desert
 
       - name: Upload Deserto de Edravar visual QA artifact
