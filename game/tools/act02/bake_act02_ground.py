@@ -366,9 +366,135 @@ def main():
     for i, c in enumerate(comps):
         if c.get('terrain', 'forest') == 'none':
             continue
+        if c['terrain'] in ('heart', 'hollow_arena'):
+            print('interior', bake_interior(c, i))
+            continue
         slug, n = bake(c, i)
         print('ground', slug, 'decalques', n, 'overlays', len(c['ground_overlays']))
     COMPS.write_text(json.dumps(comps, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+
+
+
+# ============================================================== PARTE E: pisos de interiores orgânicos (Coração da Árvore-Memória, arena da Raiz Oca)
+INTERIOR_PAL = {
+    # (fibra escura, fibra média, fibra clara, crista de raiz, massa externa, musgo/luz, seiva)
+    'heart': ((34, 22, 14), (62, 40, 22), (94, 64, 34), (120, 84, 46), (16, 11, 8), (120, 210, 120), (214, 150, 52)),
+    'hollow': ((30, 22, 30), (52, 40, 44), (76, 60, 58), (98, 80, 70), (12, 9, 14), (120, 110, 90), (40, 30, 38)),
+}
+
+
+def _chamber_mask(cx, cy, rx, ry, seed):
+    """Contorno da câmara: elipse 2:1 (círculo em perspectiva) deformada por ruído de baixa frequência — assimétrica, nunca perfeita."""
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    ang = np.arctan2((yy - cy) * 2, xx - cx)
+    rng = np.random.default_rng(seed)
+    wob = np.zeros_like(ang)
+    for k, amp in ((2, .08), (3, .07), (5, .05), (7, .03)):
+        wob += amp * np.sin(k * ang + rng.uniform(0, 6.28))
+    d = np.sqrt(((xx - cx) / rx) ** 2 + ((yy - cy) / ry) ** 2) / (1 + wob)
+    return d, ang
+
+
+def bake_interior(comp, idx):
+    kind = comp['terrain']
+    P = INTERIOR_PAL['heart' if kind == 'heart' else 'hollow']
+    ox, oy = comp['origin']
+    slug = comp['slug']
+    seed = 900 + idx * 17
+    ch = comp.get('chamber', {'cx': 480, 'cy': 350, 'rx': 420, 'ry': 190})
+    cx, cy = ch['cx'], ch['cy']
+    d, ang = _chamber_mask(cx, cy, ch['rx'], ch['ry'], seed)
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    dth = dither()
+    n1, n2 = field(seed + 1, 14, 2), field(seed + 2, 40, 1)
+    # piso: textura real (serapilheira de raiz / terra) recolorida para a paleta da câmara, com variação em manchas (sem padrão geométrico)
+    base_t = tex('forest_floor' if kind == 'heart' else 'mud')
+    b = sample(base_t, xx.astype(np.int64) + ox, yy.astype(np.int64) + oy)
+    lum = b.mean(axis=2, keepdims=True) / (b.mean() + 1e-6)
+    tone = np.clip(n1 * .6 + n2 * .4 + (dth - .5) * .2, 0, 1)
+    lvl = np.floor(tone * 3).clip(0, 2).astype(int)
+    pal = np.array([P[0], P[1], P[2]], np.float32)
+    img = pal[lvl] * np.clip(lum, .6, 1.5)
+    if kind != 'heart':                                   # arena: chão de terra batida/raiz com rachaduras e centro mais uniforme (telegráficos legíveis)
+        calm = np.clip(1.2 - d * 1.4, 0, 1)[..., None]
+        img = img * (1 - calm * .35) + np.array(P[1], np.float32) * calm * .35
+    # cristas de raiz: poucas, assimétricas, curvas, param em raios diferentes
+    rng = np.random.default_rng(seed + 5)
+    ridge = np.zeros((H, W), np.float32)
+    for k in range(comp.get('ridges', 8)):
+        a0 = rng.uniform(0, 2 * math.pi)
+        stop = rng.uniform(.18, .55)
+        pts = []
+        for t in np.linspace(1.15, stop, 6):
+            a = a0 + (1.15 - t) * rng.uniform(-.6, .6)
+            pts.append((cx + math.cos(a) * ch['rx'] * t, cy + math.sin(a) * ch['ry'] * t))
+        ridge = np.maximum(ridge, stroke(catmull(pts), rng.uniform(4, 9), seed + 20 + k, wobble=.5))
+    rmask = ridge > .35
+    img[rmask] = (np.array(P[3], np.float32) * (0.75 + .35 * ridge[..., None]) * np.clip(lum, .5, 1.6))[rmask]
+    sh = rmask & ~shift(rmask, 0, -3)                      # face sul da crista em sombra (altura)
+    img[shift(rmask, 0, 3) & ~rmask] *= .55
+    img[sh] *= .8
+    # patamares (múltiplas alturas): topo mais claro + faixa de face lateral escura ao sul
+    for k, (px, py, prx, pry) in enumerate(comp.get('platforms', [])):
+        pd, _ = _chamber_mask(px, py, prx, pry, seed + 40 + k)
+        top = pd < 1
+        img[top] = img[top] * 1.18
+        face = shift(top, 0, -9) & ~top
+        img[face] = np.array(P[0], np.float32) * .8
+        img[shift(top, 0, -10) & ~shift(top, 0, -9)] *= .5
+    # musgo/bioluminescência e seiva em pequenos agrupamentos
+    spots = field(seed + 7, 90, 1) * .6 + field(seed + 17, 12, 1) * .4
+    moss = (spots > .74) & (d < 1.0) & (dth > .5)
+    img[moss] = img[moss] * .4 + np.array(P[5], np.float32) * .6
+    sap = (field(seed + 8, 70, 1) > .94) & (d < .85) & ~rmask
+    img[sap] = img[sap] * .3 + np.array(P[6], np.float32) * .7
+    # borda física: além do contorno, massa de raízes escura com fibras (nunca vazio chapado); degrau de sombra na junção
+    outer = d >= 1.0
+    mass = np.array(P[4], np.float32) * (1 + .6 * (np.sin(ang * 40 + n1 * 12) * .5 + .5)[..., None]) * (1 + .5 * n2[..., None])
+    fade = np.clip((d - 1.0) * 2.2, 0, 1)[..., None]
+    img = np.where(outer[..., None], mass * (1 - fade * .5), img)
+    lip = (d < 1.0) & (d > .9)
+    img[lip] *= (.55 + (d[lip, None] - .9) * 0)            # sombra da parede sobre o piso
+    img = img * (1.08 - .35 * np.clip(d - .3, 0, 1))[..., None]      # luz concentrada no centro
+    img = contact_shadows(img, comp)
+    img = np.clip(img, 0, 255).astype(np.uint8)
+    Image.fromarray(img, 'RGB').quantize(128, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE).save(OUTDIR / f'{slug}.png', optimize=True)
+    comp['ground_png'] = f'res://assets/modeled/terrain/act02/{slug}.png'
+    # overlays de estado: veios (corrupção ativa) e cicatriz/musgo (purificado)
+    overlays = []
+    for i, v in enumerate(comp.get('vein_overlays', [])):
+        rgba = np.zeros((H, W, 4), np.uint8)
+        vm = np.zeros((H, W), np.float32)
+        r2 = np.random.default_rng(seed + 60 + i)
+        for k in range(v.get('n', 12)):
+            a0 = r2.uniform(0, 2 * math.pi)
+            pts, a = [], a0
+            for t in np.linspace(v.get('r0', .08), v.get('r1', .9), 7):
+                a += r2.uniform(-.35, .35)
+                pts.append((cx + math.cos(a) * ch['rx'] * t, cy + math.sin(a) * ch['ry'] * t))
+            vm = np.maximum(vm, stroke(catmull(pts), v.get('half', 5), seed + 70 + k, wobble=.5))
+        core = vm > .5
+        glow = (vm > .15) & ~core
+        col = np.array(v['color'], np.uint8)
+        rgba[core, :3] = col
+        rgba[core, 3] = 235
+        rgba[glow, :3] = col
+        rgba[glow, 3] = np.where(dth[glow] > .5, 110, 60)
+        if v.get('stain'):                                 # mancha escura irregular sob o núcleo (centro fundido ao solo)
+            sd, _ = _chamber_mask(cx, cy, ch['rx'] * v['stain'], ch['ry'] * v['stain'], seed + 90 + i)
+            st = (sd < 1) & ~core & (dth < .5 + (1 - sd) * .8)
+            rgba[st, :3] = np.array(v.get('stain_color', (20, 10, 26)), np.uint8)
+            rgba[st, 3] = 200
+        name = f'{slug}__state{i}.png'
+        Image.fromarray(rgba, 'RGBA').save(OUTDIR / name)
+        ov = {'png': f'res://assets/modeled/terrain/act02/{name}'}
+        for k in ('show_when', 'hide_when'):
+            if v.get(k):
+                ov[k] = v[k]
+        overlays.append(ov)
+    comp['ground_overlays'] = overlays
+    comp['water_glints'] = []
+    return slug
 
 
 if __name__ == '__main__':

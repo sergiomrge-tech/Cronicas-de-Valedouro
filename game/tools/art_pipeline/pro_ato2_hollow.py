@@ -219,3 +219,36 @@ def hollow_wall_active_diagb(f):
 @landmark('flo_hollow_wall_dormant_diagb', group='nature', folder='ato2', size=(600, 620), origin=(300, 470), tags=('ato2', 'floresta_ancestral', 'raiz_oca', 'boss', 'parede', 'modular', 'diagonal', 'estado_dormente'), footprint=0, collision=(), samples=24)
 def hollow_wall_dormant_diagb(f):
     _root_wall(False, True, 90)
+
+
+# ============================================================== PASSE FINAL (Parte E): recinto da Raiz Oca em PEÇA ÚNICA, duas camadas
+from pro_ato2_memory import chamber_wall, _arc_coll
+
+
+def _hollow_enclosure(active):
+    """Recinto orgânico: camada interna de raízes torcidas e mais baixas (com espinhos/veios no ativo) + camada externa alta
+    atrás (segunda camada, profundidade e silhueta); pontas descem em raízes grandes. Estado dormente = mesma forma, madeira
+    acinzentada com musgo cicatrizando (a revanche reusa a forma ativa)."""
+    if active:
+        bark, fiber, spike, rune = m_root_dead(), m_root_dead(), m_root_dead(), m_eco_corrupt()
+    else:
+        bark, fiber, spike, rune = m_bark_old(), m_bark_old(), None, None
+    chamber_wall(15.6, 132, 318, 131, bark, fiber, h=(5.2, 7.6), n=46, lean_in=.1, moss=not active, rune=rune)                 # camada externa
+    chamber_wall(14.4, 126, 324, 133, bark, fiber, h=(2.2, 3.8), n=58, lean_in=.55, moss=not active, rune=rune, spikes=spike, spike_n=.35,
+                 alcoves=((170, 10), (262, 12)))                                                                              # camada interna
+    rr = random.Random(140)
+    for th in (126, 324):
+        t = math.radians(th)
+        for k in range(3):
+            s = .1 if th == 126 else -.1
+            root((math.cos(t) * 15, math.sin(t) * 15, 4.0 - k), (math.cos(t + s) * (12.4 - k), math.sin(t + s) * (12.4 - k), .02), .9 - k * .15, .2, bark, sag=-.5, sides=8)
+    if not active:
+        for k in range(10):
+            th = math.radians(rr.uniform(130, 320))
+            parts.leaf_cluster(math.cos(th) * 14.2, math.sin(th) * 14.2, rr.uniform(.2, 2.5), .7, 10, m_fern(), 150 + k, size=(.1, .22), flat=.4)
+
+
+for _st in ('active', 'dormant'):
+    landmark(f'flo_hollow_enclosure_{_st}', group='nature', folder='ato2', size=(2140, 1120), origin=(1070, 960),
+             tags=('ato2', 'floresta_ancestral', 'raiz_oca', 'arena', 'parede', 'passe_final', 'peca_unica', 'estado_' + ('ativo' if _st == 'active' else 'dormente')),
+             footprint=0, collision=_arc_coll(14.4, 130, 320, 26, 22), samples=24)(lambda f, a=(_st == 'active'): _hollow_enclosure(a))

@@ -254,3 +254,69 @@ def heart_wall_diag(f):
 def heart_wall_diagb(f):
     heart_wall_diag(f)
     geo.rotate_all(90)
+
+
+# ============================================================== PASSE FINAL (Parte E): câmara do Coração em PEÇA ÚNICA (sem módulos repetidos)
+def chamber_wall(R, th0, th1, seed, bark, fiber, h=(3.6, 6.4), alcoves=(), moss=True, sap=None, rune=None, n=64, layer_off=0.0, lean_in=.25, spikes=None, spike_n=0):
+    """Parede orgânica de câmara ao longo de um arco (graus) de raio R (u): colunas-tronco de raio/altura variáveis, fundidas por
+    fibras horizontais, contrafortes que entram no piso, NICHOS (alcoves: lista de (θ, largura°)) recuados com luz própria, seiva
+    e inscrições. Assimetria por ruído; nenhum trecho se repete."""
+    rr = random.Random(seed)
+    cols = []
+    for i in range(n):
+        th = math.radians(th0 + (th1 - th0) * (i + rr.uniform(.1, .9)) / n)
+        deg = math.degrees(th)
+        niche = any(abs(deg - a) < w / 2 for a, w in alcoves)
+        rad = R + layer_off + rr.uniform(-.35, .35) + (1.5 if niche else 0)
+        x, y = math.cos(th) * rad, math.sin(th) * rad
+        hh = rr.uniform(*h) * (1 + .18 * math.sin(th * 3 + seed)) * (.8 if niche else 1)
+        r0 = rr.uniform(.45, 1.05)
+        ix, iy = -math.cos(th) * lean_in, -math.sin(th) * lean_in
+        rt = r0 * rr.uniform(.55, .75)
+        geo.cyl_between((x, y, -.05), (x + ix, y + iy, hh), r0, bark, sides=9, r2=rt)
+        # topo: a coluna continua e se CURVA para dentro/para o lado, afinando — nunca um toco de topo chato
+        bx, by = x + ix * 3 + math.sin(th) * rr.uniform(-.8, .8), y + iy * 3 - math.cos(th) * rr.uniform(-.8, .8)
+        root((x + ix, y + iy, hh - .1), (bx, by, hh + rr.uniform(1.2, 2.4)), rt, .08, bark, sag=-.3, sides=8)
+        cols.append((x, y, hh, r0, th, niche))
+        if rr.random() < .55:                                            # contraforte entrando no piso (funde a parede ao chão)
+            root((x - math.cos(th) * r0 * .5, y - math.sin(th) * r0 * .5, hh * .25), (x - math.cos(th) * (1.4 + r0), y - math.sin(th) * (1.4 + r0), .05), r0 * .5, r0 * .22, bark, sag=.25, sides=7)
+        if niche:
+            glow_mushrooms(x - math.cos(th) * .8, y - math.sin(th) * .8, 4, seed + i, spread=.35, h=.28)
+    for (x0, y0, h0, r0, t0, _), (x1, y1, h1, r1, t1, _) in zip(cols[:-1], cols[1:]):   # fibras horizontais entre colunas vizinhas
+        for k in range(rr.randint(1, 3)):
+            z = rr.uniform(.6, min(h0, h1) * .9)
+            root((x0, y0, z), (x1, y1, z + rr.uniform(-.4, .4)), rr.uniform(.12, .26), rr.uniform(.1, .2), fiber, sag=rr.uniform(-.2, .25), sides=6)
+    for x, y, hh, r0, th, niche in cols:
+        if sap is not None and rr.random() < .12:                        # seiva escorrendo
+            geo.box((x - math.cos(th) * r0 * .9, y - math.sin(th) * r0 * .9, hh * .45), (.06, .06, hh * .5), sap, bevel=0)
+        if rune is not None and rr.random() < .1:                        # inscrições/veios de luz
+            for k in range(3):
+                geo.box((x - math.cos(th) * r0 * .95, y - math.sin(th) * r0 * .95, hh * (.35 + k * .15)), (.04, .25, .05), rune, rot=(0, 0, th), bevel=0)
+        if moss and rr.random() < .35:
+            parts.leaf_cluster(x, y, hh * rr.uniform(.3, .8), r0 * .8, 8, m_leaf_deep(), int(th * 100), size=(.1, .2), flat=.5)
+        if spikes is not None and rr.random() < spike_n:
+            geo.cyl_between((x - math.cos(th) * r0, y - math.sin(th) * r0, rr.uniform(.4, 1.6)), (x - math.cos(th) * (r0 + 1.2), y - math.sin(th) * (r0 + 1.2), rr.uniform(1.4, 2.6)), .16, spikes, sides=5, r2=.01)
+    return cols
+
+
+def _arc_coll(R, th0, th1, n, r):
+    return circ([(math.cos(math.radians(th0 + (th1 - th0) * i / (n - 1))) * R, math.sin(math.radians(th0 + (th1 - th0) * i / (n - 1))) * R) for i in range(n)], r)
+
+
+@landmark('flo_heart_chamber', group='nature', folder='ato2', size=(1960, 1020), origin=(980, 890), tags=('ato2', 'floresta_ancestral', 'arvore_memoria', 'coracao', 'parede', 'passe_final', 'peca_unica'),
+          footprint=0, collision=_arc_coll(14.2, 130, 320, 24, 22), samples=24)
+def heart_chamber(f):
+    """Parede viva do Coração (interior da Árvore-Memória) em UMA peça: colunas de madeira viva com fibras, nichos com cogumelos,
+    seiva dourada, inscrições de memória e raízes que se arqueiam para dentro no fundo (teto sugerido)."""
+    bark = m_bark_old()
+    sap = X('mem_sap', lambda: mats.emissive('mem_sap', '#e0a040', 1.4))
+    cols = chamber_wall(14.2, 128, 322, 77, bark, bark, h=(3.6, 6.2), alcoves=((180, 14), (232, 10), (275, 12)), sap=sap, rune=m_memory_light_dim(), n=66)
+    rr = random.Random(78)
+    for k in range(6):                                                   # raízes-arco para dentro no fundo (teto sugerido, sem cobrir o piso)
+        th = math.radians(rr.uniform(195, 255))
+        x, y = math.cos(th) * 14.2, math.sin(th) * 14.2
+        root((x, y, 5.6), (x * .72, y * .72, 7.4 + rr.uniform(0, 1)), .5, .15, bark, sag=-.6, sides=7)
+    for th in (128, 322):                                                # pontas do arco descem em contrafortes grandes (sem corte seco)
+        t = math.radians(th)
+        for k in range(3):
+            root((math.cos(t) * 14.2, math.sin(t) * 14.2, 4.5 - k), (math.cos(t + (.12 if th == 128 else -.12)) * (11.5 - k), math.sin(t + (.12 if th == 128 else -.12)) * (11.5 - k), .02), 1.0 - k * .2, .2, bark, sag=-.5, sides=8)

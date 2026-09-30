@@ -5780,17 +5780,10 @@
    0.02,
    0.06,
    0.04,
-   0.35
+   0.2
   ],
   "water": [],
   "objects": [
-   {
-    "asset": "flo_heart_floor",
-    "x": 860,
-    "y": 460,
-    "layer": "ground",
-    "scale": 1.15
-   },
    {
     "asset": "flo_heart_seed",
     "x": 860,
@@ -5963,14 +5956,39 @@
   ],
   "light_shafts": [],
   "exclusions": [],
-  "slug": "loc_memory_tree",
-  "terrain": "none",
-  "ground_solid": [
-   0.05,
-   0.09,
-   0.06
+  "slug": "coracao_memoria",
+  "terrain": "heart",
+  "chamber": {
+   "cx": 480,
+   "cy": 350,
+   "rx": 430,
+   "ry": 185
+  },
+  "platforms": [
+   [
+    480,
+    336,
+    120,
+    52
+   ],
+   [
+    215,
+    318,
+    80,
+    34
+   ],
+   [
+    760,
+    330,
+    70,
+    30
+   ]
   ],
-  "vignette": 0.5
+  "ridges": 9,
+  "vignette": 0.5,
+  "ground_png": "res://assets/modeled/terrain/act02/coracao_memoria.png",
+  "ground_overlays": [],
+  "water_glints": []
  },
  {
   "id": "LOC_HOLLOW_ROOT_ARENA",
@@ -5984,7 +6002,7 @@
    0.03,
    0.04,
    0.08,
-   0.3
+   0.18
   ],
   "water": [],
   "objects": [
@@ -6157,20 +6175,6 @@
     "show_when": "elites:BOSS_RAIZ_OCA_001"
    },
    {
-    "asset": "flo_hollow_floor_active",
-    "x": 860,
-    "y": 480,
-    "layer": "ground",
-    "hide_when": "elites:BOSS_RAIZ_OCA_001"
-   },
-   {
-    "asset": "flo_hollow_floor_dormant",
-    "x": 860,
-    "y": 480,
-    "layer": "ground",
-    "show_when": "elites:BOSS_RAIZ_OCA_001"
-   },
-   {
     "asset": "flo_hollow_core_active",
     "x": 860,
     "y": 482,
@@ -6236,14 +6240,55 @@
     ]
    }
   ],
-  "slug": "loc_hollow_root_arena",
-  "terrain": "none",
-  "ground_solid": [
-   0.06,
-   0.05,
-   0.09
+  "slug": "raiz_oca_arena",
+  "terrain": "hollow_arena",
+  "chamber": {
+   "cx": 480,
+   "cy": 360,
+   "rx": 440,
+   "ry": 200
+  },
+  "ridges": 7,
+  "vein_overlays": [
+   {
+    "color": [
+     176,
+     86,
+     236
+    ],
+    "n": 8,
+    "half": 3.2,
+    "r0": 0.1,
+    "r1": 0.95,
+    "stain": 0.3,
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "color": [
+     84,
+     116,
+     78
+    ],
+    "n": 6,
+    "half": 2.8,
+    "r0": 0.2,
+    "r1": 0.8,
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   }
   ],
-  "vignette": 0.5
+  "vignette": 0.5,
+  "ground_png": "res://assets/modeled/terrain/act02/raiz_oca_arena.png",
+  "ground_overlays": [
+   {
+    "png": "res://assets/modeled/terrain/act02/raiz_oca_arena__state0.png",
+    "hide_when": "elites:BOSS_RAIZ_OCA_001"
+   },
+   {
+    "png": "res://assets/modeled/terrain/act02/raiz_oca_arena__state1.png",
+    "show_when": "elites:BOSS_RAIZ_OCA_001"
+   }
+  ],
+  "water_glints": []
  },
  {
   "id": "LOC_HOLLOW_ROOT_ARENA",

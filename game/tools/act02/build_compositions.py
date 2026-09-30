@@ -326,9 +326,10 @@ m.shot('FLO_2C_ARVORE_ABERTA', ['quest:Q_MS02_ROOTS'])
 comps.append(m.d)
 
 h = Comp('LOC_MEMORY_TREE', 'Árvore-Memória — coração', (380, 130),
-         'Interior/coração acessível na missão: piso de raízes com anel de luz, semente-memória sobre pedestal, inscrições, arcos de raiz como paredes; espaço para as memórias de Adrian.', tint=(.02, .06, .04, .35), terrain='none')
-h.d['ground_solid'] = [.05, .09, .06]
-h.add('flo_heart_floor', 480, 330, layer='ground', scale=1.15)
+         'Interior/coração acessível na missão: piso de raízes com anel de luz, semente-memória sobre pedestal, inscrições, arcos de raiz como paredes; espaço para as memórias de Adrian.', tint=(.02, .06, .04, .2), terrain='heart', slug='coracao_memoria')
+h.d['chamber'] = {'cx': 480, 'cy': 350, 'rx': 430, 'ry': 185}
+h.d['platforms'] = [(480, 336, 120, 52), (215, 318, 80, 34), (760, 330, 70, 30)]   # dais da semente + dois patamares laterais (múltiplas alturas)
+h.d['ridges'] = 9
 h.add('flo_heart_seed', 480, 330, hide_when='quest:Q_MS02_MEMORY_TREE:active')
 h.add('flo_heart_seed_active', 480, 330, show_when='quest:Q_MS02_MEMORY_TREE:active')
 h.run('flo_heart_wall', [(480 + 380 * math.cos(math.radians(a)), 345 - 200 * math.sin(math.radians(a))) for a in range(10, 171, 10)])   # parede viva CURVA (a árvore por dentro), kit multi-ângulo
@@ -349,8 +350,13 @@ comps.append(h.d)
 # Regra do Guardião aplicada: primeira derrota = flag persistente "elites:BOSS_RAIZ_OCA_001"; revanche = leitura visual temporária ("rematch:<ID>").
 BOSS = 'elites:BOSS_RAIZ_OCA_001'
 a = Comp('LOC_HOLLOW_ROOT_ARENA', 'Coração da Raiz Oca — arena', (380, 130),
-         'Arena feita para o boss: piso com anéis e cunhas de telegráfico, raízes gigantes delimitando o campo, núcleo ao fundo; circulação livre no campo. Ativa até a primeira derrota; depois dormente/purificada; a revanche reativa só a apresentação.', tint=(.03, .04, .08, .3), terrain='none')
-a.d['ground_solid'] = [.06, .05, .09]
+         'Arena feita para o boss: piso com anéis e cunhas de telegráfico, raízes gigantes delimitando o campo, núcleo ao fundo; circulação livre no campo. Ativa até a primeira derrota; depois dormente/purificada; a revanche reativa só a apresentação.', tint=(.03, .04, .08, .18), terrain='hollow_arena', slug='raiz_oca_arena')
+a.d['chamber'] = {'cx': 480, 'cy': 360, 'rx': 440, 'ry': 200}
+a.d['ridges'] = 7
+a.d['vein_overlays'] = [
+    {'color': (176, 86, 236), 'n': 8, 'half': 3.2, 'r0': .1, 'r1': .95, 'stain': .3, 'hide_when': BOSS},          # corrupção ativa: veios que nascem do núcleo
+    {'color': (84, 116, 78), 'n': 6, 'half': 2.8, 'r0': .2, 'r1': .8, 'show_when': BOSS},                         # cicatriz cicatrizando (musgo)
+]
 a.exclude_circle(480, 340, 250)                        # campo de combate livre de props
 # fundo em V angulado (eixos isométricos): lado direito desce em +Y (diagonal ↘), lado esquerdo em -X espelhado (diagonal ↙); frente aberta para a câmera
 def arc_pts(cx, cy, rx, ry, a0, a1, n):
@@ -361,8 +367,6 @@ def arc_pts(cx, cy, rx, ry, a0, a1, n):
 _arena_arc = arc_pts(480, 375, 400, 215, 5, 175, 14)                # muro CURVO envolvendo o fundo do campo (kit multi-ângulo: 8 direções)
 a.run('flo_hollow_wall_active', _arena_arc, hide_when=BOSS)
 a.run('flo_hollow_wall_dormant', _arena_arc, show_when=BOSS)
-a.add('flo_hollow_floor_active', 480, 350, layer='ground', hide_when=BOSS)
-a.add('flo_hollow_floor_dormant', 480, 350, layer='ground', show_when=BOSS)
 a.add('flo_hollow_core_active', 480, 352, hide_when=BOSS)
 a.add('flo_hollow_core_dormant', 480, 352, show_when=BOSS)
 for x, y in ((90, 330), (860, 340), (140, 460), (830, 470)):    # espinhos só no estado ativo (nunca dentro do campo)

@@ -32,51 +32,83 @@ def m_old_stone():
 
 # ------------------------------------------------------------------ anel de pedra (mecanismo) — 8 linhas radiais, 8 pedras de referência
 def _ring(lit):
+    """PASSE FINAL (Parte E): o SÍTIO inteiro dos Cartógrafos numa peça (sem rotação, 3/4). Fundação de lajes quebrada em DOIS níveis
+    (terraço baixo irregular + estrado alto com degraus), borda desabando em entulho, mapa gravado no estrado como arcos e linhas
+    INCOMPLETOS (cobertos por musgo/lajes — nada de disco perfeito), pedestal do Selo Verde, pilares sobre socos na borda, coluna
+    caída, muro de fundo em L com relevo de mapa (backdrop) ligado à fundação, raízes e relva invadindo as juntas."""
+    rr = random.Random(58)
     st = m_old_stone()
+    sm = m_rock_moss()
     glow = m_seal_light() if lit else m_seal_dim()
-    geo.cyl((0, 0, 0), 3.6, .3, st, sides=24, r2=3.4)                             # plataforma circular
-    geo.cyl((0, 0, .3), 2.8, .12, st, sides=24)
-    for k in range(8):                                                            # oito linhas radiais gravadas
-        a = k * math.pi / 4
-        geo.box((math.cos(a) * 1.9, math.sin(a) * 1.9, .43), (2.2, .1, .02), glow, rot=(0, 0, a), bevel=0)
-    for ring in (1.2, 2.5):                                                       # anéis concêntricos
-        for k in range(48):
-            a = k * 2 * math.pi / 48
-            if (k % 6) == 3:
+    # terraço baixo: lajes irregulares com falhas e juntas de relva
+    for i in range(-5, 5):
+        for j in range(-4, 5):
+            x, y = i * .95 + .47, j * .95
+            if (x / 4.6) ** 2 + (y / 4.2) ** 2 * (1 + .25 * math.sin(i * 1.7 + j)) > 1 or rr.random() < .1:
                 continue
-            geo.box((math.cos(a) * ring, math.sin(a) * ring, .43), (.26, .07, .02), glow, rot=(0, 0, a + math.pi / 2), bevel=0)
-    geo.cyl((0, 0, .3), .8, .3, st, sides=12, r2=.7)                              # pedestal central que recebe o Selo Verde
-    geo.cyl((0, 0, .6), .42, .06, M('hole'), sides=12)                            # cavidade do selo
+            geo.box((x + rr.uniform(-.05, .05), y + rr.uniform(-.05, .05), .1 + rr.uniform(-.03, .03)), (.88, .88, .26), st if rr.random() < .8 else sm, rot=(rr.uniform(-.03, .03), rr.uniform(-.03, .03), rr.uniform(-.05, .05)), bevel=0.03)
+    geo.box((0, 0, -.02), (8.6, 8.0, .2), sm, bevel=0.02)                            # leito sob as lajes (sem vão para o vazio)
+    parts.grass_tufts(0, 0, 4.2, 40, M('grass'), seed=5, h=.22)
+    for k in range(7):                                                              # borda +x desabando: lajes inclinadas e entulho
+        geo.box((4.3 + rr.uniform(0, .6), -2.6 + k * .8, .0), (.8, .7, .22), st, rot=(0, rr.uniform(.2, .5), rr.uniform(-.3, .3)), bevel=0.03)
+    parts.rubble(4.9, 0, 1.4, 9, sm, seed=7, rmin=.12, rmax=.3)
+    # estrado alto recuado (segundo nível) com três degraus na face +x
+    geo.box((-1.0, -.6, .5), (4.2, 4.2, .6), st, bevel=0.04)
+    geo.box((-1.0, -.6, .82), (4.0, 4.0, .06), st, bevel=0.02)
+    for k in range(3):
+        geo.box((1.35 + k * .32, -.6, .62 - k * .2), (.4, 1.8, .2), st, bevel=0.03)
+    # mapa gravado: arcos QUEBRADOS e linhas de comprimentos desiguais (parte coberta por lajes caídas e musgo)
+    cx, cy, z = -1.0, -.6, .86
+    for ring, keep in ((.9, .75), (1.6, .6)):
+        n = 30
+        for k in range(n):
+            if rr.random() > keep:
+                continue
+            a = k * 2 * math.pi / n
+            geo.box((cx + math.cos(a) * ring, cy + math.sin(a) * ring, z), (.2, .06, .02), glow, rot=(0, 0, a + math.pi / 2), bevel=0)
+    for k in range(8):
+        a = k * math.pi / 4 + rr.uniform(-.08, .08)
+        L = rr.uniform(.8, 1.7)
+        geo.box((cx + math.cos(a) * (.5 + L / 2), cy + math.sin(a) * (.5 + L / 2), z), (L, .07, .02), glow, rot=(0, 0, a), bevel=0)
+    for k in range(3):
+        geo.box((cx + rr.uniform(-1.4, 1.4), cy + rr.uniform(-1.4, 1.4), z + .05), (.7, .6, .12), sm, rot=(0, 0, rr.uniform(0, 3)), bevel=0.03)
+    moss_patches(cx, cy, 3.4, 3.4, z, 10, 9)
+    geo.cyl((cx, cy, z), .7, .32, st, sides=10, r2=.6)                               # pedestal do Selo Verde
+    geo.cyl((cx, cy, z + .32), .36, .06, M('hole'), sides=10)
     if lit:
-        ball((0, 0, .95), .32, m_seal_light(), squash=1.2)                       # selo assentado
-        geo.box((0, 2.0, .46), (.18, 2.8, .03), m_seal_light(), bevel=0)         # a SEGUNDA LINHA: sai do anel (sobre a laje) e desce ao CHÃO até a saída (leste na tela)
-        geo.box((0, 6.9, .04), (.18, 6.4, .03), m_seal_light(), bevel=0)
-        geo.box((0, 6.9, .03), (.55, 6.4, .02), m_seal_dim(), bevel=0)
-    for k in range(8):                                                            # oito pedras de referência ao redor
-        a = k * math.pi / 4 + math.pi / 8
-        px, py = math.cos(a) * 4.3, math.sin(a) * 4.3
-        h = 1.7 + .3 * ((k * 5) % 3)
-        parts.tapered_shaft(px, py, 0, h, .5, .38, st, seed=k)
-        geo.box((px + math.cos(a) * .2, py + math.sin(a) * .2, h * .6), (.06, .06, .5), glow, bevel=0)
-    root((-3.4, 1.0, .1), (-2.4, .3, .9), .1, .05, m_bark_old(), sag=.05, sides=5)
-    if not lit:
-        parts.leaf_cluster(-2.6, 2.6, .1, 1.3, 12, m_fern(), 3, size=(.12, .26), flat=.4)
-    else:
-        parts.flowers(-2.8, 2.8, 1.0, 8, seed=4)
-    geo.rotate_all(45)
+        ball((cx, cy, z + .65), .3, m_seal_light(), squash=1.2)
+        geo.box((cx, cy + 2.6, z + .02), (.16, 3.4, .03), m_seal_light(), bevel=0)   # SEGUNDA LINHA: desce do estrado ao chão rumo à saída (+y = leste na tela)
+        geo.box((cx + .2, 7.4, .05), (.16, 6.0, .03), m_seal_light(), bevel=0)
+        geo.box((cx + .2, 7.4, .04), (.5, 6.0, .02), m_seal_dim(), bevel=0)
+    # pilares sobre socos na borda da fundação (três em pé, um caído)
+    for k, (x, y, h) in enumerate(((2.6, -3.4, 2.6), (-3.6, 2.4, 2.2), (2.8, 3.2, 1.3))):
+        geo.box((x, y, .3), (.8, .8, .4), st, bevel=0.04)
+        parts.tapered_shaft(x, y, .45, .45 + h, .56, .46, st, seed=30 + k)
+        geo.box((x + .3, y, .45 + h * .6), (.05, .06, .45), glow, bevel=0)
+        if h > 2:
+            geo.box((x, y, .5 + h), (.7, .7, .16), sm, bevel=0.03)
+    for k in range(4):                                                               # coluna caída em tambores sobre o terraço
+        geo.cyl_between((1.2 + k * .62, 2.0 + k * .12, .42), (1.75 + k * .62, 2.1 + k * .12, .42), .26, st, sides=10)
+    # muro de fundo em L (backdrop) nascendo da fundação, topo em degraus quebrados, relevo de mapa
+    for i in range(9):
+        y = -4.2 + i * .9
+        h = 2.8 - abs(i - 2) * .25 - (1.2 if i > 6 else 0) + rr.uniform(-.2, .2)
+        geo.box((-4.3, y, h / 2), (.6, .92, h), st, bevel=0.03)
+    for i in range(5):
+        x = -3.6 + i * .9
+        h = 2.6 - i * .45 + rr.uniform(-.2, .2)
+        geo.box((x, -4.5, h / 2), (.92, .6, h), st, bevel=0.03)
+    for k in range(5):
+        geo.box((-3.98, -3.2 + k * .6, 1.3 + (k % 2) * .4), (.03, .45, .05), glow, rot=(k * .3, 0, 0), bevel=0)
+    parts.ivy(-3.98, -4.0, -3.98, -1.6, .3, 2.4, M('leaf'), seed=5, n=40)
+    parts.rubble(-3.6, 3.6, 1.0, 6, sm, seed=11, rmin=.1, rmax=.26)
+    for k in range(4):                                                               # raízes da floresta invadindo pelo fundo
+        root((-5.2, -3 + k * 1.6, .2), (-3.0, -2.5 + k * 1.4, .95), .16, .06, m_bark_old(), sag=-.1, sides=6)
+    parts.leaf_cluster(-3.4, 3.2, .1, 1.1, 14, m_fern(), 3, size=(.12, .26), flat=.4)
+    if lit:
+        parts.flowers(3.0, -1.0, 1.0, 10, seed=4)
 
 
-@landmark('flo_cart_ring_inert', group='nature', folder='ato2', size=(900, 620), origin=(450, 330), tags=('ato2', 'floresta_ancestral', 'cartografos', 'anel', 'estado_inerte'), footprint=70, collision=circ([(0, 0), (1.2, 0), (-1.2, 0), (0, 1.2), (0, -1.2)], 16), samples=24)
-def cart_ring_inert(f):
-    _ring(False)
-
-
-@landmark('flo_cart_ring_lit', group='nature', folder='ato2', size=(1300, 700), origin=(450, 340), tags=('ato2', 'floresta_ancestral', 'cartografos', 'anel', 'selo_verde', 'estado_ativo'), footprint=70, collision=circ([(0, 0), (1.2, 0), (-1.2, 0), (0, 1.2), (0, -1.2)], 16), samples=24)
-def cart_ring_lit(f):
-    _ring(True)
-
-
-# ------------------------------------------------------------------ ruínas anteriores aos Guardas
 @landmark('flo_cart_pillar', group='nature', folder='ato2', size=(200, 360), origin=(100, 300), tags=('ato2', 'floresta_ancestral', 'cartografos', 'ruina', 'pilar'), footprint=12, collision=circ([(0, 0)], 9), samples=24)
 def cart_pillar(f):
     """Pilar antigo com sigilo de oito raios entalhado (motivo dos Cartógrafos)."""

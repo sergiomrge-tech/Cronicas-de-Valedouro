@@ -44,7 +44,7 @@ func visible_obj(o: Dictionary) -> bool:
 func entry_for(o: Dictionary) -> Array:
 	var e: Array = []
 	e.resize(9)
-	e[PROC.IT_SY] = float(o["y"])
+	e[PROC.IT_SY] = float(o.get("sort_y", o["y"]))
 	e[PROC.IT_ASSET] = str(o["asset"])
 	e[PROC.IT_X] = float(o["x"])
 	e[PROC.IT_Y] = float(o["y"])
@@ -122,7 +122,7 @@ func _draw() -> void:
 		var o: Dictionary = o_value
 		if visible_obj(o):
 			items.append(o)
-	items.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return float(a["y"]) < float(b["y"]))
+	items.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return float(a.get("sort_y", a["y"])) < float(b.get("sort_y", b["y"])))
 	for o in items:
 		if str(o.get("layer", "")) == "ground":
 			REGR.draw_item(self, entry_for(o), time_acc, approved)
