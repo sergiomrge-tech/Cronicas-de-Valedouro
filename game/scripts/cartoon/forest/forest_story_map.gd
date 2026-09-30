@@ -105,3 +105,14 @@ static func encounters() -> Array[Dictionary]:
 		{"kind":"wolf","name":"Lobo da Memória","pos":Vector2(21900,25700),"hp":70,"speed":100.0,"damage":12,"scale":1.10},
 		{"kind":"root_beast","name":"Arauto da Raiz Oca","pos":Vector2(17500,17500),"hp":220,"speed":64.0,"damage":20,"scale":1.45,"story_tag":"story_hollow_root","boss_id":"BOSS_RAIZ_OCA_001"}
 	]
+
+
+static func zones() -> Array[Dictionary]:
+	return [
+		{"zone_kind":"bridge","label":"Fronteira da Floresta","pos":Vector2(23000,43800),"radius":520.0},
+		{"zone_kind":"lodge","label":"Clareira dos Guardas Verdes","pos":Vector2(25800,37400),"radius":620.0},
+		{"zone_kind":"shrines","label":"Bosque das Três Raízes","pos":Vector2(24000,30200),"radius":720.0},
+		{"zone_kind":"memory","label":"Clareira da Árvore-Memória","pos":Vector2(23000,23500),"radius":780.0},
+		{"zone_kind":"hollow","label":"Coração da Raiz Oca","pos":Vector2(17500,17500),"radius":820.0},
+		{"zone_kind":"cartographer","label":"Ruínas dos Cartógrafos","pos":Vector2(29200,11400),"radius":680.0}
+	]
