@@ -8,6 +8,11 @@ var options_panel: PanelContainer
 var inventory_ui: Control
 var profile_label: Label
 var zoom_label: Label
+var continue_button: Button
+var delete_button: Button
+var confirmation_panel: PanelContainer
+var confirmation_label: Label
+var confirmation_mode: String = ""
 var anim_t: float = 0.0
 
 func _ready() -> void:
@@ -94,8 +99,8 @@ func _build_ui() -> void:
 	ui.add_child(subtitle)
 
 	menu_panel = PanelContainer.new()
-	menu_panel.position = Vector2(610,122)
-	menu_panel.size = Vector2(300,340)
+	menu_panel.position = Vector2(600,62)
+	menu_panel.size = Vector2(320,424)
 	var style: StyleBoxFlat = StyleBoxFlat.new()
 	style.bg_color = Color(0.045,0.055,0.075,0.94)
 	style.border_color = Color(0.90,0.68,0.25)
@@ -108,35 +113,49 @@ func _build_ui() -> void:
 	ui.add_child(menu_panel)
 
 	var crest: Label = Label.new()
-	crest.position = Vector2(30,22)
-	crest.size = Vector2(240,44)
+	crest.position = Vector2(30,16)
+	crest.size = Vector2(260,42)
 	crest.text = "◆  VALEDOURO  ◆"
 	crest.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	crest.add_theme_font_size_override("font_size",20)
 	crest.add_theme_color_override("font_color",Color(1.0,0.82,0.34))
 	menu_panel.add_child(crest)
 
-	var play: Button = _menu_button("JOGAR",Vector2(32,82))
-	play.pressed.connect(_play)
-	menu_panel.add_child(play)
+	var new_game: Button = _menu_button("NOVO JOGO",Vector2(32,68))
+	new_game.name = "NewGameButton"
+	new_game.pressed.connect(_new_game)
+	menu_panel.add_child(new_game)
 
-	var bag: Button = _menu_button("INVENTÁRIO",Vector2(32,144))
+	continue_button = _menu_button("CONTINUAR",Vector2(32,120))
+	continue_button.name = "ContinueButton"
+	continue_button.pressed.connect(_continue_game)
+	menu_panel.add_child(continue_button)
+
+	var bag: Button = _menu_button("INVENTÁRIO",Vector2(32,172))
+	bag.name = "InventoryButton"
 	bag.pressed.connect(func(): inventory_ui.open_panel())
 	menu_panel.add_child(bag)
 
-	var options: Button = _menu_button("OPÇÕES",Vector2(32,206))
+	var options: Button = _menu_button("OPÇÕES",Vector2(32,224))
+	options.name = "OptionsButton"
 	options.pressed.connect(_open_options)
 	menu_panel.add_child(options)
 
+	delete_button = _menu_button("EXCLUIR PROGRESSO",Vector2(32,276))
+	delete_button.name = "DeleteSaveButton"
+	_style_button(delete_button,Color(0.25,0.08,0.10),Color(0.80,0.31,0.34))
+	delete_button.pressed.connect(_delete_save)
+	menu_panel.add_child(delete_button)
+
 	profile_label = Label.new()
-	profile_label.position = Vector2(28,274)
-	profile_label.size = Vector2(244,44)
+	profile_label.position = Vector2(24,334)
+	profile_label.size = Vector2(272,58)
 	profile_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	profile_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	profile_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	profile_label.add_theme_font_size_override("font_size",12)
 	profile_label.add_theme_color_override("font_color",Color(0.72,0.82,0.86))
 	menu_panel.add_child(profile_label)
-	_refresh_profile()
 
 	inventory_ui = InventoryUIScript.new()
 	inventory_ui.name = "MenuInventory"
@@ -144,11 +163,13 @@ func _build_ui() -> void:
 	inventory_ui.setup(null,null,false)
 
 	_build_options()
+	_build_confirmation()
+	_refresh_profile()
 
 	var version: Label = Label.new()
 	version.position = Vector2(18,508)
 	version.size = Vector2(924,24)
-	version.text = "Protótipo jogável • Godot 4.7.2 • progresso local"
+	version.text = "2D Cartoon v0.16 • Godot 4.7.2 • save de campanha local"
 	version.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	version.add_theme_font_size_override("font_size",12)
 	version.add_theme_color_override("font_color",Color(1,1,1,0.72))
@@ -158,15 +179,15 @@ func _menu_button(text_value: String, pos: Vector2) -> Button:
 	var button: Button = Button.new()
 	button.text = text_value
 	button.position = pos
-	button.size = Vector2(236,50)
-	button.add_theme_font_size_override("font_size",18)
+	button.size = Vector2(256,44)
+	button.add_theme_font_size_override("font_size",16)
 	_style_button(button,Color(0.12,0.18,0.25),Color(0.83,0.64,0.25))
 	return button
 
 func _style_button(button: Button, bg: Color, border: Color) -> void:
-	for state_name in ["normal","hover","pressed","focus"]:
+	for state_name in ["normal","hover","pressed","focus","disabled"]:
 		var box: StyleBoxFlat = StyleBoxFlat.new()
-		box.bg_color = bg.lightened(0.08) if state_name == "hover" else (bg.darkened(0.08) if state_name == "pressed" else bg)
+		box.bg_color = bg.lightened(0.08) if state_name == "hover" else (bg.darkened(0.08) if state_name == "pressed" else (bg.darkened(0.25) if state_name == "disabled" else bg))
 		box.border_color = border
 		box.set_border_width_all(3)
 		box.corner_radius_top_left = 14
@@ -176,12 +197,77 @@ func _style_button(button: Button, bg: Color, border: Color) -> void:
 		button.add_theme_stylebox_override(state_name,box)
 
 func _play() -> void:
-	get_tree().change_scene_to_file("res://scenes/cartoon/ValedouroCartoonHub.tscn")
+	# Compatibilidade com chamadas antigas: Jogar continua um save ou inicia uma aventura.
+	var state = _state()
+	if state != null and state.has_campaign_save():
+		_continue_game()
+	else:
+		_new_game()
+
+func _new_game() -> void:
+	var state = _state()
+	if state == null:
+		return
+	if state.has_campaign_save():
+		_show_confirmation("new","Iniciar um NOVO JOGO?\nO progresso atual da campanha será apagado.")
+	else:
+		_start_new_game_now()
+
+func _start_new_game_now() -> void:
+	var state = _state()
+	if state == null:
+		return
+	state.start_new_game()
+	get_tree().change_scene_to_file(state.DEFAULT_SCENE)
+
+func _continue_game() -> void:
+	var state = _state()
+	if state == null or not state.has_campaign_save():
+		return
+	get_tree().change_scene_to_file(state.continue_scene_path())
+
+func _delete_save() -> void:
+	var state = _state()
+	if state == null or not state.has_campaign_save():
+		return
+	_show_confirmation("delete","Excluir o progresso salvo?\nEsta ação remove campanha, equipamentos e materiais.")
+
+func _show_confirmation(mode: String,text_value: String) -> void:
+	confirmation_mode = mode
+	if inventory_ui != null:
+		inventory_ui.close_panel()
+	if options_panel != null:
+		options_panel.visible = false
+	confirmation_label.text = text_value
+	confirmation_panel.visible = true
+
+func _confirm_action() -> void:
+	var mode: String = confirmation_mode
+	confirmation_panel.visible = false
+	confirmation_mode = ""
+	if mode == "new":
+		_start_new_game_now()
+	elif mode == "delete":
+		var state = _state()
+		if state != null:
+			state.delete_profile()
+		_refresh_profile()
+		_refresh_zoom()
+
+func _cancel_confirmation() -> void:
+	confirmation_panel.visible = false
+	confirmation_mode = ""
 
 func _refresh_profile() -> void:
 	var state = _state()
-	if state != null:
-		profile_label.text = state.profile_summary()
+	if state == null or profile_label == null:
+		return
+	var has_save: bool = state.has_campaign_save()
+	if continue_button != null:
+		continue_button.disabled = not has_save
+	if delete_button != null:
+		delete_button.disabled = not has_save
+	profile_label.text = state.profile_summary() if has_save else "Sem aventura salva\nNovo Jogo começa em Valedouro"
 
 func _build_options() -> void:
 	options_panel = PanelContainer.new()
@@ -251,8 +337,54 @@ func _build_options() -> void:
 	options_panel.add_child(close)
 	_refresh_zoom()
 
+func _build_confirmation() -> void:
+	confirmation_panel = PanelContainer.new()
+	confirmation_panel.position = Vector2(280,145)
+	confirmation_panel.size = Vector2(400,250)
+	confirmation_panel.visible = false
+	var style: StyleBoxFlat = StyleBoxFlat.new()
+	style.bg_color = Color(0.035,0.045,0.065,0.995)
+	style.border_color = Color(0.92,0.58,0.24)
+	style.set_border_width_all(4)
+	style.corner_radius_top_left = 20
+	style.corner_radius_top_right = 20
+	style.corner_radius_bottom_left = 20
+	style.corner_radius_bottom_right = 20
+	confirmation_panel.add_theme_stylebox_override("panel",style)
+	ui.add_child(confirmation_panel)
+
+	var title: Label = Label.new()
+	title.position = Vector2(26,20)
+	title.size = Vector2(348,34)
+	title.text = "CONFIRMAR"
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_size_override("font_size",22)
+	title.add_theme_color_override("font_color",Color(1.0,0.82,0.38))
+	confirmation_panel.add_child(title)
+
+	confirmation_label = Label.new()
+	confirmation_label.position = Vector2(30,66)
+	confirmation_label.size = Vector2(340,74)
+	confirmation_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	confirmation_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	confirmation_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	confirmation_label.add_theme_font_size_override("font_size",15)
+	confirmation_panel.add_child(confirmation_label)
+
+	var confirm: Button = _menu_button("CONFIRMAR",Vector2(32,162))
+	confirm.size = Vector2(158,48)
+	confirm.pressed.connect(_confirm_action)
+	confirmation_panel.add_child(confirm)
+
+	var cancel: Button = _menu_button("CANCELAR",Vector2(208,162))
+	cancel.size = Vector2(158,48)
+	cancel.pressed.connect(_cancel_confirmation)
+	confirmation_panel.add_child(cancel)
+
 func _open_options() -> void:
 	inventory_ui.close_panel()
+	if confirmation_panel != null:
+		confirmation_panel.visible = false
 	options_panel.visible = true
 	_refresh_zoom()
 
