@@ -10,6 +10,7 @@ const StreamScript = preload("res://scripts/cartoon/cartoon_world_stream.gd")
 const ExplorationContent = preload("res://scripts/cartoon/cartoon_exploration_content.gd")
 const MainStoryMap = preload("res://scripts/cartoon/cartoon_main_story_map.gd")
 const StoryZoneScript = preload("res://scripts/cartoon/cartoon_story_zone.gd")
+const StoryRuntimeScript = preload("res://scripts/cartoon/cartoon_story_runtime.gd")
 
 var environment: ValedouroCartoonHubEnvironment
 var objects: Node2D
@@ -17,6 +18,7 @@ var story_zones: Node2D
 var hero: ValedouroCartoonHero
 var camera: Camera2D
 var world_stream: ValedouroCartoonWorldStream
+var story_runtime: ValedouroCartoonStoryRuntime
 var ui: CanvasLayer
 var objective_label: Label
 var stats_label: Label
@@ -54,9 +56,10 @@ func _ready() -> void:
 	_spawn_outer_landmarks()
 	_spawn_main_story_zones()
 	_spawn_main_story_locations()
+	story_runtime = StoryRuntimeScript.new()
 	hero = HeroScript.new()
 	hero.name = "Player"
-	hero.position = Region.world_from_hub(Vector2(1150,970))
+	hero.position = Region.world_from_hub(Vector2(1150,330))
 	objects.add_child(hero)
 	world_stream = StreamScript.new()
 	world_stream.name = "WorldStream"
@@ -64,6 +67,7 @@ func _ready() -> void:
 	world_stream.setup(hero)
 	_spawn_monsters()
 	_spawn_outer_encounters()
+	_spawn_main_story_encounters()
 	camera = Camera2D.new()
 	camera.name = "PlayerCamera"
 	camera.position = Vector2.ZERO
@@ -82,7 +86,7 @@ func _build_ui() -> void:
 	stats_label = Label.new(); stats_label.position=Vector2(18,10); stats_label.size=Vector2(275,55); stats_label.add_theme_font_size_override("font_size",16); stats_label.add_theme_color_override("font_color",Color(1,0.95,0.82)); top.add_child(stats_label); _refresh_stats()
 	var q = PanelContainer.new(); q.position=Vector2(617,16); q.size=Vector2(328,90); ui.add_child(q)
 	var qstyle = StyleBoxFlat.new(); qstyle.bg_color=Color(0.07,0.08,0.12,0.92); qstyle.border_color=Color(0.21,0.49,0.82); qstyle.set_border_width_all(3); qstyle.corner_radius_top_left=14; qstyle.corner_radius_top_right=14; qstyle.corner_radius_bottom_left=14; qstyle.corner_radius_bottom_right=14; q.add_theme_stylebox_override("panel",qstyle)
-	objective_label=Label.new(); objective_label.position=Vector2(14,9); objective_label.size=Vector2(300,70); objective_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; objective_label.text="HISTÓRIA PRINCIPAL\nChegada — fale com o NPC principal no Castelo"; objective_label.add_theme_color_override("font_color",Color(1,0.91,0.58)); q.add_child(objective_label)
+	objective_label=Label.new(); objective_label.position=Vector2(14,9); objective_label.size=Vector2(300,70); objective_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; objective_label.text=story_runtime.hud_text(); objective_label.add_theme_color_override("font_color",Color(1,0.91,0.58)); q.add_child(objective_label)
 	toast_label=Label.new(); toast_label.position=Vector2(280,450); toast_label.size=Vector2(400,42); toast_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; toast_label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER; toast_label.add_theme_font_size_override("font_size",18); toast_label.add_theme_color_override("font_color",Color(1,0.92,0.58)); toast_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); toast_label.add_theme_constant_override("shadow_offset_x",2); toast_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(toast_label)
 	poi_label=Label.new(); poi_label.position=Vector2(330,105); poi_label.size=Vector2(300,30); poi_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; poi_label.add_theme_font_size_override("font_size",17); poi_label.add_theme_color_override("font_color",Color(1,1,1)); poi_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); poi_label.add_theme_constant_override("shadow_offset_x",2); poi_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(poi_label)
 	_add_action_button("ATQ",Vector2(835,430),78,func(): _attack())
@@ -130,16 +134,24 @@ func _attack() -> void:
 	var dead: bool = target.take_damage(18)
 	if dead:
 		var kind: String = String(target.kind)
+		var story_tag: String = String(target.story_tag)
+		var boss_id: String = String(target.boss_id)
 		monsters.erase(target)
 		target.queue_free()
 		player_gold += 6
-		if field_quest_active and kind == "wolf":
+		var story_advanced: bool = false
+		if story_runtime:
+			story_advanced = story_runtime.register_kill(story_tag,boss_id)
+			if story_tag != "":
+				objective_label.text = story_runtime.hud_text()
+		if field_quest_active and kind == "wolf" and story_tag == "":
 			field_kills += 1
 			if field_kills >= 3:
-				objective_label.text = "HISTÓRIA PRINCIPAL\nLobos nos Campos — retorne à Guilda"
 				_show_toast("Área segura por enquanto. Retorne à Guilda.")
 			else:
-				objective_label.text = "HISTÓRIA PRINCIPAL\nLobos nos Campos — %d/3" % field_kills
+				_show_toast("Lobo derrotado — contrato dos Campos %d/3." % field_kills)
+		elif story_advanced:
+			_show_toast("Objetivo principal concluído. Próxima etapa atualizada.")
 		else:
 			_show_toast("Inimigo derrotado. +6 ouro")
 		_refresh_stats()
@@ -151,6 +163,11 @@ func _interact() -> void:
 		_show_toast("Nada para interagir aqui.")
 		return
 	var id = String(poi.get("id","")); var label = String(poi.get("label","Local"))
+	var canonical_id: String = _canonical_story_location(id)
+	if story_runtime and canonical_id != "" and story_runtime.try_location(canonical_id):
+		objective_label.text = story_runtime.hud_text()
+		_show_toast("História principal atualizada: " + label)
+		return
 	match id:
 		"POI_REG001_CASTLE":
 			objective_label.text="HISTÓRIA PRINCIPAL\nChegada — conheça os serviços da cidade"
@@ -297,3 +314,18 @@ func _spawn_main_story_zones() -> void:
 		var zone: Node2D = StoryZoneScript.new()
 		zone.setup(data)
 		story_zones.add_child(zone)
+
+
+func _canonical_story_location(poi_id: String) -> String:
+	match poi_id:
+		"POI_REG001_GATE_NORTH": return "LOC_VAL_GATE"
+		"POI_REG001_GUILD": return "LOC_VAL_GUILD"
+		"POI_REG001_RUINS_FIRST_WIND": return "LOC_FIRST_WIND_RUINS"
+		_: return poi_id if poi_id.begins_with("LOC_") else ""
+
+func _spawn_main_story_encounters() -> void:
+	for data in MainStoryMap.act1_encounters():
+		var monster: Node2D = MonsterScript.new()
+		monster.setup(data)
+		objects.add_child(monster)
+		monsters.append(monster)
