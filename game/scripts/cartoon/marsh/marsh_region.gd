@@ -109,7 +109,23 @@ func _ready() -> void:
 	inventory_ui.name = "InventoryUI"
 	ui.add_child(inventory_ui)
 	inventory_ui.setup(self,hero,true)
+	_bind_campaign_save()
 	_refresh_objective()
+
+func _bind_campaign_save() -> void:
+	if get_tree().current_scene != self:
+		return
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state == null:
+		return
+	state.bind_scene("res://scenes/cartoon/MarshDarkCartoon.tscn",self,hero,story_runtime,28,205,210,[])
+	_refresh_stats()
+
+func _change_scene_saved(path: String) -> void:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state != null:
+		state.prepare_transition(path)
+	get_tree().change_scene_to_file(path)
 
 func _add_poi_prop(data: Dictionary) -> void:
 	var prop: Node2D = PropScript.new()
@@ -230,7 +246,7 @@ func _interact() -> void:
 		"POI_MARSH_FROST_ROUTE":
 			if story_runtime.act4_complete:
 				_show_toast("Seguindo o fluxo do Eco para o Norte Gelado...")
-				get_tree().change_scene_to_file("res://scenes/cartoon/FrostMountainsCartoon.tscn")
+				_change_scene_saved("res://scenes/cartoon/FrostMountainsCartoon.tscn")
 			else:
 				_show_toast("A rota do norte ainda está encoberta pela névoa.")
 		_:
