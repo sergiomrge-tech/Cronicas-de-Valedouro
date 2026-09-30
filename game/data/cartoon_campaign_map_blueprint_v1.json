@@ -108,7 +108,17 @@
           "location_kind": "archive",
           "post_function": "Codex, registros históricos e exposição do mapa."
         }
-      ]
+      ],
+      "implementation": {
+        "scene": "res://scenes/cartoon/ValedouroCartoonHub.tscn",
+        "region_size": [
+          16100,
+          16450
+        ],
+        "active_chunk_radius": 2,
+        "mandatory_locations_placed": 8,
+        "transition_to_next": "TRANSITION_FOREST_ANCESTRAL"
+      }
     },
     {
       "act": 2,
