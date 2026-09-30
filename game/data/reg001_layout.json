@@ -1,0 +1,680 @@
+{
+ "schema_version": 1,
+ "note": "FONTE ÚNICA do traçado da REG_001 (remapeamento Etapa 1). Estradas por spline (Catmull-Rom), praça orgânica, contorno orgânico da cidade e bordas de bioma deformadas. Consumido por tools/reg001/layout.py (gerador de conteúdo, chão assado) e, via data/reg001_layout_grid.json, por scripts/world_map.gd. O rio continua analítico em world_map.gd/geo.py.",
+ "size": [
+  3072,
+  2304
+ ],
+ "town": {
+  "center": [
+   1547,
+   1175
+  ],
+  "rx": 905,
+  "ry": 432,
+  "power": 3.2,
+  "wobble": 26
+ },
+ "plazas": [
+  {
+   "id": "PRACA_FONTE",
+   "center": [
+    1535,
+    1168
+   ],
+   "rx": 108,
+   "ry": 74,
+   "wobble": 0.18,
+   "why": "cruzamento das avenidas; fonte central (colisão da fonte vem de reg001_world)"
+  }
+ ],
+ "roads": [
+  {
+   "id": "AV_NORTE",
+   "kind": "avenue",
+   "half": 34,
+   "why": "portão norte -> praça (chegada de quem vem do Bosque/Estrada Norte)",
+   "pts": [
+    [
+     1533,
+     790
+    ],
+    [
+     1533,
+     858
+    ],
+    [
+     1548,
+     960
+    ],
+    [
+     1522,
+     1060
+    ],
+    [
+     1535,
+     1165
+    ]
+   ]
+  },
+  {
+   "id": "AV_OESTE",
+   "kind": "avenue",
+   "half": 32,
+   "why": "praça -> Guilda -> Arquivo -> estrada de fronteira (saída do Ato I rumo à Floresta); contorna o lago-jardim diante do Arquivo",
+   "pts": [
+    [
+     1535,
+     1165
+    ],
+    [
+     1400,
+     1150
+    ],
+    [
+     1250,
+     1172
+    ],
+    [
+     1100,
+     1160
+    ],
+    [
+     980,
+     1186
+    ],
+    [
+     865,
+     1200
+    ],
+    [
+     760,
+     1184
+    ],
+    [
+     650,
+     1162
+    ]
+   ]
+  },
+  {
+   "id": "EST_FRONTEIRA_OESTE",
+   "kind": "road",
+   "half": 30,
+   "why": "estrada de fronteira: Arquivo das Seis Coroas -> Ponte de Pedra da Floresta (fora do mapa, Ato II)",
+   "pts": [
+    [
+     650,
+     1162
+    ],
+    [
+     520,
+     1184
+    ],
+    [
+     390,
+     1166
+    ],
+    [
+     250,
+     1182
+    ],
+    [
+     120,
+     1154
+    ],
+    [
+     -12,
+     1166
+    ]
+   ]
+  },
+  {
+   "id": "AV_LESTE",
+   "kind": "avenue",
+   "half": 32,
+   "why": "praça -> cais -> ponte mercante (y=1250)",
+   "pts": [
+    [
+     1535,
+     1165
+    ],
+    [
+     1680,
+     1150
+    ],
+    [
+     1850,
+     1170
+    ],
+    [
+     2000,
+     1190
+    ],
+    [
+     2105,
+     1225
+    ],
+    [
+     2168,
+     1226
+    ]
+   ]
+  },
+  {
+   "id": "EST_LESTE",
+   "kind": "road",
+   "half": 30,
+   "why": "ponte mercante -> colinas do leste (Estação das Colinas / Caravana)",
+   "pts": [
+    [
+     2250,
+     1250
+    ],
+    [
+     2330,
+     1252
+    ],
+    [
+     2440,
+     1270
+    ],
+    [
+     2560,
+     1246
+    ],
+    [
+     2700,
+     1264
+    ],
+    [
+     2860,
+     1244
+    ],
+    [
+     3084,
+     1256
+    ]
+   ]
+  },
+  {
+   "id": "RUA_GUILDA",
+   "kind": "street",
+   "half": 22,
+   "why": "beco entre o Arquivo e a Guilda (pátio dos fundos)",
+   "pts": [
+    [
+     1012,
+     1170
+    ],
+    [
+     1018,
+     1080
+    ],
+    [
+     1004,
+     990
+    ],
+    [
+     1014,
+     905
+    ]
+   ]
+  },
+  {
+   "id": "RUA_SUL",
+   "kind": "street",
+   "half": 22,
+   "why": "avenida leste -> contorna o quarteirão sudeste -> portão sul (x=1950) -> vale",
+   "pts": [
+    [
+     1700,
+     1152
+    ],
+    [
+     1648,
+     1250
+    ],
+    [
+     1618,
+     1345
+    ],
+    [
+     1650,
+     1415
+    ],
+    [
+     1720,
+     1432
+    ],
+    [
+     1850,
+     1424
+    ],
+    [
+     1925,
+     1448
+    ],
+    [
+     1950,
+     1505
+    ],
+    [
+     1966,
+     1600
+    ]
+   ]
+  },
+  {
+   "id": "AV_SUL",
+   "kind": "street",
+   "half": 22,
+   "why": "praça -> quarteirão sul (rua sem saída junto à muralha; postigo previsto na Etapa 2)",
+   "pts": [
+    [
+     1535,
+     1165
+    ],
+    [
+     1525,
+     1270
+    ],
+    [
+     1500,
+     1375
+    ],
+    [
+     1478,
+     1440
+    ]
+   ]
+  },
+  {
+   "id": "EST_VALE",
+   "kind": "road",
+   "half": 32,
+   "why": "estrada do vale: portão sul -> Aldeia do Vale -> Mina do Eco (sul)",
+   "pts": [
+    [
+     1966,
+     1600
+    ],
+    [
+     1800,
+     1640
+    ],
+    [
+     1640,
+     1680
+    ],
+    [
+     1560,
+     1745
+    ],
+    [
+     1548,
+     1830
+    ],
+    [
+     1530,
+     1980
+    ],
+    [
+     1550,
+     2130
+    ],
+    [
+     1570,
+     2230
+    ],
+    [
+     1566,
+     2316
+    ]
+   ]
+  },
+  {
+   "id": "EST_NORTE",
+   "kind": "road",
+   "half": 30,
+   "why": "Estrada Norte: portão -> lavouras -> Viajante -> matilha/Ruínas (Ato I); passa pelo vão da paliçada quebrada (estreitamento defensivo)",
+   "pts": [
+    [
+     1533,
+     800
+    ],
+    [
+     1533,
+     740
+    ],
+    [
+     1515,
+     650
+    ],
+    [
+     1530,
+     540
+    ],
+    [
+     1541,
+     468
+    ],
+    [
+     1532,
+     360
+    ],
+    [
+     1542,
+     290
+    ],
+    [
+     1530,
+     150
+    ],
+    [
+     1540,
+     -12
+    ]
+   ]
+  },
+  {
+   "id": "RAMAL_GEADA",
+   "kind": "road",
+   "half": 30,
+   "why": "Estrada Norte -> por cima das lavouras (fora das barricadas do portão) -> ponte norte (y=760)",
+   "pts": [
+    [
+     1515,
+     652
+    ],
+    [
+     1640,
+     656
+    ],
+    [
+     1760,
+     646
+    ],
+    [
+     1880,
+     648
+    ],
+    [
+     2000,
+     690
+    ],
+    [
+     2130,
+     756
+    ]
+   ]
+  },
+  {
+   "id": "RAMAL_GEADA_L",
+   "kind": "road",
+   "half": 30,
+   "why": "margem leste da ponte norte -> entroncamento do nordeste",
+   "pts": [
+    [
+     2300,
+     752
+    ],
+    [
+     2380,
+     742
+    ],
+    [
+     2450,
+     748
+    ],
+    [
+     2510,
+     764
+    ]
+   ]
+  },
+  {
+   "id": "EST_GEADA",
+   "kind": "road",
+   "half": 22,
+   "why": "entroncamento -> Pouso da Geada -> Passagem Estreita (norte gelado) (estreita na Passagem Estreita: a garganta de gelo aperta a estrada)",
+   "pts": [
+    [
+     2510,
+     764
+    ],
+    [
+     2495,
+     640
+    ],
+    [
+     2520,
+     520
+    ],
+    [
+     2500,
+     400
+    ],
+    [
+     2512,
+     250
+    ],
+    [
+     2512,
+     90
+    ],
+    [
+     2510,
+     -12
+    ]
+   ]
+  },
+  {
+   "id": "EST_COLINAS",
+   "kind": "road",
+   "half": 28,
+   "why": "ligação norte-sul pela margem leste: Geada <-> estrada leste",
+   "pts": [
+    [
+     2510,
+     764
+    ],
+    [
+     2545,
+     900
+    ],
+    [
+     2570,
+     1050
+    ],
+    [
+     2555,
+     1180
+    ],
+    [
+     2560,
+     1250
+    ]
+   ]
+  },
+  {
+   "id": "RAMAL_VALE",
+   "kind": "road",
+   "half": 30,
+   "why": "estrada do vale -> ponte sul (y=1840) -> Dunas/Caravana",
+   "pts": [
+    [
+     1545,
+     1830
+    ],
+    [
+     1700,
+     1846
+    ],
+    [
+     1850,
+     1826
+    ],
+    [
+     1958,
+     1838
+    ],
+    [
+     2060,
+     1846
+    ],
+    [
+     2140,
+     1840
+    ]
+   ]
+  },
+  {
+   "id": "RAMAL_DUNAS",
+   "kind": "road",
+   "half": 30,
+   "why": "margem leste da ponte sul -> Posto de Âmbar (contorna o posto) -> leste",
+   "pts": [
+    [
+     2300,
+     1840
+    ],
+    [
+     2420,
+     1846
+    ],
+    [
+     2560,
+     1868
+    ],
+    [
+     2690,
+     1888
+    ],
+    [
+     2820,
+     1860
+    ],
+    [
+     2950,
+     1848
+    ],
+    [
+     3084,
+     1840
+    ]
+   ]
+  }
+ ],
+ "structures": [
+  {
+   "pos": [
+    272,
+    1080
+   ],
+   "kind": "watchtower",
+   "label": "TORRE DO OESTE",
+   "radius": 42
+  },
+  {
+   "pos": [
+    1320,
+    345
+   ],
+   "kind": "watchtower",
+   "label": "TORRE DO NORTE",
+   "radius": 42
+  },
+  {
+   "pos": [
+    1060,
+    1920
+   ],
+   "kind": "windmill",
+   "label": "MOINHO DO VALE",
+   "radius": 50
+  },
+  {
+   "pos": [
+    1660,
+    2010
+   ],
+   "kind": "shrine",
+   "label": "SANTUÁRIO DO VALE",
+   "radius": 38
+  },
+  {
+   "pos": [
+    2690,
+    1800
+   ],
+   "kind": "desert_outpost",
+   "label": "POSTO DE ÂMBAR",
+   "radius": 54
+  },
+  {
+   "pos": [
+    2700,
+    600
+   ],
+   "kind": "ice_lodge",
+   "label": "ABRIGO DA GEADA",
+   "radius": 54
+  }
+ ],
+ "biome_warp": {
+  "note": "deslocamento analítico (soma de senos) aplicado antes das regras de bioma: bordas orgânicas, idênticas na lógica e no chão",
+  "ax": [
+   [
+    62,
+    0.0,
+    0.0034,
+    1.1
+   ],
+   [
+    40,
+    0.0,
+    0.0118,
+    0.4
+   ],
+   [
+    26,
+    0.0071,
+    0.0253,
+    2.3
+   ]
+  ],
+  "ay": [
+   [
+    58,
+    0.0037,
+    0.0,
+    0.7
+   ],
+   [
+    38,
+    0.0122,
+    0.0,
+    2.0
+   ],
+   [
+    24,
+    0.0261,
+    0.0063,
+    1.6
+   ]
+  ]
+ },
+ "exits": [
+  {
+   "id": "SAIDA_OESTE_FLORESTA",
+   "pos": [
+    40,
+    1166
+   ],
+   "to_region": "REG_002",
+   "story_location": "LOC_FOREST_STONE_BRIDGE",
+   "why": "Topologia: Arquivo das Seis Coroas -> estrada de fronteira -> Ponte de Pedra da Floresta (Ato II)"
+  }
+ ]
+}

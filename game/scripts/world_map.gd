@@ -8,14 +8,80 @@ const BRIDGE_Y: float = 1250.0 # compatibilidade com testes/saves antigos
 const BRIDGE_YS: Array[float] = [760.0, 1250.0, 1840.0]
 const REG = preload("res://scripts/reg001_world.gd")
 
+# Remapeamento Etapa 1: posições iguais às de data/reg001_layout.json (e aos objetos str_* reais do mundo).
 const STRUCTURES: Array[Dictionary] = [
-	{"pos": Vector2(360, 1110), "kind": "watchtower", "label": "TORRE DO OESTE", "radius": 42.0},
+	{"pos": Vector2(272, 1080), "kind": "watchtower", "label": "TORRE DO OESTE", "radius": 42.0},
 	{"pos": Vector2(1320, 345), "kind": "watchtower", "label": "TORRE DO NORTE", "radius": 42.0},
-	{"pos": Vector2(1110, 1880), "kind": "windmill", "label": "MOINHO DO VALE", "radius": 50.0},
+	{"pos": Vector2(1060, 1920), "kind": "windmill", "label": "MOINHO DO VALE", "radius": 50.0},
 	{"pos": Vector2(1660, 2010), "kind": "shrine", "label": "SANTUÁRIO DO VALE", "radius": 38.0},
-	{"pos": Vector2(2690, 1820), "kind": "desert_outpost", "label": "POSTO DE ÂMBAR", "radius": 54.0},
+	{"pos": Vector2(2690, 1800), "kind": "desert_outpost", "label": "POSTO DE ÂMBAR", "radius": 54.0},
 	{"pos": Vector2(2700, 600), "kind": "ice_lodge", "label": "ABRIGO DA GEADA", "radius": 54.0}
 ]
+
+# Traçado (estradas por spline, praça, contorno orgânico da cidade e bioma com bordas deformadas) vem de uma grade gerada
+# por tools/reg001/layout.py a partir de data/reg001_layout.json — a mesma fonte do chão assado e do gerador de conteúdo.
+const LAYOUT_GRID_PATH: String = "res://data/reg001_layout_grid.json"
+const BIOME_BY_LETTER: Dictionary = {"T": "cidade", "S": "gelo", "D": "deserto", "C": "campos", "V": "vale", "F": "floresta", "P": "pradaria"}
+static var _layout: Dictionary = {}
+# grades em bytes (carregadas uma vez): consulta O(1) sem alocar string — prop_at/obstacle_at chamam isto milhares de vezes
+static var _grid_ready: bool = false
+static var _gw: int = 0
+static var _gh: int = 0
+static var _gcell: float = 16.0
+static var _g_road: PackedByteArray = PackedByteArray()
+static var _g_town: PackedByteArray = PackedByteArray()
+static var _g_bio: PackedByteArray = PackedByteArray()
+static var _bio_names: PackedStringArray = PackedStringArray()
+
+static func layout_grid() -> Dictionary:
+	if _layout.is_empty():
+		var file: FileAccess = FileAccess.open(LAYOUT_GRID_PATH, FileAccess.READ)
+		if file != null:
+			var parsed: Variant = JSON.parse_string(file.get_as_text())
+			if parsed is Dictionary:
+				_layout = parsed as Dictionary
+		if _layout.is_empty():
+			_layout = {"cell": 16, "w": 0, "h": 0, "road": [], "town": [], "biome": []}
+	return _layout
+
+static func _pack(rows: Array) -> PackedByteArray:
+	var out: PackedByteArray = PackedByteArray()
+	for row in rows:
+		out.append_array(str(row).to_ascii_buffer())
+	return out
+
+static func _ensure_grid() -> void:
+	if _grid_ready:
+		return
+	_grid_ready = true
+	var g: Dictionary = layout_grid()
+	_gw = int(g.get("w", 0))
+	_gh = int(g.get("h", 0))
+	_gcell = float(g.get("cell", 16))
+	_g_road = _pack(g.get("road", []) as Array)
+	_g_town = _pack(g.get("town", []) as Array)
+	_g_bio = _pack(g.get("biome", []) as Array)
+	_bio_names.resize(128)
+	for i in 128:
+		_bio_names[i] = str(BIOME_BY_LETTER.get(char(i), "pradaria")) if i > 0 else ""
+
+static func _grid_byte(kind: int, p: Vector2) -> int:
+	# kind: 0 estrada/trilha, 1 cidade, 2 bioma (o array é escolhido DEPOIS de garantir a carga)
+	_ensure_grid()
+	var cx: int = int(p.x / _gcell)
+	var cy: int = int(p.y / _gcell)
+	if p.x < 0.0 or p.y < 0.0 or cx >= _gw or cy >= _gh:
+		return 0
+	var i: int = cy * _gw + cx
+	if kind == 0:
+		return _g_road[i]
+	if kind == 1:
+		return _g_town[i]
+	return _g_bio[i]
+
+static func layout_cell(kind: String, p: Vector2) -> String:
+	var b: int = _grid_byte(0 if kind == "road" else (1 if kind == "town" else 2), p)
+	return "" if b == 0 else char(b)
 
 static func river_x(y: float) -> float:
 	# Curva menos uniforme: trechos largos, gargalos e pequenas inflexões.
@@ -52,20 +118,29 @@ static func bridge_at(p: Vector2) -> bool:
 	return bridge_index_at(p) >= 0
 
 static func town_area(p: Vector2) -> bool:
-	return TOWN_BOUNDS.has_point(p)
+	if not _grid_ready:
+		_ensure_grid()
+	var cx: int = int(p.x / _gcell)
+	var cy: int = int(p.y / _gcell)
+	if p.x < 0.0 or p.y < 0.0 or cx >= _gw or cy >= _gh:
+		return false
+	return _g_town[cy * _gw + cx] == 49   # ASCII '1'
 
 static func biome(p: Vector2) -> String:
-	if town_area(p):
-		return "cidade"
-	if p.x > 2010 and p.y < 860:
-		return "gelo"
-	if p.x > 1980 and p.y > 1370:
-		return "deserto"
-	if p.y > 1570:
-		return "campos" if p.x < 760 else "vale"
-	if p.x < 1040 or p.y < 680:
-		return "floresta"
-	return "pradaria"
+	if not _grid_ready:
+		_ensure_grid()
+	var cx: int = int(p.x / _gcell)
+	var cy: int = int(p.y / _gcell)
+	if p.x < 0.0 or p.y < 0.0 or cx >= _gw or cy >= _gh:
+		# fora do mapa: mesma regra topológica, sem deformação
+		if p.x > 2010 and p.y < 860:
+			return "gelo"
+		if p.x > 1980 and p.y > 1370:
+			return "deserto"
+		if p.y > 1570:
+			return "campos" if p.x < 760 else "vale"
+		return "floresta" if (p.x < 1040 or p.y < 680) else "pradaria"
+	return _bio_names[_g_bio[cy * _gw + cx]]
 
 static func family_biome(letter: String, fallback: String) -> String:
 	match letter:
@@ -97,31 +172,14 @@ static func veg_biome(x: int, y: int) -> String:
 	return here
 
 static func path_at(p: Vector2) -> bool:
-	# Estradas principais da cidade + ramificações para as três pontes.
-	if town_area(p):
-		var q: Vector2 = p - TOWN
-		return absf(q.x - 890.0) < 80.0 or absf(q.y - 478.0) < 65.0 or (q.y < 478.0 and absf(q.x - 448.0) < 47.0) or (q.y > 478.0 and absf(q.x - 1300.0) < 46.0)
-	if p.x < 650 and absf(p.y - 1160.0) < 49:
-		return true
-	if p.y < 680 and absf(p.x - 1536.0) < 46:
-		return true
-	if p.y > 1567 and absf(p.x - 1536.0) < 48:
-		return true
-	# Via central para a ponte mercantil.
-	if p.x > 2320 and absf(p.y - BRIDGE_YS[1]) < 49:
-		return true
-	if p.x > 2280 and absf(p.x - 2560.0) < 43 and p.y < 1280:
-		return true
-	# Ramal alto: cidade -> gelo, cruza a ponte do norte.
-	if p.y > 700 and p.y < 820 and p.x > 1700:
-		return true
-	if p.x > 2470 and p.x < 2550 and p.y < 820:
-		return true
-	# Ramal baixo: vale -> dunas, cruza a ponte sul.
-	if p.y > 1790 and p.y < 1890 and p.x > 1450:
-		return true
-	# Rotas secundárias e atalhos da REG_001 (dados em reg001_world.json).
-	return REG.trail_at(p)
+	# Estradas por spline, praças e trilhas/atalhos da REG_001 — tudo rasterizado na grade do layout (consulta O(1)).
+	if not _grid_ready:
+		_ensure_grid()
+	var cx: int = int(p.x / _gcell)
+	var cy: int = int(p.y / _gcell)
+	if p.x < 0.0 or p.y < 0.0 or cx >= _gw or cy >= _gh:
+		return false
+	return _g_road[cy * _gw + cx] == 49   # ASCII '1'
 
 static func ground_biome(p: Vector2) -> String:
 	# Só para o piso: dispersa a fronteira dos biomas (±48 px) e evita a linha reta entre tiles de terreno.

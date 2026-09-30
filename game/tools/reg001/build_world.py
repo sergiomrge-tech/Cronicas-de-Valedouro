@@ -11,6 +11,7 @@ import sys
 from pathlib import Path
 
 import geo
+import layout
 from spec import World, GAME, ASSETS
 
 OUT = GAME / 'data' / 'reg001_world.json'
@@ -93,7 +94,16 @@ TRAILS = []
 
 
 def trail(tid, pts, half=26.0, note=''):
-    TRAILS.append({'id': tid, 'pts': [[round(a, 1), round(b, 1)] for a, b in pts], 'half': half, 'note': note})
+    # remapeamento Etapa 1: trilha por spline (sem quinas de 90°) com leve serpenteio lateral (chão pisado não é régua)
+    dense = layout.catmull([tuple(p) for p in pts], step=18.0)
+    sd = sum(map(ord, tid)) % 97
+    out = []
+    for i, (x, y) in enumerate(dense):
+        a, b = dense[max(0, i - 1)], dense[min(len(dense) - 1, i + 1)]
+        L = math.hypot(b[0] - a[0], b[1] - a[1]) or 1.0
+        m = 0.0 if i in (0, len(dense) - 1) else 5.0 * math.sin(i * .33 + sd) + 3.0 * math.sin(i * .91 + sd * 2)
+        out.append([round(x - (b[1] - a[1]) / L * m, 1), round(y + (b[0] - a[0]) / L * m, 1)])
+    TRAILS.append({'id': tid, 'pts': out, 'half': half, 'note': note})
     for a, b in zip(pts, pts[1:]):
         W.clear((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, math.hypot(b[0] - a[0], b[1] - a[1]) / 2 + half)
 
@@ -1026,7 +1036,7 @@ for _x, _y, _roof, _grp, _poi in ((345, 1835, 'red', 'VILA_C', 'REG001_POI_VILA_
 # árvores aprovadas: alamedas ao longo das ruas e jardins
 _rt = random.Random(4242)
 for _tx, _ty in ((760, 255), (1040, 250), (1200, 250), (1330, 250), (60, 470), (60, 700), (340, 520), (560, 560),
-                 (760, 720), (1130, 560), (1200, 740), (1400, 520), (1720, 640), (1720, 300), (700, 480), (1060, 470)):
+                 (760, 720), (1130, 560), (1400, 520), (1720, 640), (1720, 300), (700, 480), (1060, 470)):
     if _town_free(_tx, _ty, w=60, h=40, pad=0):
         W.obj('nat_oak_autumn' if _rt.random() < .25 else _rt.choice(['nat_oak_a', 'nat_oak_b']), TX + _tx, TY + _ty, 'CIDADE_ARV', scale=.72, solid=False, check=False)
         W.collider('circle', TX + _tx, TY + _ty - 4, 14)
@@ -1177,8 +1187,8 @@ W.obj('str_scarecrow', 1672, 578, 'ESTRADA_N', check=False)
 iso_wall('cerca', (1330, 548), [('se', 3), ('sw', 2)], 'ESTRADA_N')          # cerca da lavoura: canto em L nos eixos isométricos
 W.obj('nat_hay_stack', 1350, 620, 'ESTRADA_N', check=False)
 W.obj('nat_signpost', 1610, 660, 'ESTRADA_N', check=False)
-krun('val_palisade_broken', [(1380, 505), (1420, 478), (1470, 462), (1510, 470)], 'ESTRADA_N')      # paliçada em ARCO (oeste da estrada)
-krun('val_palisade_broken', [(1570, 470), (1620, 478), (1665, 505), (1690, 540)], 'ESTRADA_N')      # arco leste
+krun('val_palisade_broken', [(1370, 505), (1410, 478), (1455, 462), (1492, 468)], 'ESTRADA_N')      # paliçada em ARCO (oeste da estrada)
+krun('val_palisade_broken', [(1592, 470), (1635, 480), (1675, 505), (1698, 540)], 'ESTRADA_N')      # arco leste
 W.obj('val_cart_wrecked', 1655, 420, 'ESTRADA_N', check=False)
 W.obj('val_warning_post', 1475, 380, 'ESTRADA_N', check=False, solid=False)
 W.obj('val_warning_post', 1600, 330, 'ESTRADA_N', check=False, solid=False, flip=True)
@@ -1224,6 +1234,8 @@ def _elev_ok(x, y, rad, group=None):
         for a, b in zip(t['pts'], t['pts'][1:]):
             if _seg_dist(x, y, a[0], a[1], b[0], b[1]) < t['half'] + rad * .45 + 14:
                 return False
+    if layout.road_at(x, y, pad=rad * .45 + 14):          # remapeamento: mesma folga das trilhas para as estradas por spline
+        return False
     for o in W.objects:
         if o['zone'] != 'cidade':
             continue
@@ -1525,6 +1537,7 @@ def build():
         'mini_dungeon': CRYPT,
     }
     OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=None, separators=(',', ':')) + '\n', encoding='utf-8')
+    layout.write_grid(trails=TRAILS)          # grade lógica do runtime inclui estradas, praças E trilhas (path_at O(1))
     return doc
 
 

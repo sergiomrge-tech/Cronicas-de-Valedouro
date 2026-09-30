@@ -23,6 +23,7 @@ sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(GAME / 'tools' / 'reg001'))
 sys.path.insert(0, str(GAME / 'tools' / 'modeling'))
 import geo  # noqa: E402
+import layout  # noqa: E402
 import texlib as T  # noqa: E402
 import manifest_lib  # noqa: E402
 import ground_detail as GD  # noqa: E402
@@ -83,36 +84,8 @@ def river_x_v(y):
 
 
 def biome_ids(xx, yy):
-    """0 cidade, 1 gelo, 2 deserto, 3 campos, 4 vale, 5 floresta, 6 pradaria (vetorizado; igual a world_map.biome)."""
-    town = (xx >= 650) & (xx < 650 + 1774) & (yy >= 680) & (yy < 680 + 887)
-    ice = (xx > 2010) & (yy < 860)
-    des = (xx > 1980) & (yy > 1370)
-    low = yy > 1570
-    out = np.full(xx.shape, 6, dtype=np.int8)
-    out = np.where((xx < 1040) | (yy < 680), 5, out)
-    out = np.where(low & (xx < 760), 3, np.where(low, 4, out))
-    out = np.where(des, 2, out)
-    out = np.where(ice, 1, out)
-    out = np.where(town, 0, out)
-    return out
-
-
-def path_mask_geo(xx, yy):
-    """Estradas principais (world_map.path_at, sem trilhas) vetorizado."""
-    tx, ty = 650, 680
-    town = (xx >= tx) & (xx < tx + 1774) & (yy >= ty) & (yy < ty + 887)
-    qx, qy = xx - tx, yy - ty
-    t = town & ((np.abs(qx - 890) < 80) | (np.abs(qy - 478) < 65) | ((qy < 478) & (np.abs(qx - 448) < 47)) | ((qy > 478) & (np.abs(qx - 1300) < 46)))
-    m = t
-    m |= (~town) & (xx < 650) & (np.abs(yy - 1160) < 49)
-    m |= (~town) & (yy < 680) & (np.abs(xx - 1536) < 46)
-    m |= (~town) & (yy > 1567) & (np.abs(xx - 1536) < 48)
-    m |= (~town) & (xx > 2320) & (np.abs(yy - 1250) < 49)
-    m |= (~town) & (xx > 2280) & (np.abs(xx - 2560) < 43) & (yy < 1280)
-    m |= (~town) & (yy > 700) & (yy < 820) & (xx > 1700)
-    m |= (~town) & (xx > 2470) & (xx < 2550) & (yy < 820)
-    m |= (~town) & (yy > 1790) & (yy < 1890) & (xx > 1450)
-    return m
+    """0 cidade, 1 gelo, 2 deserto, 3 campos, 4 vale, 5 floresta, 6 pradaria — da fonte única data/reg001_layout.json (remapeamento)."""
+    return layout.biome_ids_np(xx, yy)
 
 
 def bridge_masks(xx, yy):
@@ -134,25 +107,19 @@ def build_terrain_ids(x0, y0, w, h, trails_mask, ford_mask, seeds):
     A = seeds['warpA']; B = seeds['warpB']
     # Broad continuous coordinate warp: breaks rectangular biome borders into
     # large natural masses instead of swapping between two warped samples.
-    dxa = (A[0][y0:y0 + h, x0:x0 + w] - .5) * 190
-    dya = (A[1][y0:y0 + h, x0:x0 + w] - .5) * 190
-    dxb = (B[0][y0:y0 + h, x0:x0 + w] - .5) * 145
-    dyb = (B[1][y0:y0 + h, x0:x0 + w] - .5) * 145
     bay = bayer(h, w, x0, y0)
     fine = seeds['fine'][y0:y0 + h, x0:x0 + w]
     macro_mix = seeds['macro'][y0:y0 + h, x0:x0 + w]
-    LA, LB = seeds['warpL']
-    dxl = (LA[y0:y0 + h, x0:x0 + w] - .5) * 230
-    dyl = (LB[y0:y0 + h, x0:x0 + w] - .5) * 230
-    bx = xx + dxa * (1.0 - macro_mix) + dxb * macro_mix + dxl
-    by_ = yy + dya * (1.0 - macro_mix) + dyb * macro_mix + dyl
+    # bordas de bioma: a forma grande vem do layout (igual à lógica); aqui só um tremor fino de pixel-art (±14 px)
+    bx = xx + (A[0][y0:y0 + h, x0:x0 + w] - .5) * 28 + (fine - .5) * 10
+    by_ = yy + (A[1][y0:y0 + h, x0:x0 + w] - .5) * 28 + (fine - .5) * 10
     bio = biome_ids(bx, by_)
     patch1 = seeds['p1'][y0:y0 + h, x0:x0 + w]
     patch2 = seeds['p2'][y0:y0 + h, x0:x0 + w]
     patch3 = seeds['p3'][y0:y0 + h, x0:x0 + w]
     ter = np.full((h, w), IDX['grass_a'], dtype=np.int8)
-    # cidade
-    ter = np.where(bio == 0, IDX['cobble'], ter)
+    # cidade: lotes/quintais de terra batida e relva (calçamento só em ruas e praça, aplicado com as estradas abaixo)
+    ter = np.where(bio == 0, np.where(gt(patch3 * .6 + fine * .4, .38, bay), IDX['dirt'], np.where(gt(patch2, .75, bay, .05), IDX['meadow'], IDX['grass_a'])), ter)
     # pradaria (colinas): relva com trechos de prado
     ter = np.where(bio == 6, np.where(gt(patch1, .6, bay), IDX['meadow'], np.where(gt(patch2, .9, bay, .04), IDX['dirt'], IDX['grass_a'])), ter)
     # campos
@@ -192,13 +159,14 @@ def build_terrain_ids(x0, y0, w, h, trails_mask, ford_mask, seeds):
     ford_vis = ford_mask & in_range & (deep_raw | shal_raw)
     ter = np.where(ford_vis, np.where(gt(patch2, .5, bay, .12), IDX['riverbed'], IDX['water_shallow']), ter)
     # estradas e trilhas com bordas irregulares
-    road = path_mask_geo(xx, yy) | trails_mask
+    road = layout.road_mask_np(x0, y0, w, h) | trails_mask
     road_img = Image.fromarray((road * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(10))
     road_prob = np.asarray(road_img, dtype=np.float32) / 255.0
     edge_noise = (seeds['road_soft'][y0:y0 + h, x0:x0 + w] - .5) * .72 + (bay - .5) * .08
     road_final = (road_prob > (.5 + edge_noise)) & ~(deep | shal) & ~bridge_any
     road_ter = np.where(gt(patch1, .82, bay), IDX['dirt'], IDX['road'])      # trilha = chão batido com pedrisco; terra nua só em manchas
     road_ter = np.where(bio == 2, IDX['road_sand'], np.where(bio == 1, IDX['road_snow'], road_ter))
+    road_ter = np.where(layout.town_np(xx, yy), IDX['cobble'], road_ter)          # ruas e praça da cidade calçadas
     ter = np.where(road_final, road_ter, ter)
     # pontes
     for i, m in enumerate(bridge_masks(xx, yy)):

@@ -1042,8 +1042,6 @@ func _draw() -> void:
 		view_items = PROC.view(view_rect)
 		REGR.draw_ground(self, view_items, view_rect, time_acc, approved_visuals)
 		draw_overworld(camera, x_start, x_end, y_start, y_end)
-		if Rect2(camera, VIEW_SIZE).intersects(MAP.TOWN_BOUNDS.grow(180.0)):
-			draw_approved_town_border(camera)
 		if Rect2(camera, VIEW_SIZE).intersects(MAP.TOWN_BOUNDS):
 			draw_approved_town(camera)
 			draw_town_life(camera)
@@ -1162,8 +1160,8 @@ func draw_approved_town(camera: Vector2) -> void:
 	for row in 25:
 		for column in 26:
 			var ground: Vector2 = MAP.TOWN + Vector2(35.0 + column * 70.0 + float(row % 2) * 35.0, 86.0 + row * 35.0)
-			if not MAP.TOWN_BOUNDS.has_point(ground) or not visible_area.has_point(ground):
-				continue
+			if not visible_area.has_point(ground) or not MAP.town_area(ground) or not MAP.path_at(ground):
+				continue   # remapeamento: calçamento APPROVED só nas ruas e na praça (lotes ficam com o chão assado de terra/relva)
 			var tile_seed: int = MAP.cell_hash(column + 400, row + 600)
 			var floor_key: String = "city_floor_clean"
 			if tile_seed % 7 == 0:
@@ -1205,27 +1203,6 @@ func draw_approved_town(camera: Vector2) -> void:
 		var tree_ground: Vector2 = MAP.TOWN + tree_positions[tree_index]
 		if visible_area.has_point(tree_ground):
 			draw_approved_tree(tree_ground, tree_index % 5 == 0, .50)
-
-func draw_approved_town_border(camera: Vector2) -> void:
-	var visible_area: Rect2 = Rect2(camera - Vector2(180, 180), VIEW_SIZE + Vector2(360, 360))
-	var bounds: Rect2 = MAP.TOWN_BOUNDS
-	var border_points: Array[Vector2] = []
-	for index in 14:
-		var ratio: float = float(index) / 13.0
-		border_points.append(Vector2(bounds.position.x + ratio * bounds.size.x, bounds.position.y - 30.0))
-		border_points.append(Vector2(bounds.position.x + ratio * bounds.size.x, bounds.end.y + 28.0))
-	for index in 7:
-		var ratio_side: float = float(index) / 6.0
-		border_points.append(Vector2(bounds.position.x - 28.0, bounds.position.y + ratio_side * bounds.size.y))
-		border_points.append(Vector2(bounds.end.x + 28.0, bounds.position.y + ratio_side * bounds.size.y))
-	for point_index in range(border_points.size()):
-		var point: Vector2 = border_points[point_index]
-		if not visible_area.has_point(point):
-			continue
-		var local: Vector2 = point - MAP.TOWN
-		if absf(local.x - 890.0) < 150.0 or absf(local.y - 478.0) < 125.0:
-			continue
-		draw_approved_tree(point, point_index % 7 == 0, .42)
 
 func draw_world_structure(entry: Dictionary) -> void:
 	# O corpo da estrutura é um objeto modelado da REG_001 (str_*); aqui fica apenas o rótulo do marco.
