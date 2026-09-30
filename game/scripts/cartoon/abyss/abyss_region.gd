@@ -11,6 +11,7 @@ const HeroScript = preload("res://scripts/cartoon/cartoon_hero.gd")
 const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
 const MapOverlayScript = preload("res://scripts/cartoon/abyss/abyss_map_overlay.gd")
 const ExplorationDirectorScript = preload("res://scripts/cartoon/cartoon_exploration_director.gd")
+const CraftingUIScript = preload("res://scripts/cartoon/cartoon_crafting_ui.gd")
 
 var story_zones: Node2D
 var objects: Node2D
@@ -19,6 +20,7 @@ var camera: Camera2D
 var world_stream: Node2D
 var story_runtime: RefCounted
 var exploration_director: Node
+var crafting_ui: Control
 var monsters: Array[Node2D] = []
 var pois: Array[Dictionary] = []
 var ui: CanvasLayer
@@ -82,6 +84,10 @@ func _ready() -> void:
 	camera.limit_bottom = int(Abyss.REGION_SIZE.y)
 	hero.add_child(camera)
 	_build_ui()
+	crafting_ui = CraftingUIScript.new()
+	crafting_ui.name = "CraftingUI"
+	ui.add_child(crafting_ui)
+	crafting_ui.setup(self,hero,Abyss.REGION_ID)
 	_refresh_objective()
 
 func _add_poi_prop(data: Dictionary) -> void:
@@ -151,7 +157,7 @@ func _attack() -> void:
 	if boss_id == "BOSS_AZHAREL_001" and story_runtime.current_id != "Q_MS08_AZHAREL":
 		_show_toast("O Trono ainda não reconhece o Segundo Viajante.")
 		return
-	var dead: bool = target.take_damage(34)
+	var dead: bool = target.take_damage(hero.attack_damage(34))
 	if not dead:
 		return
 	monsters.erase(target)
@@ -223,7 +229,7 @@ func _update_monsters(delta: float) -> void:
 				monster.position = next
 		if dist <= 58.0 and monster.can_hit():
 			monster.mark_hit()
-			player_hp = maxi(0,player_hp-int(monster.contact_damage))
+			player_hp = maxi(0,player_hp-int(hero.reduce_incoming_damage(int(monster.contact_damage))))
 			_refresh_stats()
 			if player_hp <= 0:
 				player_hp = player_max_hp
