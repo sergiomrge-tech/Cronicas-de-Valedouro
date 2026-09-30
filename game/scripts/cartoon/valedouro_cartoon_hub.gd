@@ -11,6 +11,7 @@ const ExplorationContent = preload("res://scripts/cartoon/cartoon_exploration_co
 const MainStoryMap = preload("res://scripts/cartoon/cartoon_main_story_map.gd")
 const StoryZoneScript = preload("res://scripts/cartoon/cartoon_story_zone.gd")
 const StoryRuntimeScript = preload("res://scripts/cartoon/cartoon_story_runtime.gd")
+const MapOverlayScript = preload("res://scripts/cartoon/hub_map_overlay.gd")
 
 var environment: ValedouroCartoonHubEnvironment
 var objects: Node2D
@@ -24,6 +25,8 @@ var objective_label: Label
 var stats_label: Label
 var toast_label: Label
 var poi_label: Label
+var map_overlay: Control
+var map_open: bool = false
 var objective_nav_label: Label
 var joystick_id: int = -1
 var joystick_origin = Vector2.ZERO
@@ -91,10 +94,40 @@ func _build_ui() -> void:
 	objective_label=Label.new(); objective_label.position=Vector2(14,9); objective_label.size=Vector2(300,70); objective_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; objective_label.text=story_runtime.hud_text(); objective_label.add_theme_color_override("font_color",Color(1,0.91,0.58)); q.add_child(objective_label)
 	toast_label=Label.new(); toast_label.position=Vector2(280,450); toast_label.size=Vector2(400,42); toast_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; toast_label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER; toast_label.add_theme_font_size_override("font_size",18); toast_label.add_theme_color_override("font_color",Color(1,0.92,0.58)); toast_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); toast_label.add_theme_constant_override("shadow_offset_x",2); toast_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(toast_label)
 	poi_label=Label.new(); poi_label.position=Vector2(330,105); poi_label.size=Vector2(300,30); poi_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; poi_label.add_theme_font_size_override("font_size",17); poi_label.add_theme_color_override("font_color",Color(1,1,1)); poi_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); poi_label.add_theme_constant_override("shadow_offset_x",2); poi_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(poi_label)
+	map_overlay=MapOverlayScript.new(); map_overlay.position=Vector2(55,40); map_overlay.size=Vector2(850,460); map_overlay.visible=false; map_overlay.setup(hero); ui.add_child(map_overlay)
+	_add_map_button()
 	objective_nav_label=Label.new(); objective_nav_label.position=Vector2(350,140); objective_nav_label.size=Vector2(260,30); objective_nav_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; objective_nav_label.add_theme_font_size_override("font_size",15); objective_nav_label.add_theme_color_override("font_color",Color(1,0.84,0.32)); objective_nav_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); objective_nav_label.add_theme_constant_override("shadow_offset_x",2); objective_nav_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(objective_nav_label)
 	_add_action_button("ATQ",Vector2(835,430),78,func(): _attack())
 	_add_action_button("USAR",Vector2(748,455),64,func(): _interact())
 	var hint = Label.new(); hint.position=Vector2(20,487); hint.size=Vector2(300,32); hint.text="Arraste aqui para mover"; hint.add_theme_color_override("font_color",Color(1,1,1,0.72)); ui.add_child(hint)
+
+func _add_map_button() -> void:
+	var button: Button = Button.new()
+	button.text = "MAPA"
+	button.position = Vector2(425,18)
+	button.size = Vector2(108,46)
+	button.add_theme_font_size_override("font_size",15)
+	for state in ["normal","hover","pressed","focus"]:
+		var st: StyleBoxFlat = StyleBoxFlat.new()
+		st.bg_color = Color(0.08,0.08,0.14,0.97) if state != "pressed" else Color(0.18,0.16,0.28,0.97)
+		st.border_color = Color(0.30,0.62,0.92)
+		st.set_border_width_all(3)
+		st.corner_radius_top_left = 12
+		st.corner_radius_top_right = 12
+		st.corner_radius_bottom_left = 12
+		st.corner_radius_bottom_right = 12
+		button.add_theme_stylebox_override(state,st)
+	button.pressed.connect(_toggle_map)
+	ui.add_child(button)
+
+func _toggle_map() -> void:
+	map_open = not map_open
+	if map_overlay:
+		map_overlay.visible = map_open
+		if map_open:
+			map_overlay.set_target(story_runtime.current_location())
+	joystick_id = -1
+	joystick_vector = Vector2.ZERO
 
 func _add_action_button(text: String, pos: Vector2, size: float, callback: Callable) -> void:
 	var b = Button.new(); b.text=text; b.position=pos-Vector2(size,size)*0.5; b.size=Vector2(size,size); b.add_theme_font_size_override("font_size",16)
@@ -105,6 +138,9 @@ func _add_action_button(text: String, pos: Vector2, size: float, callback: Calla
 func _process(delta: float) -> void:
 	toast_timer=maxf(0.0,toast_timer-delta)
 	if toast_timer<=0.0 and toast_label: toast_label.text=""
+	if map_open:
+		if hero: hero.set_motion(Vector2.ZERO)
+		return
 	var dir = Input.get_vector("move_left","move_right","move_up","move_down")
 	if joystick_vector.length()>0.12: dir=joystick_vector
 	if dir.length()>1.0: dir=dir.normalized()
@@ -119,6 +155,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"): _interact()
 
 func _input(event: InputEvent) -> void:
+	if map_open:
+		return
 	if event is InputEventScreenTouch:
 		if event.pressed and event.position.x < 330 and event.position.y > 300 and joystick_id < 0:
 			joystick_id=event.index; joystick_origin=event.position; joystick_vector=Vector2.ZERO
@@ -342,6 +380,8 @@ func _spawn_main_story_encounters() -> void:
 
 
 func _update_objective_navigation() -> void:
+	if map_overlay and story_runtime:
+		map_overlay.set_target(story_runtime.current_location())
 	if not objective_nav_label or not story_runtime or not hero or not environment:
 		return
 	if story_runtime.act1_complete:
