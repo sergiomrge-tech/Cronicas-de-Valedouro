@@ -1,6 +1,7 @@
 class_name ValedouroCartoonMarshChunk
 extends Node2D
 
+const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const Marsh = preload("res://scripts/cartoon/marsh/marsh_region_config.gd")
 const StoryMap = preload("res://scripts/cartoon/marsh/marsh_story_map.gd")
