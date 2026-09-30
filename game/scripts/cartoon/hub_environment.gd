@@ -2,9 +2,11 @@ class_name ValedouroCartoonHubEnvironment
 extends Node2D
 
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
+const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
 
-const WORLD_SIZE = Vector2(2300, 2350)
-const CENTER = Vector2(1150, 860)
+const LOCAL_SIZE = Vector2(2300,2350)
+const WORLD_SIZE = Region.REGION_SIZE
+const CENTER = Vector2(1150,860)
 
 var rng = RandomNumberGenerator.new()
 var props: Array[Dictionary] = []
@@ -65,14 +67,19 @@ func _build_layout() -> void:
 	_add("bridge",Vector2(2080,870),1.0,"Ponte Leste","POI_REG001_BRIDGE_E")
 
 func _add(kind: String, pos: Vector2, scale_v: float = 1.0, label: String = "", poi_id: String = "", rect: Rect2 = Rect2(), variant: int = 0, radius: float = 0.0) -> void:
-	props.append({"kind":kind,"pos":pos,"scale":scale_v,"label":label,"poi_id":poi_id,"variant":variant})
-	if rect.size != Vector2.ZERO: blockers.append({"type":"rect","rect":rect,"kind":kind})
-	elif radius > 0.0: blockers.append({"type":"circle","pos":pos,"radius":radius*scale_v,"kind":kind})
-	if poi_id != "": pois.append({"id":poi_id,"label":label,"pos":pos})
+	var world_pos: Vector2 = Region.world_from_hub(pos)
+	props.append({"kind":kind,"pos":world_pos,"scale":scale_v,"label":label,"poi_id":poi_id,"variant":variant})
+	if rect.size != Vector2.ZERO:
+		var world_rect: Rect2 = Rect2(Region.world_from_hub(rect.position),rect.size)
+		blockers.append({"type":"rect","rect":world_rect,"kind":kind})
+	elif radius > 0.0:
+		blockers.append({"type":"circle","pos":world_pos,"radius":radius*scale_v,"kind":kind})
+	if poi_id != "":
+		pois.append({"id":poi_id,"label":label,"pos":world_pos})
 
 func _near_manual_blocker(p: Vector2, margin: float) -> bool:
 	for b in blockers:
-		if b["type"] == "rect" and b["rect"].grow(margin).has_point(p): return true
+		if b["type"] == "rect" and b["rect"].grow(margin).has_point(Region.world_from_hub(p)): return true
 	return false
 
 func _road_points() -> Array[PackedVector2Array]:
@@ -93,17 +100,25 @@ func _near_road(p: Vector2, margin: float) -> bool:
 	return false
 
 func is_walkable(p: Vector2) -> bool:
-	if p.x < 70 or p.y < 90 or p.x > WORLD_SIZE.x-70 or p.y > WORLD_SIZE.y-70: return false
-	# Rivers are blocked except around bridges.
+	if not Region.in_region(p,70.0):
+		return false
+	if not Region.in_authored_hub(p,20.0):
+		return true
+	var local_p: Vector2 = Region.hub_from_world(p)
 	for river in river_polylines:
 		for j in range(river.size()-1):
-			var a = river[j]; var b = river[j+1]; var ab = b-a
-			var t = clampf((p-a).dot(ab)/maxf(ab.length_squared(),0.001),0.0,1.0)
-			if p.distance_to(a+ab*t) < 46:
-				if p.distance_to(Vector2(300,900)) > 75 and p.distance_to(Vector2(2080,870)) > 75: return false
-	for b in blockers:
-		if b["type"] == "rect" and b["rect"].grow(10).has_point(p): return false
-		if b["type"] == "circle" and p.distance_to(b["pos"]) < float(b["radius"])+9: return false
+			var a: Vector2 = river[j]
+			var b: Vector2 = river[j+1]
+			var ab: Vector2 = b-a
+			var t: float = clampf((local_p-a).dot(ab)/maxf(ab.length_squared(),0.001),0.0,1.0)
+			if local_p.distance_to(a+ab*t) < 46:
+				if local_p.distance_to(Vector2(300,900)) > 75 and local_p.distance_to(Vector2(2080,870)) > 75:
+					return false
+	for blocker in blockers:
+		if blocker["type"] == "rect" and blocker["rect"].grow(10).has_point(p):
+			return false
+		if blocker["type"] == "circle" and p.distance_to(blocker["pos"]) < float(blocker["radius"])+9:
+			return false
 	return true
 
 func nearest_poi(p: Vector2, radius: float = 145.0) -> Dictionary:
@@ -116,22 +131,24 @@ func nearest_poi(p: Vector2, radius: float = 145.0) -> Dictionary:
 	return best
 
 func _draw() -> void:
+	draw_set_transform(Region.HUB_ORIGIN,0.0,Vector2.ONE)
 	_draw_ground()
 	_draw_rivers()
 	_draw_roads()
 	_draw_plaza()
 	_draw_fields()
 	_draw_city_border()
+	draw_set_transform(Vector2.ZERO,0.0,Vector2.ONE)
 
 func _draw_ground() -> void:
-	draw_rect(Rect2(Vector2.ZERO,WORLD_SIZE),Color(0.43,0.72,0.30))
+	draw_rect(Rect2(Vector2.ZERO,LOCAL_SIZE),Color(0.43,0.72,0.30))
 	rng.seed = 7301
 	for i in 65:
-		var p = Vector2(rng.randf_range(0,WORLD_SIZE.x),rng.randf_range(0,WORLD_SIZE.y))
+		var p = Vector2(rng.randf_range(0,LOCAL_SIZE.x),rng.randf_range(0,LOCAL_SIZE.y))
 		var col = Color(0.53,0.80,0.35,0.28) if i%2==0 else Color(0.32,0.61,0.25,0.25)
 		DrawUtil.ellipse(self,p,rng.randf_range(65,180),rng.randf_range(25,62),col,22)
 	for i in 245:
-		var p = Vector2(rng.randf_range(40,WORLD_SIZE.x-40),rng.randf_range(80,WORLD_SIZE.y-50))
+		var p = Vector2(rng.randf_range(40,LOCAL_SIZE.x-40),rng.randf_range(80,LOCAL_SIZE.y-50))
 		draw_line(p,p+Vector2(rng.randf_range(-2,2),rng.randf_range(-8,-4)),Color(0.28,0.58,0.22,0.45),1.5)
 
 func _draw_rivers() -> void:
