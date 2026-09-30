@@ -7,7 +7,6 @@ const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
 # Este arquivo é a ponte entre o cânone da campanha e a reconstrução cartoon.
 
 static func act1_locations() -> Array[Dictionary]:
-	var h: Vector2 = Region.HUB_ORIGIN
 	var cx: float = Region.SOUTH_ROAD_X
 	var north_edge: float = Region.HUB_RECT.position.y
 	return [
