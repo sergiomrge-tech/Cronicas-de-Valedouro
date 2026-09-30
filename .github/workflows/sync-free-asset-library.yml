@@ -1,0 +1,234 @@
+name: Sync Free 2D Asset Reference Library
+
+on:
+  push:
+    branches: [ ccr-bb54cda9-tvw178 ]
+    paths:
+      - ".github/workflows/sync-free-asset-library.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: free-asset-library-sync
+  cancel-in-progress: false
+
+jobs:
+  sync-assets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout project branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          ref: ${{ github.ref_name }}
+
+      - name: Prepare library
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf external_assets/free_reference_library
+          mkdir -p external_assets/free_reference_library/{nature,characters,monsters,equipment,buildings,dungeons,karsiori}
+
+      - name: Vendor curated CC0 packs from public GitHub mirror
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth=1 --filter=blob:none --sparse https://github.com/Tiddybub/2d-assets.git /tmp/free-2d-assets
+          git -C /tmp/free-2d-assets sparse-checkout set \
+            nature/foliage-pack \
+            characters/modular-characters \
+            characters/monster-builder-pack \
+            fantasy/roguelike-characters \
+            fantasy/tiny-town \
+            fantasy/tiny-dungeon \
+            fantasy/medieval-rts \
+            fantasy/sketch-town-expansion \
+            ui/roguelike-rpg-pack \
+            ui/oga-rpg-item-set \
+            ui/oga-rpg-sheet \
+            ui/oga-osare-weapon-icons \
+            ui/oga-modified-and-cliped-magic-skill-item-icons \
+            fantasy/oga-various-melee-weapons
+
+          cp -a /tmp/free-2d-assets/nature/foliage-pack external_assets/free_reference_library/nature/kenney_foliage_pack
+          cp -a /tmp/free-2d-assets/characters/modular-characters external_assets/free_reference_library/characters/kenney_modular_characters
+          cp -a /tmp/free-2d-assets/characters/monster-builder-pack external_assets/free_reference_library/monsters/kenney_monster_builder
+          cp -a /tmp/free-2d-assets/fantasy/roguelike-characters external_assets/free_reference_library/characters/kenney_roguelike_characters
+
+          cp -a /tmp/free-2d-assets/ui/roguelike-rpg-pack external_assets/free_reference_library/equipment/kenney_roguelike_rpg
+          cp -a /tmp/free-2d-assets/ui/oga-rpg-item-set external_assets/free_reference_library/equipment/oga_rpg_item_set
+          cp -a /tmp/free-2d-assets/ui/oga-rpg-sheet external_assets/free_reference_library/equipment/oga_rpg_sheet
+          cp -a /tmp/free-2d-assets/ui/oga-osare-weapon-icons external_assets/free_reference_library/equipment/oga_osare_weapon_icons
+          cp -a /tmp/free-2d-assets/ui/oga-modified-and-cliped-magic-skill-item-icons external_assets/free_reference_library/equipment/oga_magic_skill_item_icons
+          cp -a /tmp/free-2d-assets/fantasy/oga-various-melee-weapons external_assets/free_reference_library/equipment/oga_various_melee_weapons
+
+          cp -a /tmp/free-2d-assets/fantasy/tiny-town external_assets/free_reference_library/buildings/kenney_tiny_town
+          cp -a /tmp/free-2d-assets/fantasy/medieval-rts external_assets/free_reference_library/buildings/kenney_medieval_rts
+          cp -a /tmp/free-2d-assets/fantasy/sketch-town-expansion external_assets/free_reference_library/buildings/kenney_sketch_town_expansion
+          cp -a /tmp/free-2d-assets/fantasy/tiny-dungeon external_assets/free_reference_library/dungeons/kenney_tiny_dungeon
+
+      - name: Install itch.io downloader
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install -g itchio-downloader@latest
+
+      - name: Download Karsiori CC0 vegetation packs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          fetch_itch_pack () {
+            local slug="$1"
+            local url="$2"
+            local tmp="/tmp/itch-${slug}"
+            local out="external_assets/free_reference_library/karsiori/${slug}"
+            rm -rf "$tmp" "$out"
+            mkdir -p "$tmp" "$out"
+
+            echo "Downloading $url"
+            itchio-downloader --url "$url" --downloadDirectory "$tmp" --noCookieCache --retries 2
+
+            shopt -s nullglob
+            for f in "$tmp"/*; do
+              case "$f" in
+                *.zip|*.ZIP)
+                  unzip -q -o "$f" -d "$out"
+                  ;;
+                *.json)
+                  cp -f "$f" "$out/"
+                  ;;
+                *)
+                  cp -a "$f" "$out/"
+                  ;;
+              esac
+            done
+            shopt -u nullglob
+
+            test -n "$(find "$out" -type f -print -quit)"
+          }
+
+          fetch_itch_pack "tree_pack" "https://karsiori.itch.io/free-pixel-art-tree-pack"
+          fetch_itch_pack "bush_pack" "https://karsiori.itch.io/free-pixel-art-bush-pack"
+          fetch_itch_pack "flower_pack" "https://karsiori.itch.io/free-pixel-art-flower-pack"
+          fetch_itch_pack "woods_tileset" "https://karsiori.itch.io/woods-tileset-and-background"
+          fetch_itch_pack "rock_pile_pack" "https://karsiori.itch.io/pixel-art-rock-pile-pack"
+          fetch_itch_pack "spruce_tree_animated" "https://karsiori.itch.io/spruce-tree-pack-pixel-art-animated"
+
+      - name: Write provenance and Claude usage guide
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > external_assets/free_reference_library/README.md <<'EOF'
+          # Crônicas de Valedouro — Biblioteca Gratuita de Referência 2D
+
+          Esta pasta reúne assets gratuitos selecionados para servir de matéria-prima e referência de modelagem do mundo.
+
+          ## Regra principal
+          Estes arquivos NÃO substituem a direção visual oficial de Crônicas de Valedouro.
+          Claude/Opus deve adaptar escala, perspectiva, paleta, luz, sombra, volume, densidade e acabamento ao padrão visual já aprovado antes de promover qualquer asset ao catálogo oficial.
+
+          ## Licenças
+          Os pacotes desta biblioteca foram escolhidos por licença CC0/public-domain-equivalent, conforme os arquivos SOURCE.md/License.txt incluídos em cada pacote e as páginas oficiais dos autores.
+
+          ### Karsiori — CC0
+          - FREE Pixel Art Tree Pack
+          - FREE Pixel Art Bush Pack
+          - FREE Pixel Art Flower Pack
+          - FREE Pixel Art Woods Tileset and Background
+          - FREE Pixel Art Rock Pile Pack
+          - FREE Pixel Art Spruce Tree Pack - Animated
+
+          Fonte: https://karsiori.itch.io/
+          Uso comercial e modificação permitidos sob CC0 segundo as páginas oficiais dos pacotes.
+
+          ### Kenney / OpenGameArt via biblioteca CC0 curada
+          Os demais pacotes foram sincronizados do repositório público:
+          https://github.com/Tiddybub/2d-assets
+
+          Cada subpasta preserva SOURCE.md e/ou License.txt quando disponíveis.
+
+          ## Categorias
+          - nature/: árvores e vegetação
+          - characters/: bases para heróis e personagens
+          - monsters/: peças e referências para criaturas
+          - equipment/: armas, armaduras, escudos, itens e ícones
+          - buildings/: casas, vilas, castelos, torres, telhados e estruturas
+          - dungeons/: referências de masmorra
+          - karsiori/: vegetação aprovada como referência visual específica
+
+          ## Uso no projeto
+          1. Não integrar automaticamente ao renderer.
+          2. Criar equivalentes/refinamentos coerentes com o estilo oficial.
+          3. Registrar IDs persistentes no catálogo.
+          4. Respeitar transparência, escala, colisão e perspectiva.
+          5. Validar visualmente no Godot 4.7.2 antes de promover para APPROVED.
+          6. Preservar desempenho mobile.
+          EOF
+
+          cat > docs/CLAUDE_FREE_ASSET_LIBRARY.md <<'EOF'
+          # Handoff para Claude/Opus — Biblioteca gratuita de assets
+
+          A biblioteca de referência está em:
+          external_assets/free_reference_library/
+
+          Prioridade de consulta:
+          1. karsiori/tree_pack, bush_pack, flower_pack e spruce_tree_animated para linguagem de árvores/vegetação;
+          2. nature/kenney_foliage_pack para variedade vegetal;
+          3. buildings/kenney_tiny_town, kenney_medieval_rts e kenney_sketch_town_expansion para casas, castelos, telhados, muralhas, torres e composição modular;
+          4. characters/kenney_roguelike_characters e kenney_modular_characters para estrutura de personagem;
+          5. monsters/kenney_monster_builder para silhuetas e construção de criaturas;
+          6. equipment/ para armas, armaduras, escudos, itens e leitura de loot;
+          7. dungeons/kenney_tiny_dungeon para interiores e masmorras.
+
+          Não copiar o estilo bruto dos pacotes quando ele conflitar com o padrão oficial de Crônicas de Valedouro.
+          Use-os como fonte de peças, proporções, silhuetas e variedade, remodelando para a identidade visual aprovada.
+
+          Para o mundo:
+          - substituir módulos flutuantes ou sem contato com o solo;
+          - corrigir paredes/tetos/janelas soltos;
+          - usar variações anguladas e encaixes coerentes;
+          - integrar construções à história e às missões;
+          - criar transições naturais entre biomas;
+          - manter caminhos legíveis para gameplay;
+          - aplicar vegetação por ecologia, umidade, altitude, corrupção e ocupação humana;
+          - manter foco mobile e orçamento de renderização.
+          EOF
+
+      - name: Audit downloaded library
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Asset files:"
+          find external_assets/free_reference_library -type f | wc -l
+          echo "PNG files:"
+          find external_assets/free_reference_library -type f -iname '*.png' | wc -l
+          echo "Total size:"
+          du -sh external_assets/free_reference_library
+
+          test -f external_assets/free_reference_library/README.md
+          test -f docs/CLAUDE_FREE_ASSET_LIBRARY.md
+          test -n "$(find external_assets/free_reference_library/karsiori/tree_pack -type f -print -quit)"
+          test -n "$(find external_assets/free_reference_library/monsters/kenney_monster_builder -type f -print -quit)"
+          test -n "$(find external_assets/free_reference_library/buildings/kenney_tiny_town -type f -print -quit)"
+          test -n "$(find external_assets/free_reference_library/equipment -type f -print -quit)"
+
+      - name: Commit synchronized asset library
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Valedouro Asset Sync"
+          git config user.email "asset-sync@users.noreply.github.com"
+          git add external_assets/free_reference_library docs/CLAUDE_FREE_ASSET_LIBRARY.md
+
+          if git diff --cached --quiet; then
+            echo "No asset changes to commit."
+            exit 0
+          fi
+
+          git commit -m "assets: add curated free 2D reference library [asset-sync]"
+          git push origin "HEAD:${{ github.ref_name }}"
