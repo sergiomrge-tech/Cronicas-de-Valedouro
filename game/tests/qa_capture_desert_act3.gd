@@ -25,12 +25,16 @@ func capture() -> void:
 		{"name":"04_cisterna_resistencia","pos":Vector2(15100,18700),"quest":"Q_MS03_CISTERN"},
 		{"name":"05_observatorio_cinzas","pos":Vector2(24400,13800),"quest":"Q_MS03_OBSERVATORY"},
 		{"name":"06_cidadela_cinza","pos":Vector2(30100,6500),"quest":"Q_MS03_GENERAL_ASH"},
-		{"name":"07_rota_deserto","pos":Vector2(18800,16600),"quest":"Q_MS03_OBSERVATORY"}
+		{"name":"07_rota_deserto","pos":Vector2(18800,16600),"quest":"Q_MS03_OBSERVATORY"},
+		{"name":"08_mapa_missoes_edravar","pos":Vector2(16800,22200),"quest":"Q_MS03_EDRAVAR","map":true}
 	]
 
 	for shot in shots:
 		region.story_runtime.current_id = String(shot["quest"])
 		region._refresh_objective()
+		region.map_open = bool(shot.get("map",false))
+		region.map_overlay.visible = region.map_open
+		region.map_overlay.set_target(region.story_runtime.current_location())
 		region.hero.position = shot["pos"] as Vector2
 		region.world_stream._refresh(true)
 		await process_frame
