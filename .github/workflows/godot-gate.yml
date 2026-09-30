@@ -69,6 +69,7 @@ jobs:
           python3 game/tools/validate_reg001.py
           rm -rf game/tools/__pycache__ game/tools/reg001/__pycache__
           python3 game/tools/validate_main_story.py
+          python3 game/tools/validate_map_mission_coverage.py
           python3 game/tools/reg001/audit_logic.py
           rm -rf game/tools/__pycache__ game/tools/reg001/__pycache__
 
