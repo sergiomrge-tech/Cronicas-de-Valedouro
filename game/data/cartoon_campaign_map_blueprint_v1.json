@@ -526,7 +526,7 @@
         "linear_scale": 20,
         "region_class": "exploration_heavy"
       },
-      "build_status": "RESERVED_BY_MISSIONS",
+      "build_status": "IN_PROGRESS_PHYSICAL",
       "mandatory_route": [
         {
           "order": 1,
@@ -578,7 +578,18 @@
           "location_kind": "fortress",
           "post_function": "Revanche do último general."
         }
-      ]
+      ],
+      "implementation": {
+        "scene": "res://scenes/cartoon/CorruptedLandsCartoon.tscn",
+        "region_size": [
+          46000,
+          47000
+        ],
+        "active_chunk_radius": 2,
+        "mandatory_locations_placed": 5,
+        "sub_obelisks_placed": 3,
+        "transition_from_previous": "POI_COAST_CORRUPTED_ROUTE"
+      }
     },
     {
       "act": 8,
