@@ -11,6 +11,8 @@ var move_speed: float = 86.0
 var contact_damage: int = 7
 var attack_cooldown: float = 0.0
 var hit_flash: float = 0.0
+var story_tag: String = ""
+var boss_id: String = ""
 var anim_t: float = 0.0
 
 func setup(data: Dictionary) -> void:
@@ -20,6 +22,8 @@ func setup(data: Dictionary) -> void:
     max_hp = hp
     move_speed = float(data.get("speed", 86.0))
     contact_damage = int(data.get("damage", 7))
+	story_tag = String(data.get("story_tag",""))
+	boss_id = String(data.get("boss_id",""))
     position = data.get("pos", Vector2.ZERO)
     scale = Vector2.ONE * float(data.get("scale", 1.0))
     queue_redraw()
@@ -89,3 +93,15 @@ func _draw_slime() -> void:
     draw_circle(Vector2(-8,-20),3,Color(0.05,0.08,0.05))
     draw_circle(Vector2(8,-20),3,Color(0.05,0.08,0.05))
     DrawUtil.ellipse(self, Vector2(-10,-31), 7, 4, Color(0.85,1.0,0.88,0.35))
+
+
+func _draw_guardian() -> void:
+	var stone: Color = Color(0.47,0.50,0.52)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-18),30,25,stone,DrawUtil.OUTLINE,4)
+	DrawUtil.rect_outlined(self,Rect2(-23,-58,46,40),stone.lightened(0.04),DrawUtil.OUTLINE,4)
+	for x in [-25.0,25.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-38),Vector2(x*1.25,-10),10,stone.darkened(0.05),DrawUtil.OUTLINE,3)
+	for x in [-12.0,12.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-3),Vector2(x,14),11,stone.darkened(0.08),DrawUtil.OUTLINE,3)
+	DrawUtil.circle_outlined(self,Vector2(0,-39),8,Color(0.28,0.76,0.96),DrawUtil.OUTLINE,2)
+	draw_circle(Vector2(0,-39),3,Color(0.85,0.98,1.0))
