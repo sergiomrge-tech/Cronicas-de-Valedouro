@@ -21,6 +21,9 @@ func setup(host_node, objects_node: Node2D, hero_node: Node2D, target_region_id:
 	objects = objects_node
 	hero = hero_node
 	region_id = target_region_id
+	var state = _state()
+	if state != null:
+		materials = state.materials
 	sites = content_for(region_id)
 	sites.append_array(advanced_content_for(region_id))
 	for site in sites:
@@ -160,10 +163,18 @@ func _interact_dungeon(site: Dictionary) -> bool:
 		return true
 	return false
 
+func _state():
+	return get_node_or_null("/root/CartoonPlayerState")
+
 func _add_material(material_name: String, amount: int) -> void:
 	if material_name == "" or amount <= 0:
 		return
-	materials[material_name] = int(materials.get(material_name,0))+amount
+	var state = _state()
+	if state != null:
+		state.add_material(material_name,amount)
+		materials = state.materials
+	else:
+		materials[material_name] = int(materials.get(material_name,0))+amount
 
 func _default_material() -> String:
 	match region_id:
@@ -208,6 +219,9 @@ func progress_text() -> String:
 	return "%d/%d locais • %d materiais" % [collected.size(),sites.size(),_material_total()]
 
 func _material_total() -> int:
+	var state = _state()
+	if state != null:
+		materials = state.materials
 	var total: int = 0
 	for value in materials.values():
 		total += int(value)
