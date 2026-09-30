@@ -242,6 +242,12 @@ func _interact() -> void:
 			_show_toast("A Raiz Oca está próxima. Prepare-se.")
 		"LOC_FOREST_CARTOGRAPHER_SHRINE":
 			_show_toast("O selo verde reage ao mapa do Guardião.")
+		"POI_FOREST_VEIL_MARK":
+			if story_runtime.act2_complete:
+				_show_toast("Seguindo a segunda linha do mapa para Edravar...")
+				get_tree().change_scene_to_file("res://scenes/cartoon/DesertEdravarCartoon.tscn")
+			else:
+				_show_toast("A rota para Edravar ainda não foi revelada.")
 		_:
 			_show_toast(label)
 
