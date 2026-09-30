@@ -80,6 +80,19 @@ func _near_main_road(world_pos: Vector2, margin: float) -> bool:
 	if world_pos.y >= Region.HUB_RECT.end.y - 80.0:
 		if absf(world_pos.x - Region.SOUTH_ROAD_X) < margin:
 			return true
+	if world_pos.y <= Region.HUB_RECT.position.y + 80.0:
+		if absf(world_pos.x - Region.SOUTH_ROAD_X) < margin:
+			return true
+	var north_edge: float = Region.HUB_RECT.position.y
+	var story_branches: Array[Dictionary] = [
+		{"y":north_edge-1800.0,"x1":Region.SOUTH_ROAD_X-760.0,"x2":Region.SOUTH_ROAD_X},
+		{"y":north_edge-2950.0,"x1":Region.SOUTH_ROAD_X,"x2":Region.SOUTH_ROAD_X+900.0},
+		{"y":north_edge-4100.0,"x1":Region.SOUTH_ROAD_X-1120.0,"x2":Region.SOUTH_ROAD_X},
+		{"y":north_edge-5350.0,"x1":Region.SOUTH_ROAD_X,"x2":Region.SOUTH_ROAD_X+1080.0}
+	]
+	for branch in story_branches:
+		if absf(world_pos.y - float(branch["y"])) < margin and world_pos.x >= float(branch["x1"]) - margin and world_pos.x <= float(branch["x2"]) + margin:
+			return true
 	var west_branch_y: float = Region.HUB_RECT.end.y + 2100.0
 	if absf(world_pos.y - west_branch_y) < margin and world_pos.x > Region.SOUTH_ROAD_X - 3200.0 and world_pos.x < Region.SOUTH_ROAD_X:
 		return true
@@ -95,6 +108,7 @@ func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO,Vector2(Region.CHUNK_SIZE,Region.CHUNK_SIZE)),bg)
 	_draw_grass_texture()
 	_draw_roads()
+	_draw_north_story_roads()
 	_draw_field_rows()
 
 func _draw_grass_texture() -> void:
@@ -123,6 +137,33 @@ func _draw_roads() -> void:
 	var local_east_y: float = east_branch_y - global_y0
 	if local_east_y > -90.0 and local_east_y < Region.CHUNK_SIZE + 90.0 and global_x0 + Region.CHUNK_SIZE > Region.SOUTH_ROAD_X and global_x0 < Region.SOUTH_ROAD_X + 3600.0:
 		draw_rect(Rect2(0.0,local_east_y-54.0,Region.CHUNK_SIZE,108.0),Color(0.78,0.64,0.42))
+
+func _draw_north_story_roads() -> void:
+	var global_x0: float = position.x
+	var global_y0: float = position.y
+	var north_edge: float = Region.HUB_RECT.position.y
+	if global_y0 <= north_edge + 80.0:
+		var local_x: float = Region.SOUTH_ROAD_X - global_x0
+		if local_x > -90.0 and local_x < Region.CHUNK_SIZE + 90.0:
+			draw_rect(Rect2(local_x-64.0,0.0,128.0,Region.CHUNK_SIZE),Color(0.50,0.57,0.26))
+			draw_rect(Rect2(local_x-51.0,0.0,102.0,Region.CHUNK_SIZE),Color(0.78,0.64,0.42))
+	var branches: Array[Dictionary] = [
+		{"y":north_edge-1800.0,"x1":Region.SOUTH_ROAD_X-760.0,"x2":Region.SOUTH_ROAD_X},
+		{"y":north_edge-2950.0,"x1":Region.SOUTH_ROAD_X,"x2":Region.SOUTH_ROAD_X+900.0},
+		{"y":north_edge-4100.0,"x1":Region.SOUTH_ROAD_X-1120.0,"x2":Region.SOUTH_ROAD_X},
+		{"y":north_edge-5350.0,"x1":Region.SOUTH_ROAD_X,"x2":Region.SOUTH_ROAD_X+1080.0}
+	]
+	for branch in branches:
+		var by: float = float(branch["y"])
+		var local_y: float = by - global_y0
+		if local_y < -70.0 or local_y > Region.CHUNK_SIZE + 70.0:
+			continue
+		var bx1: float = float(branch["x1"]) - global_x0
+		var bx2: float = float(branch["x2"]) - global_x0
+		var left: float = maxf(0.0,minf(bx1,bx2))
+		var right: float = minf(float(Region.CHUNK_SIZE),maxf(bx1,bx2))
+		if right > left:
+			draw_rect(Rect2(left,local_y-47.0,right-left,94.0),Color(0.78,0.64,0.42))
 
 func _draw_field_rows() -> void:
 	if not _is_field_belt():
