@@ -231,7 +231,7 @@ func _attack() -> void:
 		monsters.erase(target)
 		target.queue_free()
 		player_gold += 6
-	_grant_combat_xp(10,boss_id)
+		_grant_combat_xp(10,boss_id)
 		var story_advanced: bool = false
 		if story_runtime:
 			story_advanced = story_runtime.register_kill(story_tag,boss_id)
