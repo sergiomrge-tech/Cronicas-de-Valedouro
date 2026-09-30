@@ -1,0 +1,330 @@
+name: Sync Animated Combat Asset Library
+
+on:
+  push:
+    branches: [ ccr-bb54cda9-tvw178 ]
+    paths:
+      - ".github/workflows/sync-animated-combat-assets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: animated-combat-assets-sync
+  cancel-in-progress: false
+
+jobs:
+  sync-animated-assets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          ref: ${{ github.ref_name }}
+
+      - name: Prepare animated library
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p external_assets/free_reference_library/animated_characters
+          mkdir -p external_assets/free_reference_library/animated_monsters
+          mkdir -p external_assets/free_reference_library/vfx
+          rm -rf external_assets/free_reference_library/animated_characters/*
+          rm -rf external_assets/free_reference_library/animated_monsters/*
+          rm -rf external_assets/free_reference_library/vfx/*
+
+      - name: Install download helpers
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install -g itchio-downloader@latest
+          python3 -m pip install --user requests beautifulsoup4
+
+      - name: Download CC0 animated action-RPG characters and enemies from itch.io
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          fetch_itch () {
+            local slug="$1"
+            local url="$2"
+            local out="$3/$slug"
+            local tmp="/tmp/itch-$slug"
+            rm -rf "$tmp" "$out"
+            mkdir -p "$tmp" "$out"
+            echo "Downloading $url"
+            itchio-downloader --url "$url" --downloadDirectory "$tmp" --noCookieCache --retries 2
+
+            shopt -s nullglob
+            for f in "$tmp"/*; do
+              case "$f" in
+                *.zip|*.ZIP)
+                  unzip -q -o "$f" -d "$out"
+                  ;;
+                *.json)
+                  cp -f "$f" "$out/"
+                  ;;
+                *)
+                  cp -a "$f" "$out/"
+                  ;;
+              esac
+            done
+            shopt -u nullglob
+            test -n "$(find "$out" -type f -print -quit)"
+          }
+
+          CHARS="external_assets/free_reference_library/animated_characters"
+          MONS="external_assets/free_reference_library/animated_monsters"
+          VFX="external_assets/free_reference_library/vfx"
+
+          # HERO / PLAYABLE archetypes — CC0, 4-direction, rich animation sets.
+          fetch_itch "foozle_lucifer_warrior" "https://foozlecc.itch.io/lucifer-warrior" "$CHARS"
+          fetch_itch "foozle_lucifer_necromancer" "https://foozlecc.itch.io/lucifer-necromancer" "$CHARS"
+          fetch_itch "foozle_lucifer_sorceress" "https://foozlecc.itch.io/lucifer-sorceress" "$CHARS"
+          fetch_itch "rgs_8dir_characters" "https://rgsdev.itch.io/hand-drawn-square-characters-animated-8-directions-top-down-free-cc0" "$CHARS"
+
+          # ENEMIES / BOSSES — CC0, 4-direction, multiple animation states.
+          fetch_itch "foozle_goblin_slinger" "https://foozlecc.itch.io/lucifer-goblin-slinger-enemy" "$MONS"
+          fetch_itch "foozle_goblin_berserker" "https://foozlecc.itch.io/lucifer-goblin-berserker-enemy" "$MONS"
+          fetch_itch "foozle_skeleton_hunter" "https://foozlecc.itch.io/lucifer-skeleton-hunter-enemy" "$MONS"
+          fetch_itch "foozle_skeleton_grunt" "https://foozlecc.itch.io/lucifer-skeleton-grunt-enemy" "$MONS"
+          fetch_itch "foozle_cultist" "https://foozlecc.itch.io/lucifer-cultist-enemy" "$MONS"
+          fetch_itch "foozle_possessed" "https://foozlecc.itch.io/lucifer-possessed-enemy" "$MONS"
+          fetch_itch "foozle_goblin_beast_boss" "https://foozlecc.itch.io/lucifer-goblin-beast-boss" "$MONS"
+          fetch_itch "foozle_skeleton_king_boss" "https://foozlecc.itch.io/lucifer-skeleton-king-boss" "$MONS"
+          fetch_itch "stealthix_animated_monsters" "https://stealthix.itch.io/animated-monsters" "$MONS"
+
+          # Combat effects — CC0 animated effects.
+          fetch_itch "foozle_lucifer_effects" "https://foozlecc.itch.io/lucifer-effects" "$VFX"
+
+      - name: Download curated CC0 OpenGameArt animation and VFX packs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          cat > /tmp/fetch_oga.py <<'PY'
+          import os, re, sys, urllib.parse
+          import requests
+          from bs4 import BeautifulSoup
+
+          page, out = sys.argv[1], sys.argv[2]
+          os.makedirs(out, exist_ok=True)
+          headers={"User-Agent":"Mozilla/5.0 ValedouroAssetSync/1.0"}
+          html=requests.get(page,headers=headers,timeout=30)
+          html.raise_for_status()
+          soup=BeautifulSoup(html.text,"html.parser")
+          links=[]
+          for a in soup.find_all("a", href=True):
+              href=urllib.parse.urljoin(page,a["href"])
+              if "/sites/default/files/" not in href:
+                  continue
+              path=urllib.parse.urlparse(href).path.lower()
+              if path.endswith((".zip",".png",".gif",".7z",".xcf",".psd")):
+                  links.append(href)
+          links=list(dict.fromkeys(links))
+          if not links:
+              raise SystemExit(f"No downloadable assets found on {page}")
+          for i,url in enumerate(links):
+              name=urllib.parse.unquote(os.path.basename(urllib.parse.urlparse(url).path))
+              name=re.sub(r"[^A-Za-z0-9._() -]+","_",name).strip() or f"asset_{i}"
+              dest=os.path.join(out,name)
+              rr=requests.get(url,headers=headers,timeout=60,allow_redirects=True)
+              rr.raise_for_status()
+              with open(dest,"wb") as f:
+                  f.write(rr.content)
+              print(f"{len(rr.content):>10}  {dest}  <- {url}")
+          PY
+
+          get_oga () {
+            local slug="$1"
+            local page="$2"
+            local root="$3"
+            local out="$root/$slug"
+            rm -rf "$out"
+            mkdir -p "$out"
+            python3 /tmp/fetch_oga.py "$page" "$out"
+            printf '%s\n' "$page" > "$out/SOURCE_URL.txt"
+          }
+
+          CHARS="external_assets/free_reference_library/animated_characters"
+          MONS="external_assets/free_reference_library/animated_monsters"
+          VFX="external_assets/free_reference_library/vfx"
+
+          get_oga "oga_isometric_classic_heroes" "https://opengameart.org/content/isometric-classic-hero-tiles-32x32" "$CHARS"
+          get_oga "oga_rpg_character_base" "https://opengameart.org/content/just-another-rpg-character-base" "$CHARS"
+          get_oga "oga_mercenary_warrior" "https://opengameart.org/content/mercenary-warrior-character" "$CHARS"
+          get_oga "oga_topdown_dungeon_character" "https://opengameart.org/content/pixel-art-top-down-dungeon-tileset-and-rpg-character-with-animations" "$CHARS"
+
+          get_oga "oga_animated_monsters" "https://opengameart.org/content/animated-monsters" "$MONS"
+          get_oga "oga_8x8_critters" "https://opengameart.org/content/8x8-critter-pack" "$MONS"
+          get_oga "oga_blob_monster" "https://opengameart.org/content/blob-sprite" "$MONS"
+
+          get_oga "oga_basic_animated_spells" "https://opengameart.org/content/basic-pixel-animated-spells" "$VFX"
+          get_oga "oga_2d_spell_effects" "https://opengameart.org/content/2d-spell-effects" "$VFX"
+          get_oga "oga_gothicvania_magic_9" "https://opengameart.org/content/gothicvania-magic-pack-9" "$VFX"
+          get_oga "oga_weapon_slash_effects" "https://opengameart.org/content/weapon-slash-effect" "$VFX"
+          get_oga "oga_slash_effect_collection" "https://opengameart.org/content/slash-effect-collection" "$VFX"
+          get_oga "oga_animated_fire" "https://opengameart.org/content/animated-fire" "$VFX"
+          get_oga "oga_lpc_explosions_2" "https://opengameart.org/content/lpc-explosions-2" "$VFX"
+          get_oga "oga_pixel_sword_slash" "https://opengameart.org/content/pixel-art-sword-slash-effect" "$VFX"
+          get_oga "oga_explosion_animation" "https://opengameart.org/content/explosion-animation-1" "$VFX"
+
+      - name: Unpack safe archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          find external_assets/free_reference_library/animated_characters \
+               external_assets/free_reference_library/animated_monsters \
+               external_assets/free_reference_library/vfx \
+               -type f -iname '*.zip' -print0 | while IFS= read -r -d '' z; do
+            d="${z%.zip}_unpacked"
+            mkdir -p "$d"
+            unzip -q -o "$z" -d "$d" || true
+          done
+
+      - name: Write animation policy and provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > external_assets/free_reference_library/ANIMATION_AND_VFX_POLICY.md <<'EOF'
+          # Crônicas de Valedouro — Política de animação e VFX
+
+          ## Regra obrigatória
+          Assets estáticos de herói, inimigo ou monstro NÃO são candidatos a runtime.
+          Eles podem servir somente para conceito, silhueta, equipamento ou modelagem.
+
+          ## Herói
+          O personagem jogável deve ter, no mínimo:
+          - idle;
+          - walk/run;
+          - ataque leve;
+          - ataque pesado ou combo;
+          - ataque/ranged quando a arma exigir;
+          - cast de magia/skill;
+          - hurt/hit reaction;
+          - dodge/roll;
+          - death;
+          - transições coerentes por direção.
+
+          Quatro direções são o piso técnico. Oito direções são preferidas quando a câmera/perspectiva justificar.
+          Para o herói e bosses, priorizar animações ricas: ataques e casts com sequência suficiente para anticipation, action e recovery.
+          Não criar frames duplicados apenas para inflar a contagem.
+
+          ## Mobs e bosses
+          Todo inimigo usado em gameplay precisa de movimento animado e reação de combate.
+          Mínimo recomendado:
+          - idle;
+          - move;
+          - attack;
+          - hurt;
+          - death.
+          Elites e bosses também devem ter wind-up/telegraph, ataques especiais e recuperação.
+
+          ## VFX
+          Skills e magias devem possuir:
+          - cast/charge quando aplicável;
+          - projectile/travel quando aplicável;
+          - impact;
+          - AoE/ground effect quando aplicável;
+          - dissipação;
+          - variações elementais coerentes com a biblioteca oficial de skills.
+
+          ## Direção artística
+          Todos os packs externos são REFERÊNCIA / matéria-prima.
+          Claude/Opus deve adaptar paleta, escala, perspectiva, iluminação, silhueta, leitura e acabamento ao estilo oficial aprovado de Crônicas de Valedouro.
+          Não promover automaticamente um asset externo a APPROVED.
+
+          ## Performance mobile
+          Preferir sprite atlases, AnimationLibrary/SpriteFrames reutilizáveis e pools de VFX.
+          Evitar overdraw excessivo, partículas caras e efeitos em resolução maior do que o necessário.
+          EOF
+
+          cat > external_assets/free_reference_library/ANIMATED_ASSET_SOURCES.md <<'EOF'
+          # Fontes — biblioteca animada
+
+          Todos os itens abaixo foram selecionados por licença CC0 nas páginas de origem.
+
+          ## Foozle — Lucifer Collection (itch.io)
+          - Lucifer Warrior — 4 direções, 10 animações/direção
+          - Lucifer Necromancer — 4 direções, 10 animações/direção
+          - Lucifer Sorceress — 4 direções, 10 animações/direção
+          - Goblin Slinger — 4 direções, 7 animações/direção
+          - Goblin Berserker — 4 direções, 7 animações/direção
+          - Skeleton Hunter — 4 direções, 7 animações/direção
+          - Skeleton Grunt — 4 direções, 7 animações/direção
+          - Cultist — 4 direções, 7 animações/direção
+          - Possessed — 4 direções, 7 animações/direção
+          - Goblin Beast Boss — 4 direções, 9 animações/direção
+          - Skeleton King Boss — 4 direções, 9 animações/direção
+          - Lucifer Effects — VFX animados
+          Fonte: https://foozlecc.itch.io/
+
+          ## RGS_Dev
+          - Hand-Drawn Square Characters Animated 8 Directions Top Down — CC0
+          Fonte: https://rgsdev.itch.io/hand-drawn-square-characters-animated-8-directions-top-down-free-cc0
+
+          ## Stealthix
+          - Animated Monsters — Zombie, Skeleton, Witch; idle/walk/punch/hurt/fall — CC0
+          Fonte: https://stealthix.itch.io/animated-monsters
+
+          ## OpenGameArt — CC0
+          - Isometric Classic Hero + Tiles
+          - Just another RPG character base
+          - Mercenary Warrior Character
+          - Pixel art top down dungeon + animated RPG character
+          - Animated Monsters
+          - 8x8 Critter Pack
+          - Blob Sprite
+          - Basic Pixel Animated Spells
+          - 2D Spell Effects
+          - Gothicvania Magic Pack 9
+          - Weapon Slash Effect
+          - Slash Effect Collection
+          - Animated Fire
+          - LPC Explosions 2
+          - Pixel Art Sword Slash Effect
+          - Explosion Animation
+
+          Licenças e páginas de origem devem permanecer registradas junto aos arquivos.
+          EOF
+
+      - name: Audit animation library
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$(find external_assets/free_reference_library/animated_characters -type f -print -quit)"
+          test -n "$(find external_assets/free_reference_library/animated_monsters -type f -print -quit)"
+          test -n "$(find external_assets/free_reference_library/vfx -type f -print -quit)"
+          test -f external_assets/free_reference_library/ANIMATION_AND_VFX_POLICY.md
+          test -f external_assets/free_reference_library/ANIMATED_ASSET_SOURCES.md
+
+          echo "Animated characters files:"
+          find external_assets/free_reference_library/animated_characters -type f | wc -l
+          echo "Animated monster files:"
+          find external_assets/free_reference_library/animated_monsters -type f | wc -l
+          echo "VFX files:"
+          find external_assets/free_reference_library/vfx -type f | wc -l
+          echo "Total animation/VFX size:"
+          du -sh external_assets/free_reference_library/animated_characters \
+                 external_assets/free_reference_library/animated_monsters \
+                 external_assets/free_reference_library/vfx
+
+      - name: Commit animated asset library
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Valedouro Asset Sync"
+          git config user.email "asset-sync@users.noreply.github.com"
+          git add external_assets/free_reference_library
+
+          if git diff --cached --quiet; then
+            echo "No animated asset changes to commit."
+            exit 0
+          fi
+
+          git commit -m "assets: add animated characters monsters and VFX [asset-sync]"
+          git push origin "HEAD:${{ github.ref_name }}"
