@@ -41,30 +41,36 @@ func _build_ui() -> void:
 	panel.add_theme_stylebox_override("panel",panel_style)
 	add_child(panel)
 
-	var plus: Button = _make_button("+",Vector2(8,8),Vector2(52,48))
+	var body: Control = Control.new()
+	body.name = "ZoomContent"
+	body.custom_minimum_size = Vector2(64,194)
+	body.mouse_filter = Control.MOUSE_FILTER_PASS
+	panel.add_child(body)
+
+	var plus: Button = _make_button("+",Vector2(6,6),Vector2(52,44))
 	plus.tooltip_text = "Aproximar"
 	plus.pressed.connect(zoom_in)
-	panel.add_child(plus)
+	body.add_child(plus)
 
 	percent_label = Label.new()
-	percent_label.position = Vector2(5,58)
-	percent_label.size = Vector2(58,26)
+	percent_label.position = Vector2(3,53)
+	percent_label.size = Vector2(58,24)
 	percent_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	percent_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	percent_label.add_theme_font_size_override("font_size",13)
 	percent_label.add_theme_color_override("font_color",Color(0.96,0.94,0.84))
-	panel.add_child(percent_label)
+	body.add_child(percent_label)
 
-	var minus: Button = _make_button("−",Vector2(8,86),Vector2(52,48))
+	var minus: Button = _make_button("−",Vector2(6,80),Vector2(52,44))
 	minus.tooltip_text = "Afastar"
 	minus.pressed.connect(zoom_out)
-	panel.add_child(minus)
+	body.add_child(minus)
 
-	var reset: Button = _make_button("1:1",Vector2(8,142),Vector2(52,42))
+	var reset: Button = _make_button("1:1",Vector2(6,132),Vector2(52,44))
 	reset.tooltip_text = "Zoom padrão"
 	reset.add_theme_font_size_override("font_size",13)
 	reset.pressed.connect(reset_zoom)
-	panel.add_child(reset)
+	body.add_child(reset)
 
 func _make_button(text_value: String, pos: Vector2, button_size: Vector2) -> Button:
 	var button: Button = Button.new()
