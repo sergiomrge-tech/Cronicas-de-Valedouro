@@ -218,7 +218,7 @@ func _start_new_game_now() -> void:
 	if state == null:
 		return
 	state.start_new_game()
-	get_tree().change_scene_to_file(state.DEFAULT_SCENE)
+	get_tree().change_scene_to_file(state.continue_scene_path())
 
 func _continue_game() -> void:
 	var state = _state()
