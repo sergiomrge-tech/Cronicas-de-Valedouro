@@ -122,7 +122,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog approved_visuals vertical_slice boss_patterns mobile_input modeled_assets reg001_world reg001_gameplay character_art cast_shadow guardian_state act02_compositions cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018; do
+          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog approved_visuals vertical_slice boss_patterns mobile_input modeled_assets reg001_world reg001_gameplay character_art cast_shadow guardian_state act02_compositions cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019; do
             echo "===== TEST: $t ====="
             log="/tmp/godot-test-$t.log"
             if ! timeout 60s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" >"$log" 2>&1; then
@@ -299,6 +299,20 @@ jobs:
           path: game/ci_output_cartoon/*.png
           if-no-files-found: error
 
+      - name: Capture Cartoon UI visual QA (menu, inventário, zoom e forja)
+        run: |
+          mkdir -p game/ci_output_cartoon_ui
+          timeout 120s xvfb-run -a /tmp/godot/godot --path game --rendering-method gl_compatibility --script res://tests/qa_capture_cartoon_ui.gd -- "$PWD/game/ci_output_cartoon_ui"
+          test "$(find game/ci_output_cartoon_ui -maxdepth 1 -type f -name '*.png' | wc -l)" -ge 8
+          ls -lh game/ci_output_cartoon_ui
+
+      - name: Upload Cartoon UI visual QA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: valedouro-cartoon-ui-v019
+          path: game/ci_output_cartoon_ui/*.png
+          if-no-files-found: error
+
       - name: Capture Floresta Ancestral visual QA (real Godot renders)
         run: |
           mkdir -p game/ci_output_forest
@@ -401,6 +415,6 @@ jobs:
         shell: bash
         run: |
           set -e
-          rm -rf game/.godot game/ci_output game/ci_output_reg001 game/ci_output_art_gate game/ci_output_cartoon game/ci_output_forest game/ci_output_desert game/ci_output_marsh game/ci_output_frost game/ci_output_coast game/ci_output_corrupted game/ci_output_abyss game/ci_art_reports game/tools/__pycache__ game/tools/reg001/__pycache__ game/tools/modeling/__pycache__ game/tools/art_pipeline/__pycache__
+          rm -rf game/.godot game/ci_output game/ci_output_reg001 game/ci_output_art_gate game/ci_output_cartoon game/ci_output_cartoon_ui game/ci_output_forest game/ci_output_desert game/ci_output_marsh game/ci_output_frost game/ci_output_coast game/ci_output_corrupted game/ci_output_abyss game/ci_art_reports game/tools/__pycache__ game/tools/reg001/__pycache__ game/tools/modeling/__pycache__ game/tools/art_pipeline/__pycache__
           rm -f game/tests/visual_capture.gd
           echo "CI is read-only: generated runtime assets and QA captures are not pushed back to main."
