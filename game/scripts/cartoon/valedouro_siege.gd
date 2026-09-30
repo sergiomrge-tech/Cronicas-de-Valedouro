@@ -18,6 +18,9 @@ func _ready() -> void:
 	hub.story_runtime = runtime
 	hub.hero.position = Region.world_from_hub(Vector2(1150,430))
 	_bind_campaign_save()
+	if hub.hud_status != null:
+		hub.hud_status.region_label.text = "CERCO DE VALEDOURO"
+		hub._refresh_stats()
 	for monster in hub.monsters.duplicate():
 		if is_instance_valid(monster):
 			monster.queue_free()
