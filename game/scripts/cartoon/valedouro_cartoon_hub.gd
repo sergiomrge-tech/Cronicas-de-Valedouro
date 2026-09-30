@@ -9,9 +9,11 @@ const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
 const StreamScript = preload("res://scripts/cartoon/cartoon_world_stream.gd")
 const ExplorationContent = preload("res://scripts/cartoon/cartoon_exploration_content.gd")
 const MainStoryMap = preload("res://scripts/cartoon/cartoon_main_story_map.gd")
+const StoryZoneScript = preload("res://scripts/cartoon/cartoon_story_zone.gd")
 
 var environment: ValedouroCartoonHubEnvironment
 var objects: Node2D
+var story_zones: Node2D
 var hero: ValedouroCartoonHero
 var camera: Camera2D
 var world_stream: ValedouroCartoonWorldStream
@@ -33,6 +35,10 @@ var field_quest_active: bool = false
 var field_kills: int = 0
 
 func _ready() -> void:
+	story_zones = Node2D.new()
+	story_zones.name = "StoryZones"
+	story_zones.z_index = -12
+	add_child(story_zones)
 	objects = Node2D.new()
 	objects.name = "WorldObjects"
 	objects.y_sort_enabled = true
@@ -46,6 +52,7 @@ func _ready() -> void:
 		prop.setup(data)
 		objects.add_child(prop)
 	_spawn_outer_landmarks()
+	_spawn_main_story_zones()
 	_spawn_main_story_locations()
 	hero = HeroScript.new()
 	hero.name = "Player"
@@ -283,3 +290,10 @@ func _spawn_main_story_locations() -> void:
 			"quest":String(data.get("quest","")),
 			"instanced":bool(data.get("instanced",false))
 		})
+
+
+func _spawn_main_story_zones() -> void:
+	for data in MainStoryMap.act1_zones():
+		var zone: Node2D = StoryZoneScript.new()
+		zone.setup(data)
+		story_zones.add_child(zone)
