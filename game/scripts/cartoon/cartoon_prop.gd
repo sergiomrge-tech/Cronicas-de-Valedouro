@@ -63,6 +63,12 @@ func _draw() -> void:
 		"memory_tree": _draw_memory_tree()
 		"hollow_root_arena": _draw_hollow_root_arena()
 		"cartographer_shrine": _draw_cartographer_shrine()
+		"amber_caravan": _draw_amber_caravan()
+		"amber_post": _draw_amber_post()
+		"edravar_city": _draw_edravar_city()
+		"resistance_cistern": _draw_resistance_cistern()
+		"ash_observatory": _draw_ash_observatory()
+		"ash_citadel": _draw_ash_citadel()
 		_: _draw_rock()
 
 func _draw_tree() -> void:
@@ -397,3 +403,67 @@ func _draw_cartographer_shrine() -> void:
 	for a in [0.0,PI*0.5,PI,PI*1.5]:
 		var d: Vector2 = Vector2.RIGHT.rotated(a)
 		draw_line(Vector2(0,-30)+d*6,Vector2(0,-30)+d*17,Color(0.88,0.76,0.28),3)
+
+
+func _draw_amber_caravan() -> void:
+	DrawUtil.shadow(self,Vector2(0,10),72,0.18)
+	DrawUtil.rect_outlined(self,Rect2(-62,-34,124,54),Color(0.55,0.31,0.13),DrawUtil.OUTLINE,4)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-72,-32),Vector2(-50,-72),Vector2(50,-72),Vector2(72,-32)]),Color(0.90,0.55,0.16),DrawUtil.OUTLINE,4)
+	for x in [-44.0,44.0]:
+		DrawUtil.circle_outlined(self,Vector2(x,23),16,Color(0.26,0.19,0.12),DrawUtil.OUTLINE,4)
+		DrawUtil.circle_outlined(self,Vector2(x,23),6,Color(0.68,0.45,0.19),DrawUtil.OUTLINE,2)
+	DrawUtil.rect_outlined(self,Rect2(-17,-14,34,34),Color(0.33,0.18,0.09),DrawUtil.OUTLINE,2)
+	DrawUtil.circle_outlined(self,Vector2(0,-52),7,Color(1.0,0.76,0.20),DrawUtil.OUTLINE,2)
+
+func _draw_amber_post() -> void:
+	_building_shadow(170)
+	DrawUtil.rect_outlined(self,Rect2(-72,-70,144,90),Color(0.74,0.57,0.34),DrawUtil.OUTLINE,4)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-86,-68),Vector2(0,-112),Vector2(86,-68)]),Color(0.48,0.22,0.12),DrawUtil.OUTLINE,4)
+	DrawUtil.rect_outlined(self,Rect2(-15,-26,30,46),Color(0.31,0.17,0.08),DrawUtil.OUTLINE,3)
+	for x in [-45.0,45.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-10,-45,20,24),Color(0.42,0.64,0.72),DrawUtil.OUTLINE,2)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-10,-78),Vector2(10,-78),Vector2(10,-53),Vector2(0,-45),Vector2(-10,-53)]),Color(0.95,0.62,0.16),DrawUtil.OUTLINE,2)
+
+func _draw_edravar_city() -> void:
+	_building_shadow(230)
+	for x in [-92.0,-32.0,36.0,94.0]:
+		var h: float = 82.0+float((int(x)+100)%3)*18.0
+		DrawUtil.rect_outlined(self,Rect2(x-26,-h,52,h+18),Color(0.62,0.50,0.36),DrawUtil.OUTLINE,4)
+		DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(x-32,-h),Vector2(x,-h-34),Vector2(x+32,-h)]),Color(0.45,0.25,0.16),DrawUtil.OUTLINE,3)
+		if x == 36.0:
+			draw_line(Vector2(x+5,-h-18),Vector2(x+26,-h-4),Color(0.18,0.15,0.12),5)
+	for p in [Vector2(-120,15),Vector2(-58,24),Vector2(65,18),Vector2(125,12)]:
+		DrawUtil.ellipse(self,p,18,8,Color(0.46,0.42,0.35))
+
+func _draw_resistance_cistern() -> void:
+	DrawUtil.shadow(self,Vector2(0,9),54,0.17)
+	DrawUtil.ellipse_outlined(self,Vector2.ZERO,54,31,Color(0.55,0.51,0.42),DrawUtil.OUTLINE,4)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-4),32,20,Color(0.15,0.18,0.18),DrawUtil.OUTLINE,3)
+	draw_rect(Rect2(-32,-4,64,20),Color(0.15,0.18,0.18))
+	for x in [-42.0,42.0]:
+		draw_line(Vector2(x,-3),Vector2(x,-42),Color(0.46,0.28,0.14),7)
+	draw_line(Vector2(-46,-42),Vector2(46,-42),Color(0.46,0.28,0.14),8)
+	DrawUtil.circle_outlined(self,Vector2(0,-31),7,Color(0.92,0.63,0.18),DrawUtil.OUTLINE,2)
+
+func _draw_ash_observatory() -> void:
+	_building_shadow(180)
+	DrawUtil.rect_outlined(self,Rect2(-62,-66,124,82),Color(0.56,0.52,0.46),DrawUtil.OUTLINE,4)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-66),62,30,Color(0.43,0.42,0.41),DrawUtil.OUTLINE,4)
+	DrawUtil.circle_outlined(self,Vector2(0,-84),26,Color(0.32,0.35,0.37),DrawUtil.OUTLINE,4)
+	draw_line(Vector2(0,-84),Vector2(36,-111),Color(0.24,0.24,0.25),8)
+	DrawUtil.circle_outlined(self,Vector2(0,-84),8,Color(0.92,0.42,0.17),DrawUtil.OUTLINE,2)
+	for x in [-38.0,38.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-8,-42,16,34),Color(0.28,0.25,0.22),DrawUtil.OUTLINE,2)
+
+func _draw_ash_citadel() -> void:
+	_building_shadow(250)
+	for x in [-92.0,92.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-34,-118,68,136),Color(0.42,0.40,0.38),DrawUtil.OUTLINE,5)
+		for bx in [-24.0,0.0,24.0]:
+			draw_rect(Rect2(x+bx-7,-128,14,16),Color(0.42,0.40,0.38))
+	DrawUtil.rect_outlined(self,Rect2(-92,-76,184,94),Color(0.49,0.45,0.40),DrawUtil.OUTLINE,5)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-18),34,36,Color(0.18,0.13,0.11),DrawUtil.OUTLINE,3)
+	draw_rect(Rect2(-34,-18,68,36),Color(0.18,0.13,0.11))
+	for p in [Vector2(-58,-72),Vector2(58,-72)]:
+		DrawUtil.flame(self,p,26,10,anim_t)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-13,-104),Vector2(13,-104),Vector2(13,-75),Vector2(0,-66),Vector2(-13,-75)]),Color(0.73,0.23,0.11),DrawUtil.OUTLINE,3)
