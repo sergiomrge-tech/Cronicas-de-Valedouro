@@ -57,6 +57,12 @@ func _build() -> void:
 	panel.add_theme_stylebox_override("panel",st)
 	add_child(panel)
 
+	var body: Control = Control.new()
+	body.name = "CraftingContent"
+	body.custom_minimum_size = Vector2(462,347)
+	body.mouse_filter = Control.MOUSE_FILTER_PASS
+	panel.add_child(body)
+
 	title_label = Label.new()
 	title_label.position = Vector2(20,16)
 	title_label.size = Vector2(430,34)
@@ -64,14 +70,14 @@ func _build() -> void:
 	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title_label.add_theme_font_size_override("font_size",22)
 	title_label.add_theme_color_override("font_color",Color(1.0,0.82,0.36))
-	panel.add_child(title_label)
+	body.add_child(title_label)
 
 	summary_label = Label.new()
 	summary_label.position = Vector2(24,58)
 	summary_label.size = Vector2(422,60)
 	summary_label.add_theme_font_size_override("font_size",15)
 	summary_label.add_theme_color_override("font_color",Color(0.93,0.91,0.87))
-	panel.add_child(summary_label)
+	body.add_child(summary_label)
 
 	material_label = Label.new()
 	material_label.position = Vector2(24,122)
@@ -79,7 +85,7 @@ func _build() -> void:
 	material_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	material_label.add_theme_font_size_override("font_size",13)
 	material_label.add_theme_color_override("font_color",Color(0.77,0.91,0.88))
-	panel.add_child(material_label)
+	body.add_child(material_label)
 
 	weapon_button = Button.new()
 	weapon_button.position = Vector2(28,196)
@@ -88,7 +94,7 @@ func _build() -> void:
 	weapon_button.add_theme_font_size_override("font_size",14)
 	_style_button(weapon_button,Color(0.16,0.27,0.42),Color(0.39,0.72,0.96))
 	weapon_button.pressed.connect(func(): _craft("weapon"))
-	panel.add_child(weapon_button)
+	body.add_child(weapon_button)
 
 	armor_button = Button.new()
 	armor_button.position = Vector2(244,196)
@@ -97,7 +103,7 @@ func _build() -> void:
 	armor_button.add_theme_font_size_override("font_size",14)
 	_style_button(armor_button,Color(0.29,0.20,0.36),Color(0.74,0.52,0.92))
 	armor_button.pressed.connect(func(): _craft("armor"))
-	panel.add_child(armor_button)
+	body.add_child(armor_button)
 
 	var close: Button = Button.new()
 	close.text = "FECHAR"
@@ -106,7 +112,7 @@ func _build() -> void:
 	close.mouse_filter = Control.MOUSE_FILTER_STOP
 	_style_button(close,Color(0.18,0.16,0.19),Color(0.63,0.60,0.63))
 	close.pressed.connect(func(): panel.visible=false)
-	panel.add_child(close)
+	body.add_child(close)
 
 func _style_button(button: Button, bg: Color, border: Color) -> void:
 	for state in ["normal","hover","pressed","focus"]:
