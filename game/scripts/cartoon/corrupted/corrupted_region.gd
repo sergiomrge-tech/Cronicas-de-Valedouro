@@ -12,6 +12,7 @@ const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
 const MapOverlayScript = preload("res://scripts/cartoon/corrupted/corrupted_map_overlay.gd")
 const ExplorationDirectorScript = preload("res://scripts/cartoon/cartoon_exploration_director.gd")
 const CraftingUIScript = preload("res://scripts/cartoon/cartoon_crafting_ui.gd")
+const ZoomControlsScript = preload("res://scripts/cartoon/cartoon_zoom_controls.gd")
 
 var story_zones: Node2D
 var objects: Node2D
@@ -21,6 +22,7 @@ var world_stream: Node2D
 var story_runtime: RefCounted
 var exploration_director: Node
 var crafting_ui: Control
+var zoom_controls: Control
 var monsters: Array[Node2D] = []
 var pois: Array[Dictionary] = []
 var ui: CanvasLayer
@@ -85,6 +87,10 @@ func _ready() -> void:
 	camera.limit_bottom = int(Corrupted.REGION_SIZE.y)
 	hero.add_child(camera)
 	_build_ui()
+	zoom_controls = ZoomControlsScript.new()
+	zoom_controls.name = "ZoomControls"
+	ui.add_child(zoom_controls)
+	zoom_controls.setup(camera)
 	crafting_ui = CraftingUIScript.new()
 	crafting_ui.name = "CraftingUI"
 	ui.add_child(crafting_ui)
