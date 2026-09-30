@@ -26,6 +26,49 @@ APP_KEYS = {
 }
 
 
+# Assets gratuitos integrados (tools/external/build_nature.py): árvores, arbustos, flores e rochas posicionados à mão passam a usar as
+# versões Karsiori adaptadas. A escolha é determinística pela posição (variedade sem repetição em fileira).
+EXT_SWAP = {
+    'nat_oak_a': ['ext_tree_oak_cloud', 'ext_tree_dense', 'ext_tree_round'],
+    'nat_oak_b': ['ext_tree_oak_cloud', 'ext_tree_round', 'ext_tree_flat'],
+    'nat_oak_c': ['ext_tree_dense', 'ext_tree_oak_cloud_teal'],
+    'nat_oak_autumn': ['ext_tree_autumn', 'ext_tree_autumn_red'],
+    'nat_oak_golden': ['ext_tree_lollipop', 'ext_tree_autumn'],
+    'nat_birch_tall': ['ext_tree_lollipop', 'ext_tree_small'],
+    'nat_tree_birch': ['ext_tree_lollipop', 'ext_tree_small'],
+    'nat_tree_oak': ['ext_tree_oak_cloud', 'ext_tree_round'],
+    'nat_pine_tall_a': ['ext_spruce_large', 'ext_spruce_thick'],
+    'nat_pine_tall_b': ['ext_spruce_thick', 'ext_pine_bubble'],
+    'nat_tree_pine': ['ext_spruce_large', 'ext_spruce_slim'],
+    'nat_pine_tall_snow': ['ext_spruce_cold', 'ext_spruce_thick_cold'],
+    'nat_tree_pine_snow': ['ext_spruce_cold', 'ext_spruce_thick_cold'],
+    'nat_bush_green': ['ext_bush_leafy', 'ext_bush_leafy_small', 'ext_bush_fern'],
+    'nat_bush_berry': ['ext_bush_leafy_teal', 'ext_bush_leafy'],
+    'nat_bush_flowering': ['ext_flower_wild', 'ext_flower_daisy', 'ext_bush_hedge'],
+    'nat_flowers_meadow': ['ext_flower_yellow', 'ext_flower_daisy', 'ext_flower_sun'],
+    'nat_flowers_blue': ['ext_flower_blue', 'ext_flower_orchid'],
+    'nat_flowers_red': ['ext_flower_wild', 'ext_flower_orchid'],
+    'nat_grass_tall': ['ext_bush_grass_wide', 'ext_bush_grass_big'],
+    'nat_rock_mossy': ['ext_rock_mossy_a', 'ext_rock_mossy_c', 'ext_rock_mossy_d'],
+    'nat_rock_medium': ['ext_rock_mossy_b', 'ext_rock_mossy_a'],
+    'nat_rock_small': ['ext_rock_mossy_small'],
+    'nat_rock_sand': ['ext_rock_beige_a', 'ext_rock_beige_b'],
+    'nat_rock_snow': ['ext_rock_silver_a', 'ext_rock_white_a'],
+    'nat_rock_ice': ['ext_rock_silver_b', 'ext_rock_white_a'],
+    'city_planter': ['ext_flower_pot_colorful', 'ext_flower_pot_purple', 'ext_flower_pot_orange'],
+}
+
+
+def ext_swap(asset, x, y):
+    opts = EXT_SWAP.get(asset)
+    if not opts:
+        return asset
+    opts = [o for o in opts if o in ASSETS]
+    if not opts:
+        return asset
+    return opts[int(abs(x * 7.31 + y * 3.17)) % len(opts)]
+
+
 class World:
     def __init__(self):
         self.objects = []
@@ -48,6 +91,9 @@ class World:
     def obj(self, asset, x, y, group, zone='cidade', poi=None, layer='decor', scale=None, sy=None, solid=None,
             hide_when=None, show_when=None, anim=0.0, check=True, flip=False):
         """Coloca um sprite. asset = id modelado ou 'APP:<chave aprovada>'."""
+        asset = ext_swap(asset, x, y)
+        if asset.startswith('ext_') and scale is not None and scale < .9:
+            scale = None                     # assets externos já estão na escala final (×3 nearest): não reduzir a densidade de pixel
         if asset.startswith('APP:'):
             if asset[4:] not in APP_KEYS:
                 raise SystemExit('asset APPROVED desconhecido: %s' % asset)

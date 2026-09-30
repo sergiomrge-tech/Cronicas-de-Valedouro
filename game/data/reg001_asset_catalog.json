@@ -23,8 +23,8 @@
    "NOT_USED": 216
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 254,
-   "NOT_USED": 227
+   "INTEGRATED": 275,
+   "NOT_USED": 254
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -226,7 +226,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 1140
+  "object_count": 1141
  },
  "entries": [
   {
@@ -476,8 +476,8 @@
    "key": "city_planter",
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 14,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -650,6 +650,438 @@
    "usage": "INTEGRATED",
    "placed": 3,
    "source": "game/tools/modeling/build_assets.py"
+  },
+  {
+   "id": "MOD_EXT_BUSH_FERN",
+   "key": "ext_bush_fern",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 5/Bush 5_GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_BUSH_FERN_DRY",
+   "key": "ext_bush_fern_dry",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 5/Bush 5_YELLOW.png"
+  },
+  {
+   "id": "MOD_EXT_BUSH_GRASS_BIG",
+   "key": "ext_bush_grass_big",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 3/Bush 3_GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_BUSH_GRASS_DRY",
+   "key": "ext_bush_grass_dry",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 3/Bush 3_YELLOW.png"
+  },
+  {
+   "id": "MOD_EXT_BUSH_GRASS_RED",
+   "key": "ext_bush_grass_red",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 1/Bush 1_RED.png"
+  },
+  {
+   "id": "MOD_EXT_BUSH_GRASS_WIDE",
+   "key": "ext_bush_grass_wide",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 1/Bush 1_GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_BUSH_HEDGE",
+   "key": "ext_bush_hedge",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 13/Bush 13_GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_BUSH_LEAFY",
+   "key": "ext_bush_leafy",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 10,
+   "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 14/Bush 14_GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_BUSH_LEAFY_SMALL",
+   "key": "ext_bush_leafy_small",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 12/Bush 12_GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_BUSH_LEAFY_TEAL",
+   "key": "ext_bush_leafy_teal",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 14/Bush 14_TEAL.png"
+  },
+  {
+   "id": "MOD_EXT_FLOWER_BLUE",
+   "key": "ext_flower_blue",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 1/Flower 1 - BLUE.png"
+  },
+  {
+   "id": "MOD_EXT_FLOWER_DAISY",
+   "key": "ext_flower_daisy",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 8,
+   "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 11/Flower 11 - PINK.png"
+  },
+  {
+   "id": "MOD_EXT_FLOWER_ORCHID",
+   "key": "ext_flower_orchid",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 7,
+   "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 3/Flower 3 - PURPLE.png"
+  },
+  {
+   "id": "MOD_EXT_FLOWER_POT_COLORFUL",
+   "key": "ext_flower_pot_colorful",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower Pot 2/Flower Pot 2 - COLORFUL.png"
+  },
+  {
+   "id": "MOD_EXT_FLOWER_POT_ORANGE",
+   "key": "ext_flower_pot_orange",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower Pot 6/Flower Pot 6 - ORANGE.png"
+  },
+  {
+   "id": "MOD_EXT_FLOWER_POT_PURPLE",
+   "key": "ext_flower_pot_purple",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower Pot 5/Flower Pot 5 - PURPLE.png"
+  },
+  {
+   "id": "MOD_EXT_FLOWER_SUN",
+   "key": "ext_flower_sun",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 7,
+   "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 9/Flower 9 - YELLOW.png"
+  },
+  {
+   "id": "MOD_EXT_FLOWER_WILD",
+   "key": "ext_flower_wild",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 4/Flower 4 - PINK.png"
+  },
+  {
+   "id": "MOD_EXT_FLOWER_YELLOW",
+   "key": "ext_flower_yellow",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 1/Flower 1 - YELLOW.png"
+  },
+  {
+   "id": "MOD_EXT_PINE_BUBBLE",
+   "key": "ext_pine_bubble",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 7,
+   "source": "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Bubble Pine Tree/GREEN/Sprites/Bubble Pine Tree - GREEN - 0000.png"
+  },
+  {
+   "id": "MOD_EXT_ROCK_BEIGE_A",
+   "key": "ext_rock_beige_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - BEIGE -/Rock Pile 6 - BEIGE - BIG.PNG"
+  },
+  {
+   "id": "MOD_EXT_ROCK_BEIGE_B",
+   "key": "ext_rock_beige_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - BEIGE -/Rock Pile 3 - BEIGE - BIG.PNG"
+  },
+  {
+   "id": "MOD_EXT_ROCK_BEIGE_SMALL",
+   "key": "ext_rock_beige_small",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - BEIGE -/Rock Pile 10 - BEIGE - small.PNG"
+  },
+  {
+   "id": "MOD_EXT_ROCK_MOSSY_A",
+   "key": "ext_rock_mossy_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 9,
+   "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 6 - MOSSY - BIG.PNG"
+  },
+  {
+   "id": "MOD_EXT_ROCK_MOSSY_B",
+   "key": "ext_rock_mossy_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 7 - MOSSY - BIG.PNG"
+  },
+  {
+   "id": "MOD_EXT_ROCK_MOSSY_C",
+   "key": "ext_rock_mossy_c",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 3 - MOSSY - BIG.PNG"
+  },
+  {
+   "id": "MOD_EXT_ROCK_MOSSY_D",
+   "key": "ext_rock_mossy_d",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 2 - MOSSY - BIG.PNG"
+  },
+  {
+   "id": "MOD_EXT_ROCK_MOSSY_SMALL",
+   "key": "ext_rock_mossy_small",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 8,
+   "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 10 - MOSSY - small.PNG"
+  },
+  {
+   "id": "MOD_EXT_ROCK_SILVER_A",
+   "key": "ext_rock_silver_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - SILVER -/Rock Pile 6 - SILVER - BIG.PNG"
+  },
+  {
+   "id": "MOD_EXT_ROCK_SILVER_B",
+   "key": "ext_rock_silver_b",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - SILVER -/Rock Pile 13 - SILVER - BIG.PNG"
+  },
+  {
+   "id": "MOD_EXT_ROCK_WHITE_A",
+   "key": "ext_rock_white_a",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - WHITE -/Rock Pile 7 - WHITE - BIG.PNG"
+  },
+  {
+   "id": "MOD_EXT_SPRUCE_COLD",
+   "key": "ext_spruce_cold",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/COLD/Sprites/Large Spruce Tree - COLD - 0000.png"
+  },
+  {
+   "id": "MOD_EXT_SPRUCE_LARGE",
+   "key": "ext_spruce_large",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 8,
+   "source": "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/GREEN/Sprites/Large Spruce Tree - GREEN - 0000.png"
+  },
+  {
+   "id": "MOD_EXT_SPRUCE_SLIM",
+   "key": "ext_spruce_slim",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Slim Spruce Tree/GREEN_TEAL/Sprites/Slim Spruce Tree - GREEN_TEAL - 0000.png"
+  },
+  {
+   "id": "MOD_EXT_SPRUCE_THICK",
+   "key": "ext_spruce_thick",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 24,
+   "source": "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/GREEN/Sprites/Thick Spruce Tree - GREEN - 0000.png"
+  },
+  {
+   "id": "MOD_EXT_SPRUCE_THICK_COLD",
+   "key": "ext_spruce_thick_cold",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/COLD/Sprites/Thick Spruce Tree - COLD - 0000.png"
+  },
+  {
+   "id": "MOD_EXT_TREE_AUTUMN",
+   "key": "ext_tree_autumn",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 15/TREE 15_ORANGE.png"
+  },
+  {
+   "id": "MOD_EXT_TREE_AUTUMN_RED",
+   "key": "ext_tree_autumn_red",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 15/TREE 15_RED.png"
+  },
+  {
+   "id": "MOD_EXT_TREE_DENSE",
+   "key": "ext_tree_dense",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 11,
+   "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 6/TREE 6_GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_TREE_DENSE_TEAL",
+   "key": "ext_tree_dense_teal",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 6/TREE 6_TEAL.png"
+  },
+  {
+   "id": "MOD_EXT_TREE_FLAT",
+   "key": "ext_tree_flat",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 5,
+   "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 5/TREE 5_GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_TREE_LOLLIPOP",
+   "key": "ext_tree_lollipop",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 13,
+   "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 4/TREE 4_YELlOWISH GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_TREE_OAK_CLOUD",
+   "key": "ext_tree_oak_cloud",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 20,
+   "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 2/TREE 2_GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_TREE_OAK_CLOUD_SANDY",
+   "key": "ext_tree_oak_cloud_sandy",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 2/TREE 2_SANDY GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_TREE_OAK_CLOUD_TEAL",
+   "key": "ext_tree_oak_cloud_teal",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 2/TREE 2_TEAL.png"
+  },
+  {
+   "id": "MOD_EXT_TREE_ROUND",
+   "key": "ext_tree_round",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 11,
+   "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 9/TREE 8_GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_TREE_SMALL",
+   "key": "ext_tree_small",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 10,
+   "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 8/TREE 8_GREEN.png"
+  },
+  {
+   "id": "MOD_EXT_TREE_UMBRELLA",
+   "key": "ext_tree_umbrella",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 1/TREE 1_SANDY GREEN.png"
   },
   {
    "id": "MOD_FAU_BIRD",
@@ -2483,8 +2915,8 @@
    "key": "nat_birch_tall",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 20,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2520,7 +2952,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 8,
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2538,7 +2970,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 12,
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -2556,7 +2988,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 17,
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3321,7 +3753,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 0,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -3330,7 +3762,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 16,
+   "placed": 0,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -3339,7 +3771,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 0,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -3375,7 +3807,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 8,
+   "placed": 0,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -3564,7 +3996,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 25,
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3573,7 +4005,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 9,
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3582,7 +4014,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 17,
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3591,7 +4023,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 9,
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3599,8 +4031,8 @@
    "key": "nat_oak_golden",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 2,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3617,8 +4049,8 @@
    "key": "nat_pine_tall_a",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 23,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3626,8 +4058,8 @@
    "key": "nat_pine_tall_b",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 15,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3635,7 +4067,7 @@
    "key": "nat_pine_tall_snow",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
@@ -3834,7 +4266,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 3,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3887,8 +4319,8 @@
    "key": "nat_rock_ice",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 3,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3896,7 +4328,7 @@
    "key": "nat_rock_medium",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
@@ -3905,8 +4337,8 @@
    "key": "nat_rock_mossy",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 18,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3924,7 +4356,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 7,
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3932,8 +4364,8 @@
    "key": "nat_rock_small",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 8,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3942,7 +4374,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4157,7 +4589,7 @@
    "key": "nat_spruce_cold",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
@@ -4166,7 +4598,7 @@
    "key": "nat_spruce_small",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
@@ -4247,8 +4679,8 @@
    "key": "nat_tree_birch",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 2,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4265,7 +4697,7 @@
    "key": "nat_tree_lollipop",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
@@ -4283,8 +4715,8 @@
    "key": "nat_tree_pine",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 4,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4301,7 +4733,7 @@
    "key": "nat_tree_tiered",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
@@ -4310,7 +4742,7 @@
    "key": "nat_tree_umbrella",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
+   "usage": "NOT_USED",
    "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },

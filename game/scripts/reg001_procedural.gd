@@ -29,61 +29,59 @@ static func item(sy: float, asset: String, x: float, y: float, anim: float, scal
 	return [sy, asset, x, y, anim, scale, flip, owner, kind]
 
 static func asset_for(kind: String, biome_name: String, seed: int) -> String:
+	# Vegetação/rochas = assets Karsiori (CC0) adaptados à paleta Valedouro (tools/external/build_nature.py), escolhidos por ECOLOGIA.
 	match kind:
 		"tree":
-			# árvores finais (Etapa 3, linguagem Karsiori): silhueta por ECOLOGIA — frio = spruce, seco = guarda-chuva,
-			# vale = andares, bosque claro = pirulito; carvalhos em nuvem são a base.
-			if biome_name == "gelo":
-				return "nat_spruce_cold" if seed % 3 else "nat_pine_tall_snow"
-			if biome_name == "deserto":
-				return "nat_tree_umbrella"
-			if biome_name == "pradaria" and seed % 4 == 0:
-				return "nat_tree_umbrella"
-			if biome_name == "vale" and seed % 4 == 0:
-				return "nat_tree_tiered"
-			if biome_name == "floresta" and seed % 6 == 0:
-				return "nat_tree_lollipop"
-			if biome_name in ["campos", "vale", "pradaria"] and seed % 10 < 2:
-				return "nat_birch_tall"
-			if seed % 11 == 0:
-				return "nat_oak_autumn"
-			if seed % 13 == 0:
-				return "nat_oak_golden"
-			return ["nat_oak_a", "nat_oak_b", "nat_oak_c"][seed % 3]
+			match biome_name:
+				"gelo":
+					return ["ext_spruce_cold", "ext_spruce_thick_cold"][seed % 2]
+				"deserto":
+					return "ext_tree_umbrella"
+				"pradaria":
+					return ["ext_tree_oak_cloud_sandy", "ext_tree_umbrella", "ext_tree_oak_cloud", "ext_tree_small"][seed % 4]
+				"vale":
+					return ["ext_tree_round", "ext_tree_flat", "ext_tree_autumn", "ext_tree_oak_cloud", "ext_tree_lollipop", "ext_tree_autumn_red"][seed % 6]
+				"campos":
+					return ["ext_tree_oak_cloud", "ext_tree_round", "ext_tree_small", "ext_tree_autumn"][seed % 4]
+			return ["ext_tree_oak_cloud", "ext_tree_dense", "ext_tree_oak_cloud_teal", "ext_tree_dense_teal", "ext_tree_lollipop", "ext_tree_autumn"][seed % 6]
 		"pine":
 			if biome_name == "gelo":
-				return "nat_spruce_cold"
-			if seed % 5 == 0:
-				return "nat_spruce_small"
-			return "nat_pine_tall_a" if seed % 3 else "nat_pine_tall_b"
+				return "ext_spruce_cold"
+			return ["ext_spruce_large", "ext_spruce_thick", "ext_pine_bubble", "ext_spruce_slim"][seed % 4]
 		"frost_tree":
-			return "nat_pine_tall_snow" if seed % 2 else "nat_spruce_cold"
+			return ["ext_spruce_cold", "ext_spruce_thick_cold", "ext_spruce_slim"][seed % 3]
 		"bush":
 			if biome_name == "gelo":
 				return "nat_bush_frost"
+			if biome_name == "deserto":
+				return "ext_bush_grass_dry"
 			if biome_name == "floresta":
-				return "nat_bush_berry" if seed % 3 == 0 else "nat_bush_green"
-			return "nat_bush_flowering" if seed % 2 == 0 else "nat_bush_green"
+				return ["ext_bush_leafy", "ext_bush_fern", "ext_bush_leafy_teal", "ext_bush_leafy_small"][seed % 4]
+			if biome_name == "pradaria":
+				return ["ext_bush_grass_big", "ext_bush_fern_dry", "ext_bush_leafy_small"][seed % 3]
+			return ["ext_bush_leafy", "ext_bush_hedge", "ext_bush_grass_big", "ext_bush_leafy_small"][seed % 4]
 		"flower":
 			if biome_name == "floresta":
-				return "nat_flowers_red"
-			return "nat_flowers_blue" if biome_name == "vale" else "nat_flowers_meadow"
+				return ["ext_flower_orchid", "ext_flower_blue"][seed % 2]
+			if biome_name == "vale":
+				return ["ext_flower_blue", "ext_flower_wild", "ext_flower_daisy", "ext_flower_orchid"][seed % 4]
+			return ["ext_flower_yellow", "ext_flower_daisy", "ext_flower_sun", "ext_flower_wild"][seed % 4]
 		"valley_rock":
 			if biome_name in ["floresta", "vale"]:
-				return "nat_rock_mossy"
-			return "nat_rock_medium" if seed % 3 == 0 else "nat_rock_small"
+				return ["ext_rock_mossy_a", "ext_rock_mossy_c", "ext_rock_mossy_small", "ext_rock_mossy_d"][seed % 4]
+			return ["ext_rock_mossy_small", "ext_rock_beige_small", "ext_rock_mossy_b"][seed % 3]
 		"reed":
 			return "nat_reeds"
 		"ice_rock":
-			return "nat_rock_ice" if seed % 2 == 0 else "nat_rock_snow"
+			return ["ext_rock_silver_a", "ext_rock_white_a", "ext_rock_silver_b"][seed % 3]
 		"ice_crystal":
 			return "nat_ice_spire"
 		"cactus":
 			return "nat_cactus_tall" if seed % 3 != 0 else "nat_cactus_round"
 		"sand_rock":
-			return "nat_rock_sand"
+			return ["ext_rock_beige_a", "ext_rock_beige_b", "ext_rock_beige_small"][seed % 3]
 		"dead_bush":
-			return "nat_bush_dry"
+			return ["ext_bush_grass_dry", "nat_bush_dry"][seed % 2]
 		"mushroom":
 			return "nat_mushrooms"
 		"log":
@@ -97,9 +95,9 @@ static func asset_for(kind: String, biome_name: String, seed: int) -> String:
 		"bones":
 			return "nat_bones_desert"
 		"grass_tall":
-			return "nat_grass_dry" if biome_name == "deserto" else "nat_grass_tall"
+			return "ext_bush_grass_dry" if biome_name == "deserto" else ["ext_bush_grass_wide", "ext_bush_grass_big", "nat_grass_tall"][seed % 3]
 		"boulder":
-			return "nat_rock_boulder"
+			return ["ext_rock_mossy_b", "ext_rock_mossy_a"][seed % 2]
 	return ""
 
 static func _pair_width(a: String, b: String) -> float:

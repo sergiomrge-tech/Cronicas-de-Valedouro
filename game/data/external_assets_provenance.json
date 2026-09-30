@@ -1,0 +1,623 @@
+{
+ "note": "Proveniência dos assets gratuitos integrados (fonte preservada em external_assets/free_reference_library).",
+ "items": [
+  {
+   "id": "ext_rock_beige_a",
+   "category": "rocha",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - BEIGE -/Rock Pile 6 - BEIGE - BIG.PNG"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_rock_beige_a.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "deserto/colinas",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_rock_beige_b",
+   "category": "rocha",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - BEIGE -/Rock Pile 3 - BEIGE - BIG.PNG"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_rock_beige_b.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "deserto/colinas",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_rock_beige_small",
+   "category": "rocha",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - BEIGE -/Rock Pile 10 - BEIGE - small.PNG"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_rock_beige_small.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "deserto/colinas",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_rock_mossy_a",
+   "category": "rocha",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 6 - MOSSY - BIG.PNG"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_rock_mossy_a.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "floresta/vale",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_rock_mossy_b",
+   "category": "rocha",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 7 - MOSSY - BIG.PNG"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_rock_mossy_b.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "floresta/vale",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_rock_mossy_c",
+   "category": "rocha",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 3 - MOSSY - BIG.PNG"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_rock_mossy_c.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "floresta/vale",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_rock_mossy_d",
+   "category": "rocha",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 2 - MOSSY - BIG.PNG"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_rock_mossy_d.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "floresta/vale",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_rock_mossy_small",
+   "category": "rocha",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 10 - MOSSY - small.PNG"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_rock_mossy_small.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "floresta/vale",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_rock_silver_a",
+   "category": "rocha",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - SILVER -/Rock Pile 6 - SILVER - BIG.PNG"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_rock_silver_a.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "gelo/montanha",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_rock_silver_b",
+   "category": "rocha",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - SILVER -/Rock Pile 13 - SILVER - BIG.PNG"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_rock_silver_b.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "gelo/montanha",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_rock_white_a",
+   "category": "rocha",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - WHITE -/Rock Pile 7 - WHITE - BIG.PNG"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_rock_white_a.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "gelo",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_bush_fern",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 5/Bush 5_GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_bush_fern.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "vegetação de chão por bioma",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_bush_fern_dry",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 5/Bush 5_YELLOW.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_bush_fern_dry.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "vegetação de chão por bioma",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_bush_grass_big",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 3/Bush 3_GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_bush_grass_big.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "vegetação de chão por bioma",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_bush_grass_dry",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 3/Bush 3_YELLOW.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_bush_grass_dry.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "vegetação de chão por bioma",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_bush_grass_red",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 1/Bush 1_RED.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_bush_grass_red.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "vegetação de chão por bioma",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_bush_grass_wide",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 1/Bush 1_GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_bush_grass_wide.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "vegetação de chão por bioma",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_bush_hedge",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 13/Bush 13_GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_bush_hedge.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "vegetação de chão por bioma",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_bush_leafy",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 14/Bush 14_GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_bush_leafy.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "vegetação de chão por bioma",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_bush_leafy_small",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 12/Bush 12_GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_bush_leafy_small.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "vegetação de chão por bioma",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_bush_leafy_teal",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 14/Bush 14_TEAL.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_bush_leafy_teal.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "vegetação de chão por bioma",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_flower_blue",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 1/Flower 1 - BLUE.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_flower_blue.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "campos, vale, clareiras",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_flower_daisy",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 11/Flower 11 - PINK.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_flower_daisy.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "campos, vale, clareiras",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_flower_orchid",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 3/Flower 3 - PURPLE.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_flower_orchid.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "campos, vale, clareiras",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_flower_pot_colorful",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower Pot 2/Flower Pot 2 - COLORFUL.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_flower_pot_colorful.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "campos/vale; vasos nas casas da cidade",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_flower_pot_orange",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower Pot 6/Flower Pot 6 - ORANGE.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_flower_pot_orange.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "campos/vale; vasos nas casas da cidade",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_flower_pot_purple",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower Pot 5/Flower Pot 5 - PURPLE.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_flower_pot_purple.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "campos/vale; vasos nas casas da cidade",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_flower_sun",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 9/Flower 9 - YELLOW.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_flower_sun.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "campos, vale, clareiras",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_flower_wild",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 4/Flower 4 - PINK.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_flower_wild.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "campos, vale, clareiras",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_flower_yellow",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 1/Flower 1 - YELLOW.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_flower_yellow.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "campos, vale, clareiras",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_pine_bubble",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Bubble Pine Tree/GREEN/Sprites/Bubble Pine Tree - GREEN - 0000.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Bubble Pine Tree/GREEN/Sprites/Bubble Pine Tree - GREEN - 0004.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Bubble Pine Tree/GREEN/Sprites/Bubble Pine Tree - GREEN - 0008.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Bubble Pine Tree/GREEN/Sprites/Bubble Pine Tree - GREEN - 0012.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Bubble Pine Tree/GREEN/Sprites/Bubble Pine Tree - GREEN - 0016.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Bubble Pine Tree/GREEN/Sprites/Bubble Pine Tree - GREEN - 0020.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Bubble Pine Tree/GREEN/Sprites/Bubble Pine Tree - GREEN - 0024.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Bubble Pine Tree/GREEN/Sprites/Bubble Pine Tree - GREEN - 0028.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_pine_bubble.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer; animação de vento preservada (8 de 33 quadros, loop)",
+   "used_in": "Colinas/pinhal jovem",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_spruce_cold",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/COLD/Sprites/Large Spruce Tree - COLD - 0000.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/COLD/Sprites/Large Spruce Tree - COLD - 0003.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/COLD/Sprites/Large Spruce Tree - COLD - 0006.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/COLD/Sprites/Large Spruce Tree - COLD - 0009.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/COLD/Sprites/Large Spruce Tree - COLD - 0012.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/COLD/Sprites/Large Spruce Tree - COLD - 0015.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/COLD/Sprites/Large Spruce Tree - COLD - 0018.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/COLD/Sprites/Large Spruce Tree - COLD - 0021.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_spruce_cold.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer; animação de vento preservada (8 de 27 quadros, loop)",
+   "used_in": "Montanhas nevadas (spruce frio)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_spruce_large",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/GREEN/Sprites/Large Spruce Tree - GREEN - 0000.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/GREEN/Sprites/Large Spruce Tree - GREEN - 0003.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/GREEN/Sprites/Large Spruce Tree - GREEN - 0006.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/GREEN/Sprites/Large Spruce Tree - GREEN - 0009.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/GREEN/Sprites/Large Spruce Tree - GREEN - 0012.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/GREEN/Sprites/Large Spruce Tree - GREEN - 0015.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/GREEN/Sprites/Large Spruce Tree - GREEN - 0018.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/GREEN/Sprites/Large Spruce Tree - GREEN - 0021.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_spruce_large.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer; animação de vento preservada (8 de 27 quadros, loop)",
+   "used_in": "Floresta/encostas (spruce animado ao vento)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_spruce_slim",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Slim Spruce Tree/GREEN_TEAL/Sprites/Slim Spruce Tree - GREEN_TEAL - 0000.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Slim Spruce Tree/GREEN_TEAL/Sprites/Slim Spruce Tree - GREEN_TEAL - 0004.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Slim Spruce Tree/GREEN_TEAL/Sprites/Slim Spruce Tree - GREEN_TEAL - 0008.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Slim Spruce Tree/GREEN_TEAL/Sprites/Slim Spruce Tree - GREEN_TEAL - 0012.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Slim Spruce Tree/GREEN_TEAL/Sprites/Slim Spruce Tree - GREEN_TEAL - 0016.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Slim Spruce Tree/GREEN_TEAL/Sprites/Slim Spruce Tree - GREEN_TEAL - 0020.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Slim Spruce Tree/GREEN_TEAL/Sprites/Slim Spruce Tree - GREEN_TEAL - 0024.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Slim Spruce Tree/GREEN_TEAL/Sprites/Slim Spruce Tree - GREEN_TEAL - 0028.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_spruce_slim.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer; animação de vento preservada (8 de 32 quadros, loop)",
+   "used_in": "Transição floresta→gelo",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_spruce_thick",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/GREEN/Sprites/Thick Spruce Tree - GREEN - 0000.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/GREEN/Sprites/Thick Spruce Tree - GREEN - 0002.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/GREEN/Sprites/Thick Spruce Tree - GREEN - 0004.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/GREEN/Sprites/Thick Spruce Tree - GREEN - 0006.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/GREEN/Sprites/Thick Spruce Tree - GREEN - 0008.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/GREEN/Sprites/Thick Spruce Tree - GREEN - 0010.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/GREEN/Sprites/Thick Spruce Tree - GREEN - 0012.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/GREEN/Sprites/Thick Spruce Tree - GREEN - 0014.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_spruce_thick.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer; animação de vento preservada (8 de 23 quadros, loop)",
+   "used_in": "Floresta/pinhais",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_spruce_thick_cold",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/COLD/Sprites/Thick Spruce Tree - COLD - 0000.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/COLD/Sprites/Thick Spruce Tree - COLD - 0002.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/COLD/Sprites/Thick Spruce Tree - COLD - 0004.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/COLD/Sprites/Thick Spruce Tree - COLD - 0006.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/COLD/Sprites/Thick Spruce Tree - COLD - 0008.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/COLD/Sprites/Thick Spruce Tree - COLD - 0010.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/COLD/Sprites/Thick Spruce Tree - COLD - 0012.png",
+    "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/COLD/Sprites/Thick Spruce Tree - COLD - 0014.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_spruce_thick_cold.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer; animação de vento preservada (8 de 23 quadros, loop)",
+   "used_in": "Montanhas nevadas",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_tree_autumn",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 15/TREE 15_ORANGE.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_tree_autumn.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "Vale/cidade (outono)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_tree_autumn_red",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 15/TREE 15_RED.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_tree_autumn_red.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "Vale (outono rubro)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_tree_dense",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 6/TREE 6_GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_tree_dense.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "Floresta (árvore alta densa)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_tree_dense_teal",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 6/TREE 6_TEAL.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_tree_dense_teal.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "Floresta profunda",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_tree_flat",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 5/TREE 5_GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_tree_flat.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "Vale (copa achatada)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_tree_lollipop",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 4/TREE 4_YELlOWISH GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_tree_lollipop.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "Bosque claro/vale",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_tree_oak_cloud",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 2/TREE 2_GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_tree_oak_cloud.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "Floresta/Campos/cidade (carvalho em nuvem)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_tree_oak_cloud_sandy",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 2/TREE 2_SANDY GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_tree_oak_cloud_sandy.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "Colinas/pradaria",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_tree_oak_cloud_teal",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 2/TREE 2_TEAL.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_tree_oak_cloud_teal.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "Floresta Ancestral/vale úmido",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_tree_round",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 9/TREE 8_GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_tree_round.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "Campos/vale (copa redonda clara)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_tree_small",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 8/TREE 8_GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_tree_small.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "Bordas/ecótonos (árvore jovem)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_tree_umbrella",
+   "category": "vegetacao",
+   "source_paths": [
+    "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 1/TREE 1_SANDY GREEN.png"
+   ],
+   "license": "CC0 (Karsiori, itch.io)",
+   "derived": "game/assets/external/nature/ext_tree_umbrella.png",
+   "modifications": "graduação de cor para a paleta Valedouro (saturação/sombra/matiz), contorno escuro 1px de arte, escala inteira nearest por categoria (árvores ×3, spruces/arbustos/flores/rochas ×2, vasos ×1), pé/colisão/sombra projetada do renderer",
+   "used_in": "Colinas secas/borda do deserto",
+   "status": "MODELED_PENDING_GATE"
+  }
+ ]
+}

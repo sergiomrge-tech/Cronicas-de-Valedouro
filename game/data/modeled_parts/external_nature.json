@@ -1,0 +1,1539 @@
+[
+ {
+  "id": "ext_bush_fern",
+  "path": "res://assets/external/nature/ext_bush_fern.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   188,
+   66
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   93.5,
+   63.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arbusto"
+  ],
+  "sha256": "8b89d4dca356cf1d114e512456f9cc7c2d25d07da00331c537ebf05770caf9d9",
+  "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 5/Bush 5_GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_bush_fern_dry",
+  "path": "res://assets/external/nature/ext_bush_fern_dry.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   188,
+   66
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   93.5,
+   63.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arbusto"
+  ],
+  "sha256": "7d7e1ce5bccaf066bebea46bfefaf1dfc16f68b18eec08957059ba263ac16061",
+  "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 5/Bush 5_YELLOW.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_bush_grass_big",
+  "path": "res://assets/external/nature/ext_bush_grass_big.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   172,
+   90
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   100.5,
+   87.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arbusto"
+  ],
+  "sha256": "b2a87945aab46a062a0e0dc29453579af4156f194174f2e00f74a316e16a42de",
+  "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 3/Bush 3_GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_bush_grass_dry",
+  "path": "res://assets/external/nature/ext_bush_grass_dry.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   172,
+   90
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   100.5,
+   87.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arbusto"
+  ],
+  "sha256": "3ac597f8b6cb5bbc65b02db4e5cbc359acef44db0a3f36e182c055301b5d4af8",
+  "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 3/Bush 3_YELLOW.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_bush_grass_red",
+  "path": "res://assets/external/nature/ext_bush_grass_red.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   138,
+   72
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   76.5,
+   69.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arbusto"
+  ],
+  "sha256": "20d3ceaa9884311aacee055da900cc5b47cc45677c8a3f014820104f59bcf113",
+  "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 1/Bush 1_RED.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_bush_grass_wide",
+  "path": "res://assets/external/nature/ext_bush_grass_wide.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   138,
+   72
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   76.5,
+   69.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arbusto"
+  ],
+  "sha256": "2da14828d6649eb3c0297da63b937ccc3abebaf7ccd23163f21ed90e656a4102",
+  "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 1/Bush 1_GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_bush_hedge",
+  "path": "res://assets/external/nature/ext_bush_hedge.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   124,
+   42
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   67.5,
+   39.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arbusto"
+  ],
+  "sha256": "aa94f3602c327697c0f05bb1750334ec32338f7ffe3c633310266a02f7b4aae9",
+  "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 13/Bush 13_GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_bush_leafy",
+  "path": "res://assets/external/nature/ext_bush_leafy.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   98,
+   68
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   51.5,
+   65.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arbusto"
+  ],
+  "sha256": "585242075b1d7826eea895bfff64ec805eaf76e053dd0ce4aa60651703957e24",
+  "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 14/Bush 14_GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_bush_leafy_small",
+  "path": "res://assets/external/nature/ext_bush_leafy_small.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   66,
+   42
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   33.5,
+   39.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arbusto"
+  ],
+  "sha256": "4457fa0e8f4ae61486196265f6fcfba7464cf902bbc1658b0c02e5ab4445adb5",
+  "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 12/Bush 12_GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_bush_leafy_teal",
+  "path": "res://assets/external/nature/ext_bush_leafy_teal.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   98,
+   68
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   51.5,
+   65.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arbusto"
+  ],
+  "sha256": "ed0377d44dd26ca43a5c10f6de9605197b7dcc81fef5225bc3e8fd9908ae2902",
+  "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 14/Bush 14_TEAL.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_flower_blue",
+  "path": "res://assets/external/nature/ext_flower_blue.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   92,
+   70
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   48.5,
+   67.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "flor"
+  ],
+  "sha256": "35ec5cd8c5e9bad6fd41ae34189578b6f81f62673b67a23412c854b59061569d",
+  "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 1/Flower 1 - BLUE.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_flower_daisy",
+  "path": "res://assets/external/nature/ext_flower_daisy.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   66,
+   44
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   32.5,
+   41.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "flor"
+  ],
+  "sha256": "9679f08c782e0ce9fb153325819b80f1987464dc24ff18a805baf2360851d469",
+  "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 11/Flower 11 - PINK.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_flower_orchid",
+  "path": "res://assets/external/nature/ext_flower_orchid.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   110,
+   42
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   14.5,
+   39.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "flor"
+  ],
+  "sha256": "75c409083b87bf505b0228746759a80d9dd3a3dddf836774416280088e2f1916",
+  "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 3/Flower 3 - PURPLE.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_flower_pot_colorful",
+  "path": "res://assets/external/nature/ext_flower_pot_colorful.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   26,
+   40
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   13.0,
+   38.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "flor",
+   "vaso",
+   "cidade"
+  ],
+  "sha256": "133d5781638d2572b7212810715a73c92de694a1b260ab70114fa3f2d7a3e73e",
+  "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower Pot 2/Flower Pot 2 - COLORFUL.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_flower_pot_orange",
+  "path": "res://assets/external/nature/ext_flower_pot_orange.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   26,
+   43
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   14.0,
+   41.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "flor",
+   "vaso",
+   "cidade"
+  ],
+  "sha256": "d31b6f4e52ce68fc71f2e986130c3da18680180e811b9ca74e1be83da4966533",
+  "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower Pot 6/Flower Pot 6 - ORANGE.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_flower_pot_purple",
+  "path": "res://assets/external/nature/ext_flower_pot_purple.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   47,
+   52
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   19.5,
+   50.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "flor",
+   "vaso",
+   "cidade"
+  ],
+  "sha256": "a94c3f198e32e849b9df8fce66dd0009611ca6e2b80f024a9f421e059aec9fb7",
+  "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower Pot 5/Flower Pot 5 - PURPLE.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_flower_sun",
+  "path": "res://assets/external/nature/ext_flower_sun.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   64,
+   94
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   29.5,
+   91.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "flor"
+  ],
+  "sha256": "4a9fedab81f47dc3fcc159be1fb7d0110513f1a0e250d757f07871f9edbecab0",
+  "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 9/Flower 9 - YELLOW.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_flower_wild",
+  "path": "res://assets/external/nature/ext_flower_wild.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   94,
+   38
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   45.5,
+   35.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "flor"
+  ],
+  "sha256": "7a9ed0e82d0a0db3c060803c711d33c7220cce7b4cbe14f5c4c60b48ac25a6ec",
+  "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 4/Flower 4 - PINK.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_flower_yellow",
+  "path": "res://assets/external/nature/ext_flower_yellow.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   92,
+   70
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   48.5,
+   67.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "flor"
+  ],
+  "sha256": "0caa285ed8f078e92e9fabbaa35c30b634de8598d83d8c7509c188386bd88208",
+  "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 1/Flower 1 - YELLOW.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_pine_bubble",
+  "path": "res://assets/external/nature/ext_pine_bubble.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   110,
+   190
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   55.5,
+   187.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "spruce",
+   "animado",
+   "green"
+  ],
+  "sha256": "64d09ca58dba392c394041c24862d5daa30497dd806ae8052050c0007e116932",
+  "source": "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Bubble Pine Tree/GREEN/Sprites/Bubble Pine Tree - GREEN - 0000.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_rock_beige_a",
+  "path": "res://assets/external/nature/ext_rock_beige_a.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   156,
+   90
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   71.5,
+   87.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 11.0,
+  "footprint": 11.0,
+  "tags": [
+   "externo_adaptado",
+   "rocha",
+   "beige"
+  ],
+  "sha256": "b1228456c131ed87e70b0726ad7bea03bc5f1474d00656dcdd1cb65d0c826599",
+  "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - BEIGE -/Rock Pile 6 - BEIGE - BIG.PNG",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_rock_beige_b",
+  "path": "res://assets/external/nature/ext_rock_beige_b.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   108,
+   86
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   48.5,
+   83.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 11.0,
+  "footprint": 11.0,
+  "tags": [
+   "externo_adaptado",
+   "rocha",
+   "beige"
+  ],
+  "sha256": "928514d0af7a3d35f80b90a413d062ed006980b51f28147c55194b00400f0bb1",
+  "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - BEIGE -/Rock Pile 3 - BEIGE - BIG.PNG",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_rock_beige_small",
+  "path": "res://assets/external/nature/ext_rock_beige_small.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   78,
+   46
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   37.5,
+   43.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "rocha",
+   "beige"
+  ],
+  "sha256": "67419d213cb70ac1a9103ab8e49a1ed0638c05f5fc8f597bb7686a1d7c7767ec",
+  "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - BEIGE -/Rock Pile 10 - BEIGE - small.PNG",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_rock_mossy_a",
+  "path": "res://assets/external/nature/ext_rock_mossy_a.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   156,
+   90
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   71.5,
+   87.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 11.0,
+  "footprint": 11.0,
+  "tags": [
+   "externo_adaptado",
+   "rocha",
+   "mossy"
+  ],
+  "sha256": "7fdd92e3c978fce657c8c3c0422dd2549ffda3bce143a63d0397147003229612",
+  "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 6 - MOSSY - BIG.PNG",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_rock_mossy_b",
+  "path": "res://assets/external/nature/ext_rock_mossy_b.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   148,
+   84
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   119.5,
+   81.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 11.0,
+  "footprint": 11.0,
+  "tags": [
+   "externo_adaptado",
+   "rocha",
+   "mossy"
+  ],
+  "sha256": "d4ed51c7cc10552ea8debeaa2d45ea7881f4700c73ec7c14da1e23afe37d84ab",
+  "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 7 - MOSSY - BIG.PNG",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_rock_mossy_c",
+  "path": "res://assets/external/nature/ext_rock_mossy_c.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   108,
+   86
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   48.5,
+   83.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 11.0,
+  "footprint": 11.0,
+  "tags": [
+   "externo_adaptado",
+   "rocha",
+   "mossy"
+  ],
+  "sha256": "e3ff3a925161acfd59214409a1dca411386e5a7a92f0aee0f8822b209a48fe89",
+  "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 3 - MOSSY - BIG.PNG",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_rock_mossy_d",
+  "path": "res://assets/external/nature/ext_rock_mossy_d.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   160,
+   88
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   71.5,
+   85.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 11.0,
+  "footprint": 11.0,
+  "tags": [
+   "externo_adaptado",
+   "rocha",
+   "mossy"
+  ],
+  "sha256": "0148fc930edaa777ac4d86cc69fb0e7f414de2c6ef98f2d65e59b741e62203bc",
+  "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 2 - MOSSY - BIG.PNG",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_rock_mossy_small",
+  "path": "res://assets/external/nature/ext_rock_mossy_small.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   78,
+   46
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   37.5,
+   43.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "rocha",
+   "mossy"
+  ],
+  "sha256": "f8ed7cf9e005e54fa4fd11d62e44d49954a8bae3a08021b8cd88bbefec4caa4f",
+  "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - MOSSY -/Rock Pile 10 - MOSSY - small.PNG",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted"
+ },
+ {
+  "id": "ext_rock_silver_a",
+  "path": "res://assets/external/nature/ext_rock_silver_a.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   156,
+   90
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   71.5,
+   87.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 11.0,
+  "footprint": 11.0,
+  "tags": [
+   "externo_adaptado",
+   "rocha",
+   "silver"
+  ],
+  "sha256": "25c97aefcf4739aebf8e614d138e535f7619fe99687a33ca7eb8c13554fce39e",
+  "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - SILVER -/Rock Pile 6 - SILVER - BIG.PNG",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_rock_silver_b",
+  "path": "res://assets/external/nature/ext_rock_silver_b.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   92,
+   58
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   58.5,
+   55.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 11.0,
+  "footprint": 11.0,
+  "tags": [
+   "externo_adaptado",
+   "rocha",
+   "silver"
+  ],
+  "sha256": "4df22f398205e9195478529d5b91456ae80a72732fc9d45c277f7833dcb33d96",
+  "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - SILVER -/Rock Pile 13 - SILVER - BIG.PNG",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_rock_white_a",
+  "path": "res://assets/external/nature/ext_rock_white_a.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   148,
+   84
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   119.5,
+   81.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 11.0,
+  "footprint": 11.0,
+  "tags": [
+   "externo_adaptado",
+   "rocha",
+   "white"
+  ],
+  "sha256": "e0f5ff42e0dec2c60a5882de9dbefe1abc8105327dea13a84336e80a3af9b29d",
+  "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - WHITE -/Rock Pile 7 - WHITE - BIG.PNG",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_spruce_cold",
+  "path": "res://assets/external/nature/ext_spruce_cold.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   156,
+   264
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   73.5,
+   261.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "spruce",
+   "animado",
+   "cold"
+  ],
+  "sha256": "7a460f372816b347ca94ff88eb5c74d8f2fbd6c908a3b1a666c1cc658f1a5c56",
+  "source": "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/COLD/Sprites/Large Spruce Tree - COLD - 0000.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    12.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_spruce_large",
+  "path": "res://assets/external/nature/ext_spruce_large.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   156,
+   264
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   73.5,
+   261.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "spruce",
+   "animado",
+   "green"
+  ],
+  "sha256": "33d919b74520df18a613d57083eec0baea7a04a4ef0160a7a52fb2f0e4882fb3",
+  "source": "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Large Spruce Tree/GREEN/Sprites/Large Spruce Tree - GREEN - 0000.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    12.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_spruce_slim",
+  "path": "res://assets/external/nature/ext_spruce_slim.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   104,
+   192
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   54.5,
+   189.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "spruce",
+   "animado",
+   "green_teal"
+  ],
+  "sha256": "1f3d012e3bacd170f00b2e62fae481e15a63ab070fd6a66e524c4fd26c0365d6",
+  "source": "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Slim Spruce Tree/GREEN_TEAL/Sprites/Slim Spruce Tree - GREEN_TEAL - 0000.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_spruce_thick",
+  "path": "res://assets/external/nature/ext_spruce_thick.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   136,
+   216
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   65.5,
+   213.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "spruce",
+   "animado",
+   "green"
+  ],
+  "sha256": "86735eeb3baaeb76b2b69f6f966af0ae9e8dd4ffc25f690a844c44036cccf3d1",
+  "source": "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/GREEN/Sprites/Thick Spruce Tree - GREEN - 0000.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    12.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_spruce_thick_cold",
+  "path": "res://assets/external/nature/ext_spruce_thick_cold.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   136,
+   216
+  ],
+  "frames": 8,
+  "rows": 1,
+  "foot": [
+   65.5,
+   213.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "spruce",
+   "animado",
+   "cold"
+  ],
+  "sha256": "4fb62488df556442aa33df368f6644b4deb345132e67e7a2319bac7b6c2bb765",
+  "source": "external_assets/free_reference_library/karsiori/spruce_tree_animated/Pixel Art Spruce Tree Pack/Thick Spruce Tree/COLD/Sprites/Thick Spruce Tree - COLD - 0000.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    12.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_tree_autumn",
+  "path": "res://assets/external/nature/ext_tree_autumn.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   267,
+   219
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   122.5,
+   215.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "outono"
+  ],
+  "sha256": "19d3be86e13858d31e18ff9e11df80cd0311d05842b75d21b6122abb488b0f82",
+  "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 15/TREE 15_ORANGE.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    14.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_tree_autumn_red",
+  "path": "res://assets/external/nature/ext_tree_autumn_red.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   267,
+   219
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   122.5,
+   215.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "outono"
+  ],
+  "sha256": "c29620ecd96f1087d9242ed6cbfee37c2c027bb8389f5ddf5661fcd5ad50d50d",
+  "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 15/TREE 15_RED.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    14.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_tree_dense",
+  "path": "res://assets/external/nature/ext_tree_dense.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   222,
+   306
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   124.0,
+   302.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "alta",
+   "floresta"
+  ],
+  "sha256": "0c39554a75945a50e2e52224687b360b10111d04bc0bca6833dcf8690e9d67b5",
+  "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 6/TREE 6_GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    13.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_tree_dense_teal",
+  "path": "res://assets/external/nature/ext_tree_dense_teal.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   222,
+   306
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   124.0,
+   302.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "alta",
+   "teal"
+  ],
+  "sha256": "14c144cf0d5e1e9bc9638551b28ea5e34956d742cb6ef8c3fe8e0170002cc4c1",
+  "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 6/TREE 6_TEAL.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    13.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_tree_flat",
+  "path": "res://assets/external/nature/ext_tree_flat.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   231,
+   174
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   131.5,
+   170.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "achatada"
+  ],
+  "sha256": "10855b4aea2d441c4e765812db61172253936d8a5e099cc476455f69ccddcb58",
+  "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 5/TREE 5_GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    12.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_tree_lollipop",
+  "path": "res://assets/external/nature/ext_tree_lollipop.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   150,
+   276
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   92.5,
+   272.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "pirulito"
+  ],
+  "sha256": "f6f1add03385cddff702356928b58b5d93db39a398536a64cabcddbd7bc3c929",
+  "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 4/TREE 4_YELlOWISH GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    9.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_tree_oak_cloud",
+  "path": "res://assets/external/nature/ext_tree_oak_cloud.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   264,
+   189
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   134.5,
+   185.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "carvalho"
+  ],
+  "sha256": "2fb5b88026ca25010d91bcf0e67012a1548e2e1610f86bfd3e942a7d3ad2a7ec",
+  "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 2/TREE 2_GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    14.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_tree_oak_cloud_sandy",
+  "path": "res://assets/external/nature/ext_tree_oak_cloud_sandy.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   264,
+   189
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   134.5,
+   185.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "carvalho",
+   "seco"
+  ],
+  "sha256": "3412299f5c35b54cd89eb40d7585c5fb22dc6afc7e00535d9a3cf92ce0be2f6b",
+  "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 2/TREE 2_SANDY GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    14.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_tree_oak_cloud_teal",
+  "path": "res://assets/external/nature/ext_tree_oak_cloud_teal.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   264,
+   189
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   134.5,
+   185.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "carvalho",
+   "teal"
+  ],
+  "sha256": "8a8ceef852d691604851251f163f55b326cafd6375de9dc78b9ac7cdf3769fe6",
+  "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 2/TREE 2_TEAL.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    14.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_tree_round",
+  "path": "res://assets/external/nature/ext_tree_round.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   228,
+   234
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   104.5,
+   230.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "redonda"
+  ],
+  "sha256": "2f7d88f7096a047130d93077f0e02d9ec965a66ea8d4401eacc3dfeafa2092b5",
+  "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 9/TREE 8_GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    12.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_tree_small",
+  "path": "res://assets/external/nature/ext_tree_small.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   168,
+   162
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   76.0,
+   158.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "jovem"
+  ],
+  "sha256": "67779689e8d1268697eb65e576dbea565f2dfd6d1fd38851cfbe03899704a88b",
+  "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 8/TREE 8_GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    9.0
+   ]
+  ]
+ },
+ {
+  "id": "ext_tree_umbrella",
+  "path": "res://assets/external/nature/ext_tree_umbrella.png",
+  "group": "nature",
+  "folder": "external_nature",
+  "frame_size": [
+   198,
+   183
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   91.0,
+   179.0
+  ],
+  "draw_scale": 1.0,
+  "blocks_radius": 0.0,
+  "footprint": 0.0,
+  "tags": [
+   "externo_adaptado",
+   "arvore",
+   "guarda_chuva",
+   "seco"
+  ],
+  "sha256": "caa0da8142776e587e0a0b8ca517c88d47d0fb29db9701fdbcb4d2a8a2150262",
+  "source": "external_assets/free_reference_library/karsiori/tree_pack/Pixel Art Tree Pack/Tree 1/TREE 1_SANDY GREEN.png",
+  "status": "MODELED_PENDING_GATE",
+  "pipeline": "external-adapted",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    11.0
+   ]
+  ]
+ }
+]

@@ -191,7 +191,7 @@ static func cast_item(canvas: CanvasItem, entry: Array, time: float, approved: D
 	if flip:
 		dst.position.x = ground.x - (fw - float(foot[0])) * s
 	var tall: bool = float(foot[1]) * s > 160.0
-	var alpha: float = CAST.ALPHA_TREE if (asset.contains("tree") or asset.contains("pine") or asset.contains("palm")) else CAST.ALPHA_DEFAULT
+	var alpha: float = CAST.ALPHA_TREE if (asset.contains("tree") or asset.contains("pine") or asset.contains("palm") or asset.contains("spruce")) else CAST.ALPHA_DEFAULT
 	CAST.sprite(canvas, tex, dst, Rect2(frame * fw, 0, fw, fh), ground, flip, alpha, .75 if tall else 1.0)
 	return true
 
