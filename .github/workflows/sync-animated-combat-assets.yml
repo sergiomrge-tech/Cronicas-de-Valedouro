@@ -327,4 +327,6 @@ jobs:
           fi
 
           git commit -m "assets: add animated characters monsters and VFX [asset-sync]"
+          git fetch origin "${{ github.ref_name }}"
+          git rebase "origin/${{ github.ref_name }}"
           git push origin "HEAD:${{ github.ref_name }}"
