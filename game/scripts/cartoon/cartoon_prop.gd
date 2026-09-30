@@ -97,6 +97,8 @@ func _draw() -> void:
 		"empty_throne_antechamber": _draw_empty_throne_antechamber()
 		"empty_throne": _draw_empty_throne()
 		"earth_gate": _draw_earth_gate()
+		"traveler": _draw_traveler()
+		"cave_entrance": _draw_cave_entrance()
 		_: _draw_rock()
 
 func _draw_tree() -> void:
@@ -771,3 +773,25 @@ func _draw_earth_gate() -> void:
 	for a in range(0,360,45):
 		var d: Vector2 = Vector2.RIGHT.rotated(deg_to_rad(float(a)))
 		DrawUtil.circle_outlined(self,Vector2(0,-44)+d*64,7,Color(0.88,0.82,0.42),DrawUtil.OUTLINE,2)
+
+
+func _draw_traveler() -> void:
+	DrawUtil.shadow(self,Vector2(0,9),24,0.22)
+	var cloak: Color = Color(0.20,0.43,0.58) if variant % 2 == 0 else Color(0.48,0.30,0.56)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-17),18,23,cloak,DrawUtil.OUTLINE,3)
+	DrawUtil.circle_outlined(self,Vector2(0,-45),13,Color(0.78,0.59,0.43),DrawUtil.OUTLINE,3)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-18,-46),Vector2(0,-70),Vector2(18,-46)]),cloak.darkened(0.12),DrawUtil.OUTLINE,3)
+	draw_line(Vector2(17,-22),Vector2(29,5),DrawUtil.OUTLINE,5)
+	draw_line(Vector2(17,-22),Vector2(29,5),Color(0.45,0.29,0.16),2.5)
+	DrawUtil.circle_outlined(self,Vector2(-17,-14),8,Color(0.49,0.30,0.16),DrawUtil.OUTLINE,2)
+
+func _draw_cave_entrance() -> void:
+	DrawUtil.shadow(self,Vector2(0,12),56,0.28)
+	DrawUtil.poly_outlined(self,PackedVector2Array([
+		Vector2(-58,13),Vector2(-54,-26),Vector2(-37,-54),Vector2(-15,-70),
+		Vector2(18,-67),Vector2(43,-49),Vector2(58,-20),Vector2(62,13)
+	]),Color(0.35,0.36,0.38),DrawUtil.OUTLINE,4)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-12),32,38,Color(0.08,0.07,0.09),DrawUtil.OUTLINE,3)
+	draw_rect(Rect2(-32,-12,64,29),Color(0.08,0.07,0.09))
+	for p in [Vector2(-47,-11),Vector2(46,-8),Vector2(-25,-55),Vector2(30,-50)]:
+		DrawUtil.ellipse(self,p,9,5,Color(0.52,0.54,0.55))

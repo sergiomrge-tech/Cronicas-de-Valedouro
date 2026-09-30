@@ -127,7 +127,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer; do
+          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013; do
             echo "===== TEST: $t ====="
             timeout 70s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd"
           done
@@ -150,7 +150,7 @@ jobs:
       - name: Upload installable APK
         uses: actions/upload-artifact@v4
         with:
-          name: Cronicas-de-Valedouro-Android-TEST-v0.12
+          name: Cronicas-de-Valedouro-Android-TEST-v0.13
           path: |
             game/build/Cronicas_de_Valedouro_TEST.apk
             game/build/SHA256.txt

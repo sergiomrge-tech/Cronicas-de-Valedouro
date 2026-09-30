@@ -2,6 +2,7 @@ class_name ValedouroCartoonExplorationDirector
 extends Node
 
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
+const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
 
 var host
 var objects: Node2D
@@ -11,6 +12,9 @@ var sites: Array[Dictionary] = []
 var collected: Dictionary = {}
 var site_nodes: Dictionary = {}
 var elite_count: int = 0
+var materials: Dictionary = {}
+var dungeon_state: Dictionary = {}
+var dungeon_mobs: Dictionary = {}
 
 func setup(host_node, objects_node: Node2D, hero_node: Node2D, target_region_id: String) -> void:
 	host = host_node
@@ -18,12 +22,27 @@ func setup(host_node, objects_node: Node2D, hero_node: Node2D, target_region_id:
 	hero = hero_node
 	region_id = target_region_id
 	sites = content_for(region_id)
+	sites.append_array(advanced_content_for(region_id))
 	for site in sites:
 		_spawn_site(site)
 	for elite in elites_for(region_id):
 		if host != null and host.has_method("_spawn_monster"):
 			host.call("_spawn_monster",elite)
 			elite_count += 1
+
+func _process(_delta: float) -> void:
+	for id in dungeon_mobs.keys():
+		if String(dungeon_state.get(id,"")) != "active":
+			continue
+		var alive: Array = []
+		for monster in dungeon_mobs[id]:
+			if is_instance_valid(monster):
+				alive.append(monster)
+		dungeon_mobs[id] = alive
+		if alive.is_empty():
+			dungeon_state[id] = "cleared"
+			if host != null and host.has_method("_show_toast"):
+				host.call("_show_toast","Mini-dungeon limpa. Volte à entrada para recolher a recompensa.")
 
 func _spawn_site(site: Dictionary) -> void:
 	if objects == null:
@@ -52,10 +71,12 @@ func try_interact(radius: float = 195.0) -> bool:
 	if site.is_empty():
 		return false
 	var id: String = String(site.get("id",""))
+	var site_type: String = String(site.get("type","treasure"))
+	if site_type == "dungeon":
+		return _interact_dungeon(site)
 	if collected.has(id):
 		return false
 	collected[id] = true
-	var site_type: String = String(site.get("type","treasure"))
 	var reward: int = int(site.get("reward",0))
 	var message: String = String(site.get("text",String(site.get("label","Local descoberto"))))
 	match site_type:
@@ -70,9 +91,19 @@ func try_interact(radius: float = 195.0) -> bool:
 				_add_gold(reward)
 				message += "  +%d ouro antigo." % reward
 		"resource":
+			var material_name: String = String(site.get("material",_default_material()))
+			var amount: int = maxi(1,int(site.get("amount",1)))
+			_add_material(material_name,amount)
 			_add_gold(reward)
-			message += "  Recursos convertidos em +%d ouro." % reward
+			message += "  +%d %s" % [amount,material_name]
+			if reward > 0:
+				message += " e +%d ouro." % reward
 			_fade_site(id)
+		"npc":
+			var material_name: String = String(site.get("material",_default_material()))
+			var amount: int = maxi(1,int(site.get("amount",1)))
+			_add_material(material_name,amount)
+			message += "  Recebeu %d %s." % [amount,material_name]
 		"secret":
 			_add_gold(reward)
 			message += "  Tesouro secreto: +%d ouro." % reward
@@ -86,6 +117,64 @@ func try_interact(radius: float = 195.0) -> bool:
 	if host.has_method("_show_toast"):
 		host.call("_show_toast",message)
 	return true
+
+func _interact_dungeon(site: Dictionary) -> bool:
+	var id: String = String(site.get("id",""))
+	var state: String = String(dungeon_state.get(id,"new"))
+	if state == "new":
+		dungeon_state[id] = "active"
+		dungeon_mobs[id] = []
+		var center: Vector2 = site.get("pos",Vector2.ZERO)
+		var rows: Array = site.get("mobs",[])
+		for i in range(rows.size()):
+			var data: Dictionary = (rows[i] as Dictionary).duplicate(true)
+			var offset: Vector2 = data.get("offset",Vector2.ZERO)
+			data.erase("offset")
+			data["pos"] = center+offset
+			data["story_tag"] = "exploration_dungeon_"+id
+			if host != null and host.has_method("_spawn_monster"):
+				host.call("_spawn_monster",data)
+				var list: Array = host.get("monsters")
+				if not list.is_empty():
+					(dungeon_mobs[id] as Array).append(list[list.size()-1])
+		if host.has_method("_show_toast"):
+			host.call("_show_toast",String(site.get("start_text","A mini-dungeon despertou. Derrote os guardiões.")))
+		return true
+	if state == "active":
+		if host.has_method("_show_toast"):
+			host.call("_show_toast","Ainda há inimigos protegendo este local.")
+		return true
+	if state == "cleared":
+		dungeon_state[id] = "claimed"
+		collected[id] = true
+		var reward: int = int(site.get("reward",60))
+		var material_name: String = String(site.get("material",_default_material()))
+		var amount: int = maxi(1,int(site.get("amount",2)))
+		_add_gold(reward)
+		_add_material(material_name,amount)
+		_fade_site(id)
+		if host.has_method("_refresh_stats"):
+			host.call("_refresh_stats")
+		if host.has_method("_show_toast"):
+			host.call("_show_toast","Mini-dungeon concluída: +%d ouro e %d %s." % [reward,amount,material_name])
+		return true
+	return false
+
+func _add_material(material_name: String, amount: int) -> void:
+	if material_name == "" or amount <= 0:
+		return
+	materials[material_name] = int(materials.get(material_name,0))+amount
+
+func _default_material() -> String:
+	match region_id:
+		"REG_002_FLORESTA_ANCESTRAL": return "Seiva Ancestral"
+		"REG_003_DESERTO_RUINAS": return "Âmbar Negro"
+		"REG_004_PANTANOS_SOMBRIOS": return "Fibra de Junco"
+		"REG_005_MONTANHAS_NEVADAS": return "Cristal de Geada"
+		"REG_006_COSTAS_ILHAS_PERDIDAS": return "Coral Luminoso"
+		"REG_007_TERRAS_CORROMPIDAS": return "Fragmento de Obelisco"
+		"REG_008_CORACAO_ABISSAL": return "Fragmento do Último Mapa"
+		_: return "Essência de Eco"
 
 func _add_gold(amount: int) -> void:
 	if host == null or amount <= 0:
@@ -116,7 +205,13 @@ func _nearest_site(radius: float) -> Dictionary:
 	return best
 
 func progress_text() -> String:
-	return "%d/%d segredos" % [collected.size(),sites.size()]
+	return "%d/%d locais • %d materiais" % [collected.size(),sites.size(),_material_total()]
+
+func _material_total() -> int:
+	var total: int = 0
+	for value in materials.values():
+		total += int(value)
+	return total
 
 static func content_for(target_region_id: String) -> Array[Dictionary]:
 	match target_region_id:
@@ -175,6 +270,74 @@ static func content_for(target_region_id: String) -> Array[Dictionary]:
 				{"id":"EXP_A08_CACHE","label":"Cofre de uma Vida Não Vivida","type":"secret","prop":"chest","pos":Vector2(5200,9600),"scale":0.92,"reward":80,"text":"O cofre contém moedas de uma história que nunca aconteceu."},
 				{"id":"EXP_A08_SHARD","label":"Fragmento do Último Mapa","type":"resource","prop":"rock","pos":Vector2(11900,7100),"scale":1.18,"reward":56,"text":"Um fragmento do mapa pulsa entre dois mundos."},
 				{"id":"EXP_A08_SECRET","label":"Sala que Não Devia Existir","type":"secret","prop":"ruin","pos":Vector2(6900,5100),"scale":0.95,"reward":90,"text":"Uma sala lateral preserva tesouros de caminhos apagados."}
+			]
+		_:
+			return []
+
+static func advanced_content_for(target_region_id: String) -> Array[Dictionary]:
+	match target_region_id:
+		"REG_002_FLORESTA_ANCESTRAL":
+			return [
+				{"id":"EXP_F02_TRAVELER","label":"Herbalista Elyn","type":"npc","prop":"traveler","pos":Vector2(34400,33600),"scale":1.0,"material":"Seiva Ancestral","amount":1,"text":"Elyn troca histórias por um frasco de seiva antiga."},
+				{"id":"EXP_F02_DEEP_ROOT","label":"Gruta das Raízes Profundas","type":"dungeon","prop":"cave_entrance","pos":Vector2(9600,27300),"scale":1.15,"reward":70,"material":"Seiva Ancestral","amount":3,"start_text":"As raízes se fecham atrás de você. Algo se move na escuridão.","mobs":[
+					{"kind":"wolf","name":"Lobo de Raiz","offset":Vector2(-85,-30),"hp":125,"speed":105.0,"damage":18,"scale":1.22},
+					{"kind":"goblin","name":"Saqueador Musgoso","offset":Vector2(75,-40),"hp":118,"speed":88.0,"damage":17,"scale":1.18},
+					{"kind":"guardian","name":"Guardião da Raiz Profunda","offset":Vector2(0,-115),"hp":220,"speed":64.0,"damage":24,"scale":1.35}
+				]}
+			]
+		"REG_003_DESERTO_RUINAS":
+			return [
+				{"id":"EXP_D03_TRAVELER","label":"Escavador Narek","type":"npc","prop":"traveler","pos":Vector2(20500,18400),"scale":1.0,"material":"Âmbar Negro","amount":1,"text":"Narek encontrou um fragmento de âmbar sob uma coluna partida."},
+				{"id":"EXP_D03_TOMB","label":"Tumba da Areia Oca","type":"dungeon","prop":"cave_entrance","pos":Vector2(26500,18800),"scale":1.15,"reward":85,"material":"Âmbar Negro","amount":3,"start_text":"O selo da tumba se rompe. Guardiões despertam sob a areia.","mobs":[
+					{"kind":"goblin","name":"Ladrão da Tumba","offset":Vector2(-90,-25),"hp":145,"speed":90.0,"damage":20,"scale":1.2},
+					{"kind":"slime","name":"Gosma de Vidro Negro","offset":Vector2(80,-35),"hp":135,"speed":65.0,"damage":18,"scale":1.24},
+					{"kind":"guardian","name":"Sentinela da Areia Oca","offset":Vector2(0,-125),"hp":250,"speed":66.0,"damage":26,"scale":1.38}
+				]}
+			]
+		"REG_004_PANTANOS_SOMBRIOS":
+			return [
+				{"id":"EXP_M04_TRAVELER","label":"Barqueira Mavra","type":"npc","prop":"traveler","pos":Vector2(21000,16600),"scale":1.0,"material":"Fibra de Junco","amount":1,"text":"Mavra conhece canais que não aparecem em mapa algum."},
+				{"id":"EXP_M04_SUNKEN_CRYPT","label":"Cripta Afundada","type":"dungeon","prop":"cave_entrance","pos":Vector2(10100,19200),"scale":1.15,"reward":95,"material":"Fibra de Junco","amount":3,"start_text":"A água recua da entrada e revela uma cripta infestada.","mobs":[
+					{"kind":"slime","name":"Lodo Funerário","offset":Vector2(-80,-25),"hp":155,"speed":62.0,"damage":20,"scale":1.25},
+					{"kind":"wolf","name":"Fera Encharcada","offset":Vector2(85,-30),"hp":160,"speed":101.0,"damage":22,"scale":1.25},
+					{"kind":"guardian","name":"Guardião Afogado","offset":Vector2(0,-125),"hp":280,"speed":64.0,"damage":28,"scale":1.4}
+				]}
+			]
+		"REG_005_MONTANHAS_NEVADAS":
+			return [
+				{"id":"EXP_I05_TRAVELER","label":"Prospector Veln","type":"npc","prop":"traveler","pos":Vector2(19000,22900),"scale":1.0,"material":"Cristal de Geada","amount":1,"text":"Veln entrega um cristal que encontrou sob o gelo azul."},
+				{"id":"EXP_I05_ICE_VAULT","label":"Cofre Glacial","type":"dungeon","prop":"cave_entrance","pos":Vector2(27800,17700),"scale":1.15,"reward":110,"material":"Cristal de Geada","amount":3,"start_text":"O gelo estala. A câmara glacial desperta seus guardiões.","mobs":[
+					{"kind":"wolf","name":"Lobo de Gelo","offset":Vector2(-90,-20),"hp":175,"speed":110.0,"damage":24,"scale":1.27},
+					{"kind":"guardian","name":"Sentinela Congelada","offset":Vector2(90,-30),"hp":205,"speed":62.0,"damage":25,"scale":1.3},
+					{"kind":"guardian","name":"Guardião do Cofre Glacial","offset":Vector2(0,-130),"hp":310,"speed":64.0,"damage":30,"scale":1.42}
+				]}
+			]
+		"REG_006_COSTAS_ILHAS_PERDIDAS":
+			return [
+				{"id":"EXP_C06_TRAVELER","label":"Cartógrafa Neri","type":"npc","prop":"traveler","pos":Vector2(25000,26900),"scale":1.0,"material":"Coral Luminoso","amount":1,"text":"Neri marcou uma enseada secreta e oferece um fragmento de coral."},
+				{"id":"EXP_C06_SEA_CAVE","label":"Gruta da Maré Morta","type":"dungeon","prop":"cave_entrance","pos":Vector2(33500,26700),"scale":1.15,"reward":125,"material":"Coral Luminoso","amount":3,"start_text":"A maré baixa revela uma caverna tomada por saqueadores.","mobs":[
+					{"kind":"goblin","name":"Corsário da Gruta","offset":Vector2(-90,-25),"hp":185,"speed":90.0,"damage":25,"scale":1.23},
+					{"kind":"wolf","name":"Fera de Sal","offset":Vector2(88,-25),"hp":190,"speed":104.0,"damage":26,"scale":1.28},
+					{"kind":"guardian","name":"Guardião da Maré Morta","offset":Vector2(0,-130),"hp":340,"speed":66.0,"damage":32,"scale":1.44}
+				]}
+			]
+		"REG_007_TERRAS_CORROMPIDAS":
+			return [
+				{"id":"EXP_W07_TRAVELER","label":"Batedor Orin","type":"npc","prop":"traveler","pos":Vector2(24400,24000),"scale":1.0,"material":"Fragmento de Obelisco","amount":1,"text":"Orin sobreviveu a uma patrulha e trouxe um estilhaço do obelisco."},
+				{"id":"EXP_W07_BUNKER","label":"Bunker da Guerra Velha","type":"dungeon","prop":"cave_entrance","pos":Vector2(30200,15100),"scale":1.15,"reward":145,"material":"Fragmento de Obelisco","amount":3,"start_text":"As portas do bunker cedem. Ecos da guerra avançam pelo corredor.","mobs":[
+					{"kind":"goblin","name":"Soldado Oco","offset":Vector2(-95,-20),"hp":205,"speed":92.0,"damage":28,"scale":1.25},
+					{"kind":"guardian","name":"Veterano Corrompido","offset":Vector2(90,-25),"hp":250,"speed":68.0,"damage":30,"scale":1.34},
+					{"kind":"void_general","name":"Executor da Guerra Velha","offset":Vector2(0,-135),"hp":390,"speed":76.0,"damage":36,"scale":1.48}
+				]}
+			]
+		"REG_008_CORACAO_ABISSAL":
+			return [
+				{"id":"EXP_A08_TRAVELER","label":"Eco de um Cartógrafo","type":"npc","prop":"traveler","pos":Vector2(10100,10100),"scale":0.92,"material":"Fragmento do Último Mapa","amount":1,"text":"Um eco humano entrega um fragmento antes de desaparecer."},
+				{"id":"EXP_A08_NULL_ROOM","label":"Câmara Nula","type":"dungeon","prop":"cave_entrance","pos":Vector2(12200,5200),"scale":1.08,"reward":180,"material":"Fragmento do Último Mapa","amount":3,"start_text":"A Câmara Nula apaga o som. Três formas emergem do vazio.","mobs":[
+					{"kind":"slime","name":"Fragmento Nulo","offset":Vector2(-80,-25),"hp":230,"speed":68.0,"damage":30,"scale":1.28},
+					{"kind":"guardian","name":"Sentinela Nula","offset":Vector2(85,-30),"hp":285,"speed":68.0,"damage":32,"scale":1.36},
+					{"kind":"void_cartographer","name":"Eco Cartográfico","offset":Vector2(0,-130),"hp":430,"speed":78.0,"damage":38,"scale":1.5}
+				]}
 			]
 		_:
 			return []
