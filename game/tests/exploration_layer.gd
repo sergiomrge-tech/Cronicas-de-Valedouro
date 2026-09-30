@@ -37,8 +37,8 @@ func run() -> void:
 	await process_frame
 	await process_frame
 	assert(forest.exploration_director != null)
-	assert(forest.exploration_director.sites.size() == 5)
-	assert(forest.exploration_director.site_nodes.size() == 5)
+	assert(forest.exploration_director.sites.size() == 7)
+	assert(forest.exploration_director.site_nodes.size() == 7)
 	assert(forest.exploration_director.elite_count == 1)
 
 	forest.player_hp = 50
