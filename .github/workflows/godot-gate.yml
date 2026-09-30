@@ -299,7 +299,7 @@ jobs:
         run: |
           mkdir -p game/ci_output_forest
           timeout 180s xvfb-run -a /tmp/godot/godot --path game --rendering-method gl_compatibility --script res://tests/qa_capture_forest_act2.gd -- "$PWD/game/ci_output_forest"
-          test "$(find game/ci_output_forest -maxdepth 1 -type f -name '*.png' | wc -l)" -ge 8
+          test "$(find game/ci_output_forest -maxdepth 1 -type f -name '*.png' | wc -l)" -ge 9
           ls -lh game/ci_output_forest
 
       - name: Upload Floresta Ancestral visual QA artifact
