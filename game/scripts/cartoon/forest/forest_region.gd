@@ -8,7 +8,9 @@ const StoryRuntimeScript = preload("res://scripts/cartoon/forest/forest_story_ru
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const HeroScript = preload("res://scripts/cartoon/cartoon_hero.gd")
 const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
+const StoryZoneScript = preload("res://scripts/cartoon/forest/forest_story_zone.gd")
 
+var story_zones: Node2D
 var objects: Node2D
 var hero: Node2D
 var camera: Camera2D
@@ -34,6 +36,12 @@ var player_max_hp: int = 145
 var player_gold: int = 80
 
 func _ready() -> void:
+	story_zones = Node2D.new()
+	story_zones.name = "StoryZones"
+	story_zones.z_index = -12
+	add_child(story_zones)
+	_spawn_story_zones()
+
 	objects = Node2D.new()
 	objects.name = "WorldObjects"
 	objects.y_sort_enabled = true
@@ -69,6 +77,12 @@ func _ready() -> void:
 
 	_build_ui()
 	_refresh_objective()
+
+func _spawn_story_zones() -> void:
+	for data in StoryMap.zones():
+		var zone: Node2D = StoryZoneScript.new()
+		zone.setup(data)
+		story_zones.add_child(zone)
 
 func _spawn_landmarks() -> void:
 	for data in StoryMap.locations():
