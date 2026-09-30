@@ -9,6 +9,7 @@ const ZoneScript = preload("res://scripts/cartoon/desert/desert_story_zone.gd")
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const HeroScript = preload("res://scripts/cartoon/cartoon_hero.gd")
 const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
+const MapOverlayScript = preload("res://scripts/cartoon/desert/desert_map_overlay.gd")
 
 var story_zones: Node2D
 var objects: Node2D
@@ -26,6 +27,8 @@ var stats_label: Label
 var poi_label: Label
 var nav_label: Label
 var toast_label: Label
+var map_overlay: Control
+var map_open: bool = false
 
 var joystick_id: int = -1
 var joystick_origin: Vector2 = Vector2.ZERO
@@ -105,6 +108,10 @@ func _process(delta: float) -> void:
 	toast_timer = maxf(0.0,toast_timer-delta)
 	if toast_timer <= 0.0 and toast_label:
 		toast_label.text = ""
+	if map_open:
+		if hero:
+			hero.set_motion(Vector2.ZERO)
+		return
 
 	var dir: Vector2 = Input.get_vector("move_left","move_right","move_up","move_down")
 	if joystick_vector.length() > 0.12:
@@ -127,6 +134,8 @@ func _process(delta: float) -> void:
 		_interact()
 
 func _input(event: InputEvent) -> void:
+	if map_open:
+		return
 	if event is InputEventScreenTouch:
 		if event.pressed and event.position.x < 330 and event.position.y > 300 and joystick_id < 0:
 			joystick_id = event.index
@@ -327,6 +336,14 @@ func _build_ui() -> void:
 	toast_label.add_theme_constant_override("shadow_offset_y",2)
 	ui.add_child(toast_label)
 
+	map_overlay = MapOverlayScript.new()
+	map_overlay.position = Vector2(55,40)
+	map_overlay.size = Vector2(850,460)
+	map_overlay.visible = false
+	map_overlay.setup(hero)
+	ui.add_child(map_overlay)
+	_add_map_button()
+
 	_add_action_button("ATQ",Vector2(835,430),78,func(): _attack())
 	_add_action_button("USAR",Vector2(748,455),64,func(): _interact())
 
@@ -336,6 +353,34 @@ func _build_ui() -> void:
 	hint.text = "Arraste aqui para mover"
 	hint.add_theme_color_override("font_color",Color(1,1,1,0.72))
 	ui.add_child(hint)
+
+func _add_map_button() -> void:
+	var button: Button = Button.new()
+	button.text = "MAPA"
+	button.position = Vector2(425,18)
+	button.size = Vector2(108,46)
+	button.add_theme_font_size_override("font_size",15)
+	for state in ["normal","hover","pressed","focus"]:
+		var st: StyleBoxFlat = StyleBoxFlat.new()
+		st.bg_color = Color(0.18,0.10,0.05,0.97) if state != "pressed" else Color(0.34,0.18,0.08,0.97)
+		st.border_color = Color(0.93,0.56,0.18)
+		st.set_border_width_all(3)
+		st.corner_radius_top_left = 12
+		st.corner_radius_top_right = 12
+		st.corner_radius_bottom_left = 12
+		st.corner_radius_bottom_right = 12
+		button.add_theme_stylebox_override(state,st)
+	button.pressed.connect(_toggle_map)
+	ui.add_child(button)
+
+func _toggle_map() -> void:
+	map_open = not map_open
+	if map_overlay:
+		map_overlay.visible = map_open
+		if map_open:
+			map_overlay.set_target(story_runtime.current_location())
+	joystick_id = -1
+	joystick_vector = Vector2.ZERO
 
 func _add_action_button(text_value: String, pos: Vector2, button_size: float, callback: Callable) -> void:
 	var button: Button = Button.new()
@@ -363,6 +408,8 @@ func _refresh_stats() -> void:
 func _refresh_objective() -> void:
 	if objective_label and story_runtime:
 		objective_label.text = story_runtime.hud_text()
+	if map_overlay and story_runtime:
+		map_overlay.set_target(story_runtime.current_location())
 	_update_navigation()
 
 func _update_poi_hint() -> void:
