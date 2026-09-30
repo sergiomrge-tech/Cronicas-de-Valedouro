@@ -12,6 +12,7 @@ const MainStoryMap = preload("res://scripts/cartoon/cartoon_main_story_map.gd")
 const StoryZoneScript = preload("res://scripts/cartoon/cartoon_story_zone.gd")
 const StoryRuntimeScript = preload("res://scripts/cartoon/cartoon_story_runtime.gd")
 const MapOverlayScript = preload("res://scripts/cartoon/hub_map_overlay.gd")
+const CraftingUIScript = preload("res://scripts/cartoon/cartoon_crafting_ui.gd")
 
 var environment: ValedouroCartoonHubEnvironment
 var objects: Node2D
@@ -26,6 +27,7 @@ var stats_label: Label
 var toast_label: Label
 var poi_label: Label
 var map_overlay: Control
+var crafting_ui: Control
 var map_open: bool = false
 var objective_nav_label: Label
 var joystick_id: int = -1
@@ -82,6 +84,10 @@ func _ready() -> void:
 	camera.limit_right = int(environment.WORLD_SIZE.x); camera.limit_bottom = int(environment.WORLD_SIZE.y)
 	hero.add_child(camera)
 	_build_ui()
+	crafting_ui = CraftingUIScript.new()
+	crafting_ui.name = "CraftingUI"
+	ui.add_child(crafting_ui)
+	crafting_ui.setup(self,hero,"REG_001_BERCO_VALEDOURO")
 	_update_poi_hint()
 
 func _build_ui() -> void:
@@ -138,7 +144,7 @@ func _add_action_button(text: String, pos: Vector2, size: float, callback: Calla
 func _process(delta: float) -> void:
 	toast_timer=maxf(0.0,toast_timer-delta)
 	if toast_timer<=0.0 and toast_label: toast_label.text=""
-	if map_open:
+	if map_open or (crafting_ui != null and crafting_ui.is_open()):
 		if hero: hero.set_motion(Vector2.ZERO)
 		return
 	var dir = Input.get_vector("move_left","move_right","move_up","move_down")
@@ -155,7 +161,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"): _interact()
 
 func _input(event: InputEvent) -> void:
-	if map_open:
+	if map_open or (crafting_ui != null and crafting_ui.is_open()):
 		return
 	if event is InputEventScreenTouch:
 		if event.pressed and event.position.x < 330 and event.position.y > 300 and joystick_id < 0:
@@ -173,7 +179,7 @@ func _attack() -> void:
 	if target == null:
 		_show_toast("Ataque — nenhum inimigo ao alcance.")
 		return
-	var dead: bool = target.take_damage(18)
+	var dead: bool = target.take_damage(hero.attack_damage(18))
 	if dead:
 		var kind: String = String(target.kind)
 		var story_tag: String = String(target.story_tag)
@@ -291,7 +297,7 @@ func _update_monsters(delta: float) -> void:
 				monster.position = next
 		if dist <= 52.0 and monster.can_hit():
 			monster.mark_hit()
-			player_hp = maxi(0, player_hp - int(monster.contact_damage))
+			player_hp = maxi(0, player_hp - int(hero.reduce_incoming_damage(int(monster.contact_damage))))
 			_refresh_stats()
 			if player_hp <= 0:
 				player_hp = player_max_hp
