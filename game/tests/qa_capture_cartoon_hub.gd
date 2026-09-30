@@ -17,6 +17,7 @@ func capture() -> void:
         output_dir = OS.get_cmdline_user_args()[0]
     DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output_dir))
     var hero: Node2D = hub.get_node("WorldObjects/Player")
+    hub.camera.position_smoothing_enabled = false
     var shots: Array[Dictionary] = [
         {"name":"01_praca_central", "pos":Region.world_from_hub(Vector2(1150,970))},
         {"name":"02_castelo_valedouro", "pos":Region.world_from_hub(Vector2(1150,690))},
@@ -36,6 +37,9 @@ func capture() -> void:
     ]
     for shot: Dictionary in shots:
         hero.position = shot["pos"] as Vector2
+        hub.world_stream._refresh(true)
+        await process_frame
+        await process_frame
         await process_frame
         await process_frame
         await process_frame
