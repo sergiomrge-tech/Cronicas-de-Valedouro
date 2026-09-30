@@ -600,7 +600,7 @@
         "linear_scale": 8,
         "region_class": "final_dungeon_world"
       },
-      "build_status": "RESERVED_BY_MISSIONS",
+      "build_status": "IN_PROGRESS_PHYSICAL",
       "mandatory_route": [
         {
           "order": 1,
@@ -672,7 +672,18 @@
           "location_kind": "world_gate",
           "post_function": "Portal estabilizado e epílogo."
         }
-      ]
+      ],
+      "implementation": {
+        "scene": "res://scenes/cartoon/AbyssHeartCartoon.tscn",
+        "region_size": [
+          18400,
+          18800
+        ],
+        "active_chunk_radius": 2,
+        "mandatory_locations_placed": 6,
+        "final_choice": true,
+        "transition_from_previous": "POI_CORRUPTED_ABYSS_ROUTE"
+      }
     }
   ]
 }
