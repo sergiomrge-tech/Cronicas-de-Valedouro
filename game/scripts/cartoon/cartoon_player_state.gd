@@ -5,7 +5,8 @@ const SAVE_PATH: String = "user://valedouro_cartoon_profile_v1.json"
 var materials: Dictionary = {}
 var crafted: Dictionary = {}
 var equipped_weapon: Dictionary = {"id":"starter_blade","label":"Espada de Viagem","tier":0,"attack":0,"slot":"weapon"}
-var equipped_armor: Dictionary = {"id":"starter_armor","label":"Túnica de Viagem","tier":0,"defense":0,"slot":"armor"}\nvar camera_zoom: float = 1.0
+var equipped_armor: Dictionary = {"id":"starter_armor","label":"Túnica de Viagem","tier":0,"defense":0,"slot":"armor"}
+var camera_zoom: float = 1.0
 
 func _ready() -> void:
 	load_profile()
@@ -155,7 +156,8 @@ func load_profile() -> void:
 	materials = data.get("materials",{}) as Dictionary
 	crafted = data.get("crafted",{}) as Dictionary
 	equipped_weapon = (data.get("equipped_weapon",equipped_weapon) as Dictionary).duplicate(true)
-	equipped_armor = (data.get("equipped_armor",equipped_armor) as Dictionary).duplicate(true)\n\tcamera_zoom = clampf(float(data.get("camera_zoom",1.0)),0.70,1.50)
+	equipped_armor = (data.get("equipped_armor",equipped_armor) as Dictionary).duplicate(true)
+	camera_zoom = clampf(float(data.get("camera_zoom",1.0)),0.70,1.50)
 
 func reset_progress(delete_save: bool = true) -> void:
 	materials.clear()
