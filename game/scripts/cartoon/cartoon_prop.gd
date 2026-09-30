@@ -52,6 +52,11 @@ func _draw() -> void:
 		"ruin": _draw_ruin()
 		"shrine": _draw_shrine()
 		"campfire": _draw_campfire()
+		"gate": _draw_gate()
+		"arena": _draw_arena()
+		"mine": _draw_mine()
+		"boss_gate": _draw_boss_gate()
+		"archive": _draw_archive()
 		_: _draw_rock()
 
 func _draw_tree() -> void:
@@ -264,3 +269,55 @@ func _draw_campfire() -> void:
 	DrawUtil.flame(self,Vector2(0,-5),27,10,anim_t)
 	for p in [Vector2(-29,10),Vector2(28,11),Vector2(0,18)]:
 		DrawUtil.ellipse(self,p,9,5,Color(0.48,0.49,0.47))
+
+
+func _draw_gate() -> void:
+	_building_shadow(170)
+	for x in [-62.0,62.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-22,-72,44,90),Color(0.65,0.64,0.60),DrawUtil.OUTLINE,3)
+		draw_rect(Rect2(x-28,-82,16,12),Color(0.65,0.64,0.60))
+		draw_rect(Rect2(x+12,-82,16,12),Color(0.65,0.64,0.60))
+	DrawUtil.rect_outlined(self,Rect2(-62,-61,124,22),Color(0.61,0.60,0.56),DrawUtil.OUTLINE,3)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-16),34,30,Color(0.29,0.17,0.09),DrawUtil.OUTLINE,3)
+	draw_rect(Rect2(-34,-16,68,34),Color(0.29,0.17,0.09))
+	for x in [-14.0,14.0]:
+		DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(x-9,-66),Vector2(x+9,-66),Vector2(x+9,-39),Vector2(x,-31),Vector2(x-9,-39)]),Color(0.08,0.30,0.74),DrawUtil.OUTLINE,2)
+
+func _draw_arena() -> void:
+	DrawUtil.shadow(self,Vector2(0,8),56,0.16)
+	DrawUtil.ellipse_outlined(self,Vector2.ZERO,58,35,Color(0.58,0.62,0.42),DrawUtil.OUTLINE,3)
+	DrawUtil.ellipse_line(self,Vector2.ZERO,43,25,Color(0.33,0.28,0.20,0.55),3,24)
+	for p in [Vector2(-44,-8),Vector2(42,-10),Vector2(-20,22),Vector2(20,23)]:
+		DrawUtil.ellipse(self,p,8,4,Color(0.44,0.45,0.43))
+
+func _draw_mine() -> void:
+	DrawUtil.shadow(self,Vector2(0,10),60,0.22)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-58,15),Vector2(-48,-38),Vector2(-22,-64),Vector2(15,-70),Vector2(50,-41),Vector2(60,14)]),Color(0.39,0.41,0.40),DrawUtil.OUTLINE,4)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-11),30,34,Color(0.13,0.12,0.12),DrawUtil.OUTLINE,3)
+	draw_rect(Rect2(-30,-11,60,28),Color(0.13,0.12,0.12))
+	for x in [-38.0,38.0]:
+		draw_line(Vector2(x,8),Vector2(x,-42),Color(0.48,0.30,0.14),8)
+	draw_line(Vector2(-42,-42),Vector2(42,-42),Color(0.48,0.30,0.14),9)
+	for p in [Vector2(-47,-29),Vector2(46,-30)]:
+		DrawUtil.flame(self,p,15,6,anim_t)
+
+func _draw_boss_gate() -> void:
+	DrawUtil.shadow(self,Vector2(0,8),44,0.18)
+	DrawUtil.rect_outlined(self,Rect2(-42,-55,84,67),Color(0.40,0.41,0.42),DrawUtil.OUTLINE,4)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-52),42,28,Color(0.40,0.41,0.42),DrawUtil.OUTLINE,4)
+	draw_rect(Rect2(-42,-52,84,64),Color(0.40,0.41,0.42))
+	DrawUtil.ellipse_outlined(self,Vector2(0,-19),24,29,Color(0.11,0.10,0.14),DrawUtil.OUTLINE,3)
+	draw_rect(Rect2(-24,-19,48,31),Color(0.11,0.10,0.14))
+	DrawUtil.circle_outlined(self,Vector2(0,-44),9,Color(0.33,0.76,0.96),DrawUtil.OUTLINE,2)
+
+func _draw_archive() -> void:
+	_building_shadow(150)
+	DrawUtil.rect_outlined(self,Rect2(-62,-64,124,82),Color(0.75,0.72,0.61),DrawUtil.OUTLINE,3)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-72,-61),Vector2(0,-105),Vector2(72,-61)]),Color(0.18,0.36,0.68),DrawUtil.OUTLINE,4)
+	for x in [-34.0,0.0,34.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-7,-48,14,42),Color(0.55,0.52,0.44),DrawUtil.OUTLINE,2)
+	DrawUtil.rect_outlined(self,Rect2(-14,-21,28,39),Color(0.31,0.19,0.10),DrawUtil.OUTLINE,2.5)
+	DrawUtil.circle_outlined(self,Vector2(0,-68),11,Color(0.92,0.72,0.19),DrawUtil.OUTLINE,2.5)
+	for a in [0.0,TAU/3.0,2.0*TAU/3.0]:
+		var d: Vector2 = Vector2.RIGHT.rotated(a)
+		draw_line(Vector2(0,-68)+d*5,Vector2(0,-68)+d*17,Color(0.92,0.72,0.19),2.5)
