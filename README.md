@@ -1,22 +1,21 @@
-# Crônicas de Valedouro
+# Crônicas de Valedouro — 2D Cartoon
 
 Repositório oficial de desenvolvimento do jogo **Crônicas de Valedouro**.
 
 - Engine: **Godot 4.7.2**
 - Alvo principal: **Android / mobile-first**
-- Direção: Action RPG 2D top-down, pixel art detalhada e coesa
-- Estado atual: base v0.6.x em estabilização e evolução para o primeiro Vertical Slice jogável
+- Versão oficial atual: **2D Cartoon**
+- Cena inicial oficial: `res://scenes/cartoon/CartoonMainMenu.tscn`
+- Estado atual: evolução da interface, menu, inventário, HUD/layout, exploração e conteúdo da versão Cartoon.
 
-## Para ChatGPT e Claude
-Leia primeiro **CLAUDE.md** e **docs/README_CONTINUE_AQUI.md**. O repositório contém as regras canônicas, planejamento, checkpoints, código, geradores de assets e testes.
+## Regra de continuidade
+A antiga versão visual/pixel-art não é mais a base de desenvolvimento e não deve ser usada para novas alterações. Toda evolução do jogo deve partir da implementação em `game/scenes/cartoon/` e `game/scripts/cartoon/`, preservando história, missões e mecânicas canônicas quando compatíveis.
 
-## CI
-O workflow **Godot 4.7.2 Gate + Visual QA**:
-1. reconstrói a fonte;
-2. gera assets reproduzíveis;
-3. roda validação estática;
-4. baixa o Godot 4.7.2 oficial;
-5. roda parser/import e testes nativos;
-6. captura várias regiões do mapa para auditoria visual;
-7. publica as capturas como artifact;
-8. grava a árvore expandida do projeto no repositório quando o Gate passa.
+## Estado da sessão de 30/09/2026
+A base 2D Cartoon inclui menu inicial próprio, estado persistente do jogador, regiões Cartoon, zoom mobile e a atualização de UI/inventário identificada no histórico como **UI v0.15**.
+
+## Para agentes
+Leia primeiro **CLAUDE.md** e **docs/README_CONTINUE_AQUI.md**. Antes de editar, confirme que a cena principal do `project.godot` continua apontando para `CartoonMainMenu.tscn`.
+
+## Validação
+Nunca declarar parser/runtime/Android como aprovado sem executar os gates correspondentes no Godot 4.7.2.
