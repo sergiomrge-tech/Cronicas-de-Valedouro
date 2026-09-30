@@ -11,6 +11,7 @@ const HeroScript = preload("res://scripts/cartoon/cartoon_hero.gd")
 const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
 const MapOverlayScript = preload("res://scripts/cartoon/coast/coast_map_overlay.gd")
 const ExplorationDirectorScript = preload("res://scripts/cartoon/cartoon_exploration_director.gd")
+const CraftingUIScript = preload("res://scripts/cartoon/cartoon_crafting_ui.gd")
 
 var story_zones: Node2D
 var objects: Node2D
@@ -19,6 +20,7 @@ var camera: Camera2D
 var world_stream: Node2D
 var story_runtime: RefCounted
 var exploration_director: Node
+var crafting_ui: Control
 var monsters: Array[Node2D] = []
 var pois: Array[Dictionary] = []
 
@@ -83,6 +85,10 @@ func _ready() -> void:
 	camera.limit_bottom = int(Coast.REGION_SIZE.y)
 	hero.add_child(camera)
 	_build_ui()
+	crafting_ui = CraftingUIScript.new()
+	crafting_ui.name = "CraftingUI"
+	ui.add_child(crafting_ui)
+	crafting_ui.setup(self,hero,Coast.REGION_ID)
 	_refresh_objective()
 
 func _add_poi_prop(data: Dictionary) -> void:
@@ -101,7 +107,7 @@ func _process(delta: float) -> void:
 	toast_timer = maxf(0.0,toast_timer-delta)
 	if toast_timer <= 0.0 and toast_label:
 		toast_label.text = ""
-	if map_open:
+	if map_open or (crafting_ui != null and crafting_ui.is_open()):
 		if hero:
 			hero.set_motion(Vector2.ZERO)
 		return
@@ -124,7 +130,7 @@ func _process(delta: float) -> void:
 		_interact()
 
 func _input(event: InputEvent) -> void:
-	if map_open:
+	if map_open or (crafting_ui != null and crafting_ui.is_open()):
 		return
 	if event is InputEventScreenTouch:
 		if event.pressed and event.position.x < 330 and event.position.y > 300 and joystick_id < 0:
@@ -153,7 +159,7 @@ func _attack() -> void:
 	if boss_id == "BOSS_GENERAL_MARE_OCA_001" and story_runtime.current_id != "Q_MS06_GENERAL_TIDE":
 		_show_toast("O Observatório ainda protege o General da Maré Oca.")
 		return
-	var dead: bool = target.take_damage(28)
+	var dead: bool = target.take_damage(hero.attack_damage(28))
 	if not dead:
 		return
 	monsters.erase(target)
@@ -216,7 +222,7 @@ func _update_monsters(delta: float) -> void:
 				monster.position = next
 		if dist <= 56.0 and monster.can_hit():
 			monster.mark_hit()
-			player_hp = maxi(0,player_hp-int(monster.contact_damage))
+			player_hp = maxi(0,player_hp-int(hero.reduce_incoming_damage(int(monster.contact_damage))))
 			_refresh_stats()
 			if player_hp <= 0:
 				player_hp = player_max_hp
