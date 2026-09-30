@@ -57,6 +57,7 @@ func _ready() -> void:
 	_spawn_outer_landmarks()
 	_spawn_main_story_zones()
 	_spawn_main_story_locations()
+	_spawn_region_transitions()
 	story_runtime = StoryRuntimeScript.new()
 	hero = HeroScript.new()
 	hero.name = "Player"
@@ -203,6 +204,12 @@ func _interact() -> void:
 		"POI_REG001_SOUTH_WAYSHRINE": _show_toast("Santuário da Estrada Sul — último marco antes da próxima faixa de exploração.")
 		"POI_REG001_HUNTER_CAMP": _show_toast("Acampamento dos Caçadores — lobos maiores rondam a mata.")
 		"POI_REG001_EAST_QUARRY": _show_toast("Pedreira Abandonada — futura área de recurso e elite.")
+		"TRANSITION_FOREST_ANCESTRAL":
+			if story_runtime and story_runtime.act1_complete:
+				_show_toast("Entrando na Floresta Ancestral...")
+				get_tree().change_scene_to_file("res://scenes/cartoon/ForestAncientCartoon.tscn")
+			else:
+				_show_toast("A passagem ainda não foi revelada pela história principal.")
 		_: _show_toast(label)
 
 func _show_toast(text: String) -> void:
@@ -375,3 +382,17 @@ func _direction_arrow(v: Vector2) -> String:
 	if a >= -PI*0.625 and a < -PI*0.375:
 		return "↑"
 	return "↗"
+
+
+func _spawn_region_transitions() -> void:
+	for data in MainStoryMap.region_transitions():
+		var prop: Node2D = PropScript.new()
+		prop.setup(data)
+		objects.add_child(prop)
+		environment.pois.append({
+			"id":String(data.get("id","")),
+			"label":String(data.get("label","")),
+			"pos":data.get("pos",Vector2.ZERO),
+			"quest":String(data.get("quest","")),
+			"next_scene":String(data.get("next_scene",""))
+		})
