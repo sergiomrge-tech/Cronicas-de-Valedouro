@@ -100,7 +100,26 @@ func _ready() -> void:
 	inventory_ui.name = "InventoryUI"
 	ui.add_child(inventory_ui)
 	inventory_ui.setup(self,hero,true)
+	_bind_campaign_save()
 	_update_poi_hint()
+
+func _bind_campaign_save() -> void:
+	if get_tree().current_scene != self:
+		return
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state == null:
+		return
+	state.bind_scene("res://scenes/cartoon/ValedouroCartoonHub.tscn",self,hero,story_runtime,1,120,35,["field_quest_active","field_kills"])
+	if objective_label != null and story_runtime != null:
+		objective_label.text = story_runtime.hud_text()
+	_update_objective_navigation()
+	_refresh_stats()
+
+func _change_scene_saved(path: String) -> void:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state != null:
+		state.prepare_transition(path)
+	get_tree().change_scene_to_file(path)
 
 func _build_ui() -> void:
 	ui = CanvasLayer.new(); ui.name = "HUD"; add_child(ui)
@@ -268,7 +287,7 @@ func _interact() -> void:
 		"TRANSITION_FOREST_ANCESTRAL":
 			if story_runtime and story_runtime.act1_complete:
 				_show_toast("Entrando na Floresta Ancestral...")
-				get_tree().change_scene_to_file("res://scenes/cartoon/ForestAncientCartoon.tscn")
+				_change_scene_saved("res://scenes/cartoon/ForestAncientCartoon.tscn")
 			else:
 				_show_toast("A passagem ainda não foi revelada pela história principal.")
 		_: _show_toast(label)
