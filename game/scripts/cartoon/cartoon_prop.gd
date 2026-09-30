@@ -86,6 +86,11 @@ func _draw() -> void:
 		"sunken_temple": _draw_sunken_temple()
 		"lost_shipyard": _draw_lost_shipyard()
 		"tidal_observatory": _draw_tidal_observatory()
+		"last_bastion": _draw_last_bastion()
+		"war_obelisk": _draw_war_obelisk()
+		"broken_cathedral": _draw_broken_cathedral()
+		"alliance_council": _draw_alliance_council()
+		"hollow_crown_citadel": _draw_hollow_crown_citadel()
 		_: _draw_rock()
 
 func _draw_tree() -> void:
@@ -655,3 +660,53 @@ func _draw_tidal_observatory() -> void:
 	DrawUtil.circle_outlined(self,Vector2(0,-94),8,Color(0.30,0.79,0.91),DrawUtil.OUTLINE,2)
 	for x in [-48.0,48.0]:
 		DrawUtil.rect_outlined(self,Rect2(x-9,-46,18,36),Color(0.24,0.36,0.39),DrawUtil.OUTLINE,2)
+
+
+func _draw_last_bastion() -> void:
+	_building_shadow(260)
+	for x in [-96.0,96.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-34,-112,68,130),Color(0.49,0.46,0.42),DrawUtil.OUTLINE,5)
+	DrawUtil.rect_outlined(self,Rect2(-96,-74,192,92),Color(0.56,0.51,0.44),DrawUtil.OUTLINE,5)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-18),34,36,Color(0.18,0.15,0.13),DrawUtil.OUTLINE,3)
+	draw_rect(Rect2(-34,-18,68,36),Color(0.18,0.15,0.13))
+	for p in [Vector2(-62,-70),Vector2(62,-70)]:
+		DrawUtil.flame(self,p,24,9,anim_t)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-13,-99),Vector2(13,-99),Vector2(13,-72),Vector2(0,-63),Vector2(-13,-72)]),Color(0.18,0.45,0.72),DrawUtil.OUTLINE,3)
+
+func _draw_war_obelisk() -> void:
+	DrawUtil.shadow(self,Vector2(0,10),38,0.20)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-22,12),Vector2(-16,-76),Vector2(0,-111),Vector2(16,-76),Vector2(22,12)]),Color(0.31,0.26,0.31),DrawUtil.OUTLINE,4)
+	DrawUtil.circle_outlined(self,Vector2(0,-58),10,Color(0.74,0.18,0.43),DrawUtil.OUTLINE,2)
+	for a in [0.0,PI*0.5,PI,PI*1.5]:
+		var d: Vector2 = Vector2.RIGHT.rotated(a)
+		draw_line(Vector2(0,-58)+d*8,Vector2(0,-58)+d*18,Color(0.74,0.18,0.43),3)
+
+func _draw_broken_cathedral() -> void:
+	_building_shadow(260)
+	DrawUtil.rect_outlined(self,Rect2(-105,-84,210,102),Color(0.49,0.45,0.43),DrawUtil.OUTLINE,5)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-118,-82),Vector2(-32,-136),Vector2(6,-107),Vector2(38,-142),Vector2(118,-82)]),Color(0.33,0.28,0.31),DrawUtil.OUTLINE,4)
+	for x in [-70.0,-28.0,28.0,70.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-8,-50,16,38),Color(0.21,0.19,0.20),DrawUtil.OUTLINE,2)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-20),30,33,Color(0.15,0.13,0.14),DrawUtil.OUTLINE,3)
+	draw_rect(Rect2(-30,-20,60,38),Color(0.15,0.13,0.14))
+	draw_line(Vector2(40,-110),Vector2(78,-81),Color(0.17,0.15,0.16),7)
+
+func _draw_alliance_council() -> void:
+	_building_shadow(230)
+	DrawUtil.rect_outlined(self,Rect2(-92,-64,184,82),Color(0.66,0.54,0.38),DrawUtil.OUTLINE,4)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-106,-62),Vector2(0,-113),Vector2(106,-62)]),Color(0.22,0.37,0.56),DrawUtil.OUTLINE,4)
+	for x in [-62.0,-30.0,0.0,30.0,62.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-7,-38,14,28),Color(0.45,0.63,0.73),DrawUtil.OUTLINE,2)
+	for x in [-72.0,-44.0,-16.0,16.0,44.0,72.0]:
+		DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(x-7,-79),Vector2(x+7,-79),Vector2(x+7,-59),Vector2(x,-53),Vector2(x-7,-59)]),Color(0.77,0.58,0.20),DrawUtil.OUTLINE,2)
+
+func _draw_hollow_crown_citadel() -> void:
+	_building_shadow(280)
+	for x in [-108.0,108.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-38,-132,76,150),Color(0.28,0.23,0.29),DrawUtil.OUTLINE,5)
+		for bx in [-26.0,0.0,26.0]:
+			draw_rect(Rect2(x+bx-7,-143,14,18),Color(0.28,0.23,0.29))
+	DrawUtil.rect_outlined(self,Rect2(-108,-88,216,106),Color(0.34,0.28,0.33),DrawUtil.OUTLINE,5)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-20),38,40,Color(0.10,0.08,0.11),DrawUtil.OUTLINE,3)
+	draw_rect(Rect2(-38,-20,76,38),Color(0.10,0.08,0.11))
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-18,-111),Vector2(-32,-135),Vector2(-7,-124),Vector2(0,-145),Vector2(7,-124),Vector2(32,-135),Vector2(18,-111)]),Color(0.63,0.14,0.38),DrawUtil.OUTLINE,3)

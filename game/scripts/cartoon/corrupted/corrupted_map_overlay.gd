@@ -1,0 +1,65 @@
+class_name ValedouroCartoonCorruptedMapOverlay
+extends Control
+
+const Corrupted = preload("res://scripts/cartoon/corrupted/corrupted_region_config.gd")
+const StoryMap = preload("res://scripts/cartoon/corrupted/corrupted_story_map.gd")
+
+var player: Node2D
+var target_id: String = ""
+var map_rect: Rect2 = Rect2(48,42,754,366)
+
+func setup(player_node: Node2D) -> void:
+	player = player_node
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	queue_redraw()
+
+func set_target(id: String) -> void:
+	target_id = id
+	queue_redraw()
+
+func _process(_delta: float) -> void:
+	if visible:
+		queue_redraw()
+
+func _world_to_map(world_pos: Vector2) -> Vector2:
+	return map_rect.position+Vector2(world_pos.x/Corrupted.REGION_SIZE.x*map_rect.size.x,world_pos.y/Corrupted.REGION_SIZE.y*map_rect.size.y)
+
+func _draw() -> void:
+	draw_rect(Rect2(Vector2.ZERO,size),Color(0.05,0.025,0.05,0.97))
+	draw_rect(map_rect,Color(0.22,0.16,0.22,0.98))
+	draw_rect(map_rect,Color(0.72,0.20,0.46),false,4.0)
+	var font: Font = ThemeDB.fallback_font
+	draw_string(font,Vector2(48,28),"MAPA — TERRAS CORROMPIDAS",HORIZONTAL_ALIGNMENT_LEFT,-1,20,Color(1.0,0.80,0.90))
+	draw_string(font,Vector2(620,28),"20x • guerra",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color(0.86,0.54,0.70))
+	var scaled: PackedVector2Array = PackedVector2Array()
+	for p in StoryMap.route_points():
+		scaled.append(_world_to_map(p))
+	if scaled.size() >= 2:
+		draw_polyline(scaled,Color(0.69,0.55,0.41),5.0,true)
+	for row in StoryMap.optional_pois():
+		draw_circle(_world_to_map(row.get("pos",Vector2.ZERO)),4.0,Color(0.66,0.53,0.61))
+	for row in StoryMap.obelisks():
+		draw_circle(_world_to_map(row.get("pos",Vector2.ZERO)),5.0,Color(0.92,0.29,0.52))
+	for row in StoryMap.locations():
+		var id: String = String(row.get("id",""))
+		var p: Vector2 = _world_to_map(row.get("pos",Vector2.ZERO))
+		var active: bool = id == target_id
+		var col: Color = Color(1.0,0.82,0.27) if active else Color(0.94,0.42,0.64)
+		draw_circle(p,8.0 if active else 6.0,col)
+		draw_circle(p,10.5 if active else 8.0,Color(0.05,0.02,0.05),false,2.0)
+		draw_string(font,p+Vector2(10,4),_short_label(id),HORIZONTAL_ALIGNMENT_LEFT,-1,12,col)
+	if player != null:
+		var pp: Vector2 = _world_to_map(player.position)
+		draw_circle(pp,8.5,Color(0.35,0.80,1.0))
+		draw_circle(pp,12.0,Color.WHITE,false,2.0)
+		draw_string(font,pp+Vector2(12,-8),"VOCÊ",HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color.WHITE)
+	draw_string(font,Vector2(48,432),"● missão principal   • obeliscos/POIs   azul: jogador",HORIZONTAL_ALIGNMENT_LEFT,-1,13,Color(0.88,0.78,0.84))
+
+func _short_label(id: String) -> String:
+	match id:
+		"LOC_LAST_BASTION": return "Bastião"
+		"LOC_WAR_OBELISKS": return "Obeliscos"
+		"LOC_BROKEN_CATHEDRAL": return "Catedral"
+		"LOC_ALLIANCE_WAR_COUNCIL": return "Conselho"
+		"LOC_HOLLOW_CROWN_CITADEL": return "Cidadela"
+		_: return ""

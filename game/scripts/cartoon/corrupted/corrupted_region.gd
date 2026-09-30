@@ -1,15 +1,15 @@
-class_name ValedouroCartoonCoastRegion
+class_name ValedouroCartoonCorruptedRegion
 extends Node2D
 
-const Coast = preload("res://scripts/cartoon/coast/coast_region_config.gd")
-const StoryMap = preload("res://scripts/cartoon/coast/coast_story_map.gd")
-const StreamScript = preload("res://scripts/cartoon/coast/coast_world_stream.gd")
-const StoryRuntimeScript = preload("res://scripts/cartoon/coast/coast_story_runtime.gd")
-const ZoneScript = preload("res://scripts/cartoon/coast/coast_story_zone.gd")
+const Corrupted = preload("res://scripts/cartoon/corrupted/corrupted_region_config.gd")
+const StoryMap = preload("res://scripts/cartoon/corrupted/corrupted_story_map.gd")
+const StreamScript = preload("res://scripts/cartoon/corrupted/corrupted_world_stream.gd")
+const StoryRuntimeScript = preload("res://scripts/cartoon/corrupted/corrupted_story_runtime.gd")
+const ZoneScript = preload("res://scripts/cartoon/corrupted/corrupted_story_zone.gd")
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const HeroScript = preload("res://scripts/cartoon/cartoon_hero.gd")
 const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
-const MapOverlayScript = preload("res://scripts/cartoon/coast/coast_map_overlay.gd")
+const MapOverlayScript = preload("res://scripts/cartoon/corrupted/corrupted_map_overlay.gd")
 
 var story_zones: Node2D
 var objects: Node2D
@@ -19,7 +19,6 @@ var world_stream: Node2D
 var story_runtime: RefCounted
 var monsters: Array[Node2D] = []
 var pois: Array[Dictionary] = []
-
 var ui: CanvasLayer
 var objective_label: Label
 var stats_label: Label
@@ -28,15 +27,14 @@ var nav_label: Label
 var toast_label: Label
 var map_overlay: Control
 var map_open: bool = false
-
 var joystick_id: int = -1
 var joystick_origin: Vector2 = Vector2.ZERO
 var joystick_vector: Vector2 = Vector2.ZERO
-var speed: float = 230.0
+var speed: float = 228.0
 var toast_timer: float = 0.0
-var player_hp: int = 285
-var player_max_hp: int = 285
-var player_gold: int = 370
+var player_hp: int = 330
+var player_max_hp: int = 330
+var player_gold: int = 470
 
 func _ready() -> void:
 	story_zones = Node2D.new()
@@ -53,15 +51,17 @@ func _ready() -> void:
 	add_child(objects)
 	for data in StoryMap.locations():
 		_add_poi_prop(data)
+	for data in StoryMap.obelisks():
+		_add_poi_prop(data)
 	for data in StoryMap.optional_pois():
 		_add_poi_prop(data)
 	story_runtime = StoryRuntimeScript.new()
 	hero = HeroScript.new()
 	hero.name = "Player"
-	hero.position = Coast.ENTRY_POS
+	hero.position = Corrupted.ENTRY_POS
 	objects.add_child(hero)
 	world_stream = StreamScript.new()
-	world_stream.name = "CoastWorldStream"
+	world_stream.name = "CorruptedWorldStream"
 	add_child(world_stream)
 	world_stream.setup(hero)
 	for data in StoryMap.encounters():
@@ -72,8 +72,8 @@ func _ready() -> void:
 	camera.position_smoothing_speed = 7.0
 	camera.limit_left = 0
 	camera.limit_top = 0
-	camera.limit_right = int(Coast.REGION_SIZE.x)
-	camera.limit_bottom = int(Coast.REGION_SIZE.y)
+	camera.limit_right = int(Corrupted.REGION_SIZE.x)
+	camera.limit_bottom = int(Corrupted.REGION_SIZE.y)
 	hero.add_child(camera)
 	_build_ui()
 	_refresh_objective()
@@ -82,7 +82,7 @@ func _add_poi_prop(data: Dictionary) -> void:
 	var prop: Node2D = PropScript.new()
 	prop.setup(data)
 	objects.add_child(prop)
-	pois.append({"id":String(data.get("id","")),"label":String(data.get("label","")),"pos":data.get("pos",Vector2.ZERO),"quest":String(data.get("quest",""))})
+	pois.append({"id":String(data.get("id","")),"label":String(data.get("label","")),"pos":data.get("pos",Vector2.ZERO),"parent":String(data.get("parent","")),"quest":String(data.get("quest",""))})
 
 func _spawn_monster(data: Dictionary) -> void:
 	var monster: Node2D = MonsterScript.new()
@@ -105,7 +105,7 @@ func _process(delta: float) -> void:
 		dir = dir.normalized()
 	if hero:
 		var next: Vector2 = hero.position+dir*speed*delta
-		if Coast.in_region(next,70.0):
+		if Corrupted.in_region(next,70.0):
 			hero.position = next
 		hero.set_motion(dir)
 		_update_poi_hint()
@@ -134,61 +134,58 @@ func _attack() -> void:
 	if hero == null:
 		return
 	hero.trigger_attack()
-	var target: Node2D = _nearest_monster(116.0)
+	var target: Node2D = _nearest_monster(118.0)
 	if target == null:
 		_show_toast("Nenhum inimigo ao alcance.")
 		return
-	var story_tag: String = String(target.story_tag)
 	var boss_id: String = String(target.boss_id)
-	if story_tag == "hollow_fleet" and story_runtime.current_id != "Q_MS06_HOLLOW_FLEET":
-		_show_toast("A Frota Oca ainda navega fora do alcance desta missão.")
+	if boss_id == "BOSS_GENERAL_ECO_VAZIO_001" and story_runtime.current_id != "Q_MS07_GENERAL_VOID":
+		_show_toast("A Cidadela da Coroa Oca ainda protege o último General.")
 		return
-	if boss_id == "BOSS_GENERAL_MARE_OCA_001" and story_runtime.current_id != "Q_MS06_GENERAL_TIDE":
-		_show_toast("O Observatório ainda protege o General da Maré Oca.")
-		return
-	var dead: bool = target.take_damage(28)
+	var dead: bool = target.take_damage(30)
 	if not dead:
 		return
 	monsters.erase(target)
 	target.queue_free()
-	player_gold += 16
+	player_gold += 18
 	var advanced: bool = false
-	if story_tag == "hollow_fleet":
-		advanced = story_runtime.register_fleet_kill(story_tag)
-	elif boss_id != "":
+	if boss_id != "":
 		advanced = story_runtime.register_boss(boss_id)
 	_refresh_stats()
 	_refresh_objective()
 	if advanced:
-		_show_toast("Objetivo principal concluído. A próxima rota foi revelada.")
+		_show_toast("O General do Eco Vazio caiu. O Portão do Último Mapa se abriu.")
 	else:
-		_show_toast("Inimigo derrotado. +16 ouro")
+		_show_toast("Inimigo derrotado. +18 ouro")
 
 func _interact() -> void:
 	if hero == null:
 		return
-	var poi: Dictionary = _nearest_poi(hero.position,215.0)
+	var poi: Dictionary = _nearest_poi(hero.position,220.0)
 	if poi.is_empty():
 		_show_toast("Nada para interagir aqui.")
 		return
 	var id: String = String(poi.get("id",""))
 	var label: String = String(poi.get("label","Local"))
+	if id in ["LOC_WAR_OBELISK_W","LOC_WAR_OBELISK_C","LOC_WAR_OBELISK_E"]:
+		var completed: bool = story_runtime.destroy_obelisk(id)
+		_refresh_objective()
+		_show_toast("Obelisco destruído." if not completed else "Os três obeliscos ruíram. O corredor demoníaco enfraqueceu.")
+		return
 	if story_runtime.interact(id):
 		_refresh_objective()
 		_show_toast("História principal atualizada: "+label)
 		return
 	match id:
-		"LOC_MIST_PORT": _show_toast("As rotas marítimas mudam sob as brumas.")
-		"LOC_TWIN_LIGHTHOUSE": _show_toast("O Farol Gêmeo revela caminhos invisíveis no mar.")
-		"LOC_SUNKEN_TEMPLE": _show_toast("O Astrolábio das Marés aguarda dentro do templo.")
-		"LOC_LOST_ISLAND_SHIPYARD": _show_toast("A Frota Oca bloqueia o estaleiro.")
-		"LOC_TIDAL_OBSERVATORY": _show_toast("O General da Maré Oca controla as correntes.")
-		"POI_COAST_CORRUPTED_ROUTE":
-			if story_runtime.act6_complete:
-				_show_toast("Entrando nas Terras Corrompidas...")
-				get_tree().change_scene_to_file("res://scenes/cartoon/CorruptedLandsCartoon.tscn")
+		"LOC_LAST_BASTION": _show_toast("A Aliança mantém sua última linha de defesa.")
+		"LOC_BROKEN_CATHEDRAL": _show_toast("O Pacto das Seis Coroas está dentro da Catedral Partida.")
+		"LOC_ALLIANCE_WAR_COUNCIL": _show_toast("As Seis Coroas preparam o avanço final.")
+		"LOC_HOLLOW_CROWN_CITADEL": _show_toast("O último General protege o corredor central.")
+		"POI_CORRUPTED_ABYSS_ROUTE":
+			if story_runtime.act7_complete:
+				_show_toast("O Portão do Último Mapa aguarda.")
 			else:
-				_show_toast("O caminho permanece escondido pela Maré Oca.")
+				_show_toast("O corredor central permanece bloqueado.")
 		_:
 			_show_toast(label)
 
@@ -200,10 +197,10 @@ func _update_monsters(delta: float) -> void:
 			monsters.erase(monster)
 			continue
 		var dist: float = monster.position.distance_to(hero.position)
-		if dist < 340.0 and dist > 54.0:
+		if dist < 345.0 and dist > 54.0:
 			var dir: Vector2 = (hero.position-monster.position).normalized()
 			var next: Vector2 = monster.position+dir*float(monster.move_speed)*delta
-			if Coast.in_region(next,70.0):
+			if Corrupted.in_region(next,70.0):
 				monster.position = next
 		if dist <= 56.0 and monster.can_hit():
 			monster.mark_hit()
@@ -211,9 +208,9 @@ func _update_monsters(delta: float) -> void:
 			_refresh_stats()
 			if player_hp <= 0:
 				player_hp = player_max_hp
-				hero.position = Coast.ENTRY_POS
+				hero.position = Corrupted.ENTRY_POS
 				_refresh_stats()
-				_show_toast("Os marinheiros do Porto das Brumas resgataram você.")
+				_show_toast("A patrulha do Último Bastião resgatou você.")
 
 func _nearest_monster(radius: float) -> Node2D:
 	var best: Node2D = null
@@ -246,8 +243,8 @@ func _build_ui() -> void:
 	top.size = Vector2(320,76)
 	ui.add_child(top)
 	var top_style: StyleBoxFlat = StyleBoxFlat.new()
-	top_style.bg_color = Color(0.02,0.08,0.10,0.95)
-	top_style.border_color = Color(0.36,0.78,0.84)
+	top_style.bg_color = Color(0.08,0.04,0.08,0.96)
+	top_style.border_color = Color(0.66,0.20,0.45)
 	top_style.set_border_width_all(3)
 	top_style.corner_radius_top_left = 16
 	top_style.corner_radius_top_right = 16
@@ -258,7 +255,7 @@ func _build_ui() -> void:
 	stats_label.position = Vector2(16,10)
 	stats_label.size = Vector2(292,56)
 	stats_label.add_theme_font_size_override("font_size",16)
-	stats_label.add_theme_color_override("font_color",Color(0.84,0.98,1.0))
+	stats_label.add_theme_color_override("font_color",Color(1.0,0.84,0.92))
 	top.add_child(stats_label)
 	_refresh_stats()
 	var q: PanelContainer = PanelContainer.new()
@@ -266,8 +263,8 @@ func _build_ui() -> void:
 	q.size = Vector2(360,96)
 	ui.add_child(q)
 	var qstyle: StyleBoxFlat = StyleBoxFlat.new()
-	qstyle.bg_color = Color(0.02,0.08,0.10,0.94)
-	qstyle.border_color = Color(0.27,0.63,0.70)
+	qstyle.bg_color = Color(0.07,0.035,0.07,0.95)
+	qstyle.border_color = Color(0.55,0.15,0.37)
 	qstyle.set_border_width_all(3)
 	qstyle.corner_radius_top_left = 14
 	qstyle.corner_radius_top_right = 14
@@ -279,7 +276,7 @@ func _build_ui() -> void:
 	objective_label.size = Vector2(332,80)
 	objective_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	objective_label.add_theme_font_size_override("font_size",14)
-	objective_label.add_theme_color_override("font_color",Color(0.80,0.98,0.96))
+	objective_label.add_theme_color_override("font_color",Color(1.0,0.79,0.89))
 	q.add_child(objective_label)
 	poi_label = Label.new()
 	poi_label.position = Vector2(320,112)
@@ -296,7 +293,7 @@ func _build_ui() -> void:
 	nav_label.size = Vector2(400,30)
 	nav_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	nav_label.add_theme_font_size_override("font_size",15)
-	nav_label.add_theme_color_override("font_color",Color(0.59,0.93,0.93))
+	nav_label.add_theme_color_override("font_color",Color(0.95,0.54,0.72))
 	nav_label.add_theme_color_override("font_shadow_color",Color.BLACK)
 	nav_label.add_theme_constant_override("shadow_offset_x",2)
 	nav_label.add_theme_constant_override("shadow_offset_y",2)
@@ -307,7 +304,7 @@ func _build_ui() -> void:
 	toast_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	toast_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	toast_label.add_theme_font_size_override("font_size",18)
-	toast_label.add_theme_color_override("font_color",Color(0.75,0.98,0.96))
+	toast_label.add_theme_color_override("font_color",Color(0.96,0.66,0.80))
 	toast_label.add_theme_color_override("font_shadow_color",Color.BLACK)
 	toast_label.add_theme_constant_override("shadow_offset_x",2)
 	toast_label.add_theme_constant_override("shadow_offset_y",2)
@@ -336,8 +333,8 @@ func _add_map_button() -> void:
 	button.add_theme_font_size_override("font_size",15)
 	for state in ["normal","hover","pressed","focus"]:
 		var st: StyleBoxFlat = StyleBoxFlat.new()
-		st.bg_color = Color(0.04,0.14,0.17,0.97) if state != "pressed" else Color(0.08,0.27,0.32,0.97)
-		st.border_color = Color(0.39,0.82,0.88)
+		st.bg_color = Color(0.13,0.06,0.12,0.97) if state != "pressed" else Color(0.26,0.10,0.22,0.97)
+		st.border_color = Color(0.69,0.22,0.47)
 		st.set_border_width_all(3)
 		st.corner_radius_top_left = 12
 		st.corner_radius_top_right = 12
@@ -364,8 +361,8 @@ func _add_action_button(text_value: String, pos: Vector2, button_size: float, ca
 	button.add_theme_font_size_override("font_size",16)
 	for state in ["normal","hover","pressed","focus"]:
 		var st: StyleBoxFlat = StyleBoxFlat.new()
-		st.bg_color = Color(0.04,0.14,0.17,0.96) if state != "pressed" else Color(0.08,0.28,0.33,0.96)
-		st.border_color = Color(0.39,0.82,0.88)
+		st.bg_color = Color(0.13,0.06,0.12,0.96) if state != "pressed" else Color(0.27,0.10,0.23,0.96)
+		st.border_color = Color(0.69,0.22,0.47)
 		st.set_border_width_all(4)
 		st.corner_radius_top_left = int(button_size/2.0)
 		st.corner_radius_top_right = int(button_size/2.0)
@@ -377,7 +374,7 @@ func _add_action_button(text_value: String, pos: Vector2, button_size: float, ca
 
 func _refresh_stats() -> void:
 	if stats_label:
-		stats_label.text = "COSTAS E ILHAS PERDIDAS\nNv 52   ❤ %d/%d   ◉ %d" % [player_hp,player_max_hp,player_gold]
+		stats_label.text = "TERRAS CORROMPIDAS\nNv 68   ❤ %d/%d   ◉ %d" % [player_hp,player_max_hp,player_gold]
 
 func _refresh_objective() -> void:
 	if objective_label and story_runtime:
@@ -389,12 +386,17 @@ func _refresh_objective() -> void:
 func _update_poi_hint() -> void:
 	if poi_label == null or hero == null:
 		return
-	var poi: Dictionary = _nearest_poi(hero.position,215.0)
+	var poi: Dictionary = _nearest_poi(hero.position,220.0)
 	poi_label.text = ("◆ "+String(poi.get("label",""))+"  •  USAR") if not poi.is_empty() else ""
 
 func _target_position() -> Vector2:
 	if story_runtime == null:
 		return Vector2.ZERO
+	if story_runtime.current_id == "Q_MS07_OBELISKS":
+		for row in StoryMap.obelisks():
+			var id: String = String(row.get("id",""))
+			if not story_runtime.destroyed_obelisks.has(id):
+				return row.get("pos",Vector2.ZERO)
 	var target_id: String = story_runtime.current_location()
 	for poi in pois:
 		if String(poi.get("id","")) == target_id:
@@ -404,8 +406,8 @@ func _target_position() -> Vector2:
 func _update_navigation() -> void:
 	if nav_label == null or hero == null or story_runtime == null:
 		return
-	if story_runtime.act6_complete:
-		nav_label.text = "Próximo destino: Terras Corrompidas"
+	if story_runtime.act7_complete:
+		nav_label.text = "Próximo destino: Coração Abissal"
 		return
 	var target: Vector2 = _target_position()
 	if target == Vector2.ZERO:
@@ -418,20 +420,13 @@ func _direction_arrow(v: Vector2) -> String:
 	if v.length() < 35.0:
 		return "◆"
 	var a: float = v.angle()
-	if a >= -PI*0.125 and a < PI*0.125:
-		return "→"
-	if a >= PI*0.125 and a < PI*0.375:
-		return "↘"
-	if a >= PI*0.375 and a < PI*0.625:
-		return "↓"
-	if a >= PI*0.625 and a < PI*0.875:
-		return "↙"
-	if a >= PI*0.875 or a < -PI*0.875:
-		return "←"
-	if a >= -PI*0.875 and a < -PI*0.625:
-		return "↖"
-	if a >= -PI*0.625 and a < -PI*0.375:
-		return "↑"
+	if a >= -PI*0.125 and a < PI*0.125: return "→"
+	if a >= PI*0.125 and a < PI*0.375: return "↘"
+	if a >= PI*0.375 and a < PI*0.625: return "↓"
+	if a >= PI*0.625 and a < PI*0.875: return "↙"
+	if a >= PI*0.875 or a < -PI*0.875: return "←"
+	if a >= -PI*0.875 and a < -PI*0.625: return "↖"
+	if a >= -PI*0.625 and a < -PI*0.375: return "↑"
 	return "↗"
 
 func _show_toast(text_value: String) -> void:
