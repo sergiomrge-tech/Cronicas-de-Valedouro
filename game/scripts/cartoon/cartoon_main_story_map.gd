@@ -101,3 +101,15 @@ static func act1_zones() -> Array[Dictionary]:
 		{"zone_kind":"mine","label":"Mina do Eco","pos":Vector2(cx-980.0,north_edge-4100.0),"radius":310.0},
 		{"zone_kind":"archive","label":"Arquivo das Seis Coroas","pos":Vector2(cx+940.0,north_edge-5350.0),"radius":300.0}
 	]
+
+
+static func act1_encounters() -> Array[Dictionary]:
+	var cx: float = Region.SOUTH_ROAD_X
+	var north_edge: float = Region.HUB_RECT.position.y
+	return [
+		{"kind":"wolf","name":"Lobo do Eco","pos":Vector2(cx-145.0,north_edge-760.0),"hp":38,"speed":92.0,"damage":8,"scale":1.02,"story_tag":"story_wolf"},
+		{"kind":"wolf","name":"Lobo do Eco","pos":Vector2(cx+125.0,north_edge-930.0),"hp":38,"speed":92.0,"damage":8,"scale":1.02,"story_tag":"story_wolf"},
+		{"kind":"wolf","name":"Lobo do Eco","pos":Vector2(cx-60.0,north_edge-1130.0),"hp":40,"speed":94.0,"damage":8,"scale":1.05,"story_tag":"story_wolf"},
+		{"kind":"wolf","name":"Alfa da Matilha","pos":Vector2(cx+760.0,north_edge-2950.0),"hp":105,"speed":102.0,"damage":15,"scale":1.32,"story_tag":"story_alpha","boss_id":"BOSS_ALPHA_MATILHA_001"},
+		{"kind":"guardian","name":"Guardião do Eco","pos":Vector2(cx-980.0,north_edge-4460.0),"hp":175,"speed":58.0,"damage":18,"scale":1.25,"story_tag":"story_guardian","boss_id":"BOSS_GUARDIAO_PEDRA_001"}
+	]
