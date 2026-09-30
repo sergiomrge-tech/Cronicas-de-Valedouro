@@ -81,6 +81,11 @@ func _draw() -> void:
 		"frozen_archive": _draw_frozen_archive()
 		"black_frost_citadel": _draw_black_frost_citadel()
 		"return_gate": _draw_return_gate()
+		"mist_port": _draw_mist_port()
+		"twin_lighthouse": _draw_twin_lighthouse()
+		"sunken_temple": _draw_sunken_temple()
+		"lost_shipyard": _draw_lost_shipyard()
+		"tidal_observatory": _draw_tidal_observatory()
 		_: _draw_rock()
 
 func _draw_tree() -> void:
@@ -601,3 +606,52 @@ func _draw_return_gate() -> void:
 		DrawUtil.rect_outlined(self,Rect2(x-18,-72,36,88),Color(0.63,0.65,0.64),DrawUtil.OUTLINE,4)
 	DrawUtil.rect_outlined(self,Rect2(-52,-62,104,22),Color(0.69,0.70,0.68),DrawUtil.OUTLINE,3)
 	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-12,-68),Vector2(12,-68),Vector2(12,-43),Vector2(0,-34),Vector2(-12,-43)]),Color(0.11,0.37,0.78),DrawUtil.OUTLINE,2)
+
+
+func _draw_mist_port() -> void:
+	_building_shadow(220)
+	DrawUtil.rect_outlined(self,Rect2(-92,-54,184,72),Color(0.50,0.36,0.20),DrawUtil.OUTLINE,4)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-106,-52),Vector2(0,-104),Vector2(106,-52)]),Color(0.19,0.39,0.48),DrawUtil.OUTLINE,4)
+	for x in [-58.0,0.0,58.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-9,-32,18,25),Color(0.38,0.67,0.76),DrawUtil.OUTLINE,2)
+	for x in [-76.0,76.0]:
+		draw_line(Vector2(x,18),Vector2(x,56),Color(0.36,0.24,0.13),8)
+
+func _draw_twin_lighthouse() -> void:
+	DrawUtil.shadow(self,Vector2(0,12),86,0.18)
+	for x in [-42.0,42.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-18,-104,36,120),Color(0.82,0.80,0.70),DrawUtil.OUTLINE,4)
+		DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(x-25,-102),Vector2(x,-132),Vector2(x+25,-102)]),Color(0.20,0.42,0.54),DrawUtil.OUTLINE,3)
+		DrawUtil.circle_outlined(self,Vector2(x,-89),8,Color(1.0,0.84,0.34),DrawUtil.OUTLINE,2)
+	draw_line(Vector2(-42,-88),Vector2(42,-88),Color(0.86,0.78,0.44),4)
+
+func _draw_sunken_temple() -> void:
+	_building_shadow(240)
+	DrawUtil.rect_outlined(self,Rect2(-96,-70,192,88),Color(0.52,0.61,0.59),DrawUtil.OUTLINE,5)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-110,-68),Vector2(0,-124),Vector2(110,-68)]),Color(0.18,0.49,0.57),DrawUtil.OUTLINE,4)
+	for x in [-64.0,-32.0,32.0,64.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-8,-48,16,48),Color(0.43,0.55,0.53),DrawUtil.OUTLINE,3)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-18),28,32,Color(0.12,0.23,0.28),DrawUtil.OUTLINE,3)
+	draw_rect(Rect2(-28,-18,56,36),Color(0.12,0.23,0.28))
+	for p in [Vector2(-82,8),Vector2(82,8)]:
+		DrawUtil.ellipse(self,p,34,8,Color(0.16,0.54,0.65,0.52))
+
+func _draw_lost_shipyard() -> void:
+	DrawUtil.shadow(self,Vector2(0,12),105,0.19)
+	for y in [-42.0,8.0]:
+		DrawUtil.rect_outlined(self,Rect2(-108,y,216,20),Color(0.47,0.31,0.17),DrawUtil.OUTLINE,3)
+	for x in [-82.0,-28.0,28.0,82.0]:
+		draw_line(Vector2(x,-42),Vector2(x,40),Color(0.38,0.25,0.13),8)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-62,-14),Vector2(0,-54),Vector2(62,-14),Vector2(44,18),Vector2(-44,18)]),Color(0.36,0.48,0.48),DrawUtil.OUTLINE,3)
+	draw_line(Vector2(0,-50),Vector2(0,-105),Color(0.39,0.27,0.15),6)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(4,-100),Vector2(48,-78),Vector2(4,-62)]),Color(0.23,0.55,0.64),DrawUtil.OUTLINE,2)
+
+func _draw_tidal_observatory() -> void:
+	_building_shadow(210)
+	DrawUtil.rect_outlined(self,Rect2(-78,-74,156,92),Color(0.45,0.54,0.57),DrawUtil.OUTLINE,5)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-75),78,34,Color(0.28,0.45,0.52),DrawUtil.OUTLINE,4)
+	DrawUtil.circle_outlined(self,Vector2(0,-94),29,Color(0.20,0.33,0.40),DrawUtil.OUTLINE,4)
+	draw_line(Vector2(0,-94),Vector2(47,-128),Color(0.18,0.28,0.34),9)
+	DrawUtil.circle_outlined(self,Vector2(0,-94),8,Color(0.30,0.79,0.91),DrawUtil.OUTLINE,2)
+	for x in [-48.0,48.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-9,-46,18,36),Color(0.24,0.36,0.39),DrawUtil.OUTLINE,2)

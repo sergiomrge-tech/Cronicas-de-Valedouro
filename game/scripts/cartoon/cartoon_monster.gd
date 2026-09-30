@@ -67,6 +67,8 @@ func _draw() -> void:
 			_draw_frost_captain()
 		"black_frost_general":
 			_draw_black_frost_general()
+		"tide_general":
+			_draw_tide_general()
 		_:
 			_draw_wolf()
 	draw_set_transform(Vector2.ZERO,0.0,Vector2.ONE)
@@ -202,3 +204,21 @@ func _draw_black_frost_general() -> void:
 	DrawUtil.circle_outlined(self,Vector2(0,-31),9,frost,DrawUtil.OUTLINE,2)
 	for p in [Vector2(-40,-18),Vector2(40,-18)]:
 		DrawUtil.flame(self,p,20,8,anim_t)
+
+
+func _draw_tide_general() -> void:
+	var armor: Color = Color(0.19,0.39,0.48)
+	var tide: Color = Color(0.24,0.79,0.91)
+	DrawUtil.shadow(self,Vector2(0,13),41,0.29)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-20),36,31,armor,DrawUtil.OUTLINE,4)
+	DrawUtil.rect_outlined(self,Rect2(-28,-71,56,54),armor.lightened(0.04),DrawUtil.OUTLINE,4)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-28,-69),Vector2(-42,-96),Vector2(-16,-83),Vector2(0,-107),Vector2(16,-83),Vector2(42,-96),Vector2(28,-69)]),Color(0.14,0.31,0.40),DrawUtil.OUTLINE,3)
+	for x in [-33.0,33.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-42),Vector2(x*1.24,-4),10,armor.darkened(0.05),DrawUtil.OUTLINE,3)
+	for x in [-14.0,14.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-2),Vector2(x,20),11,armor.darkened(0.08),DrawUtil.OUTLINE,3)
+	draw_circle(Vector2(-8,-57),3,tide)
+	draw_circle(Vector2(8,-57),3,tide)
+	DrawUtil.circle_outlined(self,Vector2(0,-31),9,tide,DrawUtil.OUTLINE,2)
+	for p in [Vector2(-42,-17),Vector2(42,-17)]:
+		DrawUtil.circle_outlined(self,p,10,Color(0.27,0.68,0.82),DrawUtil.OUTLINE,2)

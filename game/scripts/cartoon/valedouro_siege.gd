@@ -32,8 +32,10 @@ func _process(delta: float) -> void:
 	hub.objective_label.text = runtime.hud_text()
 	if runtime.complete:
 		transition_timer += delta
-		if transition_timer > 2.5:
-			hub._show_toast("Ato V concluído — o próximo chamado vem do Porto da Névoa.")
+		if transition_timer > 1.0 and transition_timer < 3.0:
+			hub._show_toast("Ato V concluído — o próximo chamado vem do Porto das Brumas.")
+		if transition_timer > 3.2:
+			get_tree().change_scene_to_file("res://scenes/cartoon/CoastLostIslandsCartoon.tscn")
 
 func _spawn_attackers() -> void:
 	var center: Vector2 = Region.world_from_hub(Vector2(1150,320))
