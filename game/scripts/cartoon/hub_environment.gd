@@ -3,7 +3,7 @@ extends Node2D
 
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
 
-const WORLD_SIZE = Vector2(2300, 1700)
+const WORLD_SIZE = Vector2(2300, 2350)
 const CENTER = Vector2(1150, 860)
 
 var rng = RandomNumberGenerator.new()
@@ -36,6 +36,12 @@ func _build_layout() -> void:
 	for i in homes.size(): _add("house",homes[i],1.0 + float(i%3)*0.06,"Casa","",Rect2(homes[i]-Vector2(58,95),Vector2(116,115)),i)
 	# City gate / roads decorative signs
 	_add("sign",Vector2(1150,1340),0.95,"Portão Sul","POI_REG001_GATE_SOUTH")
+	_add("sign",Vector2(1150,1740),0.95,"Campos do Vale","POI_REG001_FIELDS")
+	_add("windmill",Vector2(650,1935),1.12,"Fazenda do Sol","POI_REG001_FARM",Rect2(575,1805,150,155))
+	_add("house",Vector2(815,1985),0.95,"Casa da Fazenda","",Rect2(755,1885,120,120),2)
+	_add("house",Vector2(1760,2020),0.92,"Casa do Campo","",Rect2(1700,1920,120,118),1)
+	for p in [Vector2(540,2050),Vector2(725,2100),Vector2(900,2070),Vector2(1570,2110),Vector2(1720,2150),Vector2(1875,2080)]: _add("hay",p,0.82)
+	_add("chest",Vector2(1510,1900),0.9,"Baú Abandonado","POI_REG001_FIELD_CHEST",Rect2(1475,1870,70,48))
 	_add("sign",Vector2(1150,290),0.85,"Estrada Norte","POI_REG001_GATE_NORTH")
 	# deterministic vegetation outside plaza core
 	for i in 110:
@@ -71,7 +77,7 @@ func _near_manual_blocker(p: Vector2, margin: float) -> bool:
 
 func _road_points() -> Array[PackedVector2Array]:
 	return [
-		PackedVector2Array([Vector2(1150,150),Vector2(1150,420),Vector2(1150,700),Vector2(1150,860),Vector2(1150,1450),Vector2(1150,1650)]),
+		PackedVector2Array([Vector2(1150,150),Vector2(1150,420),Vector2(1150,700),Vector2(1150,860),Vector2(1150,1450),Vector2(1150,1740),Vector2(1150,2250)]),
 		PackedVector2Array([Vector2(330,860),Vector2(720,860),Vector2(920,860),Vector2(1150,860),Vector2(1380,860),Vector2(1600,860),Vector2(2040,860)]),
 		PackedVector2Array([Vector2(1150,860),Vector2(935,1040),Vector2(760,1125)]),
 		PackedVector2Array([Vector2(1150,860),Vector2(1370,1035),Vector2(1540,1130)])
@@ -114,6 +120,7 @@ func _draw() -> void:
 	_draw_rivers()
 	_draw_roads()
 	_draw_plaza()
+	_draw_fields()
 	_draw_city_border()
 
 func _draw_ground() -> void:
@@ -123,7 +130,7 @@ func _draw_ground() -> void:
 		var p = Vector2(rng.randf_range(0,WORLD_SIZE.x),rng.randf_range(0,WORLD_SIZE.y))
 		var col = Color(0.53,0.80,0.35,0.28) if i%2==0 else Color(0.32,0.61,0.25,0.25)
 		DrawUtil.ellipse(self,p,rng.randf_range(65,180),rng.randf_range(25,62),col,22)
-	for i in 180:
+	for i in 245:
 		var p = Vector2(rng.randf_range(40,WORLD_SIZE.x-40),rng.randf_range(80,WORLD_SIZE.y-50))
 		draw_line(p,p+Vector2(rng.randf_range(-2,2),rng.randf_range(-8,-4)),Color(0.28,0.58,0.22,0.45),1.5)
 
@@ -141,7 +148,7 @@ func _draw_roads() -> void:
 	# cobbles
 	rng.seed = 441
 	for i in 125:
-		var p = Vector2(rng.randf_range(340,1990),rng.randf_range(360,1480))
+		var p = Vector2(rng.randf_range(340,1990),rng.randf_range(360,2250))
 		if _near_road(p,38): DrawUtil.ellipse(self,p,rng.randf_range(2,5),rng.randf_range(1.5,3),Color(0.45,0.38,0.29,0.5))
 
 func _draw_plaza() -> void:
@@ -149,9 +156,28 @@ func _draw_plaza() -> void:
 	DrawUtil.ellipse_line(self,CENTER,245,185,Color(0.34,0.28,0.24,0.55),5,32)
 	for r in [65.0,120.0,175.0]: DrawUtil.ellipse_line(self,CENTER,r,r*0.74,Color(0.58,0.53,0.45,0.45),2,32)
 
+func _draw_fields() -> void:
+	var plots: Array[Rect2] = [
+		Rect2(280,1710,520,250),
+		Rect2(285,2040,540,220),
+		Rect2(1490,1715,515,245),
+		Rect2(1475,2045,535,215)
+	]
+	for plot in plots:
+		draw_rect(plot,Color(0.55,0.68,0.26))
+		DrawUtil.rect_outlined(self,plot,Color(0.64,0.49,0.22,0.55),DrawUtil.OUTLINE,3)
+		for y in range(int(plot.position.y)+28,int(plot.end.y)-15,29):
+			draw_line(Vector2(plot.position.x+20,y),Vector2(plot.end.x-20,y),Color(0.34,0.48,0.18,0.75),4)
+			for x in range(int(plot.position.x)+30,int(plot.end.x)-20,44):
+				draw_line(Vector2(x,y+5),Vector2(x,y-7),Color(0.82,0.73,0.20,0.72),2)
+
 func _draw_city_border() -> void:
 	# low masonry markers hint at hub boundary without boxing player in.
 	for x in range(520,1790,130):
 		DrawUtil.rect_outlined(self,Rect2(x,245,86,18),Color(0.65,0.64,0.60),DrawUtil.OUTLINE,2)
 	for x in range(520,1790,130):
 		DrawUtil.rect_outlined(self,Rect2(x,1485,86,18),Color(0.65,0.64,0.60),DrawUtil.OUTLINE,2)
+	for x in range(350,850,72):
+		draw_line(Vector2(x,1695),Vector2(x,1970),Color(0.45,0.30,0.14,0.30),2)
+	for x in range(1480,2010,72):
+		draw_line(Vector2(x,1695),Vector2(x,1970),Color(0.45,0.30,0.14,0.30),2)
