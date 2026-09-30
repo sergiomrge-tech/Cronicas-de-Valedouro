@@ -122,7 +122,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog approved_visuals vertical_slice boss_patterns mobile_input modeled_assets reg001_world reg001_gameplay character_art cast_shadow guardian_state act02_compositions cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017; do
+          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog approved_visuals vertical_slice boss_patterns mobile_input modeled_assets reg001_world reg001_gameplay character_art cast_shadow guardian_state act02_compositions cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018; do
             echo "===== TEST: $t ====="
             log="/tmp/godot-test-$t.log"
             if ! timeout 60s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" >"$log" 2>&1; then
