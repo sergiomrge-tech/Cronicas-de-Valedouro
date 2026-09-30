@@ -25,7 +25,9 @@ func capture() -> void:
         {"name":"05_campos_do_vale", "pos":Region.world_from_hub(Vector2(1150,1870))},
         {"name":"06_fazenda_e_combates", "pos":Region.world_from_hub(Vector2(980,2070))},
         {"name":"07_estrada_sul_expandida", "pos":Vector2(Region.SOUTH_ROAD_X,Region.HUB_RECT.end.y+2500.0)},
-        {"name":"08_cinturao_exploracao", "pos":Vector2(Region.SOUTH_ROAD_X-1800.0,Region.HUB_RECT.end.y+4300.0)}
+        {"name":"08_cinturao_exploracao", "pos":Vector2(Region.SOUTH_ROAD_X-1800.0,Region.HUB_RECT.end.y+4300.0)},
+        {"name":"09_posto_da_estrada", "pos":Vector2(Region.SOUTH_ROAD_X-330.0,Region.HUB_RECT.end.y+1350.0)},
+        {"name":"10_ruinas_caminho_antigo", "pos":Vector2(Region.SOUTH_ROAD_X+1950.0,Region.HUB_RECT.end.y+4100.0)}
     ]
     for shot: Dictionary in shots:
         hero.position = shot["pos"] as Vector2
