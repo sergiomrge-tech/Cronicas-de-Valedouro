@@ -1004,7 +1004,7 @@ def town_house(x, y, roof, group='CIDADE_CASAS'):
 
 for _hx, _hy in ((1245, 340), (470, 615), (1280, 625)):     # casas de interior (desenhadas em main.gd)
     W.collider('rect', TX + _hx - 88, TY + _hy - 38, 176, 44)
-W.collider('rect', TX + 1570 - 70, TY + 630 - 36, 140, 40)           # loja decorativa
+# (remapeamento Etapa 2) a 'loja decorativa' de main.gd ficava SOBRE o rio (x≈2220): removida; os quarteirões novos ocupam os lotes
 for _hx, _hy, _roof in ((1075, 345, 'wood'),
                         (1440, 330, 'blue'), (1640, 300, 'red'), (120, 640, 'wood'), (285, 665, 'blue'),
                         (640, 665, 'red'), (1100, 690, 'blue'), (1470, 690, 'wood')):
@@ -1014,8 +1014,7 @@ for _hx, _hy, _roof in ((1075, 345, 'wood'),
 _WALL_S = 800
 # (correção estrutural) muralha modelada do KIT MULTI-ÂNGULO em traçado com curva e cantos, no lugar das peças APPROVED frontais
 # muralha sul: dentes isométricos exatos, torre em cada vértice, vão do portão em x≈1300
-iso_wall('muralha', T(1196, 800), teeth('sw', 7), 'CIDADE_MURO')
-iso_wall('muralha', T(1404, 800), teeth('se', 2), 'CIDADE_MURO')
+# (remapeamento Etapa 2) os trechos da muralha sul agora saem do gerador de anel (remap_city) — antes atravessavam o rio
 town('val_gate_main', 1300, 806, group='CIDADE_MURO', scale=.62)      # portão sul modelado (no lugar da peça APPROVED frontal)
 W.collider('rect', TX + 1300 - 128, TY + _WALL_S - 26, 40, 24)
 W.collider('rect', TX + 1300 + 88, TY + _WALL_S - 26, 40, 24)
@@ -1025,7 +1024,6 @@ for _wx, _wy in ((215, 470), (1560, 470)):
     W.obj('APP:city_water_edge', TX + _wx, TY + _wy, 'CIDADE_AGUA', scale=.58, solid=False, check=False)
     W.collider('rect', TX + _wx - 60, TY + _wy - 46, 120, 50)
 W.house(TX + 1720, TY + 470, 'red', 'CIDADE_LOJAS')      # loja = casa inteira modelada
-W.collider('rect', TX + 1720 - 70, TY + 470 - 36, 140, 40)
 
 # povoados: mais casas compostas APPROVED (Vila dos Campos, Aldeia do Vale, casa da fazenda)
 for _x, _y, _roof, _grp, _poi in ((345, 1835, 'red', 'VILA_C', 'REG001_POI_VILA_CAMPOS'), (700, 1820, 'wood', 'VILA_C', 'REG001_POI_VILA_CAMPOS'),
@@ -1118,10 +1116,10 @@ _ALFA_MORTO = 'elites:REG001_POI_ANCIAO_CLAREIRA'
 # estados do portão: antes = brecha + barricadas + carroça queimada; depois do Alfa = muralha reparada e estrada limpa
 # muralha norte em eixos isométricos (dentes para FORA, sobre a faixa já bloqueada y<149); 1º trecho a leste: rompido antes do Alfa, reparado depois
 iso_wall('muralha_reparada', T(_GX - 150, 186), [('nw', 1)], 'CIDADE_MURO', joints=False)
-iso_wall('muralha', T(_GX - 150 - 80.6, 186 - 40.3), [('sw', 1)] + teeth('nw', 3), 'CIDADE_MURO')
+_GATE_W_ARM = iso_wall('muralha', T(_GX - 150 - 80.6, 186 - 40.3), [('sw', 1)], 'CIDADE_MURO')      # remapeamento: o anel segue de remap_city
 iso_wall('muralha_rompida', T(_GX + 150, 186), [('ne', 1)], 'CIDADE_MURO', joints=False, hide_when=_ALFA_MORTO)
 iso_wall('muralha_reparada', T(_GX + 150, 186), [('ne', 1)], 'CIDADE_MURO', joints=False, show_when=_ALFA_MORTO)
-iso_wall('muralha', T(_GX + 150 + 80.6, 186 - 40.3), [('se', 1)] + teeth('ne', 3), 'CIDADE_MURO')
+_GATE_E_ARM = iso_wall('muralha', T(_GX + 150 + 80.6, 186 - 40.3), [('se', 1)], 'CIDADE_MURO')
 # lado de fora: barricadas que deixam a estrada livre, fogueira de vigia, cercas, carroça queimada, sinais de ataque
 krun('val_barricade_a', [T(_GX - 230, 30), T(_GX - 160, 48), T(_GX - 100, 50)], 'CIDADE', hide_when=_ALFA_MORTO)      # barricadas em curva, deixando a estrada livre
 krun('val_barricade_a', [T(_GX + 100, 50), T(_GX + 160, 48), T(_GX + 230, 30)], 'CIDADE', hide_when=_ALFA_MORTO)
@@ -1458,6 +1456,87 @@ def formations():
             W.obj(_asset, _x, _y, 'ELEV', solid=_sol, check=False)
     print('ELEVAÇÕES', sum(_ELEV_LOG.values()), _ELEV_LOG)
 
+
+
+# ============================================================================================
+# REMAPEAMENTO ETAPA 2 — Valedouro: anel de muralha orgânico (termina no rio) + portão oeste + quarteirões
+# ============================================================================================
+import remap_city as RC  # noqa: E402
+
+
+def _near_road(ids, x, y, pad):
+    for rid, _, samples in layout.ROADS:
+        if rid in ids and any(math.hypot(x - sx, y - sy) < h + pad for sx, sy, h in samples[::2]):
+            return True
+    return False
+
+
+def _gate_stop(x, y):
+    return _near_road(('AV_OESTE', 'EST_FRONTEIRA_OESTE'), x, y, 44) or not (40 < x < 3030 and 40 < y < 2260)
+
+
+def _river_stop(x, y):
+    return RC._near_river(x, y, 34)
+
+
+def _place_ring(start, moves, group='CIDADE_MURO'):
+    verts = iso_wall('muralha', start, moves, group, joints=False)
+    for vx, vy in verts[1:]:
+        W.obj('val_wall_tower', round(vx, 1), round(vy + 2, 1), group, check=False)
+    return verts
+
+
+_wn_moves, _WN = RC.walk_arm(_GATE_W_ARM[-1], True, _gate_stop)
+_place_ring(_GATE_W_ARM[-1], _wn_moves)
+_S_W, _S_E = (TX + 1196, TY + 800), (TX + 1404, TY + 800)          # flancos do portão sul (x=1950)
+W.obj('val_wall_tower', _S_W[0], _S_W[1] + 2, 'CIDADE_MURO', check=False)
+W.obj('val_wall_tower', _S_E[0], _S_E[1] + 2, 'CIDADE_MURO', check=False)
+_ws_moves, _WS = RC.walk_arm(_S_W, False, _gate_stop)
+_place_ring(_S_W, _ws_moves)
+# portão oeste (Porta da Fronteira): duas torres de portão nos fins dos dois braços; o vão é a própria Av. Oeste
+for _gx, _gy in (_WN, _WS):
+    W.obj('val_gate_tower', round(_gx, 1), round(_gy + 4, 1), 'CIDADE_MURO', check=False)
+for _gx, _gy in ((_WN[0] - 30, _WN[1] + 60), (_WS[0] - 30, _WS[1] - 40)):
+    W.obj('city_lamp_post_b', round(_gx, 1), round(_gy, 1), 'CIDADE_MURO', solid=False, check=False)
+# braços leste: dentes até a margem do rio, fechados por torre de ponta (a muralha nunca entra na água)
+_en_moves, _EN = RC.teeth_arm(_GATE_E_ARM[-1], 'ne', _river_stop)
+_place_ring(_GATE_E_ARM[-1], _en_moves)
+_es_moves, _ES = RC.teeth_arm(_S_E, 'ne', _river_stop)
+_place_ring(_S_E, _es_moves)
+RING_INFO = {'oeste_norte': _WN, 'oeste_sul': _WS, 'leste_norte': _EN, 'leste_sul': _ES}
+print('ANEL', {k: (round(v[0]), round(v[1])) for k, v in RING_INFO.items()}, 'vão portão oeste %.0f px' % math.hypot(_WN[0] - _WS[0], _WN[1] - _WS[1]))
+
+# rua sem saída da Av. Sul termina num largo com poço (junto à muralha)
+W.obj('nat_well_stone', 1512, 1418, 'CIDADE_LARGO', check=False)
+W.obj('city_bench', 1440, 1420, 'CIDADE_LARGO', check=False)
+
+_walls = [(o['pos'][0], o['pos'][1]) for o in W.objects if o['asset'].startswith(('val_wall', 'val_gate'))]
+_avoid = [(p['pos'][0], p['pos'][1], 70) for p in W.pois if p.get('zone', 'cidade') == 'cidade' and p['kind'] not in ('chest', 'resource', 'npc')]
+_avoid += [(o['pos'][0], o['pos'][1], 110) for o in W.objects if o['asset'] in ('city_fountain', 'city_monument', 'val_crown_monument', 'APP:city_water_edge')]
+QUARTEIROES = RC.fill_districts(W, layout.ROADS, _walls, _avoid)
+print('QUARTEIRÕES: %d casas novas' % len(QUARTEIROES))
+
+
+def _way_dist(x, y):
+    """Distância à via mais próxima (estrada por spline ou trilha) e o x do ponto da via — para a porta encarar o caminho."""
+    best = (1e9, x)
+    for t in TRAILS:
+        for (ax, ay), (bx, by) in zip(t['pts'], t['pts'][1:]):
+            if abs(ax - x) > 300 and abs(bx - x) > 300:
+                continue
+            d = _seg_dist(x, y, ax, ay, bx, by) - t['half']
+            if d < best[0]:
+                best = (d, (ax + bx) / 2)
+    rx, ry = RC._nearest_road_pt(x, y)
+    rd = RC._road_dist(x, y, 400.0)
+    if rd < best[0]:
+        best = (rd, rx)
+    return best[0], best[1], 0
+
+
+VILAS = RC.fill_village(W, (535, 1880), 300, 4, _way_dist, 'VILA_C', 3301, poi='REG001_POI_VILA_CAMPOS')
+VILAS += RC.fill_village(W, (1330, 1760), 280, 3, _way_dist, 'ALDEIA_V', 3302, poi='REG001_POI_ALDEIA_VALE')
+print('VILAS: %d casas novas' % len(VILAS))
 
 formations()
 

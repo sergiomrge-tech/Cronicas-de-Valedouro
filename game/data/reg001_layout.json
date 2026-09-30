@@ -212,12 +212,8 @@
      1080
     ],
     [
-     1004,
+     1006,
      990
-    ],
-    [
-     1014,
-     905
     ]
    ]
   },
@@ -269,7 +265,7 @@
    "id": "AV_SUL",
    "kind": "street",
    "half": 22,
-   "why": "praça -> quarteirão sul (rua sem saída junto à muralha; postigo previsto na Etapa 2)",
+   "why": "praça -> largo do poço no quarteirão sul (sem saída junto à muralha)",
    "pts": [
     [
      1535,
@@ -281,11 +277,11 @@
     ],
     [
      1500,
-     1375
+     1370
     ],
     [
-     1478,
-     1440
+     1488,
+     1410
     ]
    ]
   },

@@ -51,6 +51,7 @@ var spawn_timer: float = 0.0
 var hint: String = "Visite a guilda para aceitar uma missão."
 var hint_timer: float = 5.0
 var joystick_id: int = -1
+var qa_hide_hud: bool = false   # só para capturas de QA em mosaico (tests/qa_capture_mosaic.gd)
 var joystick_origin: Vector2 = Vector2.ZERO
 var joystick_vector: Vector2 = Vector2.ZERO
 var hud: Label
@@ -1093,7 +1094,8 @@ func _draw() -> void:
 			draw_arc(player + facing * 25, 22, facing.angle() - 1, facing.angle() + 1, 12, Color(1, .9, .48, swing * 5), 5)
 	draw_floaters()
 	draw_set_transform(Vector2.ZERO)
-	draw_hud()
+	if not qa_hide_hud:
+		draw_hud()
 	if zone == "cidade" and map_visible:
 		draw_world_minimap()
 
@@ -1190,9 +1192,7 @@ func draw_approved_town(camera: Vector2) -> void:
 		if visible_area.has_point(house_ground):
 			draw_approved_house(house_ground, str(house_data[1]))
 
-	var store_ground: Vector2 = MAP.TOWN + Vector2(1570, 630)
-	if visible_area.has_point(store_ground):
-		draw_approved_house(store_ground, "red")      # loja decorativa = casa inteira modelada
+	# (remapeamento Etapa 2) a 'loja decorativa' ficava sobre o rio; removida — os quarteirões são objetos do mundo (remap_city)
 
 	# Árvores APPROVED integram a arquitetura e dão profundidade consistente.
 	var tree_positions: Array[Vector2] = [

@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 40 | 216 |
-| MODELED_PENDING_GATE | 250 | 226 |
+| MODELED_PENDING_GATE | 249 | 227 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -131,7 +131,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_boulder_sand` | NOT_USED | 0 |
 | `nat_bush_berry` | INTEGRATED | 8 |
 | `nat_bush_dry` | INTEGRATED | 7 |
-| `nat_bush_flowering` | INTEGRATED | 11 |
+| `nat_bush_flowering` | INTEGRATED | 12 |
 | `nat_bush_frost` | INTEGRATED | 7 |
 | `nat_bush_green` | INTEGRATED | 17 |
 | `nat_cactus_round` | INTEGRATED | 4 |
@@ -175,15 +175,15 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_flag_blue` | INTEGRATED | 5 |
 | `nat_flag_red` | INTEGRATED | 43 |
 | `nat_flowers_blue` | INTEGRATED | 4 |
-| `nat_flowers_meadow` | INTEGRATED | 15 |
+| `nat_flowers_meadow` | INTEGRATED | 16 |
 | `nat_flowers_red` | INTEGRATED | 5 |
 | `nat_ford_stones` | INTEGRATED | 2 |
 | `nat_gate_wood` | INTEGRATED | 1 |
 | `nat_grass_dry` | INTEGRATED | 4 |
 | `nat_grass_tall` | INTEGRATED | 8 |
-| `nat_hay_bale` | INTEGRATED | 6 |
+| `nat_hay_bale` | INTEGRATED | 8 |
 | `nat_hay_stack` | INTEGRATED | 4 |
-| `nat_hill_earth` | INTEGRATED | 2 |
+| `nat_hill_earth` | INTEGRATED | 1 |
 | `nat_hill_ice` | NOT_USED | 0 |
 | `nat_hill_low_earth` | INTEGRATED | 2 |
 | `nat_hill_low_ice` | INTEGRATED | 7 |
@@ -192,8 +192,8 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_hill_sand` | NOT_USED | 0 |
 | `nat_hill_wide_earth` | INTEGRATED | 2 |
 | `nat_hill_wide_ice` | INTEGRATED | 1 |
-| `nat_hill_wide_rock` | INTEGRATED | 2 |
-| `nat_hill_wide_sand` | INTEGRATED | 2 |
+| `nat_hill_wide_rock` | INTEGRATED | 1 |
+| `nat_hill_wide_sand` | INTEGRATED | 1 |
 | `nat_ice_letters` | INTEGRATED | 2 |
 | `nat_ice_monolith_adrian` | INTEGRATED | 1 |
 | `nat_ice_spire` | INTEGRATED | 7 |
@@ -228,9 +228,9 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_res_herb` | INTEGRATED | 2 |
 | `nat_res_ore` | INTEGRATED | 3 |
 | `nat_ridge_earth_a` | INTEGRATED | 2 |
-| `nat_ridge_earth_b` | INTEGRATED | 1 |
-| `nat_ridge_ice_a` | INTEGRATED | 5 |
-| `nat_ridge_ice_b` | INTEGRATED | 1 |
+| `nat_ridge_earth_b` | NOT_USED | 0 |
+| `nat_ridge_ice_a` | INTEGRATED | 4 |
+| `nat_ridge_ice_b` | INTEGRATED | 2 |
 | `nat_ridge_rock_a` | INTEGRATED | 3 |
 | `nat_ridge_rock_b` | INTEGRATED | 4 |
 | `nat_ridge_sand_a` | INTEGRATED | 2 |
@@ -272,14 +272,14 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_wall_cliff_ice_a` | INTEGRATED | 5 |
 | `nat_wall_cliff_ice_b` | INTEGRATED | 4 |
 | `nat_wall_cliff_rock_a` | INTEGRATED | 2 |
-| `nat_wall_cliff_rock_b` | INTEGRATED | 5 |
+| `nat_wall_cliff_rock_b` | INTEGRATED | 4 |
 | `nat_wall_cliff_sand_a` | INTEGRATED | 2 |
 | `nat_wall_cliff_sand_b` | INTEGRATED | 2 |
 | `nat_wall_low_a` | INTEGRATED | 2 |
 | `nat_wall_low_b` | NOT_USED | 0 |
 | `nat_waterfall_front` | INTEGRATED | 1 |
 | `nat_web_ground` | INTEGRATED | 8 |
-| `nat_well_stone` | INTEGRATED | 4 |
+| `nat_well_stone` | INTEGRATED | 6 |
 | `val_camp_remains` | INTEGRATED | 1 |
 | `val_cart_wrecked` | INTEGRATED | 2 |
 | `val_pack_bones` | INTEGRATED | 4 |
@@ -302,15 +302,15 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `city_banner_blue` | INTEGRATED | 3 |
 | `city_banner_red` | INTEGRATED | 1 |
 | `city_barrels` | INTEGRATED | 16 |
-| `city_bench` | INTEGRATED | 10 |
+| `city_bench` | INTEGRATED | 12 |
 | `city_cart_market` | INTEGRATED | 1 |
-| `city_crates` | INTEGRATED | 12 |
+| `city_crates` | INTEGRATED | 14 |
 | `city_fountain` | INTEGRATED | 1 |
 | `city_lamp_post_a` | INTEGRATED | 22 |
-| `city_lamp_post_b` | INTEGRATED | 2 |
+| `city_lamp_post_b` | INTEGRATED | 4 |
 | `city_monument` | INTEGRATED | 1 |
-| `city_planter` | INTEGRATED | 13 |
-| `city_sign_hanging` | INTEGRATED | 6 |
+| `city_planter` | INTEGRATED | 14 |
+| `city_sign_hanging` | INTEGRATED | 7 |
 | `city_stairs` | NOT_USED | 0 |
 | `city_stall_blue` | INTEGRATED | 1 |
 | `city_stall_striped` | INTEGRATED | 1 |
@@ -337,7 +337,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_barricade_b` | NOT_USED | 0 |
 | `val_crown_monument` | INTEGRATED | 2 |
 | `val_gate_main` | INTEGRATED | 2 |
-| `val_gate_tower` | INTEGRATED | 2 |
+| `val_gate_tower` | INTEGRATED | 4 |
 | `val_notice_board` | INTEGRATED | 1 |
 | `val_supply_stack` | INTEGRATED | 3 |
 | `val_training_dummy` | INTEGRATED | 2 |
@@ -699,5 +699,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 67 (`REG001_POI_*`); objetos: 1120 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 21; passagens: 3; fragmentos de lore: 12.
+- POIs: 67 (`REG001_POI_*`); objetos: 1140 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 21; passagens: 3; fragmentos de lore: 12.
 

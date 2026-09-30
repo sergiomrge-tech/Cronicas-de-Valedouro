@@ -23,8 +23,8 @@
    "NOT_USED": 216
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 250,
-   "NOT_USED": 226
+   "INTEGRATED": 249,
+   "NOT_USED": 227
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 119
@@ -226,7 +226,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 1120
+  "object_count": 1140
  },
  "entries": [
   {
@@ -414,7 +414,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 10,
+   "placed": 12,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -432,7 +432,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 12,
+   "placed": 14,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -459,7 +459,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -477,7 +477,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 13,
+   "placed": 14,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -486,7 +486,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 6,
+   "placed": 7,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -2538,7 +2538,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 11,
+   "placed": 12,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3330,7 +3330,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 15,
+   "placed": 16,
    "source": "game/tools/modeling/build_assets.py"
   },
   {
@@ -3384,7 +3384,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 6,
+   "placed": 8,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3402,7 +3402,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3483,7 +3483,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3492,7 +3492,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3806,8 +3806,8 @@
    "key": "nat_ridge_earth_b",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "INTEGRATED",
-   "placed": 1,
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3816,7 +3816,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3825,7 +3825,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4302,7 +4302,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4563,7 +4563,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 6,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -5958,7 +5958,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6390,7 +6390,7 @@
    "group": "city",
    "approval": "APPROVED",
    "usage": "INTEGRATED",
-   "placed": 6,
+   "placed": 11,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6399,7 +6399,7 @@
    "group": "city",
    "approval": "APPROVED",
    "usage": "INTEGRATED",
-   "placed": 7,
+   "placed": 8,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6408,7 +6408,7 @@
    "group": "city",
    "approval": "APPROVED",
    "usage": "INTEGRATED",
-   "placed": 9,
+   "placed": 10,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6759,7 +6759,7 @@
    "group": "city",
    "approval": "APPROVED",
    "usage": "INTEGRATED",
-   "placed": 21,
+   "placed": 23,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
