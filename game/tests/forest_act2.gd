@@ -66,7 +66,7 @@ func run() -> void:
 	forest._toggle_map()
 	assert(not forest.map_open)
 	assert(forest.pois.size() == 16)
-	assert(forest.monsters.size() == 9)
+	assert(forest.monsters.size() == 10)
 	forest.hero.position = Vector2(23000,23500)
 	forest.world_stream._refresh(true)
 	await process_frame
