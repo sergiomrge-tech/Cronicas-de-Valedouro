@@ -55,6 +55,7 @@ ISO_KITS = {    # família -> (peça ↘/↖, peça ↙/↗, comprimento na tela
     'cerca': ('nat_fence_wood_a_a4', 'nat_fence_wood_a', 39.0, None),
     'cerca_quebrada': ('nat_fence_broken_a_a4', 'nat_fence_broken_a', 39.0, None),
     'mureta': ('nat_wall_low_a_a4', 'nat_wall_low_a', 62.0, None),
+    'cripta': ('val_crypt_wall_a6', 'val_crypt_wall_a2', 90.1, 'val_crypt_pillar'),
 }
 
 
@@ -75,7 +76,7 @@ def iso_wall(kit, start, moves, group, skip=(), joints=True, joint_scale=1.0, **
         verts.append((x, y))
     if joints and joint:
         for vx, vy in verts:
-            W.obj(joint, round(vx, 1), round(vy + 2, 1), group, check=False, scale=joint_scale, **{k: v for k, v in kw.items() if k in ('hide_when', 'show_when')})
+            W.obj(joint, round(vx, 1), round(vy + 2, 1), group, check=False, scale=joint_scale, **{k: v for k, v in kw.items() if k in ('hide_when', 'show_when', 'zone')})
     return verts
 
 
@@ -930,20 +931,25 @@ def cr(asset, x, y, **kw):
 CRYPT = {
     'entry': [480, 800],
     'walls': [
-        {'rect': [40, 590, 400, 34], 'note': 'parede entre salão e câmara central (esq.)'},
-        {'rect': [540, 590, 380, 34], 'note': 'parede entre salão e câmara central (dir.)'},
-        {'rect': [40, 300, 400, 34], 'note': 'parede entre câmara central e tesouro (esq.)'},
-        {'rect': [540, 300, 380, 34], 'note': 'parede entre câmara central e tesouro (dir.)'},
+        {'rect': [20, 584, 403, 50], 'note': 'parede em dentes isométricos entre salão e câmara central (esq.)'},
+        {'rect': [537, 584, 403, 50], 'note': 'parede em dentes isométricos entre salão e câmara central (dir.)'},
+        {'rect': [20, 294, 403, 50], 'note': 'parede em dentes isométricos entre câmara central e tesouro (esq.)'},
+        {'rect': [537, 294, 403, 50], 'note': 'parede em dentes isométricos entre câmara central e tesouro (dir.)'},
     ],
     'exit_y': 830,
 }
+# Paredes da Galeria Antiga no PADRÃO ISOMÉTRICO (correção pedida pelo Diretor: "as paredes estão sem ângulos"):
+# cada divisa corre em dentes nos dois eixos isométricos, com pilar de junção em todo vértice e porta central sob o arco.
+for _y0 in (590, 300):
+    iso_wall('cripta', (20, _y0 + 40.3), teeth('ne', 5, seg=1), 'CRIPTA_PAREDE', zone='cripta')
+    iso_wall('cripta', (537, _y0), teeth('se', 5, seg=1), 'CRIPTA_PAREDE', zone='cripta')
 for pxx in (170, 780):
     cr('dg_pillar', pxx, 760, solid=False)
 cr('APP:dungeon_spikes', 480, 690, scale=.5, solid=False)
 cr('APP:dungeon_spikes', 400, 740, scale=.5, solid=False)
 cr('APP:dungeon_spikes', 560, 740, scale=.5, solid=False)
-cr('dg_brazier', 330, 640, anim=1)
-cr('dg_brazier', 630, 640, anim=1)
+cr('dg_brazier', 330, 682, anim=1)
+cr('dg_brazier', 630, 682, anim=1)
 cr('APP:dungeon_arch', 480, 600, scale=.62, solid=False)
 cr('dg_rune_circle', 480, 470, layer='ground', anim=1)
 cr('dg_pillar', 250, 470)
@@ -963,11 +969,11 @@ cr('dg_brazier', 330, 130, anim=1)
 cr('dg_brazier', 630, 250, anim=1)
 cr('dg_stalagmites', 110, 140)
 cr('dg_stalagmites', 860, 130)
-cr('dg_mushroom_glow', 100, 330, anim=1, solid=False)
-cr('APP:dungeon_crystal_blue', 880, 330, scale=.44, solid=False)
+cr('dg_mushroom_glow', 100, 386, anim=1, solid=False)
+cr('APP:dungeon_crystal_blue', 880, 392, scale=.44, solid=False)
 cr('APP:dungeon_crystal_purple', 90, 660, scale=.44, solid=False)
-cr('APP:dungeon_torch', 210, 610, scale=.44, solid=False)
-cr('APP:dungeon_torch', 750, 610, scale=.44, solid=False)
+cr('APP:dungeon_torch', 205, 668, scale=.44, solid=False)
+cr('APP:dungeon_torch', 755, 668, scale=.44, solid=False)
 P('REG001_POI_CRIPTA_CHECKPOINT', 'checkpoint', 'CRISTAL DA CRIPTA', 800, 470, zone='cripta', tier=2, layer='main', radius=70, region='cripta',
   data={'heal': True, 'hint': 'O cristal pulsa em azul. Suas forças retornam.'})
 P('REG001_POI_CRIPTA_ELITE', 'elite', 'GUARDIÃO DA CRIPTA', 480, 450, zone='cripta', tier=2, layer='secondary', radius=200, region='cripta',
@@ -1608,14 +1614,14 @@ for _a, _x, _y in (('ext_ruin_tower_stump_sand', 2262, 2012), ('ext_ruin_wall_br
 dg('ext_dg_anvil_old', 712, 742)
 dg('ext_dg_gargoyle_eco', 214, 472, anim=1, hide_when=_GUARD)
 dg('ext_dg_gargoyle_eco', 746, 472, anim=1, flip=True, hide_when=_GUARD)
-# Galeria Antiga (cripta): ossuário com lápides e grade de ferro nas alas laterais; gárgulas flanqueando o arco do altar.
+# Galeria Antiga (cripta): ossuário com lápides e grade de ferro nas alas laterais; gárgulas ladeando o altar.
 for _a, _x, _y in (('ext_dg_tomb_cross', 112, 424), ('ext_dg_tombstone', 152, 448), ('ext_dg_tomb_cross', 96, 476),
-                   ('ext_dg_tombstone', 852, 596), ('ext_dg_tomb_cross', 892, 628)):
+                   ('ext_dg_tombstone', 852, 520), ('ext_dg_tomb_cross', 896, 548)):
     cr(_a, _x, _y)
-cr('ext_dg_iron_fence', 222, 570)
+cr('ext_dg_iron_fence', 222, 540)
 cr('ext_dg_iron_fence', 742, 690)
-cr('ext_dg_gargoyle_eco', 396, 304, anim=1)
-cr('ext_dg_gargoyle_eco', 566, 304, anim=1, flip=True)
+cr('ext_dg_gargoyle_eco', 380, 238, anim=1)
+cr('ext_dg_gargoyle_eco', 580, 238, anim=1, flip=True)
 
 # Ambiente aéreo (render: draw_emitters_top): fogo OGA em fogueiras/braseiros, folhas na floresta, poeira no deserto.
 for _o in list(W.objects):

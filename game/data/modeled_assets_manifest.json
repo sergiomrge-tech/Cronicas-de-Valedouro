@@ -10,7 +10,7 @@
   "note": "MODELED_PENDING_GATE = modelado no estilo dos 28 APPROVED, aguardando gate visual do Diretor. Mude o status de um asset para REJECTED/HOLD para removê-lo do renderer."
  },
  "counts": {
-  "total": 777
+  "total": 790
  },
  "assets": [
   {
@@ -27673,6 +27673,430 @@
     "seis_coroas"
    ],
    "sha256": "882bc11471d8d3c072bc5cfeaaa920050d4762fc22afc21442367431f8c21e18",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_pillar",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_pillar.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    392,
+    552
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    156.0,
+    426.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "juncao",
+    "kit_isometrico"
+   ],
+   "sha256": "a59e603c63b03b207c155b310d75496f62b7830ca2e697abade23b29da357cb5",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_wall",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_wall.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    412,
+    432
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    206.0,
+    316.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "parede",
+    "modular",
+    "kit_isometrico"
+   ],
+   "sha256": "452549ebdee1c972fefba6d276bccece98bc852851f995a7770233a69bb21070",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_wall_a1",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_wall_a1.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    584,
+    594
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    292.0,
+    478.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "parede",
+    "modular",
+    "kit_isometrico",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "ee9817810a2bd021ae75df5f40a93c941499846a04693d70240e058ddf252153",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_wall_a2",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_wall_a2.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    584,
+    594
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    292.0,
+    478.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "parede",
+    "modular",
+    "kit_isometrico",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "82e50c0a2639dee58a2d241ba38ff1563df37aa80c20f014efd76bc83f0e2a73",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_wall_a3",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_wall_a3.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    584,
+    594
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    292.0,
+    478.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "parede",
+    "modular",
+    "kit_isometrico",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "be699450234a8cf9c3a833df91f2a1d2ff7e85e9d9b749740c83caa1490dda78",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_wall_a4",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_wall_a4.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    584,
+    594
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    292.0,
+    478.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "parede",
+    "modular",
+    "kit_isometrico",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "dc028018d4b63875135e2e121394d6068cd1fd6d70d6e3b3bdaedbb039c005c9",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_wall_a5",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_wall_a5.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    584,
+    594
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    292.0,
+    478.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "parede",
+    "modular",
+    "kit_isometrico",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "4a9575a4d9466abe69d78c268be2f5ed3b730a03d1fca54df2bc258271166336",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_wall_a6",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_wall_a6.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    584,
+    594
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    292.0,
+    478.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "parede",
+    "modular",
+    "kit_isometrico",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "aad5b4f15862d886931ef52fa8d5b826861c9b759050740ad7b1e9d27797958b",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_wall_a7",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_wall_a7.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    584,
+    594
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    292.0,
+    478.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "parede",
+    "modular",
+    "kit_isometrico",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "c380d623aa599638db5d0829df5384055fb5b16704fd3419f2713f33803e072d",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_wall_c0",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_wall_c0.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    793,
+    756
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    396.0,
+    640.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "parede",
+    "modular",
+    "kit_isometrico",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "ab0b74c21832553f5768c2cfb2eac45d1c55bf6ff481827fdcf4290986632d2d",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_wall_c1",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_wall_c1.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    793,
+    756
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    396.0,
+    640.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "parede",
+    "modular",
+    "kit_isometrico",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "e195d3ef239edbf3a3defda030a5147d2589f90219dc437a15afbdc1032e860f",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_wall_c2",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_wall_c2.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    793,
+    756
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    396.0,
+    640.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "parede",
+    "modular",
+    "kit_isometrico",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "5f653b81a09b6e5440346e5b05164f7b68a7d692183e7799d831e6254ee7abfb",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_crypt_wall_c3",
+   "path": "res://assets/modeled/dungeon/ato1/val_crypt_wall_c3.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    793,
+    756
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    396.0,
+    640.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "galeria_antiga",
+    "cripta",
+    "parede",
+    "modular",
+    "kit_isometrico",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "0174757e78503f47626236f2609fb9ac78febd8a59c61968d1e9d10d03432270",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "pipeline": "blender-pro"

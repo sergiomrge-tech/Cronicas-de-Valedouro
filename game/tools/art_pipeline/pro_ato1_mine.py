@@ -343,3 +343,44 @@ def _core_floor_ring(dorm):
 @landmark('val_core_floor_ring_dormant', group='dungeon', folder='ato1', size=(760, 400), origin=(380, 200), tags=('estado_dormente', 'ato1', 'nucleo_do_eco', 'arena', 'piso', 'decalque'), footprint=0, collision=(), samples=16, catcher=False, outline=0)
 def core_floor_ring_dormant(f):
     _core_floor_ring(True)
+
+
+# ------------------------------------------------------------------ Galeria Antiga (cripta): kit ISOMÉTRICO de parede
+# Correção estrutural pedida pelo Diretor ("as paredes estão sem ângulos"): a cripta deixa de usar a fileira reta frontal e
+# passa a correr nos dois eixos isométricos (peça girada no Blender por pro_orient) com PILAR de junção em todo vértice.
+@landmark('val_crypt_wall', group='dungeon', folder='ato1', size=(360, 380), origin=(180, 290), tags=('ato1', 'galeria_antiga', 'cripta', 'parede', 'modular', 'kit_isometrico'), footprint=0, collision=(), samples=24)
+def crypt_wall(f):
+    """Trecho de parede de cripta (3,6 u, mesmo passo da muralha): alvenaria escura, soco, cornija, nicho com crânio e
+    velas, pilastras e veio de cristal azul (luz fria da Galeria)."""
+    sd = M('stone_dark')
+    rr = random.Random(77)
+    geo.box((0, 0, .15), (1.1, 3.6, .3), sd, bevel=0.04)                          # soco
+    geo.box((0, 0, 1.55), (.8, 3.6, 2.5), sd, bevel=0.04)                         # pano de parede
+    geo.box((0, 0, 2.86), (1.0, 3.62, .18), sd, bevel=0.03)                       # cornija
+    for fx in (1, -1):                                                            # as DUAS faces são visíveis conforme o eixo
+        for sy in (-1.2, 1.2):                                                    # pilastras
+            geo.box((fx * .44, sy, 1.5), (.16, .34, 2.6), sd, bevel=0.03)
+        geo.box((fx * .38, 0, 1.25), (.1, .8, .9), M('hole'), bevel=0)           # nicho funerário
+        geo.box((fx * .46, 0, 1.72), (.12, .96, .12), sd, bevel=0.02)
+        ball((fx * .36, -.12, .92), .13, m_bone(), squash=.9)
+        for sy in (.18, .28):
+            geo.cyl((fx * .36, sy, .8), .035, .16, m_bone(), sides=6)
+            ball((fx * .36, sy, .98), .03, M('fire'))
+        for k in range(3):                                                        # veio de cristal azul na base
+            crystal(fx * .44, rr.uniform(-1.6, -.5) if k % 2 else rr.uniform(.5, 1.6), rr.uniform(.25, .5), rr.uniform(.25, .45), .06, m_eco_dim(), tilt=(0, 1.1 * fx))
+    parts.rubble(.55, 1.5, .3, 4, sd, seed=9, rmin=.05, rmax=.12)
+    geo.rotate_all(45)
+
+
+@landmark('val_crypt_pillar', group='dungeon', folder='ato1', size=(340, 500), origin=(130, 400), tags=('ato1', 'galeria_antiga', 'cripta', 'juncao', 'kit_isometrico'), footprint=0, collision=(), samples=24)
+def crypt_pillar(f):
+    """Pilar de junção alinhado aos EIXOS DO MUNDO (sem rotação): cobre retas, cantos e dentes da parede sem fresta."""
+    sd = M('stone_dark')
+    s, H = 1.25, 3.4
+    geo.box((0, 0, .2), (s + .35, s + .35, .4), sd, bevel=0.05)
+    geo.box((0, 0, H / 2 + .2), (s, s, H - .2), sd, bevel=0.05)
+    geo.box((0, 0, H + .12), (s + .3, s + .3, .24), sd, bevel=0.04)               # capitel
+    geo.cyl((0, 0, H + .24), .32, .14, M('iron'), sides=8, r2=.4)                 # braseiro de chama fria
+    ball((0, 0, H + .52), .22, m_eco(), squash=1.5)
+    for (ax, ay) in ((1, 0), (0, 1)):                                             # runas nas faces visíveis
+        geo.box((ax * (s / 2 + .01), ay * (s / 2 + .01), 1.9), (.04 if ax else .3, .3 if ax else .04, .5), m_eco_dim(), bevel=0)

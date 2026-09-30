@@ -25,6 +25,7 @@ FAMILIES = {
     'nat_wall_low_a': False, 'nat_wall_low_b': False,
     'flo_hollow_wall_active': False, 'flo_hollow_wall_dormant': False, 'flo_heart_wall': False,
     'val_ruin_inscription_wall': True, 'flo_cart_ruin_wall': True, 'nat_ruin_wall': False,
+    'val_crypt_wall': False,
 }
 STEP = 22.5
 N_ANGLES = 8

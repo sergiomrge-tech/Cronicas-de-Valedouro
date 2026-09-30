@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (256): inclui o bundle base do Lote 01 e assets modelados posteriormente promovidos pelo Diretor.
-- **MODELED_PENDING_GATE** (540): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (553): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 40 | 216 |
-| MODELED_PENDING_GATE | 286 | 254 |
+| MODELED_PENDING_GATE | 289 | 264 |
 | LEGACY_BASELINE | 124 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -405,7 +405,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_wall_segment` | NOT_USED | 0 |
 | `val_weapon_rack` | INTEGRATED | 1 |
 
-### dungeon (42)
+### dungeon (55)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -432,6 +432,19 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `str_cave_entrance` | INTEGRATED | 1 |
 | `val_core_floor_ring` | INTEGRATED | 1 |
 | `val_core_floor_ring_dormant` | INTEGRATED | 1 |
+| `val_crypt_pillar` | INTEGRATED | 24 |
+| `val_crypt_wall` | NOT_USED | 0 |
+| `val_crypt_wall_a1` | NOT_USED | 0 |
+| `val_crypt_wall_a2` | INTEGRATED | 10 |
+| `val_crypt_wall_a3` | NOT_USED | 0 |
+| `val_crypt_wall_a4` | NOT_USED | 0 |
+| `val_crypt_wall_a5` | NOT_USED | 0 |
+| `val_crypt_wall_a6` | INTEGRATED | 10 |
+| `val_crypt_wall_a7` | NOT_USED | 0 |
+| `val_crypt_wall_c0` | NOT_USED | 0 |
+| `val_crypt_wall_c1` | NOT_USED | 0 |
+| `val_crypt_wall_c2` | NOT_USED | 0 |
+| `val_crypt_wall_c3` | NOT_USED | 0 |
 | `val_eco_core` | INTEGRATED | 1 |
 | `val_eco_core_dormant` | INTEGRATED | 1 |
 | `val_eco_crystal_cluster` | INTEGRATED | 4 |
@@ -763,5 +776,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 69 (`REG001_POI_*`); objetos: 1165 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 22; passagens: 3; fragmentos de lore: 12.
+- POIs: 69 (`REG001_POI_*`); objetos: 1209 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 22; passagens: 3; fragmentos de lore: 12.
 

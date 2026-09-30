@@ -1626,18 +1626,13 @@ func draw_dungeon_legacy() -> void:
 	draw_label("↓ SAÍDA", Vector2(409, 805))
 
 func draw_crypt() -> void:
-	# Cripta Esquecida: pisos/paredes/arcos APPROVED + módulos modelados de dungeon (objetos da zona).
+	# Cripta Esquecida: pisos/cantos APPROVED + paredes isométricas e módulos modelados de dungeon (objetos da zona).
 	for row in 28:
 		for column in 16:
 			var ground: Vector2 = Vector2(35.0 + column * 70.0 + float(row % 2) * 35.0, 74.0 + row * 35.0)
 			var seed: int = MAP.cell_hash(column + 2100, row + 2300)
 			draw_approved_visual("dungeon_floor_broken" if seed % 6 == 0 else "dungeon_floor_stone", ground, .58)
-	for wall_value in REG.crypt_walls:
-		var wall_rect: Rect2 = wall_value
-		var wx: float = wall_rect.position.x + 45.0
-		while wx < wall_rect.end.x - 10.0:
-			draw_approved_visual("dungeon_wall", Vector2(wx, wall_rect.end.y + 6.0), .58)
-			wx += 100.0
+	# paredes: kit isométrico val_crypt_wall + val_crypt_pillar (objetos da zona, ordenados por Y com os atores)
 	draw_approved_visual("dungeon_corner", Vector2(60, 330), .52)
 	draw_approved_visual("dungeon_corner", Vector2(900, 330), .52)
 	draw_label("CRIPTA ESQUECIDA", Vector2(390, 88), Color(.86, .7, 1))
