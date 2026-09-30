@@ -59,6 +59,8 @@ func _draw() -> void:
 			_draw_guardian()
 		"root_beast":
 			_draw_root_beast()
+		"ash_general":
+			_draw_ash_general()
 		_:
 			_draw_wolf()
 	draw_set_transform(Vector2.ZERO,0.0,Vector2.ONE)
@@ -129,3 +131,21 @@ func _draw_root_beast() -> void:
 	draw_circle(Vector2(-8,-59),3,Color(0.52,0.94,0.54))
 	draw_circle(Vector2(8,-59),3,Color(0.52,0.94,0.54))
 	DrawUtil.circle_outlined(self,Vector2(0,-34),8,Color(0.36,0.76,0.31),DrawUtil.OUTLINE,2)
+
+
+func _draw_ash_general() -> void:
+	var armor: Color = Color(0.29,0.27,0.27)
+	var ember: Color = Color(0.92,0.28,0.10)
+	DrawUtil.shadow(self,Vector2(0,13),38,0.28)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-20),34,28,armor,DrawUtil.OUTLINE,4)
+	DrawUtil.rect_outlined(self,Rect2(-25,-65,50,48),armor.lightened(0.04),DrawUtil.OUTLINE,4)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-24,-62),Vector2(-34,-84),Vector2(-14,-76),Vector2(0,-92),Vector2(14,-76),Vector2(34,-84),Vector2(24,-62)]),Color(0.38,0.31,0.28),DrawUtil.OUTLINE,3)
+	for x in [-30.0,30.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-38),Vector2(x*1.25,-4),10,armor.darkened(0.05),DrawUtil.OUTLINE,3)
+	for x in [-14.0,14.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-3),Vector2(x,18),11,armor.darkened(0.08),DrawUtil.OUTLINE,3)
+	draw_circle(Vector2(-8,-51),3,ember)
+	draw_circle(Vector2(8,-51),3,ember)
+	DrawUtil.circle_outlined(self,Vector2(0,-28),9,ember,DrawUtil.OUTLINE,2)
+	DrawUtil.flame(self,Vector2(-39,-17),23,8,anim_t)
+	DrawUtil.flame(self,Vector2(39,-17),23,8,anim_t+0.7)
