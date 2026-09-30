@@ -30,20 +30,20 @@ func _draw() -> void:
 	draw_rect(Rect2(0,0,960,540),Color(0.18,0.46,0.72))
 	draw_circle(Vector2(790,95),54,Color(1.0,0.84,0.38))
 	draw_circle(Vector2(770,78),45,Color(1.0,0.91,0.55,0.35))
-	var far_hills := PackedVector2Array([
+	var far_hills: PackedVector2Array = PackedVector2Array([
 		Vector2(0,285),Vector2(120,180),Vector2(235,260),Vector2(355,145),
 		Vector2(485,255),Vector2(620,165),Vector2(760,255),Vector2(880,175),
 		Vector2(960,235),Vector2(960,540),Vector2(0,540)
 	])
 	draw_colored_polygon(far_hills,Color(0.24,0.47,0.42))
-	var near_hills := PackedVector2Array([
+	var near_hills: PackedVector2Array = PackedVector2Array([
 		Vector2(0,350),Vector2(150,265),Vector2(280,330),Vector2(430,235),
 		Vector2(570,330),Vector2(710,255),Vector2(840,335),Vector2(960,280),
 		Vector2(960,540),Vector2(0,540)
 	])
 	draw_colored_polygon(near_hills,Color(0.18,0.38,0.27))
 	draw_rect(Rect2(0,360,960,180),Color(0.26,0.55,0.28))
-	var path := PackedVector2Array([
+	var path: PackedVector2Array = PackedVector2Array([
 		Vector2(400,540),Vector2(560,540),Vector2(535,420),Vector2(500,345),
 		Vector2(470,300),Vector2(452,300),Vector2(430,350),Vector2(420,430)
 	])
@@ -63,7 +63,7 @@ func _draw_castle(base: Vector2) -> void:
 	draw_rect(Rect2(base.x-24,base.y-39,48,55),Color(0.22,0.18,0.21))
 	draw_circle(base+Vector2(0,-72),10,Color(0.30,0.62,0.88))
 	draw_line(base+Vector2(0,-82),base+Vector2(0,-126),Color(0.18,0.13,0.12),4)
-	var flag := PackedVector2Array([base+Vector2(2,-124),base+Vector2(42,-113),base+Vector2(2,-100)])
+	var flag: PackedVector2Array = PackedVector2Array([base+Vector2(2,-124),base+Vector2(42,-113),base+Vector2(2,-100)])
 	draw_colored_polygon(flag,Color(0.18,0.48,0.80))
 
 func _draw_tree(p: Vector2, scale_value: float) -> void:
