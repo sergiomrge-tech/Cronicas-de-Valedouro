@@ -13,6 +13,7 @@ const MapOverlayScript = preload("res://scripts/cartoon/corrupted/corrupted_map_
 const ExplorationDirectorScript = preload("res://scripts/cartoon/cartoon_exploration_director.gd")
 const CraftingUIScript = preload("res://scripts/cartoon/cartoon_crafting_ui.gd")
 const ZoomControlsScript = preload("res://scripts/cartoon/cartoon_zoom_controls.gd")
+const InventoryUIScript = preload("res://scripts/cartoon/cartoon_inventory_ui.gd")
 
 var story_zones: Node2D
 var objects: Node2D
@@ -23,6 +24,7 @@ var story_runtime: RefCounted
 var exploration_director: Node
 var crafting_ui: Control
 var zoom_controls: Control
+var inventory_ui: Control
 var monsters: Array[Node2D] = []
 var pois: Array[Dictionary] = []
 var ui: CanvasLayer
@@ -95,6 +97,10 @@ func _ready() -> void:
 	crafting_ui.name = "CraftingUI"
 	ui.add_child(crafting_ui)
 	crafting_ui.setup(self,hero,Corrupted.REGION_ID)
+	inventory_ui = InventoryUIScript.new()
+	inventory_ui.name = "InventoryUI"
+	ui.add_child(inventory_ui)
+	inventory_ui.setup(self,hero,true)
 	_refresh_objective()
 
 func _add_poi_prop(data: Dictionary) -> void:
@@ -113,7 +119,7 @@ func _process(delta: float) -> void:
 	toast_timer = maxf(0.0,toast_timer-delta)
 	if toast_timer <= 0.0 and toast_label:
 		toast_label.text = ""
-	if map_open or (crafting_ui != null and crafting_ui.is_open()):
+	if map_open or (crafting_ui != null and crafting_ui.is_open()) or (inventory_ui != null and inventory_ui.is_open()):
 		if hero:
 			hero.set_motion(Vector2.ZERO)
 		return
@@ -136,7 +142,7 @@ func _process(delta: float) -> void:
 		_interact()
 
 func _input(event: InputEvent) -> void:
-	if map_open or (crafting_ui != null and crafting_ui.is_open()):
+	if map_open or (crafting_ui != null and crafting_ui.is_open()) or (inventory_ui != null and inventory_ui.is_open()):
 		return
 	if event is InputEventScreenTouch:
 		if event.pressed and event.position.x < 330 and event.position.y > 300 and joystick_id < 0:
@@ -281,8 +287,8 @@ func _build_ui() -> void:
 	top.add_child(stats_label)
 	_refresh_stats()
 	var q: PanelContainer = PanelContainer.new()
-	q.position = Vector2(590,14)
-	q.size = Vector2(360,96)
+	q.position = Vector2(690,14)
+	q.size = Vector2(256,96)
 	ui.add_child(q)
 	var qstyle: StyleBoxFlat = StyleBoxFlat.new()
 	qstyle.bg_color = Color(0.07,0.035,0.07,0.95)
@@ -295,7 +301,7 @@ func _build_ui() -> void:
 	q.add_theme_stylebox_override("panel",qstyle)
 	objective_label = Label.new()
 	objective_label.position = Vector2(14,8)
-	objective_label.size = Vector2(332,80)
+	objective_label.size = Vector2(228,80)
 	objective_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	objective_label.add_theme_font_size_override("font_size",14)
 	objective_label.add_theme_color_override("font_color",Color(1.0,0.79,0.89))
@@ -350,8 +356,8 @@ func _build_ui() -> void:
 func _add_map_button() -> void:
 	var button: Button = Button.new()
 	button.text = "MAPA"
-	button.position = Vector2(425,18)
-	button.size = Vector2(108,46)
+	button.position = Vector2(350,18)
+	button.size = Vector2(104,46)
 	button.add_theme_font_size_override("font_size",15)
 	for state in ["normal","hover","pressed","focus"]:
 		var st: StyleBoxFlat = StyleBoxFlat.new()
@@ -368,6 +374,11 @@ func _add_map_button() -> void:
 
 func _toggle_map() -> void:
 	map_open = not map_open
+	if map_open:
+		if crafting_ui != null and crafting_ui.has_method("close_panel"):
+			crafting_ui.close_panel()
+		if inventory_ui != null and inventory_ui.has_method("close_panel"):
+			inventory_ui.close_panel()
 	if map_overlay:
 		map_overlay.visible = map_open
 		if map_open:
