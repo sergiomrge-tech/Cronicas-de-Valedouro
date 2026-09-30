@@ -101,7 +101,23 @@ func _ready() -> void:
 	inventory_ui.name = "InventoryUI"
 	ui.add_child(inventory_ui)
 	inventory_ui.setup(self,hero,true)
+	_bind_campaign_save()
 	_refresh_objective()
+
+func _bind_campaign_save() -> void:
+	if get_tree().current_scene != self:
+		return
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state == null:
+		return
+	state.bind_scene("res://scenes/cartoon/CorruptedLandsCartoon.tscn",self,hero,story_runtime,68,330,470,[])
+	_refresh_stats()
+
+func _change_scene_saved(path: String) -> void:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state != null:
+		state.prepare_transition(path)
+	get_tree().change_scene_to_file(path)
 
 func _add_poi_prop(data: Dictionary) -> void:
 	var prop: Node2D = PropScript.new()
@@ -211,7 +227,7 @@ func _interact() -> void:
 		"POI_CORRUPTED_ABYSS_ROUTE":
 			if story_runtime.act7_complete:
 				_show_toast("Entrando no Coração Abissal...")
-				get_tree().change_scene_to_file("res://scenes/cartoon/AbyssHeartCartoon.tscn")
+				_change_scene_saved("res://scenes/cartoon/AbyssHeartCartoon.tscn")
 			else:
 				_show_toast("O corredor central permanece bloqueado.")
 		_:
