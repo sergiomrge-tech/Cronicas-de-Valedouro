@@ -126,3 +126,21 @@ static func region_transitions() -> Array[Dictionary]:
 			"next_scene":"res://scenes/cartoon/ForestAncientCartoon.tscn"
 		}
 	]
+
+
+static func act1_route_points() -> PackedVector2Array:
+	var cx: float = Region.SOUTH_ROAD_X
+	var north_edge: float = Region.HUB_RECT.position.y
+	return PackedVector2Array([
+		Region.world_from_hub(Vector2(1150,330)),
+		Region.world_from_hub(Vector2(1150,860)),
+		Region.world_from_hub(Vector2(760,1125)),
+		Region.world_from_hub(Vector2(1150,700)),
+		Vector2(cx,north_edge-650.0),
+		Vector2(cx-620.0,north_edge-1800.0),
+		Vector2(cx+760.0,north_edge-2950.0),
+		Vector2(cx-980.0,north_edge-4100.0),
+		Vector2(cx-980.0,north_edge-4460.0),
+		Vector2(cx+940.0,north_edge-5350.0),
+		Vector2(cx,700.0)
+	])
