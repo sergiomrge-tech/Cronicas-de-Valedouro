@@ -49,6 +49,9 @@ func _draw() -> void:
 		"hay": _draw_hay()
 		"chest": _draw_chest()
 		"windmill": _draw_windmill()
+		"ruin": _draw_ruin()
+		"shrine": _draw_shrine()
+		"campfire": _draw_campfire()
 		_: _draw_rock()
 
 func _draw_tree() -> void:
@@ -235,3 +238,29 @@ func _draw_windmill() -> void:
 		var d: Vector2 = Vector2.RIGHT.rotated(a)
 		draw_line(center+d*6,center+d*45,DrawUtil.OUTLINE,7)
 		draw_line(center+d*7,center+d*43,Color(0.70,0.55,0.29),4)
+
+
+func _draw_ruin() -> void:
+	DrawUtil.shadow(self,Vector2(0,10),42,0.20)
+	DrawUtil.rect_outlined(self,Rect2(-42,-34,18,52),Color(0.55,0.55,0.52),DrawUtil.OUTLINE,3)
+	DrawUtil.rect_outlined(self,Rect2(18,-54,20,72),Color(0.58,0.58,0.55),DrawUtil.OUTLINE,3)
+	draw_line(Vector2(-34,-34),Vector2(28,-53),Color(0.43,0.43,0.40),8)
+	draw_line(Vector2(-31,-30),Vector2(25,-49),Color(0.70,0.70,0.64),3)
+	for p in [Vector2(-48,10),Vector2(-10,15),Vector2(38,12)]:
+		DrawUtil.ellipse(self,p,12,6,Color(0.44,0.46,0.43))
+
+func _draw_shrine() -> void:
+	DrawUtil.shadow(self,Vector2(0,8),30,0.18)
+	DrawUtil.rect_outlined(self,Rect2(-20,-46,40,56),Color(0.66,0.65,0.60),DrawUtil.OUTLINE,3)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-28,-44),Vector2(0,-70),Vector2(28,-44)]),Color(0.18,0.42,0.72),DrawUtil.OUTLINE,3)
+	DrawUtil.circle_outlined(self,Vector2(0,-26),9,Color(0.94,0.76,0.20),DrawUtil.OUTLINE,2)
+	draw_line(Vector2(0,-21),Vector2(0,-5),Color(0.92,0.74,0.20),3)
+
+func _draw_campfire() -> void:
+	DrawUtil.shadow(self,Vector2(0,7),24,0.16)
+	for a in [0.5,-0.5]:
+		draw_line(Vector2(-18,a*9),Vector2(18,-a*9),DrawUtil.OUTLINE,7)
+		draw_line(Vector2(-17,a*9),Vector2(17,-a*9),Color(0.47,0.28,0.12),4)
+	DrawUtil.flame(self,Vector2(0,-5),27,10,anim_t)
+	for p in [Vector2(-29,10),Vector2(28,11),Vector2(0,18)]:
+		DrawUtil.ellipse(self,p,9,5,Color(0.48,0.49,0.47))
