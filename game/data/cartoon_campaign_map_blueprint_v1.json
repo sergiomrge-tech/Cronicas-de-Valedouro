@@ -453,7 +453,7 @@
         "linear_scale": 20,
         "region_class": "exploration_heavy"
       },
-      "build_status": "RESERVED_BY_MISSIONS",
+      "build_status": "IN_PROGRESS_PHYSICAL",
       "mandatory_route": [
         {
           "order": 1,
@@ -505,7 +505,17 @@
           "location_kind": "observatory",
           "post_function": "Revanche do General e navegação."
         }
-      ]
+      ],
+      "implementation": {
+        "scene": "res://scenes/cartoon/CoastLostIslandsCartoon.tscn",
+        "region_size": [
+          46000,
+          47000
+        ],
+        "active_chunk_radius": 2,
+        "mandatory_locations_placed": 5,
+        "transition_from_previous": "res://scenes/cartoon/ValedouroSiegeCartoon.tscn"
+      }
     },
     {
       "act": 7,
