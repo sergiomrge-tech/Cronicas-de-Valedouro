@@ -14,7 +14,7 @@ func run() -> void:
 	assert(not state.has_campaign_save())
 	state.start_new_game()
 	assert(state.has_campaign_save())
-	assert(state.continue_scene_path() == state.DEFAULT_SCENE)
+	assert(state.continue_scene_path() == "res://scenes/cartoon/ValedouroCartoonHub.tscn")
 	assert(state.player_level == 1)
 	assert(state.player_gold == 35)
 
