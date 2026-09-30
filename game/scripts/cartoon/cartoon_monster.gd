@@ -61,6 +61,8 @@ func _draw() -> void:
 			_draw_root_beast()
 		"ash_general":
 			_draw_ash_general()
+		"reed_lady":
+			_draw_reed_lady()
 		_:
 			_draw_wolf()
 	draw_set_transform(Vector2.ZERO,0.0,Vector2.ONE)
@@ -149,3 +151,19 @@ func _draw_ash_general() -> void:
 	DrawUtil.circle_outlined(self,Vector2(0,-28),9,ember,DrawUtil.OUTLINE,2)
 	DrawUtil.flame(self,Vector2(-39,-17),23,8,anim_t)
 	DrawUtil.flame(self,Vector2(39,-17),23,8,anim_t+0.7)
+
+
+func _draw_reed_lady() -> void:
+	var robe: Color = Color(0.24,0.42,0.24)
+	var pale: Color = Color(0.68,0.78,0.61)
+	DrawUtil.shadow(self,Vector2(0,12),38,0.26)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-20),30,30,robe,DrawUtil.OUTLINE,4)
+	DrawUtil.circle_outlined(self,Vector2(0,-61),20,pale,DrawUtil.OUTLINE,4)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-22,-68),Vector2(-38,-95),Vector2(-12,-79),Vector2(0,-103),Vector2(12,-79),Vector2(38,-95),Vector2(22,-68)]),Color(0.34,0.49,0.18),DrawUtil.OUTLINE,3)
+	for x in [-27.0,27.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-37),Vector2(x*1.25,-4),9,robe.darkened(0.05),DrawUtil.OUTLINE,3)
+	draw_circle(Vector2(-7,-62),3,Color(0.48,0.95,0.62))
+	draw_circle(Vector2(7,-62),3,Color(0.48,0.95,0.62))
+	DrawUtil.circle_outlined(self,Vector2(0,-31),8,Color(0.52,0.19,0.34),DrawUtil.OUTLINE,2)
+	for p in [Vector2(-38,-18),Vector2(38,-18)]:
+		DrawUtil.flame(self,p,18,7,anim_t)
