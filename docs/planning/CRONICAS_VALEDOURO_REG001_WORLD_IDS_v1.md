@@ -75,6 +75,7 @@ Todos os IDs são persistentes: nada crítico depende de nomes exibidos.
 | `REG001_POI_VAL_GATE` | landmark | Portão De Valedouro | cidade | cidade | 1 | main |
 | `REG001_POI_ARQUIVO_SEIS_COROAS` | landmark | Arquivo Das Seis Coroas | cidade | cidade | 1 | main |
 | `REG001_POI_ELITE_SAQUEADORES` | elite | Acampamento Dos Saqueadores | floresta | cidade | 2 | secondary |
+| `REG001_POI_CHEST_SAQUEADORES` | chest | Saque Dos Saqueadores | floresta | cidade | 2 | secondary |
 
 ## Transições de bioma
 

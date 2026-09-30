@@ -121,6 +121,7 @@ func _ready() -> void:
 	for tier in range(0, 5):
 		textures["hero_extra_%d" % tier] = load("res://assets/hero_extra_%d.png" % tier)
 	fx = CFX.new()
+	REGR.fx = fx
 	load_item_icons()
 	for tier in range(1, 5):
 		var key: String = "equip_armor_%d" % tier
@@ -1278,6 +1279,7 @@ func _draw() -> void:
 			draw_enemy(actor[1], camera)
 	objects_drawn += REGR.draw_objects(self, view_items, view_rect, band_from, 1.0e9, time_acc, approved_visuals)
 	REGR.last_draw_count = objects_drawn
+	REGR.draw_emitters_top(self, view_rect, zone, time_acc)
 	reg_game.draw_overlay(self, view_rect)
 	fx.draw(self, camera)                                      # VFX gratuitos adaptados: projéteis, impactos, ondas, dissipação
 	draw_floaters()

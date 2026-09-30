@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (256): inclui o bundle base do Lote 01 e assets modelados posteriormente promovidos pelo Diretor.
-- **MODELED_PENDING_GATE** (529): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (540): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,8 +14,8 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 40 | 216 |
-| MODELED_PENDING_GATE | 275 | 254 |
-| LEGACY_BASELINE | 119 | 0 |
+| MODELED_PENDING_GATE | 286 | 254 |
+| LEGACY_BASELINE | 124 | 0 |
 
 ## MISSING_APPROVED_ASSET
 
@@ -40,7 +40,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## MODELED_PENDING_GATE — por grupo
 
-### nature (303)
+### nature (309)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -75,6 +75,12 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `ext_rock_silver_a` | INTEGRATED | 1 |
 | `ext_rock_silver_b` | INTEGRATED | 2 |
 | `ext_rock_white_a` | INTEGRATED | 2 |
+| `ext_ruin_tower_stump` | INTEGRATED | 1 |
+| `ext_ruin_tower_stump_sand` | INTEGRATED | 1 |
+| `ext_ruin_wall_broken` | INTEGRATED | 1 |
+| `ext_ruin_wall_broken_e` | INTEGRATED | 1 |
+| `ext_ruin_wall_broken_sand` | INTEGRATED | 1 |
+| `ext_ruin_wall_end` | INTEGRATED | 1 |
 | `ext_spruce_cold` | NOT_USED | 0 |
 | `ext_spruce_large` | INTEGRATED | 8 |
 | `ext_spruce_slim` | INTEGRATED | 3 |
@@ -188,7 +194,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_cart_wood` | INTEGRATED | 7 |
 | `nat_chest_closed` | INTEGRATED | 4 |
 | `nat_chest_open` | INTEGRATED | 0 |
-| `nat_chest_rare` | INTEGRATED | 11 |
+| `nat_chest_rare` | INTEGRATED | 12 |
 | `nat_cliff_corner_ice` | NOT_USED | 0 |
 | `nat_cliff_corner_rock` | INTEGRATED | 1 |
 | `nat_cliff_corner_sand` | NOT_USED | 0 |
@@ -235,7 +241,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_hill_ice` | NOT_USED | 0 |
 | `nat_hill_low_earth` | INTEGRATED | 2 |
 | `nat_hill_low_ice` | INTEGRATED | 7 |
-| `nat_hill_low_rock` | INTEGRATED | 9 |
+| `nat_hill_low_rock` | INTEGRATED | 10 |
 | `nat_hill_low_sand` | INTEGRATED | 5 |
 | `nat_hill_sand` | NOT_USED | 0 |
 | `nat_hill_wide_earth` | INTEGRATED | 2 |
@@ -325,7 +331,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_wall_cliff_ice_a` | INTEGRATED | 5 |
 | `nat_wall_cliff_ice_b` | INTEGRATED | 4 |
 | `nat_wall_cliff_rock_a` | INTEGRATED | 1 |
-| `nat_wall_cliff_rock_b` | INTEGRATED | 5 |
+| `nat_wall_cliff_rock_b` | INTEGRATED | 4 |
 | `nat_wall_cliff_sand_a` | INTEGRATED | 2 |
 | `nat_wall_cliff_sand_b` | INTEGRATED | 2 |
 | `nat_wall_low_a` | INTEGRATED | 2 |
@@ -399,7 +405,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_wall_segment` | NOT_USED | 0 |
 | `val_weapon_rack` | INTEGRATED | 1 |
 
-### dungeon (37)
+### dungeon (42)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -418,6 +424,11 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `dg_sarcophagus` | INTEGRATED | 4 |
 | `dg_stairs` | NOT_USED | 0 |
 | `dg_stalagmites` | INTEGRATED | 3 |
+| `ext_dg_anvil_old` | INTEGRATED | 1 |
+| `ext_dg_gargoyle_eco` | INTEGRATED | 4 |
+| `ext_dg_iron_fence` | INTEGRATED | 2 |
+| `ext_dg_tomb_cross` | INTEGRATED | 3 |
+| `ext_dg_tombstone` | INTEGRATED | 2 |
 | `str_cave_entrance` | INTEGRATED | 1 |
 | `val_core_floor_ring` | INTEGRATED | 1 |
 | `val_core_floor_ring_dormant` | INTEGRATED | 1 |
@@ -752,5 +763,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 68 (`REG001_POI_*`); objetos: 1146 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 22; passagens: 3; fragmentos de lore: 12.
+- POIs: 69 (`REG001_POI_*`); objetos: 1165 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 22; passagens: 3; fragmentos de lore: 12.
 

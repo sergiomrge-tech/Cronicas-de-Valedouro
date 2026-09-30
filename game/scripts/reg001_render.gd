@@ -12,6 +12,7 @@ const CAST = preload("res://scripts/cast_shadow.gd")
 const NO_CAST: Array = ["nat_decal", "ter_", "str_crop", "nat_ford", "nat_fissure", "nat_pit", "nat_trap", "nat_flowers", "nat_grass", "nat_mushrooms", "nat_bedroll", "nat_bones", "nat_reeds", "int_", "fx_", "nat_plateau_", "nat_ridge_", "nat_wall_cliff_", "nat_cliff_", "nat_hill_", "nat_rock_pillars", "nat_waterfall", "str_dock", "str_boat", "nat_snow_mound", "nat_dune", "APP:city_floor", "APP:city_water", "APP:dungeon_floor", "APP:dungeon_spikes"]
 
 static var last_draw_count: int = 0
+static var fx: RefCounted = null          # CombatFx (VFX gratuitos adaptados) — usado pelo fogo ambiente
 static var shadows_enabled: bool = true
 static var last_shadow_count: int = 0
 
@@ -147,6 +148,42 @@ static func draw_emitters(canvas: CanvasItem, rect: Rect2, zone: String, time: f
 				var life2: float = fposmod(time * .9 + float(i) * .14 + seed, 1.0)
 				var sp2: Vector2 = pos + Vector2((float(i) - 3.0) * 12.0 + sin(life2 * 6.0) * 4.0, 30.0 - life2 * 40.0)
 				canvas.draw_rect(Rect2(sp2, Vector2(2, 2)), Color(.88, .98, 1, .5 * (1.0 - life2)))
+
+static func draw_emitters_top(canvas: CanvasItem, rect: Rect2, zone: String, time: float) -> void:
+	# ambiente AÉREO desenhado por cima dos objetos: fogo (VFX OGA CC0 adaptado) em fogueiras/braseiros, folhas caindo, poeira.
+	# Orçamento mobile: só emissores visíveis; fogo = 1 sprite, folhas = 5 retângulos, poeira = 4 retângulos.
+	var margin: Rect2 = rect.grow(80.0)
+	for em_value in REG.emitters:
+		var em: Dictionary = em_value
+		if str(em["zone"]) != zone:
+			continue
+		var kind: String = str(em["kind"])
+		if kind != "fire" and kind != "leaves" and kind != "dust":
+			continue
+		var pos: Vector2 = em["pos"]
+		if not margin.has_point(pos):
+			continue
+		if (em.has("hide_when") or em.has("show_when")) and REG.is_hidden(em):
+			continue
+		var radius: float = float(em["radius"])
+		var seed: float = pos.x * .013 + pos.y * .007
+		if kind == "fire":
+			if fx != null:
+				fx.draw_one(canvas, "vfx_fire", pos - rect.position, time + seed, radius, false, Color(1, 1, 1, .95), 0.0, true, -rect.position)
+		elif kind == "leaves":
+			for i in 5:
+				var life: float = fposmod(time * .16 + float(i) * .2 + seed, 1.0)
+				var lx: float = pos.x + (float(i) - 2.0) * radius * .45 + sin(life * 9.0 + float(i)) * 10.0
+				var lp: Vector2 = Vector2(lx, pos.y - 110.0 + life * 120.0)
+				var col: Color = [Color(.45, .62, .24), Color(.78, .55, .2), Color(.62, .7, .28)][i % 3]
+				col.a = clampf(sin(life * PI) * 1.4, 0, 1)
+				var w: float = 3.0 if int(time * 6.0 + float(i)) % 2 == 0 else 2.0
+				canvas.draw_rect(Rect2(lp, Vector2(w, 2)), col)
+		else:
+			for i in 4:
+				var life3: float = fposmod(time * .22 + float(i) * .25 + seed, 1.0)
+				var dp: Vector2 = pos + Vector2(-radius + life3 * radius * 2.0, sin(life3 * 6.0 + float(i)) * 6.0 - float(i) * 7.0)
+				canvas.draw_rect(Rect2(dp, Vector2(10.0 + float(i) * 3.0, 2)), Color(.93, .82, .6, .28 * sin(life3 * PI)))
 
 # ------------------------------------------------------------------ sombra projetada (passada única sob todos os objetos)
 static func casts_shadow(asset: String) -> bool:

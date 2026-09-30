@@ -26,6 +26,78 @@
    "status": "MODELED_PENDING_GATE"
   },
   {
+   "id": "ext_ruin_tower_stump",
+   "category": "estrutura",
+   "source_paths": [
+    "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_towerBrownBase_S.png"
+   ],
+   "license": "CC0 (Kenney.nl)",
+   "derived": "game/assets/external/structures/ext_ruin_tower_stump.png",
+   "modifications": "Sketch Town (vetorial) redesenhado em pixel art: redução de área 0,42, pedra fria -> pedra Valedouro com fiadas de tijolo e variação por bloco, musgo no topo, paleta 28 cores, contorno escuro",
+   "used_in": "perímetro arruinado das Ruínas do Primeiro Vento / das Dunas (exploração)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_ruin_tower_stump_sand",
+   "category": "estrutura",
+   "source_paths": [
+    "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_towerBeigeBase_S.png"
+   ],
+   "license": "CC0 (Kenney.nl)",
+   "derived": "game/assets/external/structures/ext_ruin_tower_stump_sand.png",
+   "modifications": "Sketch Town (vetorial) redesenhado em pixel art: redução de área 0,42, pedra fria -> pedra Valedouro com fiadas de tijolo e variação por bloco, musgo no topo, paleta 28 cores, contorno escuro; matiz de arenito",
+   "used_in": "perímetro arruinado das Ruínas do Primeiro Vento / das Dunas (exploração)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_ruin_wall_broken",
+   "category": "estrutura",
+   "source_paths": [
+    "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_endRuined_S.png"
+   ],
+   "license": "CC0 (Kenney.nl)",
+   "derived": "game/assets/external/structures/ext_ruin_wall_broken.png",
+   "modifications": "Sketch Town (vetorial) redesenhado em pixel art: redução de área 0,42, pedra fria -> pedra Valedouro com fiadas de tijolo e variação por bloco, musgo no topo, paleta 28 cores, contorno escuro",
+   "used_in": "perímetro arruinado das Ruínas do Primeiro Vento / das Dunas (exploração)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_ruin_wall_broken_e",
+   "category": "estrutura",
+   "source_paths": [
+    "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_endRuined_E.png"
+   ],
+   "license": "CC0 (Kenney.nl)",
+   "derived": "game/assets/external/structures/ext_ruin_wall_broken_e.png",
+   "modifications": "Sketch Town (vetorial) redesenhado em pixel art: redução de área 0,42, pedra fria -> pedra Valedouro com fiadas de tijolo e variação por bloco, musgo no topo, paleta 28 cores, contorno escuro",
+   "used_in": "perímetro arruinado das Ruínas do Primeiro Vento / das Dunas (exploração)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_ruin_wall_broken_sand",
+   "category": "estrutura",
+   "source_paths": [
+    "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_endRuined_W.png"
+   ],
+   "license": "CC0 (Kenney.nl)",
+   "derived": "game/assets/external/structures/ext_ruin_wall_broken_sand.png",
+   "modifications": "Sketch Town (vetorial) redesenhado em pixel art: redução de área 0,42, pedra fria -> pedra Valedouro com fiadas de tijolo e variação por bloco, musgo no topo, paleta 28 cores, contorno escuro; matiz de arenito",
+   "used_in": "perímetro arruinado das Ruínas do Primeiro Vento / das Dunas (exploração)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_ruin_wall_end",
+   "category": "estrutura",
+   "source_paths": [
+    "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_end_W.png"
+   ],
+   "license": "CC0 (Kenney.nl)",
+   "derived": "game/assets/external/structures/ext_ruin_wall_end.png",
+   "modifications": "Sketch Town (vetorial) redesenhado em pixel art: redução de área 0,42, pedra fria -> pedra Valedouro com fiadas de tijolo e variação por bloco, musgo no topo, paleta 28 cores, contorno escuro",
+   "used_in": "perímetro arruinado das Ruínas do Primeiro Vento / das Dunas (exploração)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
    "id": "hero_body",
    "category": "heroi",
    "source_paths": [
@@ -443,6 +515,66 @@
    "derived": "game/assets/external/mobs/mob_possesso_eco.png",
    "modifications": "animações originais preservadas (idle/andar/ataque/dano/morte, 3 direções: lado/baixo/cima) reamostradas p/ 8 quadros; paleta redesenhada para a facção Valedouro; crescente do golpe tingida; escala ×2.0 no jogo (nearest)",
    "used_in": "aldeões tomados pelo Eco — vale/ruínas/deserto",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_dg_anvil_old",
+   "category": "prop_masmorra",
+   "source_paths": [
+    "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png"
+   ],
+   "license": "CC0 (Kenney.nl)",
+   "derived": "game/assets/external/structures/ext_dg_anvil_old.png",
+   "modifications": "Tiny Dungeon 16 px ampliado em escala inteira (nearest), pedra azulada -> pedra das masmorras oficiais",
+   "used_in": "Mina do Eco zona 1: bigorna dos mineiros",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_dg_gargoyle_eco",
+   "category": "prop_masmorra",
+   "source_paths": [
+    "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png"
+   ],
+   "license": "CC0 (Kenney.nl)",
+   "derived": "game/assets/external/structures/ext_dg_gargoyle_eco.png",
+   "modifications": "Tiny Dungeon 16 px ampliado em escala inteira (nearest), pedra azulada -> pedra das masmorras oficiais; 3 tiles empilhados (cabeça/rosto/bacia) em 2 estados -> animação de 4 quadros; ácido verde -> Eco ciano",
+   "used_in": "Mina do Eco zona 2 e cripta: gárgula que verte Eco",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_dg_iron_fence",
+   "category": "prop_masmorra",
+   "source_paths": [
+    "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png"
+   ],
+   "license": "CC0 (Kenney.nl)",
+   "derived": "game/assets/external/structures/ext_dg_iron_fence.png",
+   "modifications": "Tiny Dungeon 16 px ampliado em escala inteira (nearest), pedra azulada -> pedra das masmorras oficiais",
+   "used_in": "cripta: grade que separa o ossuário",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_dg_tomb_cross",
+   "category": "prop_masmorra",
+   "source_paths": [
+    "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png"
+   ],
+   "license": "CC0 (Kenney.nl)",
+   "derived": "game/assets/external/structures/ext_dg_tomb_cross.png",
+   "modifications": "Tiny Dungeon 16 px ampliado em escala inteira (nearest), pedra azulada -> pedra das masmorras oficiais",
+   "used_in": "cripta (Galeria Antiga): lápides do ossuário",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "ext_dg_tombstone",
+   "category": "prop_masmorra",
+   "source_paths": [
+    "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png"
+   ],
+   "license": "CC0 (Kenney.nl)",
+   "derived": "game/assets/external/structures/ext_dg_tombstone.png",
+   "modifications": "Tiny Dungeon 16 px ampliado em escala inteira (nearest), pedra azulada -> pedra das masmorras oficiais",
+   "used_in": "cripta (Galeria Antiga): lápides do ossuário",
    "status": "MODELED_PENDING_GATE"
   },
   {

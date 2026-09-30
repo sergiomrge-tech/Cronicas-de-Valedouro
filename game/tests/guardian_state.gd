@@ -35,7 +35,8 @@ func emitters_visible() -> int:
 	var n: int = 0
 	for e_value in REG.emitters:
 		var e: Dictionary = e_value
-		if str(e["zone"]) == "masmorra" and not REG.is_hidden(e):
+		# só o brilho do Núcleo (sparkle) muda com o estado; o fogo dos braseiros fica sempre aceso
+		if str(e["zone"]) == "masmorra" and str(e["kind"]) == "sparkle" and not REG.is_hidden(e):
 			n += 1
 	return n
 

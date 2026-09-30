@@ -1594,6 +1594,44 @@ def check_trails():
                     W.warnings.append('trilha %s bloqueada por %s %s' % (t['id'], o['asset'], o['pos']))
 
 
+# ============================================================================================
+# ETAPA 4 — ruínas e masmorras com assets gratuitos Kenney adaptados (tools/external/build_structures.py)
+# ============================================================================================
+# Ruínas do Primeiro Vento: o anel externo da antiga guarita (muro arruinado + tocos de torre) marca o perímetro que o
+# vento derrubou; fica na borda do raio do POI, fora do círculo central (altar/mecanismo) e fora das trilhas.
+for _a, _x, _y in (('ext_ruin_tower_stump', 628, 292), ('ext_ruin_wall_broken_e', 962, 300), ('ext_ruin_wall_broken', 640, 478), ('ext_ruin_wall_end', 948, 470)):
+    W.obj(_a, _x, _y, 'RUINAS_ANEL', poi='REG001_POI_RUINAS_PRIMEIRO_VENTO')
+# Ruínas das Dunas: arenito do mesmo forte, meio enterrado ao redor do altar de areia.
+for _a, _x, _y in (('ext_ruin_tower_stump_sand', 2262, 2012), ('ext_ruin_wall_broken_sand', 2585, 2004)):
+    W.obj(_a, _x, _y, 'DUNAS_ANEL', poi='REG001_POI_RUINAS_DUNAS')
+# Mina do Eco — zona 1: bigorna dos mineiros junto ao maquinário; zona 2: gárgulas que vertem Eco ao lado dos sarcófagos.
+dg('ext_dg_anvil_old', 712, 742)
+dg('ext_dg_gargoyle_eco', 214, 472, anim=1, hide_when=_GUARD)
+dg('ext_dg_gargoyle_eco', 746, 472, anim=1, flip=True, hide_when=_GUARD)
+# Galeria Antiga (cripta): ossuário com lápides e grade de ferro nas alas laterais; gárgulas flanqueando o arco do altar.
+for _a, _x, _y in (('ext_dg_tomb_cross', 112, 424), ('ext_dg_tombstone', 152, 448), ('ext_dg_tomb_cross', 96, 476),
+                   ('ext_dg_tombstone', 852, 596), ('ext_dg_tomb_cross', 892, 628)):
+    cr(_a, _x, _y)
+cr('ext_dg_iron_fence', 222, 570)
+cr('ext_dg_iron_fence', 742, 690)
+cr('ext_dg_gargoyle_eco', 396, 304, anim=1)
+cr('ext_dg_gargoyle_eco', 566, 304, anim=1, flip=True)
+
+# Ambiente aéreo (render: draw_emitters_top): fogo OGA em fogueiras/braseiros, folhas na floresta, poeira no deserto.
+for _o in list(W.objects):
+    if _o['asset'] == 'nat_campfire':
+        W.emitter('fire', _o['pos'][0], _o['pos'][1] - 34, .7, zone=_o['zone'])
+    elif _o['asset'] == 'dg_brazier':
+        W.emitter('fire', _o['pos'][0], _o['pos'][1] - 60, .62, zone=_o['zone'])
+_lv = [(x, y) for y in range(260, 1560, 170) for x in range(150, 1000, 190)
+       if layout.biome(x, y) == 'floresta' and not layout.path_at(x, y) and not any(math.hypot(x - p['pos'][0], y - p['pos'][1]) < 120 for p in W.pois)]
+for _x, _y in _lv[::2][:14]:
+    W.emitter('leaves', _x, _y, 60)
+for _x, _y in ((2150, 1500), (2400, 1560), (2700, 1500), (2900, 1650), (2250, 1780), (2800, 1980), (2600, 2200), (2950, 2150)):
+    if layout.biome(_x, _y) == 'deserto':
+        W.emitter('dust', _x, _y, 90)
+
+
 def build():
     check_trails()
     doc = {

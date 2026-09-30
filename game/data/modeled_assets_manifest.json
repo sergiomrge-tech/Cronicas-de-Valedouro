@@ -10,7 +10,7 @@
   "note": "MODELED_PENDING_GATE = modelado no estilo dos 28 APPROVED, aguardando gate visual do Diretor. Mude o status de um asset para REJECTED/HOLD para removê-lo do renderer."
  },
  "counts": {
-  "total": 766
+  "total": 777
  },
  "assets": [
   {
@@ -1079,6 +1079,137 @@
    "pipeline": "external-adapted"
   },
   {
+   "id": "ext_dg_anvil_old",
+   "path": "res://assets/external/structures/ext_dg_anvil_old.png",
+   "group": "dungeon",
+   "folder": "external_structures",
+   "frame_size": [
+    48,
+    39
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    24.0,
+    37.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 10.0,
+   "footprint": 10.0,
+   "tags": [
+    "anvil"
+   ],
+   "sha256": "a5f685ed50c5b53940c32086cdfaf3cf403e58df45f7fcc663c4a4fe86d7e323",
+   "source": "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "external-adapted"
+  },
+  {
+   "id": "ext_dg_gargoyle_eco",
+   "path": "res://assets/external/structures/ext_dg_gargoyle_eco.png",
+   "group": "dungeon",
+   "folder": "external_structures",
+   "frame_size": [
+    32,
+    90
+   ],
+   "frames": 4,
+   "rows": 1,
+   "foot": [
+    16.0,
+    88.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
+   "tags": [
+    "fountain",
+    "eco"
+   ],
+   "sha256": "bc6902bb91fa5df7cd59506675014f6ff7d7a8d0d237e45fe6b60e12b75e7cbb",
+   "source": "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "external-adapted"
+  },
+  {
+   "id": "ext_dg_iron_fence",
+   "path": "res://assets/external/structures/ext_dg_iron_fence.png",
+   "group": "dungeon",
+   "folder": "external_structures",
+   "frame_size": [
+    93,
+    45
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    46.5,
+    43.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 10.0,
+   "footprint": 10.0,
+   "tags": [
+    "fence"
+   ],
+   "sha256": "d52bde61c378ff0c5baebef97ea3faf83fd95d24e24a302f61df4b73b02156ac",
+   "source": "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "external-adapted"
+  },
+  {
+   "id": "ext_dg_tomb_cross",
+   "path": "res://assets/external/structures/ext_dg_tomb_cross.png",
+   "group": "dungeon",
+   "folder": "external_structures",
+   "frame_size": [
+    42,
+    42
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    21.0,
+    40.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 9.0,
+   "footprint": 9.0,
+   "tags": [
+    "grave"
+   ],
+   "sha256": "c226ec91d04a9ffad9cd4bbb293c6fc7b0829f58449cb49d0b33bff6bed8a797",
+   "source": "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "external-adapted"
+  },
+  {
+   "id": "ext_dg_tombstone",
+   "path": "res://assets/external/structures/ext_dg_tombstone.png",
+   "group": "dungeon",
+   "folder": "external_structures",
+   "frame_size": [
+    42,
+    42
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    21.0,
+    40.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 9.0,
+   "footprint": 9.0,
+   "tags": [
+    "grave"
+   ],
+   "sha256": "e49e98cdb9bdeb2cf8e089c65b2bf9b94f50c66f2338bbcde9ed3b639aa02d7e",
+   "source": "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "external-adapted"
+  },
+  {
    "id": "ext_flower_blue",
    "path": "res://assets/external/nature/ext_flower_blue.png",
    "group": "nature",
@@ -1732,6 +1863,216 @@
      0.0,
      0.0,
      10.0
+    ]
+   ]
+  },
+  {
+   "id": "ext_ruin_tower_stump",
+   "path": "res://assets/external/structures/ext_ruin_tower_stump.png",
+   "group": "nature",
+   "folder": "external_structures",
+   "frame_size": [
+    97,
+    89
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    48.5,
+    87.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 16.0,
+   "footprint": 16.0,
+   "tags": [
+    "ruin",
+    "stone",
+    "kenney"
+   ],
+   "sha256": "d0ec5d9cefd1bf84f9ca79222ab2ba006131244c986bc56774ce53c0f6861524",
+   "source": "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_towerBrownBase_S.png",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "external-adapted",
+   "collision": [
+    [
+     0.0,
+     0.0,
+     14.0
+    ]
+   ]
+  },
+  {
+   "id": "ext_ruin_tower_stump_sand",
+   "path": "res://assets/external/structures/ext_ruin_tower_stump_sand.png",
+   "group": "nature",
+   "folder": "external_structures",
+   "frame_size": [
+    97,
+    89
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    48.5,
+    87.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 16.0,
+   "footprint": 16.0,
+   "tags": [
+    "ruin",
+    "stone",
+    "kenney"
+   ],
+   "sha256": "fc02b035702678bc17f1d76095c24b19c8b6b16f950f289894849a686f316774",
+   "source": "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_towerBeigeBase_S.png",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "external-adapted",
+   "collision": [
+    [
+     0.0,
+     0.0,
+     14.0
+    ]
+   ]
+  },
+  {
+   "id": "ext_ruin_wall_broken",
+   "path": "res://assets/external/structures/ext_ruin_wall_broken.png",
+   "group": "nature",
+   "folder": "external_structures",
+   "frame_size": [
+    87,
+    81
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    43.5,
+    79.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 16.0,
+   "footprint": 16.0,
+   "tags": [
+    "ruin",
+    "stone",
+    "kenney"
+   ],
+   "sha256": "d435605cfaababfe219a75b6b6526866d11f1e90466a5a56a03251149a08beeb",
+   "source": "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_endRuined_S.png",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "external-adapted",
+   "collision": [
+    [
+     0.0,
+     0.0,
+     14.0
+    ]
+   ]
+  },
+  {
+   "id": "ext_ruin_wall_broken_e",
+   "path": "res://assets/external/structures/ext_ruin_wall_broken_e.png",
+   "group": "nature",
+   "folder": "external_structures",
+   "frame_size": [
+    75,
+    82
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    37.5,
+    80.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 16.0,
+   "footprint": 16.0,
+   "tags": [
+    "ruin",
+    "stone",
+    "kenney"
+   ],
+   "sha256": "7721c50813c78ff52c372a6a4d20f85eeb4af994a8ab21ff87ebd76e038d99ca",
+   "source": "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_endRuined_E.png",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "external-adapted",
+   "collision": [
+    [
+     0.0,
+     0.0,
+     14.0
+    ]
+   ]
+  },
+  {
+   "id": "ext_ruin_wall_broken_sand",
+   "path": "res://assets/external/structures/ext_ruin_wall_broken_sand.png",
+   "group": "nature",
+   "folder": "external_structures",
+   "frame_size": [
+    75,
+    93
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    37.5,
+    91.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 16.0,
+   "footprint": 16.0,
+   "tags": [
+    "ruin",
+    "stone",
+    "kenney"
+   ],
+   "sha256": "ffcc78fdc15164264cfdb83b8de18109f30176b00c7a942e81a24b91ec6f7c5e",
+   "source": "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_endRuined_W.png",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "external-adapted",
+   "collision": [
+    [
+     0.0,
+     0.0,
+     14.0
+    ]
+   ]
+  },
+  {
+   "id": "ext_ruin_wall_end",
+   "path": "res://assets/external/structures/ext_ruin_wall_end.png",
+   "group": "nature",
+   "folder": "external_structures",
+   "frame_size": [
+    96,
+    97
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    48.0,
+    95.0
+   ],
+   "draw_scale": 1.0,
+   "blocks_radius": 16.0,
+   "footprint": 16.0,
+   "tags": [
+    "ruin",
+    "stone",
+    "kenney"
+   ],
+   "sha256": "a142f2c08b1fae34536a9786629324702e9473a39027d582414598d74fb8adc9",
+   "source": "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_end_W.png",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "external-adapted",
+   "collision": [
+    [
+     0.0,
+     0.0,
+     14.0
     ]
    ]
   },

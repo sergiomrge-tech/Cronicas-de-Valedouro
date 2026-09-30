@@ -23,11 +23,11 @@
    "NOT_USED": 216
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 275,
+   "INTEGRATED": 286,
    "NOT_USED": 254
   },
   "LEGACY_BASELINE": {
-   "INTEGRATED": 119
+   "INTEGRATED": 124
   }
  },
  "missing_approved_asset": [
@@ -171,7 +171,8 @@
    "REG001_POI_SENTINELA_PORTAO_B",
    "REG001_POI_VAL_GATE",
    "REG001_POI_ARQUIVO_SEIS_COROAS",
-   "REG001_POI_ELITE_SAQUEADORES"
+   "REG001_POI_ELITE_SAQUEADORES",
+   "REG001_POI_CHEST_SAQUEADORES"
   ],
   "transitions": [
    "REG001_TR_CIDADE_CAMPOS",
@@ -228,7 +229,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 1146
+  "object_count": 1165
  },
  "entries": [
   {
@@ -744,6 +745,51 @@
    "source": "external_assets/free_reference_library/karsiori/bush_pack/Pixel Art Bush Pack/Bush 14/Bush 14_TEAL.png"
   },
   {
+   "id": "MOD_EXT_DG_ANVIL_OLD",
+   "key": "ext_dg_anvil_old",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png"
+  },
+  {
+   "id": "MOD_EXT_DG_GARGOYLE_ECO",
+   "key": "ext_dg_gargoyle_eco",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png"
+  },
+  {
+   "id": "MOD_EXT_DG_IRON_FENCE",
+   "key": "ext_dg_iron_fence",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png"
+  },
+  {
+   "id": "MOD_EXT_DG_TOMB_CROSS",
+   "key": "ext_dg_tomb_cross",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 3,
+   "source": "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png"
+  },
+  {
+   "id": "MOD_EXT_DG_TOMBSTONE",
+   "key": "ext_dg_tombstone",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 2,
+   "source": "external_assets/free_reference_library/dungeons/kenney_tiny_dungeon/Tilemap/tilemap_packed.png"
+  },
+  {
    "id": "MOD_EXT_FLOWER_BLUE",
    "key": "ext_flower_blue",
    "group": "nature",
@@ -931,6 +977,60 @@
    "usage": "INTEGRATED",
    "placed": 2,
    "source": "external_assets/free_reference_library/karsiori/rock_pile_pack/Pixel Art Rock Pile Pack/Rock Pile - WHITE -/Rock Pile 7 - WHITE - BIG.PNG"
+  },
+  {
+   "id": "MOD_EXT_RUIN_TOWER_STUMP",
+   "key": "ext_ruin_tower_stump",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_towerBrownBase_S.png"
+  },
+  {
+   "id": "MOD_EXT_RUIN_TOWER_STUMP_SAND",
+   "key": "ext_ruin_tower_stump_sand",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_towerBeigeBase_S.png"
+  },
+  {
+   "id": "MOD_EXT_RUIN_WALL_BROKEN",
+   "key": "ext_ruin_wall_broken",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_endRuined_S.png"
+  },
+  {
+   "id": "MOD_EXT_RUIN_WALL_BROKEN_E",
+   "key": "ext_ruin_wall_broken_e",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_endRuined_E.png"
+  },
+  {
+   "id": "MOD_EXT_RUIN_WALL_BROKEN_SAND",
+   "key": "ext_ruin_wall_broken_sand",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_endRuined_W.png"
+  },
+  {
+   "id": "MOD_EXT_RUIN_WALL_END",
+   "key": "ext_ruin_wall_end",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 1,
+   "source": "external_assets/free_reference_library/buildings/kenney_sketch_town_expansion/Tiles/castle_end_W.png"
   },
   {
    "id": "MOD_EXT_SPRUCE_COLD",
@@ -3053,7 +3153,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 11,
+   "placed": 12,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3872,7 +3972,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 9,
+   "placed": 10,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4781,7 +4881,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 4,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -7736,6 +7836,46 @@
   {
    "id": "AST_V06_HERO_BOW_3",
    "key": "res://assets/hero_bow_3.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_EXTRA_0",
+   "key": "res://assets/hero_extra_0.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_EXTRA_1",
+   "key": "res://assets/hero_extra_1.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_EXTRA_2",
+   "key": "res://assets/hero_extra_2.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_EXTRA_3",
+   "key": "res://assets/hero_extra_3.png",
+   "group": "hero",
+   "approval": "LEGACY_BASELINE",
+   "usage": "INTEGRATED",
+   "source": "v0.6 gerado por tools/*.py (não faz parte do Lote 01)"
+  },
+  {
+   "id": "AST_V06_HERO_EXTRA_4",
+   "key": "res://assets/hero_extra_4.png",
    "group": "hero",
    "approval": "LEGACY_BASELINE",
    "usage": "INTEGRATED",
