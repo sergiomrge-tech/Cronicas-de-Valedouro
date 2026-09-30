@@ -8,6 +8,7 @@ const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
 const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
 const StreamScript = preload("res://scripts/cartoon/cartoon_world_stream.gd")
 const ExplorationContent = preload("res://scripts/cartoon/cartoon_exploration_content.gd")
+const MainStoryMap = preload("res://scripts/cartoon/cartoon_main_story_map.gd")
 
 var environment: ValedouroCartoonHubEnvironment
 var objects: Node2D
@@ -45,6 +46,7 @@ func _ready() -> void:
 		prop.setup(data)
 		objects.add_child(prop)
 	_spawn_outer_landmarks()
+	_spawn_main_story_locations()
 	hero = HeroScript.new()
 	hero.name = "Player"
 	hero.position = Region.world_from_hub(Vector2(1150,970))
@@ -261,3 +263,23 @@ func _spawn_outer_encounters() -> void:
 		monster.setup(data)
 		objects.add_child(monster)
 		monsters.append(monster)
+
+
+func _spawn_main_story_locations() -> void:
+	for data in MainStoryMap.act1_locations():
+		var id: String = String(data.get("id",""))
+		var label: String = String(data.get("label",""))
+		var pos: Vector2 = data.get("pos",Vector2.ZERO)
+		if id == "LOC_VAL_GUILD":
+			environment.pois.append({"id":id,"label":label,"pos":pos,"quest":String(data.get("quest",""))})
+			continue
+		var prop: Node2D = PropScript.new()
+		prop.setup(data)
+		objects.add_child(prop)
+		environment.pois.append({
+			"id":id,
+			"label":label,
+			"pos":pos,
+			"quest":String(data.get("quest","")),
+			"instanced":bool(data.get("instanced",false))
+		})
