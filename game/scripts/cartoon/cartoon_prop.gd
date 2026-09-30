@@ -14,7 +14,7 @@ func setup(data: Dictionary) -> void:
 	kind = String(data.get("kind", "tree"))
 	variant = int(data.get("variant", 0))
 	label = String(data.get("label", ""))
-	poi_id = String(data.get("poi_id", ""))
+	poi_id = String(data.get("poi_id",data.get("id","")))
 	base_scale = float(data.get("scale", 1.0))
 	position = data.get("pos", Vector2.ZERO)
 	scale = Vector2.ONE * base_scale
@@ -57,6 +57,12 @@ func _draw() -> void:
 		"mine": _draw_mine()
 		"boss_gate": _draw_boss_gate()
 		"archive": _draw_archive()
+		"stone_bridge": _draw_stone_bridge()
+		"ranger_lodge": _draw_ranger_lodge()
+		"root_shrine": _draw_root_shrine()
+		"memory_tree": _draw_memory_tree()
+		"hollow_root_arena": _draw_hollow_root_arena()
+		"cartographer_shrine": _draw_cartographer_shrine()
 		_: _draw_rock()
 
 func _draw_tree() -> void:
@@ -321,3 +327,73 @@ func _draw_archive() -> void:
 	for a in [0.0,TAU/3.0,2.0*TAU/3.0]:
 		var d: Vector2 = Vector2.RIGHT.rotated(a)
 		draw_line(Vector2(0,-68)+d*5,Vector2(0,-68)+d*17,Color(0.92,0.72,0.19),2.5)
+
+
+func _draw_stone_bridge() -> void:
+	DrawUtil.shadow(self,Vector2(0,12),78,0.18)
+	DrawUtil.rect_outlined(self,Rect2(-82,-28,164,56),Color(0.62,0.63,0.59),DrawUtil.OUTLINE,4)
+	for x in range(-68,69,34):
+		DrawUtil.rect_outlined(self,Rect2(x,-25,28,50),Color(0.69,0.69,0.64),DrawUtil.OUTLINE,2)
+	for x in [-78.0,78.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-8,-42,16,84),Color(0.52,0.54,0.51),DrawUtil.OUTLINE,3)
+	for p in [Vector2(-58,-38),Vector2(58,-38)]:
+		DrawUtil.poly_outlined(self,PackedVector2Array([p+Vector2(-10,0),p+Vector2(10,0),p+Vector2(8,24),p+Vector2(0,31),p+Vector2(-8,24)]),Color(0.10,0.40,0.22),DrawUtil.OUTLINE,2)
+
+func _draw_ranger_lodge() -> void:
+	_building_shadow(155)
+	DrawUtil.rect_outlined(self,Rect2(-68,-62,136,82),Color(0.57,0.37,0.18),DrawUtil.OUTLINE,4)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-82,-60),Vector2(0,-108),Vector2(82,-60)]),Color(0.17,0.38,0.20),DrawUtil.OUTLINE,4)
+	DrawUtil.rect_outlined(self,Rect2(-16,-24,32,44),Color(0.27,0.16,0.08),DrawUtil.OUTLINE,3)
+	for x in [-42.0,42.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-10,-43,20,24),Color(0.48,0.71,0.82),DrawUtil.OUTLINE,2)
+	DrawUtil.circle_outlined(self,Vector2(0,-72),11,Color(0.76,0.86,0.33),DrawUtil.OUTLINE,2)
+	draw_line(Vector2(-40,15),Vector2(-62,35),Color(0.35,0.22,0.11),6)
+	draw_line(Vector2(40,15),Vector2(62,35),Color(0.35,0.22,0.11),6)
+
+func _draw_root_shrine() -> void:
+	DrawUtil.shadow(self,Vector2(0,10),38,0.16)
+	for a in [-1.0,0.0,1.0]:
+		var x: float = a*24.0
+		DrawUtil.capsule_outlined(self,Vector2(x,-6),Vector2(x*1.2,-54),7,Color(0.39,0.27,0.13),DrawUtil.OUTLINE,2)
+	DrawUtil.circle_outlined(self,Vector2(0,-62),15,Color(0.32,0.68,0.28),DrawUtil.OUTLINE,3)
+	DrawUtil.circle_outlined(self,Vector2(0,-62),6,Color(0.77,0.96,0.49),DrawUtil.OUTLINE,2)
+	for a in range(0,360,60):
+		var d: Vector2 = Vector2.RIGHT.rotated(deg_to_rad(float(a)))
+		draw_line(Vector2.ZERO+d*18,Vector2.ZERO+d*31,Color(0.47,0.35,0.16),4)
+
+func _draw_memory_tree() -> void:
+	DrawUtil.shadow(self,Vector2(0,18),105,0.22)
+	DrawUtil.rect_outlined(self,Rect2(-18,-112,36,126),Color(0.34,0.23,0.12),DrawUtil.OUTLINE,5)
+	for branch in [
+		PackedVector2Array([Vector2(0,-92),Vector2(-56,-132),Vector2(-94,-126)]),
+		PackedVector2Array([Vector2(0,-80),Vector2(56,-122),Vector2(94,-116)]),
+		PackedVector2Array([Vector2(-4,-62),Vector2(-62,-78),Vector2(-88,-58)]),
+		PackedVector2Array([Vector2(6,-58),Vector2(64,-78),Vector2(92,-50)])
+	]:
+		draw_polyline(branch,DrawUtil.OUTLINE,14,true)
+		draw_polyline(branch,Color(0.34,0.23,0.12),8,true)
+	var leaf: Color = Color(0.22,0.58,0.25)
+	for p in [Vector2(-74,-136),Vector2(-35,-151),Vector2(10,-149),Vector2(54,-140),Vector2(83,-113),Vector2(-88,-101),Vector2(-48,-102),Vector2(44,-104)]:
+		DrawUtil.circle_outlined(self,p,31,leaf.lightened(0.04 if p.y < -130 else 0.0),DrawUtil.OUTLINE,3)
+	DrawUtil.circle_outlined(self,Vector2(0,-100),12,Color(0.35,0.88,0.92),DrawUtil.OUTLINE,2)
+	draw_circle(Vector2(0,-100),5,Color(0.86,1.0,1.0))
+
+func _draw_hollow_root_arena() -> void:
+	DrawUtil.shadow(self,Vector2(0,8),74,0.18)
+	DrawUtil.ellipse_outlined(self,Vector2.ZERO,82,52,Color(0.31,0.43,0.25),DrawUtil.OUTLINE,4)
+	DrawUtil.ellipse_line(self,Vector2.ZERO,64,38,Color(0.20,0.13,0.10,0.65),4,32)
+	for a in range(0,360,45):
+		var d: Vector2 = Vector2.RIGHT.rotated(deg_to_rad(float(a)))
+		var p: Vector2 = d*72.0
+		draw_line(p,p-d*24.0,Color(0.35,0.22,0.12),9)
+	for p in [Vector2(-28,-8),Vector2(34,6),Vector2(4,24)]:
+		DrawUtil.circle_outlined(self,p,7,Color(0.42,0.16,0.28),DrawUtil.OUTLINE,2)
+
+func _draw_cartographer_shrine() -> void:
+	DrawUtil.shadow(self,Vector2(0,9),48,0.17)
+	DrawUtil.rect_outlined(self,Rect2(-38,-58,76,68),Color(0.63,0.64,0.60),DrawUtil.OUTLINE,4)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-48,-56),Vector2(0,-91),Vector2(48,-56)]),Color(0.15,0.47,0.36),DrawUtil.OUTLINE,4)
+	DrawUtil.circle_outlined(self,Vector2(0,-30),15,Color(0.88,0.76,0.28),DrawUtil.OUTLINE,3)
+	for a in [0.0,PI*0.5,PI,PI*1.5]:
+		var d: Vector2 = Vector2.RIGHT.rotated(a)
+		draw_line(Vector2(0,-30)+d*6,Vector2(0,-30)+d*17,Color(0.88,0.76,0.28),3)
