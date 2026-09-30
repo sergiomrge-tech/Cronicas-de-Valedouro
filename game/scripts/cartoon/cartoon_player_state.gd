@@ -95,6 +95,55 @@ func _equip(recipe: Dictionary) -> void:
 		if int(recipe.get("tier",0)) >= int(equipped_armor.get("tier",0)):
 			equipped_armor = recipe.duplicate(true)
 
+func starter_equipment() -> Array[Dictionary]:
+	return [
+		{"id":"starter_blade","label":"Espada de Viagem","tier":0,"attack":0,"slot":"weapon"},
+		{"id":"starter_armor","label":"Túnica de Viagem","tier":0,"defense":0,"slot":"armor"}
+	]
+
+func owned_equipment() -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	for item in starter_equipment():
+		result.append(item.duplicate(true))
+	for value in crafted.values():
+		if value is Dictionary:
+			result.append((value as Dictionary).duplicate(true))
+	result.sort_custom(func(a: Dictionary,b: Dictionary): return int(a.get("tier",0)) > int(b.get("tier",0)))
+	return result
+
+func equip_item(item_id: String) -> Dictionary:
+	var found: Dictionary = {}
+	for item in owned_equipment():
+		if String(item.get("id","")) == item_id:
+			found = item
+			break
+	if found.is_empty():
+		return {"ok":false,"message":"Item não encontrado no inventário."}
+	var slot: String = String(found.get("slot",""))
+	if slot == "weapon":
+		equipped_weapon = found.duplicate(true)
+	elif slot == "armor":
+		equipped_armor = found.duplicate(true)
+	else:
+		return {"ok":false,"message":"Este item não pode ser equipado."}
+	save_profile()
+	return {"ok":true,"message":"Equipado: %s." % String(found.get("label","Item")),"item":found}
+
+func is_equipped(item_id: String) -> bool:
+	return String(equipped_weapon.get("id","")) == item_id or String(equipped_armor.get("id","")) == item_id
+
+func material_total() -> int:
+	var total: int = 0
+	for value in materials.values():
+		total += int(value)
+	return total
+
+func profile_summary() -> String:
+	return "%d equipamentos • %d materiais" % [owned_equipment().size(),material_total()]
+
+func has_profile_progress() -> bool:
+	return not crafted.is_empty() or material_total() > 0 or int(equipped_weapon.get("tier",0)) > 0 or int(equipped_armor.get("tier",0)) > 0
+
 func set_camera_zoom(value: float) -> void:
 	camera_zoom = clampf(value,0.70,1.50)
 	save_profile()

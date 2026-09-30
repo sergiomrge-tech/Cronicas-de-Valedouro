@@ -23,14 +23,18 @@ func setup(host_node, hero_node: Node2D, target_region_id: String) -> void:
 func is_open() -> bool:
 	return panel != null and panel.visible
 
+func close_panel() -> void:
+	if panel != null:
+		panel.visible = false
+
 func _state():
 	return get_node_or_null("/root/CartoonPlayerState")
 
 func _build() -> void:
 	var toggle: Button = Button.new()
 	toggle.text = "FORJA"
-	toggle.position = Vector2(480,18)
-	toggle.size = Vector2(92,46)
+	toggle.position = Vector2(462,18)
+	toggle.size = Vector2(104,46)
 	toggle.mouse_filter = Control.MOUSE_FILTER_STOP
 	toggle.add_theme_font_size_override("font_size",15)
 	_style_button(toggle,Color(0.50,0.30,0.13),Color(0.91,0.67,0.24))
@@ -118,7 +122,16 @@ func _style_button(button: Button, bg: Color, border: Color) -> void:
 
 func _toggle() -> void:
 	panel.visible = not panel.visible
+	if panel.visible:
+		_close_inventory()
 	_refresh()
+
+func _close_inventory() -> void:
+	if host == null:
+		return
+	var bag = host.get("inventory_ui")
+	if bag != null and bag.has_method("close_panel"):
+		bag.call("close_panel")
 
 func _craft(slot: String) -> void:
 	var state = _state()

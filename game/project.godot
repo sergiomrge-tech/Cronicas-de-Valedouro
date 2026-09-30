@@ -2,7 +2,7 @@ config_version=5
 
 [application]
 config/name="Crônicas de Valedouro"
-run/main_scene="res://scenes/cartoon/ValedouroCartoonHub.tscn"
+run/main_scene="res://scenes/cartoon/CartoonMainMenu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/description="RPG top-down original para celular"
 
