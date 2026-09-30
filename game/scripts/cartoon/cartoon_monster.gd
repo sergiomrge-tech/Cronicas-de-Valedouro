@@ -63,6 +63,10 @@ func _draw() -> void:
 			_draw_ash_general()
 		"reed_lady":
 			_draw_reed_lady()
+		"frost_captain":
+			_draw_frost_captain()
+		"black_frost_general":
+			_draw_black_frost_general()
 		_:
 			_draw_wolf()
 	draw_set_transform(Vector2.ZERO,0.0,Vector2.ONE)
@@ -167,3 +171,34 @@ func _draw_reed_lady() -> void:
 	DrawUtil.circle_outlined(self,Vector2(0,-31),8,Color(0.52,0.19,0.34),DrawUtil.OUTLINE,2)
 	for p in [Vector2(-38,-18),Vector2(38,-18)]:
 		DrawUtil.flame(self,p,18,7,anim_t)
+
+
+func _draw_frost_captain() -> void:
+	var armor: Color = Color(0.43,0.55,0.65)
+	var ice: Color = Color(0.45,0.83,1.0)
+	DrawUtil.shadow(self,Vector2(0,12),37,0.26)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-20),32,29,armor,DrawUtil.OUTLINE,4)
+	DrawUtil.rect_outlined(self,Rect2(-24,-67,48,50),armor.lightened(0.04),DrawUtil.OUTLINE,4)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-22,-64),Vector2(-13,-88),Vector2(0,-78),Vector2(13,-88),Vector2(22,-64)]),Color(0.28,0.39,0.50),DrawUtil.OUTLINE,3)
+	for x in [-29.0,29.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-39),Vector2(x*1.22,-5),10,armor.darkened(0.05),DrawUtil.OUTLINE,3)
+	draw_circle(Vector2(-7,-53),3,ice)
+	draw_circle(Vector2(7,-53),3,ice)
+	DrawUtil.circle_outlined(self,Vector2(0,-30),8,ice,DrawUtil.OUTLINE,2)
+
+func _draw_black_frost_general() -> void:
+	var armor: Color = Color(0.20,0.29,0.39)
+	var frost: Color = Color(0.28,0.66,0.95)
+	DrawUtil.shadow(self,Vector2(0,13),40,0.30)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-20),35,30,armor,DrawUtil.OUTLINE,4)
+	DrawUtil.rect_outlined(self,Rect2(-27,-70,54,53),armor.lightened(0.03),DrawUtil.OUTLINE,4)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-27,-67),Vector2(-38,-94),Vector2(-15,-82),Vector2(0,-104),Vector2(15,-82),Vector2(38,-94),Vector2(27,-67)]),Color(0.15,0.23,0.34),DrawUtil.OUTLINE,3)
+	for x in [-32.0,32.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-41),Vector2(x*1.24,-4),10,armor.darkened(0.05),DrawUtil.OUTLINE,3)
+	for x in [-14.0,14.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-2),Vector2(x,20),11,armor.darkened(0.08),DrawUtil.OUTLINE,3)
+	draw_circle(Vector2(-8,-56),3,frost)
+	draw_circle(Vector2(8,-56),3,frost)
+	DrawUtil.circle_outlined(self,Vector2(0,-31),9,frost,DrawUtil.OUTLINE,2)
+	for p in [Vector2(-40,-18),Vector2(40,-18)]:
+		DrawUtil.flame(self,p,20,8,anim_t)
