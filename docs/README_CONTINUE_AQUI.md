@@ -1,33 +1,43 @@
-# CONTINUE AQUI — Crônicas de Valedouro
+# CONTINUE AQUI — Crônicas de Valedouro 2D Cartoon
 
 **Diretor:** Sergio  
 **Mundo:** Elyndor  
 **Engine:** Godot 4.7.2  
-**Build atual de trabalho:** v0.6.2 refinamento de mapa.
+**Base oficial atual:** 2D Cartoon  
+**Cena inicial:** `res://scenes/cartoon/CartoonMainMenu.tscn`
+
+## ATENÇÃO
+A antiga versão visual/pixel-art não é mais a versão de trabalho. Não continuar desenvolvimento a partir dela. Use exclusivamente a arquitetura Cartoon como base das próximas alterações.
 
 ## Cânone essencial
 Elyndor vive a Guerra da Coroa Oca há 23 anos. O protagonista é um humano da Terra e o Segundo Viajante. Ele precisa reunir os Sete Sigilos, apoiar as Seis Coroas, derrotar Azharel e usar o Coração do Limiar para voltar à Terra. Azharel foi Adrian Vale, o Primeiro Viajante.
 
 ## Direção atual
+- Action RPG 2D Cartoon top-down para Android/celular.
 - Um protagonista flexível, sem classes rígidas.
-- Progressão nível 1–100 no jogo completo.
-- Mundo aberto por regiões, bosses, materiais e crafting por IDs.
-- Visual inspirado conceitualmente no nível de coesão/detalhe de RPGs pixel-art modernos, sem copiar conteúdo protegido.
-- REG_001: mapa híbrido, vegetação procedural controlada e pontos narrativos manuais.
-- Árvores: refinadas, sombreadas, com sombra de contato e boa leitura mobile.
+- Progressão planejada do nível 1 ao 100.
+- Mundo aberto por regiões, com exploração, bosses, materiais, loot e crafting.
+- Áreas e construções do mapa devem corresponder às missões da história.
+- Regiões devem ter escala de exploração real, evitando mapas curtos demais.
+- Interface deve ser adequada para touch e manter boa leitura em tela pequena.
 
-## Estado REG_001 (Etapa 1 concluída)
-- Mundo manual em dados: `game/data/reg001_world.json` (fonte: `game/tools/reg001/build_world.py`); runtime em `game/scripts/reg001_*.gd`.
-- Assets modelados: `game/assets/modeled` + `game/data/modeled_assets_manifest.json` (fonte: `game/tools/modeling`). **Pendentes de gate visual do Diretor.**
-- Catálogo APPROVED/INTEGRATED/MISSING/NOT_USED: `docs/catalog/REG001_ASSET_CATALOG.md`; IDs: `docs/planning/CRONICAS_VALEDOURO_REG001_WORLD_IDS_v1.md`.
-- Relatório e gate: `docs/checkpoints/CHECKPOINT_REG001_ETAPA1.md`; capturas: `docs/visual_qa/reg001/`.
+## Estrutura Cartoon
+- Cenas: `game/scenes/cartoon/`
+- Scripts: `game/scripts/cartoon/`
+- Menu: `CartoonMainMenu.tscn` + `cartoon_main_menu.gd`
+- Estado/save: `cartoon_player_state.gd`
+- Inventário: `cartoon_inventory_ui.gd`
+- Crafting: `cartoon_crafting_ui.gd`
+- Zoom: `cartoon_zoom_controls.gd`
+- Story runtime/mapa principal: scripts `cartoon_*` correspondentes.
 
-## Próximo marco
-Primeira build jogável: cidade, área externa, 2 inimigos, loot, inventário/equipamento, dungeon curta, Guardião e save/load.
+## Checkpoint da sessão — 30/09/2026
+A versão Cartoon é a única base ativa. O histórico mais recente identificado antes desta limpeza contém **UI v0.15**, com integração de inventário e reorganização do HUD. A sessão atual deve continuar especificamente em:
+- menu inicial;
+- inventário;
+- HUD/layout mobile;
+- continuidade do save;
+- refinamento de usabilidade.
 
-## Fechamento visual profissional (pré-Etapa 2)
-- Pipeline executável em `game/tools/art_pipeline/` (Blender headless via `bpy`; `README_VK.md`) e skill em `docs/art/VALEDOURO_PRO_ART_MODELING_SKILL.md`.
-- 147 assets remodelados (landmarks, elevações, natureza, NPCs, fauna, interiores, props) + 6 FX; todos `MODELED_PENDING_GATE`.
-- Relatório: `docs/checkpoints/CHECKPOINT_PRO_ART_ETAPA1B.md`; revisão A/B/C/D: `docs/art/PRO_ART_REVIEW_MODELED.md`; capturas: `docs/visual_qa/pro/`.
-- Não iniciar a Etapa 2 (combate) sem nova ordem do Diretor.
-- Relatório completo do dia (para o Gerente): `docs/relatorios/RELATORIO_DIA_2026-09-29_PARA_GERENTE_GPT.md`.
+## Regra para agentes
+Se encontrar documentação antiga falando em “v0.6.x pixel art”, “REG_001 como versão atual” ou equivalente, trate-a como histórico e não como estado corrente. Não ressuscitar a implementação antiga.
