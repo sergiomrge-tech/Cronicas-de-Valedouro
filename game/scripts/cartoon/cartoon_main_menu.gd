@@ -267,7 +267,7 @@ func _refresh_profile() -> void:
 		continue_button.disabled = not has_save
 	if delete_button != null:
 		delete_button.disabled = not has_save
-	profile_label.text = state.profile_summary() if has_save else "Sem aventura salva\nNovo Jogo começa em Valedouro"
+	profile_label.text = state.profile_summary() if has_save else "Sem aventura salva\n%s" % state.profile_summary()
 
 func _build_options() -> void:
 	options_panel = PanelContainer.new()
