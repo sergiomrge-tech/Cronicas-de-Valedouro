@@ -50,6 +50,330 @@
    "status": "MODELED_PENDING_GATE"
   },
   {
+   "id": "icon_equip_armor_1",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/leather_armor.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_armor_1.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_armor_2",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/steel_armor.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_armor_2.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px; metal tingido na cor do tier",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_armor_3",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/steel_armor.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_armor_3.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px; metal tingido na cor do tier",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_armor_4",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/steel_armor.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_armor_4.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px; metal tingido na cor do tier",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_bow_0",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/slingshot.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_bow_0.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_bow_1",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/shortbow.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_bow_1.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_bow_2",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/longbow.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_bow_2.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px; metal tingido na cor do tier",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_bow_3",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/greatbow.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_bow_3.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px; metal tingido na cor do tier",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_staff_0",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/wand.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_staff_0.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_staff_1",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/staff.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_staff_1.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_staff_2",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/rod.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_staff_2.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_staff_3",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/greatstaff.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_staff_3.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_sword_0",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/shortsword.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_sword_0.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_sword_1",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/longsword.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_sword_1.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_sword_2",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/greatsword.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_sword_2.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px; metal tingido na cor do tier",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_equip_sword_3",
+   "category": "icone_equipamento",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_osare_weapon_icons/valmis_unpacked/Valmis/longsword.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_equip_sword_3.png",
+   "modifications": "fundo preto -> roxo-escuro do HUD; redução de área 60->28 px; paleta de 40 cores; moldura de tier 2 px; metal tingido na cor do tier",
+   "used_in": "inventário (botões de equipar), slots de equipamento do HUD, aviso de loot",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_mat_casco_ambar",
+   "category": "icone_material",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_magic_skill_item_icons/64x64_unpacked/64x64/Shield Mod 2.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_mat_casco_ambar.png",
+   "modifications": "redução de área 64->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "bolsa de materiais e aviso de coleta (Casco de âmbar)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_mat_coracao_geada",
+   "category": "icone_material",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_magic_skill_item_icons/64x64_unpacked/64x64/Water Drop Original.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_mat_coracao_geada.png",
+   "modifications": "redução de área 64->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "bolsa de materiais e aviso de coleta (Coração de geada)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_mat_couro_lobo",
+   "category": "icone_material",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_magic_skill_item_icons/64x64_unpacked/64x64/Shirt Original.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_mat_couro_lobo.png",
+   "modifications": "redução de área 64->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "bolsa de materiais e aviso de coleta (Couro de lobo)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_mat_cristal_gelado",
+   "category": "icone_material",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_magic_skill_item_icons/64x64_unpacked/64x64/Water Drop 1 Original.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_mat_cristal_gelado.png",
+   "modifications": "redução de área 64->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "bolsa de materiais e aviso de coleta (Cristal gelado)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_mat_fragmento_eco",
+   "category": "icone_material",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_magic_skill_item_icons/64x64_unpacked/64x64/Jewel Original.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_mat_fragmento_eco.png",
+   "modifications": "redução de área 64->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "bolsa de materiais e aviso de coleta (Fragmento de Eco)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_mat_minerio_bruto",
+   "category": "icone_material",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_magic_skill_item_icons/64x64_unpacked/64x64/Moon Mod 7.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_mat_minerio_bruto.png",
+   "modifications": "redução de área 64->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "bolsa de materiais e aviso de coleta (Minério bruto)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_mat_nucleo_limo",
+   "category": "icone_material",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_magic_skill_item_icons/64x64_unpacked/64x64/Potion 2 Mod 1.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_mat_nucleo_limo.png",
+   "modifications": "redução de área 64->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "bolsa de materiais e aviso de coleta (Núcleo de limo)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_mat_presa_musgosa",
+   "category": "icone_material",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_magic_skill_item_icons/64x64_unpacked/64x64/Sharp Mod 4.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_mat_presa_musgosa.png",
+   "modifications": "redução de área 64->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "bolsa de materiais e aviso de coleta (Presa musgosa)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_mat_quitina_ambar",
+   "category": "icone_material",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_magic_skill_item_icons/64x64_unpacked/64x64/Sharp Mod 7.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_mat_quitina_ambar.png",
+   "modifications": "redução de área 64->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "bolsa de materiais e aviso de coleta (Quitina âmbar)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_mat_seda_sombria",
+   "category": "icone_material",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_magic_skill_item_icons/64x64_unpacked/64x64/Rip Mod 5.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_mat_seda_sombria.png",
+   "modifications": "redução de área 64->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "bolsa de materiais e aviso de coleta (Seda sombria)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
+   "id": "icon_mat_seiva_voraz",
+   "category": "icone_material",
+   "source_paths": [
+    "external_assets/free_reference_library/equipment/oga_magic_skill_item_icons/64x64_unpacked/64x64/Leafs 1 Original.png"
+   ],
+   "license": "CC0 (OpenGameArt, ver SOURCE.md)",
+   "derived": "game/assets/external/icons/icon_mat_seiva_voraz.png",
+   "modifications": "redução de área 64->28 px; paleta de 40 cores; moldura de tier 2 px",
+   "used_in": "bolsa de materiais e aviso de coleta (Seiva voraz)",
+   "status": "MODELED_PENDING_GATE"
+  },
+  {
    "id": "mob_arqueiro_ossudo",
    "category": "monstro",
    "source_paths": [

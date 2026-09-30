@@ -124,6 +124,7 @@ func on_enemy_defeated(enemy: Dictionary) -> void:
 	var drop: Dictionary = (d.get("drop", {}) as Dictionary).get("materials", {}) as Dictionary
 	for name_value in drop.keys():
 		game.materials[str(name_value)] = int(game.materials.get(str(name_value), 0)) + int(drop[name_value])
+		game.loot_popup(game.material_icon(str(name_value)), "+%d" % int(drop[name_value]))
 	var lore_id: String = str(d.get("lore", ""))
 	game.message("%s derrotado! Um baú foi liberado por perto." % str(enemy.get("elite_name", "Elite")))
 	if not lore_id.is_empty():
@@ -306,10 +307,12 @@ func open_chest(poi: Dictionary) -> void:
 	var materials: Dictionary = loot.get("materials", {}) as Dictionary
 	for name_value in materials.keys():
 		game.materials[str(name_value)] = int(game.materials.get(str(name_value), 0)) + int(materials[name_value])
+		game.loot_popup(game.material_icon(str(name_value)), "+%d" % int(materials[name_value]))
 	game.potions += int(loot.get("potions", 0))
 	var found_text: String = "Baú aberto: %d moedas" % int(loot.get("gold", 0))
 	if not item.is_empty():
 		game.stored_items.append(item.duplicate(true))
+		game.loot_popup(game.item_icon(item), str(item["name"]))
 		found_text = "Baú aberto: %s!" % str(item["name"])
 	REG.mark("opened", id)
 	spawn_fx("fx_chest_open", poi["pos"])
@@ -326,6 +329,7 @@ func gather(poi: Dictionary) -> void:
 	var amount: int = int(d.get("amount", 1))
 	game.materials[mat] = int(game.materials.get(mat, 0)) + amount
 	REG.mark("gathered", id)
+	game.loot_popup(game.material_icon(mat), "+%d" % amount)
 	var mined: bool = mat.findn("cristal") >= 0 or mat.findn("âmbar") >= 0 or mat.findn("minério") >= 0 or mat.findn("ferro") >= 0
 	spawn_fx("fx_mine" if mined else "fx_harvest", poi["pos"])
 	game.message("Colhido: %s x%d" % [mat, amount])

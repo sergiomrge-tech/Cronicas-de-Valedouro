@@ -59,6 +59,7 @@ var spawn_timer: float = 0.0
 var hint: String = "Visite a guilda para aceitar uma missão."
 var hint_timer: float = 5.0
 var joystick_id: int = -1
+var material_icons: Dictionary = {}            # material -> id do ícone (data/external_icons.json)
 var draw_camera: Vector2 = Vector2.ZERO          # câmera do quadro atual (restaurada por quem troca a transformação)
 var qa_hide_hud: bool = false   # só para capturas de QA em mosaico (tests/qa_capture_mosaic.gd)
 var joystick_origin: Vector2 = Vector2.ZERO
@@ -120,6 +121,7 @@ func _ready() -> void:
 	for tier in range(0, 5):
 		textures["hero_extra_%d" % tier] = load("res://assets/hero_extra_%d.png" % tier)
 	fx = CFX.new()
+	load_item_icons()
 	for tier in range(1, 5):
 		var key: String = "equip_armor_%d" % tier
 		textures[key] = load("res://assets/%s.png" % key)
@@ -269,6 +271,32 @@ func decorate_button(button: Button) -> void:
 	button.add_theme_constant_override("shadow_offset_x", 1)
 	button.add_theme_constant_override("shadow_offset_y", 1)
 
+func load_item_icons() -> void:
+	# ícones de inventário/loot adaptados de assets gratuitos CC0 (OSARE + Magic/Skill/Item icons) — data/external_icons.json
+	var f: FileAccess = FileAccess.open("res://data/external_icons.json", FileAccess.READ)
+	if f == null:
+		return
+	var doc: Variant = JSON.parse_string(f.get_as_text())
+	if not doc is Dictionary:
+		return
+	for id in (doc["icons"] as Dictionary).keys():
+		textures[id] = load(str(doc["icons"][id]))
+	material_icons = doc.get("materials", {})
+
+func item_icon(item: Dictionary) -> Texture2D:
+	var kind: String = str(item.get("kind", "sword"))
+	var tier: int = int(item.get("tier", 0))
+	var key: String = "icon_equip_%s_%d" % [kind, clampi(tier, 1 if kind == "armor" else 0, 4 if kind == "armor" else 3)]
+	return textures.get(key) if (kind != "armor" or tier > 0) else null
+
+func material_icon(name: String) -> Texture2D:
+	return textures.get(str(material_icons.get(name, "")))
+
+func loot_popup(icon: Texture2D, text: String) -> void:
+	# aviso de coleta: ícone do item/material sobe acima do herói
+	if icon != null:
+		floaters.append({"pos": player + Vector2(-60 + 120 * (floaters.filter(func(x): return x.has("icon")).size() % 2), -52), "text": text, "t": 1.2, "color": Color(1, .92, .6), "icon": icon})
+
 func show_dialog(title: String, body: String, choices: Array) -> void:
 	dialog_title.text = title
 	dialog_body.text = body
@@ -278,6 +306,10 @@ func show_dialog(title: String, body: String, choices: Array) -> void:
 		var button: Button = Button.new()
 		button.text = choice[0]
 		button.custom_minimum_size.y = 39
+		if choice.size() > 2 and choice[2] != null:
+			button.icon = choice[2]
+			button.add_theme_constant_override("icon_max_width", 32)
+			button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		decorate_button(button)
 		button.pressed.connect(choice[1])
 		dialog_choices.add_child(button)
@@ -693,9 +725,11 @@ func finish_enemy(index: int) -> void:
 		var material_name: String = reward["material"]
 		if not material_name.is_empty():
 			materials[material_name] = int(materials.get(material_name, 0)) + 1
+			loot_popup(material_icon(material_name), "+1")
 		var item: Dictionary = reward["item"]
 		if not item.is_empty() and stored_items.size() < 30:
 			stored_items.append(item)
+			loot_popup(item_icon(item), str(item["name"]))
 			message("Equipamento raro encontrado: %s!" % item["name"])
 	if rng.randf() < .17:
 		potions += 1
@@ -1073,7 +1107,7 @@ func show_inventory() -> void:
 	for i in range(first, mini(first + 4, stored_items.size())):
 		var index: int = i
 		var item: Dictionary = stored_items[index]
-		choices.append(["Equipar %s (Nv %d)" % [item["name"], item["req"]], func(): equip_item(index)])
+		choices.append(["Equipar %s (Nv %d)" % [item["name"], item["req"]], func(): equip_item(index), item_icon(item)])
 	if first + 4 < stored_items.size():
 		choices.append(["Próxima página", func(): inventory_page += 1; show_inventory()])
 	if first > 0:
@@ -1082,14 +1116,22 @@ func show_inventory() -> void:
 	var body: String = "Vida %d/%d  •  XP %d/%d  •  %d moedas\nArma: %s (+%d)\nArmadura: %s (+%d)\nBolsa: %d/30  •  Poções: %d  •  Teto: Lv %d" % [hp, max_hp, xp, level * 35, gold, equipped_weapon["name"], equipped_weapon.get("atk", 0), equipped_armor["name"], equipped_armor.get("def", 0), stored_items.size(), potions, level_cap()]
 	show_dialog("Aventureiro • Nível %d" % level, body, choices)
 
-func show_materials() -> void:
-	var lines: String = "Materiais coletados:\n"
-	if materials.is_empty():
-		lines += "Ainda não há materiais na bolsa."
-	else:
-		for key in materials.keys():
-			lines += "%s × %d\n" % [key, int(materials[key])]
-	show_dialog("Bolsa de materiais", lines, [["Voltar aos equipamentos", func(): show_inventory()]])
+func show_materials(page: int = 0) -> void:
+	var lines: String = "Materiais coletados:"
+	var choices: Array = []
+	var keys: Array = materials.keys()
+	if keys.is_empty():
+		lines += "\nAinda não há materiais na bolsa."
+	var first: int = page * 4
+	for i in range(first, mini(first + 4, keys.size())):
+		var key: String = str(keys[i])
+		choices.append(["%s × %d" % [key, int(materials[key])], func(): show_materials(page), material_icon(key)])
+	if first + 4 < keys.size():
+		choices.append(["Próxima página", func(): show_materials(page + 1)])
+	elif page > 0:
+		choices.append(["Página anterior", func(): show_materials(page - 1)])
+	choices.append(["Voltar aos equipamentos", func(): show_inventory()])
+	show_dialog("Bolsa de materiais", lines, choices)
 
 func equip_item(index: int) -> void:
 	if index < 0 or index >= stored_items.size():
@@ -1763,6 +1805,12 @@ func draw_floaters() -> void:
 		var rise: float = (1.0 - t / .7) * 18.0
 		var color: Color = f["color"]
 		color.a = clampf(t / .25, 0, 1)
+		if f.has("icon"):
+			rise = (1.2 - t) * 20.0
+			draw_texture_rect(f["icon"], Rect2(p - Vector2(16, 32 + rise), Vector2(32, 32)), false, Color(1, 1, 1, color.a))
+			draw_string_outline(ui_font, p - Vector2(80, rise - 12), f["text"], HORIZONTAL_ALIGNMENT_CENTER, 160, 14, 4, Color(.1, .05, .16, color.a))
+			draw_string(ui_font, p - Vector2(80, rise - 12), f["text"], HORIZONTAL_ALIGNMENT_CENTER, 160, 14, color)
+			continue
 		draw_string_outline(ui_font, p - Vector2(30, rise), f["text"], HORIZONTAL_ALIGNMENT_CENTER, 60, 18, 4, Color(.1, .05, .16, color.a))
 		draw_string(ui_font, p - Vector2(30, rise), f["text"], HORIZONTAL_ALIGNMENT_CENTER, 60, 18, color)
 
@@ -1799,6 +1847,13 @@ func draw_hud() -> void:
 	draw_texture_rect(textures["icon_potion"], Rect2(168, 52, 16, 16), false)
 	hud_text(Vector2(188, 66), "× %d" % potions, 15, Color(1, .75, .9), 60)
 	draw_style_box(panel_box, Rect2(4, 76, 450, 34))
+	# slots de equipamento (ícones gratuitos adaptados): arma e armadura vestidas
+	for slot in 2:
+		var r: Rect2 = Rect2(306 + slot * 44, 8, 40, 40)
+		draw_style_box(panel_box, r)
+		var ic: Texture2D = item_icon(equipped_weapon if slot == 0 else equipped_armor)
+		if ic != null:
+			draw_texture_rect(ic, r.grow(-4), false)
 	if hint_timer > 0:
 		draw_style_box(panel_box, Rect2(280, 118, 400, 48))
 	# joystick virtual
