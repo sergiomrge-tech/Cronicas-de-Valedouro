@@ -285,7 +285,7 @@ jobs:
         run: |
           mkdir -p game/ci_output_cartoon
           timeout 120s xvfb-run -a /tmp/godot/godot --path game --rendering-method gl_compatibility --script res://tests/qa_capture_cartoon_hub.gd -- "$PWD/game/ci_output_cartoon"
-          test "$(find game/ci_output_cartoon -maxdepth 1 -type f -name '*.png' | wc -l)" -ge 4
+          test "$(find game/ci_output_cartoon -maxdepth 1 -type f -name '*.png' | wc -l)" -ge 16
           ls -lh game/ci_output_cartoon
 
       - name: Upload cartoon hub visual QA artifact
