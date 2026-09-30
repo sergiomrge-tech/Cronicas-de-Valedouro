@@ -112,3 +112,17 @@ static func act1_encounters() -> Array[Dictionary]:
 		{"kind":"wolf","name":"Alfa da Matilha","pos":Vector2(cx+760.0,north_edge-2950.0),"hp":105,"speed":102.0,"damage":15,"scale":1.32,"story_tag":"story_alpha","boss_id":"BOSS_ALPHA_MATILHA_001"},
 		{"kind":"guardian","name":"Guardião do Eco","pos":Vector2(cx-980.0,north_edge-4460.0),"hp":175,"speed":58.0,"damage":18,"scale":1.25,"story_tag":"story_guardian","boss_id":"BOSS_GUARDIAO_PEDRA_001"}
 	]
+
+
+static func region_transitions() -> Array[Dictionary]:
+	return [
+		{
+			"id":"TRANSITION_FOREST_ANCESTRAL",
+			"label":"Passagem para a Floresta Ancestral",
+			"kind":"gate",
+			"pos":Vector2(Region.SOUTH_ROAD_X,700.0),
+			"scale":1.05,
+			"quest":"Q_MS02_BORDER",
+			"next_scene":"res://scenes/cartoon/ForestAncientCartoon.tscn"
+		}
+	]
