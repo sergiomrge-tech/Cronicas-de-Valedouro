@@ -105,7 +105,23 @@ func _ready() -> void:
 	inventory_ui.name = "InventoryUI"
 	ui.add_child(inventory_ui)
 	inventory_ui.setup(self,hero,true)
+	_bind_campaign_save()
 	_refresh_objective()
+
+func _bind_campaign_save() -> void:
+	if get_tree().current_scene != self:
+		return
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state == null:
+		return
+	state.bind_scene("res://scenes/cartoon/FrostMountainsCartoon.tscn",self,hero,story_runtime,38,245,290,[])
+	_refresh_stats()
+
+func _change_scene_saved(path: String) -> void:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state != null:
+		state.prepare_transition(path)
+	get_tree().change_scene_to_file(path)
 
 func _add_poi_prop(data: Dictionary) -> void:
 	var prop: Node2D = PropScript.new()
@@ -208,7 +224,7 @@ func _interact() -> void:
 	if id == "LOC_VAL_GATE" or id == "POI_FROST_RETURN_ROUTE":
 		if story_runtime.siege_pending:
 			_show_toast("Retornando a Valedouro para defender as muralhas...")
-			get_tree().change_scene_to_file("res://scenes/cartoon/ValedouroSiegeCartoon.tscn")
+			_change_scene_saved("res://scenes/cartoon/ValedouroSiegeCartoon.tscn")
 		else:
 			_show_toast("A rota de retorno ainda não é o objetivo atual.")
 		return
