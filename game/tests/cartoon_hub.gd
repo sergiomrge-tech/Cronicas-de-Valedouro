@@ -32,6 +32,8 @@ func run() -> void:
 	assert(packed.monsters.size() == 12)
 	assert(packed.environment.nearest_poi(Region.world_from_hub(Vector2(650,1935)),190.0).get("id","") == "POI_REG001_FARM")
 	assert(packed.world_stream != null)
+	assert(packed.story_zones != null)
+	assert(packed.story_zones.get_child_count() == 5)
 	assert(packed.world_stream.active_count() >= 1)
 	var roadside: Dictionary = packed.environment.nearest_poi(Vector2(Region.SOUTH_ROAD_X-330.0,Region.HUB_RECT.end.y+1350.0),180.0)
 	assert(String(roadside.get("id","")) == "POI_REG001_ROADSIDE_POST")
