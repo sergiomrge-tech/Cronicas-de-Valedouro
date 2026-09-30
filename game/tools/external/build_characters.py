@@ -298,11 +298,11 @@ def main():
     (GAME / 'data' / 'external_mobs.json').write_text(json.dumps({'note': 'mobs animados Foozle adaptados (tools/external/build_characters.py)', 'mobs': metas}, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     hs = hero()
     prov.append({'id': 'hero_body', 'category': 'heroi', 'source_paths': sorted({rel(Path(s).parent.parent.parent) for s in hs}), 'license': LICENSE['foozle'],
-                 'derived': 'game/assets/hero_body.png, hero_armor_1..4.png, hero_extra_0..4.png, hero_sword_0..3.png',
+                 'derived': ['game/assets/hero_body.png'] + ['game/assets/hero_armor_%d.png' % t for t in range(1, 5)] + ['game/assets/hero_extra_%d.png' % t for t in range(5)] + ['game/assets/hero_sword_%d.png' % t for t in range(4)],
                  'modifications': 'Foozle Lucifer Warrior como base de animação (andar 8, ataque combo A01+A02 10, idle 6, dano 4, morte 8) em 8 direções; traje recolorido para a identidade do protagonista (túnica azul, capa ferrugem); tiers de armadura = material da armadura (couro/ferro/aço-azul/ouro); tier da espada tinge o golpe e o cabo; contrato 864x448 preservado',
                  'used_in': 'protagonista (todas as zonas)', 'status': 'MODELED_PENDING_GATE'})
     prov.append({'id': 'hero_bow_staff', 'category': 'heroi', 'source_paths': [rel(LIB / 'equipment' / 'oga_osare_weapon_icons')], 'license': LICENSE['oga'],
-                 'derived': 'game/assets/hero_bow_0..3.png, hero_staff_0..3.png', 'modifications': 'ícones Osare reduzidos a 16px e ancorados na mão do herói em cada quadro', 'used_in': 'herói com arco/cajado', 'status': 'MODELED_PENDING_GATE'})
+                 'derived': ['game/assets/hero_%s_%d.png' % (k, t) for k in ('bow', 'staff') for t in range(4)], 'modifications': 'ícones Osare reduzidos a 16px e ancorados na mão do herói em cada quadro', 'used_in': 'herói com arco/cajado', 'status': 'MODELED_PENDING_GATE'})
     record(prov)
     print('mobs:', [m['id'] for m in metas])
 

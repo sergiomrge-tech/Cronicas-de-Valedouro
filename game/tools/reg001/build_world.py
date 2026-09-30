@@ -308,9 +308,10 @@ trail('REG001_TRAIL_VALE_FORD', [(1590, 1900), (1760, 1890), (1900, 2000), (1965
 # --- Vila dos Campos (assentamento com casas APPROVED)
 P('REG001_POI_VILA_CAMPOS', 'settlement', 'VILA DOS CAMPOS', 535, 1880, tier=1, layer='main', radius=230, region='campos',
   data={'npc': 'farmer', 'name': 'Dona Alma', 'family': 'farmer', 'lines': ['Os limos andam ariscos nos campos.', 'Meu espantalho cansou de vigiar, mas os corvos têm medo dele.']})
-W.house(440, 1900, 'wood', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
-W.house(540, 1830, 'blue', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
-W.house(650, 1905, 'red', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
+# (QA Etapa 7) casas reespaçadas: estavam a 100x70 px umas das outras e os telhados se sobrepunham
+W.house(365, 1885, 'wood', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
+W.house(555, 1790, 'blue', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
+W.house(745, 1885, 'red', 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
 W.obj('nat_well_stone', 545, 1955, 'VILA_C', poi='REG001_POI_VILA_CAMPOS')
 W.obj('nat_flag_blue', 610, 1960, 'VILA_C', anim=1)
 W.obj('nat_hay_bale', 380, 1965, 'VILA_C')
@@ -341,7 +342,7 @@ P('REG001_POI_ALDEIA_VALE', 'settlement', 'ALDEIA DO VALE', 1330, 1760, tier=1, 
   data={'npc': 'miller', 'name': 'Tio Bento', 'family': 'miller', 'lines': ['O moinho gira sozinho quando o vento do bosque sopra.', 'A cripta ao sul não é lugar para curiosos... mas há tesouros.']})
 W.house(1290, 1690, 'blue', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
 W.house(1375, 1840, 'red', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
-W.house(1170, 1790, 'wood', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
+W.house(1135, 1805, 'wood', 'ALDEIA_V', poi='REG001_POI_ALDEIA_VALE')
 W.obj('nat_well_stone', 1440, 1750, 'ALDEIA_V')
 W.obj('nat_flag_red', 1465, 1700, 'ALDEIA_V', anim=1)
 iso_wall('mureta', (1206, 1940), [('ne', 2), ('se', 2)], 'ALDEIA_V')
@@ -1041,9 +1042,8 @@ for _wx, _wy in ((215, 470), (1560, 470)):
 W.house(TX + 1720, TY + 470, 'red', 'CIDADE_LOJAS')      # loja = casa inteira modelada
 
 # povoados: mais casas compostas APPROVED (Vila dos Campos, Aldeia do Vale, casa da fazenda)
-for _x, _y, _roof, _grp, _poi in ((345, 1835, 'red', 'VILA_C', 'REG001_POI_VILA_CAMPOS'), (700, 1820, 'wood', 'VILA_C', 'REG001_POI_VILA_CAMPOS'),
-                                  (1185, 1690, 'red', 'ALDEIA_V', 'REG001_POI_ALDEIA_VALE'), (1425, 1700, 'wood', 'ALDEIA_V', 'REG001_POI_ALDEIA_VALE'),
-                                  (600, 2070, 'blue', 'FAZENDA', None)):
+# (QA Etapa 7) as casas extras das vilas caíam em cima das originais; as vilas crescem só pelo gerador (remap_city.fill_village)
+for _x, _y, _roof, _grp, _poi in ((650, 2055, 'blue', 'FAZENDA', None),):
     W.house(_x, _y, _roof, _grp, poi=_poi)
 
 # árvores aprovadas: alamedas ao longo das ruas e jardins
@@ -1645,6 +1645,33 @@ for _x, _y in _lv[::2][:14]:
 for _x, _y in ((2150, 1500), (2400, 1560), (2700, 1500), (2900, 1650), (2250, 1780), (2800, 1980), (2600, 2200), (2950, 2150)):
     if layout.biome(_x, _y) == 'deserto':
         W.emitter('dust', _x, _y, 90)
+
+# QA Etapa 7 — props do traçado antigo que ficaram SOBRE as novas vias (bancos, barris, poços, suportes...): empurrados
+# para a margem pela normal do segmento mais próximo. O poço do largo no fim da Av. Sul é o marco da praça e fica.
+_NUDGE = ('city_bench', 'city_barrels', 'city_crates', 'val_weapon_rack', 'val_training_dummy', 'city_lamp_post', 'city_cart_market',
+          'nat_well_stone', 'val_crown_monument', 'city_monument', 'city_planter', 'city_sign', 'nat_hay_bale')
+_moved = 0
+for _o in W.objects:
+    if _o['zone'] != 'cidade' or not _o['asset'].startswith(_NUDGE) or (_o['asset'] == 'nat_well_stone' and _o['pos'] == [1512, 1418]):
+        continue
+    _r = float(_o.get('solid', 8.0))
+    _x, _y = _o['pos']
+    if not layout.road_at(_x, _y, pad=_r):
+        continue
+    _rx, _ry = RC._nearest_road_pt(_x, _y)
+    _nx, _ny = _x - _rx, _y - _ry
+    _n = math.hypot(_nx, _ny) or 1.0
+    _nx, _ny = (_nx / _n, _ny / _n) if _n > 1.0 else (0.0, 1.0)
+    for _k in range(1, 40):
+        _px, _py = _x + _nx * 4 * _k, _y + _ny * 4 * _k
+        if not layout.road_at(_px, _py, pad=_r + 4):
+            _o['pos'] = [round(_px, 1), round(_py, 1)]
+            for _c in W.colliders:                                    # a colisão composta do prop acompanha o deslocamento
+                if _c['kind'] == 'circle' and _c.get('zone', 'cidade') == 'cidade' and math.hypot(_c['pos'][0] - _x, _c['pos'][1] - _y) < 40:
+                    _c['pos'] = [round(_c['pos'][0] + _px - _x, 1), round(_c['pos'][1] + _py - _y, 1)]
+            _moved += 1
+            break
+print('props tirados de cima das vias:', _moved)
 
 
 def build():

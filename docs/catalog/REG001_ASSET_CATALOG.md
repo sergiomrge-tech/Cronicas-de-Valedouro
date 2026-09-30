@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 40 | 216 |
-| MODELED_PENDING_GATE | 292 | 294 |
+| MODELED_PENDING_GATE | 293 | 293 |
 | LEGACY_BASELINE | 124 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -59,10 +59,10 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `ext_flower_orchid` | INTEGRATED | 7 |
 | `ext_flower_pot_colorful` | INTEGRATED | 3 |
 | `ext_flower_pot_orange` | INTEGRATED | 6 |
-| `ext_flower_pot_purple` | INTEGRATED | 5 |
-| `ext_flower_sun` | INTEGRATED | 7 |
+| `ext_flower_pot_purple` | INTEGRATED | 4 |
+| `ext_flower_sun` | INTEGRATED | 8 |
 | `ext_flower_wild` | INTEGRATED | 5 |
-| `ext_flower_yellow` | INTEGRATED | 4 |
+| `ext_flower_yellow` | INTEGRATED | 3 |
 | `ext_pine_bubble` | INTEGRATED | 7 |
 | `ext_rock_beige_a` | INTEGRATED | 3 |
 | `ext_rock_beige_b` | INTEGRATED | 4 |
@@ -237,14 +237,14 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_grass_tall` | INTEGRATED | 0 |
 | `nat_hay_bale` | INTEGRATED | 8 |
 | `nat_hay_stack` | INTEGRATED | 4 |
-| `nat_hill_earth` | INTEGRATED | 1 |
+| `nat_hill_earth` | INTEGRATED | 2 |
 | `nat_hill_ice` | NOT_USED | 0 |
-| `nat_hill_low_earth` | INTEGRATED | 2 |
+| `nat_hill_low_earth` | INTEGRATED | 3 |
 | `nat_hill_low_ice` | INTEGRATED | 7 |
 | `nat_hill_low_rock` | INTEGRATED | 10 |
 | `nat_hill_low_sand` | INTEGRATED | 5 |
 | `nat_hill_sand` | NOT_USED | 0 |
-| `nat_hill_wide_earth` | INTEGRATED | 2 |
+| `nat_hill_wide_earth` | INTEGRATED | 3 |
 | `nat_hill_wide_ice` | INTEGRATED | 1 |
 | `nat_hill_wide_rock` | INTEGRATED | 2 |
 | `nat_hill_wide_sand` | INTEGRATED | 1 |
@@ -266,7 +266,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_pine_tall_snow` | NOT_USED | 0 |
 | `nat_pit_trap` | INTEGRATED | 2 |
 | `nat_plateau_earth_m` | NOT_USED | 0 |
-| `nat_plateau_earth_s` | INTEGRATED | 1 |
+| `nat_plateau_earth_s` | INTEGRATED | 2 |
 | `nat_plateau_ice_m` | INTEGRATED | 1 |
 | `nat_plateau_ice_s` | INTEGRATED | 1 |
 | `nat_plateau_rock_m` | INTEGRATED | 1 |
@@ -282,10 +282,10 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_res_herb` | INTEGRATED | 2 |
 | `nat_res_ore` | INTEGRATED | 3 |
 | `nat_ridge_earth_a` | INTEGRATED | 2 |
-| `nat_ridge_earth_b` | NOT_USED | 0 |
+| `nat_ridge_earth_b` | INTEGRATED | 1 |
 | `nat_ridge_ice_a` | INTEGRATED | 4 |
 | `nat_ridge_ice_b` | INTEGRATED | 2 |
-| `nat_ridge_rock_a` | INTEGRATED | 2 |
+| `nat_ridge_rock_a` | INTEGRATED | 1 |
 | `nat_ridge_rock_b` | INTEGRATED | 3 |
 | `nat_ridge_sand_a` | INTEGRATED | 2 |
 | `nat_ridge_sand_b` | INTEGRATED | 2 |
@@ -363,7 +363,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `city_barrels` | INTEGRATED | 16 |
 | `city_bench` | INTEGRATED | 12 |
 | `city_cart_market` | INTEGRATED | 1 |
-| `city_crates` | INTEGRATED | 15 |
+| `city_crates` | INTEGRATED | 14 |
 | `city_fountain` | INTEGRATED | 1 |
 | `city_lamp_post_a` | INTEGRATED | 22 |
 | `city_lamp_post_b` | INTEGRATED | 4 |
@@ -809,5 +809,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 69 (`REG001_POI_*`); objetos: 1213 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 22; passagens: 3; fragmentos de lore: 12.
+- POIs: 69 (`REG001_POI_*`); objetos: 1209 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 22; passagens: 3; fragmentos de lore: 12.
 

@@ -23,8 +23,8 @@
    "NOT_USED": 216
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 292,
-   "NOT_USED": 294
+   "INTEGRATED": 293,
+   "NOT_USED": 293
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 124
@@ -229,7 +229,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 1213
+  "object_count": 1209
  },
  "entries": [
   {
@@ -435,7 +435,7 @@
    "group": "city",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 15,
+   "placed": 14,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -840,7 +840,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 5,
+   "placed": 4,
    "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower Pot 5/Flower Pot 5 - PURPLE.png"
   },
   {
@@ -849,7 +849,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 7,
+   "placed": 8,
    "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 9/Flower 9 - YELLOW.png"
   },
   {
@@ -867,7 +867,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 4,
+   "placed": 3,
    "source": "external_assets/free_reference_library/karsiori/flower_pack/Pixel Art Flower Pack/Flower 1/Flower 1 - YELLOW.png"
   },
   {
@@ -3936,7 +3936,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3954,7 +3954,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 3,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -3999,7 +3999,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 3,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4197,7 +4197,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 1,
+   "placed": 2,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4340,8 +4340,8 @@
    "key": "nat_ridge_earth_b",
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
-   "usage": "NOT_USED",
-   "placed": 0,
+   "usage": "INTEGRATED",
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -4368,7 +4368,7 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 2,
+   "placed": 1,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -7383,7 +7383,7 @@
    "group": "city",
    "approval": "APPROVED",
    "usage": "INTEGRATED",
-   "placed": 11,
+   "placed": 9,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -7392,7 +7392,7 @@
    "group": "city",
    "approval": "APPROVED",
    "usage": "INTEGRATED",
-   "placed": 8,
+   "placed": 6,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -7401,7 +7401,7 @@
    "group": "city",
    "approval": "APPROVED",
    "usage": "INTEGRATED",
-   "placed": 10,
+   "placed": 8,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {

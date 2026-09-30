@@ -104,7 +104,22 @@
     "external_assets/free_reference_library/animated_characters/foozle_lucifer_warrior/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art"
    ],
    "license": "CC0 (Foozle, Lucifer series)",
-   "derived": "game/assets/hero_body.png, hero_armor_1..4.png, hero_extra_0..4.png, hero_sword_0..3.png",
+   "derived": [
+    "game/assets/hero_body.png",
+    "game/assets/hero_armor_1.png",
+    "game/assets/hero_armor_2.png",
+    "game/assets/hero_armor_3.png",
+    "game/assets/hero_armor_4.png",
+    "game/assets/hero_extra_0.png",
+    "game/assets/hero_extra_1.png",
+    "game/assets/hero_extra_2.png",
+    "game/assets/hero_extra_3.png",
+    "game/assets/hero_extra_4.png",
+    "game/assets/hero_sword_0.png",
+    "game/assets/hero_sword_1.png",
+    "game/assets/hero_sword_2.png",
+    "game/assets/hero_sword_3.png"
+   ],
    "modifications": "Foozle Lucifer Warrior como base de animação (andar 8, ataque combo A01+A02 10, idle 6, dano 4, morte 8) em 8 direções; traje recolorido para a identidade do protagonista (túnica azul, capa ferrugem); tiers de armadura = material da armadura (couro/ferro/aço-azul/ouro); tier da espada tinge o golpe e o cabo; contrato 864x448 preservado",
    "used_in": "protagonista (todas as zonas)",
    "status": "MODELED_PENDING_GATE"
@@ -116,7 +131,16 @@
     "external_assets/free_reference_library/equipment/oga_osare_weapon_icons"
    ],
    "license": "CC0 (OpenGameArt, ver SOURCE.md)",
-   "derived": "game/assets/hero_bow_0..3.png, hero_staff_0..3.png",
+   "derived": [
+    "game/assets/hero_bow_0.png",
+    "game/assets/hero_bow_1.png",
+    "game/assets/hero_bow_2.png",
+    "game/assets/hero_bow_3.png",
+    "game/assets/hero_staff_0.png",
+    "game/assets/hero_staff_1.png",
+    "game/assets/hero_staff_2.png",
+    "game/assets/hero_staff_3.png"
+   ],
    "modifications": "ícones Osare reduzidos a 16px e ancorados na mão do herói em cada quadro",
    "used_in": "herói com arco/cajado",
    "status": "MODELED_PENDING_GATE"

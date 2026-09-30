@@ -442,17 +442,9 @@ func walkable(p: Vector2) -> bool:
 	if zone == "cidade":
 		if MAP.obstacle_at(p):
 			return false
-		if MAP.town_area(p):
-			var town_point: Vector2 = p - MAP.TOWN
-			if town_point.distance_to(Vector2(874, 497)) < 85:
-				return false
-			if town_point.x > 1700 and town_point.y > 535:
-				return false # visible water beside the eastern quay
-			if not MAP.bridge_at(p) and town_point.y < 149 and town_point.x > 170 and town_point.x < 1570 and (town_point.x < 793 or town_point.x > 1008):
-				return false # northern wall; the center gate stays open
-			for rect in [Rect2(1085, 145, 325, 193), Rect2(1110, 390, 340, 224)]:
-				if rect.grow(7).has_point(town_point):
-					return false
+		# (QA Etapa 7) os bloqueios fixos do traçado antigo da cidade (fonte r85, cais, faixa da muralha norte e dois
+		# retângulos de quarteirão) saíram: depois do remapeamento eles fechavam a Av. Leste e a Estrada Leste. Fonte,
+		# muralha, casas e água agora vêm só dos colisores do mundo (reg001_world) e de MAP.obstacle_at.
 	if zone == "floresta":
 		# Grass and clearings remain freely explorable; only visible trunks, rocks and brook block.
 		for obstacle in [[Vector2(166, 178), 66], [Vector2(495, 87), 63], [Vector2(739, 52), 63], [Vector2(1397, 127), 57], [Vector2(1735, 128), 63], [Vector2(398, 487), 44], [Vector2(660, 252), 42], [Vector2(1106, 290), 30]]:

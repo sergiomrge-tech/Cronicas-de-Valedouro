@@ -231,7 +231,7 @@ def fill_village(W, center, radius, n, way_dist, group, seed, poi=None):
             continue
         if any(_near_river(px, py, 50) for px, py in _rect_pts(hx, hy)) or _collides(W, hx, hy, 10):
             continue
-        if any(abs(hx - a) < 2 * HOUSE_W + 30 and abs(hy - b) < HOUSE_UP + HOUSE_DN + 50 for a, b in houses):
+        if any(abs(hx - a) < 2 * HOUSE_W + 30 and abs(hy - b) < HOUSE_UP + HOUSE_DN + 110 for a, b in houses):   # telhado 3/4 alto: folga vertical maior
             continue
         roof = rr.choice(['red', 'wood', 'wood', 'blue'])
         asset = {'blue': 'val_town_house_blue', 'red': 'val_town_house_red', 'wood': 'val_town_house_wood'}[roof]

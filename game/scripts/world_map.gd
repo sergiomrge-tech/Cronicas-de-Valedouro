@@ -280,7 +280,8 @@ static func obstacle_at(p: Vector2) -> bool:
 	if REG.blocked_at(p):
 		return true
 	if town_area(p):
-		return false
+		# a cidade é andável, mas o rio que a atravessa não (QA Etapa 7: dava para andar sobre a água dentro da cidade)
+		return (river_at(p) or shallow_at(p)) and not bridge_at(p) and not REG.ford_at(p)
 	if near_structure(p, -7.0):
 		return true
 	if (river_at(p) or shallow_at(p)) and not bridge_at(p) and not REG.ford_at(p):
