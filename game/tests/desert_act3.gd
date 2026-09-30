@@ -11,7 +11,7 @@ func _initialize() -> void:
 func run() -> void:
 	assert(Desert.REGION_SIZE == Vector2(34500,35250))
 	assert(Desert.ACTIVE_RADIUS == 2)
-	assert(StoryMap.locations().size() == 7)
+	assert(StoryMap.locations().size() == 6)
 	assert(StoryMap.zones().size() == 6)
 	assert(StoryMap.route_points().size() >= 10)
 
