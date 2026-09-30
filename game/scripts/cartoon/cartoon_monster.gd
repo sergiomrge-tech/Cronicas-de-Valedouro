@@ -71,6 +71,10 @@ func _draw() -> void:
 			_draw_tide_general()
 		"void_general":
 			_draw_void_general()
+		"void_cartographer":
+			_draw_void_cartographer()
+		"azharel":
+			_draw_azharel()
 		_:
 			_draw_wolf()
 	draw_set_transform(Vector2.ZERO,0.0,Vector2.ONE)
@@ -242,3 +246,34 @@ func _draw_void_general() -> void:
 	DrawUtil.circle_outlined(self,Vector2(0,-32),10,void_col,DrawUtil.OUTLINE,2)
 	for p in [Vector2(-43,-18),Vector2(43,-18)]:
 		DrawUtil.circle_outlined(self,p,11,Color(0.56,0.12,0.39),DrawUtil.OUTLINE,2)
+
+
+func _draw_void_cartographer() -> void:
+	var robe: Color = Color(0.25,0.18,0.32)
+	var glyph: Color = Color(0.64,0.34,0.86)
+	DrawUtil.shadow(self,Vector2(0,12),39,0.28)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-20),33,31,robe,DrawUtil.OUTLINE,4)
+	DrawUtil.circle_outlined(self,Vector2(0,-61),20,Color(0.49,0.44,0.52),DrawUtil.OUTLINE,4)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-24,-68),Vector2(-38,-96),Vector2(-10,-82),Vector2(0,-106),Vector2(10,-82),Vector2(38,-96),Vector2(24,-68)]),robe.darkened(0.08),DrawUtil.OUTLINE,3)
+	draw_circle(Vector2(-7,-61),3,glyph)
+	draw_circle(Vector2(7,-61),3,glyph)
+	DrawUtil.circle_outlined(self,Vector2(0,-31),9,glyph,DrawUtil.OUTLINE,2)
+	for p in [Vector2(-40,-18),Vector2(40,-18)]:
+		DrawUtil.circle_outlined(self,p,10,Color(0.55,0.23,0.78),DrawUtil.OUTLINE,2)
+
+func _draw_azharel() -> void:
+	var armor: Color = Color(0.16,0.10,0.18)
+	var crown: Color = Color(0.73,0.12,0.40)
+	DrawUtil.shadow(self,Vector2(0,14),46,0.34)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-20),40,34,armor,DrawUtil.OUTLINE,5)
+	DrawUtil.rect_outlined(self,Rect2(-31,-79,62,61),armor.lightened(0.03),DrawUtil.OUTLINE,5)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-33,-76),Vector2(-50,-112),Vector2(-20,-96),Vector2(0,-128),Vector2(20,-96),Vector2(50,-112),Vector2(33,-76)]),crown.darkened(0.12),DrawUtil.OUTLINE,4)
+	for x in [-37.0,37.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-46),Vector2(x*1.24,-4),12,armor.darkened(0.05),DrawUtil.OUTLINE,4)
+	for x in [-16.0,16.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-2),Vector2(x,23),12,armor.darkened(0.08),DrawUtil.OUTLINE,4)
+	draw_circle(Vector2(-9,-63),3,crown)
+	draw_circle(Vector2(9,-63),3,crown)
+	DrawUtil.circle_outlined(self,Vector2(0,-34),11,crown,DrawUtil.OUTLINE,3)
+	for p in [Vector2(-47,-18),Vector2(47,-18)]:
+		DrawUtil.flame(self,p,25,10,anim_t)

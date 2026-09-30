@@ -91,6 +91,12 @@ func _draw() -> void:
 		"broken_cathedral": _draw_broken_cathedral()
 		"alliance_council": _draw_alliance_council()
 		"hollow_crown_citadel": _draw_hollow_crown_citadel()
+		"last_map_gate": _draw_last_map_gate()
+		"lost_paths_hall": _draw_lost_paths_hall()
+		"void_archive": _draw_void_archive()
+		"empty_throne_antechamber": _draw_empty_throne_antechamber()
+		"empty_throne": _draw_empty_throne()
+		"earth_gate": _draw_earth_gate()
 		_: _draw_rock()
 
 func _draw_tree() -> void:
@@ -710,3 +716,58 @@ func _draw_hollow_crown_citadel() -> void:
 	DrawUtil.ellipse_outlined(self,Vector2(0,-20),38,40,Color(0.10,0.08,0.11),DrawUtil.OUTLINE,3)
 	draw_rect(Rect2(-38,-20,76,38),Color(0.10,0.08,0.11))
 	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-18,-111),Vector2(-32,-135),Vector2(-7,-124),Vector2(0,-145),Vector2(7,-124),Vector2(32,-135),Vector2(18,-111)]),Color(0.63,0.14,0.38),DrawUtil.OUTLINE,3)
+
+
+func _draw_last_map_gate() -> void:
+	DrawUtil.shadow(self,Vector2(0,11),88,0.22)
+	for x in [-60.0,60.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-20,-92,40,110),Color(0.37,0.31,0.43),DrawUtil.OUTLINE,4)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-42),62,58,Color(0.21,0.15,0.28),DrawUtil.OUTLINE,4)
+	draw_rect(Rect2(-62,-42,124,60),Color(0.21,0.15,0.28))
+	DrawUtil.ellipse_outlined(self,Vector2(0,-42),42,46,Color(0.08,0.06,0.12),DrawUtil.OUTLINE,3)
+	for a in range(0,360,45):
+		var d: Vector2 = Vector2.RIGHT.rotated(deg_to_rad(float(a)))
+		DrawUtil.circle_outlined(self,Vector2(0,-42)+d*54,6,Color(0.62,0.35,0.82),DrawUtil.OUTLINE,2)
+
+func _draw_lost_paths_hall() -> void:
+	_building_shadow(250)
+	DrawUtil.rect_outlined(self,Rect2(-102,-78,204,96),Color(0.38,0.31,0.42),DrawUtil.OUTLINE,5)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-116,-76),Vector2(-34,-128),Vector2(0,-102),Vector2(34,-128),Vector2(116,-76)]),Color(0.24,0.17,0.31),DrawUtil.OUTLINE,4)
+	for x in [-70.0,-34.0,0.0,34.0,70.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-7,-49,14,38),Color(0.16,0.12,0.20),DrawUtil.OUTLINE,2)
+	for p in [Vector2(-83,-8),Vector2(83,-8)]:
+		DrawUtil.circle_outlined(self,p,8,Color(0.55,0.31,0.75),DrawUtil.OUTLINE,2)
+
+func _draw_void_archive() -> void:
+	_building_shadow(220)
+	DrawUtil.rect_outlined(self,Rect2(-86,-74,172,92),Color(0.32,0.27,0.38),DrawUtil.OUTLINE,5)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-100,-72),Vector2(0,-124),Vector2(100,-72)]),Color(0.18,0.13,0.25),DrawUtil.OUTLINE,4)
+	for x in [-54.0,-18.0,18.0,54.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-7,-46,14,34),Color(0.14,0.10,0.18),DrawUtil.OUTLINE,2)
+	DrawUtil.circle_outlined(self,Vector2(0,-72),13,Color(0.61,0.29,0.81),DrawUtil.OUTLINE,3)
+	DrawUtil.circle_outlined(self,Vector2(0,-72),5,Color(0.92,0.74,1.0),DrawUtil.OUTLINE,2)
+
+func _draw_empty_throne_antechamber() -> void:
+	_building_shadow(230)
+	DrawUtil.rect_outlined(self,Rect2(-94,-72,188,90),Color(0.34,0.28,0.37),DrawUtil.OUTLINE,5)
+	for x in [-70.0,-35.0,35.0,70.0]:
+		DrawUtil.rect_outlined(self,Rect2(x-8,-92,16,110),Color(0.29,0.23,0.32),DrawUtil.OUTLINE,3)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-18),32,35,Color(0.10,0.08,0.13),DrawUtil.OUTLINE,3)
+	draw_rect(Rect2(-32,-18,64,36),Color(0.10,0.08,0.13))
+
+func _draw_empty_throne() -> void:
+	DrawUtil.shadow(self,Vector2(0,12),95,0.24)
+	DrawUtil.rect_outlined(self,Rect2(-48,-70,96,88),Color(0.28,0.21,0.31),DrawUtil.OUTLINE,5)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-62,-68),Vector2(-38,-111),Vector2(-12,-88),Vector2(0,-132),Vector2(12,-88),Vector2(38,-111),Vector2(62,-68)]),Color(0.46,0.10,0.31),DrawUtil.OUTLINE,4)
+	DrawUtil.circle_outlined(self,Vector2(0,-48),13,Color(0.70,0.16,0.45),DrawUtil.OUTLINE,3)
+	for x in [-72.0,72.0]:
+		draw_line(Vector2(x,14),Vector2(x,-74),Color(0.25,0.18,0.29),8)
+
+func _draw_earth_gate() -> void:
+	DrawUtil.shadow(self,Vector2(0,12),96,0.18)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-44),72,68,Color(0.44,0.57,0.66),DrawUtil.OUTLINE,5)
+	draw_rect(Rect2(-72,-44,144,62),Color(0.44,0.57,0.66))
+	DrawUtil.ellipse_outlined(self,Vector2(0,-44),50,53,Color(0.55,0.84,0.96,0.72),DrawUtil.OUTLINE,4)
+	for a in range(0,360,45):
+		var d: Vector2 = Vector2.RIGHT.rotated(deg_to_rad(float(a)))
+		DrawUtil.circle_outlined(self,Vector2(0,-44)+d*64,7,Color(0.88,0.82,0.42),DrawUtil.OUTLINE,2)
