@@ -1,0 +1,465 @@
+{
+  "schema_version": 1,
+  "registry_id": "CARTOON_MAP_MISSION_COVERAGE_V1",
+  "rule": "Toda construção ou expansão de mapa deve ser derivada do conjunto completo de missões ativas do jogo. Nenhuma área principal é posicionada sem vínculo de missão, serviço, lore, exploração ou conexão necessária à campanha.",
+  "sources": [
+    "game/data/main_story_v1.json",
+    "game/data/story_locations_v1.json",
+    "docs/canon/MAIN_STORY_CANON_v1.md",
+    "docs/planning/MAIN_STORY_WORLD_TOPOLOGY_v1.md",
+    "docs/planning/CRONICAS_VALEDOURO_REG001_QUEST_FLOW_v1.md"
+  ],
+  "canonical_main_story": {
+    "quest_count": 49,
+    "location_count": 47,
+    "quests": [
+      {
+        "id": "Q_MS01_ARRIVAL",
+        "act": 1,
+        "title": "A Queda",
+        "location_id": "LOC_VAL_GATE",
+        "map_status": "PLACED_CARTOON_V0_4"
+      },
+      {
+        "id": "Q_MS01_GUILD",
+        "act": 1,
+        "title": "Sem Nome neste Mundo",
+        "location_id": "LOC_VAL_GUILD",
+        "map_status": "PLACED_CARTOON_V0_4"
+      },
+      {
+        "id": "Q_MS01_WOLVES",
+        "act": 1,
+        "title": "Contrato de Cobre",
+        "location_id": "LOC_VAL_NORTH_ROAD",
+        "map_status": "PLACED_CARTOON_V0_4"
+      },
+      {
+        "id": "Q_MS01_FIRST_WIND",
+        "act": 1,
+        "title": "O Primeiro Vento",
+        "location_id": "LOC_FIRST_WIND_RUINS",
+        "map_status": "PLACED_CARTOON_V0_4"
+      },
+      {
+        "id": "Q_MS01_ALPHA",
+        "act": 1,
+        "title": "A Matilha que Escuta",
+        "location_id": "LOC_ALPHA_CLEARING",
+        "map_status": "PLACED_CARTOON_V0_4"
+      },
+      {
+        "id": "Q_MS01_MINE",
+        "act": 1,
+        "title": "A Mina que Recorda",
+        "location_id": "LOC_ECHO_MINE",
+        "map_status": "PLACED_CARTOON_V0_4"
+      },
+      {
+        "id": "Q_MS01_GUARDIAN",
+        "act": 1,
+        "title": "O Guardião do Eco",
+        "location_id": "LOC_ECHO_MINE_CORE",
+        "map_status": "PLACED_CARTOON_V0_4"
+      },
+      {
+        "id": "Q_MS01_ARCHIVE",
+        "act": 1,
+        "title": "O Homem que Veio Antes",
+        "location_id": "LOC_SIX_CROWNS_ARCHIVE",
+        "map_status": "PLACED_CARTOON_V0_4"
+      },
+      {
+        "id": "Q_MS02_BORDER",
+        "act": 2,
+        "title": "Além da Ponte de Pedra",
+        "location_id": "LOC_FOREST_STONE_BRIDGE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS02_RANGERS",
+        "act": 2,
+        "title": "Os Guardas Verdes",
+        "location_id": "LOC_FOREST_RANGER_LODGE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS02_ROOTS",
+        "act": 2,
+        "title": "Três Raízes",
+        "location_id": "LOC_FOREST_ROOT_SHRINES",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS02_MEMORY_TREE",
+        "act": 2,
+        "title": "A Árvore-Memória",
+        "location_id": "LOC_MEMORY_TREE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS02_HOLLOW_ROOT",
+        "act": 2,
+        "title": "A Raiz Oca",
+        "location_id": "LOC_HOLLOW_ROOT_ARENA",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS02_VEIL_SHRINE",
+        "act": 2,
+        "title": "A Segunda Linha",
+        "location_id": "LOC_FOREST_CARTOGRAPHER_SHRINE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS03_CARAVAN",
+        "act": 3,
+        "title": "A Caravana de Âmbar",
+        "location_id": "LOC_AMBER_CARAVAN",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS03_AMBER_POST",
+        "act": 3,
+        "title": "O Posto sob Cinzas",
+        "location_id": "LOC_AMBER_POST",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS03_EDRAVAR",
+        "act": 3,
+        "title": "A Cidade que Não Caiu",
+        "location_id": "LOC_EDRAVAR_OCCUPIED_CITY",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS03_CISTERN",
+        "act": 3,
+        "title": "O Nome nas Pedras",
+        "location_id": "LOC_EDRAVAR_RESISTANCE_CISTERN",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS03_OBSERVATORY",
+        "act": 3,
+        "title": "Observatório de Cinzas",
+        "location_id": "LOC_ASH_OBSERVATORY",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS03_GENERAL_ASH",
+        "act": 3,
+        "title": "O General da Cinza",
+        "location_id": "LOC_ASH_CITADEL",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS04_STILTS",
+        "act": 4,
+        "title": "Luzes sobre Água Negra",
+        "location_id": "LOC_MARSH_STILT_VILLAGE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS04_BELL",
+        "act": 4,
+        "title": "O Sino Afogado",
+        "location_id": "LOC_DROWNED_BELL_TOWER",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS04_MONASTERY",
+        "act": 4,
+        "title": "Os Nomes dos Mortos",
+        "location_id": "LOC_FLOODED_MONASTERY",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS04_REED_SANCTUM",
+        "act": 4,
+        "title": "O Santuário dos Juncos",
+        "location_id": "LOC_REED_SANCTUM",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS04_LADY_REEDS",
+        "act": 4,
+        "title": "A Dama dos Juncos",
+        "location_id": "LOC_REED_THRONE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS04_SLICE_GATE",
+        "act": 4,
+        "title": "A Comporta dos Ecos",
+        "location_id": "LOC_MARSH_ECHO_SLICE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS05_FROST_REST",
+        "act": 5,
+        "title": "Pouso da Geada",
+        "location_id": "LOC_FROST_REST",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS05_EXPEDITION",
+        "act": 5,
+        "title": "A Expedição sem Nome",
+        "location_id": "LOC_FROZEN_EXPEDITION_STATION",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS05_CAPTAIN",
+        "act": 5,
+        "title": "O Último Capitão",
+        "location_id": "LOC_FROZEN_COMMAND_POST",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS05_ARCHIVE",
+        "act": 5,
+        "title": "Adrian Vale",
+        "location_id": "LOC_FROZEN_ARCHIVE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS05_BLACK_FROST",
+        "act": 5,
+        "title": "Geada Negra",
+        "location_id": "LOC_BLACK_FROST_CITADEL",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS05_SIEGE",
+        "act": 5,
+        "title": "As Muralhas de Valedouro",
+        "location_id": "LOC_VAL_GATE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS06_MIST_PORT",
+        "act": 6,
+        "title": "Porto das Brumas",
+        "location_id": "LOC_MIST_PORT",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS06_LIGHTHOUSE",
+        "act": 6,
+        "title": "O Farol Partido",
+        "location_id": "LOC_TWIN_LIGHTHOUSE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS06_SUNKEN_TEMPLE",
+        "act": 6,
+        "title": "O Templo sob a Maré",
+        "location_id": "LOC_SUNKEN_TEMPLE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS06_HOLLOW_FLEET",
+        "act": 6,
+        "title": "A Frota Oca",
+        "location_id": "LOC_LOST_ISLAND_SHIPYARD",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS06_GENERAL_TIDE",
+        "act": 6,
+        "title": "A Maré Oca",
+        "location_id": "LOC_TIDAL_OBSERVATORY",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS07_LAST_BASTION",
+        "act": 7,
+        "title": "O Último Bastião",
+        "location_id": "LOC_LAST_BASTION",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS07_OBELISKS",
+        "act": 7,
+        "title": "Três Obeliscos de Guerra",
+        "location_id": "LOC_WAR_OBELISKS",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS07_CATHEDRAL",
+        "act": 7,
+        "title": "A Catedral Partida",
+        "location_id": "LOC_BROKEN_CATHEDRAL",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS07_COUNCIL",
+        "act": 7,
+        "title": "As Seis Coroas",
+        "location_id": "LOC_ALLIANCE_WAR_COUNCIL",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS07_GENERAL_VOID",
+        "act": 7,
+        "title": "O General do Eco Vazio",
+        "location_id": "LOC_HOLLOW_CROWN_CITADEL",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS08_LAST_MAP_GATE",
+        "act": 8,
+        "title": "O Portão do Último Mapa",
+        "location_id": "LOC_LAST_MAP_GATE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS08_LOST_PATHS",
+        "act": 8,
+        "title": "Caminhos que Não Existiram",
+        "location_id": "LOC_HALL_LOST_PATHS",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS08_CARTOGRAPHER",
+        "act": 8,
+        "title": "O Cartógrafo Vazio",
+        "location_id": "LOC_VOID_ARCHIVE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS08_FIRST_TRAVELER",
+        "act": 8,
+        "title": "Adrian",
+        "location_id": "LOC_EMPTY_THRONE_ANTECHAMBER",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS08_AZHAREL",
+        "act": 8,
+        "title": "A Coroa Oca",
+        "location_id": "LOC_EMPTY_THRONE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS08_EARTH_GATE",
+        "act": 8,
+        "title": "O Caminho de Casa",
+        "location_id": "LOC_EARTH_GATE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      },
+      {
+        "id": "Q_MS08_CHOICE",
+        "act": 8,
+        "title": "Entre Dois Mundos",
+        "location_id": "LOC_EARTH_GATE",
+        "map_status": "PLANNED_GLOBAL_TOPOLOGY"
+      }
+    ]
+  },
+  "legacy_vertical_slice_crosswalk": [
+    {
+      "legacy_id": "QUEST_A01_REG001_001",
+      "name": "Chegada",
+      "canonical_refs": [
+        "Q_MS01_ARRIVAL",
+        "Q_MS01_GUILD"
+      ],
+      "map_refs": [
+        "LOC_VAL_GATE",
+        "LOC_VAL_GUILD"
+      ]
+    },
+    {
+      "legacy_id": "QUEST_A01_REG001_002",
+      "name": "Arredores",
+      "canonical_refs": [
+        "Q_MS01_WOLVES"
+      ],
+      "map_refs": [
+        "LOC_VAL_NORTH_ROAD"
+      ]
+    },
+    {
+      "legacy_id": "QUEST_A01_REG001_003",
+      "name": "Contrato dos Lobos",
+      "canonical_refs": [
+        "Q_MS01_WOLVES"
+      ],
+      "map_refs": [
+        "LOC_VAL_NORTH_ROAD"
+      ]
+    },
+    {
+      "legacy_id": "QUEST_A01_REG001_004",
+      "name": "Sinais no Bosque",
+      "canonical_refs": [
+        "Q_MS01_FIRST_WIND"
+      ],
+      "map_refs": [
+        "LOC_FIRST_WIND_RUINS"
+      ]
+    },
+    {
+      "legacy_id": "QUEST_A01_REG001_005",
+      "name": "Elite do Bosque",
+      "canonical_refs": [
+        "Q_MS01_ALPHA"
+      ],
+      "map_refs": [
+        "LOC_ALPHA_CLEARING"
+      ]
+    },
+    {
+      "legacy_id": "QUEST_A01_REG001_006",
+      "name": "Ruínas Antigas",
+      "canonical_refs": [
+        "Q_MS01_FIRST_WIND",
+        "Q_MS01_MINE"
+      ],
+      "map_refs": [
+        "LOC_FIRST_WIND_RUINS",
+        "LOC_ECHO_MINE"
+      ]
+    },
+    {
+      "legacy_id": "QUEST_A01_REG001_007",
+      "name": "O Guardião",
+      "canonical_refs": [
+        "Q_MS01_MINE",
+        "Q_MS01_GUARDIAN"
+      ],
+      "map_refs": [
+        "LOC_ECHO_MINE",
+        "LOC_ECHO_MINE_CORE"
+      ]
+    },
+    {
+      "legacy_id": "QUEST_A01_REG001_008",
+      "name": "Retorno",
+      "canonical_refs": [
+        "Q_MS01_ARCHIVE"
+      ],
+      "map_refs": [
+        "LOC_VAL_GUILD",
+        "LOC_SIX_CROWNS_ARCHIVE"
+      ]
+    }
+  ],
+  "build_gate": {
+    "required_before_map_edit": [
+      "ler a campanha completa e missões ativas",
+      "identificar todos os locais obrigatórios da região",
+      "definir rota física entre os beats",
+      "reservar espaço para boss arenas, dungeons, NPCs e estados pré/pós missão",
+      "só então preencher decoração e exploração secundária"
+    ],
+    "forbidden": [
+      "expandir terreno sem considerar missões",
+      "criar landmark grande apenas para preencher vazio",
+      "bloquear futura área obrigatória de quest com decoração ou construção aleatória",
+      "finalizar região sem cobertura das missões que passam por ela"
+    ]
+  }
+}
