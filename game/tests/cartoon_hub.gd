@@ -35,6 +35,12 @@ func run() -> void:
 	assert(packed.world_stream != null)
 	assert(packed.story_zones != null)
 	assert(packed.story_zones.get_child_count() == 5)
+	assert(packed.map_overlay != null)
+	packed._toggle_map()
+	assert(packed.map_open)
+	assert(packed.map_overlay.visible)
+	packed._toggle_map()
+	assert(not packed.map_open)
 	assert(packed.world_stream.active_count() >= 1)
 	var roadside: Dictionary = packed.environment.nearest_poi(Vector2(Region.SOUTH_ROAD_X-330.0,Region.HUB_RECT.end.y+1350.0),180.0)
 	assert(String(roadside.get("id","")) == "POI_REG001_ROADSIDE_POST")
@@ -45,6 +51,10 @@ func run() -> void:
 		assert(poi_ids.has(String(required_id)))
 	for story_loc in MainStoryMap.act1_locations():
 		assert(Region.in_region(story_loc.get("pos",Vector2.ZERO),64.0))
+	var transition_ids: Dictionary = {}
+	for poi in packed.environment.pois:
+		transition_ids[String(poi.get("id",""))] = true
+	assert(transition_ids.has("TRANSITION_FOREST_ANCESTRAL"))
 	packed.hero.position = Vector2(Region.SOUTH_ROAD_X,Region.HUB_RECT.end.y + 3600.0)
 	await process_frame
 	await process_frame
