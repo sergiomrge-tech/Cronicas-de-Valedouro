@@ -203,7 +203,7 @@
         "linear_scale": 15,
         "region_class": "open"
       },
-      "build_status": "RESERVED_BY_MISSIONS",
+      "build_status": "IN_PROGRESS_PHYSICAL",
       "mandatory_route": [
         {
           "order": 1,
@@ -265,7 +265,17 @@
           "location_kind": "fortress",
           "post_function": "Revanche do General e materiais."
         }
-      ]
+      ],
+      "implementation": {
+        "scene": "res://scenes/cartoon/DesertEdravarCartoon.tscn",
+        "region_size": [
+          34500,
+          35250
+        ],
+        "active_chunk_radius": 2,
+        "mandatory_locations_placed": 6,
+        "transition_from_previous": "POI_FOREST_VEIL_MARK"
+      }
     },
     {
       "act": 4,
