@@ -286,7 +286,7 @@
         "linear_scale": 15,
         "region_class": "open"
       },
-      "build_status": "RESERVED_BY_MISSIONS",
+      "build_status": "IN_PROGRESS_PHYSICAL",
       "mandatory_route": [
         {
           "order": 1,
@@ -348,7 +348,17 @@
           "location_kind": "ritual_gate",
           "post_function": "Controle ambiental pós-história."
         }
-      ]
+      ],
+      "implementation": {
+        "scene": "res://scenes/cartoon/MarshDarkCartoon.tscn",
+        "region_size": [
+          34500,
+          35250
+        ],
+        "active_chunk_radius": 2,
+        "mandatory_locations_placed": 6,
+        "transition_from_previous": "POI_DESERT_MARSH_ROUTE"
+      }
     },
     {
       "act": 5,
