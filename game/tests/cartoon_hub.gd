@@ -5,6 +5,7 @@ const EnvScript = preload("res://scripts/cartoon/hub_environment.gd")
 const HeroScript = preload("res://scripts/cartoon/cartoon_hero.gd")
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
+const MainStoryMap = preload("res://scripts/cartoon/cartoon_main_story_map.gd")
 
 func _initialize() -> void:
 	call_deferred("run")
@@ -34,10 +35,17 @@ func run() -> void:
 	assert(packed.world_stream.active_count() >= 1)
 	var roadside: Dictionary = packed.environment.nearest_poi(Vector2(Region.SOUTH_ROAD_X-330.0,Region.HUB_RECT.end.y+1350.0),180.0)
 	assert(String(roadside.get("id","")) == "POI_REG001_ROADSIDE_POST")
+	var poi_ids: Dictionary = {}
+	for poi in packed.environment.pois:
+		poi_ids[String(poi.get("id",""))] = true
+	for required_id in MainStoryMap.required_ids_by_act()[1]:
+		assert(poi_ids.has(String(required_id)))
+	for story_loc in MainStoryMap.act1_locations():
+		assert(Region.in_region(story_loc.get("pos",Vector2.ZERO),64.0))
 	packed.hero.position = Vector2(Region.SOUTH_ROAD_X,Region.HUB_RECT.end.y + 3600.0)
 	await process_frame
 	await process_frame
 	assert(packed.world_stream.active_count() >= 9)
 	assert(packed.environment.is_walkable(packed.hero.position))
-	print("cartoon_hub: PASS — hub central vetorial carregado e jogável")
+	print("cartoon_hub: PASS — hub 7x, streaming e 8 áreas obrigatórias do Ato I presentes")
 	quit(0)
