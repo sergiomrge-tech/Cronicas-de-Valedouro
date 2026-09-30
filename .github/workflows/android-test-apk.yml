@@ -1,8 +1,6 @@
 name: Build Android Test APK
 
 on:
-  push:
-    branches: [ art/cartoon-rebuild-v1 ]
   workflow_dispatch:
 
 concurrency:
