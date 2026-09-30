@@ -202,7 +202,8 @@ func _interact() -> void:
 			_show_toast("O Trono dos Juncos pulsa com Eco corrompido.")
 		"POI_MARSH_FROST_ROUTE":
 			if story_runtime.act4_complete:
-				_show_toast("Seguindo o fluxo do Eco para o Norte Gelado.")
+				_show_toast("Seguindo o fluxo do Eco para o Norte Gelado...")
+				get_tree().change_scene_to_file("res://scenes/cartoon/FrostMountainsCartoon.tscn")
 			else:
 				_show_toast("A rota do norte ainda está encoberta pela névoa.")
 		_:

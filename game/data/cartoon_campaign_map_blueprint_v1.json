@@ -369,7 +369,7 @@
         "linear_scale": 15,
         "region_class": "open"
       },
-      "build_status": "RESERVED_BY_MISSIONS",
+      "build_status": "IN_PROGRESS_PHYSICAL",
       "mandatory_route": [
         {
           "order": 1,
@@ -431,7 +431,18 @@
           "location_kind": "fortification",
           "post_function": "Defesa narrativa, entrada da cidade e marco de retorno."
         }
-      ]
+      ],
+      "implementation": {
+        "scene": "res://scenes/cartoon/FrostMountainsCartoon.tscn",
+        "region_size": [
+          34500,
+          35250
+        ],
+        "active_chunk_radius": 2,
+        "mandatory_locations_placed": 6,
+        "return_siege_scene": "res://scenes/cartoon/ValedouroSiegeCartoon.tscn",
+        "transition_from_previous": "POI_MARSH_FROST_ROUTE"
+      }
     },
     {
       "act": 6,
