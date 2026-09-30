@@ -24,9 +24,9 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	var moving := move_vector.length() > 0.08
-	var bob := absf(sin(anim_t * 9.0)) * 3.0 if moving else sin(anim_t * 2.0) * 1.0
-	var step := sin(anim_t * 9.0) * 3.0 if moving else 0.0
+	var moving = move_vector.length() > 0.08
+	var bob = absf(sin(anim_t * 9.0)) * 3.0 if moving else sin(anim_t * 2.0) * 1.0
+	var step = sin(anim_t * 9.0) * 3.0 if moving else 0.0
 	DrawUtil.shadow(self, Vector2(0, 9), 19, 0.30)
 	draw_set_transform(Vector2(0,-bob),0,Vector2.ONE)
 	# legs
@@ -39,15 +39,15 @@ func _draw() -> void:
 	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-14,-31),Vector2(14,-31),Vector2(11,-7),Vector2(0,-1),Vector2(-11,-7)]),Color(0.34,0.12,0.46),DrawUtil.OUTLINE,2.5)
 	# arms
 	DrawUtil.capsule_outlined(self,Vector2(-15,-29),Vector2(-20,-15),6,Color(0.85,0.63,0.45),DrawUtil.OUTLINE,2)
-	var sword_hand := Vector2(18,-16)
+	var sword_hand = Vector2(18,-16)
 	if attack_t > 0.0:
-		var k := 1.0 - attack_t / 0.28
+		var k = 1.0 - attack_t / 0.28
 		sword_hand += Vector2(10,-10).rotated(k*PI*1.2)
 	DrawUtil.capsule_outlined(self,Vector2(15,-29),sword_hand,6,Color(0.85,0.63,0.45),DrawUtil.OUTLINE,2)
 	# sword
-	var dir := Vector2(0,-1) if attack_t <= 0.0 else (sword_hand-Vector2(15,-29)).normalized().rotated(-0.7)
-	var blade_a := sword_hand
-	var blade_b := sword_hand + dir*27
+	var dir = Vector2(0,-1) if attack_t <= 0.0 else (sword_hand-Vector2(15,-29)).normalized().rotated(-0.7)
+	var blade_a = sword_hand
+	var blade_b = sword_hand + dir*27
 	DrawUtil.capsule_outlined(self,blade_a,blade_b,4,Color(0.88,0.91,0.94),DrawUtil.OUTLINE,1.8)
 	draw_line(sword_hand+Vector2(-6,0),sword_hand+Vector2(6,0),Color(0.92,0.72,0.18),5)
 	# head + hair

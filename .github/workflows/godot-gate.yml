@@ -280,10 +280,24 @@ jobs:
           path: game/ci_output_art_gate/*.png
           if-no-files-found: error
 
+      - name: Capture cartoon hub visual QA (real Godot renders)
+        run: |
+          mkdir -p game/ci_output_cartoon
+          timeout 120s xvfb-run -a /tmp/godot/godot --path game --rendering-method gl_compatibility --script res://tests/qa_capture_cartoon_hub.gd -- "$PWD/game/ci_output_cartoon"
+          test "$(find game/ci_output_cartoon -maxdepth 1 -type f -name '*.png' | wc -l)" -ge 4
+          ls -lh game/ci_output_cartoon
+
+      - name: Upload cartoon hub visual QA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: valedouro-cartoon-hub-visual-qa
+          path: game/ci_output_cartoon/*.png
+          if-no-files-found: error
+
       - name: Final CI cleanup
         shell: bash
         run: |
           set -e
-          rm -rf game/.godot game/ci_output game/ci_output_reg001 game/ci_output_art_gate game/ci_art_reports game/tools/__pycache__ game/tools/reg001/__pycache__ game/tools/modeling/__pycache__ game/tools/art_pipeline/__pycache__
+          rm -rf game/.godot game/ci_output game/ci_output_reg001 game/ci_output_art_gate game/ci_output_cartoon game/ci_art_reports game/tools/__pycache__ game/tools/reg001/__pycache__ game/tools/modeling/__pycache__ game/tools/art_pipeline/__pycache__
           rm -f game/tests/visual_capture.gd
           echo "CI is read-only: generated runtime assets and QA captures are not pushed back to main."

@@ -51,7 +51,7 @@ func _draw() -> void:
 func _draw_tree() -> void:
 	DrawUtil.shadow(self, Vector2(0, 13), 33, 0.26)
 	DrawUtil.rect_outlined(self, Rect2(-7, -28, 14, 48), Color(0.38, 0.22, 0.11), DrawUtil.OUTLINE, 3)
-	var leaves := Color(0.25, 0.58, 0.22) if variant % 3 == 0 else Color(0.32, 0.67, 0.24) if variant % 3 == 1 else Color(0.22, 0.52, 0.26)
+	var leaves = Color(0.25, 0.58, 0.22) if variant % 3 == 0 else Color(0.32, 0.67, 0.24) if variant % 3 == 1 else Color(0.22, 0.52, 0.26)
 	for e in [Vector2(-20,-42), Vector2(17,-47), Vector2(0,-68), Vector2(-4,-35)]:
 		DrawUtil.circle_outlined(self, e, 25, leaves.lightened(0.04 if e.y < -50 else 0.0), DrawUtil.OUTLINE, 3)
 	DrawUtil.ellipse(self, Vector2(-11,-71), 9, 5, Color(0.7,0.9,0.38,0.38))
@@ -60,13 +60,13 @@ func _draw_pine() -> void:
 	DrawUtil.shadow(self, Vector2(0, 13), 30, 0.25)
 	DrawUtil.rect_outlined(self, Rect2(-5,-23,10,42), Color(0.34,0.21,0.12), DrawUtil.OUTLINE, 2.5)
 	for layer in range(3):
-		var y := -35.0 - layer * 21.0
-		var hw := 31.0 - layer * 5.0
+		var y = -35.0 - layer * 21.0
+		var hw = 31.0 - layer * 5.0
 		DrawUtil.poly_outlined(self, PackedVector2Array([Vector2(0,y-34),Vector2(-hw,y+17),Vector2(hw,y+17)]), Color(0.08+layer*0.02,0.38+layer*0.04,0.27), DrawUtil.OUTLINE, 3)
 
 func _draw_rock() -> void:
 	DrawUtil.shadow(self, Vector2(0, 8), 23, 0.22)
-	var pts := PackedVector2Array([Vector2(-25,5),Vector2(-18,-17),Vector2(-3,-27),Vector2(20,-17),Vector2(27,4),Vector2(12,15),Vector2(-13,14)])
+	var pts = PackedVector2Array([Vector2(-25,5),Vector2(-18,-17),Vector2(-3,-27),Vector2(20,-17),Vector2(27,4),Vector2(12,15),Vector2(-13,14)])
 	DrawUtil.poly_outlined(self, pts, Color(0.55,0.57,0.58), DrawUtil.OUTLINE, 3)
 	draw_colored_polygon(PackedVector2Array([Vector2(-13,-13),Vector2(-3,-22),Vector2(14,-15),Vector2(5,-6)]), Color(0.75,0.77,0.75,0.75))
 
@@ -83,7 +83,7 @@ func _building_shadow(w: float) -> void:
 func _draw_house() -> void:
 	_building_shadow(110)
 	DrawUtil.rect_outlined(self, Rect2(-43,-50,86,68), Color(0.92,0.78,0.56), DrawUtil.OUTLINE,3)
-	var roof := Color(0.82,0.25,0.16) if variant % 2 == 0 else Color(0.16,0.43,0.72)
+	var roof = Color(0.82,0.25,0.16) if variant % 2 == 0 else Color(0.16,0.43,0.72)
 	DrawUtil.poly_outlined(self, PackedVector2Array([Vector2(-54,-48),Vector2(0,-91),Vector2(54,-48)]), roof, DrawUtil.OUTLINE,4)
 	DrawUtil.rect_outlined(self, Rect2(-10,-18,20,36), Color(0.37,0.20,0.11), DrawUtil.OUTLINE,2.5)
 	for x in [-29.0,29.0]:
@@ -160,7 +160,7 @@ func _draw_fountain() -> void:
 func _draw_market() -> void:
 	DrawUtil.shadow(self,Vector2(0,10),42,0.18)
 	DrawUtil.rect_outlined(self,Rect2(-39,-23,78,34),Color(0.58,0.32,0.16),DrawUtil.OUTLINE,2.5)
-	var awning := Color(0.85,0.18,0.16) if variant % 2 == 0 else Color(0.12,0.42,0.76)
+	var awning = Color(0.85,0.18,0.16) if variant % 2 == 0 else Color(0.12,0.42,0.76)
 	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-48,-25),Vector2(-40,-52),Vector2(40,-52),Vector2(48,-25)]),awning,DrawUtil.OUTLINE,3)
 	for x in [-28.0,-9.0,10.0,29.0]:
 		draw_rect(Rect2(x-4,-52,8,27),Color(1,0.84,0.47,0.85))
@@ -198,8 +198,8 @@ func _draw_fence() -> void:
 
 func _draw_flowers() -> void:
 	for i in range(5):
-		var a := float(i)*1.9 + float(variant)
-		var p := Vector2(cos(a)*18,sin(a)*9)
+		var a = float(i)*1.9 + float(variant)
+		var p = Vector2(cos(a)*18,sin(a)*9)
 		draw_line(p+Vector2(0,5),p+Vector2(0,-4),Color(0.2,0.55,0.18),2)
 		draw_circle(p+Vector2(0,-5),3.5,Color(1.0,0.85,0.22) if i%2==0 else Color(1.0,0.6,0.75))
 

@@ -3,10 +3,10 @@ extends Node2D
 
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
 
-const WORLD_SIZE := Vector2(2300, 1700)
-const CENTER := Vector2(1150, 860)
+const WORLD_SIZE = Vector2(2300, 1700)
+const CENTER = Vector2(1150, 860)
 
-var rng := RandomNumberGenerator.new()
+var rng = RandomNumberGenerator.new()
 var props: Array[Dictionary] = []
 var blockers: Array[Dictionary] = []
 var pois: Array[Dictionary] = []
@@ -32,21 +32,21 @@ func _build_layout() -> void:
 	for p in [Vector2(930,700),Vector2(1370,700),Vector2(890,980),Vector2(1410,980),Vector2(910,1210),Vector2(1390,1210)]: _add("lamp",p,0.9)
 	_add("well",Vector2(1265,1085),0.9,"Poço da Praça","POI_REG001_WELL",Rect2(1225,1040,80,70))
 	# Residential ring
-	var homes := [Vector2(520,545),Vector2(650,475),Vector2(1640,480),Vector2(1775,570),Vector2(490,990),Vector2(1780,1015),Vector2(590,1280),Vector2(1705,1280)]
+	var homes = [Vector2(520,545),Vector2(650,475),Vector2(1640,480),Vector2(1775,570),Vector2(490,990),Vector2(1780,1015),Vector2(590,1280),Vector2(1705,1280)]
 	for i in homes.size(): _add("house",homes[i],1.0 + float(i%3)*0.06,"Casa","",Rect2(homes[i]-Vector2(58,95),Vector2(116,115)),i)
 	# City gate / roads decorative signs
 	_add("sign",Vector2(1150,1340),0.95,"Portão Sul","POI_REG001_GATE_SOUTH")
 	_add("sign",Vector2(1150,290),0.85,"Estrada Norte","POI_REG001_GATE_NORTH")
 	# deterministic vegetation outside plaza core
 	for i in 110:
-		var p := Vector2(rng.randf_range(110,2190),rng.randf_range(180,1560))
+		var p = Vector2(rng.randf_range(110,2190),rng.randf_range(180,1560))
 		if p.distance_to(CENTER) < 360 or p.distance_to(Vector2(1150,520)) < 330: continue
 		if _near_road(p,100): continue
 		if _near_manual_blocker(p,95): continue
-		var k := "tree" if rng.randf() < 0.56 else "pine" if rng.randf() < 0.72 else "bush"
+		var k = "tree" if rng.randf() < 0.56 else "pine" if rng.randf() < 0.72 else "bush"
 		_add(k,p,rng.randf_range(0.72,1.10),"","",Rect2(),rng.randi()%3,28.0 if k != "bush" else 17.0)
 	for i in 70:
-		var p := Vector2(rng.randf_range(140,2160),rng.randf_range(190,1510))
+		var p = Vector2(rng.randf_range(140,2160),rng.randf_range(190,1510))
 		if p.distance_to(CENTER) < 260 or _near_road(p,48) or _near_manual_blocker(p,50): continue
 		_add("rock" if rng.randf()<0.48 else "flowers",p,rng.randf_range(0.55,0.9),"","",Rect2(),rng.randi()%4,16.0 if rng.randf()<0.5 else 0.0)
 	# fences around a small farm east and civic garden west
@@ -80,9 +80,9 @@ func _road_points() -> Array[PackedVector2Array]:
 func _near_road(p: Vector2, margin: float) -> bool:
 	for path in _road_points():
 		for j in range(path.size()-1):
-			var a := path[j]; var b := path[j+1]
-			var ab := b-a
-			var t := clampf((p-a).dot(ab)/maxf(ab.length_squared(),0.001),0.0,1.0)
+			var a = path[j]; var b = path[j+1]
+			var ab = b-a
+			var t = clampf((p-a).dot(ab)/maxf(ab.length_squared(),0.001),0.0,1.0)
 			if p.distance_to(a+ab*t) < margin: return true
 	return false
 
@@ -91,8 +91,8 @@ func is_walkable(p: Vector2) -> bool:
 	# Rivers are blocked except around bridges.
 	for river in river_polylines:
 		for j in range(river.size()-1):
-			var a := river[j]; var b := river[j+1]; var ab := b-a
-			var t := clampf((p-a).dot(ab)/maxf(ab.length_squared(),0.001),0.0,1.0)
+			var a = river[j]; var b = river[j+1]; var ab = b-a
+			var t = clampf((p-a).dot(ab)/maxf(ab.length_squared(),0.001),0.0,1.0)
 			if p.distance_to(a+ab*t) < 46:
 				if p.distance_to(Vector2(300,900)) > 75 and p.distance_to(Vector2(2080,870)) > 75: return false
 	for b in blockers:
@@ -102,9 +102,9 @@ func is_walkable(p: Vector2) -> bool:
 
 func nearest_poi(p: Vector2, radius: float = 145.0) -> Dictionary:
 	var best: Dictionary = {}
-	var best_d := radius
+	var best_d = radius
 	for poi in pois:
-		var d := p.distance_to(poi["pos"])
+		var d = p.distance_to(poi["pos"])
 		if d < best_d:
 			best_d = d; best = poi
 	return best
@@ -120,11 +120,11 @@ func _draw_ground() -> void:
 	draw_rect(Rect2(Vector2.ZERO,WORLD_SIZE),Color(0.43,0.72,0.30))
 	rng.seed = 7301
 	for i in 65:
-		var p := Vector2(rng.randf_range(0,WORLD_SIZE.x),rng.randf_range(0,WORLD_SIZE.y))
-		var col := Color(0.53,0.80,0.35,0.28) if i%2==0 else Color(0.32,0.61,0.25,0.25)
+		var p = Vector2(rng.randf_range(0,WORLD_SIZE.x),rng.randf_range(0,WORLD_SIZE.y))
+		var col = Color(0.53,0.80,0.35,0.28) if i%2==0 else Color(0.32,0.61,0.25,0.25)
 		DrawUtil.ellipse(self,p,rng.randf_range(65,180),rng.randf_range(25,62),col,22)
 	for i in 180:
-		var p := Vector2(rng.randf_range(40,WORLD_SIZE.x-40),rng.randf_range(80,WORLD_SIZE.y-50))
+		var p = Vector2(rng.randf_range(40,WORLD_SIZE.x-40),rng.randf_range(80,WORLD_SIZE.y-50))
 		draw_line(p,p+Vector2(rng.randf_range(-2,2),rng.randf_range(-8,-4)),Color(0.28,0.58,0.22,0.45),1.5)
 
 func _draw_rivers() -> void:
@@ -141,7 +141,7 @@ func _draw_roads() -> void:
 	# cobbles
 	rng.seed = 441
 	for i in 125:
-		var p := Vector2(rng.randf_range(340,1990),rng.randf_range(360,1480))
+		var p = Vector2(rng.randf_range(340,1990),rng.randf_range(360,1480))
 		if _near_road(p,38): DrawUtil.ellipse(self,p,rng.randf_range(2,5),rng.randf_range(1.5,3),Color(0.45,0.38,0.29,0.5))
 
 func _draw_plaza() -> void:
