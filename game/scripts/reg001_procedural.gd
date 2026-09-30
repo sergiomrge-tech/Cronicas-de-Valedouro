@@ -31,7 +31,18 @@ static func item(sy: float, asset: String, x: float, y: float, anim: float, scal
 static func asset_for(kind: String, biome_name: String, seed: int) -> String:
 	match kind:
 		"tree":
-			# árvores finais (revisão visual): copa em volume, escala das casas; variação por bioma e seed
+			# árvores finais (Etapa 3, linguagem Karsiori): silhueta por ECOLOGIA — frio = spruce, seco = guarda-chuva,
+			# vale = andares, bosque claro = pirulito; carvalhos em nuvem são a base.
+			if biome_name == "gelo":
+				return "nat_spruce_cold" if seed % 3 else "nat_pine_tall_snow"
+			if biome_name == "deserto":
+				return "nat_tree_umbrella"
+			if biome_name == "pradaria" and seed % 4 == 0:
+				return "nat_tree_umbrella"
+			if biome_name == "vale" and seed % 4 == 0:
+				return "nat_tree_tiered"
+			if biome_name == "floresta" and seed % 6 == 0:
+				return "nat_tree_lollipop"
 			if biome_name in ["campos", "vale", "pradaria"] and seed % 10 < 2:
 				return "nat_birch_tall"
 			if seed % 11 == 0:
@@ -40,9 +51,13 @@ static func asset_for(kind: String, biome_name: String, seed: int) -> String:
 				return "nat_oak_golden"
 			return ["nat_oak_a", "nat_oak_b", "nat_oak_c"][seed % 3]
 		"pine":
+			if biome_name == "gelo":
+				return "nat_spruce_cold"
+			if seed % 5 == 0:
+				return "nat_spruce_small"
 			return "nat_pine_tall_a" if seed % 3 else "nat_pine_tall_b"
 		"frost_tree":
-			return "nat_pine_tall_snow"
+			return "nat_pine_tall_snow" if seed % 2 else "nat_spruce_cold"
 		"bush":
 			if biome_name == "gelo":
 				return "nat_bush_frost"

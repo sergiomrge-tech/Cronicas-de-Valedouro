@@ -8187,10 +8187,11 @@
   "footprint": 26.0,
   "tags": [
    "arvore",
-   "revisao_visual",
+   "karsiori_valedouro",
+   "remap_etapa3",
    "betula"
   ],
-  "sha256": "43dc1c2f1825c5bff0a54d4d30d320289859f80aea43884116994605058c0668",
+  "sha256": "5d2db1c120605f433819c4e0e02a9b977ca106d0907b1b92f607d95838faac7d",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -12424,11 +12425,12 @@
   "footprint": 26.0,
   "tags": [
    "arvore",
-   "revisao_visual",
+   "karsiori_valedouro",
+   "remap_etapa3",
    "carvalho",
    "verde"
   ],
-  "sha256": "a6ffe88df58e7e192da4a30dfbc17c0a814a4aba4a145baff4fa08d1362af13e",
+  "sha256": "27f8eefd7b750a921e2fa24aa51afddeb5ffd38bf00596df3f8aaa9c13051650",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -12460,11 +12462,12 @@
   "footprint": 26.0,
   "tags": [
    "arvore",
-   "revisao_visual",
+   "karsiori_valedouro",
+   "remap_etapa3",
    "carvalho",
    "outono"
   ],
-  "sha256": "fd8ffd870c260d63d67dd234e1c611bb1fedc44053c286ff39543b755e38782c",
+  "sha256": "137600b77fc6bc098fe2a567a4627422419aaaca5576078c98950740c39e5a40",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -12496,11 +12499,12 @@
   "footprint": 26.0,
   "tags": [
    "arvore",
-   "revisao_visual",
+   "karsiori_valedouro",
+   "remap_etapa3",
    "carvalho",
    "verde"
   ],
-  "sha256": "db85bfed36946f72fe164e0ea3ab1df2bccf7f2636ef71b2065eb8a3c4c5d40f",
+  "sha256": "021d7231e9d58127867003688778a6f3adb557cf8913faa11b0e4a20f63769ff",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -12532,12 +12536,12 @@
   "footprint": 26.0,
   "tags": [
    "arvore",
-   "revisao_visual",
+   "karsiori_valedouro",
+   "remap_etapa3",
    "carvalho",
-   "verde",
    "grande"
   ],
-  "sha256": "6f802880fb9258f2e68870396ddb878ee8191502d89fcf6d1f144927b2ee5c05",
+  "sha256": "4d4d36c1e85464e92d56e824de32b2926cd60a1dbaddc5e7cefa7b964f278ca9",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -12569,11 +12573,12 @@
   "footprint": 26.0,
   "tags": [
    "arvore",
-   "revisao_visual",
+   "karsiori_valedouro",
+   "remap_etapa3",
    "carvalho",
    "dourada"
   ],
-  "sha256": "1f78e99bc47969cb607dcabb897ad4558285df3db28df6e62370779a4f8fa44c",
+  "sha256": "16c907d6337bae3746699217646782f26ee907aa308435ec7c6788110dab1481",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -12632,10 +12637,12 @@
   "footprint": 26.0,
   "tags": [
    "arvore",
-   "revisao_visual",
-   "pinheiro"
+   "karsiori_valedouro",
+   "remap_etapa3",
+   "pinheiro",
+   "spruce"
   ],
-  "sha256": "9f809b7544a8824536e46676b43372b927e329de6921ee9470f3d2e84af43600",
+  "sha256": "7b566ed6fd0f199250495221bbda3228a76fe3231c823c87a6a7c8b62720fb57",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -12667,10 +12674,12 @@
   "footprint": 26.0,
   "tags": [
    "arvore",
-   "revisao_visual",
-   "pinheiro"
+   "karsiori_valedouro",
+   "remap_etapa3",
+   "pinheiro",
+   "spruce"
   ],
-  "sha256": "4f65431b0847aab1d495d47b6416edd8488ae92f2ebd62c9dd84b9d39a887b8c",
+  "sha256": "08ce76a2f54bc2e801e69ab15749cd5c03b5b313701d4d3a83cda646845eef4e",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -12702,11 +12711,13 @@
   "footprint": 26.0,
   "tags": [
    "arvore",
-   "revisao_visual",
+   "karsiori_valedouro",
+   "remap_etapa3",
    "pinheiro",
-   "neve"
+   "neve",
+   "spruce_frio"
   ],
-  "sha256": "477f183f547347289763a099768377f3017d3be14b659da59599063ee211f6f9",
+  "sha256": "414b1ad89e29fb5717c2777c9a00cf7be3430a321a1a7b548f531e806d44a098",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
   "collision": [
@@ -15452,6 +15463,81 @@
   "pipeline": "blender-pro"
  },
  {
+  "id": "nat_spruce_cold",
+  "path": "res://assets/modeled/nature/trees/nat_spruce_cold.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "karsiori_valedouro",
+   "remap_etapa3",
+   "spruce_frio",
+   "transicao_gelo"
+  ],
+  "sha256": "1ea38ded35b0f35c4142e390074b029abdebcd425c44d98815d45b2d195b7305",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_spruce_small",
+  "path": "res://assets/modeled/nature/trees/nat_spruce_small.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "karsiori_valedouro",
+   "remap_etapa3",
+   "spruce",
+   "jovem",
+   "transicao_gelo"
+  ],
+  "sha256": "5da508eb069555a41db4680d536a0f261d6b4c6319605d1a8b26e70c007428b0",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    8.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
   "id": "nat_statue_guardian",
   "path": "res://assets/modeled/nature/ruins/nat_statue_guardian.png",
   "group": "nature",
@@ -15693,12 +15779,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   126,
-   254
+   126.0,
+   254.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 13,
-  "footprint": 13,
+  "blocks_radius": 13.0,
+  "footprint": 13.0,
   "tags": [
    "campos",
    "vale",
@@ -15721,12 +15807,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   126,
-   258
+   126.0,
+   258.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 12,
-  "footprint": 12,
+  "blocks_radius": 12.0,
+  "footprint": 12.0,
   "tags": [
    "ruinas",
    "deserto",
@@ -15735,6 +15821,43 @@
   "sha256": "ac4f4777823bfb3c04d88684a3060adbbacbcbc5d4644f9b9497fbf4639df7cd",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_tree_lollipop",
+  "path": "res://assets/modeled/nature/trees/nat_tree_lollipop.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "karsiori_valedouro",
+   "remap_etapa3",
+   "pirulito",
+   "bosque_claro"
+  ],
+  "sha256": "7e0072e7c9a062fec0d54e723e5467ed992fc11b73cb3e0f1247abc4a259f991",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    9.0
+   ]
+  ],
   "pipeline": "blender-pro"
  },
  {
@@ -15749,12 +15872,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   136,
-   268
+   136.0,
+   268.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 12,
-  "footprint": 12,
+  "blocks_radius": 12.0,
+  "footprint": 12.0,
   "tags": [
    "deserto",
    "oasis",
@@ -15777,12 +15900,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   126,
-   264
+   126.0,
+   264.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 15,
-  "footprint": 15,
+  "blocks_radius": 15.0,
+  "footprint": 15.0,
   "tags": [
    "floresta",
    "vale",
@@ -15805,12 +15928,12 @@
   "frames": 1,
   "rows": 1,
   "foot": [
-   126,
-   264
+   126.0,
+   264.0
   ],
   "draw_scale": 0.5,
-  "blocks_radius": 15,
-  "footprint": 15,
+  "blocks_radius": 15.0,
+  "footprint": 15.0,
   "tags": [
    "gelo",
    "arvore"
@@ -15818,6 +15941,81 @@
   "sha256": "38f4ef6ca67b30676ebd4006b104986d0be752547763416774f8411c530a1fd5",
   "source": "game/tools/art_pipeline/pro_landmarks.py",
   "status": "MODELED_PENDING_GATE",
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_tree_tiered",
+  "path": "res://assets/modeled/nature/trees/nat_tree_tiered.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "karsiori_valedouro",
+   "remap_etapa3",
+   "andares",
+   "vale"
+  ],
+  "sha256": "2dcbc44338dccaa7007082b01958276251021762d07267e68ba293aa1ee96a32",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ],
+  "pipeline": "blender-pro"
+ },
+ {
+  "id": "nat_tree_umbrella",
+  "path": "res://assets/modeled/nature/trees/nat_tree_umbrella.png",
+  "group": "nature",
+  "folder": "trees",
+  "frame_size": [
+   872,
+   1032
+  ],
+  "frames": 1,
+  "rows": 1,
+  "foot": [
+   436.0,
+   846.0
+  ],
+  "draw_scale": 0.5,
+  "blocks_radius": 0.0,
+  "footprint": 26.0,
+  "tags": [
+   "arvore",
+   "karsiori_valedouro",
+   "remap_etapa3",
+   "guarda_chuva",
+   "colinas_secas",
+   "transicao_deserto"
+  ],
+  "sha256": "723c6bd42779228a8cb55e56a788981fbe8570b8eeb513951806ba4dcdb1f9e1",
+  "source": "game/tools/art_pipeline/pro_landmarks.py",
+  "status": "MODELED_PENDING_GATE",
+  "collision": [
+   [
+    0.0,
+    0.0,
+    10.0
+   ]
+  ],
   "pipeline": "blender-pro"
  },
  {

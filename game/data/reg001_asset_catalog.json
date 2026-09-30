@@ -23,7 +23,7 @@
    "NOT_USED": 216
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 249,
+   "INTEGRATED": 254,
    "NOT_USED": 227
   },
   "LEGACY_BASELINE": {
@@ -4153,6 +4153,24 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_NAT_SPRUCE_COLD",
+   "key": "nat_spruce_cold",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_SPRUCE_SMALL",
+   "key": "nat_spruce_small",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_NAT_STATUE_GUARDIAN",
    "key": "nat_statue_guardian",
    "group": "nature",
@@ -4243,6 +4261,15 @@
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
+   "id": "MOD_NAT_TREE_LOLLIPOP",
+   "key": "nat_tree_lollipop",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
    "id": "MOD_NAT_TREE_PALM",
    "key": "nat_tree_palm",
    "group": "nature",
@@ -4266,6 +4293,24 @@
    "group": "nature",
    "approval": "MODELED_PENDING_GATE",
    "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_TREE_TIERED",
+   "key": "nat_tree_tiered",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_NAT_TREE_UMBRELLA",
+   "key": "nat_tree_umbrella",
+   "group": "nature",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
    "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },

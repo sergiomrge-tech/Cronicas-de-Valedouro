@@ -10,7 +10,7 @@
   "note": "MODELED_PENDING_GATE = modelado no estilo dos 28 APPROVED, aguardando gate visual do Diretor. Mude o status de um asset para REJECTED/HOLD para removê-lo do renderer."
  },
  "counts": {
-  "total": 713
+  "total": 718
  },
  "assets": [
   {
@@ -9936,10 +9936,11 @@
    "footprint": 26.0,
    "tags": [
     "arvore",
-    "revisao_visual",
+    "karsiori_valedouro",
+    "remap_etapa3",
     "betula"
    ],
-   "sha256": "43dc1c2f1825c5bff0a54d4d30d320289859f80aea43884116994605058c0668",
+   "sha256": "5d2db1c120605f433819c4e0e02a9b977ca106d0907b1b92f607d95838faac7d",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "collision": [
@@ -14802,11 +14803,12 @@
    "footprint": 26.0,
    "tags": [
     "arvore",
-    "revisao_visual",
+    "karsiori_valedouro",
+    "remap_etapa3",
     "carvalho",
     "verde"
    ],
-   "sha256": "a6ffe88df58e7e192da4a30dfbc17c0a814a4aba4a145baff4fa08d1362af13e",
+   "sha256": "27f8eefd7b750a921e2fa24aa51afddeb5ffd38bf00596df3f8aaa9c13051650",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "collision": [
@@ -14838,11 +14840,12 @@
    "footprint": 26.0,
    "tags": [
     "arvore",
-    "revisao_visual",
+    "karsiori_valedouro",
+    "remap_etapa3",
     "carvalho",
     "outono"
    ],
-   "sha256": "fd8ffd870c260d63d67dd234e1c611bb1fedc44053c286ff39543b755e38782c",
+   "sha256": "137600b77fc6bc098fe2a567a4627422419aaaca5576078c98950740c39e5a40",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "collision": [
@@ -14874,11 +14877,12 @@
    "footprint": 26.0,
    "tags": [
     "arvore",
-    "revisao_visual",
+    "karsiori_valedouro",
+    "remap_etapa3",
     "carvalho",
     "verde"
    ],
-   "sha256": "db85bfed36946f72fe164e0ea3ab1df2bccf7f2636ef71b2065eb8a3c4c5d40f",
+   "sha256": "021d7231e9d58127867003688778a6f3adb557cf8913faa11b0e4a20f63769ff",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "collision": [
@@ -14910,12 +14914,12 @@
    "footprint": 26.0,
    "tags": [
     "arvore",
-    "revisao_visual",
+    "karsiori_valedouro",
+    "remap_etapa3",
     "carvalho",
-    "verde",
     "grande"
    ],
-   "sha256": "6f802880fb9258f2e68870396ddb878ee8191502d89fcf6d1f144927b2ee5c05",
+   "sha256": "4d4d36c1e85464e92d56e824de32b2926cd60a1dbaddc5e7cefa7b964f278ca9",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "collision": [
@@ -14947,11 +14951,12 @@
    "footprint": 26.0,
    "tags": [
     "arvore",
-    "revisao_visual",
+    "karsiori_valedouro",
+    "remap_etapa3",
     "carvalho",
     "dourada"
    ],
-   "sha256": "1f78e99bc47969cb607dcabb897ad4558285df3db28df6e62370779a4f8fa44c",
+   "sha256": "16c907d6337bae3746699217646782f26ee907aa308435ec7c6788110dab1481",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "collision": [
@@ -15010,10 +15015,12 @@
    "footprint": 26.0,
    "tags": [
     "arvore",
-    "revisao_visual",
-    "pinheiro"
+    "karsiori_valedouro",
+    "remap_etapa3",
+    "pinheiro",
+    "spruce"
    ],
-   "sha256": "9f809b7544a8824536e46676b43372b927e329de6921ee9470f3d2e84af43600",
+   "sha256": "7b566ed6fd0f199250495221bbda3228a76fe3231c823c87a6a7c8b62720fb57",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "collision": [
@@ -15045,10 +15052,12 @@
    "footprint": 26.0,
    "tags": [
     "arvore",
-    "revisao_visual",
-    "pinheiro"
+    "karsiori_valedouro",
+    "remap_etapa3",
+    "pinheiro",
+    "spruce"
    ],
-   "sha256": "4f65431b0847aab1d495d47b6416edd8488ae92f2ebd62c9dd84b9d39a887b8c",
+   "sha256": "08ce76a2f54bc2e801e69ab15749cd5c03b5b313701d4d3a83cda646845eef4e",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "collision": [
@@ -15080,11 +15089,13 @@
    "footprint": 26.0,
    "tags": [
     "arvore",
-    "revisao_visual",
+    "karsiori_valedouro",
+    "remap_etapa3",
     "pinheiro",
-    "neve"
+    "neve",
+    "spruce_frio"
    ],
-   "sha256": "477f183f547347289763a099768377f3017d3be14b659da59599063ee211f6f9",
+   "sha256": "414b1ad89e29fb5717c2777c9a00cf7be3430a321a1a7b548f531e806d44a098",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "collision": [
@@ -18019,6 +18030,81 @@
    "pipeline": "blender-pro"
   },
   {
+   "id": "nat_spruce_cold",
+   "path": "res://assets/modeled/nature/trees/nat_spruce_cold.png",
+   "group": "nature",
+   "folder": "trees",
+   "frame_size": [
+    872,
+    1032
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    436.0,
+    846.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 26.0,
+   "tags": [
+    "arvore",
+    "karsiori_valedouro",
+    "remap_etapa3",
+    "spruce_frio",
+    "transicao_gelo"
+   ],
+   "sha256": "1ea38ded35b0f35c4142e390074b029abdebcd425c44d98815d45b2d195b7305",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     0.0,
+     0.0,
+     10.0
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_spruce_small",
+   "path": "res://assets/modeled/nature/trees/nat_spruce_small.png",
+   "group": "nature",
+   "folder": "trees",
+   "frame_size": [
+    872,
+    1032
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    436.0,
+    846.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 26.0,
+   "tags": [
+    "arvore",
+    "karsiori_valedouro",
+    "remap_etapa3",
+    "spruce",
+    "jovem",
+    "transicao_gelo"
+   ],
+   "sha256": "5da508eb069555a41db4680d536a0f261d6b4c6319605d1a8b26e70c007428b0",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     0.0,
+     0.0,
+     8.0
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
    "id": "nat_statue_guardian",
    "path": "res://assets/modeled/nature/ruins/nat_statue_guardian.png",
    "group": "nature",
@@ -18285,12 +18371,12 @@
    "frames": 1,
    "rows": 1,
    "foot": [
-    126,
-    254
+    126.0,
+    254.0
    ],
    "draw_scale": 0.5,
-   "blocks_radius": 13,
-   "footprint": 13,
+   "blocks_radius": 13.0,
+   "footprint": 13.0,
    "tags": [
     "campos",
     "vale",
@@ -18313,12 +18399,12 @@
    "frames": 1,
    "rows": 1,
    "foot": [
-    126,
-    258
+    126.0,
+    258.0
    ],
    "draw_scale": 0.5,
-   "blocks_radius": 12,
-   "footprint": 12,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
    "tags": [
     "ruinas",
     "deserto",
@@ -18327,6 +18413,43 @@
    "sha256": "ac4f4777823bfb3c04d88684a3060adbbacbcbc5d4644f9b9497fbf4639df7cd",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_tree_lollipop",
+   "path": "res://assets/modeled/nature/trees/nat_tree_lollipop.png",
+   "group": "nature",
+   "folder": "trees",
+   "frame_size": [
+    872,
+    1032
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    436.0,
+    846.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 26.0,
+   "tags": [
+    "arvore",
+    "karsiori_valedouro",
+    "remap_etapa3",
+    "pirulito",
+    "bosque_claro"
+   ],
+   "sha256": "7e0072e7c9a062fec0d54e723e5467ed992fc11b73cb3e0f1247abc4a259f991",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     0.0,
+     0.0,
+     9.0
+    ]
+   ],
    "pipeline": "blender-pro"
   },
   {
@@ -18341,12 +18464,12 @@
    "frames": 1,
    "rows": 1,
    "foot": [
-    136,
-    268
+    136.0,
+    268.0
    ],
    "draw_scale": 0.5,
-   "blocks_radius": 12,
-   "footprint": 12,
+   "blocks_radius": 12.0,
+   "footprint": 12.0,
    "tags": [
     "deserto",
     "oasis",
@@ -18369,12 +18492,12 @@
    "frames": 1,
    "rows": 1,
    "foot": [
-    126,
-    264
+    126.0,
+    264.0
    ],
    "draw_scale": 0.5,
-   "blocks_radius": 15,
-   "footprint": 15,
+   "blocks_radius": 15.0,
+   "footprint": 15.0,
    "tags": [
     "floresta",
     "vale",
@@ -18397,12 +18520,12 @@
    "frames": 1,
    "rows": 1,
    "foot": [
-    126,
-    264
+    126.0,
+    264.0
    ],
    "draw_scale": 0.5,
-   "blocks_radius": 15,
-   "footprint": 15,
+   "blocks_radius": 15.0,
+   "footprint": 15.0,
    "tags": [
     "gelo",
     "arvore"
@@ -18410,6 +18533,81 @@
    "sha256": "38f4ef6ca67b30676ebd4006b104986d0be752547763416774f8411c530a1fd5",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_tree_tiered",
+   "path": "res://assets/modeled/nature/trees/nat_tree_tiered.png",
+   "group": "nature",
+   "folder": "trees",
+   "frame_size": [
+    872,
+    1032
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    436.0,
+    846.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 26.0,
+   "tags": [
+    "arvore",
+    "karsiori_valedouro",
+    "remap_etapa3",
+    "andares",
+    "vale"
+   ],
+   "sha256": "2dcbc44338dccaa7007082b01958276251021762d07267e68ba293aa1ee96a32",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     0.0,
+     0.0,
+     10.0
+    ]
+   ],
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "nat_tree_umbrella",
+   "path": "res://assets/modeled/nature/trees/nat_tree_umbrella.png",
+   "group": "nature",
+   "folder": "trees",
+   "frame_size": [
+    872,
+    1032
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    436.0,
+    846.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 26.0,
+   "tags": [
+    "arvore",
+    "karsiori_valedouro",
+    "remap_etapa3",
+    "guarda_chuva",
+    "colinas_secas",
+    "transicao_deserto"
+   ],
+   "sha256": "723c6bd42779228a8cb55e56a788981fbe8570b8eeb513951806ba4dcdb1f9e1",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "collision": [
+    [
+     0.0,
+     0.0,
+     10.0
+    ]
+   ],
    "pipeline": "blender-pro"
   },
   {
@@ -22140,7 +22338,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "caba3c48bc8fa4ff87f17aa716bbab865ea66f9ccf31a5044e18345c3955f40a",
+   "sha256": "7ab02b1e04cfbb29047bec220ac5b8e4e5f351ac49f138ad36943d0f1a263d69",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22167,7 +22365,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "faa9760922a5040391bd12b9beced0247fbf8dc859f34c3cdbe273aa8064553d",
+   "sha256": "79eac5e023d6accea97d8d836e85bc7a87d0f3a14bbab2c77611da1d2d26e010",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22194,7 +22392,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "f63a4d0be66ea9d0468913a68545bd0d9f7a2ba3573422c15110945b623544c1",
+   "sha256": "605fab2d7d898fa5b2f660f76866e80fa9341fc2a6a2093d5da8ec683678c781",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22221,7 +22419,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "fe9178965bdb0e06628bcc662d3b2e11bc1b2b4e9523eb9e7ec7bf486ae20f7b",
+   "sha256": "b5a0c4c45327ff30bde16b4769db665b14cf37aa1f173bd0d326c48e86885819",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22248,7 +22446,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "e5ac62e4011f406872dc291422bbffcd2ff6a0c4c5b612989765301d6cd12cf5",
+   "sha256": "31317504acee4200a355a91c81f5e959310ad489ffb7b9dc4636f2ba144247b2",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22275,7 +22473,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "d39ad66977e11b019524aabaffa576bafaa288edf830aa7f5de5cdb47183205a",
+   "sha256": "10e34c6e06f502d43a266a6e7f2ec4c0355641ac43c961967c50e3f4a6e928ae",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22302,7 +22500,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "fcda8ac9c0cb351f9e1c323eda4a74de6a6a50d212b1fa49f6adefad0c0059a2",
+   "sha256": "f159049bc0e84643f931ad2ba86da2cdd6a5adeffbf405de29124c7d51f14779",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22329,7 +22527,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "7082833f8a3873d0bd64d5cd37a73380b086ef6862c953cf6ab6e85044bac773",
+   "sha256": "b0e4c146788895715a307cdccf15d14e7104366dcdf6eb5f3b022bca243080b9",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22356,7 +22554,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "2e85c69973f495acfd9f43d1bc25f628e1f26ee636796bc2ba0fb624a16b1462",
+   "sha256": "e890697abbaf9c5a98a48313e9d4fe7154956c0a58d952d2d27b8b5a87164780",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22383,7 +22581,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "3624158650b4f6ed3a45990e44416a4eb19df24e8cc877619b4108183f346fce",
+   "sha256": "c974b316786462b9db994330b51c2d27486cdca1ce9d275c2482c947f62a0cd3",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22410,7 +22608,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "bc21f022ba377af9f12c7e427344fa9f308768b2394a0e1241cb6e18ad07d1d2",
+   "sha256": "0ee2d07667f4818b7a4756d0b189f6fcc19cd6a68feaa9221f2938507a1130e9",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22437,7 +22635,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "705ebeaa700f197da671048f909929bf283dabd1c99319ca982e37baaa28a1c9",
+   "sha256": "38cf26d6be7a84ea7356a7f674b2331913620277027ffa453b801359a48e6faa",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22491,7 +22689,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "79e2774f9f4142014bdfa22b4a7cd0ffe5100ad195647b51f62167bdfc7fd8ef",
+   "sha256": "6d092a25bd23a8a0ec1723a02e10d8552f6aea87dd1c1bdf534cf045cdd72a9f",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22518,7 +22716,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "a2111034f6fc7c1f8a1c79cade596fa333e140c8136129e473b7f64cce753d0c",
+   "sha256": "4ea33d8f3f3c1b92c99725a32d221be467d1a643a32f01aff690fa90751d4bcb",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22545,7 +22743,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "b3a39f0eacb90f5cee6a02085e04fc6a4a0ae2cdf9f3d88fa3a2104b071bbe8d",
+   "sha256": "f06f11cb192cd98745add8ba43c7275a9a5181e76e83aeabd7e9a45358eeae03",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22572,7 +22770,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "7e904df6dd9e8aeb4ead975405681a07d47535fd9acfa65cc5d7d1a91b5e68df",
+   "sha256": "8ad0e059c78e6625f916b3cabbbb3eeac0b6591e0bf3527e71a6e3da7a9b3d8e",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22599,7 +22797,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "750d871ce63d357d4fa1c0832e0e91faa2eb2809000753f3a3b08b146c2efd4b",
+   "sha256": "f2bcdac685c6463d0c570db4c8166e8999d14965639190d97a92dcc4c064ef11",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22626,7 +22824,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "6e470dba6f98a458acbb3c4ddea911265a198969e00ff50cc3008cedc3a8190e",
+   "sha256": "667c2ac114dff46423239897e083ebbc1739a6cb73b2486309188cf1d3508d64",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22653,7 +22851,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "8c9f33a1173df7cab56704288929a5275f3f95f7941e1ec62ace4f9cd0c28018",
+   "sha256": "56d819ec6f855ba6485a3e6ec0056b003ffbaf98634cdfc85e2949b817c6f951",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22680,7 +22878,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "71fc76b26e0ad63da26b0a21dea8a8ff4a9c72575a09ccca38d65324351c6776",
+   "sha256": "7ecc1f82bb9a676cd5e8611d60c7aa6c928df67c35c13b4da82fe54fe9e98102",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22707,7 +22905,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "d1eb0851a9a9034148389bb8631a8c3a15bd181eb2b9f535ee301c08eb1e0c23",
+   "sha256": "3aaee09469d95df3685d9539a5424f16606391ea504d85d242fa5beb8688722a",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22734,7 +22932,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "51d30c95e0051193557907865ad4e79438a52f7d22b0199cf1fceb2409e59887",
+   "sha256": "98f3f94a2f18baee19e416cebc0d7552a98cf88139a919c0c7e57cce2f8d8b04",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22788,7 +22986,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "77619f6beb7bf1c0487764126cc18f822b5c12bce1426c24727b2258109eeb5e",
+   "sha256": "9e131623bd54acf0f4dc2573e013654dba9eda097258ae0f9e3938caffe33eff",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22815,7 +23013,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "bfbc26f273384b4808d19a51898d5b8114c0ae00c810121db762b1283b25ee56",
+   "sha256": "c45f14106e1a4ac0e24085fad684b165506fdd69e60ee98c6f50e3ad41a17dee",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },
@@ -22842,7 +23040,7 @@
     "baked",
     "mundo"
    ],
-   "sha256": "a6e2d63c2e939c04e4d963ac21f957662335def0f459b2c148f4c9c882018e98",
+   "sha256": "c2786ebcf86fbf0eee9af1d43f961dc4ee28d4ee4a6441569b31da3ea255c011",
    "source": "game/tools/terrain/bake_ground.py",
    "status": "MODELED_PENDING_GATE"
   },

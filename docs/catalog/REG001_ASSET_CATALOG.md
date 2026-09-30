@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (256): inclui o bundle base do Lote 01 e assets modelados posteriormente promovidos pelo Diretor.
-- **MODELED_PENDING_GATE** (476): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (481): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 40 | 216 |
-| MODELED_PENDING_GATE | 249 | 227 |
+| MODELED_PENDING_GATE | 254 | 227 |
 | LEGACY_BASELINE | 119 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -40,7 +40,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## MODELED_PENDING_GATE — por grupo
 
-### nature (250)
+### nature (255)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -256,6 +256,8 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_signpost` | INTEGRATED | 7 |
 | `nat_silk_tree` | INTEGRATED | 7 |
 | `nat_snow_mound` | INTEGRATED | 2 |
+| `nat_spruce_cold` | INTEGRATED | 0 |
+| `nat_spruce_small` | INTEGRATED | 0 |
 | `nat_statue_guardian` | INTEGRATED | 4 |
 | `nat_steps_stone` | NOT_USED | 0 |
 | `nat_stone_circle` | INTEGRATED | 1 |
@@ -266,9 +268,12 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `nat_trap_plate` | INTEGRATED | 2 |
 | `nat_tree_birch` | INTEGRATED | 2 |
 | `nat_tree_dead` | INTEGRATED | 4 |
+| `nat_tree_lollipop` | INTEGRATED | 0 |
 | `nat_tree_palm` | INTEGRATED | 5 |
 | `nat_tree_pine` | INTEGRATED | 4 |
 | `nat_tree_pine_snow` | NOT_USED | 0 |
+| `nat_tree_tiered` | INTEGRATED | 0 |
+| `nat_tree_umbrella` | INTEGRATED | 0 |
 | `nat_wall_cliff_ice_a` | INTEGRATED | 5 |
 | `nat_wall_cliff_ice_b` | INTEGRATED | 4 |
 | `nat_wall_cliff_rock_a` | INTEGRATED | 2 |

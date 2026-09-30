@@ -132,6 +132,27 @@ def build_terrain_ids(x0, y0, w, h, trails_mask, ford_mask, seeds):
     ter = np.where(bio == 1, np.where(gt(patch1, .74, bay), IDX['ice'], np.where(gt(patch3, .93, bay, .04), IDX['stone'], IDX['snow'])), ter)
     # deserto
     ter = np.where(bio == 2, np.where(gt(patch3, .94, bay, .04), IDX['stone'], np.where(gt(patch2, .92, bay, .04), IDX['dirt'], IDX['sand'])), ter)
+    # ECÓTONOS (remapeamento Etapa 3): numa faixa larga junto à borda, o bioma vizinho entra em MANCHAS intercaladas (amostragem
+    # deslocada por ruído de baixa/média frequência, ±150 px) e cada par ganha um material de transição próprio:
+    #   verde↔gelo: chão pedregoso + manchas de neve rala; verde↔deserto: terra seca + areia em línguas; verde↔verde: mistura natural.
+    LA, LB = seeds['warpL']
+    p2w = seeds['p2'][y0:y0 + h, x0:x0 + w]
+    p3w = seeds['p3'][y0:y0 + h, x0:x0 + w]
+    ex = (p2w - .5) * 420 + (A[0][y0:y0 + h, x0:x0 + w] - .5) * 160
+    ey = (p3w - .5) * 420 + (A[1][y0:y0 + h, x0:x0 + w] - .5) * 160
+    bio2 = biome_ids(xx + ex, yy + ey)
+    band = (bio2 != bio) & (bio != 0) & (bio2 != 0)
+    green = (bio >= 3)
+    green2 = (bio2 >= 3)
+    cold = band & ((green & (bio2 == 1)) | ((bio == 1) & green2))
+    dry = band & ((green & (bio2 == 2)) | ((bio == 2) & green2))
+    mixg = band & green & green2
+    t_cold = np.where(gt(patch2, .55, bay, .1), IDX['riverbed'], np.where(gt(patch1, .5, bay, .1), IDX['snow'], IDX['dirt']))      # cascalho + terra + neve rala
+    t_dry = np.where(gt(patch3, .5, bay, .1), IDX['dirt'], np.where(gt(patch1, .5, bay, .1), IDX['sand'], IDX['valley']))
+    ter = np.where(cold & gt(fine * .5 + patch3 * .5, .35, bay, .12), t_cold, ter)
+    ter = np.where(dry & gt(fine * .5 + patch2 * .5, .35, bay, .12), t_dry, ter)
+    ter_nb = np.select([bio2 == 3, bio2 == 4, bio2 == 5, bio2 == 6], [IDX['meadow'], IDX['valley'], IDX['forest_floor'], IDX['grass_a']], ter)
+    ter = np.where(mixg & gt(fine * .5 + patch1 * .5, .5, bay, .15), ter_nb, ter)
     # margem/água (geometria exata do rio, sem warp): água profunda, rasa, margem
     rx = river_x_v(yy)
     hw = river_hw_v(yy)
