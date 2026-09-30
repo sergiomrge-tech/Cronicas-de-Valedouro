@@ -10,6 +10,7 @@ const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const HeroScript = preload("res://scripts/cartoon/cartoon_hero.gd")
 const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
 const MapOverlayScript = preload("res://scripts/cartoon/coast/coast_map_overlay.gd")
+const ExplorationDirectorScript = preload("res://scripts/cartoon/cartoon_exploration_director.gd")
 
 var story_zones: Node2D
 var objects: Node2D
@@ -17,6 +18,7 @@ var hero: Node2D
 var camera: Camera2D
 var world_stream: Node2D
 var story_runtime: RefCounted
+var exploration_director: Node
 var monsters: Array[Node2D] = []
 var pois: Array[Dictionary] = []
 
@@ -60,6 +62,11 @@ func _ready() -> void:
 	hero.name = "Player"
 	hero.position = Coast.ENTRY_POS
 	objects.add_child(hero)
+
+	exploration_director = ExplorationDirectorScript.new()
+	exploration_director.name = "ExplorationDirector"
+	add_child(exploration_director)
+	exploration_director.setup(self,objects,hero,Coast.REGION_ID)
 	world_stream = StreamScript.new()
 	world_stream.name = "CoastWorldStream"
 	add_child(world_stream)
@@ -169,6 +176,8 @@ func _interact() -> void:
 		return
 	var poi: Dictionary = _nearest_poi(hero.position,215.0)
 	if poi.is_empty():
+		if exploration_director != null and exploration_director.try_interact():
+			return
 		_show_toast("Nada para interagir aqui.")
 		return
 	var id: String = String(poi.get("id",""))
@@ -390,7 +399,12 @@ func _update_poi_hint() -> void:
 	if poi_label == null or hero == null:
 		return
 	var poi: Dictionary = _nearest_poi(hero.position,215.0)
-	poi_label.text = ("◆ "+String(poi.get("label",""))+"  •  USAR") if not poi.is_empty() else ""
+	if not poi.is_empty():
+		poi_label.text = "◆ "+String(poi.get("label",""))+"  •  USAR"
+	elif exploration_director != null:
+		poi_label.text = exploration_director.hint_text()
+	else:
+		poi_label.text = ""
 
 func _target_position() -> Vector2:
 	if story_runtime == null:
