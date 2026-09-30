@@ -4,6 +4,7 @@ extends Node2D
 const EnvScript = preload("res://scripts/cartoon/hub_environment.gd")
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const HeroScript = preload("res://scripts/cartoon/cartoon_hero.gd")
+const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
 
 var environment: ValedouroCartoonHubEnvironment
 var objects: Node2D
@@ -11,6 +12,7 @@ var hero: ValedouroCartoonHero
 var camera: Camera2D
 var ui: CanvasLayer
 var objective_label: Label
+var stats_label: Label
 var toast_label: Label
 var poi_label: Label
 var joystick_id: int = -1
@@ -18,6 +20,12 @@ var joystick_origin = Vector2.ZERO
 var joystick_vector = Vector2.ZERO
 var speed = 220.0
 var toast_timer = 0.0
+var monsters: Array[Node2D] = []
+var player_hp: int = 120
+var player_max_hp: int = 120
+var player_gold: int = 35
+var field_quest_active: bool = false
+var field_kills: int = 0
 
 func _ready() -> void:
 	objects = Node2D.new()
@@ -36,6 +44,7 @@ func _ready() -> void:
 	hero.name = "Player"
 	hero.position = Vector2(1150,970)
 	objects.add_child(hero)
+	_spawn_monsters()
 	camera = Camera2D.new()
 	camera.name = "PlayerCamera"
 	camera.position = Vector2.ZERO
@@ -51,7 +60,7 @@ func _build_ui() -> void:
 	ui = CanvasLayer.new(); ui.name = "HUD"; add_child(ui)
 	var top = PanelContainer.new(); top.position = Vector2(14,14); top.size = Vector2(305,74); ui.add_child(top)
 	var top_style = StyleBoxFlat.new(); top_style.bg_color = Color(0.08,0.07,0.12,0.94); top_style.border_color = Color(0.96,0.69,0.17); top_style.set_border_width_all(3); top_style.corner_radius_top_left=16; top_style.corner_radius_top_right=16; top_style.corner_radius_bottom_left=16; top_style.corner_radius_bottom_right=16; top.add_theme_stylebox_override("panel",top_style)
-	var stats = Label.new(); stats.position=Vector2(18,10); stats.size=Vector2(275,55); stats.text="CRÔNICAS DE VALEDOURO\nNv 1   ❤ 120/120   ✦ 60/60"; stats.add_theme_font_size_override("font_size",16); stats.add_theme_color_override("font_color",Color(1,0.95,0.82)); top.add_child(stats)
+	stats_label = Label.new(); stats_label.position=Vector2(18,10); stats_label.size=Vector2(275,55); stats_label.add_theme_font_size_override("font_size",16); stats_label.add_theme_color_override("font_color",Color(1,0.95,0.82)); top.add_child(stats_label); _refresh_stats()
 	var q = PanelContainer.new(); q.position=Vector2(617,16); q.size=Vector2(328,90); ui.add_child(q)
 	var qstyle = StyleBoxFlat.new(); qstyle.bg_color=Color(0.07,0.08,0.12,0.92); qstyle.border_color=Color(0.21,0.49,0.82); qstyle.set_border_width_all(3); qstyle.corner_radius_top_left=14; qstyle.corner_radius_top_right=14; qstyle.corner_radius_bottom_left=14; qstyle.corner_radius_bottom_right=14; q.add_theme_stylebox_override("panel",qstyle)
 	objective_label=Label.new(); objective_label.position=Vector2(14,9); objective_label.size=Vector2(300,70); objective_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; objective_label.text="HISTÓRIA PRINCIPAL\nChegada — fale com o NPC principal no Castelo"; objective_label.add_theme_color_override("font_color",Color(1,0.91,0.58)); q.add_child(objective_label)
@@ -78,6 +87,7 @@ func _process(delta: float) -> void:
 		if environment and environment.is_walkable(next): hero.position=next
 		hero.set_motion(dir)
 		_update_poi_hint()
+	_update_monsters(delta)
 	if Input.is_action_just_pressed("attack"): _attack()
 	if Input.is_action_just_pressed("interact"): _interact()
 
@@ -91,8 +101,29 @@ func _input(event: InputEvent) -> void:
 		joystick_vector=(event.position-joystick_origin).limit_length(80.0)/80.0
 
 func _attack() -> void:
-	if hero: hero.trigger_attack()
-	_show_toast("Ataque de teste — combate será conectado ao próximo anel do mapa.")
+	if not hero:
+		return
+	hero.trigger_attack()
+	var target: Node2D = _nearest_monster(105.0)
+	if target == null:
+		_show_toast("Ataque — nenhum inimigo ao alcance.")
+		return
+	var dead: bool = target.take_damage(18)
+	if dead:
+		var kind: String = String(target.kind)
+		monsters.erase(target)
+		target.queue_free()
+		player_gold += 6
+		if field_quest_active and kind == "wolf":
+			field_kills += 1
+			if field_kills >= 3:
+				objective_label.text = "HISTÓRIA PRINCIPAL\nLobos nos Campos — retorne à Guilda"
+				_show_toast("Área segura por enquanto. Retorne à Guilda.")
+			else:
+				objective_label.text = "HISTÓRIA PRINCIPAL\nLobos nos Campos — %d/3" % field_kills
+		else:
+			_show_toast("Inimigo derrotado. +6 ouro")
+		_refresh_stats()
 
 func _interact() -> void:
 	if not hero or not environment: return
@@ -107,8 +138,25 @@ func _interact() -> void:
 			_show_toast("Castelo de Valedouro — primeira etapa de Chegada registrada.")
 		"POI_REG001_FORGE": _show_toast("Ferreiro — upgrades e crafting serão ligados ao inventário.")
 		"POI_REG001_TAVERN": _show_toast("Taverna — descanso, rumores e save no vertical slice.")
-		"POI_REG001_GUILD": _show_toast("Guilda — contratos e a futura missão dos lobos.")
+		"POI_REG001_GUILD":
+			if field_quest_active and field_kills >= 3:
+				field_quest_active = false
+				player_gold += 30
+				objective_label.text = "HISTÓRIA PRINCIPAL\nExplore os Campos do Vale e siga pela estrada sul"
+				_show_toast("Contrato concluído. +30 ouro")
+				_refresh_stats()
+			else:
+				field_quest_active = true
+				field_kills = mini(field_kills,3)
+				objective_label.text = "HISTÓRIA PRINCIPAL\nLobos nos Campos — %d/3" % field_kills
+				_show_toast("Contrato aceito: afaste 3 lobos dos Campos do Vale.")
 		"POI_REG001_ALCHEMIST": _show_toast("Alquimista — poções e consumíveis.")
+		"POI_REG001_FIELDS": _show_toast("Campos do Vale — primeiro anel de exploração fora da cidade.")
+		"POI_REG001_FARM": _show_toast("Fazenda do Sol — a estrada continua para o sul.")
+		"POI_REG001_FIELD_CHEST":
+			player_gold += 12
+			_refresh_stats()
+			_show_toast("Baú encontrado: +12 ouro.")
 		_: _show_toast(label)
 
 func _show_toast(text: String) -> void:
@@ -119,3 +167,59 @@ func _update_poi_hint() -> void:
 	if not poi_label or not hero or not environment: return
 	var poi = environment.nearest_poi(hero.position,190.0)
 	poi_label.text=("◆ " + String(poi.get("label","")) + "  •  USAR") if not poi.is_empty() else ""
+
+
+func _spawn_monsters() -> void:
+	var rows: Array[Dictionary] = [
+		{"kind":"wolf","name":"Lobo do Vale","pos":Vector2(1040,1870),"hp":34,"speed":88.0,"damage":7,"scale":1.0},
+		{"kind":"wolf","name":"Lobo do Vale","pos":Vector2(1240,1960),"hp":34,"speed":90.0,"damage":7,"scale":1.0},
+		{"kind":"wolf","name":"Lobo Alfa Jovem","pos":Vector2(1110,2160),"hp":44,"speed":96.0,"damage":9,"scale":1.08},
+		{"kind":"goblin","name":"Saqueador Verde","pos":Vector2(1440,2210),"hp":42,"speed":76.0,"damage":8,"scale":1.0},
+		{"kind":"slime","name":"Gosma do Prado","pos":Vector2(880,2220),"hp":28,"speed":54.0,"damage":5,"scale":1.0}
+	]
+	for data in rows:
+		var monster: Node2D = MonsterScript.new()
+		monster.setup(data)
+		objects.add_child(monster)
+		monsters.append(monster)
+
+func _update_monsters(delta: float) -> void:
+	if not hero or not environment:
+		return
+	for monster in monsters.duplicate():
+		if not is_instance_valid(monster):
+			monsters.erase(monster)
+			continue
+		var dist: float = monster.position.distance_to(hero.position)
+		if dist < 270.0 and dist > 50.0:
+			var dir: Vector2 = (hero.position - monster.position).normalized()
+			var next: Vector2 = monster.position + dir * float(monster.move_speed) * delta
+			if environment.is_walkable(next):
+				monster.position = next
+		if dist <= 52.0 and monster.can_hit():
+			monster.mark_hit()
+			player_hp = maxi(0, player_hp - int(monster.contact_damage))
+			_refresh_stats()
+			if player_hp <= 0:
+				player_hp = player_max_hp
+				hero.position = Vector2(1150,970)
+				_show_toast("Você foi resgatado e voltou à Praça Central.")
+				_refresh_stats()
+
+func _nearest_monster(radius: float) -> Node2D:
+	if not hero:
+		return null
+	var best: Node2D = null
+	var best_d: float = radius
+	for monster in monsters:
+		if not is_instance_valid(monster):
+			continue
+		var d: float = hero.position.distance_to(monster.position)
+		if d < best_d:
+			best_d = d
+			best = monster
+	return best
+
+func _refresh_stats() -> void:
+	if stats_label:
+		stats_label.text = "CRÔNICAS DE VALEDOURO\nNv 1   ❤ %d/%d   ◉ %d" % [player_hp,player_max_hp,player_gold]
