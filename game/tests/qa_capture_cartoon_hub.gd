@@ -11,7 +11,7 @@ func capture() -> void:
     await process_frame
     await process_frame
     await process_frame
-    var output_dir: String = "res://ci_output_cartoon"
+    var output_dir: String = "user://ci_output_cartoon"
     if OS.get_cmdline_user_args().size() > 0:
         output_dir = OS.get_cmdline_user_args()[0]
     DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output_dir))
