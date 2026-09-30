@@ -14,6 +14,7 @@ const StoryRuntimeScript = preload("res://scripts/cartoon/cartoon_story_runtime.
 const MapOverlayScript = preload("res://scripts/cartoon/hub_map_overlay.gd")
 const CraftingUIScript = preload("res://scripts/cartoon/cartoon_crafting_ui.gd")
 const ZoomControlsScript = preload("res://scripts/cartoon/cartoon_zoom_controls.gd")
+const InventoryUIScript = preload("res://scripts/cartoon/cartoon_inventory_ui.gd")
 
 var environment: ValedouroCartoonHubEnvironment
 var objects: Node2D
@@ -30,6 +31,7 @@ var poi_label: Label
 var map_overlay: Control
 var crafting_ui: Control
 var zoom_controls: Control
+var inventory_ui: Control
 var map_open: bool = false
 var objective_nav_label: Label
 var joystick_id: int = -1
@@ -94,6 +96,10 @@ func _ready() -> void:
 	crafting_ui.name = "CraftingUI"
 	ui.add_child(crafting_ui)
 	crafting_ui.setup(self,hero,"REG_001_BERCO_VALEDOURO")
+	inventory_ui = InventoryUIScript.new()
+	inventory_ui.name = "InventoryUI"
+	ui.add_child(inventory_ui)
+	inventory_ui.setup(self,hero,true)
 	_update_poi_hint()
 
 func _build_ui() -> void:
@@ -101,9 +107,9 @@ func _build_ui() -> void:
 	var top = PanelContainer.new(); top.position = Vector2(14,14); top.size = Vector2(305,74); ui.add_child(top)
 	var top_style = StyleBoxFlat.new(); top_style.bg_color = Color(0.08,0.07,0.12,0.94); top_style.border_color = Color(0.96,0.69,0.17); top_style.set_border_width_all(3); top_style.corner_radius_top_left=16; top_style.corner_radius_top_right=16; top_style.corner_radius_bottom_left=16; top_style.corner_radius_bottom_right=16; top.add_theme_stylebox_override("panel",top_style)
 	stats_label = Label.new(); stats_label.position=Vector2(18,10); stats_label.size=Vector2(275,55); stats_label.add_theme_font_size_override("font_size",16); stats_label.add_theme_color_override("font_color",Color(1,0.95,0.82)); top.add_child(stats_label); _refresh_stats()
-	var q = PanelContainer.new(); q.position=Vector2(617,16); q.size=Vector2(328,90); ui.add_child(q)
+	var q = PanelContainer.new(); q.position=Vector2(690,14); q.size=Vector2(256,96); ui.add_child(q)
 	var qstyle = StyleBoxFlat.new(); qstyle.bg_color=Color(0.07,0.08,0.12,0.92); qstyle.border_color=Color(0.21,0.49,0.82); qstyle.set_border_width_all(3); qstyle.corner_radius_top_left=14; qstyle.corner_radius_top_right=14; qstyle.corner_radius_bottom_left=14; qstyle.corner_radius_bottom_right=14; q.add_theme_stylebox_override("panel",qstyle)
-	objective_label=Label.new(); objective_label.position=Vector2(14,9); objective_label.size=Vector2(300,70); objective_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; objective_label.text=story_runtime.hud_text(); objective_label.add_theme_color_override("font_color",Color(1,0.91,0.58)); q.add_child(objective_label)
+	objective_label=Label.new(); objective_label.position=Vector2(14,9); objective_label.size=Vector2(228,78); objective_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; objective_label.text=story_runtime.hud_text(); objective_label.add_theme_color_override("font_color",Color(1,0.91,0.58)); q.add_child(objective_label)
 	toast_label=Label.new(); toast_label.position=Vector2(280,450); toast_label.size=Vector2(400,42); toast_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; toast_label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER; toast_label.add_theme_font_size_override("font_size",18); toast_label.add_theme_color_override("font_color",Color(1,0.92,0.58)); toast_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); toast_label.add_theme_constant_override("shadow_offset_x",2); toast_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(toast_label)
 	poi_label=Label.new(); poi_label.position=Vector2(330,105); poi_label.size=Vector2(300,30); poi_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; poi_label.add_theme_font_size_override("font_size",17); poi_label.add_theme_color_override("font_color",Color(1,1,1)); poi_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); poi_label.add_theme_constant_override("shadow_offset_x",2); poi_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(poi_label)
 	map_overlay=MapOverlayScript.new(); map_overlay.position=Vector2(55,40); map_overlay.size=Vector2(850,460); map_overlay.visible=false; map_overlay.setup(hero); ui.add_child(map_overlay)
@@ -116,8 +122,8 @@ func _build_ui() -> void:
 func _add_map_button() -> void:
 	var button: Button = Button.new()
 	button.text = "MAPA"
-	button.position = Vector2(425,18)
-	button.size = Vector2(108,46)
+	button.position = Vector2(350,18)
+	button.size = Vector2(104,46)
 	button.add_theme_font_size_override("font_size",15)
 	for state in ["normal","hover","pressed","focus"]:
 		var st: StyleBoxFlat = StyleBoxFlat.new()
@@ -134,6 +140,11 @@ func _add_map_button() -> void:
 
 func _toggle_map() -> void:
 	map_open = not map_open
+	if map_open:
+		if crafting_ui != null and crafting_ui.has_method("close_panel"):
+			crafting_ui.close_panel()
+		if inventory_ui != null and inventory_ui.has_method("close_panel"):
+			inventory_ui.close_panel()
 	if map_overlay:
 		map_overlay.visible = map_open
 		if map_open:
@@ -150,7 +161,7 @@ func _add_action_button(text: String, pos: Vector2, size: float, callback: Calla
 func _process(delta: float) -> void:
 	toast_timer=maxf(0.0,toast_timer-delta)
 	if toast_timer<=0.0 and toast_label: toast_label.text=""
-	if map_open or (crafting_ui != null and crafting_ui.is_open()):
+	if map_open or (crafting_ui != null and crafting_ui.is_open()) or (inventory_ui != null and inventory_ui.is_open()):
 		if hero: hero.set_motion(Vector2.ZERO)
 		return
 	var dir = Input.get_vector("move_left","move_right","move_up","move_down")
@@ -167,7 +178,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"): _interact()
 
 func _input(event: InputEvent) -> void:
-	if map_open or (crafting_ui != null and crafting_ui.is_open()):
+	if map_open or (crafting_ui != null and crafting_ui.is_open()) or (inventory_ui != null and inventory_ui.is_open()):
 		return
 	if event is InputEventScreenTouch:
 		if event.pressed and event.position.x < 330 and event.position.y > 300 and joystick_id < 0:
