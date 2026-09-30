@@ -7,6 +7,7 @@ const HeroScript = preload("res://scripts/cartoon/cartoon_hero.gd")
 const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
 const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
 const StreamScript = preload("res://scripts/cartoon/cartoon_world_stream.gd")
+const ExplorationContent = preload("res://scripts/cartoon/cartoon_exploration_content.gd")
 
 var environment: ValedouroCartoonHubEnvironment
 var objects: Node2D
@@ -43,6 +44,7 @@ func _ready() -> void:
 		var prop = PropScript.new()
 		prop.setup(data)
 		objects.add_child(prop)
+	_spawn_outer_landmarks()
 	hero = HeroScript.new()
 	hero.name = "Player"
 	hero.position = Region.world_from_hub(Vector2(1150,970))
@@ -52,6 +54,7 @@ func _ready() -> void:
 	add_child(world_stream)
 	world_stream.setup(hero)
 	_spawn_monsters()
+	_spawn_outer_encounters()
 	camera = Camera2D.new()
 	camera.name = "PlayerCamera"
 	camera.position = Vector2.ZERO
@@ -164,6 +167,13 @@ func _interact() -> void:
 			player_gold += 12
 			_refresh_stats()
 			_show_toast("Baú encontrado: +12 ouro.")
+		"POI_REG001_ROADSIDE_POST": _show_toast("Posto da Estrada — descanso e comércio leve no cinturão rural.")
+		"POI_REG001_PILGRIM_MARK": _show_toast("Marco dos Peregrinos — a estrada sul segue para áreas mais perigosas.")
+		"POI_REG001_WEST_CAMP": _show_toast("Acampamento do Vale — mercadores e rumores de monstros próximos.")
+		"POI_REG001_OLD_RUINS": _show_toast("Ruínas do Caminho Antigo — há sinais de saqueadores.")
+		"POI_REG001_SOUTH_WAYSHRINE": _show_toast("Santuário da Estrada Sul — último marco antes da próxima faixa de exploração.")
+		"POI_REG001_HUNTER_CAMP": _show_toast("Acampamento dos Caçadores — lobos maiores rondam a mata.")
+		"POI_REG001_EAST_QUARRY": _show_toast("Pedreira Abandonada — futura área de recurso e elite.")
 		_: _show_toast(label)
 
 func _show_toast(text: String) -> void:
@@ -232,3 +242,22 @@ func _nearest_monster(radius: float) -> Node2D:
 func _refresh_stats() -> void:
 	if stats_label:
 		stats_label.text = "CRÔNICAS DE VALEDOURO\nNv 1   ❤ %d/%d   ◉ %d" % [player_hp,player_max_hp,player_gold]
+
+
+func _spawn_outer_landmarks() -> void:
+	for data in ExplorationContent.landmarks():
+		var prop: Node2D = PropScript.new()
+		prop.setup(data)
+		objects.add_child(prop)
+		environment.pois.append({
+			"id":String(data.get("id","")),
+			"label":String(data.get("label","")),
+			"pos":data.get("pos",Vector2.ZERO)
+		})
+
+func _spawn_outer_encounters() -> void:
+	for data in ExplorationContent.encounters():
+		var monster: Node2D = MonsterScript.new()
+		monster.setup(data)
+		objects.add_child(monster)
+		monsters.append(monster)
