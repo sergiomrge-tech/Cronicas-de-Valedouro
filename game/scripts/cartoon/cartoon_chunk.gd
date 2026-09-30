@@ -32,26 +32,30 @@ func _generate() -> void:
 		return
 	var density: int = 25
 	var center_dist: float = chunk_world_rect.get_center().distance_to(Region.REGION_SIZE * 0.5)
+	var biome: String = _biome_kind()
 	if center_dist > 5200.0:
 		density = 34
+	if biome == "wind_woods":
+		density = 38
+	elif biome == "alpha_forest":
+		density = 48
+	elif biome == "echo_hills":
+		density = 32
+	elif biome == "archive_highlands":
+		density = 28
 	for i in range(density):
 		var local_pos: Vector2 = Vector2(rng.randf_range(48.0,Region.CHUNK_SIZE-48.0),rng.randf_range(62.0,Region.CHUNK_SIZE-36.0))
 		var world_pos: Vector2 = position + local_pos
 		if _near_main_road(world_pos,115.0):
 			continue
 		var roll: float = rng.randf()
-		var kind: String = "tree"
+		var kind: String = _pick_prop_kind(biome,roll)
 		var radius: float = 28.0
-		if roll < 0.28:
-			kind = "pine"
-		elif roll < 0.47:
-			kind = "bush"
+		if kind == "bush":
 			radius = 17.0
-		elif roll < 0.63:
-			kind = "rock"
+		elif kind == "rock":
 			radius = 16.0
-		elif roll < 0.76:
-			kind = "flowers"
+		elif kind == "flowers":
 			radius = 0.0
 		var prop: Node2D = PropScript.new()
 		prop.setup({
@@ -75,6 +79,69 @@ func _generate() -> void:
 func _is_field_belt() -> bool:
 	var y0: float = float(chunk_coord.y * Region.CHUNK_SIZE)
 	return y0 > Region.HUB_RECT.end.y + 600.0 and y0 < Region.HUB_RECT.end.y + 3300.0 and absf(position.x + Region.CHUNK_SIZE * 0.5 - Region.SOUTH_ROAD_X) < 3600.0
+
+func _biome_kind() -> String:
+	var center_y: float = position.y + Region.CHUNK_SIZE * 0.5
+	var north_edge: float = Region.HUB_RECT.position.y
+	if center_y >= north_edge:
+		return "south_or_hub"
+	var depth: float = north_edge - center_y
+	if depth < 1300.0:
+		return "north_fields"
+	if depth < 2550.0:
+		return "wind_woods"
+	if depth < 3650.0:
+		return "alpha_forest"
+	if depth < 4850.0:
+		return "echo_hills"
+	return "archive_highlands"
+
+func _pick_prop_kind(biome: String, roll: float) -> String:
+	if biome == "alpha_forest":
+		if roll < 0.50:
+			return "tree"
+		if roll < 0.76:
+			return "pine"
+		if roll < 0.90:
+			return "bush"
+		return "rock"
+	if biome == "echo_hills":
+		if roll < 0.36:
+			return "rock"
+		if roll < 0.58:
+			return "pine"
+		if roll < 0.77:
+			return "tree"
+		if roll < 0.91:
+			return "bush"
+		return "flowers"
+	if biome == "archive_highlands":
+		if roll < 0.34:
+			return "rock"
+		if roll < 0.58:
+			return "bush"
+		if roll < 0.77:
+			return "tree"
+		return "flowers"
+	if biome == "wind_woods":
+		if roll < 0.42:
+			return "tree"
+		if roll < 0.66:
+			return "pine"
+		if roll < 0.84:
+			return "bush"
+		if roll < 0.94:
+			return "rock"
+		return "flowers"
+	if roll < 0.28:
+		return "pine"
+	if roll < 0.47:
+		return "bush"
+	if roll < 0.63:
+		return "rock"
+	if roll < 0.76:
+		return "flowers"
+	return "tree"
 
 func _near_main_road(world_pos: Vector2, margin: float) -> bool:
 	if world_pos.y >= Region.HUB_RECT.end.y - 80.0:
@@ -102,9 +169,18 @@ func _near_main_road(world_pos: Vector2, margin: float) -> bool:
 	return false
 
 func _draw() -> void:
+	var biome: String = _biome_kind()
 	var bg: Color = Color(0.42,0.71,0.30)
 	if _is_field_belt():
 		bg = Color(0.48,0.70,0.29)
+	elif biome == "wind_woods":
+		bg = Color(0.35,0.63,0.27)
+	elif biome == "alpha_forest":
+		bg = Color(0.28,0.54,0.23)
+	elif biome == "echo_hills":
+		bg = Color(0.39,0.52,0.31)
+	elif biome == "archive_highlands":
+		bg = Color(0.48,0.59,0.36)
 	draw_rect(Rect2(Vector2.ZERO,Vector2(Region.CHUNK_SIZE,Region.CHUNK_SIZE)),bg)
 	_draw_grass_texture()
 	_draw_roads()
