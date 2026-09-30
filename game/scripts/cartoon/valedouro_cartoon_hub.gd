@@ -19,7 +19,7 @@ var story_zones: Node2D
 var hero: ValedouroCartoonHero
 var camera: Camera2D
 var world_stream: ValedouroCartoonWorldStream
-var story_runtime: ValedouroCartoonStoryRuntime
+var story_runtime
 var ui: CanvasLayer
 var objective_label: Label
 var stats_label: Label
