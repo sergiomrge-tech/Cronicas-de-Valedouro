@@ -13,6 +13,7 @@ const StoryZoneScript = preload("res://scripts/cartoon/cartoon_story_zone.gd")
 const StoryRuntimeScript = preload("res://scripts/cartoon/cartoon_story_runtime.gd")
 const MapOverlayScript = preload("res://scripts/cartoon/hub_map_overlay.gd")
 const CraftingUIScript = preload("res://scripts/cartoon/cartoon_crafting_ui.gd")
+const ZoomControlsScript = preload("res://scripts/cartoon/cartoon_zoom_controls.gd")
 
 var environment: ValedouroCartoonHubEnvironment
 var objects: Node2D
@@ -28,6 +29,7 @@ var toast_label: Label
 var poi_label: Label
 var map_overlay: Control
 var crafting_ui: Control
+var zoom_controls: Control
 var map_open: bool = false
 var objective_nav_label: Label
 var joystick_id: int = -1
@@ -84,6 +86,10 @@ func _ready() -> void:
 	camera.limit_right = int(environment.WORLD_SIZE.x); camera.limit_bottom = int(environment.WORLD_SIZE.y)
 	hero.add_child(camera)
 	_build_ui()
+	zoom_controls = ZoomControlsScript.new()
+	zoom_controls.name = "ZoomControls"
+	ui.add_child(zoom_controls)
+	zoom_controls.setup(camera)
 	crafting_ui = CraftingUIScript.new()
 	crafting_ui.name = "CraftingUI"
 	ui.add_child(crafting_ui)
