@@ -6,6 +6,9 @@ run/main_scene="res://scenes/cartoon/ValedouroCartoonHub.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/description="RPG top-down original para celular"
 
+[autoload]
+CartoonPlayerState="*res://scripts/cartoon/cartoon_player_state.gd"
+
 [display]
 window/size/viewport_width=960
 window/size/viewport_height=540
