@@ -67,7 +67,7 @@ def main() -> None:
     # approved/ e modeled/ têm manifestos próprios (approved_visual_manifest.json e modeled_assets_manifest.json).
     files = sorted(
         p for p in ASSETS.rglob("*")
-        if p.is_file() and p.suffix.lower() in CATALOG_EXTENSIONS and p.relative_to(ASSETS).parts[0] not in {"approved", "modeled"}
+        if p.is_file() and p.suffix.lower() in CATALOG_EXTENSIONS and p.relative_to(ASSETS).parts[0] not in {"approved", "modeled", "external"}
     )
     rows = []
     for path in files:
