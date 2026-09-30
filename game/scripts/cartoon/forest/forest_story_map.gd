@@ -103,5 +103,5 @@ static func encounters() -> Array[Dictionary]:
 		{"kind":"goblin","name":"Saqueador Verde","pos":Vector2(25100,38800),"hp":62,"speed":82.0,"damage":11,"scale":1.05},
 		{"kind":"slime","name":"Gosma de Esporo","pos":Vector2(22800,33300),"hp":48,"speed":60.0,"damage":8,"scale":1.10},
 		{"kind":"wolf","name":"Lobo da Memória","pos":Vector2(21900,25700),"hp":70,"speed":100.0,"damage":12,"scale":1.10},
-		{"kind":"guardian","name":"Arauto da Raiz Oca","pos":Vector2(17500,17500),"hp":220,"speed":64.0,"damage":20,"scale":1.45,"story_tag":"story_hollow_root","boss_id":"BOSS_RAIZ_OCA_001"}
+		{"kind":"root_beast","name":"Arauto da Raiz Oca","pos":Vector2(17500,17500),"hp":220,"speed":64.0,"damage":20,"scale":1.45,"story_tag":"story_hollow_root","boss_id":"BOSS_RAIZ_OCA_001"}
 	]
