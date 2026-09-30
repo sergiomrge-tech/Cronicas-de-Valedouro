@@ -57,6 +57,8 @@ func _draw() -> void:
 			_draw_slime()
 		"guardian":
 			_draw_guardian()
+		"root_beast":
+			_draw_root_beast()
 		_:
 			_draw_wolf()
 	draw_set_transform(Vector2.ZERO,0.0,Vector2.ONE)
@@ -109,3 +111,21 @@ func _draw_guardian() -> void:
 		DrawUtil.capsule_outlined(self,Vector2(x,-3),Vector2(x,14),11,stone.darkened(0.08),DrawUtil.OUTLINE,3)
 	DrawUtil.circle_outlined(self,Vector2(0,-39),8,Color(0.28,0.76,0.96),DrawUtil.OUTLINE,2)
 	draw_circle(Vector2(0,-39),3,Color(0.85,0.98,1.0))
+
+
+func _draw_root_beast() -> void:
+	var bark: Color = Color(0.33,0.24,0.13)
+	var moss: Color = Color(0.24,0.52,0.22)
+	DrawUtil.ellipse_outlined(self,Vector2(0,-20),34,27,bark,DrawUtil.OUTLINE,4)
+	DrawUtil.circle_outlined(self,Vector2(0,-58),24,bark.lightened(0.04),DrawUtil.OUTLINE,4)
+	for x in [-30.0,30.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-35),Vector2(x*1.28,1),9,bark.darkened(0.06),DrawUtil.OUTLINE,3)
+	for x in [-14.0,14.0]:
+		DrawUtil.capsule_outlined(self,Vector2(x,-2),Vector2(x*1.22,19),11,bark.darkened(0.08),DrawUtil.OUTLINE,3)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-15,-72),Vector2(-27,-96),Vector2(-8,-82)]),bark,DrawUtil.OUTLINE,3)
+	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(15,-72),Vector2(27,-96),Vector2(8,-82)]),bark,DrawUtil.OUTLINE,3)
+	for p in [Vector2(-18,-48),Vector2(18,-48),Vector2(0,-77),Vector2(-27,-16),Vector2(28,-17)]:
+		DrawUtil.circle_outlined(self,p,10,moss,DrawUtil.OUTLINE,2)
+	draw_circle(Vector2(-8,-59),3,Color(0.52,0.94,0.54))
+	draw_circle(Vector2(8,-59),3,Color(0.52,0.94,0.54))
+	DrawUtil.circle_outlined(self,Vector2(0,-34),8,Color(0.36,0.76,0.31),DrawUtil.OUTLINE,2)
