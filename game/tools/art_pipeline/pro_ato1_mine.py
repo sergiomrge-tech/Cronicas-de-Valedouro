@@ -188,20 +188,21 @@ def _rockwall(state):
     rr = random.Random(90 + state)
     rk = M('rock') if state == 0 else M('rock_grey')
     parts.rock_mass((0, 0, 0), (1.3, 3.4, 3.2), rk, 91 + state, subdiv=4, rough=.32, terrace=.4, step=.45, taper=.08, flat_top=True)
-    for k in range(4):
-        parts.rock_mass((.6, -1.2 + k * .8, .3), (.5, rr.uniform(.6, .9), rr.uniform(.6, 1.2)), rk, 100 + k + state * 9, subdiv=3, rough=.35, flat_top=False)
-    if state == 0:
-        for sy in (-1.5, 1.5):                                       # escoras de madeira e viga
-            geo.box((.75, sy, 1.3), (.24, .26, 2.6), M('wood_dark'), bevel=0.03)
-        geo.box((.75, 0, 2.7), (.26, 3.4, .26), M('wood_dark'), bevel=0.03)
-        geo.box((.72, 0, 1.8), (.14, .8, .5), m_ore(), bevel=0.03)
-        lantern(.95, 0, 2.3)
-    else:                                                            # contato com o Eco: fissuras e cristais
-        for k in range(5):
-            y = -1.3 + k * .65
-            geo.beam((.68, y, rr.uniform(.4, 1.2)), (.68, y + rr.uniform(-.3, .3), rr.uniform(1.6, 2.7)), .03, .02, me, bevel=0)
-        for k in range(6):
-            crystal(.7, rr.uniform(-1.4, 1.4), rr.uniform(.4, 2.2), rr.uniform(.3, .6), .08, me, tilt=(0, 1.2))
+    for fx in (1, -1):                                               # as DUAS faces aparecem conforme o eixo isométrico
+        for k in range(4):
+            parts.rock_mass((.6 * fx, -1.2 + k * .8, .3), (.5, rr.uniform(.6, .9), rr.uniform(.6, 1.2)), rk, 100 + k + state * 9 + (fx < 0) * 20, subdiv=3, rough=.35, flat_top=False)
+        if state == 0:
+            for sy in (-1.5, 1.5):                                   # escoras de madeira e viga
+                geo.box((.75 * fx, sy, 1.3), (.24, .26, 2.6), M('wood_dark'), bevel=0.03)
+            geo.box((.75 * fx, 0, 2.7), (.26, 3.4, .26), M('wood_dark'), bevel=0.03)
+            geo.box((.72 * fx, 0, 1.8), (.14, .8, .5), m_ore(), bevel=0.03)
+            lantern(.95 * fx, 0, 2.3)
+        else:                                                        # contato com o Eco: fissuras e cristais
+            for k in range(5):
+                y = -1.3 + k * .65
+                geo.beam((.68 * fx, y, rr.uniform(.4, 1.2)), (.68 * fx, y + rr.uniform(-.3, .3), rr.uniform(1.6, 2.7)), .03, .02, me, bevel=0)
+            for k in range(6):
+                crystal(.7 * fx, rr.uniform(-1.4, 1.4), rr.uniform(.4, 2.2), rr.uniform(.3, .6), .08, me, tilt=(0, 1.2 * fx))
     geo.rotate_all(45)
 
 

@@ -24,6 +24,16 @@ func visible_assets(asset: String) -> int:
 			n += 1
 	return n
 
+func visible_family(asset: String) -> int:
+	# peça modular isométrica: conta a base e as orientações giradas (<id>_a1.._a7, <id>_c0.._c3)
+	var n: int = 0
+	var rx: RegEx = RegEx.create_from_string("^" + asset + "(_[ac][0-9])?$")
+	for o_value in REG.objects:
+		var o: Dictionary = o_value
+		if rx.search(str(o["asset"])) != null and not REG.is_hidden(o):
+			n += 1
+	return n
+
 func total_assets(asset: String) -> int:
 	var n: int = 0
 	for o_value in REG.objects:
@@ -94,7 +104,7 @@ func run_test() -> void:
 	assert(visible_assets("val_core_floor_ring") == 0 and visible_assets("val_core_floor_ring_dormant") == 1)
 	assert(visible_assets("val_eco_crystal_cluster") == 0 and visible_assets("val_eco_crystal_cluster_dormant") == 4)
 	assert(visible_assets("val_eco_vein") == 0 and visible_assets("val_eco_vein_dormant") == 2)
-	assert(visible_assets("val_mine_rock_wall_eco") == 0 and visible_assets("val_mine_rock_wall_eco_dormant") > 0)
+	assert(visible_family("val_mine_rock_wall_eco") == 0 and visible_family("val_mine_rock_wall_eco_dormant") > 0)
 	assert(emitters_visible() == 1)  # apenas o brilho residual
 
 	# 5. revanche: o boss reaparece, a apresentação reativa, a flag NÃO é apagada

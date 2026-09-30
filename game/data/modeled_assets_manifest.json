@@ -10,7 +10,7 @@
   "note": "MODELED_PENDING_GATE = modelado no estilo dos 28 APPROVED, aguardando gate visual do Diretor. Mude o status de um asset para REJECTED/HOLD para removê-lo do renderer."
  },
  "counts": {
-  "total": 790
+  "total": 823
  },
  "assets": [
   {
@@ -29062,12 +29062,12 @@
    "frames": 1,
    "rows": 1,
    "foot": [
-    236,
-    406
+    236.0,
+    406.0
    ],
    "draw_scale": 0.5,
-   "blocks_radius": 0,
-   "footprint": 0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
    "tags": [
     "ato1",
     "mina_do_eco",
@@ -29075,7 +29075,359 @@
     "parede",
     "modular"
    ],
-   "sha256": "7449efae38031e9e16439b7aaa99a233d17455c9e0cd20892d3085d034b3d9f1",
+   "sha256": "c8472d90aa0fcd31d0d96b67a0c39a04c137edb263f8d1bc6d2b2df09d5224c4",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_a1",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_a1.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "4c1af59105de2c84655edced185f365a7042cebcd5c9533c1946a69bdf89bd25",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_a2",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_a2.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "d5a9888a98e538a2dc2696e7d5d8cb1ef5a8d92344d961ca10b9c5e585677e0e",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_a3",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_a3.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "522ee1173024b3f632455451e25fada16b1c345a0587563b35978a64165911b1",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_a4",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_a4.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "247946bae65f889a18059bc1b5c39f8f40be5a1d921a9d86acdeb3e743f3b691",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_a5",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_a5.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "21aa7c7732462c319db2d128b3788363f626275923242dd113fb034e788f31d3",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_a6",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_a6.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "6ee6675bee86452cc59f14387f84914bf2a5544ad298e0de1ff6e23c6b493dcc",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_a7",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_a7.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "5dd6f2024cc219f400e5fc0d3e0c7ce9bfbcc407a99c624160cc37f00d43e8c0",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_c0",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_c0.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    949,
+    890
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    474.0,
+    784.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "9fe81f4d57dde3423688857df8c1cc1cb676a4dbb3abb800af19718f21067ed3",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_c1",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_c1.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    949,
+    890
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    474.0,
+    784.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "3dfc59214b54678d9375bb411ffbeebd53a9381b0a0cbdb9277f2e1e2832620f",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_c2",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_c2.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    949,
+    890
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    474.0,
+    784.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "6b004213d949e9b87692874e037e476475dab56344e9196a5086f0d9236d4e4d",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_c3",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_c3.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    949,
+    890
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    474.0,
+    784.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "0f3741dcc58e1c41dc20a1d17662d3e4e9698357a0928f14ef7a5a44e752db44",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "pipeline": "blender-pro"
@@ -29092,12 +29444,12 @@
    "frames": 1,
    "rows": 1,
    "foot": [
-    236,
-    406
+    236.0,
+    406.0
    ],
    "draw_scale": 0.5,
-   "blocks_radius": 0,
-   "footprint": 0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
    "tags": [
     "ato1",
     "mina_do_eco",
@@ -29106,7 +29458,370 @@
     "modular",
     "eco"
    ],
-   "sha256": "af66dadf98907e06ed29d1f64bc1736debc089722fe89e0b5dab9fe8ef55b771",
+   "sha256": "30e68456a2e66b6e956788b3b6e8210db132e61f41b01470c92e33279301b94a",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_a1",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_a1.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "3952fc68d71ee3c3ae72e114b5deff38f4519e7fa340a932436b325877146329",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_a2",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_a2.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "8ead95c251f49b205b53bdba1ffa6aadc159ea02c46ee11f61629d2ba127fad3",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_a3",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_a3.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "1f8532acc35d70397048e0a3b0ce9121a1d6cdab36dc349d13a06f5424b4744d",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_a4",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_a4.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "f1853322981e7ce20f64e99fe22f2d13bc8081918013c5684f8d333c18bf147a",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_a5",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_a5.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "a125f8727e7a880939f481e0956e92e3dd1a7b9935f00de8b1eddce7c0415d8b",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_a6",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_a6.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "eaa7729b18891686e1dd95ed398a228fa854def1546262baa491c4c29fb5f9ed",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_a7",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_a7.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "aa71c7d6e2d7a056740e76e4d75842bbc6bc9607876a0be3efa30953abbb8d9e",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_c0",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_c0.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    949,
+    890
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    474.0,
+    784.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "425677a70f5cf0e0fa9ab5556bd26cbc2118b42e42d8efd0c0f90c1604649d88",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_c1",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_c1.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    949,
+    890
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    474.0,
+    784.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "f0a1c9d92512afc3d38d8f5a8cc13512469785c49b8fb1fcf554ee5a972dec2b",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_c2",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_c2.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    949,
+    890
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    474.0,
+    784.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "a01e9b4f0b06547c6c57dc0fec74130ed79621ff830671a43959eac44b46d486",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_c3",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_c3.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    949,
+    890
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    474.0,
+    784.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "40c2fbb1db48bab695e8bb3d47b2dcc5ad6b634e1152b87729d6e8e9e6da0eef",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "pipeline": "blender-pro"
@@ -29123,12 +29838,12 @@
    "frames": 1,
    "rows": 1,
    "foot": [
-    236,
-    406
+    236.0,
+    406.0
    ],
    "draw_scale": 0.5,
-   "blocks_radius": 0,
-   "footprint": 0,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
    "tags": [
     "ato1",
     "mina_do_eco",
@@ -29138,7 +29853,381 @@
     "eco",
     "estado_dormente"
    ],
-   "sha256": "6917725d7908f1f164600c990b2c04c3ecf478c3ae9697fb37bb0169b6ec3e25",
+   "sha256": "2c4c7e88daa43092d9d18837bd5e7691938405e4a239e7efc5787b4431d4fb9d",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_dormant_a1",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_dormant_a1.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "estado_dormente",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "0f0d18179ce1b471caa8c2db4c8559c90afa52dfc919ea3d3703346c81e14a20",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_dormant_a2",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_dormant_a2.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "estado_dormente",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "0a31b436ff6c642cd7e16dd1ca53c19d0f9b5f85134db2781aa4dcc6c2a92158",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_dormant_a3",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_dormant_a3.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "estado_dormente",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "407edcd0b2b2953b167cf68ad07510a01db0646c6371a30143149a452b351a44",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_dormant_a4",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_dormant_a4.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "estado_dormente",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "c554c2ae50ee473dfc6458cb506c22eddbabe5548a0d3616401f3fbcb6414059",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_dormant_a5",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_dormant_a5.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "estado_dormente",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "272ce4933c01453b1f8bf4be6923ef06d7a106ab4bf2e0ec719814d90bc2cb95",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_dormant_a6",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_dormant_a6.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "estado_dormente",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "8f0da61bfe8f86cbbf5b259257831e1c720bc18af56f4d0adcea9602861281a5",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_dormant_a7",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_dormant_a7.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    696,
+    701
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    348.0,
+    595.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "estado_dormente",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "c3a4ca90418f274499a399d24b69f19d33103dc3e0949260f35efe2d84786663",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_dormant_c0",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_dormant_c0.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    949,
+    890
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    474.0,
+    784.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "estado_dormente",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "79a076fe41b87189a7a9f359207749a8543d1e4f5be959a16f68894e69ef68c4",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_dormant_c1",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_dormant_c1.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    949,
+    890
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    474.0,
+    784.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "estado_dormente",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "c426175f6e8b758289c0f130f8b5d17c99d5922dff44a33464abe1b74ae7af5d",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_dormant_c2",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_dormant_c2.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    949,
+    890
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    474.0,
+    784.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "estado_dormente",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "edcdf6411a301487bcda358929d0ef0f55297cd5781ae632ee6df5c68dd85a00",
+   "source": "game/tools/art_pipeline/pro_landmarks.py",
+   "status": "MODELED_PENDING_GATE",
+   "pipeline": "blender-pro"
+  },
+  {
+   "id": "val_mine_rock_wall_eco_dormant_c3",
+   "path": "res://assets/modeled/dungeon/ato1/val_mine_rock_wall_eco_dormant_c3.png",
+   "group": "dungeon",
+   "folder": "ato1",
+   "frame_size": [
+    949,
+    890
+   ],
+   "frames": 1,
+   "rows": 1,
+   "foot": [
+    474.0,
+    784.0
+   ],
+   "draw_scale": 0.5,
+   "blocks_radius": 0.0,
+   "footprint": 0.0,
+   "tags": [
+    "ato1",
+    "mina_do_eco",
+    "interior",
+    "parede",
+    "modular",
+    "eco",
+    "estado_dormente",
+    "orientacao",
+    "kit_modular"
+   ],
+   "sha256": "2ba59eb79118f814dd2199f037646f2284b15975d0e0a8ece6dd55586cf69022",
    "source": "game/tools/art_pipeline/pro_landmarks.py",
    "status": "MODELED_PENDING_GATE",
    "pipeline": "blender-pro"

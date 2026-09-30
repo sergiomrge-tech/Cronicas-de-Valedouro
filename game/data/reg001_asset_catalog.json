@@ -23,8 +23,8 @@
    "NOT_USED": 216
   },
   "MODELED_PENDING_GATE": {
-   "INTEGRATED": 289,
-   "NOT_USED": 264
+   "INTEGRATED": 292,
+   "NOT_USED": 294
   },
   "LEGACY_BASELINE": {
    "INTEGRATED": 124
@@ -229,7 +229,7 @@
    "REG001_LORE_11",
    "REG001_LORE_12"
   ],
-  "object_count": 1209
+  "object_count": 1213
  },
  "entries": [
   {
@@ -6752,8 +6752,107 @@
    "key": "val_mine_rock_wall",
    "group": "dungeon",
    "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_A1",
+   "key": "val_mine_rock_wall_a1",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_A2",
+   "key": "val_mine_rock_wall_a2",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 8,
+   "placed": 4,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_A3",
+   "key": "val_mine_rock_wall_a3",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_A4",
+   "key": "val_mine_rock_wall_a4",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_A5",
+   "key": "val_mine_rock_wall_a5",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_A6",
+   "key": "val_mine_rock_wall_a6",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 4,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_A7",
+   "key": "val_mine_rock_wall_a7",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_C0",
+   "key": "val_mine_rock_wall_c0",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_C1",
+   "key": "val_mine_rock_wall_c1",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_C2",
+   "key": "val_mine_rock_wall_c2",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_C3",
+   "key": "val_mine_rock_wall_c3",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6761,8 +6860,107 @@
    "key": "val_mine_rock_wall_eco",
    "group": "dungeon",
    "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_A1",
+   "key": "val_mine_rock_wall_eco_a1",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_A2",
+   "key": "val_mine_rock_wall_eco_a2",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 14,
+   "placed": 10,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_A3",
+   "key": "val_mine_rock_wall_eco_a3",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_A4",
+   "key": "val_mine_rock_wall_eco_a4",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_A5",
+   "key": "val_mine_rock_wall_eco_a5",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_A6",
+   "key": "val_mine_rock_wall_eco_a6",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_A7",
+   "key": "val_mine_rock_wall_eco_a7",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_C0",
+   "key": "val_mine_rock_wall_eco_c0",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_C1",
+   "key": "val_mine_rock_wall_eco_c1",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_C2",
+   "key": "val_mine_rock_wall_eco_c2",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_C3",
+   "key": "val_mine_rock_wall_eco_c3",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {
@@ -6770,8 +6968,107 @@
    "key": "val_mine_rock_wall_eco_dormant",
    "group": "dungeon",
    "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_DORMANT_A1",
+   "key": "val_mine_rock_wall_eco_dormant_a1",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_DORMANT_A2",
+   "key": "val_mine_rock_wall_eco_dormant_a2",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
    "usage": "INTEGRATED",
-   "placed": 14,
+   "placed": 10,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_DORMANT_A3",
+   "key": "val_mine_rock_wall_eco_dormant_a3",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_DORMANT_A4",
+   "key": "val_mine_rock_wall_eco_dormant_a4",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_DORMANT_A5",
+   "key": "val_mine_rock_wall_eco_dormant_a5",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_DORMANT_A6",
+   "key": "val_mine_rock_wall_eco_dormant_a6",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "INTEGRATED",
+   "placed": 6,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_DORMANT_A7",
+   "key": "val_mine_rock_wall_eco_dormant_a7",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_DORMANT_C0",
+   "key": "val_mine_rock_wall_eco_dormant_c0",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_DORMANT_C1",
+   "key": "val_mine_rock_wall_eco_dormant_c1",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_DORMANT_C2",
+   "key": "val_mine_rock_wall_eco_dormant_c2",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
+   "source": "game/tools/art_pipeline/pro_landmarks.py"
+  },
+  {
+   "id": "MOD_VAL_MINE_ROCK_WALL_ECO_DORMANT_C3",
+   "key": "val_mine_rock_wall_eco_dormant_c3",
+   "group": "dungeon",
+   "approval": "MODELED_PENDING_GATE",
+   "usage": "NOT_USED",
+   "placed": 0,
    "source": "game/tools/art_pipeline/pro_landmarks.py"
   },
   {

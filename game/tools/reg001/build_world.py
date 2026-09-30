@@ -56,6 +56,9 @@ ISO_KITS = {    # família -> (peça ↘/↖, peça ↙/↗, comprimento na tela
     'cerca_quebrada': ('nat_fence_broken_a_a4', 'nat_fence_broken_a', 39.0, None),
     'mureta': ('nat_wall_low_a_a4', 'nat_wall_low_a', 62.0, None),
     'cripta': ('val_crypt_wall_a6', 'val_crypt_wall_a2', 90.1, 'val_crypt_pillar'),
+    'mina_rocha': ('val_mine_rock_wall_a6', 'val_mine_rock_wall_a2', 85.0, None),
+    'mina_eco': ('val_mine_rock_wall_eco_a6', 'val_mine_rock_wall_eco_a2', 85.0, None),
+    'mina_eco_d': ('val_mine_rock_wall_eco_dormant_a6', 'val_mine_rock_wall_eco_dormant_a2', 85.0, None),
 }
 
 
@@ -754,21 +757,27 @@ MINE_WALLS = [  # (x, y, largura, altura) — colisão e paredes visuais (segmen
     (40, 585, 330, 34, 0), (590, 585, 330, 34, 0),      # divisa zona 1 / zona 2 (vão central 370-590)
     (40, 425, 260, 34, 1), (660, 425, 260, 34, 1),      # divisa zona 2 / arena (vão central 300-660)
 ]
+# Paredes de rocha no PADRÃO ISOMÉTRICO (mesma correção da cripta): dentes nos dois eixos, peça girada no Blender (a2/a6),
+# vértices alternando entre a borda de trás e a da frente do colisor; o estado do Eco (ativo/dormente) troca a família inteira.
+_MINE_STEP = 85.0 * _ISO_C
+
+
+def mine_iso(x0, x1, y_back, y_front, eco, mirror=False):
+    n = max(1, round((x1 - x0) / _MINE_STEP))
+    start = (x1 - n * _MINE_STEP, y_front) if mirror else (x0, y_front)
+    moves = teeth('ne', n, seg=1)
+    if eco:
+        iso_wall('mina_eco', start, moves, 'DG', zone='masmorra', hide_when='elites:BOSS_GUARDIAO_PEDRA_001')
+        iso_wall('mina_eco_d', start, moves, 'DG', zone='masmorra', show_when='elites:BOSS_GUARDIAO_PEDRA_001')
+    else:
+        iso_wall('mina_rocha', start, moves, 'DG', zone='masmorra')
+
+
 for _x, _y, _w, _h, _eco in MINE_WALLS:
     W.collider('rect', _x, _y, _w, _h, zone='masmorra')
-    for _i in range(int(_w // 100) + 1):
-        _wx = _x + 50 + _i * (_w - 100) / max(1, int(_w // 100))
-        if _eco:
-            dg('val_mine_rock_wall_eco', _wx, _y + _h + 6, solid=False, hide_when='elites:BOSS_GUARDIAO_PEDRA_001')
-            dg('val_mine_rock_wall_eco_dormant', _wx, _y + _h + 6, solid=False, show_when='elites:BOSS_GUARDIAO_PEDRA_001')
-        else:
-            dg('val_mine_rock_wall', _wx, _y + _h + 6, solid=False)
-for _k in range(9):     # parede de fundo da arena (norte), com o vão da porta atrás do Guardião
-    _wx = 60 + _k * 105
-    if 400 < _wx < 560:
-        continue
-    dg('val_mine_rock_wall_eco', _wx, 200, solid=False, hide_when='elites:BOSS_GUARDIAO_PEDRA_001')
-    dg('val_mine_rock_wall_eco_dormant', _wx, 200, solid=False, show_when='elites:BOSS_GUARDIAO_PEDRA_001')
+    mine_iso(_x, _x + _w, _y + _h - 32, _y + _h + 6, _eco, mirror=_x > 480)
+mine_iso(10, 410, 181, 219, True)                     # parede de fundo da arena (norte), com o vão da porta atrás do Guardião
+mine_iso(560, 950, 181, 219, True, mirror=True)
 dg('val_mine_beam_arch', 480, 618, solid=False)          # boca da zona 2 (madeira nova)
 dg('val_mine_beam_arch', 330, 790, solid=False)
 dg('val_mine_beam_arch', 630, 790, solid=False)

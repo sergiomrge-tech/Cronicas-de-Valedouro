@@ -5,7 +5,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 ## Política
 
 - **APPROVED** (256): inclui o bundle base do Lote 01 e assets modelados posteriormente promovidos pelo Diretor.
-- **MODELED_PENDING_GATE** (553): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
+- **MODELED_PENDING_GATE** (586): modelados nesta etapa no mesmo ângulo/paleta dos APPROVED (Natureza, Cidade, Dungeon, Interiores). **Aguardam o gate visual do Diretor**; o renderer só os usa enquanto o status estiver liberado em `modeled_assets_manifest.json`.
 - **LEGACY_BASELINE**: arte v0.6 gerada por código (chão, fauna, herói, UI, marcos). Inalterada; não é APPROVED — segue em produção até substituição.
 - **REWORKED (61) / HOLD (22)**: fora do renderer final, sem exceção.
 
@@ -14,7 +14,7 @@ Gerado por `game/tools/build_reg001_catalog.py`. Fonte de verdade: `game/data/re
 | Aprovação | INTEGRATED | NOT_USED |
 |---|---:|---:|
 | APPROVED | 40 | 216 |
-| MODELED_PENDING_GATE | 289 | 264 |
+| MODELED_PENDING_GATE | 292 | 294 |
 | LEGACY_BASELINE | 124 | 0 |
 
 ## MISSING_APPROVED_ASSET
@@ -405,7 +405,7 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_wall_segment` | NOT_USED | 0 |
 | `val_weapon_rack` | INTEGRATED | 1 |
 
-### dungeon (55)
+### dungeon (88)
 
 | Asset | Uso | Instâncias |
 |---|---|---:|
@@ -459,9 +459,42 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 | `val_mine_portal` | INTEGRATED | 1 |
 | `val_mine_rails_a` | INTEGRATED | 5 |
 | `val_mine_rails_b` | NOT_USED | 0 |
-| `val_mine_rock_wall` | INTEGRATED | 8 |
-| `val_mine_rock_wall_eco` | INTEGRATED | 14 |
-| `val_mine_rock_wall_eco_dormant` | INTEGRATED | 14 |
+| `val_mine_rock_wall` | NOT_USED | 0 |
+| `val_mine_rock_wall_a1` | NOT_USED | 0 |
+| `val_mine_rock_wall_a2` | INTEGRATED | 4 |
+| `val_mine_rock_wall_a3` | NOT_USED | 0 |
+| `val_mine_rock_wall_a4` | NOT_USED | 0 |
+| `val_mine_rock_wall_a5` | NOT_USED | 0 |
+| `val_mine_rock_wall_a6` | INTEGRATED | 4 |
+| `val_mine_rock_wall_a7` | NOT_USED | 0 |
+| `val_mine_rock_wall_c0` | NOT_USED | 0 |
+| `val_mine_rock_wall_c1` | NOT_USED | 0 |
+| `val_mine_rock_wall_c2` | NOT_USED | 0 |
+| `val_mine_rock_wall_c3` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_a1` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_a2` | INTEGRATED | 10 |
+| `val_mine_rock_wall_eco_a3` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_a4` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_a5` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_a6` | INTEGRATED | 6 |
+| `val_mine_rock_wall_eco_a7` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_c0` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_c1` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_c2` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_c3` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_dormant` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_dormant_a1` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_dormant_a2` | INTEGRATED | 10 |
+| `val_mine_rock_wall_eco_dormant_a3` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_dormant_a4` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_dormant_a5` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_dormant_a6` | INTEGRATED | 6 |
+| `val_mine_rock_wall_eco_dormant_a7` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_dormant_c0` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_dormant_c1` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_dormant_c2` | NOT_USED | 0 |
+| `val_mine_rock_wall_eco_dormant_c3` | NOT_USED | 0 |
 | `val_mine_winch` | INTEGRATED | 1 |
 | `val_ore_pile` | INTEGRATED | 4 |
 
@@ -776,5 +809,5 @@ Itens indispensáveis sem asset APPROVED. Nada foi pintado por código para supr
 
 ## IDs persistentes
 
-- POIs: 69 (`REG001_POI_*`); objetos: 1209 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 22; passagens: 3; fragmentos de lore: 12.
+- POIs: 69 (`REG001_POI_*`); objetos: 1213 (`REG001_OBJ_<GRUPO>_<n>`); transições: 10; trilhas: 22; passagens: 3; fragmentos de lore: 12.
 
