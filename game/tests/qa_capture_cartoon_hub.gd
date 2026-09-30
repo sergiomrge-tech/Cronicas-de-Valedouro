@@ -20,7 +20,9 @@ func capture() -> void:
         {"name":"01_praca_central", "pos":Vector2(1150,970)},
         {"name":"02_castelo_valedouro", "pos":Vector2(1150,690)},
         {"name":"03_servicos_cidade", "pos":Vector2(1150,940)},
-        {"name":"04_portao_sul", "pos":Vector2(1150,1370)}
+        {"name":"04_portao_sul", "pos":Vector2(1150,1370)},
+        {"name":"05_campos_do_vale", "pos":Vector2(1150,1870)},
+        {"name":"06_fazenda_e_combates", "pos":Vector2(980,2070)}
     ]
     for shot: Dictionary in shots:
         hero.position = shot["pos"] as Vector2
