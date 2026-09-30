@@ -5,7 +5,7 @@ const SAVE_PATH: String = "user://valedouro_cartoon_profile_v1.json"
 var materials: Dictionary = {}
 var crafted: Dictionary = {}
 var equipped_weapon: Dictionary = {"id":"starter_blade","label":"Espada de Viagem","tier":0,"attack":0,"slot":"weapon"}
-var equipped_armor: Dictionary = {"id":"starter_armor","label":"Túnica de Viagem","tier":0,"defense":0,"slot":"armor"}
+var equipped_armor: Dictionary = {"id":"starter_armor","label":"Túnica de Viagem","tier":0,"defense":0,"slot":"armor"}\nvar camera_zoom: float = 1.0
 
 func _ready() -> void:
 	load_profile()
@@ -94,6 +94,10 @@ func _equip(recipe: Dictionary) -> void:
 		if int(recipe.get("tier",0)) >= int(equipped_armor.get("tier",0)):
 			equipped_armor = recipe.duplicate(true)
 
+func set_camera_zoom(value: float) -> void:
+	camera_zoom = clampf(value,0.70,1.50)
+	save_profile()
+
 func attack_bonus() -> int:
 	return int(equipped_weapon.get("attack",0))
 
@@ -150,7 +154,7 @@ func load_profile() -> void:
 	materials = data.get("materials",{}) as Dictionary
 	crafted = data.get("crafted",{}) as Dictionary
 	equipped_weapon = (data.get("equipped_weapon",equipped_weapon) as Dictionary).duplicate(true)
-	equipped_armor = (data.get("equipped_armor",equipped_armor) as Dictionary).duplicate(true)
+	equipped_armor = (data.get("equipped_armor",equipped_armor) as Dictionary).duplicate(true)\n\tcamera_zoom = clampf(float(data.get("camera_zoom",1.0)),0.70,1.50)
 
 func reset_progress(delete_save: bool = true) -> void:
 	materials.clear()
