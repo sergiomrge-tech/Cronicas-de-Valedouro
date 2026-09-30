@@ -89,3 +89,15 @@ static func required_ids_by_act() -> Dictionary:
 		7:["LOC_LAST_BASTION","LOC_WAR_OBELISKS","LOC_BROKEN_CATHEDRAL","LOC_ALLIANCE_WAR_COUNCIL","LOC_HOLLOW_CROWN_CITADEL"],
 		8:["LOC_LAST_MAP_GATE","LOC_HALL_LOST_PATHS","LOC_VOID_ARCHIVE","LOC_EMPTY_THRONE_ANTECHAMBER","LOC_EMPTY_THRONE","LOC_EARTH_GATE"]
 	}
+
+
+static func act1_zones() -> Array[Dictionary]:
+	var cx: float = Region.SOUTH_ROAD_X
+	var north_edge: float = Region.HUB_RECT.position.y
+	return [
+		{"zone_kind":"north_road","label":"Estrada Norte","pos":Vector2(cx,north_edge-650.0),"radius":250.0},
+		{"zone_kind":"first_wind","label":"Ruínas do Primeiro Vento","pos":Vector2(cx-620.0,north_edge-1800.0),"radius":280.0},
+		{"zone_kind":"alpha","label":"Clareira do Alfa","pos":Vector2(cx+760.0,north_edge-2950.0),"radius":300.0},
+		{"zone_kind":"mine","label":"Mina do Eco","pos":Vector2(cx-980.0,north_edge-4100.0),"radius":310.0},
+		{"zone_kind":"archive","label":"Arquivo das Seis Coroas","pos":Vector2(cx+940.0,north_edge-5350.0),"radius":300.0}
+	]
