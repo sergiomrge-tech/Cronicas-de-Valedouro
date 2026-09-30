@@ -103,6 +103,7 @@ func _build(show_toggle: bool) -> void:
 	add_child(panel)
 
 	content = Control.new()
+	content.name = "InventoryContent"
 	content.custom_minimum_size = Vector2(814,440)
 	content.mouse_filter = Control.MOUSE_FILTER_PASS
 	panel.add_child(content)
