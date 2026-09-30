@@ -5,11 +5,14 @@ const EnvScript = preload("res://scripts/cartoon/hub_environment.gd")
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const HeroScript = preload("res://scripts/cartoon/cartoon_hero.gd")
 const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
+const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
+const StreamScript = preload("res://scripts/cartoon/cartoon_world_stream.gd")
 
 var environment: ValedouroCartoonHubEnvironment
 var objects: Node2D
 var hero: ValedouroCartoonHero
 var camera: Camera2D
+var world_stream: ValedouroCartoonWorldStream
 var ui: CanvasLayer
 var objective_label: Label
 var stats_label: Label
@@ -42,8 +45,12 @@ func _ready() -> void:
 		objects.add_child(prop)
 	hero = HeroScript.new()
 	hero.name = "Player"
-	hero.position = Vector2(1150,970)
+	hero.position = Region.world_from_hub(Vector2(1150,970))
 	objects.add_child(hero)
+	world_stream = StreamScript.new()
+	world_stream.name = "WorldStream"
+	add_child(world_stream)
+	world_stream.setup(hero)
 	_spawn_monsters()
 	camera = Camera2D.new()
 	camera.name = "PlayerCamera"
@@ -179,7 +186,9 @@ func _spawn_monsters() -> void:
 	]
 	for data in rows:
 		var monster: Node2D = MonsterScript.new()
-		monster.setup(data)
+		var world_data: Dictionary = data.duplicate(true)
+		world_data["pos"] = Region.world_from_hub(data["pos"] as Vector2)
+		monster.setup(world_data)
 		objects.add_child(monster)
 		monsters.append(monster)
 
@@ -202,7 +211,7 @@ func _update_monsters(delta: float) -> void:
 			_refresh_stats()
 			if player_hp <= 0:
 				player_hp = player_max_hp
-				hero.position = Vector2(1150,970)
+				hero.position = Region.world_from_hub(Vector2(1150,970))
 				_show_toast("Você foi resgatado e voltou à Praça Central.")
 				_refresh_stats()
 
