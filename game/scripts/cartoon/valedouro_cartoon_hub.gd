@@ -24,6 +24,7 @@ var objective_label: Label
 var stats_label: Label
 var toast_label: Label
 var poi_label: Label
+var objective_nav_label: Label
 var joystick_id: int = -1
 var joystick_origin = Vector2.ZERO
 var joystick_vector = Vector2.ZERO
@@ -89,6 +90,7 @@ func _build_ui() -> void:
 	objective_label=Label.new(); objective_label.position=Vector2(14,9); objective_label.size=Vector2(300,70); objective_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; objective_label.text=story_runtime.hud_text(); objective_label.add_theme_color_override("font_color",Color(1,0.91,0.58)); q.add_child(objective_label)
 	toast_label=Label.new(); toast_label.position=Vector2(280,450); toast_label.size=Vector2(400,42); toast_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; toast_label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER; toast_label.add_theme_font_size_override("font_size",18); toast_label.add_theme_color_override("font_color",Color(1,0.92,0.58)); toast_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); toast_label.add_theme_constant_override("shadow_offset_x",2); toast_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(toast_label)
 	poi_label=Label.new(); poi_label.position=Vector2(330,105); poi_label.size=Vector2(300,30); poi_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; poi_label.add_theme_font_size_override("font_size",17); poi_label.add_theme_color_override("font_color",Color(1,1,1)); poi_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); poi_label.add_theme_constant_override("shadow_offset_x",2); poi_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(poi_label)
+	objective_nav_label=Label.new(); objective_nav_label.position=Vector2(350,140); objective_nav_label.size=Vector2(260,30); objective_nav_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; objective_nav_label.add_theme_font_size_override("font_size",15); objective_nav_label.add_theme_color_override("font_color",Color(1,0.84,0.32)); objective_nav_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); objective_nav_label.add_theme_constant_override("shadow_offset_x",2); objective_nav_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(objective_nav_label)
 	_add_action_button("ATQ",Vector2(835,430),78,func(): _attack())
 	_add_action_button("USAR",Vector2(748,455),64,func(): _interact())
 	var hint = Label.new(); hint.position=Vector2(20,487); hint.size=Vector2(300,32); hint.text="Arraste aqui para mover"; hint.add_theme_color_override("font_color",Color(1,1,1,0.72)); ui.add_child(hint)
@@ -110,6 +112,7 @@ func _process(delta: float) -> void:
 		if environment and environment.is_walkable(next): hero.position=next
 		hero.set_motion(dir)
 		_update_poi_hint()
+		_update_objective_navigation()
 	_update_monsters(delta)
 	if Input.is_action_just_pressed("attack"): _attack()
 	if Input.is_action_just_pressed("interact"): _interact()
@@ -329,3 +332,46 @@ func _spawn_main_story_encounters() -> void:
 		monster.setup(data)
 		objects.add_child(monster)
 		monsters.append(monster)
+
+
+func _update_objective_navigation() -> void:
+	if not objective_nav_label or not story_runtime or not hero or not environment:
+		return
+	if story_runtime.act1_complete:
+		objective_nav_label.text = "Próximo: Floresta Ancestral"
+		return
+	var target_id: String = story_runtime.current_location()
+	var target_pos: Vector2 = Vector2.ZERO
+	var found: bool = false
+	for poi in environment.pois:
+		if String(poi.get("id","")) == target_id:
+			target_pos = poi.get("pos",Vector2.ZERO)
+			found = true
+			break
+	if not found:
+		objective_nav_label.text = ""
+		return
+	var delta_pos: Vector2 = target_pos - hero.position
+	var distance: int = int(delta_pos.length())
+	var direction: String = _direction_arrow(delta_pos)
+	objective_nav_label.text = "%s  %dm  %s" % [direction,distance,story_runtime.title()]
+
+func _direction_arrow(v: Vector2) -> String:
+	if v.length() < 35.0:
+		return "◆"
+	var a: float = v.angle()
+	if a >= -PI*0.125 and a < PI*0.125:
+		return "→"
+	if a >= PI*0.125 and a < PI*0.375:
+		return "↘"
+	if a >= PI*0.375 and a < PI*0.625:
+		return "↓"
+	if a >= PI*0.625 and a < PI*0.875:
+		return "↙"
+	if a >= PI*0.875 or a < -PI*0.875:
+		return "←"
+	if a >= -PI*0.875 and a < -PI*0.625:
+		return "↖"
+	if a >= -PI*0.625 and a < -PI*0.375:
+		return "↑"
+	return "↗"
