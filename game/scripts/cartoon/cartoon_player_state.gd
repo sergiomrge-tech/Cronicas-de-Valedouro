@@ -265,7 +265,9 @@ func bind_scene(
 		hero_node.position = player_position
 	else:
 		player_position = hero_node.position
-		player_level = maxi(player_level,default_level)
+		if player_level < default_level:
+			player_level = default_level
+			player_xp = 0
 		player_max_hp = maxi(player_max_hp,default_max_hp)
 		player_hp = player_max_hp
 
@@ -365,6 +367,51 @@ func _clear_active_binding() -> void:
 	_active_story = null
 	_active_extra_keys.clear()
 	_autosave_elapsed = 0.0
+
+func xp_to_next(level_value: int = -1) -> int:
+	var target_level: int = player_level if level_value < 0 else clampi(level_value,1,100)
+	if target_level >= 100:
+		return 0
+	return 45 + target_level * 18
+
+func xp_ratio() -> float:
+	if player_level >= 100:
+		return 1.0
+	var needed: int = xp_to_next()
+	return clampf(float(player_xp) / float(maxi(1,needed)),0.0,1.0)
+
+func gain_xp(amount: int) -> Dictionary:
+	if amount <= 0 or player_level >= 100:
+		return {"gained":0,"levels":0,"leveled_up":false,"level":player_level}
+	_capture_active_memory()
+	var gained_levels: int = 0
+	player_xp += amount
+	while player_level < 100:
+		var needed: int = xp_to_next(player_level)
+		if player_xp < needed:
+			break
+		player_xp -= needed
+		player_level += 1
+		gained_levels += 1
+		player_max_hp += 4
+		player_hp = mini(player_max_hp,player_hp+12)
+	if player_level >= 100:
+		player_level = 100
+		player_xp = 0
+	if _active_host != null and is_instance_valid(_active_host):
+		if _has_property(_active_host,"player_max_hp"):
+			_active_host.set("player_max_hp",player_max_hp)
+		if _has_property(_active_host,"player_hp"):
+			_active_host.set("player_hp",player_hp)
+	save_profile()
+	return {
+		"gained":amount,
+		"levels":gained_levels,
+		"leveled_up":gained_levels > 0,
+		"level":player_level,
+		"xp":player_xp,
+		"next":xp_to_next()
+	}
 
 func set_camera_zoom(value: float) -> void:
 	camera_zoom = clampf(value,0.70,1.50)
