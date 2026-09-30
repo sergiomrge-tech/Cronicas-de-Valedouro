@@ -8,11 +8,13 @@ ROOT = Path(__file__).resolve().parents[2]
 STORY = ROOT / "game" / "data" / "main_story_v1.json"
 LOCS = ROOT / "game" / "data" / "story_locations_v1.json"
 COVERAGE = ROOT / "game" / "data" / "cartoon_map_mission_coverage_v1.json"
+BLUEPRINT = ROOT / "game" / "data" / "cartoon_campaign_map_blueprint_v1.json"
 
 def main() -> int:
     story = json.loads(STORY.read_text(encoding="utf-8"))
     locations = json.loads(LOCS.read_text(encoding="utf-8"))
     coverage = json.loads(COVERAGE.read_text(encoding="utf-8"))
+    blueprint = json.loads(BLUEPRINT.read_text(encoding="utf-8"))
 
     errors: list[str] = []
     source_quests = {q["id"]: q for q in story.get("quests", [])}
@@ -46,6 +48,24 @@ def main() -> int:
     if missing_locs:
         errors.append("locais ausentes: " + ", ".join(missing_locs))
 
+    blueprint_quests = {}
+    for region in blueprint.get("regions", []):
+        for row in region.get("mandatory_route", []):
+            qid = row.get("quest_id")
+            if qid:
+                blueprint_quests[qid] = row
+    if set(blueprint_quests) != set(source_quests):
+        missing = sorted(set(source_quests) - set(blueprint_quests))
+        extra = sorted(set(blueprint_quests) - set(source_quests))
+        if missing:
+            errors.append("blueprint sem quests: " + ", ".join(missing))
+        if extra:
+            errors.append("blueprint com quests desconhecidas: " + ", ".join(extra))
+    for qid, q in source_quests.items():
+        row = blueprint_quests.get(qid)
+        if row is not None and row.get("location_id") != q.get("loc"):
+            errors.append(f"blueprint diverge no local de {qid}")
+
     legacy = coverage.get("legacy_vertical_slice_crosswalk", [])
     expected_legacy = {f"QUEST_A01_REG001_{i:03d}" for i in range(1,9)}
     actual_legacy = {row.get("legacy_id") for row in legacy}
@@ -64,6 +84,8 @@ def main() -> int:
     print(f"canonical_quests: {len(source_quests)}")
     print(f"canonical_locations: {len(source_locs)}")
     print(f"legacy_crosswalk: {len(legacy)}")
+    print(f"blueprint_regions: {len(blueprint.get('regions', []))}")
+    print(f"blueprint_quests: {len(blueprint_quests)}")
     if errors:
         for err in errors:
             print("ERROR:", err)
