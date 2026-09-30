@@ -202,7 +202,8 @@ func _interact() -> void:
 		"LOC_ASH_CITADEL": _show_toast("O General da Cinza aguarda dentro da cidadela.")
 		"POI_DESERT_MARSH_ROUTE":
 			if story_runtime.act3_complete:
-				_show_toast("Próxima região: Pântanos Sombrios.")
+				_show_toast("Entrando nos Pântanos Sombrios...")
+				get_tree().change_scene_to_file("res://scenes/cartoon/MarshDarkCartoon.tscn")
 			else:
 				_show_toast("A rota para os pântanos ainda está bloqueada pela campanha.")
 		_:
