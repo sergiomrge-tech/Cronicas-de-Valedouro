@@ -57,6 +57,8 @@ func run() -> void:
 	assert(forest.get_node_or_null("HUD") != null)
 	assert(forest.get_node_or_null("WorldObjects/Player") != null)
 	assert(forest.world_stream.active_count() >= 9)
+	assert(forest.story_zones != null)
+	assert(forest.story_zones.get_child_count() == 6)
 	assert(forest.pois.size() == 16)
 	assert(forest.monsters.size() == 9)
 	forest.hero.position = Vector2(23000,23500)
