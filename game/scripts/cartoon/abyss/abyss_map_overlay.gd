@@ -1,6 +1,9 @@
 class_name ValedouroCartoonAbyssMapOverlay
 extends Control
 
+const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
+var frame_style: StyleBoxFlat
+
 const Abyss = preload("res://scripts/cartoon/abyss/abyss_region_config.gd")
 const StoryMap = preload("res://scripts/cartoon/abyss/abyss_story_map.gd")
 
@@ -10,6 +13,7 @@ var map_rect: Rect2 = Rect2(48,42,754,366)
 
 func setup(player_node: Node2D) -> void:
 	player = player_node
+	frame_style = UISkin.box(UISkin.INK,UISkin.GOLD)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	queue_redraw()
 
@@ -25,9 +29,9 @@ func _world_to_map(world_pos: Vector2) -> Vector2:
 	return map_rect.position+Vector2(world_pos.x/Abyss.REGION_SIZE.x*map_rect.size.x,world_pos.y/Abyss.REGION_SIZE.y*map_rect.size.y)
 
 func _draw() -> void:
-	draw_rect(Rect2(Vector2.ZERO,size),Color(0.025,0.015,0.04,0.98))
+	draw_style_box(frame_style,Rect2(Vector2.ZERO,size))
 	draw_rect(map_rect,Color(0.10,0.07,0.16,0.99))
-	draw_rect(map_rect,Color(0.62,0.32,0.82),false,4.0)
+	draw_rect(map_rect,UISkin.GOLD.darkened(0.30),false,2.0)
 	var font: Font = ThemeDB.fallback_font
 	draw_string(font,Vector2(48,28),"MAPA — CORAÇÃO ABISSAL",HORIZONTAL_ALIGNMENT_LEFT,-1,20,Color(0.92,0.82,1.0))
 	draw_string(font,Vector2(650,28),"8x • final",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color(0.75,0.61,0.88))

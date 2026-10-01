@@ -1,0 +1,126 @@
+{
+  "style": "2D Cartoon",
+  "generator": "game/tools/cartoon/build_royal_castle_assets.py",
+  "assets": [
+    {
+      "file": "banquet_table.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "a462fa9a88890635a964a69100b6fe28fa1f81098d3ab3d44fb19e2192511b5c"
+    },
+    {
+      "file": "chandelier.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "b5f5134db8412566e3ecaca0635a477e2bf5bed5e933d361c8f3406bcdc6969b"
+    },
+    {
+      "file": "column.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "c136c55b1388c4a1bf3e3f887f607057a46c8a14601f24f7b28b6bb6254dad24"
+    },
+    {
+      "file": "floor_banquet.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "213a0fc6acf90378ca5b731d946faded05bfe5215fc4d04bfaa9078f13c10c48"
+    },
+    {
+      "file": "floor_bedroom.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "9823ffd74073a25e4ed566579933ee1e354977797c10518703fa81386f798537"
+    },
+    {
+      "file": "floor_council.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "cec52fa3149f38833a32057a7480932503276e0edde5cf764429308b0a6d4f77"
+    },
+    {
+      "file": "floor_gallery.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "03f33f7c7d1aeae913df3244e90ff720ae35804f36e56acc00fbbb233cf27486"
+    },
+    {
+      "file": "floor_honor.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "c999d494854f78d28d2b4df7a86c39895755b58ff2b257f00911a93780cddfbd"
+    },
+    {
+      "file": "floor_library.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "7842bfa113fdc2a925b6b43fe508881aba4ae07b2d433a56301748b7fcb315ba"
+    },
+    {
+      "file": "floor_throne.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "d36605817110800a35502435782fae31c1184542af4a18887b874e77bc93ab00"
+    },
+    {
+      "file": "floor_vestibule.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "d2ea82e88b29e8c81cc6fd45022d3a37effbd31a84272246c86e379df0c04964"
+    },
+    {
+      "file": "king.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "baab3ab3c806de15ed581e0422dc4344be3fa983ec22234b691081840d6269e3"
+    },
+    {
+      "file": "portrait.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "21e7ffa6b17abbb82e8abf8ad2e40e6b60cfb98889907cf382f6054704a040ea"
+    },
+    {
+      "file": "royal_banner.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "c572170fe200f5391644469e35f9620e29df75afa30c6bc95e83968057c60120"
+    },
+    {
+      "file": "royal_bed.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "071ccf8a557eef36a265de7e1c36f75071eacf4c2201a5d620b32b75604cd2ff"
+    },
+    {
+      "file": "royal_bookcase.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "161fb609b0e7d4315546b6611643f995fb13c902f620313fb79a429957cca4fb"
+    },
+    {
+      "file": "royal_castle.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "875f877ed4ed8d7daf06e0e408215325ca0debc095442be8125f839c545afce5"
+    },
+    {
+      "file": "royal_desk.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "11ebc8f2efe1e62775e813cc05f1f63801bbaa905b243acecf53a323b1550298"
+    },
+    {
+      "file": "royal_guard.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "dd16d9409b3bd39efa9666532a780f2ef6b73c341d6f6f4d9e9eacfd72de48d2"
+    },
+    {
+      "file": "royal_runner.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "677fb6a6b31a68b511e60b62b345cd2d53b589334d6b18d3861ffbb89a0e5e6e"
+    },
+    {
+      "file": "royal_sofa.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "d96fece33ac09d2f543cf963bf86bf6c1ca2a61d5a36f9c49cfad9433648d3b8"
+    },
+    {
+      "file": "royal_vase.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "5dbaef9874cc0bdbd31f1bc8f3bd824b220e68300a505f3c3aebf7cbba661403"
+    },
+    {
+      "file": "statue.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "7abb53a3ccae309d6e16bef8638dbf900f478376284df6108b017e9b99e17391"
+    },
+    {
+      "file": "throne.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "adae71828efbb7f79e6cda310e58c4133cc1a385d3d063e2c8204a1a0a30cc5d"
+    }
+  ]
+}

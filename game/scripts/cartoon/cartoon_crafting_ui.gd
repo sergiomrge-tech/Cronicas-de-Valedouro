@@ -1,6 +1,8 @@
 class_name ValedouroCartoonCraftingUI
 extends Control
 
+const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
+
 var host
 var hero: Node2D
 var region_id: String = ""
@@ -9,6 +11,7 @@ var summary_label: Label
 var material_label: Label
 var weapon_button: Button
 var armor_button: Button
+var toggle_button: Button
 var title_label: Label
 
 func setup(host_node, hero_node: Node2D, target_region_id: String) -> void:
@@ -17,6 +20,7 @@ func setup(host_node, hero_node: Node2D, target_region_id: String) -> void:
 	region_id = target_region_id
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	z_index = 100
 	_build()
 	_refresh()
 
@@ -34,12 +38,14 @@ func _build() -> void:
 	var toggle: Button = Button.new()
 	toggle.text = "FORJA"
 	toggle.position = Vector2(462,18)
-	toggle.size = Vector2(104,46)
+	toggle.size = Vector2(68,48)
 	toggle.mouse_filter = Control.MOUSE_FILTER_STOP
 	toggle.add_theme_font_size_override("font_size",15)
 	_style_button(toggle,Color(0.50,0.30,0.13),Color(0.91,0.67,0.24))
 	toggle.pressed.connect(_toggle)
 	add_child(toggle)
+	toggle_button = toggle
+	UISkin.bind(toggle,Vector2(68,48),"forge")
 
 	panel = PanelContainer.new()
 	panel.position = Vector2(245,88)
@@ -54,8 +60,9 @@ func _build() -> void:
 	st.corner_radius_top_right = 18
 	st.corner_radius_bottom_left = 18
 	st.corner_radius_bottom_right = 18
-	panel.add_theme_stylebox_override("panel",st)
+	panel.add_theme_stylebox_override("panel",UISkin.box(UISkin.INK,UISkin.GOLD))
 	add_child(panel)
+	UISkin.bind(panel,Vector2(470,355),"center",true)
 
 	var body: Control = Control.new()
 	body.name = "CraftingContent"
@@ -66,7 +73,7 @@ func _build() -> void:
 	title_label = Label.new()
 	title_label.position = Vector2(20,16)
 	title_label.size = Vector2(430,34)
-	title_label.text = "FORJA DE VALEDOURO"
+	title_label.text = "FORJA DO VIAJANTE"
 	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title_label.add_theme_font_size_override("font_size",22)
 	title_label.add_theme_color_override("font_color",Color(1.0,0.82,0.36))
@@ -75,6 +82,7 @@ func _build() -> void:
 	summary_label = Label.new()
 	summary_label.position = Vector2(24,58)
 	summary_label.size = Vector2(422,60)
+	summary_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	summary_label.add_theme_font_size_override("font_size",15)
 	summary_label.add_theme_color_override("font_color",Color(0.93,0.91,0.87))
 	body.add_child(summary_label)
@@ -83,6 +91,8 @@ func _build() -> void:
 	material_label.position = Vector2(24,122)
 	material_label.size = Vector2(422,58)
 	material_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	material_label.max_lines_visible = 3
+	material_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	material_label.add_theme_font_size_override("font_size",13)
 	material_label.add_theme_color_override("font_color",Color(0.77,0.91,0.88))
 	body.add_child(material_label)
@@ -108,23 +118,16 @@ func _build() -> void:
 	var close: Button = Button.new()
 	close.text = "FECHAR"
 	close.position = Vector2(145,299)
-	close.size = Vector2(180,42)
+	close.size = Vector2(180,44)
 	close.mouse_filter = Control.MOUSE_FILTER_STOP
 	_style_button(close,Color(0.18,0.16,0.19),Color(0.63,0.60,0.63))
-	close.pressed.connect(func(): panel.visible=false)
+	close.pressed.connect(close_panel)
 	body.add_child(close)
 
 func _style_button(button: Button, bg: Color, border: Color) -> void:
-	for state in ["normal","hover","pressed","focus"]:
-		var box: StyleBoxFlat = StyleBoxFlat.new()
-		box.bg_color = bg.lightened(0.08) if state == "hover" else (bg.darkened(0.08) if state == "pressed" else bg)
-		box.border_color = border
-		box.set_border_width_all(3)
-		box.corner_radius_top_left = 12
-		box.corner_radius_top_right = 12
-		box.corner_radius_bottom_left = 12
-		box.corner_radius_bottom_right = 12
-		button.add_theme_stylebox_override(state,box)
+	UISkin.button(button,UISkin.SURFACE.lerp(bg,0.18),border.darkened(0.15))
+	button.clip_text = true
+	button.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 
 func _toggle() -> void:
 	panel.visible = not panel.visible
@@ -135,6 +138,8 @@ func _toggle() -> void:
 func _close_inventory() -> void:
 	if host == null:
 		return
+	if host.get("map_open") == true:
+		host.call("_toggle_map")
 	var bag = host.get("inventory_ui")
 	if bag != null and bag.has_method("close_panel"):
 		bag.call("close_panel")

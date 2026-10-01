@@ -1,6 +1,9 @@
 class_name ValedouroCartoonMarshMapOverlay
 extends Control
 
+const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
+var frame_style: StyleBoxFlat
+
 const Marsh = preload("res://scripts/cartoon/marsh/marsh_region_config.gd")
 const StoryMap = preload("res://scripts/cartoon/marsh/marsh_story_map.gd")
 
@@ -10,6 +13,7 @@ var map_rect: Rect2 = Rect2(48,42,754,366)
 
 func setup(player_node: Node2D) -> void:
 	player = player_node
+	frame_style = UISkin.box(UISkin.INK,UISkin.GOLD)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	queue_redraw()
 
@@ -28,13 +32,12 @@ func _world_to_map(world_pos: Vector2) -> Vector2:
 	)
 
 func _draw() -> void:
-	draw_rect(Rect2(Vector2.ZERO,size),Color(0.025,0.055,0.055,0.97))
+	draw_style_box(frame_style,Rect2(Vector2.ZERO,size))
 	draw_rect(map_rect,Color(0.11,0.25,0.22,0.98))
-	draw_rect(map_rect,Color(0.38,0.78,0.66),false,4.0)
+	draw_rect(map_rect,UISkin.GOLD.darkened(0.30),false,2.0)
 
 	var font: Font = ThemeDB.fallback_font
 	draw_string(font,Vector2(48,28),"MAPA — PÂNTANOS SOMBRIOS",HORIZONTAL_ALIGNMENT_LEFT,-1,20,Color(0.78,1.0,0.88))
-	draw_string(font,Vector2(620,28),"15x • exploração",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color(0.58,0.86,0.73))
 
 	var route: PackedVector2Array = StoryMap.route_points()
 	var scaled: PackedVector2Array = PackedVector2Array()

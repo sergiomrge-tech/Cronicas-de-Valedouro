@@ -2,6 +2,7 @@ class_name ValedouroCartoonMonster
 extends Node2D
 
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
+const Assets = preload("res://scripts/cartoon/cartoon_visual_assets.gd")
 
 var kind: String = "wolf"
 var monster_name: String = "Lobo do Vale"
@@ -84,17 +85,7 @@ func _draw() -> void:
 		DrawUtil.ellipse(self,Vector2.ZERO,30,36,Color(1,1,1,0.25))
 
 func _draw_wolf() -> void:
-	var fur: Color = Color(0.33,0.35,0.40)
-	DrawUtil.ellipse_outlined(self,Vector2(0,-18),25,18,fur,DrawUtil.OUTLINE,3)
-	DrawUtil.circle_outlined(self,Vector2(18,-35),14,fur.lightened(0.05),DrawUtil.OUTLINE,3)
-	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(9,-46),Vector2(13,-61),Vector2(20,-47)]),fur,DrawUtil.OUTLINE,2.5)
-	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(22,-47),Vector2(29,-60),Vector2(31,-43)]),fur,DrawUtil.OUTLINE,2.5)
-	draw_circle(Vector2(22,-36),2.2,Color(1.0,0.78,0.18))
-	draw_circle(Vector2(31,-30),2.5,Color(0.10,0.07,0.07))
-	for x in [-14.0,4.0]:
-		DrawUtil.capsule_outlined(self,Vector2(x,-10),Vector2(x+2,5),6,fur.darkened(0.08),DrawUtil.OUTLINE,2)
-	draw_line(Vector2(-23,-24),Vector2(-38,-34),DrawUtil.OUTLINE,7)
-	draw_line(Vector2(-23,-24),Vector2(-38,-34),fur,4)
+	draw_texture_rect(Assets.texture("wolf"),Rect2(-47,-64,94,75),false)
 
 func _draw_goblin() -> void:
 	var skin: Color = Color(0.36,0.68,0.24)
@@ -118,16 +109,7 @@ func _draw_slime() -> void:
 	DrawUtil.ellipse(self,Vector2(-10,-31),7,4,Color(0.85,1.0,0.88,0.35))
 
 func _draw_guardian() -> void:
-	var stone: Color = Color(0.47,0.50,0.52)
-	DrawUtil.ellipse_outlined(self,Vector2(0,-18),30,25,stone,DrawUtil.OUTLINE,4)
-	DrawUtil.rect_outlined(self,Rect2(-23,-58,46,40),stone.lightened(0.04),DrawUtil.OUTLINE,4)
-	for x in [-25.0,25.0]:
-		DrawUtil.capsule_outlined(self,Vector2(x,-38),Vector2(x*1.25,-10),10,stone.darkened(0.05),DrawUtil.OUTLINE,3)
-	for x in [-12.0,12.0]:
-		DrawUtil.capsule_outlined(self,Vector2(x,-3),Vector2(x,14),11,stone.darkened(0.08),DrawUtil.OUTLINE,3)
-	DrawUtil.circle_outlined(self,Vector2(0,-39),8,Color(0.28,0.76,0.96),DrawUtil.OUTLINE,2)
-	draw_circle(Vector2(0,-39),3,Color(0.85,0.98,1.0))
-
+	draw_texture_rect(Assets.texture("guardian"),Rect2(-53,-105,106,117),false)
 
 func _draw_root_beast() -> void:
 	var bark: Color = Color(0.33,0.24,0.13)

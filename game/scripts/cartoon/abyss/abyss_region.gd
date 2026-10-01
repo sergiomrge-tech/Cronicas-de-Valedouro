@@ -1,6 +1,9 @@
 class_name ValedouroCartoonAbyssRegion
 extends Node2D
 
+const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
+const GameLayout = preload("res://scripts/cartoon/cartoon_game_layout.gd")
+
 const Abyss = preload("res://scripts/cartoon/abyss/abyss_region_config.gd")
 const StoryMap = preload("res://scripts/cartoon/abyss/abyss_story_map.gd")
 const StreamScript = preload("res://scripts/cartoon/abyss/abyss_world_stream.gd")
@@ -163,11 +166,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		_interact()
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if map_open or (choice_panel and choice_panel.visible) or (crafting_ui != null and crafting_ui.is_open()) or (inventory_ui != null and inventory_ui.is_open()):
 		return
 	if event is InputEventScreenTouch:
-		if event.pressed and event.position.x < 330 and event.position.y > 300 and joystick_id < 0:
+		if event.pressed and GameLayout.can_start_movement(self,event.position) and joystick_id < 0:
 			joystick_id = event.index
 			joystick_origin = event.position
 			joystick_vector = Vector2.ZERO
@@ -296,152 +299,46 @@ func _nearest_poi(pos: Vector2, radius: float) -> Dictionary:
 	return best
 
 func _build_ui() -> void:
-	ui = CanvasLayer.new()
-	ui.name = "HUD"
-	add_child(ui)
-	var top: PanelContainer = PanelContainer.new()
-	top.position = Vector2(14,14)
-	top.size = Vector2(320,76)
-	ui.add_child(top)
-	top.visible = false
-	var top_style: StyleBoxFlat = StyleBoxFlat.new()
-	top_style.bg_color = Color(0.05,0.03,0.08,0.97)
-	top_style.border_color = Color(0.62,0.34,0.80)
-	top_style.set_border_width_all(3)
-	top_style.corner_radius_top_left = 16
-	top_style.corner_radius_top_right = 16
-	top_style.corner_radius_bottom_left = 16
-	top_style.corner_radius_bottom_right = 16
-	top.add_theme_stylebox_override("panel",top_style)
-	stats_label = Label.new()
-	stats_label.position = Vector2(16,10)
-	stats_label.size = Vector2(292,56)
-	stats_label.add_theme_font_size_override("font_size",16)
-	stats_label.add_theme_color_override("font_color",Color(0.94,0.86,1.0))
-	top.add_child(stats_label)
-	_refresh_stats()
-	var q: PanelContainer = PanelContainer.new()
-	q.position = Vector2(690,14)
-	q.size = Vector2(256,96)
-	ui.add_child(q)
-	var qstyle: StyleBoxFlat = StyleBoxFlat.new()
-	qstyle.bg_color = Color(0.04,0.025,0.07,0.96)
-	qstyle.border_color = Color(0.52,0.24,0.72)
-	qstyle.set_border_width_all(3)
-	qstyle.corner_radius_top_left = 14
-	qstyle.corner_radius_top_right = 14
-	qstyle.corner_radius_bottom_left = 14
-	qstyle.corner_radius_bottom_right = 14
-	q.add_theme_stylebox_override("panel",qstyle)
-	objective_label = Label.new()
-	objective_label.position = Vector2(14,8)
-	objective_label.size = Vector2(228,80)
-	objective_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	objective_label.add_theme_font_size_override("font_size",14)
-	objective_label.add_theme_color_override("font_color",Color(0.90,0.78,1.0))
-	q.add_child(objective_label)
-	poi_label = Label.new()
-	poi_label.position = Vector2(320,112)
-	poi_label.size = Vector2(330,28)
-	poi_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	poi_label.add_theme_font_size_override("font_size",17)
-	poi_label.add_theme_color_override("font_color",Color.WHITE)
-	poi_label.add_theme_color_override("font_shadow_color",Color.BLACK)
-	poi_label.add_theme_constant_override("shadow_offset_x",2)
-	poi_label.add_theme_constant_override("shadow_offset_y",2)
-	ui.add_child(poi_label)
-	nav_label = Label.new()
-	nav_label.position = Vector2(285,145)
-	nav_label.size = Vector2(400,30)
-	nav_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	nav_label.add_theme_font_size_override("font_size",15)
-	nav_label.add_theme_color_override("font_color",Color(0.80,0.57,0.96))
-	nav_label.add_theme_color_override("font_shadow_color",Color.BLACK)
-	nav_label.add_theme_constant_override("shadow_offset_x",2)
-	nav_label.add_theme_constant_override("shadow_offset_y",2)
-	ui.add_child(nav_label)
-	toast_label = Label.new()
-	toast_label.position = Vector2(235,448)
-	toast_label.size = Vector2(490,44)
-	toast_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	toast_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	toast_label.add_theme_font_size_override("font_size",18)
-	toast_label.add_theme_color_override("font_color",Color(0.90,0.74,1.0))
-	toast_label.add_theme_color_override("font_shadow_color",Color.BLACK)
-	toast_label.add_theme_constant_override("shadow_offset_x",2)
-	toast_label.add_theme_constant_override("shadow_offset_y",2)
-	ui.add_child(toast_label)
-	map_overlay = MapOverlayScript.new()
-	map_overlay.position = Vector2(55,40)
-	map_overlay.size = Vector2(850,460)
-	map_overlay.visible = false
-	map_overlay.setup(hero)
-	ui.add_child(map_overlay)
-	_add_map_button()
-	_add_action_button("ATQ",Vector2(835,430),78,func(): _attack())
-	_add_action_button("USAR",Vector2(748,455),64,func(): _interact())
+	GameLayout.build(self,MapOverlayScript,"nav_label")
 	_build_choice_panel()
-	var hint: Label = Label.new()
-	hint.position = Vector2(20,487)
-	hint.size = Vector2(300,32)
-	hint.text = "Arraste aqui para mover"
-	hint.add_theme_color_override("font_color",Color(1,1,1,0.72))
-	ui.add_child(hint)
 
 func _build_choice_panel() -> void:
 	choice_panel = PanelContainer.new()
-	choice_panel.position = Vector2(250,175)
-	choice_panel.size = Vector2(460,190)
+	choice_panel.name = "EndingChoicePanel"
 	choice_panel.visible = false
+	choice_panel.add_theme_stylebox_override("panel",UISkin.box(UISkin.INK,UISkin.GOLD))
 	ui.add_child(choice_panel)
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.06,0.04,0.09,0.98)
-	style.border_color = Color(0.68,0.43,0.86)
-	style.set_border_width_all(4)
-	style.corner_radius_top_left = 18
-	style.corner_radius_top_right = 18
-	style.corner_radius_bottom_left = 18
-	style.corner_radius_bottom_right = 18
-	choice_panel.add_theme_stylebox_override("panel",style)
-	var title: Label = Label.new()
-	title.position = Vector2(22,18)
-	title.size = Vector2(416,55)
-	title.text = "ENTRE DOIS MUNDOS\nEscolha o destino do Segundo Viajante"
+	var body: Control = Control.new()
+	body.name = "EndingChoiceContent"
+	body.custom_minimum_size = Vector2(476,236)
+	choice_panel.add_child(body)
+	var title: Label = UISkin.label("ENTRE DOIS MUNDOS",22)
+	title.position = Vector2(24,22)
+	title.size = Vector2(428,32)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title.add_theme_font_size_override("font_size",17)
-	title.add_theme_color_override("font_color",Color(0.94,0.84,1.0))
-	choice_panel.add_child(title)
+	body.add_child(title)
+	var note: Label = UISkin.label("Escolha o destino do Segundo Viajante",14,UISkin.MUTED)
+	note.position = Vector2(24,65)
+	note.size = Vector2(428,26)
+	note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	body.add_child(note)
 	var earth: Button = Button.new()
+	earth.name = "ReturnToEarthButton"
 	earth.text = "RETORNAR À TERRA"
-	earth.position = Vector2(28,88)
-	earth.size = Vector2(190,62)
+	earth.position = Vector2(24,116)
+	earth.size = Vector2(428,48)
+	UISkin.button(earth)
 	earth.pressed.connect(func(): _choose_ending("return"))
-	choice_panel.add_child(earth)
+	body.add_child(earth)
 	var stay: Button = Button.new()
+	stay.name = "StayInElyndorButton"
 	stay.text = "PERMANECER EM ELYNDOR"
-	stay.position = Vector2(242,88)
-	stay.size = Vector2(190,62)
+	stay.position = Vector2(24,174)
+	stay.size = Vector2(428,48)
+	UISkin.button(stay)
 	stay.pressed.connect(func(): _choose_ending("stay"))
-	choice_panel.add_child(stay)
-
-func _add_map_button() -> void:
-	var button: Button = Button.new()
-	button.text = "MAPA"
-	button.position = Vector2(350,18)
-	button.size = Vector2(104,46)
-	button.add_theme_font_size_override("font_size",15)
-	for state in ["normal","hover","pressed","focus"]:
-		var st: StyleBoxFlat = StyleBoxFlat.new()
-		st.bg_color = Color(0.10,0.06,0.15,0.97) if state != "pressed" else Color(0.20,0.10,0.29,0.97)
-		st.border_color = Color(0.64,0.37,0.82)
-		st.set_border_width_all(3)
-		st.corner_radius_top_left = 12
-		st.corner_radius_top_right = 12
-		st.corner_radius_bottom_left = 12
-		st.corner_radius_bottom_right = 12
-		button.add_theme_stylebox_override(state,st)
-	button.pressed.connect(_toggle_map)
-	ui.add_child(button)
+	body.add_child(stay)
+	UISkin.bind(choice_panel,Vector2(480,240),"center",true)
 
 func _toggle_map() -> void:
 	map_open = not map_open
@@ -457,24 +354,6 @@ func _toggle_map() -> void:
 	joystick_id = -1
 	joystick_vector = Vector2.ZERO
 
-func _add_action_button(text_value: String, pos: Vector2, button_size: float, callback: Callable) -> void:
-	var button: Button = Button.new()
-	button.text = text_value
-	button.position = pos-Vector2(button_size,button_size)*0.5
-	button.size = Vector2(button_size,button_size)
-	button.add_theme_font_size_override("font_size",16)
-	for state in ["normal","hover","pressed","focus"]:
-		var st: StyleBoxFlat = StyleBoxFlat.new()
-		st.bg_color = Color(0.10,0.06,0.15,0.96) if state != "pressed" else Color(0.21,0.10,0.30,0.96)
-		st.border_color = Color(0.64,0.37,0.82)
-		st.set_border_width_all(4)
-		st.corner_radius_top_left = int(button_size/2.0)
-		st.corner_radius_top_right = int(button_size/2.0)
-		st.corner_radius_bottom_left = int(button_size/2.0)
-		st.corner_radius_bottom_right = int(button_size/2.0)
-		button.add_theme_stylebox_override(state,st)
-	button.pressed.connect(callback)
-	ui.add_child(button)
 
 func _grant_combat_xp(base_amount: int,boss_id: String = "") -> void:
 	var state = get_node_or_null("/root/CartoonPlayerState")

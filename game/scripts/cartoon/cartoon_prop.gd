@@ -2,6 +2,7 @@ class_name ValedouroCartoonProp
 extends Node2D
 
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
+const VisualAssets = preload("res://scripts/cartoon/cartoon_visual_assets.gd")
 
 var kind: String = "tree"
 var variant: int = 0
@@ -18,14 +19,18 @@ func setup(data: Dictionary) -> void:
 	base_scale = float(data.get("scale", 1.0))
 	position = data.get("pos", Vector2.ZERO)
 	scale = Vector2.ONE * base_scale
+	# Rasterized static sprites are batched; only live fire needs redraws.
+	set_process(kind in ["torch","campfire"])
 	queue_redraw()
 
 func _process(delta: float) -> void:
 	anim_t += delta
-	if kind in ["torch", "fountain", "market"]:
+	if kind in ["torch", "campfire"]:
 		queue_redraw()
 
 func _draw() -> void:
+	if VisualAssets.draw_prop(self,kind,variant):
+		return
 	match kind:
 		"tree": _draw_tree()
 		"pine": _draw_pine()

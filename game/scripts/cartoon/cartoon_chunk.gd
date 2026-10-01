@@ -4,13 +4,22 @@ extends Node2D
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
+const Terrain = preload("res://scripts/cartoon/cartoon_terrain_art.gd")
+const Landscape = preload("res://scripts/cartoon/cartoon_landscape_layout.gd")
+const StoryMap = preload("res://scripts/cartoon/cartoon_main_story_map.gd")
+const Exploration = preload("res://scripts/cartoon/cartoon_exploration_content.gd")
 
 var chunk_coord: Vector2i = Vector2i.ZERO
 var chunk_seed: int = 0
 var props_root: Node2D
 var generated: bool = false
+var visual_root: Node2D
+var owned_props: Array[Node2D] = []
 
-func setup(coord: Vector2i) -> void:
+func setup(coord: Vector2i, sorted_root: Node2D = null) -> void:
+	visual_root = sorted_root
+	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	chunk_coord = coord
 	position = Vector2(coord.x * Region.CHUNK_SIZE, coord.y * Region.CHUNK_SIZE)
 	chunk_seed = 20260930 + coord.x * 92821 + coord.y * 68917
@@ -30,33 +39,29 @@ func _generate() -> void:
 	var chunk_world_rect: Rect2 = Rect2(position, Vector2(Region.CHUNK_SIZE, Region.CHUNK_SIZE))
 	if chunk_world_rect.intersects(Region.HUB_RECT.grow(120.0)):
 		return
-	var density: int = 25
+	var density: int = 45
 	var center_dist: float = chunk_world_rect.get_center().distance_to(Region.REGION_SIZE * 0.5)
 	var biome: String = _biome_kind()
 	if center_dist > 5200.0:
-		density = 34
+		density = 58
 	if biome == "wind_woods":
-		density = 38
+		density = 72
 	elif biome == "alpha_forest":
-		density = 48
+		density = 90
 	elif biome == "echo_hills":
-		density = 32
+		density = 54
 	elif biome == "archive_highlands":
-		density = 28
+		density = 46
+	var groves: Array[Vector2] = []
+	for i in range(7):
+		groves.append(Vector2(rng.randf_range(150,Region.CHUNK_SIZE-150),rng.randf_range(150,Region.CHUNK_SIZE-150)))
 	for i in range(density):
-		var local_pos: Vector2 = Vector2(rng.randf_range(48.0,Region.CHUNK_SIZE-48.0),rng.randf_range(62.0,Region.CHUNK_SIZE-36.0))
+		var local_pos: Vector2 = groves[i % groves.size()]+Vector2(rng.randf_range(-130,130),rng.randf_range(-110,110))
 		var world_pos: Vector2 = position + local_pos
-		if _near_main_road(world_pos,115.0):
+		if _near_main_road(world_pos,125.0) or _reserved_clearing(world_pos):
 			continue
 		var roll: float = rng.randf()
 		var kind: String = _pick_prop_kind(biome,roll)
-		var radius: float = 28.0
-		if kind == "bush":
-			radius = 17.0
-		elif kind == "rock":
-			radius = 16.0
-		elif kind == "flowers":
-			radius = 0.0
 		var prop: Node2D = PropScript.new()
 		prop.setup({
 			"kind":kind,
@@ -64,7 +69,7 @@ func _generate() -> void:
 			"scale":rng.randf_range(0.62,1.08),
 			"variant":rng.randi_range(0,3)
 		})
-		props_root.add_child(prop)
+		_add_visual(prop)
 	if _is_field_belt():
 		for i in range(8):
 			var hay: Node2D = PropScript.new()
@@ -74,7 +79,32 @@ func _generate() -> void:
 				"scale":rng.randf_range(0.65,0.9),
 				"variant":i
 			})
-			props_root.add_child(hay)
+			if not _near_main_road(position+hay.position,125.0) and not _reserved_clearing(position+hay.position):
+				_add_visual(hay)
+			else:
+				hay.free()
+
+func _add_visual(prop: Node2D) -> void:
+	if visual_root != null:
+		prop.position += position
+		visual_root.add_child(prop)
+		owned_props.append(prop)
+	else:
+		props_root.add_child(prop)
+
+func _exit_tree() -> void:
+	# Streamed foliage shares the hero's y-sort layer; retire it with its chunk.
+	for prop: Node2D in owned_props:
+		if is_instance_valid(prop): prop.queue_free()
+	owned_props.clear()
+
+func _reserved_clearing(p: Vector2) -> bool:
+	if Region.in_authored_hub(p,70.0) or Region.ROYAL_GROUNDS.grow(80).has_point(p): return true
+	for zone: Dictionary in StoryMap.act1_zones():
+		if p.distance_to(zone["pos"]) < float(zone["radius"])*0.90: return true
+	for landmark: Dictionary in Exploration.landmarks():
+		if p.distance_to(landmark["pos"]) < 145.0: return true
+	return false
 
 func _is_field_belt() -> bool:
 	var y0: float = float(chunk_coord.y * Region.CHUNK_SIZE)
@@ -144,47 +174,19 @@ func _pick_prop_kind(biome: String, roll: float) -> String:
 	return "tree"
 
 func _near_main_road(world_pos: Vector2, margin: float) -> bool:
-	if world_pos.y >= Region.HUB_RECT.end.y - 80.0:
-		if absf(world_pos.x - Region.SOUTH_ROAD_X) < margin:
-			return true
-	if world_pos.y <= Region.HUB_RECT.position.y + 80.0:
-		if absf(world_pos.x - Region.SOUTH_ROAD_X) < margin:
-			return true
-	var north_edge: float = Region.HUB_RECT.position.y
-	var story_branches: Array[Dictionary] = [
-		{"y":north_edge-1800.0,"x1":Region.SOUTH_ROAD_X-760.0,"x2":Region.SOUTH_ROAD_X},
-		{"y":north_edge-2950.0,"x1":Region.SOUTH_ROAD_X,"x2":Region.SOUTH_ROAD_X+900.0},
-		{"y":north_edge-4100.0,"x1":Region.SOUTH_ROAD_X-1120.0,"x2":Region.SOUTH_ROAD_X},
-		{"y":north_edge-5350.0,"x1":Region.SOUTH_ROAD_X,"x2":Region.SOUTH_ROAD_X+1080.0}
-	]
-	for branch in story_branches:
-		if absf(world_pos.y - float(branch["y"])) < margin and world_pos.x >= float(branch["x1"]) - margin and world_pos.x <= float(branch["x2"]) + margin:
-			return true
-	var west_branch_y: float = Region.HUB_RECT.end.y + 2100.0
-	if absf(world_pos.y - west_branch_y) < margin and world_pos.x > Region.SOUTH_ROAD_X - 3200.0 and world_pos.x < Region.SOUTH_ROAD_X:
-		return true
-	var east_branch_y: float = Region.HUB_RECT.end.y + 4200.0
-	if absf(world_pos.y - east_branch_y) < margin and world_pos.x > Region.SOUTH_ROAD_X and world_pos.x < Region.SOUTH_ROAD_X + 3500.0:
-		return true
-	return false
+	return Landscape.near_road(world_pos,margin)
 
 func _draw() -> void:
 	var biome: String = _biome_kind()
-	var bg: Color = Color(0.42,0.71,0.30)
-	if _is_field_belt():
-		bg = Color(0.48,0.70,0.29)
-	elif biome == "wind_woods":
-		bg = Color(0.35,0.63,0.27)
-	elif biome == "alpha_forest":
-		bg = Color(0.28,0.54,0.23)
-	elif biome == "echo_hills":
-		bg = Color(0.39,0.52,0.31)
-	elif biome == "archive_highlands":
-		bg = Color(0.48,0.59,0.36)
-	draw_rect(Rect2(Vector2.ZERO,Vector2(Region.CHUNK_SIZE,Region.CHUNK_SIZE)),bg)
+	# One textured ground family keeps boundaries quieter than flat green blocks.
+	var tint: Color = Color.WHITE
+	if biome == "alpha_forest": tint = Color(0.80,0.91,0.86)
+	elif biome == "wind_woods": tint = Color(0.91,0.98,0.92)
+	elif biome == "echo_hills": tint = Color(0.92,0.95,0.95)
+	elif biome == "archive_highlands": tint = Color(1.04,1.02,0.97)
+	Terrain.grass(self,Rect2(Vector2.ZERO,Vector2(Region.CHUNK_SIZE,Region.CHUNK_SIZE)),tint)
 	_draw_grass_texture()
 	_draw_roads()
-	_draw_north_story_roads()
 	_draw_field_rows()
 
 func _draw_grass_texture() -> void:
@@ -196,50 +198,23 @@ func _draw_grass_texture() -> void:
 		draw_line(p,p+Vector2(rng.randf_range(-2.0,2.0),rng.randf_range(-8.0,-4.0)),col,1.5)
 
 func _draw_roads() -> void:
-	var global_x0: float = position.x
-	var global_y0: float = position.y
-	if global_y0 + Region.CHUNK_SIZE >= Region.HUB_RECT.end.y - 80.0 and global_y0 <= Region.REGION_SIZE.y:
-		var local_x: float = Region.SOUTH_ROAD_X - global_x0
-		if local_x > -90.0 and local_x < Region.CHUNK_SIZE + 90.0:
-			draw_rect(Rect2(local_x-72.0,0.0,144.0,Region.CHUNK_SIZE),Color(0.50,0.57,0.26))
-			draw_rect(Rect2(local_x-58.0,0.0,116.0,Region.CHUNK_SIZE),Color(0.78,0.64,0.42))
-			draw_line(Vector2(local_x-58.0,0.0),Vector2(local_x-58.0,Region.CHUNK_SIZE),Color(0.38,0.31,0.22,0.35),3.0)
-			draw_line(Vector2(local_x+58.0,0.0),Vector2(local_x+58.0,Region.CHUNK_SIZE),Color(0.38,0.31,0.22,0.35),3.0)
-	var west_branch_y: float = Region.HUB_RECT.end.y + 2100.0
-	var local_west_y: float = west_branch_y - global_y0
-	if local_west_y > -90.0 and local_west_y < Region.CHUNK_SIZE + 90.0 and global_x0 < Region.SOUTH_ROAD_X and global_x0 + Region.CHUNK_SIZE > Region.SOUTH_ROAD_X - 3300.0:
-		draw_rect(Rect2(0.0,local_west_y-54.0,Region.CHUNK_SIZE,108.0),Color(0.78,0.64,0.42))
-	var east_branch_y: float = Region.HUB_RECT.end.y + 4200.0
-	var local_east_y: float = east_branch_y - global_y0
-	if local_east_y > -90.0 and local_east_y < Region.CHUNK_SIZE + 90.0 and global_x0 + Region.CHUNK_SIZE > Region.SOUTH_ROAD_X and global_x0 < Region.SOUTH_ROAD_X + 3600.0:
-		draw_rect(Rect2(0.0,local_east_y-54.0,Region.CHUNK_SIZE,108.0),Color(0.78,0.64,0.42))
-
-func _draw_north_story_roads() -> void:
-	var global_x0: float = position.x
-	var global_y0: float = position.y
-	var north_edge: float = Region.HUB_RECT.position.y
-	if global_y0 <= north_edge + 80.0:
-		var local_x: float = Region.SOUTH_ROAD_X - global_x0
-		if local_x > -90.0 and local_x < Region.CHUNK_SIZE + 90.0:
-			draw_rect(Rect2(local_x-64.0,0.0,128.0,Region.CHUNK_SIZE),Color(0.50,0.57,0.26))
-			draw_rect(Rect2(local_x-51.0,0.0,102.0,Region.CHUNK_SIZE),Color(0.78,0.64,0.42))
-	var branches: Array[Dictionary] = [
-		{"y":north_edge-1800.0,"x1":Region.SOUTH_ROAD_X-760.0,"x2":Region.SOUTH_ROAD_X},
-		{"y":north_edge-2950.0,"x1":Region.SOUTH_ROAD_X,"x2":Region.SOUTH_ROAD_X+900.0},
-		{"y":north_edge-4100.0,"x1":Region.SOUTH_ROAD_X-1120.0,"x2":Region.SOUTH_ROAD_X},
-		{"y":north_edge-5350.0,"x1":Region.SOUTH_ROAD_X,"x2":Region.SOUTH_ROAD_X+1080.0}
-	]
-	for branch in branches:
-		var by: float = float(branch["y"])
-		var local_y: float = by - global_y0
-		if local_y < -70.0 or local_y > Region.CHUNK_SIZE + 70.0:
-			continue
-		var bx1: float = float(branch["x1"]) - global_x0
-		var bx2: float = float(branch["x2"]) - global_x0
-		var left: float = maxf(0.0,minf(bx1,bx2))
-		var right: float = minf(float(Region.CHUNK_SIZE),maxf(bx1,bx2))
-		if right > left:
-			draw_rect(Rect2(left,local_y-47.0,right-left,94.0),Color(0.78,0.64,0.42))
+	for road: Dictionary in Landscape.roads():
+		var a: Vector2 = road["a"]-position
+		var b: Vector2 = road["b"]-position
+		var width: float = float(road["width"])
+		if is_equal_approx(a.x,b.x):
+			if a.x < -width or a.x > Region.CHUNK_SIZE+width: continue
+			var top: float = maxf(0.0,minf(a.y,b.y))
+			var bottom: float = minf(Region.CHUNK_SIZE,maxf(a.y,b.y))
+			if bottom <= top: continue
+			a.y = top; b.y = bottom
+		else:
+			if a.y < -width or a.y > Region.CHUNK_SIZE+width: continue
+			var left: float = maxf(0.0,minf(a.x,b.x))
+			var right: float = minf(Region.CHUNK_SIZE,maxf(a.x,b.x))
+			if right <= left: continue
+			a.x = left; b.x = right
+		Terrain.path(self,PackedVector2Array([a,b]),width,false,chunk_seed)
 
 func _draw_field_rows() -> void:
 	if not _is_field_belt():

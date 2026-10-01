@@ -1,7 +1,7 @@
 extends Node
 
 const SAVE_PATH: String = "user://valedouro_cartoon_profile_v1.json"
-const SAVE_VERSION: int = 2
+const SAVE_VERSION: int = 3
 const DEFAULT_SCENE: String = "res://scenes/cartoon/ValedouroCartoonHub.tscn"
 const VALID_SCENES: Array[String] = [
 	DEFAULT_SCENE,
@@ -25,6 +25,8 @@ const STORY_STATE_KEYS: Array[String] = [
 	"complete","kills","required_kills"
 ]
 
+var guild_contracts: Dictionary = {}
+var wildlife_cooldowns: Dictionary = {}
 var materials: Dictionary = {}
 var crafted: Dictionary = {}
 var equipped_weapon: Dictionary = {"id":"starter_blade","label":"Espada de Viagem","tier":0,"attack":0,"slot":"weapon"}
@@ -67,6 +69,11 @@ func _process(delta: float) -> void:
 
 func recipes_for(region_id: String) -> Array[Dictionary]:
 	match region_id:
+		"REG_001_BERCO_VALEDOURO":
+			return [
+				{"id":"WPN_VALE_00","label":"Lâmina de Caçador","slot":"weapon","tier":0,"attack":2,"material":"Osso de caça","cost":3},
+				{"id":"ARM_VALE_00","label":"Colete de Couro do Vale","slot":"armor","tier":0,"defense":1,"material":"Couro do Vale","cost":3}
+			]
 		"REG_002_FLORESTA_ANCESTRAL":
 			return [
 				{"id":"WPN_FOREST_01","label":"Lâmina de Carvalho Vivo","slot":"weapon","tier":1,"attack":4,"material":"Seiva Ancestral","cost":3},
@@ -289,7 +296,7 @@ func _capture_active_memory() -> void:
 		return
 	campaign_started = true
 	current_scene = _active_scene
-	player_position = _active_hero.position
+	player_position = _active_host.campaign_position() if _active_host.has_method("campaign_position") else _active_hero.position
 	if _has_property(_active_host,"player_hp"):
 		player_hp = maxi(0,int(_active_host.get("player_hp")))
 	if _has_property(_active_host,"player_max_hp"):
@@ -456,6 +463,8 @@ func save_profile() -> void:
 	var data: Dictionary = {
 		"version":SAVE_VERSION,
 		"materials":materials,
+		"guild_contracts":guild_contracts,
+		"wildlife_cooldowns":wildlife_cooldowns,
 		"crafted":crafted,
 		"equipped_weapon":equipped_weapon,
 		"equipped_armor":equipped_armor,
@@ -483,6 +492,10 @@ func load_profile() -> void:
 	if not (parsed is Dictionary):
 		return
 	var data: Dictionary = parsed
+	var contracts_value: Variant = data.get("guild_contracts",{})
+	guild_contracts = contracts_value.duplicate(true) if contracts_value is Dictionary else {}
+	var wildlife_value: Variant = data.get("wildlife_cooldowns",{})
+	wildlife_cooldowns = wildlife_value.duplicate(true) if wildlife_value is Dictionary else {}
 	materials = data.get("materials",{}) as Dictionary
 	crafted = data.get("crafted",{}) as Dictionary
 	equipped_weapon = (data.get("equipped_weapon",equipped_weapon) as Dictionary).duplicate(true)
@@ -513,6 +526,8 @@ func load_profile() -> void:
 
 func reset_progress(delete_save: bool = true) -> void:
 	_clear_active_binding()
+	guild_contracts.clear()
+	wildlife_cooldowns.clear()
 	materials.clear()
 	crafted.clear()
 	equipped_weapon = {"id":"starter_blade","label":"Espada de Viagem","tier":0,"attack":0,"slot":"weapon"}

@@ -1,6 +1,7 @@
 class_name ValedouroCartoonMarshChunk
 extends Node2D
 
+const HabitatWater = preload("res://scripts/cartoon/cartoon_habitat_water.gd")
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const Marsh = preload("res://scripts/cartoon/marsh/marsh_region_config.gd")
@@ -92,17 +93,8 @@ func _draw() -> void:
 	_draw_story_route()
 
 func _draw_water_patches() -> void:
-	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	rng.seed = chunk_seed+311
-	for i in range(8):
-		var p: Vector2 = Vector2(
-			rng.randf_range(70.0,Marsh.CHUNK_SIZE-70.0),
-			rng.randf_range(70.0,Marsh.CHUNK_SIZE-70.0)
-		)
-		var rx: float = rng.randf_range(55.0,130.0)
-		var ry: float = rng.randf_range(28.0,72.0)
-		var col: Color = Color(0.18,0.40,0.44,0.50)
-		DrawUtil.ellipse(self,p,rx,ry,col,24)
+	for row in HabitatWater.patches(Marsh.REGION_ID,chunk_coord):
+		DrawUtil.ellipse(self,row.pos,row.radius.x,row.radius.y,Color(0.18,0.40,0.44,0.50),24)
 
 func _draw_ground_texture() -> void:
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()

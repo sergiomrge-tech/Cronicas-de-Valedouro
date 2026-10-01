@@ -1,6 +1,7 @@
 class_name ValedouroCartoonCoastChunk
 extends Node2D
 
+const HabitatWater = preload("res://scripts/cartoon/cartoon_habitat_water.gd")
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const Coast = preload("res://scripts/cartoon/coast/coast_region_config.gd")
@@ -83,11 +84,8 @@ func _draw() -> void:
 	_draw_story_route()
 
 func _draw_water_patches() -> void:
-	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	rng.seed = chunk_seed+517
-	for i in range(6):
-		var p: Vector2 = Vector2(rng.randf_range(80.0,Coast.CHUNK_SIZE-80.0),rng.randf_range(80.0,Coast.CHUNK_SIZE-80.0))
-		DrawUtil.ellipse(self,p,rng.randf_range(70.0,150.0),rng.randf_range(32.0,80.0),Color(0.20,0.53,0.66,0.42),24)
+	for row in HabitatWater.patches(Coast.REGION_ID,chunk_coord):
+		DrawUtil.ellipse(self,row.pos,row.radius.x,row.radius.y,Color(0.20,0.53,0.66,0.42),24)
 
 func _draw_ground_texture() -> void:
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()

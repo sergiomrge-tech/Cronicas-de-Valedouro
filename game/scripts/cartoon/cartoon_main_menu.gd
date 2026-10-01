@@ -1,5 +1,9 @@
 extends Node2D
 
+const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
+const RoyalAssets = preload("res://scripts/cartoon/cartoon_royal_assets.gd")
+const Assets = preload("res://scripts/cartoon/cartoon_visual_assets.gd")
+
 const InventoryUIScript = preload("res://scripts/cartoon/cartoon_inventory_ui.gd")
 
 var ui: CanvasLayer
@@ -17,6 +21,8 @@ var anim_t: float = 0.0
 
 func _ready() -> void:
 	_build_ui()
+	get_viewport().size_changed.connect(_layout_title)
+	_layout_title()
 	queue_redraw()
 
 func _process(delta: float) -> void:
@@ -27,6 +33,7 @@ func _state():
 	return get_node_or_null("/root/CartoonPlayerState")
 
 func _draw() -> void:
+	draw_set_transform(Vector2.ZERO,0.0,get_viewport_rect().size/Vector2(960,540))
 	draw_rect(Rect2(0,0,960,540),Color(0.18,0.46,0.72))
 	draw_circle(Vector2(790,95),54,Color(1.0,0.84,0.38))
 	draw_circle(Vector2(770,78),45,Color(1.0,0.91,0.55,0.35))
@@ -48,36 +55,27 @@ func _draw() -> void:
 		Vector2(470,300),Vector2(452,300),Vector2(430,350),Vector2(420,430)
 	])
 	draw_colored_polygon(path,Color(0.72,0.56,0.34))
-	_draw_castle(Vector2(460,270))
+	_draw_castle(Vector2(330,370))
 	for x in [55.0,105.0,165.0,815.0,865.0,915.0]:
 		var sway: float = sin(anim_t*0.8+x*0.01)*2.0
 		_draw_tree(Vector2(x,370+sway),1.0 if x < 200 else 0.92)
-	draw_rect(Rect2(0,0,960,540),Color(0.03,0.05,0.09,0.16))
+	draw_rect(Rect2(0,0,960,540),Color(0.03,0.05,0.09,0.24))
+	draw_set_transform(Vector2.ZERO,0.0,Vector2.ONE)
 
 func _draw_castle(base: Vector2) -> void:
-	draw_rect(Rect2(base.x-82,base.y-66,164,82),Color(0.57,0.58,0.62))
-	draw_rect(Rect2(base.x-113,base.y-92,48,108),Color(0.48,0.50,0.55))
-	draw_rect(Rect2(base.x+65,base.y-92,48,108),Color(0.48,0.50,0.55))
-	for x in [-103.0,-83.0,73.0,93.0]:
-		draw_rect(Rect2(base.x+x,base.y-106,15,20),Color(0.43,0.44,0.49))
-	draw_rect(Rect2(base.x-24,base.y-39,48,55),Color(0.22,0.18,0.21))
-	draw_circle(base+Vector2(0,-72),10,Color(0.30,0.62,0.88))
-	draw_line(base+Vector2(0,-82),base+Vector2(0,-126),Color(0.18,0.13,0.12),4)
-	var flag: PackedVector2Array = PackedVector2Array([base+Vector2(2,-124),base+Vector2(42,-113),base+Vector2(2,-100)])
-	draw_colored_polygon(flag,Color(0.18,0.48,0.80))
+	draw_texture_rect(RoyalAssets.texture("royal_castle"),Rect2(base-Vector2(180,280),Vector2(360,300)),false)
 
 func _draw_tree(p: Vector2, scale_value: float) -> void:
-	draw_rect(Rect2(p.x-7*scale_value,p.y-40*scale_value,14*scale_value,44*scale_value),Color(0.31,0.19,0.10))
-	draw_circle(p+Vector2(0,-50*scale_value),28*scale_value,Color(0.12,0.36,0.18))
-	draw_circle(p+Vector2(-17*scale_value,-40*scale_value),20*scale_value,Color(0.17,0.45,0.21))
-	draw_circle(p+Vector2(18*scale_value,-41*scale_value),21*scale_value,Color(0.15,0.42,0.20))
+	draw_texture_rect(Assets.texture("tree_0"),Rect2(p-Vector2(72,174)*scale_value,Vector2(144,189)*scale_value),false)
 
 func _build_ui() -> void:
 	ui = CanvasLayer.new()
 	ui.name = "MenuUI"
+	ui.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(ui)
 
 	var title: Label = Label.new()
+	title.name = "MenuTitle"
 	title.position = Vector2(44,38)
 	title.size = Vector2(530,88)
 	title.text = "CRÔNICAS\nDE VALEDOURO"
@@ -89,6 +87,7 @@ func _build_ui() -> void:
 	ui.add_child(title)
 
 	var subtitle: Label = Label.new()
+	subtitle.name = "MenuSubtitle"
 	subtitle.position = Vector2(48,130)
 	subtitle.size = Vector2(480,28)
 	subtitle.text = "UM RPG DE EXPLORAÇÃO EM ELYNDOR"
@@ -109,8 +108,9 @@ func _build_ui() -> void:
 	style.corner_radius_top_right = 22
 	style.corner_radius_bottom_left = 22
 	style.corner_radius_bottom_right = 22
-	menu_panel.add_theme_stylebox_override("panel",style)
+	menu_panel.add_theme_stylebox_override("panel",UISkin.box(Color(0.06,0.12,0.09,0.94),UISkin.GOLD))
 	ui.add_child(menu_panel)
+	UISkin.bind(menu_panel,Vector2(320,424),"menu")
 
 	var menu_body: Control = Control.new()
 	menu_body.name = "MenuContent"
@@ -127,22 +127,22 @@ func _build_ui() -> void:
 	crest.add_theme_color_override("font_color",Color(1.0,0.82,0.34))
 	menu_body.add_child(crest)
 
-	var new_game: Button = _menu_button("NOVO JOGO",Vector2(32,68))
+	var new_game: Button = _menu_button("NOVO JOGO",Vector2(32,132))
 	new_game.name = "NewGameButton"
 	new_game.pressed.connect(_new_game)
 	menu_body.add_child(new_game)
 
-	continue_button = _menu_button("CONTINUAR",Vector2(32,120))
+	continue_button = _menu_button("CONTINUAR",Vector2(32,72))
 	continue_button.name = "ContinueButton"
 	continue_button.pressed.connect(_continue_game)
 	menu_body.add_child(continue_button)
 
-	var bag: Button = _menu_button("INVENTÁRIO",Vector2(32,172))
+	var bag: Button = _menu_button("INVENTÁRIO",Vector2(32,192))
 	bag.name = "InventoryButton"
 	bag.pressed.connect(func(): inventory_ui.open_panel())
 	menu_body.add_child(bag)
 
-	var options: Button = _menu_button("OPÇÕES",Vector2(32,224))
+	var options: Button = _menu_button("OPÇÕES",Vector2(32,252))
 	options.name = "OptionsButton"
 	options.pressed.connect(_open_options)
 	menu_body.add_child(options)
@@ -154,8 +154,8 @@ func _build_ui() -> void:
 	menu_body.add_child(delete_button)
 
 	profile_label = Label.new()
-	profile_label.position = Vector2(24,334)
-	profile_label.size = Vector2(272,58)
+	profile_label.position = Vector2(24,322)
+	profile_label.size = Vector2(272,76)
 	profile_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	profile_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	profile_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -175,32 +175,24 @@ func _build_ui() -> void:
 	var version: Label = Label.new()
 	version.position = Vector2(18,508)
 	version.size = Vector2(924,24)
-	version.text = "2D Cartoon v0.19 • Godot 4.7.2 • progresso local"
+	version.text = "ELYNDOR • Progresso salvo neste aparelho"
 	version.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	version.add_theme_font_size_override("font_size",12)
 	version.add_theme_color_override("font_color",Color(1,1,1,0.72))
 	ui.add_child(version)
+	UISkin.bind(version,Vector2(924,24),"footer")
 
 func _menu_button(text_value: String, pos: Vector2) -> Button:
 	var button: Button = Button.new()
 	button.text = text_value
 	button.position = pos
-	button.size = Vector2(256,44)
+	button.size = Vector2(256,48)
 	button.add_theme_font_size_override("font_size",16)
 	_style_button(button,Color(0.12,0.18,0.25),Color(0.83,0.64,0.25))
 	return button
 
 func _style_button(button: Button, bg: Color, border: Color) -> void:
-	for state_name in ["normal","hover","pressed","focus","disabled"]:
-		var box: StyleBoxFlat = StyleBoxFlat.new()
-		box.bg_color = bg.lightened(0.08) if state_name == "hover" else (bg.darkened(0.08) if state_name == "pressed" else (bg.darkened(0.25) if state_name == "disabled" else bg))
-		box.border_color = border
-		box.set_border_width_all(3)
-		box.corner_radius_top_left = 14
-		box.corner_radius_top_right = 14
-		box.corner_radius_bottom_left = 14
-		box.corner_radius_bottom_right = 14
-		button.add_theme_stylebox_override(state_name,box)
+	UISkin.button(button,UISkin.SURFACE.lerp(bg,0.20),UISkin.GOLD if bg.r < 0.2 else Color("b48472"))
 
 func _play() -> void:
 	# Compatibilidade com chamadas antigas: Jogar continua um save ou inicia uma aventura.
@@ -278,7 +270,7 @@ func _refresh_profile() -> void:
 func _build_options() -> void:
 	options_panel = PanelContainer.new()
 	options_panel.position = Vector2(300,150)
-	options_panel.size = Vector2(360,240)
+	options_panel.size = Vector2(360,340)
 	options_panel.visible = false
 	var style: StyleBoxFlat = StyleBoxFlat.new()
 	style.bg_color = Color(0.045,0.055,0.075,0.985)
@@ -288,12 +280,13 @@ func _build_options() -> void:
 	style.corner_radius_top_right = 18
 	style.corner_radius_bottom_left = 18
 	style.corner_radius_bottom_right = 18
-	options_panel.add_theme_stylebox_override("panel",style)
+	options_panel.add_theme_stylebox_override("panel",UISkin.box(UISkin.INK,UISkin.GOLD))
 	ui.add_child(options_panel)
+	UISkin.bind(options_panel,Vector2(360,340),"center",true)
 
 	var options_body: Control = Control.new()
 	options_body.name = "OptionsContent"
-	options_body.custom_minimum_size = Vector2(352,232)
+	options_body.custom_minimum_size = Vector2(352,332)
 	options_body.mouse_filter = Control.MOUSE_FILTER_PASS
 	options_panel.add_child(options_body)
 
@@ -337,16 +330,19 @@ func _build_options() -> void:
 	options_body.add_child(plus)
 
 	var reset: Button = _menu_button("PADRÃO 100%",Vector2(62,126))
-	reset.size = Vector2(236,42)
+	reset.size = Vector2(236,48)
 	reset.add_theme_font_size_override("font_size",14)
 	reset.pressed.connect(func(): _set_zoom(1.0))
 	options_body.add_child(reset)
 
-	var close: Button = _menu_button("VOLTAR",Vector2(62,180))
-	close.size = Vector2(236,42)
+	var close: Button = _menu_button("VOLTAR",Vector2(62,274))
+	close.size = Vector2(236,48)
 	close.add_theme_font_size_override("font_size",14)
 	close.pressed.connect(func(): options_panel.visible=false)
 	options_body.add_child(close)
+	delete_button.reparent(options_body,false)
+	delete_button.position = Vector2(62,202)
+	delete_button.size = Vector2(236,48)
 	_refresh_zoom()
 
 func _build_confirmation() -> void:
@@ -362,8 +358,9 @@ func _build_confirmation() -> void:
 	style.corner_radius_top_right = 20
 	style.corner_radius_bottom_left = 20
 	style.corner_radius_bottom_right = 20
-	confirmation_panel.add_theme_stylebox_override("panel",style)
+	confirmation_panel.add_theme_stylebox_override("panel",UISkin.box(UISkin.INK,Color("b48472")))
 	ui.add_child(confirmation_panel)
+	UISkin.bind(confirmation_panel,Vector2(400,250),"center",true)
 
 	var confirmation_body: Control = Control.new()
 	confirmation_body.name = "ConfirmationContent"
@@ -421,3 +418,24 @@ func _refresh_zoom() -> void:
 	var state = _state()
 	if state != null and zoom_label != null:
 		zoom_label.text = "%d%%" % int(round(float(state.camera_zoom)*100.0))
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not event.is_action_pressed("ui_cancel"): return
+	if confirmation_panel.visible: _cancel_confirmation()
+	elif options_panel.visible: options_panel.visible = false
+	elif inventory_ui.is_open(): inventory_ui.close_panel()
+	get_viewport().set_input_as_handled()
+
+func _layout_title() -> void:
+	var area: Rect2 = UISkin.usable(get_viewport())
+	var title: Label = ui.get_node("MenuTitle")
+	var subtitle: Label = ui.get_node("MenuSubtitle")
+	var width: float = minf(550.0,menu_panel.position.x-area.position.x-38.0)
+	var font_size: int = int(clampf(width/14.0,22,38))
+	title.position = area.position+Vector2(20,18)
+	title.size = Vector2(width,float(font_size)*3.0)
+	title.add_theme_font_size_override("font_size",font_size)
+	subtitle.position = title.position+Vector2(2,title.size.y+10)
+	subtitle.size = Vector2(width,42)
+	subtitle.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	subtitle.add_theme_font_size_override("font_size",13)

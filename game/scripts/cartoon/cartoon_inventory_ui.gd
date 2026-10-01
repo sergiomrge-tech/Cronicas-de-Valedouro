@@ -1,6 +1,8 @@
 class_name ValedouroCartoonInventoryUI
 extends Control
 
+const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
+
 const EQUIPMENT_CAPACITY: int = 30
 
 var host
@@ -33,6 +35,7 @@ func setup(host_node = null, hero_node: Node2D = null, show_toggle: bool = true)
 	hero = hero_node
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	z_index = 100
 	_build(show_toggle)
 	_refresh()
 
@@ -67,6 +70,8 @@ func _toggle() -> void:
 func _close_other_panels() -> void:
 	if host == null:
 		return
+	if host.get("map_open") == true:
+		host.call("_toggle_map")
 	var forge = host.get("crafting_ui")
 	if forge != null and forge.has_method("close_panel"):
 		forge.call("close_panel")
@@ -77,12 +82,13 @@ func _build(show_toggle: bool) -> void:
 		toggle_button.name = "InventoryButton"
 		toggle_button.text = "BOLSA"
 		toggle_button.position = Vector2(574,18)
-		toggle_button.size = Vector2(104,46)
+		toggle_button.size = Vector2(68,48)
 		toggle_button.mouse_filter = Control.MOUSE_FILTER_STOP
 		toggle_button.add_theme_font_size_override("font_size",15)
 		_style_button(toggle_button,Color(0.22,0.18,0.32),Color(0.78,0.62,0.93))
 		toggle_button.pressed.connect(_toggle)
 		add_child(toggle_button)
+		UISkin.bind(toggle_button,Vector2(68,48),"bag")
 
 	panel = PanelContainer.new()
 	panel.name = "InventoryPanel"
@@ -99,8 +105,9 @@ func _build(show_toggle: bool) -> void:
 	pstyle.corner_radius_top_right = 22
 	pstyle.corner_radius_bottom_left = 22
 	pstyle.corner_radius_bottom_right = 22
-	panel.add_theme_stylebox_override("panel",pstyle)
+	panel.add_theme_stylebox_override("panel",UISkin.box(UISkin.INK,UISkin.GOLD))
 	add_child(panel)
+	UISkin.bind(panel,Vector2(830,456),"center",true)
 
 	content = Control.new()
 	content.name = "InventoryContent"
@@ -126,8 +133,8 @@ func _build(show_toggle: bool) -> void:
 
 	var close: Button = Button.new()
 	close.text = "×"
-	close.position = Vector2(756,8)
-	close.size = Vector2(42,42)
+	close.position = Vector2(750,6)
+	close.size = Vector2(48,48)
 	close.mouse_filter = Control.MOUSE_FILTER_STOP
 	close.add_theme_font_size_override("font_size",22)
 	_style_button(close,Color(0.23,0.10,0.13),Color(0.74,0.34,0.37))
@@ -199,8 +206,8 @@ func _build(show_toggle: bool) -> void:
 	content.add_child(materials_tab)
 
 	var scroll: ScrollContainer = ScrollContainer.new()
-	scroll.position = Vector2(240,108)
-	scroll.size = Vector2(354,314)
+	scroll.position = Vector2(240,116)
+	scroll.size = Vector2(354,306)
 	scroll.mouse_filter = Control.MOUSE_FILTER_STOP
 	content.add_child(scroll)
 
@@ -224,7 +231,7 @@ func _build(show_toggle: bool) -> void:
 	dstyle.corner_radius_top_right = 14
 	dstyle.corner_radius_bottom_left = 14
 	dstyle.corner_radius_bottom_right = 14
-	details.add_theme_stylebox_override("panel",dstyle)
+	details.add_theme_stylebox_override("panel",UISkin.box(UISkin.SURFACE,Color("4b6254")))
 	content.add_child(details)
 
 	var detail_content: Control = Control.new()
@@ -281,7 +288,7 @@ func _tab_button(text_value: String,pos: Vector2,width: float) -> Button:
 	var button: Button = Button.new()
 	button.text = text_value
 	button.position = pos
-	button.size = Vector2(width,38)
+	button.size = Vector2(width,44)
 	button.mouse_filter = Control.MOUSE_FILTER_STOP
 	button.add_theme_font_size_override("font_size",12)
 	_style_button(button,Color(0.10,0.13,0.19),Color(0.38,0.49,0.62))
@@ -309,6 +316,9 @@ func _refresh() -> void:
 	var items: Array[Dictionary] = state.owned_equipment()
 	equipment_label.text = state.equipment_summary()
 	count_label.text = "Equipamentos %d/%d   •   Materiais %d" % [items.size(),EQUIPMENT_CAPACITY,state.material_total()]
+	for entry: Array in [[equipment_tab,current_tab == "equipment" and equipment_filter == "all"],[weapons_tab,current_tab == "equipment" and equipment_filter == "weapon"],[armor_tab,current_tab == "equipment" and equipment_filter == "armor"],[materials_tab,current_tab == "materials"]]:
+		UISkin.button(entry[0],Color("355344") if entry[1] else UISkin.SURFACE,UISkin.GOLD if entry[1] else Color("596f60"))
+		entry[0].add_theme_font_size_override("font_size",13)
 	_refresh_equipped_slots(state)
 	for child in list_box.get_children():
 		child.queue_free()
@@ -329,21 +339,24 @@ func _select_equipped_slot(slot: String) -> void:
 	if state == null:
 		return
 	var item: Dictionary = state.equipped_weapon if slot == "weapon" else state.equipped_armor
+	equipment_filter = slot
 	_select_item(String(item.get("id","")))
 
 func _fill_equipment(state) -> void:
 	var items: Array[Dictionary] = state.owned_equipment()
+	var visible_ids: Array[String] = []
 	var visible_items: Array[Dictionary] = []
 	for item in items:
 		var slot: String = String(item.get("slot",""))
 		if equipment_filter != "all" and slot != equipment_filter:
 			continue
 		visible_items.append(item)
+		visible_ids.append(String(item.get("id","")))
 	if visible_items.is_empty():
 		_add_empty("Nenhum equipamento\nneste filtro.")
 		selected_item_id = ""
 		return
-	if selected_item_id == "" or _item_by_id(state,selected_item_id).is_empty():
+	if selected_item_id not in visible_ids:
 		selected_item_id = String(visible_items[0].get("id",""))
 	for item in visible_items:
 		var id: String = String(item.get("id",""))
@@ -363,9 +376,12 @@ func _fill_equipment(state) -> void:
 			stat_name,
 			" • EQUIPADO" if equipped else ""
 		]
+		button.tooltip_text = button.text
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.mouse_filter = Control.MOUSE_FILTER_STOP
 		_style_button(button,Color(0.085,0.105,0.15),_rarity_color(tier))
+		if id == selected_item_id: UISkin.button(button,Color("355344"),UISkin.GOLD)
+		button.add_theme_font_size_override("font_size",12)
 		button.pressed.connect(_select_item.bind(id))
 		list_box.add_child(button)
 
@@ -388,9 +404,12 @@ func _fill_materials(state) -> void:
 		var button: Button = Button.new()
 		button.custom_minimum_size = Vector2(160,72)
 		button.text = "%s%s\nQuantidade: %d" % ["◆ " if key == selected_material else "",key,amount]
+		button.tooltip_text = button.text
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.mouse_filter = Control.MOUSE_FILTER_STOP
 		_style_button(button,Color(0.08,0.14,0.12),Color(0.40,0.73,0.52))
+		if key == selected_material: UISkin.button(button,Color("355344"),UISkin.GOLD)
+		button.add_theme_font_size_override("font_size",12)
 		button.pressed.connect(_select_material.bind(key))
 		list_box.add_child(button)
 
@@ -512,13 +531,6 @@ func _rarity_color(tier: int) -> Color:
 	return Color(0.52,0.58,0.64)
 
 func _style_button(button: Button, bg: Color, border: Color) -> void:
-	for state_name in ["normal","hover","pressed","focus","disabled"]:
-		var box: StyleBoxFlat = StyleBoxFlat.new()
-		box.bg_color = bg.lightened(0.06) if state_name == "hover" else (bg.darkened(0.08) if state_name == "pressed" else (bg.darkened(0.22) if state_name == "disabled" else bg))
-		box.border_color = border
-		box.set_border_width_all(2)
-		box.corner_radius_top_left = 11
-		box.corner_radius_top_right = 11
-		box.corner_radius_bottom_left = 11
-		box.corner_radius_bottom_right = 11
-		button.add_theme_stylebox_override(state_name,box)
+	UISkin.button(button,UISkin.SURFACE.lerp(bg,0.18),border.darkened(0.15))
+	button.clip_text = true
+	button.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS

@@ -2,6 +2,7 @@ class_name ValedouroCartoonHero
 extends Node2D
 
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
+const VisualAssets = preload("res://scripts/cartoon/cartoon_visual_assets.gd")
 
 var move_vector: Vector2 = Vector2.ZERO
 var facing: Vector2 = Vector2.DOWN
@@ -47,29 +48,25 @@ func _process(delta: float) -> void:
 func _draw() -> void:
 	var moving = move_vector.length() > 0.08
 	var bob = absf(sin(anim_t * 9.0)) * 3.0 if moving else sin(anim_t * 2.0) * 1.0
-	var step = sin(anim_t * 9.0) * 3.0 if moving else 0.0
 	DrawUtil.shadow(self, Vector2(0, 9), 19, 0.30)
 	draw_set_transform(Vector2(0,-bob),0,Vector2.ONE)
-	# legs
-	DrawUtil.capsule_outlined(self,Vector2(-7,-7),Vector2(-8-step,-1),7,Color(0.25,0.22,0.22),DrawUtil.OUTLINE,2.5)
-	DrawUtil.capsule_outlined(self,Vector2(7,-7),Vector2(8+step,-1),7,Color(0.25,0.22,0.22),DrawUtil.OUTLINE,2.5)
-	# body / blue tunic
-	var armor_colors: Array[Color] = [
-		Color(0.12,0.38,0.72),Color(0.19,0.52,0.29),Color(0.62,0.42,0.17),Color(0.31,0.45,0.35),
-		Color(0.48,0.68,0.82),Color(0.17,0.55,0.68),Color(0.39,0.27,0.45),Color(0.29,0.20,0.38)
-	]
-	var armor_color: Color = armor_colors[clampi(armor_tier,0,armor_colors.size()-1)]
-	DrawUtil.ellipse_outlined(self,Vector2(0,-24),17,19,armor_color,DrawUtil.OUTLINE,3)
-	DrawUtil.rect_outlined(self,Rect2(-15,-25,30,11),Color(0.83,0.67,0.24),DrawUtil.OUTLINE,2)
-	# cape
-	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-14,-31),Vector2(14,-31),Vector2(11,-7),Vector2(0,-1),Vector2(-11,-7)]),Color(0.34,0.12,0.46),DrawUtil.OUTLINE,2.5)
-	# arms
-	DrawUtil.capsule_outlined(self,Vector2(-15,-29),Vector2(-20,-15),6,Color(0.85,0.63,0.45),DrawUtil.OUTLINE,2)
-	var sword_hand = Vector2(18,-16)
+	var direction: String = "front"
+	if absf(facing.x) > absf(facing.y):
+		direction = "left" if facing.x < 0.0 else "right"
+	elif facing.y < 0.0:
+		direction = "back"
+	var sprite_name: String = "hero_"+direction
+	if moving: sprite_name += "_walk_%d" % (0 if sin(anim_t*9.0) < 0.0 else 1)
+	draw_texture_rect(VisualAssets.texture(sprite_name),Rect2(-29,-68,58,75),false)
+	# Equipment still has an in-world color cue; the sword keeps its attack motion.
+	var armor_colors: Array[Color] = [Color("d1b369"),Color("91b77a"),Color("dca569"),Color("89b999"),Color("b6deec"),Color("75c8d7"),Color("bd82af"),Color("a390d4")]
+	draw_circle(Vector2(-9,-34),2.4,armor_colors[clampi(armor_tier,0,7)])
+	var sword_hand: Vector2 = Vector2(18,-17)
+	if facing.x < -0.5: sword_hand.x = -18.0
+	if direction == "back": sword_hand.y = -25.0
 	if attack_t > 0.0:
-		var k = 1.0 - attack_t / 0.28
+		var k: float = 1.0 - attack_t / 0.28
 		sword_hand += Vector2(10,-10).rotated(k*PI*1.2)
-	DrawUtil.capsule_outlined(self,Vector2(15,-29),sword_hand,6,Color(0.85,0.63,0.45),DrawUtil.OUTLINE,2)
 	# sword
 	var dir = Vector2(0,-1) if attack_t <= 0.0 else (sword_hand-Vector2(15,-29)).normalized().rotated(-0.7)
 	var blade_a = sword_hand
@@ -84,11 +81,4 @@ func _draw() -> void:
 	if weapon_tier >= 4:
 		draw_line(blade_a,blade_b,Color(blade_color.r,blade_color.g,blade_color.b,0.32),7.0)
 	draw_line(sword_hand+Vector2(-6,0),sword_hand+Vector2(6,0),Color(0.92,0.72,0.18),5)
-	# head + hair
-	DrawUtil.circle_outlined(self,Vector2(0,-47),14,Color(0.89,0.67,0.48),DrawUtil.OUTLINE,3)
-	DrawUtil.poly_outlined(self,PackedVector2Array([Vector2(-13,-52),Vector2(-9,-66),Vector2(-3,-59),Vector2(2,-69),Vector2(6,-58),Vector2(13,-63),Vector2(13,-48)]),Color(0.32,0.17,0.10),DrawUtil.OUTLINE,2.5)
-	# face
-	draw_circle(Vector2(-5,-46),2.1,Color(0.12,0.08,0.08))
-	draw_circle(Vector2(5,-46),2.1,Color(0.12,0.08,0.08))
-	draw_line(Vector2(-3,-39),Vector2(4,-39),Color(0.35,0.15,0.12),1.8)
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)

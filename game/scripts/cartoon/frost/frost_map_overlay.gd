@@ -1,6 +1,9 @@
 class_name ValedouroCartoonFrostMapOverlay
 extends Control
 
+const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
+var frame_style: StyleBoxFlat
+
 const Frost = preload("res://scripts/cartoon/frost/frost_region_config.gd")
 const StoryMap = preload("res://scripts/cartoon/frost/frost_story_map.gd")
 
@@ -10,6 +13,7 @@ var map_rect: Rect2 = Rect2(48,42,754,366)
 
 func setup(player_node: Node2D) -> void:
 	player = player_node
+	frame_style = UISkin.box(UISkin.INK,UISkin.GOLD)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	queue_redraw()
 
@@ -25,12 +29,11 @@ func _world_to_map(world_pos: Vector2) -> Vector2:
 	return map_rect.position+Vector2(world_pos.x/Frost.REGION_SIZE.x*map_rect.size.x,world_pos.y/Frost.REGION_SIZE.y*map_rect.size.y)
 
 func _draw() -> void:
-	draw_rect(Rect2(Vector2.ZERO,size),Color(0.035,0.065,0.09,0.97))
+	draw_style_box(frame_style,Rect2(Vector2.ZERO,size))
 	draw_rect(map_rect,Color(0.33,0.48,0.60,0.98))
-	draw_rect(map_rect,Color(0.76,0.91,1.0),false,4.0)
+	draw_rect(map_rect,UISkin.GOLD.darkened(0.30),false,2.0)
 	var font: Font = ThemeDB.fallback_font
 	draw_string(font,Vector2(48,28),"MAPA — MONTANHAS NEVADAS",HORIZONTAL_ALIGNMENT_LEFT,-1,20,Color(0.90,0.97,1.0))
-	draw_string(font,Vector2(620,28),"15x • exploração",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color(0.77,0.90,0.98))
 	var scaled: PackedVector2Array = PackedVector2Array()
 	for p in StoryMap.route_points():
 		scaled.append(_world_to_map(p))

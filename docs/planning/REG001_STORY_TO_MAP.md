@@ -34,3 +34,51 @@ Regras: skill `.claude/skills/valedouro-map-logic/SKILL.md`. Verificação autom
 - **Templo e residência do NPC principal** (LEVEL_DESIGN §1): sem asset/interior próprio ainda.
 - **Ativar mecanismo antes de abrir a dungeon** (QUEST_FLOW 006): o portão continua aberto (não alterei o fluxo de missão sem ordem).
 - Cidade com apenas 11 casas + 4 de serviço: escala de hub pequeno; não há bairros de pobres/ricos além da borda.
+
+## Continuidade Cartoon v0.20 — 30/09/2026
+
+A matriz acima é histórica. O passe atual usa `cartoon_main_story_map.gd` e
+`cartoon_landscape_layout.gd`, na base Cartoon v0.19. Nenhum lugar canônico mudou
+posição. Arte e novos detalhes de composição são MODELED_PENDING_GATE.
+
+| Lugar / função | Lógica de sítio preservada | Tratamento Cartoon |
+|---|---|---|
+| Praça / `POI_REG001_PLAZA` | cruzamento das ruas + mercado | calçamento, fonte, bancos e iluminação |
+| Serviços / `LOC_VAL_GUILD`, forja, taverna, alquimista | acessos existentes à praça + mercado/ofícios | pátios, placas, barris e materiais diferenciados |
+| Casas existentes | rede de ruas + abastecimento da cidade | caminhos residenciais, jardins e três telhados |
+| Fazenda / `POI_REG001_FARM` | vento aberto + lavouras / estrada | moinho completo, trigo, feno e acesso à casa |
+| `LOC_FIRST_WIND_RUINS` | estrada antiga + história da missão | fundações partidas, vegetação na borda, altar legível |
+| `LOC_ALPHA_CLEARING` | floresta + encontro canônico | clareira gasta e borda de árvores; entradas livres |
+| `LOC_ECHO_MINE` / `LOC_ECHO_MINE_CORE` | recurso mineral + rota da missão | abertura encaixada na rocha e trilha até a câmara |
+| `LOC_SIX_CROWNS_ARCHIVE` | missão canônica + ramal da estrada | pátio pavimentado e jardins emoldurando o arquivo |
+| Posto, acampamentos, ruínas e pedreira da exploração | rede existente + abrigo/recurso/história | acessos contínuos no grafo compartilhado de estradas |
+
+Verificações atuais: `tests/cartoon_hub.gd`, `tests/cartoon_visual_v020.gd` e
+capturas em `docs/visual_qa/cartoon_v020/`. Fonte do escopo e pendências:
+`docs/CARTOON_VISUAL_V0_20.md`.
+
+## Passe Cartoon v0.22 — serviços internos (PROPOSED)
+
+As construções existentes mantêm sua posição externa. Não se altera a história principal.
+
+| Construção / POI | Por que aqui? | Entrada e função | Persistência |
+|---|---|---|---|
+| Taverna / POI_REG001_TAVERN | Cruzamento da rua leste e mercado da praça oferecem passagem e provisões. | Porta externa (local 1580,800); salão com descanso, cama e rumores de caça. | Save mantém posição externa; vida e materiais globais. |
+| Ferreiro / POI_REG001_FORGE | Rua principal dá acesso ao comércio; lado oeste próximo da água para têmpera. | Porta externa (720,790); oficina com fornalha, bigorna e fabricação. | WPN_VALE_00 e ARM_VALE_00 persistentes. |
+| Guilda / POI_REG001_GUILD / LOC_VAL_GUILD | Praça/rota de chegada e mercado concentram aventureiros e contratação. | Porta externa (760,1125); quadro e escrivão oferecem sete contratos. | GUILD_* separados de Q_MS*; contrato antigo preservado. |
+
+Cada salão tem circulação testada por busca em grade até seus serviços e saída.
+Os pontos de caça ficam em campos e clareiras fora da cidade; a fauna usa posições
+reprodutíveis e evita as águas desenhadas em Pântanos/Costas. Contratos e novos
+personagens funcionais são PROPOSED; não se atribuem nomes ou fatos novos ao cânone.
+
+## Castelo Real Cartoon v0.23 — 01/10/2026 (PROPOSED)
+
+| Lugar | Por que aqui? | Rota e função | IDs / validação |
+|---|---|---|---|
+| Castelo Real a nordeste, âncora local (2500,-350) | Sítio elevado/defensável ao norte + acesso à avenida de chegada e ao mercado central. A implantação lateral deixa livre a estrada da campanha. | Ramal cerimonial pela cota local y=120, antes da cabeceira do rio leste; termina na escadaria/portão em (2500,-280). | POI_REG001_CASTLE preservado; oito alas internas definidas por cartoon_royal_palace.gd. |
+| Estrada Norte e chegada | Rota/história e circulação entre cidade, campos e ruínas. | Seus pontos canônicos permanecem no eixo local x=1150; não passam pelo prédio real. | LOC_VAL_GATE, LOC_VAL_NORTH_ROAD e encontros existentes mantidos. |
+| Palácio interno | Função de poder + recepção/circulação no reino. | Vestíbulo → trono; alas laterais de banquetes, biblioteca e aposentos; galerias e conselho. | BFS de todas as alas/serviços, colisão e save externo em cartoon_royal_castle_v023.gd. |
+
+O nome próprio e biografia do rei não foram definidos neste passe; usa-se apenas
+Rei de Valedouro. A audiência não altera missões ou revela fatos novos do cânone.

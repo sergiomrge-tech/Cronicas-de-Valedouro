@@ -15,7 +15,42 @@ A antiga versão visual/pixel-art não é mais a base de desenvolvimento e não 
 A base 2D Cartoon está na **v0.19**. A v0.16 consolidou save/menu; a v0.17 trouxe o inventário RPG; a v0.18 adicionou HUD e progressão 1–100; e a v0.19 corrige a estrutura visual de menu, opções, confirmação, inventário, forja e zoom com QA visual dedicado.
 
 ## Para agentes
+
+Passe visual em revisão: **Cartoon v0.20 candidata**, com 44 sprites originais,
+terreno e composição de Valedouro/Ato I. Veja
+[o relatório](docs/CARTOON_VISUAL_V0_20.md) e
+[o comparador antes/depois](docs/visual_qa/cartoon_v020/review.html).
+Validação disponível em Godot 4.6.3; gates 4.7.2/Android ainda pendentes.
+
 Leia primeiro **CLAUDE.md** e **docs/README_CONTINUE_AQUI.md**. Antes de editar, confirme que a cena principal do `project.godot` continua apontando para `CartoonMainMenu.tscn`.
 
 ## Validação
 Nunca declarar parser/runtime/Android como aprovado sem executar os gates correspondentes no Godot 4.7.2.
+
+Passe de interface em revisão: **v0.21 candidata**, com HUD unificado nas oito regiões,
+menu, bolsa, forja, mapas e pausa responsivos. Veja [o relatório](docs/CARTOON_UI_V0_21.md)
+e [a comparação visual](docs/visual_qa/cartoon_ui_v021/review.html).
+
+## Continuidade — candidata v0.22: interiores e caça
+
+Solicitação mais recente do Diretor: visual mais rico, interiores da taverna,
+ferreiro e guilda, quadro de várias missões e animais de caça. A v0.22 implementa
+três interiores jogáveis, sete contratos, duas receitas iniciais, moradores,
+33 sprites originais e fauna persistente em seis regiões naturais.
+Veja [o relatório](docs/CARTOON_LIVING_WORLD_V0_22.md) e
+[a revisão visual](docs/visual_qa/cartoon_v022/review.html).
+22 testes passaram no Godot 4.6.3. Godot 4.7.2/Android e aprovação visual
+ainda pendentes. Arte MODELED_PENDING_GATE; contratos adicionais PROPOSED.
+A base oficial permanece v0.19; os passes v0.20–v0.22 são candidatos locais.
+
+## Continuidade — 01/10/2026: candidata v0.23, Castelo Real
+
+O Diretor pediu um castelo gigantesco, com interior de luxo. A v0.23 substitui
+o exterior pequeno por um complexo monumental a nordeste, ligado à cidade e
+sem bloquear a estrada da campanha. Possui oito alas exploráveis, rei,
+24 sprites originais e mais de 100 elementos decorativos.
+Leia [o relatório](docs/CARTOON_ROYAL_CASTLE_V0_23.md) e
+[abra a revisão visual](docs/visual_qa/cartoon_v023/review.html).
+23 testes passaram em Godot 4.6.3; gates 4.7.2/Android e aprovação visual
+permanecem pendentes. Arte MODELED_PENDING_GATE; conteúdo adicional PROPOSED.
+Base oficial v0.19; passes v0.20–v0.23 são candidatos em revisão, incluídos no salvamento do código no GitHub solicitado pelo usuário.

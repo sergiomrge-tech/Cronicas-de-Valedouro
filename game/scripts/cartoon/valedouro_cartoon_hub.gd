@@ -1,6 +1,11 @@
 class_name ValedouroCartoonHub
 extends Node2D
 
+const WildlifeScript = preload("res://scripts/cartoon/cartoon_wildlife_director.gd")
+var wildlife
+
+const GameLayout = preload("res://scripts/cartoon/cartoon_game_layout.gd")
+
 const EnvScript = preload("res://scripts/cartoon/hub_environment.gd")
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const HeroScript = preload("res://scripts/cartoon/cartoon_hero.gd")
@@ -16,6 +21,13 @@ const CraftingUIScript = preload("res://scripts/cartoon/cartoon_crafting_ui.gd")
 const ZoomControlsScript = preload("res://scripts/cartoon/cartoon_zoom_controls.gd")
 const InventoryUIScript = preload("res://scripts/cartoon/cartoon_inventory_ui.gd")
 const HUDStatusScript = preload("res://scripts/cartoon/cartoon_hud_status.gd")
+
+const GuildContracts = preload("res://scripts/cartoon/cartoon_guild_contracts.gd")
+const TownLifeScript = preload("res://scripts/cartoon/cartoon_town_life.gd")
+const InteriorsScript = preload("res://scripts/cartoon/cartoon_interiors.gd")
+const GuildBoardScript = preload("res://scripts/cartoon/cartoon_guild_board.gd")
+var interiors
+var guild_board
 
 var environment: ValedouroCartoonHubEnvironment
 var objects: Node2D
@@ -77,7 +89,7 @@ func _ready() -> void:
 	world_stream = StreamScript.new()
 	world_stream.name = "WorldStream"
 	add_child(world_stream)
-	world_stream.setup(hero)
+	world_stream.setup(hero,objects)
 	_spawn_monsters()
 	_spawn_outer_encounters()
 	_spawn_main_story_encounters()
@@ -107,6 +119,20 @@ func _ready() -> void:
 	inventory_ui.name = "InventoryUI"
 	ui.add_child(inventory_ui)
 	inventory_ui.setup(self,hero,true)
+	interiors = InteriorsScript.new()
+	add_child(interiors)
+	interiors.setup(self)
+	guild_board = GuildBoardScript.new()
+	guild_board.name = "GuildBoard"
+	ui.add_child(guild_board)
+	guild_board.setup(self)
+	var town_life = TownLifeScript.new()
+	objects.add_child(town_life)
+	town_life.setup(self)
+	wildlife = WildlifeScript.new()
+	wildlife.name = "WildlifeDirector"
+	add_child(wildlife)
+	wildlife.setup(self,Region)
 	_bind_campaign_save()
 	_update_poi_hint()
 
@@ -117,6 +143,9 @@ func _bind_campaign_save() -> void:
 	if state == null:
 		return
 	state.bind_scene("res://scenes/cartoon/ValedouroCartoonHub.tscn",self,hero,story_runtime,1,120,35,["field_quest_active","field_kills"])
+	if field_quest_active and not state.guild_contracts.has("GUILD_WOLVES"):
+		state.guild_contracts["GUILD_WOLVES"] = {"status":"active","progress":mini(field_kills,3)}
+		state.save_profile()
 	if objective_label != null and story_runtime != null:
 		objective_label.text = story_runtime.hud_text()
 	_update_objective_navigation()
@@ -129,43 +158,13 @@ func _change_scene_saved(path: String) -> void:
 	get_tree().change_scene_to_file(path)
 
 func _build_ui() -> void:
-	ui = CanvasLayer.new(); ui.name = "HUD"; add_child(ui)
-	var top = PanelContainer.new(); top.position = Vector2(14,14); top.size = Vector2(305,74); ui.add_child(top)
-	top.visible = false
-	var top_style = StyleBoxFlat.new(); top_style.bg_color = Color(0.08,0.07,0.12,0.94); top_style.border_color = Color(0.96,0.69,0.17); top_style.set_border_width_all(3); top_style.corner_radius_top_left=16; top_style.corner_radius_top_right=16; top_style.corner_radius_bottom_left=16; top_style.corner_radius_bottom_right=16; top.add_theme_stylebox_override("panel",top_style)
-	stats_label = Label.new(); stats_label.position=Vector2(18,10); stats_label.size=Vector2(275,55); stats_label.add_theme_font_size_override("font_size",16); stats_label.add_theme_color_override("font_color",Color(1,0.95,0.82)); top.add_child(stats_label); _refresh_stats()
-	var q = PanelContainer.new(); q.position=Vector2(690,14); q.size=Vector2(256,96); ui.add_child(q)
-	var qstyle = StyleBoxFlat.new(); qstyle.bg_color=Color(0.07,0.08,0.12,0.92); qstyle.border_color=Color(0.21,0.49,0.82); qstyle.set_border_width_all(3); qstyle.corner_radius_top_left=14; qstyle.corner_radius_top_right=14; qstyle.corner_radius_bottom_left=14; qstyle.corner_radius_bottom_right=14; q.add_theme_stylebox_override("panel",qstyle)
-	objective_label=Label.new(); objective_label.position=Vector2(14,9); objective_label.size=Vector2(228,78); objective_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; objective_label.text=story_runtime.hud_text(); objective_label.add_theme_color_override("font_color",Color(1,0.91,0.58)); q.add_child(objective_label)
-	toast_label=Label.new(); toast_label.position=Vector2(280,450); toast_label.size=Vector2(400,42); toast_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; toast_label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER; toast_label.add_theme_font_size_override("font_size",18); toast_label.add_theme_color_override("font_color",Color(1,0.92,0.58)); toast_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); toast_label.add_theme_constant_override("shadow_offset_x",2); toast_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(toast_label)
-	poi_label=Label.new(); poi_label.position=Vector2(330,105); poi_label.size=Vector2(300,30); poi_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; poi_label.add_theme_font_size_override("font_size",17); poi_label.add_theme_color_override("font_color",Color(1,1,1)); poi_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); poi_label.add_theme_constant_override("shadow_offset_x",2); poi_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(poi_label)
-	map_overlay=MapOverlayScript.new(); map_overlay.position=Vector2(55,40); map_overlay.size=Vector2(850,460); map_overlay.visible=false; map_overlay.setup(hero); ui.add_child(map_overlay)
-	_add_map_button()
-	objective_nav_label=Label.new(); objective_nav_label.position=Vector2(350,140); objective_nav_label.size=Vector2(260,30); objective_nav_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER; objective_nav_label.add_theme_font_size_override("font_size",15); objective_nav_label.add_theme_color_override("font_color",Color(1,0.84,0.32)); objective_nav_label.add_theme_color_override("font_shadow_color",Color(0,0,0)); objective_nav_label.add_theme_constant_override("shadow_offset_x",2); objective_nav_label.add_theme_constant_override("shadow_offset_y",2); ui.add_child(objective_nav_label)
-	_add_action_button("ATQ",Vector2(835,430),78,func(): _attack())
-	_add_action_button("USAR",Vector2(748,455),64,func(): _interact())
-	var hint = Label.new(); hint.position=Vector2(20,487); hint.size=Vector2(300,32); hint.text="Arraste aqui para mover"; hint.add_theme_color_override("font_color",Color(1,1,1,0.72)); ui.add_child(hint)
+	GameLayout.build(self,MapOverlayScript,"objective_nav_label")
 
-func _add_map_button() -> void:
-	var button: Button = Button.new()
-	button.text = "MAPA"
-	button.position = Vector2(350,18)
-	button.size = Vector2(104,46)
-	button.add_theme_font_size_override("font_size",15)
-	for state in ["normal","hover","pressed","focus"]:
-		var st: StyleBoxFlat = StyleBoxFlat.new()
-		st.bg_color = Color(0.08,0.08,0.14,0.97) if state != "pressed" else Color(0.18,0.16,0.28,0.97)
-		st.border_color = Color(0.30,0.62,0.92)
-		st.set_border_width_all(3)
-		st.corner_radius_top_left = 12
-		st.corner_radius_top_right = 12
-		st.corner_radius_bottom_left = 12
-		st.corner_radius_bottom_right = 12
-		button.add_theme_stylebox_override(state,st)
-	button.pressed.connect(_toggle_map)
-	ui.add_child(button)
 
 func _toggle_map() -> void:
+	if interiors != null and interiors.active:
+		interiors.leave()
+		return
 	map_open = not map_open
 	if map_open:
 		if crafting_ui != null and crafting_ui.has_method("close_panel"):
@@ -179,13 +178,12 @@ func _toggle_map() -> void:
 	joystick_id = -1
 	joystick_vector = Vector2.ZERO
 
-func _add_action_button(text: String, pos: Vector2, size: float, callback: Callable) -> void:
-	var b = Button.new(); b.text=text; b.position=pos-Vector2(size,size)*0.5; b.size=Vector2(size,size); b.add_theme_font_size_override("font_size",16)
-	for state in ["normal","hover","pressed","focus"]:
-		var st = StyleBoxFlat.new(); st.bg_color=Color(0.12,0.08,0.19,0.95) if state!="pressed" else Color(0.28,0.17,0.42,0.95); st.border_color=Color(0.95,0.66,0.16); st.set_border_width_all(4); st.corner_radius_top_left=int(size/2); st.corner_radius_top_right=int(size/2); st.corner_radius_bottom_left=int(size/2); st.corner_radius_bottom_right=int(size/2); b.add_theme_stylebox_override(state,st)
-	b.pressed.connect(callback); ui.add_child(b)
 
 func _process(delta: float) -> void:
+	if interiors != null and interiors.active:
+		toast_timer = maxf(0,toast_timer-delta)
+		if toast_timer <= 0: toast_label.text = ""
+		return
 	toast_timer=maxf(0.0,toast_timer-delta)
 	if toast_timer<=0.0 and toast_label: toast_label.text=""
 	if map_open or (crafting_ui != null and crafting_ui.is_open()) or (inventory_ui != null and inventory_ui.is_open()):
@@ -204,11 +202,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"): _attack()
 	if Input.is_action_just_pressed("interact"): _interact()
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if map_open or (crafting_ui != null and crafting_ui.is_open()) or (inventory_ui != null and inventory_ui.is_open()):
 		return
 	if event is InputEventScreenTouch:
-		if event.pressed and event.position.x < 330 and event.position.y > 300 and joystick_id < 0:
+		if event.pressed and GameLayout.can_start_movement(self,event.position) and joystick_id < 0:
 			joystick_id=event.index; joystick_origin=event.position; joystick_vector=Vector2.ZERO
 		elif not event.pressed and event.index==joystick_id:
 			joystick_id=-1; joystick_vector=Vector2.ZERO
@@ -216,8 +214,10 @@ func _input(event: InputEvent) -> void:
 		joystick_vector=(event.position-joystick_origin).limit_length(80.0)/80.0
 
 func _attack() -> void:
+	if interiors != null and interiors.active: return
 	if not hero:
 		return
+	if wildlife != null and wildlife.attack(): return
 	hero.trigger_attack()
 	var target: Node2D = _nearest_monster(105.0)
 	if target == null:
@@ -230,6 +230,9 @@ func _attack() -> void:
 		var boss_id: String = String(target.boss_id)
 		monsters.erase(target)
 		target.queue_free()
+		if kind == "wolf" and story_tag == "":
+			var state = get_node_or_null("/root/CartoonPlayerState")
+			if state != null: GuildContracts.register_hunt(state,"wolf")
 		player_gold += 6
 		_grant_combat_xp(10,boss_id)
 		var story_advanced: bool = false
@@ -250,6 +253,10 @@ func _attack() -> void:
 		_refresh_stats()
 
 func _interact() -> void:
+	if guild_board != null and guild_board.is_open(): return
+	if interiors != null and interiors.active:
+		interiors.interact()
+		return
 	if not hero or not environment: return
 	var poi = environment.nearest_poi(hero.position,170.0)
 	if poi.is_empty():
@@ -260,25 +267,12 @@ func _interact() -> void:
 	if story_runtime and canonical_id != "" and story_runtime.try_location(canonical_id):
 		objective_label.text = story_runtime.hud_text()
 		_show_toast("História principal atualizada: " + label)
-		return
+		if id not in ["POI_REG001_GUILD","LOC_VAL_GUILD"]: return
 	match id:
-		"POI_REG001_CASTLE":
-			objective_label.text="HISTÓRIA PRINCIPAL\nChegada — conheça os serviços da cidade"
-			_show_toast("Castelo de Valedouro — primeira etapa de Chegada registrada.")
-		"POI_REG001_FORGE": _show_toast("Ferreiro — upgrades e crafting serão ligados ao inventário.")
-		"POI_REG001_TAVERN": _show_toast("Taverna — descanso, rumores e save no vertical slice.")
-		"POI_REG001_GUILD":
-			if field_quest_active and field_kills >= 3:
-				field_quest_active = false
-				player_gold += 30
-				objective_label.text = "HISTÓRIA PRINCIPAL\nExplore os Campos do Vale e siga pela estrada sul"
-				_show_toast("Contrato concluído. +30 ouro")
-				_refresh_stats()
-			else:
-				field_quest_active = true
-				field_kills = mini(field_kills,3)
-				objective_label.text = "HISTÓRIA PRINCIPAL\nLobos nos Campos — %d/3" % field_kills
-				_show_toast("Contrato aceito: afaste 3 lobos dos Campos do Vale.")
+		"POI_REG001_CASTLE": interiors.enter("castle")
+		"POI_REG001_FORGE": interiors.enter("forge")
+		"POI_REG001_TAVERN": interiors.enter("tavern")
+		"POI_REG001_GUILD", "LOC_VAL_GUILD": interiors.enter("guild")
 		"POI_REG001_ALCHEMIST": _show_toast("Alquimista — poções e consumíveis.")
 		"POI_REG001_FIELDS": _show_toast("Campos do Vale — primeiro anel de exploração fora da cidade.")
 		"POI_REG001_FARM": _show_toast("Fazenda do Sol — a estrada continua para o sul.")
@@ -432,6 +426,18 @@ func _spawn_main_story_zones() -> void:
 		var zone: Node2D = StoryZoneScript.new()
 		zone.setup(data)
 		story_zones.add_child(zone)
+		# Authored framing keeps each mission space recognizable before arrival.
+		var center: Vector2 = data["pos"]
+		var zone_radius: float = float(data["radius"])
+		for i in range(12):
+			var angle: float = TAU*float(i)/12.0
+			var offset: Vector2 = Vector2(cos(angle)*zone_radius,sin(angle)*zone_radius*0.78)
+			# Both horizontal and vertical entrances stay open.
+			if absf(offset.y) < 85.0 or absf(offset.x) < 90.0: continue
+			var prop: Node2D = PropScript.new()
+			var kind: String = "rock" if String(data["zone_kind"]) == "mine" else "tree"
+			prop.setup({"kind":kind,"pos":center+offset,"variant":i%2,"scale":1.0+float(i%3)*0.12})
+			objects.add_child(prop)
 
 
 func _canonical_story_location(poi_id: String) -> String:
@@ -506,3 +512,6 @@ func _spawn_region_transitions() -> void:
 			"quest":String(data.get("quest","")),
 			"next_scene":String(data.get("next_scene",""))
 		})
+
+func campaign_position() -> Vector2:
+	return interiors.outdoor_position if interiors != null and interiors.active else hero.position

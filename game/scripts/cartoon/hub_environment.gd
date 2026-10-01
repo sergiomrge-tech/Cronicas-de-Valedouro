@@ -2,6 +2,7 @@ class_name ValedouroCartoonHubEnvironment
 extends Node2D
 
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
+const Terrain = preload("res://scripts/cartoon/cartoon_terrain_art.gd")
 const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
 
 const LOCAL_SIZE = Vector2(2300,2350)
@@ -16,6 +17,8 @@ var river_polylines: Array[PackedVector2Array] = []
 
 func _ready() -> void:
 	z_index = -20
+	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	rng.seed = 20260930
 	_build_layout()
 	queue_redraw()
@@ -23,7 +26,14 @@ func _ready() -> void:
 func _build_layout() -> void:
 	props.clear(); blockers.clear(); pois.clear(); river_polylines.clear()
 	# Core landmarks: manually authored, then decorative ring around them.
-	_add("castle",Vector2(1150,510),1.45,"Castelo de Valedouro","POI_REG001_CASTLE",Rect2(985,365,330,205))
+	_add("castle",Region.CASTLE_ANCHOR,1.0,"Castelo Real de Valedouro","",Rect2(1730,-1370,1540,1010))
+	pois.append({"id":"POI_REG001_CASTLE","label":"Castelo Real • entrada","pos":Region.world_from_hub(Region.CASTLE_DOOR)})
+	for side: float in [-1,1]:
+		_add("royal_statue",Vector2(2500+side*260,-170),1.2,"","",Rect2(),0,30)
+		_add("royal_guard",Vector2(2500+side*130,-220),1.0)
+		for y: float in [-50,120]:
+			_add("royal_vase",Vector2(2500+side*330,y),1.0)
+			_add("royal_banner",Vector2(2500+side*210,y),1.0)
 	_add("fountain",CENTER,1.25,"Praça Central","POI_REG001_PLAZA",Rect2(1090,805,120,85))
 	_add("forge",Vector2(720,790),1.25,"Ferreiro","POI_REG001_FORGE",Rect2(640,675,160,130))
 	_add("tavern",Vector2(1580,800),1.28,"Taverna","POI_REG001_TAVERN",Rect2(1490,680,180,135))
@@ -33,6 +43,11 @@ func _build_layout() -> void:
 	for p in [Vector2(985,935),Vector2(1310,930),Vector2(1000,1180),Vector2(1300,1180)]: _add("bench",p,0.85)
 	for p in [Vector2(930,700),Vector2(1370,700),Vector2(890,980),Vector2(1410,980),Vector2(910,1210),Vector2(1390,1210)]: _add("lamp",p,0.9)
 	_add("well",Vector2(1265,1085),0.9,"Poço da Praça","POI_REG001_WELL",Rect2(1225,1040,80,70))
+	# Work yards at existing services: road access + market/resource function.
+	for p in [Vector2(637,814),Vector2(800,813),Vector2(1504,840),Vector2(1660,835),Vector2(695,1155),Vector2(832,1150),Vector2(1480,1160)]:
+		_add("barrel",p,0.9)
+	for p in [Vector2(678,872),Vector2(1658,886),Vector2(719,1202),Vector2(1577,1200)]:
+		_add("flowers",p,1.2)
 	# Residential ring
 	var homes = [Vector2(520,545),Vector2(650,475),Vector2(1640,480),Vector2(1775,570),Vector2(490,990),Vector2(1780,1015),Vector2(590,1280),Vector2(1705,1280)]
 	for i in homes.size(): _add("house",homes[i],1.0 + float(i%3)*0.06,"Casa","",Rect2(homes[i]-Vector2(58,95),Vector2(116,115)),i)
@@ -47,7 +62,8 @@ func _build_layout() -> void:
 	_add("sign",Vector2(1150,290),0.85,"Estrada Norte","POI_REG001_GATE_NORTH")
 	# deterministic vegetation outside plaza core
 	for i in 110:
-		var p = Vector2(rng.randf_range(110,2190),rng.randf_range(180,1560))
+		var groves: Array[Vector2] = [Vector2(440,710),Vector2(1830,755),Vector2(430,1350),Vector2(1840,1380),Vector2(825,460),Vector2(1480,445)]
+		var p: Vector2 = groves[i % groves.size()] + Vector2(rng.randf_range(-145,145),rng.randf_range(-125,125))
 		if p.distance_to(CENTER) < 360 or p.distance_to(Vector2(1150,520)) < 330: continue
 		if _near_road(p,100): continue
 		if _near_manual_blocker(p,95): continue
@@ -84,10 +100,16 @@ func _near_manual_blocker(p: Vector2, margin: float) -> bool:
 
 func _road_points() -> Array[PackedVector2Array]:
 	return [
-		PackedVector2Array([Vector2(1150,150),Vector2(1150,420),Vector2(1150,700),Vector2(1150,860),Vector2(1150,1450),Vector2(1150,1740),Vector2(1150,2250)]),
+		PackedVector2Array([Vector2(1150,0),Vector2(1150,420),Vector2(1150,700),Vector2(1150,860),Vector2(1150,1450),Vector2(1150,1740),Vector2(1150,2350)]),
 		PackedVector2Array([Vector2(330,860),Vector2(720,860),Vector2(920,860),Vector2(1150,860),Vector2(1380,860),Vector2(1600,860),Vector2(2040,860)]),
 		PackedVector2Array([Vector2(1150,860),Vector2(935,1040),Vector2(760,1125)]),
-		PackedVector2Array([Vector2(1150,860),Vector2(1370,1035),Vector2(1540,1130)])
+		PackedVector2Array([Vector2(1150,860),Vector2(1370,1035),Vector2(1540,1130)]),
+		PackedVector2Array([Vector2(720,860),Vector2(520,615),Vector2(520,555),Vector2(650,490)]),
+		PackedVector2Array([Vector2(1600,860),Vector2(1775,650),Vector2(1775,580),Vector2(1640,490)]),
+		PackedVector2Array([Vector2(760,1125),Vector2(590,1295),Vector2(490,1010)]),
+		PackedVector2Array([Vector2(1540,1130),Vector2(1705,1295),Vector2(1780,1030)]),
+		PackedVector2Array([Vector2(1150,1985),Vector2(815,1998),Vector2(650,1970)]),
+		PackedVector2Array([Vector2(1150,2020),Vector2(1760,2030)])
 	]
 
 func _near_road(p: Vector2, margin: float) -> bool:
@@ -102,6 +124,9 @@ func _near_road(p: Vector2, margin: float) -> bool:
 func is_walkable(p: Vector2) -> bool:
 	if not Region.in_region(p,70.0):
 		return false
+	for blocker in blockers:
+		if blocker["type"] == "rect" and blocker["rect"].grow(10).has_point(p): return false
+		if blocker["type"] == "circle" and p.distance_to(blocker["pos"]) < float(blocker["radius"])+9: return false
 	if not Region.in_authored_hub(p,20.0):
 		return true
 	var local_p: Vector2 = Region.hub_from_world(p)
@@ -114,11 +139,6 @@ func is_walkable(p: Vector2) -> bool:
 			if local_p.distance_to(a+ab*t) < 46:
 				if local_p.distance_to(Vector2(300,900)) > 75 and local_p.distance_to(Vector2(2080,870)) > 75:
 					return false
-	for blocker in blockers:
-		if blocker["type"] == "rect" and blocker["rect"].grow(10).has_point(p):
-			return false
-		if blocker["type"] == "circle" and p.distance_to(blocker["pos"]) < float(blocker["radius"])+9:
-			return false
 	return true
 
 func nearest_poi(p: Vector2, radius: float = 145.0) -> Dictionary:
@@ -138,40 +158,48 @@ func _draw() -> void:
 	_draw_plaza()
 	_draw_fields()
 	_draw_city_border()
+	_draw_royal_grounds()
 	draw_set_transform(Vector2.ZERO,0.0,Vector2.ONE)
 
 func _draw_ground() -> void:
-	draw_rect(Rect2(Vector2.ZERO,LOCAL_SIZE),Color(0.43,0.72,0.30))
-	rng.seed = 7301
-	for i in 65:
-		var p = Vector2(rng.randf_range(0,LOCAL_SIZE.x),rng.randf_range(0,LOCAL_SIZE.y))
-		var col = Color(0.53,0.80,0.35,0.28) if i%2==0 else Color(0.32,0.61,0.25,0.25)
-		DrawUtil.ellipse(self,p,rng.randf_range(65,180),rng.randf_range(25,62),col,22)
-	for i in 245:
-		var p = Vector2(rng.randf_range(40,LOCAL_SIZE.x-40),rng.randf_range(80,LOCAL_SIZE.y-50))
-		draw_line(p,p+Vector2(rng.randf_range(-2,2),rng.randf_range(-8,-4)),Color(0.28,0.58,0.22,0.45),1.5)
+	Terrain.grass(self,Rect2(Vector2.ZERO,LOCAL_SIZE))
+	# Three readable spaces: civic stone, residential gardens, cultivated outskirts.
+	for center: Vector2 in [Vector2(720,817),Vector2(1580,835),Vector2(760,1145),Vector2(1540,1150)]:
+		Terrain.courtyard(self,center,Vector2(115,76),int(center.x))
+	for p: Vector2 in [Vector2(520,570),Vector2(650,500),Vector2(1640,510),Vector2(1775,600),Vector2(490,1020),Vector2(1780,1050),Vector2(590,1310),Vector2(1705,1310)]:
+		Terrain.courtyard(self,p,Vector2(82,46),int(p.x+p.y))
 
 func _draw_rivers() -> void:
-	for river in river_polylines:
-		draw_polyline(river,Color(0.25,0.50,0.63),108,true)
-		draw_polyline(river,Color(0.18,0.65,0.88),88,true)
-		draw_polyline(river,Color(0.44,0.86,0.96,0.7),5,true)
+	for river: PackedVector2Array in river_polylines:
+		draw_polyline(river,Color("5c7655"),126,true)
+		draw_polyline(river,Color("9b9e73"),109,true)
+		draw_polyline(river,Color("427f85"),94,true)
+		draw_polyline(river,Color("65a99e"),68,true)
+		for i in range(river.size()-1):
+			var d: Vector2 = (river[i+1]-river[i]).normalized()
+			for j in range(int(river[i].distance_to(river[i+1])/35)):
+				var p: Vector2 = river[i]+d*float(j)*35.0
+				draw_line(p+Vector2(-14,0),p+Vector2(13,-3),Color(0.7,0.87,0.72,0.4),1.5,true)
+				for side: float in [-1.0,1.0]:
+					var bank: Vector2 = p+Vector2(-d.y,d.x)*side*59.0
+					draw_line(bank,bank+Vector2(-3,-10),Color("58744e"),2,true)
+					draw_line(bank+Vector2(3,0),bank+Vector2(5,-8),Color("a0aa6a"),1.5,true)
 
 func _draw_roads() -> void:
-	for path in _road_points():
-		draw_polyline(path,Color(0.47,0.59,0.27),122,true)
-		draw_polyline(path,Color(0.79,0.65,0.43),103,true)
-		for p in path: draw_circle(p,51.5,Color(0.79,0.65,0.43))
-	# cobbles
-	rng.seed = 441
-	for i in 125:
-		var p = Vector2(rng.randf_range(340,1990),rng.randf_range(360,2250))
-		if _near_road(p,38): DrawUtil.ellipse(self,p,rng.randf_range(2,5),rng.randf_range(1.5,3),Color(0.45,0.38,0.29,0.5))
+	var paths: Array[PackedVector2Array] = _road_points()
+	for i in range(paths.size()):
+		Terrain.path(self,paths[i],88.0 if i < 4 else 46.0,i < 4,441+i)
 
 func _draw_plaza() -> void:
-	DrawUtil.ellipse(self,CENTER,245,185,Color(0.75,0.70,0.59),32)
-	DrawUtil.ellipse_line(self,CENTER,245,185,Color(0.34,0.28,0.24,0.55),5,32)
-	for r in [65.0,120.0,175.0]: DrawUtil.ellipse_line(self,CENTER,r,r*0.74,Color(0.58,0.53,0.45,0.45),2,32)
+	Terrain.courtyard(self,CENTER,Vector2(245,185),7301)
+	# A pale border and restrained radial inlay make the fountain the focal point.
+	DrawUtil.ellipse_line(self,CENTER,238,178,Color("d0c2a0"),5,64)
+	DrawUtil.ellipse_line(self,CENTER,208,152,Color("8e947b"),3,64)
+	DrawUtil.ellipse_line(self,CENTER,79,54,Color("e0cfa7"),7,48)
+	for i in range(8):
+		var angle: float = TAU*float(i)/8.0
+		var d: Vector2 = Vector2(cos(angle),sin(angle)*0.74)
+		draw_line(CENTER+d*90.0,CENTER+d*198.0,Color("9a9f85"),2,true)
 
 func _draw_fields() -> void:
 	var plots: Array[Rect2] = [
@@ -181,12 +209,21 @@ func _draw_fields() -> void:
 		Rect2(1475,2045,535,215)
 	]
 	for plot in plots:
-		draw_rect(plot,Color(0.55,0.68,0.26))
-		DrawUtil.rect_outlined(self,plot,Color(0.64,0.49,0.22,0.55),DrawUtil.OUTLINE,3)
-		for y in range(int(plot.position.y)+28,int(plot.end.y)-15,29):
-			draw_line(Vector2(plot.position.x+20,y),Vector2(plot.end.x-20,y),Color(0.34,0.48,0.18,0.75),4)
-			for x in range(int(plot.position.x)+30,int(plot.end.x)-20,44):
-				draw_line(Vector2(x,y+5),Vector2(x,y-7),Color(0.82,0.73,0.20,0.72),2)
+		draw_rect(plot.grow(7),Color("8b8b5d"))
+		draw_rect(plot,Color("93815b"))
+		for y in range(int(plot.position.y)+28,int(plot.end.y)-15,27):
+			draw_line(Vector2(plot.position.x+14,y+6),Vector2(plot.end.x-14,y+6),Color("736d4c"),5,true)
+			for x in range(int(plot.position.x)+22,int(plot.end.x)-20,18):
+				var p: Vector2 = Vector2(x,y)
+				if _near_manual_blocker(p,20) or _near_road(p,34): continue
+				var height: float = 13.0+float(posmod(x+y,7))
+				draw_line(p+Vector2(0,7),p+Vector2(-1,-height),Color("d5bf76"),1.5,true)
+				draw_line(p,p+Vector2(-5,-7),Color("a6ad62"),1.5,true)
+				draw_line(p+Vector2(0,-4),p+Vector2(5,-10),Color("b6b869"),1.5,true)
+				for j in range(3):
+					var ear: Vector2 = p+Vector2(-1,-height+float(j)*3.0)
+					DrawUtil.ellipse(self,ear+Vector2(-2,-1),2.8,1.5,Color("e0c783"),8)
+					DrawUtil.ellipse(self,ear+Vector2(2,1),2.8,1.5,Color("c9b16a"),8)
 
 func _draw_city_border() -> void:
 	# low masonry markers hint at hub boundary without boxing player in.
@@ -198,3 +235,18 @@ func _draw_city_border() -> void:
 		draw_line(Vector2(x,1695),Vector2(x,1970),Color(0.45,0.30,0.14,0.30),2)
 	for x in range(1480,2010,72):
 		draw_line(Vector2(x,1695),Vector2(x,1970),Color(0.45,0.30,0.14,0.30),2)
+
+func _draw_royal_grounds() -> void:
+	var estate: Rect2 = Rect2(Vector2(1480,-1680),Vector2(2040,1840))
+	Terrain.grass(self,estate)
+	Terrain.courtyard(self,Vector2(2500,-70),Vector2(645,225),23)
+	Terrain.path(self,PackedVector2Array([Vector2(1150,310),Vector2(1150,120),Vector2(2500,120),Vector2(2500,-250)]),146.0,true,23)
+	# Gardens frame the ceremonial approach, keeping the main axis open.
+	for side: float in [-1,1]:
+		for y: float in [-90,80]:
+			var p: Vector2 = Vector2(2500+side*485,y)
+			draw_rect(Rect2(p-Vector2(120,42),Vector2(240,84)),Color("577253"))
+			draw_rect(Rect2(p-Vector2(120,42),Vector2(240,84)),Color("b3b18a"),false,6)
+			for i in range(10):
+				var flower: Vector2 = p+Vector2(-100+float(i)*22,sin(float(i))*18)
+				draw_circle(flower,5,Color("e9d2a1"))

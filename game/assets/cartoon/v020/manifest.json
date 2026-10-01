@@ -1,0 +1,226 @@
+{
+  "style": "2D Cartoon",
+  "generator": "game/tools/cartoon/build_visual_assets.py",
+  "assets": [
+    {
+      "file": "alchemist.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "b09eacbf3e88e9738bf12a60e7d126378309fb1a736ad417db56b79a08d59a1f"
+    },
+    {
+      "file": "archive.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "b4e14e07734dcc1a3d8ce57f38fb72a17e607f69f8bdc06ca43e4d6072e90a8d"
+    },
+    {
+      "file": "barrel.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "299a639880309cf3b3ba7ab0534dd988e26487281b0292ab7548e576cd5e9def"
+    },
+    {
+      "file": "bench.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "d9b4cfd213cafb5fb5a031290a763c81c8c12dedd967181b56bcd3e7c86eead2"
+    },
+    {
+      "file": "bridge.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "63d895da63371a2d0220c559ad94cf525ff038bbf48f0a85894dbbdd6c983fad"
+    },
+    {
+      "file": "bush.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "6ae9d00df7965f744d5862fa3718cf2c0ff959e8bdb37c30caf5b35a18150eea"
+    },
+    {
+      "file": "castle.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "25d84ff49dbb45c0f692252800d418ac83b923195c8291768a2cce0a14babf70"
+    },
+    {
+      "file": "chest.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "92ccb46567988a11bbb76efb809ab11b88cc3ed8dc8feea39df8d28d866762ef"
+    },
+    {
+      "file": "fence.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "0e0b5cc3534f0ec1843edc0798593fe5c50667d84091f9fc4ae7ce0c6aa98fb3"
+    },
+    {
+      "file": "forge.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "d2cbe39d6d30260cb35976c5636b450feded0dc9bee93e87e8712a0b420a945a"
+    },
+    {
+      "file": "fountain.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "e024dbe337a38a3d2a081abbe2ea2797cd03c3467c40f8ccbc0d3ce2db32e972"
+    },
+    {
+      "file": "grass.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "2b487dc6e2717a2cd7a276b970567966caac806d9c31438a908ec7b48b5949a5"
+    },
+    {
+      "file": "guardian.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "e25cea1ec1ac7359a8f1bee3a75133bcc1408d96940cb628e50d4e0b7bfe9c7e"
+    },
+    {
+      "file": "guild.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "b4e14e07734dcc1a3d8ce57f38fb72a17e607f69f8bdc06ca43e4d6072e90a8d"
+    },
+    {
+      "file": "hay.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "83d369bb85cb155ba01fbddc985b8127c8972bcb8953f1cfb81d45d41755c623"
+    },
+    {
+      "file": "hero_back.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "bdd77ccd43368bef4fea4f0dadce388e2a65f5174579b11e14ec3a242a504e3c"
+    },
+    {
+      "file": "hero_back_walk_0.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "a3f75fbaa7eee4b985afa77e62010b3239623fa8e6e80c6c7cb525607251bda2"
+    },
+    {
+      "file": "hero_back_walk_1.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "4558e19df2376ec2227b7e1a64eb6ab39e923f78b3806fa0fa79f010e5199279"
+    },
+    {
+      "file": "hero_front.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "bd7ed795e8d00114bc0014a344baf7028161c1c9cdd4a9bcf211ada269c9e386"
+    },
+    {
+      "file": "hero_front_walk_0.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "f071e0098e9ed886eacc91296b70f71276df3f67dceaa930b218aa1916324ff9"
+    },
+    {
+      "file": "hero_front_walk_1.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "14e97013bf279a7cdec2f24fcd720031c4878bc6fe776f9a47b50dd438e65359"
+    },
+    {
+      "file": "hero_left.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "1b348addad62a75ede3df4a736ac9de0bfb00cfdaaa9fb880f7e248a0e184afc"
+    },
+    {
+      "file": "hero_left_walk_0.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "c279be8c049ee69dfaf6addce269f0dca373fe2cdb39a0e37c1e6f7ed361152e"
+    },
+    {
+      "file": "hero_left_walk_1.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "90237a5b324fca70e3cbf20f886b4b8b388560124d615bbdd7c9f6900c0756ec"
+    },
+    {
+      "file": "hero_right.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "9cbd8461488bad2770ec23750be778e00e72fe421fc607eff7fc352cefc67d07"
+    },
+    {
+      "file": "hero_right_walk_0.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "9041219557eaef2e5ae031a4c747fe5cace1bfb5f5a08c5de6b927bbe9b61ec1"
+    },
+    {
+      "file": "hero_right_walk_1.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "17a4a43528cce9be7ab68763ad28efe3ce908edc6284459af8dde2bfc9b41c95"
+    },
+    {
+      "file": "house_0.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "1dca5e8bc7dde7dd68ab70d0ccbf00eecb2273e8bc0bcb1188c59b62d1093a21"
+    },
+    {
+      "file": "house_1.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "4fef779af53efc7d17f0e8b70607cc58d5abe2469c67704b56c9f036e98527d7"
+    },
+    {
+      "file": "house_2.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "7648ddd9ca50074b948531ab4fbae50100747466dc89707f69fe04b095c029a2"
+    },
+    {
+      "file": "lamp.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "5808aff8bcec00daf533e5784aa5f438f020fe8fe75025a70d4238a80e5f28a0"
+    },
+    {
+      "file": "market.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "d373fdddf908389089625c3a94c0a63ceb0d19bfccbd79819ccdc285d8d5d4b5"
+    },
+    {
+      "file": "mine.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "338d85648e380665ebfa983e2ff02a157c818dce81d21d6fc05888f6baf5da17"
+    },
+    {
+      "file": "pine.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "5237e9f4bb076a76e9f786a3ab0338211b590c87588ee350f76ba90664f675c0"
+    },
+    {
+      "file": "rock.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "4ed9dd92dd70483763d91a42c08f85456569a71eaa45f3163bb322771e3f4b86"
+    },
+    {
+      "file": "ruin.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "83d0d0b0c1ca65068f9200c1a8dcbdc2d9d981d7c5fc17dcae8d53f2dee22d10"
+    },
+    {
+      "file": "shrine.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "eedb0c8eb436e875d0762d9204d5af20b688cb4692066674d165ccac3123dee3"
+    },
+    {
+      "file": "tavern.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "83d6a5631e0760e0f56153fc29e8d1a2290005a6e5353ab349bfada7267f25b1"
+    },
+    {
+      "file": "tree_0.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "a1ec49a22d7366d01d592bf2864d7b8110518cab5f7bfcc495ae02320396b1f2"
+    },
+    {
+      "file": "tree_1.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "669c04f14eb010033e55a73b9f1b8c5a003ace41ae4a3303dfe7ae69153f3ef9"
+    },
+    {
+      "file": "tree_2.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "357286df3856a0fa1fab6ba18199598fe5dcf04b26f661b50a23092f992be98b"
+    },
+    {
+      "file": "well.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "2cea90477937f79b2003438e419d4c46d957cff3427631b632c33a089b368624"
+    },
+    {
+      "file": "windmill.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "f1df3c87df92f4d28ed83ab7a53cac65a2072a115596ddf27fe555ffb239c0f0"
+    },
+    {
+      "file": "wolf.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "4f9d2f3627e0a98f2af87b18efe0a46769083b0016b7a932c49a6f25ab8102e6"
+    }
+  ]
+}

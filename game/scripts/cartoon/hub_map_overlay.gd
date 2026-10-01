@@ -1,6 +1,9 @@
 class_name ValedouroCartoonHubMapOverlay
 extends Control
 
+const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
+var frame_style: StyleBoxFlat
+
 const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
 const StoryMap = preload("res://scripts/cartoon/cartoon_main_story_map.gd")
 
@@ -10,6 +13,7 @@ var map_rect: Rect2 = Rect2(48,42,754,366)
 
 func setup(player_node: Node2D) -> void:
 	player = player_node
+	frame_style = UISkin.box(UISkin.INK,UISkin.GOLD)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	queue_redraw()
 
@@ -28,13 +32,12 @@ func _world_to_map(world_pos: Vector2) -> Vector2:
 	)
 
 func _draw() -> void:
-	draw_rect(Rect2(Vector2.ZERO,size),Color(0.035,0.045,0.065,0.97))
+	draw_style_box(frame_style,Rect2(Vector2.ZERO,size))
 	draw_rect(map_rect,Color(0.14,0.28,0.16,0.98))
-	draw_rect(map_rect,Color(0.28,0.62,0.92),false,4.0)
+	draw_rect(map_rect,UISkin.GOLD.darkened(0.30),false,2.0)
 
 	var font: Font = ThemeDB.fallback_font
 	draw_string(font,Vector2(48,28),"MAPA — BERÇO DE VALEDOURO",HORIZONTAL_ALIGNMENT_LEFT,-1,20,Color(0.88,0.95,1.0))
-	draw_string(font,Vector2(625,28),"7x • Ato I",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color(0.70,0.82,1.0))
 
 	var route: PackedVector2Array = StoryMap.act1_route_points()
 	var scaled: PackedVector2Array = PackedVector2Array()
@@ -51,6 +54,10 @@ func _draw() -> void:
 		draw_circle(p,8.0 if active else 6.0,col)
 		draw_circle(p,10.5 if active else 8.0,Color(0.03,0.05,0.08),false,2.0)
 		draw_string(font,p+Vector2(10,4),_short_label(id),HORIZONTAL_ALIGNMENT_LEFT,-1,12,col)
+
+	var castle_point: Vector2 = _world_to_map(Region.world_from_hub(Region.CASTLE_DOOR))
+	draw_circle(castle_point,7,Color("e4c77f"))
+	draw_string(font,castle_point+Vector2(12,-12),"Castelo Real",HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("e4c77f"))
 
 	for row in StoryMap.region_transitions():
 		var p: Vector2 = _world_to_map(row.get("pos",Vector2.ZERO))

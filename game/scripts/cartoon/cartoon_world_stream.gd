@@ -8,10 +8,12 @@ var hero: Node2D
 var active_chunks: Dictionary = {}
 var last_chunk: Vector2i = Vector2i(99999,99999)
 var elapsed: float = 0.0
+var visual_root: Node2D
 
-func setup(player: Node2D) -> void:
+func setup(player: Node2D, sorted_root: Node2D = null) -> void:
 	z_index = -30
 	hero = player
+	visual_root = sorted_root
 	_refresh(true)
 
 func _process(delta: float) -> void:
@@ -53,7 +55,7 @@ func _refresh(force: bool) -> void:
 func _activate(coord: Vector2i) -> void:
 	var chunk: Node2D = ChunkScript.new()
 	chunk.name = "Chunk_%d_%d" % [coord.x,coord.y]
-	chunk.setup(coord)
+	chunk.setup(coord,visual_root)
 	add_child(chunk)
 	active_chunks[coord] = chunk
 

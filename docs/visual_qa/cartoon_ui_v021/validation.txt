@@ -1,0 +1,25 @@
+Engine: Godot 4.6.3.stable.official.7d41c59c4
+Capturas: Godot Compatibility / Mesa llvmpipe
+Godot 4.7.2, Android, desempenho no aparelho: PENDENTES
+
+abyss_act8: PASS — região final 8x, 6 áreas canônicas, bosses e escolha final
+campaign_world: PASS — 8 regiões físicas, 49 missões e rota jogável da campanha
+cartoon_hub: PASS — hub 7x, streaming, áreas e fluxo canônico do Ato I presentes
+cartoon_ui_v021: PASS — 8 regions, 5 sizes, modals, touch routing, pause/save/resume, ending and menu
+cartoon_visual_v020: PASS — POI reachability, bridges, road access, 44 sprites, y-sort and streaming cleanup
+coast_act6: PASS — região 20x, 5 áreas canônicas e fluxo completo do Ato VI
+corrupted_act7: PASS — região 20x, obeliscos, 5 áreas canônicas e fluxo completo do Ato VII
+crafting_v014: PASS — materiais persistentes, 14 receitas, equipamento e bônus de combate
+desert_act3: PASS — região 15x, 6 áreas canônicas e fluxo completo do Ato III
+exploration_layer: PASS — 35 locais de exploração, 7 elites e recompensas interativas
+exploration_v013: PASS — 49 locais opcionais, 7 mini-dungeons, 7 NPCs e materiais de crafting
+forest_act2: PASS — região 20x, 6 áreas canônicas e fluxo completo do Ato II
+frost_act5: PASS — região 15x, 6 áreas canônicas e retorno ao cerco preparado
+hud_progression_v018: PASS — HUD, XP, level up e teto 100
+inventory_v017: PASS — slots, grade, filtros, comparação e materiais
+marsh_act4: PASS — região 15x, 6 áreas canônicas, mapa e fluxo completo do Ato IV
+menu_inventory_layout: PASS — menu inicial, inventário persistente e navegação de equipamento
+save_menu_v016: PASS — Novo Jogo, Continuar, Excluir e save global de campanha
+siege_act5: PASS — defesa das Muralhas de Valedouro usa o LOC_VAL_GATE real
+ui_layout_v019: PASS — containers internos preservam layout de menu, zoom, forja e inventário
+zoom_controls: PASS — botões +/−/1:1, limites 70–150% e persistência

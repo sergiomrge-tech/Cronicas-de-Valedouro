@@ -1,0 +1,171 @@
+{
+  "style": "2D Cartoon",
+  "generator": "game/tools/cartoon/build_living_world_assets.py",
+  "assets": [
+    {
+      "file": "animal_boar.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "e1432cfc8a2c08aff70508ec187832e23f68efc2b3308b159609d62b65ea343a"
+    },
+    {
+      "file": "animal_boar_walk.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "dc116858ce3999f4fb0868ba55832ed1f0b1d21041c999b2cdebe1e93820f5cc"
+    },
+    {
+      "file": "animal_deer.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "b83040c4cf8c777eaaa6867a67a87ab1f4c30642d62c98b6b3b957ff05dd721a"
+    },
+    {
+      "file": "animal_deer_walk.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "f00330293e76b1751e6bab4ae57b33bf722ce175334dbbad6083fa06472eca2a"
+    },
+    {
+      "file": "animal_rabbit.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "c03c1b411ba18eefd8323bb1bfde7b87a8c08119381125d185bbf46a5eb6f0ec"
+    },
+    {
+      "file": "animal_rabbit_walk.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "5d94ebe4a86a2fced9f7450406cbf2d57f936add1e726796f9aca66e4e7e585e"
+    },
+    {
+      "file": "anvil.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "7ab3238f932f5d969c2bcde8a85afaa52624490a35bedb44b83f7f2ce292f2a7"
+    },
+    {
+      "file": "banner.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "ed797c9119777c6ac6ea68c1377f9064209ca46584cc00b151fd63320a1ae0f0"
+    },
+    {
+      "file": "bed.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "816b9ff4f2780d9d4f83b7d207bb290129747748ef751a25a85cb0ee607cece0"
+    },
+    {
+      "file": "board.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "210d7e25f65cc0954233cc9d57779800c4da157c683e307db78fb752d6a8fb4f"
+    },
+    {
+      "file": "bookshelf.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "f6a91260696139b19491a781511f06795d835ac90efc54b058525837ef364808"
+    },
+    {
+      "file": "cask.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "c991542db2cd9a8cb7e100b2d59e9dc23aa76222be8c57d45298072bab5e56aa"
+    },
+    {
+      "file": "chair.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "713bdbd3814e4c3cda1380ecda93fe89f61744bfcd033af0bdf4bebb878d631c"
+    },
+    {
+      "file": "coal.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "8312d6a3d0517ce0a800d039c4a03b16919d84a1848373b85df52f2fca30a18c"
+    },
+    {
+      "file": "counter.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "a030485789ae6a21edd76edfdc2b289db97b6ac298fc029317a36a2f7e068361"
+    },
+    {
+      "file": "crates.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "17b20abf054f3e6f18edcd36145a844a80c3c173f27a57c4768ebd5877236ff8"
+    },
+    {
+      "file": "fireplace.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "08694e23abe01c136640bb9687fcb6fb79769abbeba4050e901829e8800e6591"
+    },
+    {
+      "file": "furnace.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "08694e23abe01c136640bb9687fcb6fb79769abbeba4050e901829e8800e6591"
+    },
+    {
+      "file": "lantern.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "120cc7b0387dc8dbde0bce1d26d4c83d4aac9bda7c19a9edd391147c0da0ed45"
+    },
+    {
+      "file": "npc_clerk.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "001c8dabb19f82eee6e4abc58f505af9111108a429f922159d87b93b2a6e8564"
+    },
+    {
+      "file": "npc_innkeeper.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "4d2622df2c7e21ab17c462b53cb74c95280ad30092802c8ecc208009b2df95b8"
+    },
+    {
+      "file": "npc_patron.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "dcd41bb213bbac6747d323e847716c0213728a82297deb30b3a47bf401a86009"
+    },
+    {
+      "file": "npc_ranger.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "6ea94b36126c9cd871efe9d4d48c39b3d69dda01f79ac3449f12902a340e4662"
+    },
+    {
+      "file": "npc_smith.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "0901d14f22f651bb36d07948f930d3fb5df8a0f314b285a7ceb0cb368f7168c0"
+    },
+    {
+      "file": "plant.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "b9b931a4731db86ed7c6ac0c222e074254ef5e78a6c9431b2b9fb211f4223443"
+    },
+    {
+      "file": "room_forge.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "513f47a2e1ed58c83024b7888478929bb575140280c1794839df55a03a5b8dc7"
+    },
+    {
+      "file": "room_guild.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "9ef5fd68f51ae3e4cf07797fc359d273fc6453018355342dd33e49f6f27cb671"
+    },
+    {
+      "file": "room_tavern.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "7b7e93997207b149a29c2059cde80ec86324d5c8db0652925a1ff60e21f9bdd9"
+    },
+    {
+      "file": "rug.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "385c2ef2848ae34960b87e0b692b2de2b0082b54525ccc86aed064391f7bf051"
+    },
+    {
+      "file": "table.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "5db0e1c01c0537026992f9eec7c70ab4365c484bc371af5a21ce57db463cb859"
+    },
+    {
+      "file": "wall_map.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "4ceaf5c098dff1462ceaf79c21f18cb577aff851465f54f35b3bca6ffc4f81a3"
+    },
+    {
+      "file": "weapon_rack.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "82f98cbd9d73075c49c0113d5287372d13d9fa2479b42a3493cb1f757798e666"
+    },
+    {
+      "file": "workbench.svg",
+      "status": "MODELED_PENDING_GATE",
+      "sha256": "4c16d13035ade5825a44bfafdf43e5ccbaf1fdf7be39d365bb100c1ac9d54e3c"
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 class_name ValedouroCartoonHUDStatus
 extends Control
 
+const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
+const Assets = preload("res://scripts/cartoon/cartoon_visual_assets.gd")
+
 var panel: PanelContainer
 var region_label: Label
 var level_label: Label
@@ -22,61 +25,51 @@ func setup(label: String,accent_color: Color = Color(0.91,0.69,0.27)) -> void:
 func _build() -> void:
 	panel = PanelContainer.new()
 	panel.name = "PlayerStatusPanel"
-	panel.position = Vector2(14,12)
-	panel.size = Vector2(326,90)
-	panel.custom_minimum_size = Vector2(326,90)
+	panel.size = Vector2(260,84)
+	panel.custom_minimum_size = Vector2(260,84)
 	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var style: StyleBoxFlat = StyleBoxFlat.new()
-	style.bg_color = Color(0.025,0.033,0.052,0.94)
-	style.border_color = accent
-	style.set_border_width_all(3)
-	style.corner_radius_top_left = 16
-	style.corner_radius_top_right = 16
-	style.corner_radius_bottom_left = 16
-	style.corner_radius_bottom_right = 16
-	panel.add_theme_stylebox_override("panel",style)
+	panel.add_theme_stylebox_override("panel",UISkin.box(Color(0.07,0.13,0.10,0.92),UISkin.GOLD.darkened(0.25)))
 	add_child(panel)
-
 	var body: Control = Control.new()
-	body.custom_minimum_size = Vector2(316,80)
+	body.custom_minimum_size = Vector2(256,80)
 	body.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	panel.add_child(body)
-
-	region_label = Label.new()
-	region_label.position = Vector2(12,6)
-	region_label.size = Vector2(205,22)
-	region_label.text = region_name
-	region_label.add_theme_font_size_override("font_size",14)
-	region_label.add_theme_color_override("font_color",Color(0.96,0.92,0.78))
+	region_label = UISkin.label(region_name,12,UISkin.TEXT)
+	region_label.position = Vector2(12,7)
+	region_label.size = Vector2(182,20)
+	region_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	body.add_child(region_label)
-
-	level_label = Label.new()
-	level_label.position = Vector2(220,5)
-	level_label.size = Vector2(84,24)
+	level_label = UISkin.label("",13,UISkin.GOLD)
+	level_label.position = Vector2(194,7)
+	level_label.size = Vector2(50,20)
 	level_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	level_label.add_theme_font_size_override("font_size",15)
-	level_label.add_theme_color_override("font_color",Color(1.0,0.82,0.35))
 	body.add_child(level_label)
-
-	hp_bar = _make_bar(Vector2(12,31),Vector2(202,18),Color(0.78,0.18,0.24))
+	var portrait: TextureRect = TextureRect.new()
+	portrait.name = "TravelerPortrait"
+	portrait.texture = Assets.texture("hero_front")
+	portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	portrait.position = Vector2(12,28)
+	portrait.size = Vector2(38,49)
+	portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	body.add_child(portrait)
+	hp_bar = _make_bar(Vector2(62,31),Vector2(182,19),Color("b14e56"))
 	body.add_child(hp_bar)
-	hp_text = _bar_text(Vector2(18,29),Vector2(190,20))
+	hp_bar.size = Vector2(182,19)
+	hp_text = _bar_text(Vector2(68,30),Vector2(170,20))
 	body.add_child(hp_text)
-
-	xp_bar = _make_bar(Vector2(12,56),Vector2(202,14),Color(0.20,0.62,0.91))
+	xp_bar = _make_bar(Vector2(62,73),Vector2(182,4),Color("72aaa5"))
 	body.add_child(xp_bar)
-	xp_text = _bar_text(Vector2(18,53),Vector2(190,20))
-	xp_text.add_theme_font_size_override("font_size",10)
+	xp_bar.size = Vector2(182,4)
+	xp_text = _bar_text(Vector2(62,53),Vector2(114,19))
+	xp_text.add_theme_font_size_override("font_size",11)
 	body.add_child(xp_text)
-
-	gold_label = Label.new()
-	gold_label.position = Vector2(222,35)
-	gold_label.size = Vector2(82,38)
+	gold_label = UISkin.label("",12,UISkin.GOLD)
+	gold_label.position = Vector2(177,53)
+	gold_label.size = Vector2(67,19)
 	gold_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	gold_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	gold_label.add_theme_font_size_override("font_size",14)
-	gold_label.add_theme_color_override("font_color",Color(1.0,0.79,0.30))
 	body.add_child(gold_label)
+	UISkin.bind(panel,Vector2(260,84),"status")
 
 func _make_bar(pos: Vector2,bar_size: Vector2,fill_color: Color) -> ProgressBar:
 	var bar: ProgressBar = ProgressBar.new()
@@ -86,6 +79,7 @@ func _make_bar(pos: Vector2,bar_size: Vector2,fill_color: Color) -> ProgressBar:
 	bar.max_value = 100.0
 	bar.value = 100.0
 	bar.show_percentage = false
+	bar.add_theme_font_size_override("font_size",1)
 	bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var background: StyleBoxFlat = StyleBoxFlat.new()
 	background.bg_color = Color(0.08,0.09,0.13,0.95)
@@ -124,8 +118,9 @@ func refresh(hp: int,max_hp: int,gold: int,level: int,xp: int,xp_next: int) -> v
 	var safe_max: int = maxi(1,max_hp)
 	hp_bar.value = clampf(float(hp) / float(safe_max) * 100.0,0.0,100.0)
 	hp_text.text = "VIDA  %d / %d" % [hp,safe_max]
+	hp_text.add_theme_color_override("font_color",Color("ffcebe") if hp <= safe_max/5 else Color.WHITE)
 	level_label.text = "Nv %d" % clampi(level,1,100)
-	gold_label.text = "OURO\n%d" % maxi(0,gold)
+	gold_label.text = "%d ouro" % maxi(0,gold)
 	if level >= 100 or xp_next <= 0:
 		xp_bar.value = 100.0
 		xp_text.text = "XP  NÍVEL MÁXIMO"
