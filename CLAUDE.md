@@ -207,7 +207,7 @@ Regras adicionais que não devem regredir:
 - Forja e Bolsa exibem/bloqueiam corretamente o requisito de nível.
 
 
-## Continuidade — candidata v0.34: coleta de materiais no mapa
+## Continuidade — v0.34 validada: coleta de materiais no mapa
 
 A v0.34 adiciona 48 novos pontos renováveis de coleta, seis por região, e
 converte os 7 pontos especiais de recurso já existentes para a mesma lógica,
@@ -216,3 +216,19 @@ COLETAR no HUD. O recurso entra diretamente na Bolsa/Forja e reaparece em
 5 minutos. O cooldown persiste no **save v8**. Ler
 `docs/CARTOON_GATHERING_V0_34.md`. Só promover após o Godot Gate 4.7.2.
 APK continua sob demanda.
+
+
+## Estado validado — v0.34
+
+Commit validado: `ed2b1173ec8645a1165d12a0b595588da89f65bd`.
+Godot Gate oficial 4.7.2: run `36883480977`, conclusão success.
+A suíte contém 53 testes nativos e QA visual dedicado de coleta.
+
+Regras que não devem regredir:
+- 48 novos pontos renováveis de coleta, seis por região;
+- 7 pontos especiais de recurso anteriores também usam respawn renovável;
+- total de 55 pontos coletáveis de material;
+- interação COLETAR pelo mesmo botão USAR;
+- materiais entram diretamente na Bolsa/Forja;
+- respawn de 5 minutos persistente no save v8;
+- recursos coletados somem temporariamente e reaparecem quando o cooldown expira.
