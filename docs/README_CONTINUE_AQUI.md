@@ -3,7 +3,7 @@
 **Diretor:** Sergio  
 **Mundo:** Elyndor  
 **Engine:** Godot 4.7.2  
-**Base oficial atual:** 2D Cartoon v0.19  
+**Base oficial validada:** 2D Cartoon v0.30  
 **Cena inicial:** `res://scenes/cartoon/CartoonMainMenu.tscn`
 
 ## ATENÇÃO
@@ -204,3 +204,19 @@ Restaurador, aba ITENS na Bolsa, drops raros de equipamento e pity persistente.
 Save v7 migra a campanha anterior. Leia `docs/CARTOON_LOOT_V0_31.md`.
 A candidata deve passar pelo Godot 4.7.2 Gate antes de ser tratada como
 validada. Não gerar APK automaticamente.
+
+
+## Continuidade — candidata v0.32: progressão e interface RPG
+
+A regra da v0.30 de três magias disponíveis desde o início foi **substituída**
+por decisão do Diretor: Brasa no nível 1, Cristal no nível 10 e Arcana no
+nível 25. Não restaurar as três magias iniciais.
+
+A Bolsa passa a exibir ouro e paper-doll do mesmo herói Cartoon, com slots de
+arma, elmo, peitoral, luvas, capa, calças e botas. O HUD e os avisos foram
+compactados. O Diário de Missões deve permitir rolagem vertical por toque e
+mostrar barra de scroll quando houver conteúdo abaixo.
+
+A v0.32 inclui a v0.31 de loot/consumíveis. Ler
+`CARTOON_UI_PROGRESSION_V0_32.md` e `CARTOON_LOOT_V0_31.md`.
+Somente considerar validada após Godot Gate 4.7.2. APK continua sob demanda.
