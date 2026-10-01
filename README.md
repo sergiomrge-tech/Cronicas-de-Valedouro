@@ -148,3 +148,13 @@ A v0.35 adiciona banner curto de subida de nível, aviso automático de magia/ti
 liberado e contador de pontos de habilidade no retrato do herói. Não usa modal
 e não interrompe o combate. O save permanece v8. Ler
 `docs/CARTOON_LEVELUP_FEEDBACK_V0_35.md`. Validada no Godot 4.7.2 oficial, run `36885539172`, com 54 testes nativos e QA visual dedicado. APK continua sob demanda.
+
+
+## Continuidade — candidata v0.36: troféus e crafts de chefes
+
+A v0.36 adiciona 11 materiais exclusivos de chefes e 11 receitas especiais que
+só aparecem após a primeira obtenção do troféu correspondente. Itens de boss
+não entram no DROP RARO comum, respeitam os níveis regionais e recebem paleta,
+brilho/emblema próprios no herói. Save permanece v8. Ler
+`docs/CARTOON_BOSS_CRAFTING_V0_36.md`. Só promover após o Godot Gate 4.7.2.
+APK continua sob demanda.
