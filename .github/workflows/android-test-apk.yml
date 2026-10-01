@@ -168,11 +168,11 @@ jobs:
           cat > /tmp/android-release.md <<'NOTES'
           APK atualizado v0.32: Brasa inicia sozinha; Cristal e Arcana desbloqueiam por nível. Inventário mostra ouro e paper-doll do personagem; diário de missões ganha rolagem touch. Inclui equipamentos completos, fabricação de armas e armaduras, arco com flechas em voo, herói refinado e animado, aba de missões com escolha do objetivo no HUD/mapa, 48 demônios de elite e níveis visíveis nos inimigos. Inimigos acima do nível do herói são muito mais difíceis, e a evolução exige mais XP. Inclui classes, habilidades, magias, esquiva, interiores, caça e Castelo Real.
 
-          Toque em MISSÕES para escolher o objetivo, BOLSA para trocar equipamento, FORJA para fabricar e no retrato do herói para abrir Classes e Habilidades. Save v6 preserva a campanha anterior.
+          Toque em MISSÕES para escolher o objetivo, BOLSA para trocar equipamento, FORJA para fabricar e no retrato do herói para abrir Classes e Habilidades. Save v7 preserva a campanha anterior.
 
           Baixe o APK, abra no celular e permita a instalação pelo aplicativo usado para abrir o arquivo. Android 7.0 ou superior; ARM 32/64 bits.
 
-          Exportação assinada com Godot 4.7.2, 32 testes nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
+          Exportação assinada com Godot 4.7.2, 34 testes Android nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
           NOTES
           gh release create v0.32-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.32 — Progressão e Inventário" --notes-file /tmp/android-release.md
           gh release upload v0.32-test game/build/Cronicas_de_Valedouro_v0.32_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
