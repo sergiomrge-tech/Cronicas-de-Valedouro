@@ -6,7 +6,7 @@ Repositório oficial de desenvolvimento do jogo **Crônicas de Valedouro**.
 - Alvo principal: **Android / mobile-first**
 - Versão oficial atual: **2D Cartoon**
 - Cena inicial oficial: `res://scenes/cartoon/CartoonMainMenu.tscn`
-- Base validada mais recente: **v0.33**, com cura rápida no HUD e progressão de equipamentos por nível sobre a v0.32.
+- Base validada mais recente: **v0.34**, com coleta renovável de materiais no mapa sobre a v0.33.
 
 ## Regra de continuidade
 A antiga versão visual/pixel-art não é mais a base de desenvolvimento e não deve ser usada para novas alterações. Toda evolução do jogo deve partir da implementação em `game/scenes/cartoon/` e `game/scripts/cartoon/`, preservando história, missões e mecânicas canônicas quando compatíveis.
@@ -132,12 +132,11 @@ a Forja também respeita o requisito. Save permanece v7. Ler
 `docs/CARTOON_RPG_PROGRESSION_V0_33.md`. Validada no Godot 4.7.2 oficial, run `36878325954`, com 52 testes nativos e QA visual dedicado. APK continua sob demanda.
 
 
-## Continuidade — candidata v0.34: coleta de materiais no mapa
+## Continuidade — v0.34 validada: coleta de materiais no mapa
 
 A v0.34 adiciona 48 novos pontos renováveis de coleta, seis por região, e
 converte os 7 pontos especiais de recurso já existentes para a mesma lógica,
 totalizando 55 pontos coletáveis. A interação usa o botão USAR e mostra
 COLETAR no HUD. O recurso entra diretamente na Bolsa/Forja e reaparece em
 5 minutos. O cooldown persiste no **save v8**. Ler
-`docs/CARTOON_GATHERING_V0_34.md`. Só promover após o Godot Gate 4.7.2.
-APK continua sob demanda.
+`docs/CARTOON_GATHERING_V0_34.md`. Validada no Godot 4.7.2 oficial, run `36883480977`, com 53 testes nativos e QA visual dedicado. APK continua sob demanda.
