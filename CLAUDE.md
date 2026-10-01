@@ -205,3 +205,14 @@ Regras adicionais que não devem regredir:
 - tiers de equipamento exigem níveis 1/8/18/28/40/55/70/85;
 - item raro pode existir no inventário antes do nível, mas não pode ser equipado;
 - Forja e Bolsa exibem/bloqueiam corretamente o requisito de nível.
+
+
+## Continuidade — candidata v0.34: coleta de materiais no mapa
+
+A v0.34 adiciona 48 novos pontos renováveis de coleta, seis por região, e
+converte os 7 pontos especiais de recurso já existentes para a mesma lógica,
+totalizando 55 pontos coletáveis. A interação usa o botão USAR e mostra
+COLETAR no HUD. O recurso entra diretamente na Bolsa/Forja e reaparece em
+5 minutos. O cooldown persiste no **save v8**. Ler
+`docs/CARTOON_GATHERING_V0_34.md`. Só promover após o Godot Gate 4.7.2.
+APK continua sob demanda.
