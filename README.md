@@ -6,7 +6,7 @@ Repositório oficial de desenvolvimento do jogo **Crônicas de Valedouro**.
 - Alvo principal: **Android / mobile-first**
 - Versão oficial atual: **2D Cartoon**
 - Cena inicial oficial: `res://scenes/cartoon/CartoonMainMenu.tscn`
-- Base validada mais recente: **v0.34**, com coleta renovável de materiais no mapa sobre a v0.33.
+- Base validada mais recente: **v0.35**, com feedback compacto de level up e desbloqueios sobre a v0.34.
 
 ## Regra de continuidade
 A antiga versão visual/pixel-art não é mais a base de desenvolvimento e não deve ser usada para novas alterações. Toda evolução do jogo deve partir da implementação em `game/scenes/cartoon/` e `game/scripts/cartoon/`, preservando história, missões e mecânicas canônicas quando compatíveis.
@@ -142,10 +142,9 @@ COLETAR no HUD. O recurso entra diretamente na Bolsa/Forja e reaparece em
 `docs/CARTOON_GATHERING_V0_34.md`. Validada no Godot 4.7.2 oficial, run `36883480977`, com 53 testes nativos e QA visual dedicado. APK continua sob demanda.
 
 
-## Continuidade — candidata v0.35: level up e desbloqueios compactos
+## Continuidade — v0.35 validada: level up e desbloqueios compactos
 
 A v0.35 adiciona banner curto de subida de nível, aviso automático de magia/tier
 liberado e contador de pontos de habilidade no retrato do herói. Não usa modal
 e não interrompe o combate. O save permanece v8. Ler
-`docs/CARTOON_LEVELUP_FEEDBACK_V0_35.md`. Só promover após o Godot Gate 4.7.2.
-APK continua sob demanda.
+`docs/CARTOON_LEVELUP_FEEDBACK_V0_35.md`. Validada no Godot 4.7.2 oficial, run `36885539172`, com 54 testes nativos e QA visual dedicado. APK continua sob demanda.
