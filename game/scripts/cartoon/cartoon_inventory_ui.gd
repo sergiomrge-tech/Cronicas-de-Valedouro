@@ -470,16 +470,19 @@ func _fill_equipment(state) -> void:
 		var stat_name: String = "ATQ" if slot == "weapon" else "DEF"
 		var equipped: bool = state.is_equipped(id)
 		var tier: int = int(item.get("tier",0))
+		var required_level: int = state.equipment_required_level(item)
+		var locked: bool = state.player_level < required_level
 		var button: Button = Button.new()
 		button.custom_minimum_size = Vector2(160,82)
-		button.text = "%s%s\n%s • Tier %d\n+%d %s%s" % [
+		button.text = "%s%s\n%s • Tier %d • Nv %d\n+%d %s%s" % [
 			"◆ " if id == selected_item_id else "",
 			String(item.get("label","Equipamento")),
 			_rarity_name(tier),
 			tier,
+			required_level,
 			stat_value,
 			stat_name,
-			" • EQUIPADO" if equipped else ""
+			" • EQUIPADO" if equipped else (" • BLOQUEADO" if locked else "")
 		]
 		button.tooltip_text = button.text
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
