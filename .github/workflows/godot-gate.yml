@@ -502,11 +502,27 @@ jobs:
           path: game/ci_output_spell_slots/*.png
           if-no-files-found: error
 
+      - name: Capture v0.31 loot and consumables with official Godot
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p game/ci_output_loot_v031
+          timeout 120s xvfb-run -a /tmp/godot/godot --path game --rendering-method gl_compatibility --audio-driver Dummy --script res://tests/qa_capture_loot_v031.gd -- "$PWD/game/ci_output_loot_v031" 2>&1 | tee /tmp/valedouro-loot-v031-render.log
+          ! grep -Eq "SCRIPT ERROR|ERROR:|Assertion failed" /tmp/valedouro-loot-v031-render.log
+          test "$(find game/ci_output_loot_v031 -maxdepth 1 -type f -name '*.png' | wc -l)" -ge 5
+
+      - name: Upload v0.31 loot visual QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: valedouro-loot-v031-visual-qa
+          path: game/ci_output_loot_v031/*.png
+          if-no-files-found: error
+
       - name: Final CI cleanup
         shell: bash
         run: |
           set -e
           rm -rf game/.godot game/ci_output game/ci_output_reg001 game/ci_output_art_gate game/ci_output_cartoon game/ci_output_cartoon_ui game/ci_output_living_world game/ci_output_royal_castle game/ci_output_forest game/ci_output_desert game/ci_output_marsh game/ci_output_frost game/ci_output_coast game/ci_output_corrupted game/ci_output_abyss game/ci_art_reports game/tools/__pycache__ game/tools/reg001/__pycache__ game/tools/modeling/__pycache__ game/tools/art_pipeline/__pycache__
-          rm -rf game/ci_output_classes game/ci_output_equipment game/ci_output_missions_challenge game/ci_output_spell_slots
+          rm -rf game/ci_output_classes game/ci_output_equipment game/ci_output_missions_challenge game/ci_output_spell_slots game/ci_output_loot_v031
           rm -f game/tests/visual_capture.gd
           echo "CI is read-only: generated runtime assets and QA captures are not pushed back to main."
