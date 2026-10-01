@@ -235,6 +235,7 @@ func _attack() -> void:
 
 func _can_damage_monster(target: Node2D, feedback: bool = true) -> bool:
 	if not is_instance_valid(target) or target.is_queued_for_deletion() or target.hp<=0 or not monsters.has(target): return false
+	var kind: String = String(target.kind)
 	var boss_id: String = String(target.boss_id)
 	if boss_id == "BOSS_GENERAL_CINZA_001" and story_runtime.current_id != "Q_MS03_GENERAL_ASH":
 		if feedback: _show_toast("A Cidadela ainda alimenta a proteção do General da Cinza.")
@@ -254,15 +255,16 @@ func _damage_monster(target: Node2D, amount: int) -> bool:
 	target.queue_free()
 	player_gold += 10
 	_grant_combat_xp(28,boss_id,target.level)
+	var loot_text: String = _award_combat_loot(kind,boss_id,int(target.level))
 	var advanced: bool = false
 	if boss_id != "":
 		advanced = story_runtime.register_boss(boss_id)
 	_refresh_stats()
 	_refresh_objective()
 	if advanced:
-		_show_toast("O General da Cinza caiu. A rota para os pântanos foi revelada.")
+		_show_toast("O General da Cinza caiu. A rota para os pântanos foi revelada."+("\n"+loot_text if loot_text!="" else ""))
 	else:
-		_show_toast("Inimigo derrotado. +10 ouro")
+		_show_toast("Inimigo derrotado. +10 ouro"+("\n"+loot_text if loot_text!="" else ""))
 	return true
 
 func _interact() -> void:
@@ -367,6 +369,13 @@ func _toggle_map() -> void:
 	joystick_id = -1
 	joystick_vector = Vector2.ZERO
 
+
+func _award_combat_loot(kind: String,boss_id: String,enemy_level: int) -> String:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state == null:
+		return ""
+	var result: Dictionary = state.award_enemy_loot("REG_003_DESERTO_RUINAS",kind,enemy_level,boss_id!="",false)
+	return String(result.get("summary",""))
 
 func _grant_combat_xp(base_amount: int,boss_id: String = "",enemy_level: int = 1) -> void:
 	var state = get_node_or_null("/root/CartoonPlayerState")
