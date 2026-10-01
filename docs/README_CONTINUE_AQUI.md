@@ -316,3 +316,12 @@ renderer `mobile` via RenderingDevice com `d3d12`; Android permanece em
 `gl_compatibility`. Vulkan e OpenGL 3 ficam habilitados apenas como fallback
 de compatibilidade. O gate PC inclui validação estática das configurações e um
 teste runtime específico `cartoon_dx12_runtime_v040.gd` em runner Windows.
+
+
+### Atualização da candidata PC v0.40 — DirectX 12
+
+A edição Windows Full HD usa agora o driver `d3d12` do Godot 4.7.2 com
+renderer `mobile`/RenderingDevice. O objetivo é manter o visual Cartoon 2D e
+alto desempenho em 1920×1080 sem carregar recursos 3D de Forward+. O teste
+`cartoon_pc_fullhd_v040.gd` exige explicitamente renderer `mobile` e driver
+Windows `d3d12`. A versão Android permanece separada.
