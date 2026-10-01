@@ -48,10 +48,16 @@ func run() -> void:
 		host.monsters.append(target)
 		target.set_process(false)
 		assert(layout.spell_buttons.size()==3)
-		# Actual native touch: casting one button must leave the other two ready.
+		layout._process(0)
 		for i in range(3):
-			layout._process(0)
-			assert(not layout.spell_buttons[i].disabled)
+			assert(layout.spell_buttons[i].visible == state.spell_unlocked(i))
+			if not state.spell_unlocked(i):
+				assert(not host.hero.cast_spell(host,i),"Locked spell cast before level requirement")
+		# Independent cooldown regression is still verified after all three unlock.
+		state.player_level = 25
+		layout._process(0)
+		for i in range(3):
+			assert(layout.spell_buttons[i].visible and not layout.spell_buttons[i].disabled)
 			await touch(layout.spell_buttons[i],10+i)
 			assert(host.hero.spell_cooldowns[i]>0,"Touch did not cast slot %d in %s" % [i,scene])
 			for next in range(i+1,3): assert(host.hero.spell_cooldowns[next]==0 and not layout.spell_buttons[next].disabled)
