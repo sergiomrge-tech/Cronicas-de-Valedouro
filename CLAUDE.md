@@ -92,3 +92,15 @@ em `docs/visual_qa/cartoon_v025/review.html`. 25 testes passaram localmente no
 Godot 4.6.3; workflow Android executa a suíte em 4.7.2 e publica v0.25-test.
 Arte MODELED_PENDING_GATE; mecânicas PROPOSED; teste em aparelho real e
 aprovação visual pendentes. A base oficial documentada continua v0.19.
+
+## Continuidade — candidata v0.26: esquiva e avisos de ataque
+
+O herói ganha esquiva de 120 unidades com rastro azul, proteção curta e recarga.
+Monstros das oito regiões avisam antes de atacar; chefes têm aviso mais longo
+e área maior. Movimento respeita a geometria existente. HUD touch sem
+sobreposição, incluindo painel de missão expandido. Leia
+`docs/CARTOON_REACTIVE_V0_26.md`; GIFs/capturas reais em
+`docs/visual_qa/cartoon_v026/review.html`. 26 testes passaram em Godot 4.6.3;
+workflow Android executa a suíte oficial 4.7.2 e publica v0.26-test. Arte
+MODELED_PENDING_GATE, novas mecânicas PROPOSED; aprovação visual e teste em
+aparelho real pendentes. Base oficial documentada continua v0.19.

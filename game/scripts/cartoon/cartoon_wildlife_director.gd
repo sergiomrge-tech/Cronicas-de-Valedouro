@@ -115,6 +115,7 @@ func harvest(animal) -> void:
 	animal.queue_free()
 
 func damage_player(amount: int) -> void:
+	if host.hero.is_evading(): return
 	host.hero.trigger_hurt()
 	host.player_hp = maxi(0,host.player_hp-host.hero.reduce_incoming_damage(amount))
 	if host.player_hp <= 0:

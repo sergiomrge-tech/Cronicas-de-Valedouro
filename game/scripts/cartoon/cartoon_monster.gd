@@ -21,6 +21,10 @@ var story_tag: String = ""
 var boss_id: String = ""
 var lunge_t: float = 0.0
 var anim_t: float = 0.0
+var windup_t: float = 0.0
+var windup_duration: float = 0.45
+var strike_radius: float = 64.0
+var strike_direction: Vector2 = Vector2.DOWN
 
 func setup(data: Dictionary) -> void:
 	kind = String(data.get("kind","wolf"))
@@ -72,14 +76,48 @@ func take_damage(amount: int) -> bool:
 	return hp <= 0
 
 func can_hit() -> bool:
-	return attack_cooldown <= 0.0
+	return hp>0 and attack_cooldown <= 0.0 and windup_t<=0
+
+func can_chase() -> bool:
+	return hp>0 and windup_t<=0 and lunge_t<=0
+
+func advance_contact(hero, delta: float, contact_radius: float) -> bool:
+	if hp<=0 or hero.death_t>0:
+		windup_t = 0
+		return false
+	if windup_t>0:
+		windup_t = maxf(0,windup_t-delta)
+		queue_redraw()
+		if windup_t>0: return false
+		mark_hit()
+		var pulse = FX.spawn(get_parent(),position,"enemy_strike",strike_direction,Color("ff654f") if boss_id!="" else Color("ffb45e"))
+		if pulse != null: pulse.strike_radius = strike_radius
+		return position.distance_to(hero.position)<=strike_radius and not hero.is_evading()
+	if position.distance_to(hero.position)<=contact_radius and can_hit():
+		windup_duration = 0.8 if boss_id!="" else 0.45
+		windup_t = windup_duration
+		strike_radius = contact_radius+(42 if boss_id!="" else 12)
+		strike_direction = (hero.position-position).normalized()
+		queue_redraw()
+	return false
 
 func mark_hit() -> void:
 	attack_cooldown = 0.9
 	lunge_t = 0.20
-	FX.spawn(get_parent(),position+Vector2(0,-22),"slash",Vector2.DOWN,Color("ff965c"))
+	FX.spawn(get_parent(),position+Vector2(0,-22),"slash",strike_direction,Color("ff965c"))
 
 func _draw() -> void:
+	if windup_t>0:
+		draw_set_transform(Vector2.ZERO,0,Vector2.ONE/scale)
+		var progress: float = 1-windup_t/windup_duration
+		var warning: Color = Color("ff654f") if boss_id!="" else Color("ffb45e")
+		draw_circle(Vector2.ZERO,strike_radius,Color(warning,0.10+progress*0.12))
+		draw_arc(Vector2.ZERO,strike_radius,0,TAU,64,Color(warning,0.8),2.5,true)
+		draw_arc(Vector2.ZERO,strike_radius-5,-PI/2,-PI/2+TAU*progress,64,Color("ffe4b4"),3.5,true)
+		var tip: Vector2 = strike_direction*(strike_radius-12)
+		draw_line(tip-strike_direction.rotated(-0.65)*10,tip,warning,3,true)
+		draw_line(tip-strike_direction.rotated(0.65)*10,tip,warning,3,true)
+		draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 	var bob: float = absf(sin(anim_t*7.0))*2.0
 	DrawUtil.shadow(self,Vector2(0,10),24,0.26)
 	draw_set_transform(Vector2(sin(lunge_t*PI/0.2)*5,-bob),sin(lunge_t*PI/0.2)*0.10,Vector2.ONE)

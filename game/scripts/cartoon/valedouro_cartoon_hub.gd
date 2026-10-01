@@ -179,7 +179,14 @@ func _toggle_map() -> void:
 	joystick_vector = Vector2.ZERO
 
 
+func _hero_can_move(point: Vector2) -> bool:
+	return environment != null and environment.is_walkable(point)
+
 func _process(delta: float) -> void:
+	var layout = get_node_or_null("HUD/GameLayout")
+	if layout != null and layout.is_blocked():
+		if hero != null: hero.set_motion(Vector2.ZERO)
+		return
 	if interiors != null and interiors.active:
 		toast_timer = maxf(0,toast_timer-delta)
 		if toast_timer <= 0: toast_label.text = ""
@@ -194,7 +201,7 @@ func _process(delta: float) -> void:
 	if dir.length()>1.0: dir=dir.normalized()
 	if hero:
 		var next = hero.position + dir*speed*delta
-		if environment and environment.is_walkable(next): hero.position=next
+		if hero.dodge_t<=0 and _hero_can_move(next): hero.position=next
 		hero.set_motion(dir)
 		_update_poi_hint()
 		_update_objective_navigation()
@@ -214,6 +221,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		joystick_vector=(event.position-joystick_origin).limit_length(80.0)/80.0
 
 func _attack() -> void:
+	if hero != null and hero.dodge_t>0: return
 	if interiors != null and interiors.active: return
 	if not hero:
 		return
@@ -335,6 +343,8 @@ func _spawn_monsters() -> void:
 		monsters.append(monster)
 
 func _update_monsters(delta: float) -> void:
+	var layout = get_node_or_null("HUD/GameLayout")
+	if layout != null and layout.is_blocked(): return
 	if not hero or not environment:
 		return
 	for monster in monsters.duplicate():
@@ -342,13 +352,12 @@ func _update_monsters(delta: float) -> void:
 			monsters.erase(monster)
 			continue
 		var dist: float = monster.position.distance_to(hero.position)
-		if dist < 270.0 and dist > 50.0:
+		if dist < 270.0 and dist > 50.0 and monster.can_chase():
 			var dir: Vector2 = (hero.position - monster.position).normalized()
 			var next: Vector2 = monster.position + dir * float(monster.move_speed) * delta
 			if environment.is_walkable(next):
 				monster.position = next
-		if dist <= 52.0 and monster.can_hit():
-			monster.mark_hit()
+		if monster.advance_contact(hero,delta,52.0):
 			hero.trigger_hurt()
 			player_hp = maxi(0, player_hp - int(hero.reduce_incoming_damage(int(monster.contact_damage))))
 			_refresh_stats()

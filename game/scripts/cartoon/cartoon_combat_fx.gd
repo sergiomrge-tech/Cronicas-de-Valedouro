@@ -15,6 +15,7 @@ var owns_light: bool = false
 var light: PointLight2D
 var corpse_texture: Texture2D
 var corpse_region: Rect2
+var strike_radius: float = 64.0
 static func spawn(parent: Node, origin: Vector2, effect: String, aim: Vector2 = Vector2.RIGHT, color: Color = Color("a287ff"), amount: int = 0):
 	if parent == null or not parent.is_inside_tree() or active_count >= 48: return null
 	var fx = ValedouroCartoonCombatFX.new()
@@ -23,7 +24,7 @@ static func spawn(parent: Node, origin: Vector2, effect: String, aim: Vector2 = 
 	fx.direction = aim.normalized() if aim.length()>0.01 else Vector2.RIGHT
 	fx.tint = color
 	fx.damage = amount
-	fx.lifetime = 0.5 if effect in ["slash","hit","hurt"] else 0.9
+	fx.lifetime = 0.5 if effect in ["slash","hit","hurt","evade","enemy_strike"] else 0.9
 	parent.add_child(fx)
 	return fx
 func _ready() -> void:
@@ -73,6 +74,13 @@ func _draw() -> void:
 	if corpse_texture != null:
 		draw_texture_rect_region(corpse_texture,Rect2(-44,-88,88,98),corpse_region,Color(tint,fade*0.7))
 	match kind:
+		"enemy_strike":
+			draw_arc(Vector2.ZERO,strike_radius,0,TAU,64,Color(tint,fade),3.5,true)
+			draw_arc(Vector2.ZERO,strike_radius*(0.7+p*0.3),direction.angle()-1.4,direction.angle()+1.4,40,Color(tint,fade*0.6),6,true)
+		"evade":
+			for i in range(5):
+				var start: Vector2 = -direction*(p*40+i*7)+direction.orthogonal()*float(i-2)*6
+				draw_line(start,start-direction*(15+fade*22),Color(tint,fade*(0.7-i*0.1)),2,true)
 		"slash":
 			var angle: float = direction.angle()
 			for i in range(4):

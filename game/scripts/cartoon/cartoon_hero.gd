@@ -23,6 +23,62 @@ var spell_index: int = 0
 var spell_mode: bool = false
 var weapon_tier: int = 0
 var armor_tier: int = 0
+var dodge_t: float = 0.0
+var dodge_elapsed: float = 0.0
+var dodge_cooldown: float = 0.0
+var dodge_direction: Vector2 = Vector2.DOWN
+var dodge_host: WeakRef
+var dodge_trail_t: float = 0.0
+const DODGE_DURATION: float = 0.22
+const DODGE_DISTANCE: float = 120.0
+
+func is_evading() -> bool:
+	return dodge_t>0 and dodge_elapsed<0.16
+
+func try_dodge(host) -> bool:
+	if dodge_cooldown>0 or dodge_t>0 or death_t>0 or get_tree().paused: return false
+	var layout = host.get_node_or_null("HUD/GameLayout")
+	if layout != null and layout.is_blocked(): return false
+	if host.get("interiors") != null and host.interiors.active: return false
+	var direction: Vector2 = Input.get_vector("move_left","move_right","move_up","move_down")
+	if host.joystick_vector.length()>0.12: direction = host.joystick_vector
+	if direction.length()<0.08: direction = move_vector if move_vector.length()>0.08 else facing
+	if direction.length()<0.08: direction = Vector2.DOWN
+	dodge_direction = direction.normalized()
+	facing = dodge_direction
+	dodge_host = weakref(host)
+	dodge_t = DODGE_DURATION
+	dodge_elapsed = 0
+	dodge_trail_t = 0
+	dodge_cooldown = 2.2
+	attack_t = 0
+	cast_t = 0
+	FX.spawn(get_parent(),position,"evade",dodge_direction,Color("7feaff"))
+	queue_redraw()
+	return true
+
+func _step_dodge(delta: float) -> void:
+	if dodge_t<=0: return
+	var host = dodge_host.get_ref()
+	var layout = host.get_node_or_null("HUD/GameLayout") if is_instance_valid(host) else null
+	if not is_instance_valid(host) or death_t>0 or (layout != null and layout.is_blocked()) or (host.get("interiors") != null and host.interiors.active):
+		dodge_t = 0
+		return
+	var elapsed: float = minf(delta,dodge_t)
+	var distance: float = DODGE_DISTANCE*elapsed/DODGE_DURATION
+	var steps: int = maxi(1,ceili(distance/6))
+	for i in range(steps):
+		var next: Vector2 = position+dodge_direction*distance/steps
+		if not host._hero_can_move(next):
+			dodge_t = 0
+			return
+		position = next
+	dodge_t = maxf(0,dodge_t-elapsed)
+	dodge_elapsed += elapsed
+	dodge_trail_t += elapsed
+	if dodge_trail_t>=0.07:
+		dodge_trail_t = 0
+		FX.spawn(get_parent(),position,"evade",dodge_direction,Color("7feaff"))
 
 func _ready() -> void:
 	apply_equipment_from_state()
@@ -66,7 +122,7 @@ func cycle_spell() -> void:
 	queue_redraw()
 
 func cast_spell(host) -> bool:
-	if spell_cooldown>0 or death_t>0 or get_tree().paused: return false
+	if spell_cooldown>0 or dodge_t>0 or death_t>0 or get_tree().paused: return false
 	var layout = host.get_node_or_null("HUD/GameLayout")
 	if layout != null and layout.is_blocked(): return false
 	if host.get("interiors") != null and host.interiors.active: return false
@@ -101,6 +157,8 @@ func trigger_attack() -> void:
 	queue_redraw()
 
 func _process(delta: float) -> void:
+	_step_dodge(delta)
+	dodge_cooldown = maxf(0,dodge_cooldown-delta)
 	anim_t += delta
 	death_t = maxf(0,death_t-delta)
 	cast_t = maxf(0,cast_t-delta)
@@ -110,7 +168,7 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	var moving = move_vector.length() > 0.08
+	var moving = move_vector.length() > 0.08 or dodge_t>0
 	var bob = absf(sin(anim_t * 9.0)) * 3.0 if moving else sin(anim_t * 2.0) * 1.0
 	DrawUtil.shadow(self, Vector2(0, 9), 19, 0.30)
 	draw_set_transform(Vector2(0,-bob),0,Vector2.ONE)
@@ -119,6 +177,11 @@ func _draw() -> void:
 		direction = "left" if facing.x < 0.0 else "right"
 	elif facing.y < 0.0:
 		direction = "back"
+	if dodge_t>0:
+		for i in range(3,0,-1):
+			draw_set_transform(-dodge_direction*float(i)*17+Vector2(0,-bob),dodge_direction.x*0.16,Vector2.ONE)
+			CombatArt.hero_frame(self,direction,"walk",int(anim_t*20)%8,Rect2(-40,-94,80,100),Color(0.5,0.9,1,0.3/float(i)))
+		draw_set_transform(Vector2(0,-bob),dodge_direction.x*0.16,Vector2.ONE)
 	var animation: String = "idle"
 	var frame: int = int(anim_t*4)%4
 	if moving:

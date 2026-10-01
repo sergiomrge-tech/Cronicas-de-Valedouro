@@ -147,7 +147,14 @@ func _spawn_monster(data: Dictionary) -> void:
 	objects.add_child(monster)
 	monsters.append(monster)
 
+func _hero_can_move(point: Vector2) -> bool:
+	return Coast.in_region(point,70.0)
+
 func _process(delta: float) -> void:
+	var layout = get_node_or_null("HUD/GameLayout")
+	if layout != null and layout.is_blocked():
+		if hero != null: hero.set_motion(Vector2.ZERO)
+		return
 	toast_timer = maxf(0.0,toast_timer-delta)
 	if toast_timer <= 0.0 and toast_label:
 		toast_label.text = ""
@@ -162,7 +169,7 @@ func _process(delta: float) -> void:
 		dir = dir.normalized()
 	if hero:
 		var next: Vector2 = hero.position+dir*speed*delta
-		if Coast.in_region(next,70.0):
+		if hero.dodge_t<=0 and _hero_can_move(next):
 			hero.position = next
 		hero.set_motion(dir)
 		_update_poi_hint()
@@ -188,6 +195,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		joystick_vector = (event.position-joystick_origin).limit_length(80.0)/80.0
 
 func _attack() -> void:
+	if hero != null and hero.dodge_t>0: return
 	if hero == null:
 		return
 	if wildlife != null and wildlife.attack(): return
@@ -269,6 +277,8 @@ func _interact() -> void:
 			_show_toast(label)
 
 func _update_monsters(delta: float) -> void:
+	var layout = get_node_or_null("HUD/GameLayout")
+	if layout != null and layout.is_blocked(): return
 	if hero == null:
 		return
 	for monster in monsters.duplicate():
@@ -276,13 +286,12 @@ func _update_monsters(delta: float) -> void:
 			monsters.erase(monster)
 			continue
 		var dist: float = monster.position.distance_to(hero.position)
-		if dist < 340.0 and dist > 54.0:
+		if dist < 340.0 and dist > 54.0 and monster.can_chase():
 			var dir: Vector2 = (hero.position-monster.position).normalized()
 			var next: Vector2 = monster.position+dir*float(monster.move_speed)*delta
 			if Coast.in_region(next,70.0):
 				monster.position = next
-		if dist <= 56.0 and monster.can_hit():
-			monster.mark_hit()
+		if monster.advance_contact(hero,delta,56.0):
 			hero.trigger_hurt()
 			player_hp = maxi(0,player_hp-int(hero.reduce_incoming_damage(int(monster.contact_damage))))
 			_refresh_stats()
