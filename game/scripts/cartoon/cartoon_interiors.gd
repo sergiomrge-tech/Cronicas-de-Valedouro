@@ -179,9 +179,9 @@ func is_walkable(p: Vector2) -> bool:
 	for blocker in blockers:
 		if blocker.grow(12).has_point(p): return false
 	return true
-func nearest_point() -> Dictionary:
+func nearest_point(radius: float = 165.0) -> Dictionary:
 	var nearest: Dictionary = {}
-	var distance: float = 130
+	var distance: float = radius
 	for point in points:
 		var d: float = host.hero.position.distance_to(point.pos)
 		if d < distance:
@@ -191,7 +191,7 @@ func nearest_point() -> Dictionary:
 func interact() -> void:
 	var point: Dictionary = nearest_point()
 	if point.is_empty():
-		host._show_toast("Aproxime-se de um serviço ou da porta de saída.")
+		host._show_toast("Aproxime-se do marcador de serviço ou da saída.")
 		return
 	match point.id:
 		"exit": leave()
@@ -214,9 +214,25 @@ func interact() -> void:
 		"inspect_council": host._show_toast("Documentos, livros e mobiliário cerimonial da câmara do conselho.")
 		"inspect_feast": host._show_toast("Louça fina, taças e mesas preparadas no salão de banquetes.")
 		"rumor": host._show_toast("Coelhos fogem; cervos dão couro; javalis se defendem. Procure os campos ao sul.")
+func action_text(point: Dictionary = {}) -> String:
+	var current: Dictionary = point if not point.is_empty() else nearest_point()
+	if current.is_empty(): return ""
+	match String(current.get("id","")):
+		"exit": return "SAIR"
+		"board": return "CONTRATOS"
+		"craft": return "FORJAR"
+		"rest", "royal_rest": return "DESCANSAR"
+		"royal_audience": return "FALAR"
+		"rumor": return "CONVERSAR"
+		_: return "EXAMINAR"
+
 func _refresh_hint() -> void:
 	var point: Dictionary = nearest_point()
-	host.poi_label.text = "◆ "+String(point.label)+" • USAR" if not point.is_empty() else "Explore o interior • a saída fica ao sul"
+	if not point.is_empty():
+		var prefix: String = "E — " if OS.get_name() == "Windows" else ""
+		host.poi_label.text = "◆ %s • %s%s" % [String(point.label),prefix,action_text(point)]
+	else:
+		host.poi_label.text = "Explore o interior • procure os marcadores • saída ao sul"
 	host.objective_nav_label.text = "Castelo • "+RoyalPalace.location(host.hero.position) if kind == "castle" else "Interior • "+String(SERVICES[kind]).capitalize()
 func _process(delta: float) -> void:
 	if not active: return
@@ -240,6 +256,13 @@ func _process(delta: float) -> void:
 	queue_redraw()
 func _draw() -> void:
 	if not active: return
+	# Interaction markers: subtle rings make services and exits readable on PC.
+	for point in points:
+		var p: Vector2 = point.get("pos",Vector2.ZERO)
+		var nearby: bool = host != null and host.hero != null and host.hero.position.distance_to(p) <= 165.0
+		var alpha: float = 0.58 if nearby else 0.30
+		draw_circle(p,18.0,Color(0.93,0.74,0.30,alpha))
+		draw_arc(p,24.0,0,TAU,28,Color(1.0,0.90,0.55,0.88 if nearby else 0.46),2.0,true)
 	for p in glow_points:
 		var strength: float = 0.018+sin(clock*5)*0.003
 		for radius in range(8): draw_circle(p+Vector2(0,35),float(150-radius*16),Color(1,0.64,0.25,strength))
