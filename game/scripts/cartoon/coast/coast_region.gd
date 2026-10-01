@@ -219,6 +219,7 @@ func _attack() -> void:
 func _can_damage_monster(target: Node2D, feedback: bool = true) -> bool:
 	if not is_instance_valid(target) or target.is_queued_for_deletion() or target.hp<=0 or not monsters.has(target): return false
 	var story_tag: String = String(target.story_tag)
+	var kind: String = String(target.kind)
 	var boss_id: String = String(target.boss_id)
 	if story_tag == "hollow_fleet" and story_runtime.current_id != "Q_MS06_HOLLOW_FLEET":
 		if feedback: _show_toast("A Frota Oca ainda navega fora do alcance desta missão.")
@@ -242,6 +243,7 @@ func _damage_monster(target: Node2D, amount: int) -> bool:
 	target.queue_free()
 	player_gold += 16
 	_grant_combat_xp(65,boss_id,target.level)
+	var loot_text: String = _award_combat_loot(kind,boss_id,int(target.level))
 	var advanced: bool = false
 	if story_tag == "hollow_fleet":
 		advanced = story_runtime.register_fleet_kill(story_tag)
@@ -250,9 +252,9 @@ func _damage_monster(target: Node2D, amount: int) -> bool:
 	_refresh_stats()
 	_refresh_objective()
 	if advanced:
-		_show_toast("Objetivo principal concluído. A próxima rota foi revelada.")
+		_show_toast("Objetivo principal concluído. A próxima rota foi revelada."+("\n"+loot_text if loot_text!="" else ""))
 	else:
-		_show_toast("Inimigo derrotado. +16 ouro")
+		_show_toast("Inimigo derrotado. +16 ouro"+("\n"+loot_text if loot_text!="" else ""))
 	return true
 
 func _interact() -> void:
@@ -351,6 +353,13 @@ func _toggle_map() -> void:
 	joystick_id = -1
 	joystick_vector = Vector2.ZERO
 
+
+func _award_combat_loot(kind: String,boss_id: String,enemy_level: int) -> String:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state == null:
+		return ""
+	var result: Dictionary = state.award_enemy_loot("REG_006_COSTAS_ILHAS_PERDIDAS",kind,enemy_level,boss_id!="",false)
+	return String(result.get("summary",""))
 
 func _grant_combat_xp(base_amount: int,boss_id: String = "",enemy_level: int = 1) -> void:
 	var state = get_node_or_null("/root/CartoonPlayerState")
