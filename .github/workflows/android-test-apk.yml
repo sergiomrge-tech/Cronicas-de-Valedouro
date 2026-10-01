@@ -128,8 +128,8 @@ jobs:
           for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024; do
             echo "===== TEST: $t ====="
             timeout 70s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" 2>&1 | tee "/tmp/valedouro-test-$t.log"
-            ! rg -q "SCRIPT ERROR|ERROR:|Assertion failed" "/tmp/valedouro-test-$t.log"
-            rg -q ": PASS" "/tmp/valedouro-test-$t.log"
+            ! grep -Eq "SCRIPT ERROR|ERROR:|Assertion failed" "/tmp/valedouro-test-$t.log"
+            grep -q ": PASS" "/tmp/valedouro-test-$t.log"
           done
 
       - name: Export Android debug APK
