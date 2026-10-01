@@ -69,9 +69,11 @@ func defeated(actor) -> void:
 	state.demon_cooldowns[actor.slot_id] = Time.get_unix_time_from_system()+RESPAWN_SECONDS
 	host.player_gold += 35+tier*8
 	state.gain_xp(80+tier*30+actor.level*10)
+	var loot: Dictionary = state.award_enemy_loot(region_id,String(actor.kind),int(actor.level),false,true)
 	state.save_profile()
 	host._refresh_stats()
-	host._show_toast("Demônio de elite derrotado • +%d XP • +%d ouro" % [80+tier*30+actor.level*10,35+tier*8])
+	var loot_text: String = String(loot.get("summary",""))
+	host._show_toast("Demônio de elite derrotado • +%d XP • +%d ouro%s" % [80+tier*30+actor.level*10,35+tier*8,("\n"+loot_text if loot_text!="" else "")])
 	actor.queue_free()
 func hit_player(amount: int, enemy_level: int) -> void:
 	if host.hero.is_evading() or host.hero.death_t>0: return
