@@ -16,8 +16,24 @@ const SAVE_PATH: String = "user://valedouro_cartoon_profile_v1.json"
 const SAVE_VERSION: int = 7
 const Classes = preload("res://scripts/cartoon/cartoon_class_catalog.gd")
 const Loot = preload("res://scripts/cartoon/cartoon_loot_catalog.gd")
+const SPELL_UNLOCK_LEVELS: Array[int] = [1,10,25]
 var active_class: String = "warrior"
 var skill_ranks: Dictionary = {}
+
+func spell_unlock_level(index: int) -> int:
+	if index < 0 or index >= SPELL_UNLOCK_LEVELS.size():
+		return 999
+	return SPELL_UNLOCK_LEVELS[index]
+
+func spell_unlocked(index: int) -> bool:
+	return player_level >= spell_unlock_level(index)
+
+func unlocked_spell_count() -> int:
+	var count: int = 0
+	for i in range(SPELL_UNLOCK_LEVELS.size()):
+		if spell_unlocked(i):
+			count += 1
+	return count
 
 func skill_rank(id: String, active_only: bool = true) -> int:
 	if not Classes.SKILLS.has(id): return 0
