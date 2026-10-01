@@ -181,3 +181,13 @@ Regras que não devem regredir:
 - slots de arma, elmo, peitoral, luvas, capa, calças e botas;
 - Diário de Missões com rolagem vertical touch;
 - textos/HUD compactos e avisos sem cobrir controles mobile.
+
+
+## Continuidade — candidata v0.33: cura rápida e equipamentos por nível
+
+A v0.33 adiciona botão CURA no HUD mobile, uso inteligente de Frasco/Elixir e
+requisitos de nível para equipamentos dos oito tiers (1/8/18/28/40/55/70/85).
+Itens raros podem ser obtidos antes do nível, mas ficam bloqueados na Bolsa;
+a Forja também respeita o requisito. Save permanece v7. Ler
+`docs/CARTOON_RPG_PROGRESSION_V0_33.md`. Só promover após o Godot Gate 4.7.2.
+APK continua sob demanda.
