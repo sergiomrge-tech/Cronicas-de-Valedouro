@@ -3,7 +3,7 @@
 **Diretor:** Sergio  
 **Mundo:** Elyndor  
 **Engine:** Godot 4.7.2  
-**Base oficial validada:** 2D Cartoon v0.30  
+**Base oficial validada:** 2D Cartoon v0.32  
 **Cena inicial:** `res://scenes/cartoon/CartoonMainMenu.tscn`
 
 ## ATENÇÃO
@@ -206,7 +206,7 @@ A candidata deve passar pelo Godot 4.7.2 Gate antes de ser tratada como
 validada. Não gerar APK automaticamente.
 
 
-## Continuidade — candidata v0.32: progressão e interface RPG
+## Continuidade — v0.32 validada: progressão e interface RPG
 
 A regra da v0.30 de três magias disponíveis desde o início foi **substituída**
 por decisão do Diretor: Brasa no nível 1, Cristal no nível 10 e Arcana no
@@ -219,10 +219,10 @@ mostrar barra de scroll quando houver conteúdo abaixo.
 
 A v0.32 inclui a v0.31 de loot/consumíveis. Ler
 `CARTOON_UI_PROGRESSION_V0_32.md` e `CARTOON_LOOT_V0_31.md`.
-Somente considerar validada após Godot Gate 4.7.2. APK continua sob demanda.
+Validada no Godot 4.7.2 oficial no commit `26108ab8`, run `36868571315`, com parser/import, 51 testes nativos e QA visual. APK continua sob demanda.
 
 
-## Retomada — candidata v0.32, sem APK
+## Retomada — v0.32 validada, sem APK
 
 Retomada solicitada pelo Diretor a partir do GitHub, commit `f69405c`.
 Sincronizadas as v0.31/v0.32 já implementadas: loot e poções, save v7,
