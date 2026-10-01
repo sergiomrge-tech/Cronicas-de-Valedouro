@@ -3,7 +3,7 @@
 **Diretor:** Sergio  
 **Mundo:** Elyndor  
 **Engine:** Godot 4.7.2  
-**Base oficial validada:** 2D Cartoon v0.34  
+**Base oficial validada:** 2D Cartoon v0.35  
 **Cena inicial:** `res://scenes/cartoon/CartoonMainMenu.tscn`
 
 ## ATENÇÃO
@@ -252,10 +252,9 @@ COLETAR no HUD. O recurso entra diretamente na Bolsa/Forja e reaparece em
 `docs/CARTOON_GATHERING_V0_34.md`. Validada no Godot 4.7.2 oficial no commit `ed2b1173`, run `36883480977`, com 53 testes nativos e QA visual. APK continua sob demanda.
 
 
-## Continuidade — candidata v0.35: level up e desbloqueios compactos
+## Continuidade — v0.35 validada: level up e desbloqueios compactos
 
 A v0.35 adiciona banner curto de subida de nível, aviso automático de magia/tier
 liberado e contador de pontos de habilidade no retrato do herói. Não usa modal
 e não interrompe o combate. O save permanece v8. Ler
-`docs/CARTOON_LEVELUP_FEEDBACK_V0_35.md`. Só promover após o Godot Gate 4.7.2.
-APK continua sob demanda.
+`docs/CARTOON_LEVELUP_FEEDBACK_V0_35.md`. Validada no Godot 4.7.2 oficial no commit `e90330ba`, run `36885539172`, com 54 testes nativos e QA visual. APK continua sob demanda.
