@@ -8,6 +8,13 @@ Branch: `pc-fullhd-v040`
 
 Transformar a base Cartoon atual em uma edição para PC Windows sem remover nem descaracterizar a edição Android.
 
+## Renderização DirectX 12
+
+- Windows usa **Direct3D 12 (D3D12)** como driver principal.
+- Renderer Godot: **Mobile / RenderingDevice**, escolhido para manter desempenho alto no RPG 2D em Full HD.
+- Fallback OpenGL 3 permanece habilitado apenas como compatibilidade de emergência em hardware sem suporte a D3D12.
+- Requisito alvo para o caminho D3D12: GPU/driver com suporte Direct3D 12 feature level 12_0 ou superior.
+
 ## Resolução
 
 - Saída padrão Windows: **1920×1080 (Full HD, 16:9)**.
