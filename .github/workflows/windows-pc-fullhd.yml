@@ -104,3 +104,47 @@ jobs:
           path: game/build/windows/Cronicas_de_Valedouro_PC_v0.40_FullHD.zip
           if-no-files-found: error
           retention-days: 30
+
+
+  validate-dx12-windows:
+    runs-on: windows-2022
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download Godot 4.7.2 Windows
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $zip = Join-Path $env:RUNNER_TEMP "godot-win64.zip"
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_win64.exe.zip" -OutFile $zip
+          $hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+          if ($hash -ne "731980f9608d61333e5baf54a2ef17210acc7a538446c0cb9969f002aca1e953") {
+            throw "SHA256 inesperado para Godot Windows: $hash"
+          }
+          $dest = Join-Path $env:RUNNER_TEMP "godot-win64"
+          Expand-Archive -Path $zip -DestinationPath $dest -Force
+          $console = Get-ChildItem -Path $dest -Recurse -Filter "*_console.exe" | Select-Object -First 1
+          if (-not $console) { throw "Godot console executable não encontrado" }
+          "GODOT_WIN=$($console.FullName)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Validate configured Windows overrides
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $project = Get-Content "game/project.godot" -Raw
+          if ($project -notmatch 'renderer/rendering_method\.windows="mobile"') { throw "Renderer Windows mobile ausente" }
+          if ($project -notmatch 'rendering_device/driver\.windows="d3d12"') { throw "Driver Windows d3d12 ausente" }
+
+      - name: Real DirectX 12 runtime gate
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          & $env:GODOT_WIN --path game --rendering-method mobile --rendering-driver d3d12 --audio-driver Dummy --script res://tests/cartoon_dx12_runtime_v040.gd 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\dx12-runtime.log"
+          if ($LASTEXITCODE -ne 0) { throw "Godot D3D12 runtime gate falhou com código $LASTEXITCODE" }
+          $log = Get-Content "$env:RUNNER_TEMP\dx12-runtime.log" -Raw
+          if ($log -notmatch "cartoon_dx12_runtime_v040: PASS") { throw "PASS do gate DX12 não encontrado" }
+          if ($log -notmatch "driver=d3d12") { throw "Godot não confirmou driver=d3d12" }
+          if ($log -notmatch "method=mobile") { throw "Godot não confirmou method=mobile" }
