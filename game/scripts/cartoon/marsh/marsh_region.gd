@@ -376,7 +376,16 @@ func _award_combat_loot(kind: String,boss_id: String,enemy_level: int) -> String
 	if state == null:
 		return ""
 	var result: Dictionary = state.award_enemy_loot("REG_004_PANTANOS_SOMBRIOS",kind,enemy_level,boss_id!="",false)
-	return String(result.get("summary",""))
+	var parts: PackedStringArray = PackedStringArray()
+	var common_summary: String = String(result.get("summary",""))
+	if common_summary != "":
+		parts.append(common_summary)
+	if boss_id != "":
+		var trophy: Dictionary = state.award_boss_trophy(boss_id)
+		var trophy_summary: String = String(trophy.get("summary",""))
+		if trophy_summary != "":
+			parts.append(trophy_summary)
+	return "\n".join(parts)
 
 func _grant_combat_xp(base_amount: int,boss_id: String = "",enemy_level: int = 1) -> void:
 	var state = get_node_or_null("/root/CartoonPlayerState")
