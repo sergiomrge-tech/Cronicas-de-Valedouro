@@ -12,6 +12,7 @@ func run() -> void:
 	state.reset_progress(true)
 	assert(state.owned_equipment().size() == 2)
 	assert(state.profile_summary().contains("2 equipamentos"))
+	state.player_level = 8
 
 	state.add_material("Seiva Ancestral",5)
 	assert(bool(state.craft("REG_002_FLORESTA_ANCESTRAL","weapon").get("ok",false)))
