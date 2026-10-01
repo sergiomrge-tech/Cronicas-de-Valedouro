@@ -38,13 +38,23 @@ Transformar a base Cartoon atual em uma edição para PC Windows sem remover nem
 
 No desktop, os grandes controles touch de combate e o joystick virtual são ocultados. HUD de status, missão, minimapa, menus, inventário, mapa e demais interfaces continuam disponíveis.
 
+## Renderização Windows
+
+- API principal: **DirectX 12 / Direct3D 12**.
+- Método de renderização no Windows: `mobile` (RenderingDevice), escolhido para reduzir overhead neste RPG 2D.
+- Driver Windows: `d3d12`.
+- Vulkan permanece habilitado como fallback.
+- OpenGL 3 permanece habilitado como fallback final para compatibilidade.
+- Android continua usando `gl_compatibility`; a mudança de DirectX 12 é exclusiva do Windows.
+- O jogo pode consultar em runtime `RenderingServer.get_current_rendering_driver_name()` para confirmar o driver efetivamente usado.
+
 ## Exportação
 
 Preset: `Windows Desktop Full HD`  
 Arquitetura: Windows x86_64  
 Saída: `build/windows/Cronicas_de_Valedouro_PC_v0.40.exe`
 
-O workflow `.github/workflows/windows-pc-fullhd.yml` valida parser/import, executa testes nativos essenciais e exporta um ZIP instalável/portátil contendo o EXE e SHA256.
+O workflow `.github/workflows/windows-pc-fullhd.yml` valida parser/import, executa testes nativos essenciais, exporta um ZIP portátil contendo EXE+SHA256 e executa um gate adicional em runner Windows para confirmar em runtime `driver=d3d12` e `method=mobile`.
 
 ## Estado
 
