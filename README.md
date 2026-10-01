@@ -6,13 +6,13 @@ Repositório oficial de desenvolvimento do jogo **Crônicas de Valedouro**.
 - Alvo principal: **Android / mobile-first**
 - Versão oficial atual: **2D Cartoon**
 - Cena inicial oficial: `res://scenes/cartoon/CartoonMainMenu.tscn`
-- Estado atual: **v0.19**, com save/menu de campanha, inventário RPG, HUD/XP 1–100 e polimento estrutural dos painéis mobile validado por capturas reais.
+- Base validada mais recente: **v0.30**. Trabalho atual: **candidata v0.32**, sobre loot/consumíveis v0.31, com progressão de magias e interface RPG refinada.
 
 ## Regra de continuidade
 A antiga versão visual/pixel-art não é mais a base de desenvolvimento e não deve ser usada para novas alterações. Toda evolução do jogo deve partir da implementação em `game/scenes/cartoon/` e `game/scripts/cartoon/`, preservando história, missões e mecânicas canônicas quando compatíveis.
 
 ## Estado da sessão de 30/09/2026
-A base 2D Cartoon está na **v0.19**. A v0.16 consolidou save/menu; a v0.17 trouxe o inventário RPG; a v0.18 adicionou HUD e progressão 1–100; e a v0.19 corrige a estrutura visual de menu, opções, confirmação, inventário, forja e zoom com QA visual dedicado.
+A base 2D Cartoon validada chegou à **v0.30**. As candidatas atuais são v0.31 (loot/consumíveis) e v0.32 (magias por nível, paper-doll na Bolsa, ouro visível, textos compactos e Diário rolável).
 
 ## Para agentes
 
@@ -111,3 +111,13 @@ equipamento por região e contador de piedade persistente para evitar azar
 extremo sem acelerar o power curve. Save v7 preserva a v0.30. A Bolsa recebe
 a aba ITENS. Teste e QA visual dedicados entram no Godot Gate 4.7.2.
 Leia `docs/CARTOON_LOOT_V0_31.md`. Nenhum APK automático.
+
+
+## Continuidade — candidata v0.32: progressão e interface RPG
+
+Decisão do Diretor após testar a v0.30: o personagem começa apenas com Brasa;
+Cristal desbloqueia no nível 10 e Arcana no nível 25. A Bolsa passa a mostrar
+ouro e um paper-doll do herói com arma, elmo, peitoral, luvas, capa, calças e
+botas. Painéis de texto foram compactados e o Diário de Missões agora possui
+rolagem vertical touch testada em 640×360. Leia
+`docs/CARTOON_UI_PROGRESSION_V0_32.md`. APK somente sob pedido.
