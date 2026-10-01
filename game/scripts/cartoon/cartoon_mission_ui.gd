@@ -141,11 +141,15 @@ func _card(item: Dictionary) -> void:
 	line.add_child(copy)
 	var title = UISkin.label(String(item.title),15,UISkin.GOLD)
 	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	title.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	copy.add_child(title)
 	var detail = UISkin.label(String(item.description),12)
 	detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	detail.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	copy.add_child(detail)
-	copy.add_child(UISkin.label(String(item.category)+" • "+String(item.reward),11,UISkin.MUTED))
+	var meta = UISkin.label(String(item.category)+" • "+String(item.reward),11,UISkin.MUTED)
+	meta.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	copy.add_child(meta)
 	var selected: bool = _state().tracked_mission==item.id
 	var active: bool = item.status=="active"
 	var button = _button("SEGUINDO" if selected else ("ACOMPANHAR" if active else ("NA GUILDA" if item.status=="available" else "CONCLUÍDA")),Vector2(118,44),_track.bind(String(item.id)))
