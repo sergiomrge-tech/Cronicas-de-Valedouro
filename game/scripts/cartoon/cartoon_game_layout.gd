@@ -248,6 +248,7 @@ func _build(map_script, navigation_property: String) -> void:
 	gameplay_nodes.append(attack_button)
 	interact_button = _button("USAR",Vector2(68,68),host._interact,34)
 	interact_button.name = "InteractButton"
+	interact_button.tooltip_text = "Interagir / entrar • tecla E"
 	add_child(interact_button)
 	gameplay_nodes.append(interact_button)
 	spell_bar = PanelContainer.new()
@@ -336,8 +337,12 @@ func _layout() -> void:
 	var attack_center: Vector2 = Vector2(area.end.x-128,area.end.y-54)
 	attack_button.size = Vector2(104,104)
 	attack_button.position = attack_center-attack_button.size*0.5
-	interact_button.size = Vector2(64,48)
-	interact_button.position = Vector2(area.end.x-258,area.end.y-182)
+	if desktop_mode:
+		interact_button.size = Vector2(92,56)
+		interact_button.position = Vector2(area.end.x-104,area.end.y-64)
+	else:
+		interact_button.size = Vector2(64,48)
+		interact_button.position = Vector2(area.end.x-258,area.end.y-182)
 	# Mobile keeps the radial cluster; Windows gets a fixed bottom action bar.
 	if desktop_mode:
 		spell_bar.size = Vector2(330,70)
@@ -473,7 +478,8 @@ func _process(_delta: float) -> void:
 			if quest_panel.get_global_rect().intersects(label.get_global_rect()): label.visible = false
 	if desktop_mode:
 		attack_button.visible = false
-		interact_button.visible = false
+		interact_button.visible = not blocked
+		interact_button.text = "E  USAR"
 		dodge_button.visible = false
 		heal_button.visible = false
 		spell_bar.visible = not blocked and not inside_building
