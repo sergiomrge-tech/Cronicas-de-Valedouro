@@ -307,3 +307,12 @@ grandes botões touch de combate ficam ocultos no Windows. Há preset
 `Windows Desktop Full HD`, teste `cartoon_pc_fullhd_v040.gd` e workflow de
 exportação Windows. Ler `docs/PC_FULLHD_V0_40.md`. Não substituir a linha
 Android até a build e o gate 4.7.2 concluírem com sucesso.
+
+
+### DirectX 12 na candidata PC
+
+A edição PC Full HD v0.40 usa override de plataforma: Windows executa o
+renderer `mobile` via RenderingDevice com `d3d12`; Android permanece em
+`gl_compatibility`. Vulkan e OpenGL 3 ficam habilitados apenas como fallback
+de compatibilidade. O gate PC inclui validação estática das configurações e um
+teste runtime específico `cartoon_dx12_runtime_v040.gd` em runner Windows.
