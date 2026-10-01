@@ -192,5 +192,11 @@ func _refresh() -> void:
 		if button == null: continue
 		var owned: bool = state.crafted.has(String(row.id))
 		var have: int = state.material_count(String(row.material))
-		button.text = "%s • +%d %s\n%s" % [String(row.label),int(row.get("attack",row.get("defense",0))),"ATQ" if row.slot=="weapon" else "DEF","EQUIPAR • já criado" if owned else "%d/%d %s • CRIAR" % [have,int(row.cost),String(row.material)]]
-		button.disabled = state.is_equipped(String(row.id)) or (not owned and have<int(row.cost))
+		var required_level: int = state.equipment_required_level(row)
+		var locked: bool = state.player_level < required_level
+		var action_text: String = "EQUIPAR • já criado" if owned else "%d/%d %s • CRIAR" % [have,int(row.cost),String(row.material)]
+		if locked:
+			action_text = "REQUER NÍVEL %d" % required_level
+		button.text = "%s • +%d %s • Nv %d\n%s" % [String(row.label),int(row.get("attack",row.get("defense",0))),"ATQ" if row.slot=="weapon" else "DEF",required_level,action_text]
+		button.disabled = state.is_equipped(String(row.id)) or locked or (not owned and have<int(row.cost))
+		button.tooltip_text = "Disponível no nível %d." % required_level if locked else button.text
