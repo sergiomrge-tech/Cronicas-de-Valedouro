@@ -3,7 +3,7 @@
 **Diretor:** Sergio  
 **Mundo:** Elyndor  
 **Engine:** Godot 4.7.2  
-**Base oficial validada:** 2D Cartoon v0.32  
+**Base oficial validada:** 2D Cartoon v0.33  
 **Cena inicial:** `res://scenes/cartoon/CartoonMainMenu.tscn`
 
 ## ATENÇÃO
@@ -233,11 +233,10 @@ em textos de loot longos. 34 testes Cartoon locais passaram; CI verifica
 `docs/visual_qa/cartoon_v032/review.html`. Não gerar APK nesta retomada.
 
 
-## Continuidade — candidata v0.33: cura rápida e equipamentos por nível
+## Continuidade — v0.33 validada: cura rápida e equipamentos por nível
 
 A v0.33 adiciona botão CURA no HUD mobile, uso inteligente de Frasco/Elixir e
 requisitos de nível para equipamentos dos oito tiers (1/8/18/28/40/55/70/85).
 Itens raros podem ser obtidos antes do nível, mas ficam bloqueados na Bolsa;
 a Forja também respeita o requisito. Save permanece v7. Ler
-`docs/CARTOON_RPG_PROGRESSION_V0_33.md`. Só promover após o Godot Gate 4.7.2.
-APK continua sob demanda.
+`docs/CARTOON_RPG_PROGRESSION_V0_33.md`. Validada no Godot 4.7.2 oficial no commit `4cb032e2`, run `36878325954`, com 52 testes nativos e QA visual. APK continua sob demanda.
