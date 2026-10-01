@@ -194,3 +194,13 @@ Entregar o ZIP do artefato como anexo nativo. Se o navegador salvar o anexo
 como `content` sem extensão, orientar renomear para `Valedouro.zip` antes
 de extrair e abrir o APK. Isso foi observado no celular do Diretor.
 Continua proibido gerar APK automaticamente a cada alteração.
+
+
+## Continuidade — candidata v0.31: loot cadenciado e consumíveis
+
+A evolução atual parte da candidata v0.30. A v0.31 conecta loot controlado às
+oito regiões e aos demônios de elite, adiciona Frasco de Cura e Elixir
+Restaurador, aba ITENS na Bolsa, drops raros de equipamento e pity persistente.
+Save v7 migra a campanha anterior. Leia `docs/CARTOON_LOOT_V0_31.md`.
+A candidata deve passar pelo Godot 4.7.2 Gate antes de ser tratada como
+validada. Não gerar APK automaticamente.
