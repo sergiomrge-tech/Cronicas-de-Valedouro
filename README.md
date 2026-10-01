@@ -6,7 +6,7 @@ Repositório oficial de desenvolvimento do jogo **Crônicas de Valedouro**.
 - Alvo principal: **Android / mobile-first**
 - Versão oficial atual: **2D Cartoon**
 - Cena inicial oficial: `res://scenes/cartoon/CartoonMainMenu.tscn`
-- Base validada mais recente: **v0.32**, com loot/consumíveis v0.31 integrado, progressão de magias por nível, paper-doll na Bolsa, ouro visível, textos compactos e Diário rolável.
+- Base validada mais recente: **v0.33**, com cura rápida no HUD e progressão de equipamentos por nível sobre a v0.32.
 
 ## Regra de continuidade
 A antiga versão visual/pixel-art não é mais a base de desenvolvimento e não deve ser usada para novas alterações. Toda evolução do jogo deve partir da implementação em `game/scenes/cartoon/` e `game/scripts/cartoon/`, preservando história, missões e mecânicas canônicas quando compatíveis.
@@ -123,11 +123,10 @@ rolagem vertical touch testada em 640×360. Leia
 `docs/CARTOON_UI_PROGRESSION_V0_32.md`. Godot 4.7.2 validado. APK continua sob pedido e exige build Android separada.
 
 
-## Continuidade — candidata v0.33: cura rápida e equipamentos por nível
+## Continuidade — v0.33 validada: cura rápida e equipamentos por nível
 
 A v0.33 adiciona botão CURA no HUD mobile, uso inteligente de Frasco/Elixir e
 requisitos de nível para equipamentos dos oito tiers (1/8/18/28/40/55/70/85).
 Itens raros podem ser obtidos antes do nível, mas ficam bloqueados na Bolsa;
 a Forja também respeita o requisito. Save permanece v7. Ler
-`docs/CARTOON_RPG_PROGRESSION_V0_33.md`. Só promover após o Godot Gate 4.7.2.
-APK continua sob demanda.
+`docs/CARTOON_RPG_PROGRESSION_V0_33.md`. Validada no Godot 4.7.2 oficial, run `36878325954`, com 52 testes nativos e QA visual dedicado. APK continua sob demanda.
