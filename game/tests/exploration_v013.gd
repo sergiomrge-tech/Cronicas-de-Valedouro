@@ -39,8 +39,8 @@ func run() -> void:
 	root.add_child(forest)
 	await process_frame
 	await process_frame
-	assert(forest.exploration_director.sites.size() == 7)
-	assert(forest.exploration_director.site_nodes.size() == 7)
+	assert(forest.exploration_director.sites.size() == 13)
+	assert(forest.exploration_director.site_nodes.size() == 13)
 	forest.hero.position = Vector2(34400,33600)
 	var before_materials: int = forest.exploration_director._material_total()
 	assert(forest.exploration_director.try_interact())
@@ -65,5 +65,5 @@ func run() -> void:
 	assert(forest.player_gold > gold_before)
 	assert(int(forest.exploration_director.materials.get("Seiva Ancestral",0)) >= 4)
 
-	print("exploration_v013: PASS — 49 locais opcionais, 7 mini-dungeons, 7 NPCs e materiais de crafting")
+	print("exploration_v013: PASS — 49 locais opcionais + coleta renovável, 7 mini-dungeons, 7 NPCs e materiais de crafting")
 	quit(0)
