@@ -31,11 +31,14 @@ func run() -> void:
 	for p in approaches.values():
 		assert(hub.environment.is_walkable(p))
 
-	# Keyboard E must enter the guild through the real InputMap -> _process route.
+	# Keyboard E must enter the guild through the explicit desktop input route.
 	hub.hero.position = approaches["guild"]
-	Input.action_press("interact")
-	await process_frame
-	Input.action_release("interact")
+	var layout = hub.get_node("HUD/GameLayout")
+	layout.desktop_mode = true
+	var e_event: InputEventKey = InputEventKey.new()
+	e_event.physical_keycode = KEY_E
+	e_event.pressed = true
+	layout._unhandled_input(e_event)
 	await process_frame
 	_assert_entered(hub,"guild")
 	hub.interiors.leave()
@@ -70,7 +73,8 @@ func run() -> void:
 	assert(source.contains("_try_enter_nearby_building(280.0)"))
 	assert(source.contains("_nearest_building_poi(280.0)"))
 	var layout_source: String = FileAccess.get_file_as_string("res://scripts/cartoon/cartoon_game_layout.gd")
-	assert(layout_source.contains('interact_button.text = "E  USAR"'))
+	assert(layout_source.contains('interact_button.text = "E  "+context_action'))
+	assert(layout_source.contains("event.physical_keycode == KEY_E"))
 	assert(layout_source.contains("interact_button.visible = not blocked"))
 
 	print("cartoon_building_interactions_v042: PASS — E e botão USAR entram em guilda, ferreiro, taverna e castelo")
