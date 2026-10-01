@@ -12,6 +12,7 @@ var options_panel: PanelContainer
 var inventory_ui: Control
 var profile_label: Label
 var zoom_label: Label
+var fullscreen_button: Button
 var continue_button: Button
 var delete_button: Button
 var confirmation_panel: PanelContainer
@@ -147,6 +148,13 @@ func _build_ui() -> void:
 	options.pressed.connect(_open_options)
 	menu_body.add_child(options)
 
+	var exit_game: Button = _menu_button("SAIR DO JOGO",Vector2(32,312))
+	exit_game.name = "ExitGameButton"
+	exit_game.visible = OS.get_name() == "Windows"
+	_style_button(exit_game,Color(0.25,0.08,0.10),Color(0.80,0.31,0.34))
+	exit_game.pressed.connect(_quit_game)
+	menu_body.add_child(exit_game)
+
 	delete_button = _menu_button("EXCLUIR PROGRESSO",Vector2(32,276))
 	delete_button.name = "DeleteSaveButton"
 	_style_button(delete_button,Color(0.25,0.08,0.10),Color(0.80,0.31,0.34))
@@ -154,8 +162,8 @@ func _build_ui() -> void:
 	menu_body.add_child(delete_button)
 
 	profile_label = Label.new()
-	profile_label.position = Vector2(24,322)
-	profile_label.size = Vector2(272,76)
+	profile_label.position = Vector2(24,360)
+	profile_label.size = Vector2(272,46)
 	profile_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	profile_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	profile_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -271,7 +279,7 @@ func _refresh_profile() -> void:
 func _build_options() -> void:
 	options_panel = PanelContainer.new()
 	options_panel.position = Vector2(300,150)
-	options_panel.size = Vector2(360,340)
+	options_panel.size = Vector2(360,390)
 	options_panel.visible = false
 	var style: StyleBoxFlat = StyleBoxFlat.new()
 	style.bg_color = Color(0.045,0.055,0.075,0.985)
@@ -287,7 +295,7 @@ func _build_options() -> void:
 
 	var options_body: Control = Control.new()
 	options_body.name = "OptionsContent"
-	options_body.custom_minimum_size = Vector2(352,332)
+	options_body.custom_minimum_size = Vector2(352,382)
 	options_body.mouse_filter = Control.MOUSE_FILTER_PASS
 	options_panel.add_child(options_body)
 
@@ -336,15 +344,24 @@ func _build_options() -> void:
 	reset.pressed.connect(func(): _set_zoom(1.0))
 	options_body.add_child(reset)
 
-	var close: Button = _menu_button("VOLTAR",Vector2(62,274))
+	fullscreen_button = _menu_button("TELA INTEIRA",Vector2(62,184))
+	fullscreen_button.name = "FullscreenButton"
+	fullscreen_button.size = Vector2(236,48)
+	fullscreen_button.add_theme_font_size_override("font_size",14)
+	fullscreen_button.visible = OS.get_name() == "Windows"
+	fullscreen_button.pressed.connect(_toggle_fullscreen)
+	options_body.add_child(fullscreen_button)
+
+	var close: Button = _menu_button("VOLTAR",Vector2(62,300))
 	close.size = Vector2(236,48)
 	close.add_theme_font_size_override("font_size",14)
 	close.pressed.connect(func(): options_panel.visible=false)
 	options_body.add_child(close)
 	delete_button.reparent(options_body,false)
-	delete_button.position = Vector2(62,202)
+	delete_button.position = Vector2(62,242)
 	delete_button.size = Vector2(236,48)
 	_refresh_zoom()
+	_refresh_fullscreen_button()
 
 func _build_confirmation() -> void:
 	confirmation_panel = PanelContainer.new()
@@ -403,6 +420,7 @@ func _open_options() -> void:
 		confirmation_panel.visible = false
 	options_panel.visible = true
 	_refresh_zoom()
+	_refresh_fullscreen_button()
 
 func _change_zoom(delta_value: float) -> void:
 	var state = _state()
@@ -420,10 +438,26 @@ func _refresh_zoom() -> void:
 	if state != null and zoom_label != null:
 		zoom_label.text = "%d%%" % int(round(float(state.camera_zoom)*100.0))
 
+func _toggle_fullscreen() -> void:
+	if OS.get_name() != "Windows": return
+	var current_mode := DisplayServer.window_get_mode()
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN)
+	call_deferred("_refresh_fullscreen_button")
+
+func _refresh_fullscreen_button() -> void:
+	if fullscreen_button == null: return
+	var fullscreen: bool = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
+	fullscreen_button.text = "TELA INTEIRA: LIGADA" if fullscreen else "TELA INTEIRA: DESLIGADA"
+
+func _quit_game() -> void:
+	var state = _state()
+	if state != null and state.has_campaign_save():
+		state.save_profile()
+	get_tree().quit()
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_F11 and OS.get_name() == "Windows":
-		var current_mode := DisplayServer.window_get_mode()
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN)
+		_toggle_fullscreen()
 		get_viewport().set_input_as_handled()
 		return
 	if not event.is_action_pressed("ui_cancel"): return
