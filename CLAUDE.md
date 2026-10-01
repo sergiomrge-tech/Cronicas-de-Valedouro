@@ -183,7 +183,7 @@ Regras que não devem regredir:
 - textos/HUD compactos e avisos sem cobrir controles mobile.
 
 
-## Continuidade — candidata v0.33: cura rápida e equipamentos por nível
+## Continuidade — v0.33 validada: cura rápida e equipamentos por nível
 
 A v0.33 adiciona botão CURA no HUD mobile, uso inteligente de Frasco/Elixir e
 requisitos de nível para equipamentos dos oito tiers (1/8/18/28/40/55/70/85).
@@ -191,3 +191,17 @@ Itens raros podem ser obtidos antes do nível, mas ficam bloqueados na Bolsa;
 a Forja também respeita o requisito. Save permanece v7. Ler
 `docs/CARTOON_RPG_PROGRESSION_V0_33.md`. Só promover após o Godot Gate 4.7.2.
 APK continua sob demanda.
+
+
+## Estado validado — v0.33
+
+Commit de runtime validado: `4cb032e2012ecfeeb2f0477fe0a158d4b51bb961`.
+Godot Gate oficial 4.7.2: run `36878325954`, conclusão success.
+A suíte contém 52 testes nativos e QA visual dedicado v0.33.
+
+Regras adicionais que não devem regredir:
+- botão CURA mobile usando consumíveis da Bolsa;
+- escolha de Elixir quando falta 50% ou mais da vida e Frasco em dano moderado;
+- tiers de equipamento exigem níveis 1/8/18/28/40/55/70/85;
+- item raro pode existir no inventário antes do nível, mas não pode ser equipado;
+- Forja e Bolsa exibem/bloqueiam corretamente o requisito de nível.
