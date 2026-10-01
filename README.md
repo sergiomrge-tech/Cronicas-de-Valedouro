@@ -6,13 +6,13 @@ Repositório oficial de desenvolvimento do jogo **Crônicas de Valedouro**.
 - Alvo principal: **Android / mobile-first**
 - Versão oficial atual: **2D Cartoon**
 - Cena inicial oficial: `res://scenes/cartoon/CartoonMainMenu.tscn`
-- Base validada mais recente: **v0.30**. Trabalho atual: **candidata v0.32**, sobre loot/consumíveis v0.31, com progressão de magias e interface RPG refinada.
+- Base validada mais recente: **v0.32**, com loot/consumíveis v0.31 integrado, progressão de magias por nível, paper-doll na Bolsa, ouro visível, textos compactos e Diário rolável.
 
 ## Regra de continuidade
 A antiga versão visual/pixel-art não é mais a base de desenvolvimento e não deve ser usada para novas alterações. Toda evolução do jogo deve partir da implementação em `game/scenes/cartoon/` e `game/scripts/cartoon/`, preservando história, missões e mecânicas canônicas quando compatíveis.
 
 ## Estado da sessão de 30/09/2026
-A base 2D Cartoon validada chegou à **v0.30**. As candidatas atuais são v0.31 (loot/consumíveis) e v0.32 (magias por nível, paper-doll na Bolsa, ouro visível, textos compactos e Diário rolável).
+A base 2D Cartoon validada chegou à **v0.32**. O Godot Gate 4.7.2 oficial passou no commit `26108ab8`, incluindo parser/import, 51 testes nativos e QA visual dedicado.
 
 ## Para agentes
 
@@ -113,11 +113,11 @@ a aba ITENS. Teste e QA visual dedicados entram no Godot Gate 4.7.2.
 Leia `docs/CARTOON_LOOT_V0_31.md`. Nenhum APK automático.
 
 
-## Continuidade — candidata v0.32: progressão e interface RPG
+## Continuidade — v0.32 validada: progressão e interface RPG
 
 Decisão do Diretor após testar a v0.30: o personagem começa apenas com Brasa;
 Cristal desbloqueia no nível 10 e Arcana no nível 25. A Bolsa passa a mostrar
 ouro e um paper-doll do herói com arma, elmo, peitoral, luvas, capa, calças e
 botas. Painéis de texto foram compactados e o Diário de Missões agora possui
 rolagem vertical touch testada em 640×360. Leia
-`docs/CARTOON_UI_PROGRESSION_V0_32.md`. APK somente sob pedido.
+`docs/CARTOON_UI_PROGRESSION_V0_32.md`. Godot 4.7.2 validado. APK continua sob pedido e exige build Android separada.
