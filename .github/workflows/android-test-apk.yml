@@ -2,6 +2,9 @@ name: Build Android Test APK
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - build/v032-apk
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
