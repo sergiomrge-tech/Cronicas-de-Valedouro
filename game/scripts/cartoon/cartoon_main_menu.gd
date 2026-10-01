@@ -175,7 +175,8 @@ func _build_ui() -> void:
 	var version: Label = Label.new()
 	version.position = Vector2(18,508)
 	version.size = Vector2(924,24)
-	version.text = "ELYNDOR • Progresso salvo neste aparelho"
+	var desktop_mode: bool = not (OS.get_name() in ["Android","iOS"])
+	version.text = "ELYNDOR • PC Full HD 1920×1080 • F11 tela cheia" if desktop_mode else "ELYNDOR • Progresso salvo neste aparelho"
 	version.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	version.add_theme_font_size_override("font_size",12)
 	version.add_theme_color_override("font_color",Color(1,1,1,0.72))
@@ -420,6 +421,11 @@ func _refresh_zoom() -> void:
 		zoom_label.text = "%d%%" % int(round(float(state.camera_zoom)*100.0))
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_F11 and not (OS.get_name() in ["Android","iOS"]):
+		var current_mode: DisplayServer.WindowMode = DisplayServer.window_get_mode()
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN)
+		get_viewport().set_input_as_handled()
+		return
 	if not event.is_action_pressed("ui_cancel"): return
 	if confirmation_panel.visible: _cancel_confirmation()
 	elif options_panel.visible: options_panel.visible = false
