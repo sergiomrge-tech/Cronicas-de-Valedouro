@@ -3,7 +3,7 @@
 **Diretor:** Sergio  
 **Mundo:** Elyndor  
 **Engine:** Godot 4.7.2  
-**Base oficial validada:** 2D Cartoon v0.33  
+**Base oficial validada:** 2D Cartoon v0.34  
 **Cena inicial:** `res://scenes/cartoon/CartoonMainMenu.tscn`
 
 ## ATENÇÃO
@@ -242,12 +242,11 @@ a Forja também respeita o requisito. Save permanece v7. Ler
 `docs/CARTOON_RPG_PROGRESSION_V0_33.md`. Validada no Godot 4.7.2 oficial no commit `4cb032e2`, run `36878325954`, com 52 testes nativos e QA visual. APK continua sob demanda.
 
 
-## Continuidade — candidata v0.34: coleta de materiais no mapa
+## Continuidade — v0.34 validada: coleta de materiais no mapa
 
 A v0.34 adiciona 48 novos pontos renováveis de coleta, seis por região, e
 converte os 7 pontos especiais de recurso já existentes para a mesma lógica,
 totalizando 55 pontos coletáveis. A interação usa o botão USAR e mostra
 COLETAR no HUD. O recurso entra diretamente na Bolsa/Forja e reaparece em
 5 minutos. O cooldown persiste no **save v8**. Ler
-`docs/CARTOON_GATHERING_V0_34.md`. Só promover após o Godot Gate 4.7.2.
-APK continua sob demanda.
+`docs/CARTOON_GATHERING_V0_34.md`. Validada no Godot 4.7.2 oficial no commit `ed2b1173`, run `36883480977`, com 53 testes nativos e QA visual. APK continua sob demanda.
