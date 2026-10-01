@@ -40,6 +40,8 @@ func run() -> void:
 	root.add_child(hub)
 	await process_frame
 	await process_frame
+	var layout = hub.get_node("HUD/GameLayout")
+	layout.desktop_mode = true
 
 	var entrances: Dictionary = {
 		"guild": Region.world_from_hub(Vector2(760,1165)),
