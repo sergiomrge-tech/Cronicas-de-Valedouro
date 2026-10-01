@@ -19,6 +19,7 @@ func run() -> void:
 	root.add_child(hub)
 	current_scene = hub
 	await settle()
+	state.player_level = 25 # Teste técnico: todas as magias já desbloqueadas.
 	# A controlled target beyond sword range; preserve the region's kill/reward path.
 	hub.wildlife.process_mode = Node.PROCESS_MODE_DISABLED
 	for a in hub.wildlife.active.values(): a.position = Vector2(-9000,-9000)
