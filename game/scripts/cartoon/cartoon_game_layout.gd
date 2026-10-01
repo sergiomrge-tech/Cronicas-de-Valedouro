@@ -37,6 +37,7 @@ var expanded: bool = false
 var gameplay_nodes: Array[Control] = []
 var joystick_center: Vector2
 var last_joystick: Vector2 = Vector2.INF
+var last_unlocked_spells: int = -1
 
 static func build(host_node, map_script, navigation_property: String) -> void:
 	var layer: CanvasLayer = CanvasLayer.new()
@@ -249,7 +250,7 @@ func _toggle_quest() -> void:
 	collapse_button.text = "−" if expanded else "+"
 	quest_body.custom_minimum_size.y = 182 if expanded else 88
 	host.objective_label.size.y = 116 if expanded else 26
-	host.objective_label.max_lines_visible = 5 if expanded else 1
+	host.objective_label.max_lines_visible = 6 if expanded else 1
 	var nav: Control = quest_body.get_node("ObjectiveNavigation")
 	nav.position.y = 154 if expanded else 69
 	_layout()
@@ -285,6 +286,10 @@ func _process(_delta: float) -> void:
 	contract_panel.visible = count > 0 and not blocked
 	contract_copy.text = "GUILDA %d/%d • %s" % [ready_count,count,first]
 	contract_copy.tooltip_text = "\n".join(descriptions)
+	var current_unlocked_spells: int = state.unlocked_spell_count() if state != null else 1
+	if current_unlocked_spells != last_unlocked_spells:
+		last_unlocked_spells = current_unlocked_spells
+		_layout()
 	var inside_building: bool = host.get("interiors") != null and host.interiors.active
 	map_button.text = "SAIR" if inside_building else "MAPA"
 	for control: Control in gameplay_nodes: control.visible = not blocked
