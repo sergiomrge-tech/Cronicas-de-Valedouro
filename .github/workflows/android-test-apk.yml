@@ -8,7 +8,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-apk:
@@ -125,9 +125,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023; do
+          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024; do
             echo "===== TEST: $t ====="
-            timeout 70s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd"
+            timeout 70s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" 2>&1 | tee "/tmp/valedouro-test-$t.log"
+            ! rg -q "SCRIPT ERROR|ERROR:|Assertion failed" "/tmp/valedouro-test-$t.log"
+            rg -q ": PASS" "/tmp/valedouro-test-$t.log"
           done
 
       - name: Export Android debug APK
@@ -139,18 +141,37 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p game/build
-          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_TEST.apk
-          test -s game/build/Cronicas_de_Valedouro_TEST.apk
-          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_TEST.apk
-          sha256sum game/build/Cronicas_de_Valedouro_TEST.apk | tee game/build/SHA256.txt
-          ls -lh game/build/Cronicas_de_Valedouro_TEST.apk
+          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.24_TEST.apk
+          test -s game/build/Cronicas_de_Valedouro_v0.24_TEST.apk
+          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.24_TEST.apk
+          sha256sum game/build/Cronicas_de_Valedouro_v0.24_TEST.apk | tee game/build/SHA256.txt
+          ls -lh game/build/Cronicas_de_Valedouro_v0.24_TEST.apk
 
       - name: Upload installable APK
         uses: actions/upload-artifact@v4
         with:
-          name: Cronicas-de-Valedouro-Android-TEST-v0.23
+          name: Cronicas-de-Valedouro-Android-TEST-v0.24
           path: |
-            game/build/Cronicas_de_Valedouro_TEST.apk
+            game/build/Cronicas_de_Valedouro_v0.24_TEST.apk
             game/build/SHA256.txt
           if-no-files-found: error
           retention-days: 30
+
+      - name: Publish direct test APK download
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/android-release.md <<'NOTES'
+          APK de teste v0.24: herói detalhado com 152 quadros, 13 tipos de monstros animados, três magias coloridas, luzes, partículas, efeitos de impacto e HUD mobile.
+
+          Baixe o APK, abra no celular e permita a instalação pelo aplicativo usado para abrir o arquivo. Android 7.0 ou superior; ARM 32/64 bits.
+
+          Exportação assinada com Godot 4.7.2, 24 testes nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
+          NOTES
+          gh release create v0.24-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.24 — Herói e Magias" --notes-file /tmp/android-release.md
+          gh release upload v0.24-test game/build/Cronicas_de_Valedouro_v0.24_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
+          gh release edit v0.24-test --repo "$REPOSITORY" --draft=false --prerelease

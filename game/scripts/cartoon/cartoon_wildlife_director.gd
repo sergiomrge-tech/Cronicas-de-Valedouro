@@ -84,7 +84,7 @@ func _sync() -> void:
 func attack() -> bool:
 	if blocked(): return false
 	var nearest = null
-	var distance: float = 105
+	var distance: float = host.hero.combat_range(105)
 	for animal in active.values():
 		if not is_instance_valid(animal) or animal.dead: continue
 		var d: float = animal.position.distance_to(host.hero.position)
@@ -92,7 +92,7 @@ func attack() -> bool:
 			distance = d
 			nearest = animal
 	if nearest == null: return false
-	var monster = host._nearest_monster(105)
+	var monster = host._nearest_monster(host.hero.combat_range(105))
 	if monster != null and monster.position.distance_to(host.hero.position) <= distance: return false
 	host.hero.trigger_attack()
 	nearest.take_damage(host.hero.attack_damage(18))
@@ -114,8 +114,10 @@ func harvest(animal) -> void:
 	animal.queue_free()
 
 func damage_player(amount: int) -> void:
+	host.hero.trigger_hurt()
 	host.player_hp = maxi(0,host.player_hp-host.hero.reduce_incoming_damage(amount))
 	if host.player_hp <= 0:
+		host.hero.trigger_fall()
 		host.player_hp = host.player_max_hp
 		host.hero.position = HubRegion.world_from_hub(Vector2(1150,970)) if region_id == HubRegion.REGION_ID else rescue_position
 		host._show_toast("Você foi resgatado após o encontro com um javali.")

@@ -1,0 +1,6 @@
+Local runtime: Godot 4.6.3
+24 / 24 PASS
+Import: no SCRIPT ERROR or ERROR
+GIFs and PNGs: real Godot frames, GL Compatibility
+Official 4.7.2 export: tracked by Android build workflow
+Physical Android and visual approval: pending

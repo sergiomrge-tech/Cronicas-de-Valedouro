@@ -2,6 +2,8 @@ class_name ValedouroCartoonMonster
 extends Node2D
 
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
+const CombatArt = preload("res://scripts/cartoon/cartoon_combat_art.gd")
+const FX = preload("res://scripts/cartoon/cartoon_combat_fx.gd")
 const Assets = preload("res://scripts/cartoon/cartoon_visual_assets.gd")
 
 var kind: String = "wolf"
@@ -14,6 +16,7 @@ var attack_cooldown: float = 0.0
 var hit_flash: float = 0.0
 var story_tag: String = ""
 var boss_id: String = ""
+var lunge_t: float = 0.0
 var anim_t: float = 0.0
 
 func setup(data: Dictionary) -> void:
@@ -30,15 +33,23 @@ func setup(data: Dictionary) -> void:
 	queue_redraw()
 
 func _process(delta: float) -> void:
+	lunge_t = maxf(0,lunge_t-delta)
 	anim_t += delta
 	attack_cooldown = maxf(0.0,attack_cooldown-delta)
 	hit_flash = maxf(0.0,hit_flash-delta)
 	queue_redraw()
 
 func take_damage(amount: int) -> bool:
+	if hp <= 0: return true
+	FX.spawn(get_parent(),position+Vector2(0,-30),"hit",Vector2.UP,Color("ffdb82"),mini(amount,hp))
 	hp = maxi(0,hp-amount)
 	hit_flash = 0.12
 	queue_redraw()
+	if hp <= 0:
+		var death = FX.spawn(get_parent(),position,"death",Vector2.UP,Color("91dce3"))
+		if death != null:
+			death.corpse_texture = CombatArt.texture("mob_"+kind)
+			death.corpse_region = Rect2((int(anim_t*8)%6)*144,0,144,160)
 	return hp <= 0
 
 func can_hit() -> bool:
@@ -46,38 +57,22 @@ func can_hit() -> bool:
 
 func mark_hit() -> void:
 	attack_cooldown = 0.9
+	lunge_t = 0.20
+	FX.spawn(get_parent(),position+Vector2(0,-22),"slash",Vector2.DOWN,Color("ff965c"))
 
 func _draw() -> void:
 	var bob: float = absf(sin(anim_t*7.0))*2.0
 	DrawUtil.shadow(self,Vector2(0,10),24,0.26)
-	draw_set_transform(Vector2(0,-bob),0.0,Vector2.ONE)
-	match kind:
-		"goblin":
-			_draw_goblin()
-		"slime":
-			_draw_slime()
-		"guardian":
-			_draw_guardian()
-		"root_beast":
-			_draw_root_beast()
-		"ash_general":
-			_draw_ash_general()
-		"reed_lady":
-			_draw_reed_lady()
-		"frost_captain":
-			_draw_frost_captain()
-		"black_frost_general":
-			_draw_black_frost_general()
-		"tide_general":
-			_draw_tide_general()
-		"void_general":
-			_draw_void_general()
-		"void_cartographer":
-			_draw_void_cartographer()
-		"azharel":
-			_draw_azharel()
-		_:
-			_draw_wolf()
+	draw_set_transform(Vector2(sin(lunge_t*PI/0.2)*5,-bob),sin(lunge_t*PI/0.2)*0.10,Vector2.ONE)
+	var dimensions: Vector2 = Vector2(88,98) if kind in ["wolf","goblin","slime"] else Vector2(106,118)
+	CombatArt.monster_frame(self,kind,int(anim_t*8)%6,Rect2(-dimensions.x/2,-dimensions.y+10,dimensions.x,dimensions.y),Color(1,0.8,0.65) if hit_flash>0 else Color.WHITE)
+	if kind not in ["wolf","goblin","slime"]:
+		var rune_color: Color = Color("9ceccf")
+		if "frost" in kind: rune_color = Color("86daff")
+		elif "void" in kind or kind == "azharel": rune_color = Color("e5a1ff")
+		elif kind == "ash_general": rune_color = Color("ffad56")
+		draw_arc(Vector2(0,4),32,anim_t,anim_t+TAU*0.8,48,Color(rune_color,0.40),1.5,true)
+		for i in range(6): draw_circle(Vector2.from_angle(anim_t+i*TAU/6)*27+Vector2(0,-25),1.6,Color(rune_color,0.75))
 	draw_set_transform(Vector2.ZERO,0.0,Vector2.ONE)
 	if hp < max_hp:
 		DrawUtil.bar(self,Vector2(-25,-62),Vector2(50,6),float(hp)/float(max_hp),Color(0.82,0.18,0.18))

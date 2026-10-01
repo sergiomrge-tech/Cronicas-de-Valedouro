@@ -79,3 +79,14 @@ Leia [o relatório](CARTOON_ROYAL_CASTLE_V0_23.md) e
 23 testes passaram em Godot 4.6.3; gates 4.7.2/Android e aprovação visual
 permanecem pendentes. Arte MODELED_PENDING_GATE; conteúdo adicional PROPOSED.
 Base oficial v0.19; passes v0.20–v0.23 são candidatos em revisão, incluídos no salvamento do código no GitHub solicitado pelo usuário.
+
+
+## Candidata v0.24 — herói, criaturas e magias
+
+152 quadros do herói, 13 tipos de criaturas animadas, três magias coloridas,
+luzes, impactos, recarga e controles mobile. 24 testes locais passaram em
+Godot 4.6.3. Build Android executa gates 4.7.2 e publica APK de teste v0.24.
+Registro: `docs/CARTOON_COMBAT_V0_24.md`; GIFs/capturas:
+`docs/visual_qa/cartoon_v024/review.html`. Arte MODELED_PENDING_GATE;
+magias PROPOSED. Aprovação visual e testes no celular ainda pendentes.
+A base oficial documentada permanece v0.19, com candidatos até v0.24 em revisão.

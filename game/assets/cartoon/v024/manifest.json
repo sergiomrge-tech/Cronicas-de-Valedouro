@@ -1,0 +1,182 @@
+{
+  "version": "0.24",
+  "status": "MODELED_PENDING_GATE",
+  "hero_states": {
+    "idle": 4,
+    "walk": 8,
+    "attack": 6,
+    "cast": 8,
+    "hurt": 4,
+    "death": 8
+  },
+  "hero_directions": 4,
+  "mob_kinds": [
+    "wolf",
+    "goblin",
+    "slime",
+    "guardian",
+    "root_beast",
+    "ash_general",
+    "reed_lady",
+    "frost_captain",
+    "black_frost_general",
+    "tide_general",
+    "void_general",
+    "void_cartographer",
+    "azharel"
+  ],
+  "files": [
+    {
+      "file": "app_icon.svg",
+      "sha256": "ffad28b607e622ad851cc2f4a322a17c89aae2d402b62d57f893083ec6ee8e81"
+    },
+    {
+      "file": "hero_back_attack.svg",
+      "sha256": "ddd98dc8783b06487f060222b0ba4eea7d21bd67a6797338664a78741e8e7634"
+    },
+    {
+      "file": "hero_back_cast.svg",
+      "sha256": "85d31a45a6262c3d193e3697eee88bea4bef5401305f6b1d37ca7304d60670f4"
+    },
+    {
+      "file": "hero_back_death.svg",
+      "sha256": "81c04fd3094064b7f415691ae4b436fbaf2f8a12d2bf82b58eabd050e7e74704"
+    },
+    {
+      "file": "hero_back_hurt.svg",
+      "sha256": "838372f6b5c4cffabeba648e2d7241adfb6006798be660ced9b38871b49f44c9"
+    },
+    {
+      "file": "hero_back_idle.svg",
+      "sha256": "ed75d994eadca599e57d174f1c23a22e36e2677c5801e210f79a544726e9f388"
+    },
+    {
+      "file": "hero_back_walk.svg",
+      "sha256": "68d65407d4682a91c35c536e70082504c3527a1bbf4eb42b93deff960a9aa4da"
+    },
+    {
+      "file": "hero_front_attack.svg",
+      "sha256": "2fb3a01f21431d39edac46d6f5db76b103a4356d55ca1c6c380c9f229b1d8371"
+    },
+    {
+      "file": "hero_front_cast.svg",
+      "sha256": "f453d82cd0dd7a89f7e8c416a04b6f4c94bae96417406bfbcfadce286680e8a1"
+    },
+    {
+      "file": "hero_front_death.svg",
+      "sha256": "055378bde54dadceefbd597895dd3a1fbea51fac32718e1e1f2340fb928e9262"
+    },
+    {
+      "file": "hero_front_hurt.svg",
+      "sha256": "41cac601002b8e9821e6ea15f635e423c1cbbae27a6dd203aa5f85264dbdbdc1"
+    },
+    {
+      "file": "hero_front_idle.svg",
+      "sha256": "4dc3756b14688e4bd3028109f4c900e756c87071a8873ff59f394f8ec7b7732a"
+    },
+    {
+      "file": "hero_front_walk.svg",
+      "sha256": "d2f5d2c77053daa30c353eeb91ebeecdd03e3aecb51e84b7d6a7aa951c28358a"
+    },
+    {
+      "file": "hero_left_attack.svg",
+      "sha256": "76e6eb255c339c48f50820a2c599f7b4d5ae30dcce8195294c9a76b83b908147"
+    },
+    {
+      "file": "hero_left_cast.svg",
+      "sha256": "6542ff5e4957a2e74109802a057cbccfc74eaf64699362c36a46011b3a6c4e83"
+    },
+    {
+      "file": "hero_left_death.svg",
+      "sha256": "7687a17b190c4e47e7e6a63f3ded23225beaa2308e20f937122b00dc52649308"
+    },
+    {
+      "file": "hero_left_hurt.svg",
+      "sha256": "475773236e3b981c86eabda34391747041ebc291b3d22335a2b9233965e5ce59"
+    },
+    {
+      "file": "hero_left_idle.svg",
+      "sha256": "03c89eb36c7dbeabf1296d275e8697642c5dbe1608b7876c574664712a0cde1e"
+    },
+    {
+      "file": "hero_left_walk.svg",
+      "sha256": "deb53a2e4d47b686b08dd72ab1127dc808796c0e462d354bb3c390a36e27db35"
+    },
+    {
+      "file": "hero_right_attack.svg",
+      "sha256": "73154df42937e7ef48879d51c79994870a98bd126b7eb5f215b1c530ddd6a6b7"
+    },
+    {
+      "file": "hero_right_cast.svg",
+      "sha256": "8e20e936d1ae5101d83c05dafdb123f42bce3041c60dc4661ad6def138ceb415"
+    },
+    {
+      "file": "hero_right_death.svg",
+      "sha256": "dd3eae74b91390739ad1da0fb26c6f6066928f6527fbb9e2326f19e4217d053c"
+    },
+    {
+      "file": "hero_right_hurt.svg",
+      "sha256": "9e8a93ac14d055253d0d93aa632e1a33240e70cc58ffa14abaf426fe82eb4393"
+    },
+    {
+      "file": "hero_right_idle.svg",
+      "sha256": "34996463d8b74d1d2a01e9a735fa40015d794a2409113b98364c159af4df530e"
+    },
+    {
+      "file": "hero_right_walk.svg",
+      "sha256": "707b4058bfdd03e52c64d4bf37fffe2a60e8e1a2a2fb056ce271389676896b9b"
+    },
+    {
+      "file": "mob_ash_general.svg",
+      "sha256": "8a24744380dc249283efaba6b84a855aff71f392bf6ae6e9437715a88c86724c"
+    },
+    {
+      "file": "mob_azharel.svg",
+      "sha256": "61babbb2d1e48596ed862a8fcdeb143d05c6ad761400d7d3e84a231047ffb5a0"
+    },
+    {
+      "file": "mob_black_frost_general.svg",
+      "sha256": "3f4dd66bbe99942bb66bca2d3c3677081355cb2c6a988c0a7d76ff5b478762d8"
+    },
+    {
+      "file": "mob_frost_captain.svg",
+      "sha256": "168e7285a5c4752edb44bda6826e264e2ea00dc5d9d47649be82666966d7d300"
+    },
+    {
+      "file": "mob_goblin.svg",
+      "sha256": "60fad1b856bc30171ee4f26a7d109052bfb188c1e0a2fbe68421ec1f8503d8d9"
+    },
+    {
+      "file": "mob_guardian.svg",
+      "sha256": "065384a56b7a46f0d9bf71eaf4c5c69675ef9dcc076ff83ab7822d74dc2aee55"
+    },
+    {
+      "file": "mob_reed_lady.svg",
+      "sha256": "098861ae8ccfe79ac2e4b2319b2eda1f1d2441221a3fd7c8cd07bb796491701f"
+    },
+    {
+      "file": "mob_root_beast.svg",
+      "sha256": "a9287e250697aac18d877af183fa950a97e8aa308cf173b4a21e75018246260a"
+    },
+    {
+      "file": "mob_slime.svg",
+      "sha256": "7c6987cc3dfe1a532ca874e258afdedce2ab3a419a93699dfaab070752e3090b"
+    },
+    {
+      "file": "mob_tide_general.svg",
+      "sha256": "32f9561c8db40d5bb963fc837102d89a7c274b1cd8dddf3a37ed56a09b685d22"
+    },
+    {
+      "file": "mob_void_cartographer.svg",
+      "sha256": "b8deeb60567cb50752a7c7718d75f99fe14c5a5a6e22b190287e38a3f559364a"
+    },
+    {
+      "file": "mob_void_general.svg",
+      "sha256": "7d39ebebf12fec1b83820966bf67e8f75c7e8f55cd635527ad84502605b000a1"
+    },
+    {
+      "file": "mob_wolf.svg",
+      "sha256": "20eb40d58bee27f1c13b7ed1ded083c6fc3c99fcdbae85846c79d803305461ee"
+    }
+  ]
+}

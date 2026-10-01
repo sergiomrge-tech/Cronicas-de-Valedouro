@@ -184,7 +184,7 @@ func _attack() -> void:
 	if hero == null:
 		return
 	hero.trigger_attack()
-	var target: Node2D = _nearest_monster(118.0)
+	var target: Node2D = _nearest_monster(hero.combat_range(118.0))
 	if target == null:
 		_show_toast("Nenhum inimigo ao alcance.")
 		return
@@ -258,9 +258,11 @@ func _update_monsters(delta: float) -> void:
 				monster.position = next
 		if dist <= 56.0 and monster.can_hit():
 			monster.mark_hit()
+			hero.trigger_hurt()
 			player_hp = maxi(0,player_hp-int(hero.reduce_incoming_damage(int(monster.contact_damage))))
 			_refresh_stats()
 			if player_hp <= 0:
+				hero.trigger_fall()
 				player_hp = player_max_hp
 				hero.position = Corrupted.ENTRY_POS
 				_refresh_stats()

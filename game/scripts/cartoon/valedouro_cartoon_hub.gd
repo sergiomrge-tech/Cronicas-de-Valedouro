@@ -219,7 +219,7 @@ func _attack() -> void:
 		return
 	if wildlife != null and wildlife.attack(): return
 	hero.trigger_attack()
-	var target: Node2D = _nearest_monster(105.0)
+	var target: Node2D = _nearest_monster(hero.combat_range(105.0))
 	if target == null:
 		_show_toast("Ataque — nenhum inimigo ao alcance.")
 		return
@@ -336,9 +336,11 @@ func _update_monsters(delta: float) -> void:
 				monster.position = next
 		if dist <= 52.0 and monster.can_hit():
 			monster.mark_hit()
+			hero.trigger_hurt()
 			player_hp = maxi(0, player_hp - int(hero.reduce_incoming_damage(int(monster.contact_damage))))
 			_refresh_stats()
 			if player_hp <= 0:
+				hero.trigger_fall()
 				player_hp = player_max_hp
 				hero.position = Region.world_from_hub(Vector2(1150,970))
 				_show_toast("Você foi resgatado e voltou à Praça Central.")

@@ -12,6 +12,8 @@ var quest_panel: PanelContainer
 var quest_body: Control
 var collapse_button: Button
 var attack_button: Button
+var spell_button: Button
+var spell_cycle_button: Button
 var interact_button: Button
 var map_button: Button
 var pause_button: Button
@@ -49,7 +51,7 @@ static func can_start_movement(node: Node, p: Vector2) -> bool:
 	if layout == null or layout.is_blocked(): return false
 	# Native touch-to-mouse emulation may deliver the touch before the GUI mouse
 	# event. Never claim a finger over a toolbar/zoom hitbox in that interval.
-	var controls: Array[Control] = [layout.map_button,layout.pause_button,layout.attack_button,layout.interact_button,layout.quest_panel]
+	var controls: Array[Control] = [layout.map_button,layout.pause_button,layout.attack_button,layout.interact_button,layout.spell_button,layout.spell_cycle_button,layout.quest_panel]
 	for key: String in ["inventory_ui","crafting_ui"]:
 		var ui = node.get(key)
 		if ui != null and ui.toggle_button != null: controls.append(ui.toggle_button)
@@ -150,6 +152,18 @@ func _build(map_script, navigation_property: String) -> void:
 	interact_button.name = "InteractButton"
 	add_child(interact_button)
 	gameplay_nodes.append(interact_button)
+	spell_button = _button("MAGIA",Vector2(76,50),_cast_spell,24)
+	spell_button.name = "SpellButton"
+	spell_button.add_theme_font_size_override("font_size",12)
+	spell_button.tooltip_text = "Q: conjurar • alcance 220 • recarga 3 s"
+	add_child(spell_button)
+	gameplay_nodes.append(spell_button)
+	spell_cycle_button = _button("TROCAR",Vector2(76,44),_cycle_spell,12)
+	spell_cycle_button.name = "SpellCycleButton"
+	spell_cycle_button.add_theme_font_size_override("font_size",10)
+	spell_cycle_button.tooltip_text = "R: trocar entre Brasa, Cristal e Arcana"
+	add_child(spell_cycle_button)
+	gameplay_nodes.append(spell_cycle_button)
 	_build_pause()
 
 func _button(text: String, button_size: Vector2, callback: Callable, radius: int = 10) -> Button:
@@ -166,13 +180,16 @@ func _layout() -> void:
 	quest_panel.size = Vector2(288,218 if expanded else 124)
 	map_button.position = Placement.toolbar_rect(get_viewport(),0).position
 	pause_button.position = Placement.toolbar_rect(get_viewport(),3).position
-	attack_button.position = Vector2(area.end.x-86,area.end.y-108)
+	attack_button.position = Vector2(area.end.x-86,area.end.y-94)
 	interact_button.position = Vector2(area.end.x-172,area.end.y-78)
+	spell_button.position = Vector2(area.end.x-86,area.end.y-154)
+	spell_cycle_button.position = Vector2(area.end.x-86,area.end.y-200)
 	contract_panel.position = area.position+Vector2(0,92)
 	joystick_center = Vector2(area.position.x+86,area.end.y-80)
-	host.poi_label.position = Vector2(area.get_center().x-240,area.end.y-194)
-	host.poi_label.size = Vector2(480,25)
-	host.toast_label.position = Vector2(area.get_center().x-225,area.end.y-235)
+	var hint_width: float = minf(480,area.size.x-220)
+	host.poi_label.position = Vector2(area.get_center().x-hint_width/2,area.end.y-194)
+	host.poi_label.size = Vector2(hint_width,25)
+	host.toast_label.position = Vector2(area.get_center().x-225,area.end.y-245)
 	host.toast_label.size = Vector2(450,40)
 	queue_redraw()
 
@@ -218,7 +235,13 @@ func _process(_delta: float) -> void:
 	var inside_building: bool = host.get("interiors") != null and host.interiors.active
 	map_button.text = "SAIR" if inside_building else "MAPA"
 	for control: Control in gameplay_nodes: control.visible = not blocked
-	if inside_building: attack_button.visible = false
+	if host.hero != null:
+		spell_button.text = "%s\n%.1f s" % [host.hero.SPELL_NAMES[host.hero.spell_index],host.hero.spell_cooldown] if host.hero.spell_cooldown>0 else "MAGIA\n"+host.hero.SPELL_NAMES[host.hero.spell_index]
+		spell_button.disabled = host.hero.spell_cooldown>0
+	if inside_building:
+		attack_button.visible = false
+		spell_button.visible = false
+		spell_cycle_button.visible = false
 	var toolbar_clear: bool = not expanded or not quest_panel.get_global_rect().intersects(Placement.toolbar_rect(get_viewport(),3))
 	map_button.visible = not blocked and toolbar_clear
 	pause_button.visible = not blocked and toolbar_clear
@@ -261,7 +284,22 @@ func _input(event: InputEvent) -> void:
 		host.joystick_vector = (event.position-host.joystick_origin).limit_length(80.0)/80.0
 		get_viewport().set_input_as_handled()
 
+func _cast_spell() -> void:
+	if not is_blocked() and host.hero != null: host.hero.cast_spell(host)
+
+func _cycle_spell() -> void:
+	if not is_blocked() and host.hero != null: host.hero.cycle_spell()
+
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and not is_blocked():
+		if event.physical_keycode == KEY_Q:
+			_cast_spell()
+			get_viewport().set_input_as_handled()
+			return
+		if event.physical_keycode == KEY_R:
+			_cycle_spell()
+			get_viewport().set_input_as_handled()
+			return
 	if not event.is_action_pressed("ui_cancel"): return
 	if host.get("guild_board") != null and host.guild_board.is_open(): host.guild_board.close_panel()
 	elif pause_panel.visible: close_pause()

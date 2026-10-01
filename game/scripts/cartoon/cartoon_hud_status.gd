@@ -46,7 +46,10 @@ func _build() -> void:
 	body.add_child(level_label)
 	var portrait: TextureRect = TextureRect.new()
 	portrait.name = "TravelerPortrait"
-	portrait.texture = Assets.texture("hero_front")
+	var portrait_atlas = AtlasTexture.new()
+	portrait_atlas.atlas = preload("res://scripts/cartoon/cartoon_combat_art.gd").texture("hero_front_idle")
+	portrait_atlas.region = Rect2(0,0,128,160)
+	portrait.texture = portrait_atlas
 	portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	portrait.position = Vector2(12,28)

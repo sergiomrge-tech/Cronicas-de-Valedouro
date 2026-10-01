@@ -60,6 +60,7 @@ func _process(delta: float) -> void:
 	queue_redraw()
 func take_damage(amount: int) -> bool:
 	if dead: return false
+	preload("res://scripts/cartoon/cartoon_combat_fx.gd").spawn(get_parent(),position+Vector2(0,-22),"hit",Vector2.UP,Color("ffd79a"),mini(amount,hp))
 	provoked = true
 	hit_flash = 0.15
 	hp = maxi(0,hp-amount)
