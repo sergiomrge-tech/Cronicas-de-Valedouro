@@ -47,11 +47,16 @@ func setup(host_node) -> void:
 	scroll = ScrollContainer.new()
 	scroll.name = "MissionScroll"
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_ALWAYS
+	scroll.scroll_deadzone = 6
 	scroll.follow_focus = true
+	scroll.mouse_filter = Control.MOUSE_FILTER_STOP
+	scroll.gui_input.connect(_scroll_input)
 	body.add_child(scroll)
 	rows = VBoxContainer.new()
 	rows.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	rows.add_theme_constant_override("separation",10)
+	rows.mouse_filter = Control.MOUSE_FILTER_PASS
+	rows.add_theme_constant_override("separation",8)
 	scroll.add_child(rows)
 	footer = UISkin.label("",13,UISkin.MUTED)
 	footer.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -59,6 +64,18 @@ func setup(host_node) -> void:
 	get_viewport().size_changed.connect(_layout)
 	close_panel()
 	_layout()
+func _scroll_input(event: InputEvent) -> void:
+	if event is InputEventScreenDrag:
+		scroll.scroll_vertical -= int(event.relative.y)
+		scroll.accept_event()
+	elif event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			scroll.scroll_vertical += 72
+			scroll.accept_event()
+		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			scroll.scroll_vertical -= 72
+			scroll.accept_event()
+
 func _state(): return get_node("/root/CartoonPlayerState")
 func _button(text: String, dimensions: Vector2, callback: Callable) -> Button:
 	var button = Button.new()
@@ -106,28 +123,32 @@ func refresh() -> void:
 func _card(item: Dictionary) -> void:
 	var card = PanelContainer.new()
 	card.name = String(item.id)
-	card.custom_minimum_size.y = 114
+	card.custom_minimum_size.y = 92
 	card.add_theme_stylebox_override("panel",UISkin.box(Color("17352d"),UISkin.GOLD if _state().tracked_mission==item.id else Color("426956"),8))
 	rows.add_child(card)
+	card.mouse_filter = Control.MOUSE_FILTER_PASS
 	var margin = MarginContainer.new()
-	for side in ["left","top","right","bottom"]: margin.add_theme_constant_override("margin_"+side,12)
+	margin.mouse_filter = Control.MOUSE_FILTER_PASS
+	for side in ["left","top","right","bottom"]: margin.add_theme_constant_override("margin_"+side,9)
 	card.add_child(margin)
 	var line = HBoxContainer.new()
-	line.add_theme_constant_override("separation",14)
+	line.mouse_filter = Control.MOUSE_FILTER_PASS
+	line.add_theme_constant_override("separation",10)
 	margin.add_child(line)
 	var copy = VBoxContainer.new()
+	copy.mouse_filter = Control.MOUSE_FILTER_PASS
 	copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	line.add_child(copy)
-	var title = UISkin.label(String(item.title),17,UISkin.GOLD)
+	var title = UISkin.label(String(item.title),15,UISkin.GOLD)
 	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	copy.add_child(title)
-	var detail = UISkin.label(String(item.description),13)
+	var detail = UISkin.label(String(item.description),12)
 	detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	copy.add_child(detail)
-	copy.add_child(UISkin.label(String(item.category)+" • "+String(item.reward),12,UISkin.MUTED))
+	copy.add_child(UISkin.label(String(item.category)+" • "+String(item.reward),11,UISkin.MUTED))
 	var selected: bool = _state().tracked_mission==item.id
 	var active: bool = item.status=="active"
-	var button = _button("SEGUINDO" if selected else ("ACOMPANHAR" if active else ("NA GUILDA" if item.status=="available" else "CONCLUÍDA")),Vector2(136,52),_track.bind(String(item.id)))
+	var button = _button("SEGUINDO" if selected else ("ACOMPANHAR" if active else ("NA GUILDA" if item.status=="available" else "CONCLUÍDA")),Vector2(118,44),_track.bind(String(item.id)))
 	button.name = "TrackMissionButton"
 	button.disabled = selected or not active
 	button.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -145,6 +166,6 @@ func _layout() -> void:
 	summary.size = Vector2(panel.size.x-36,22)
 	summary.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	scroll.position = Vector2(16,128)
-	scroll.size = Vector2(panel.size.x-36,panel.size.y-186)
-	footer.position = Vector2(16,panel.size.y-48)
-	footer.size = Vector2(panel.size.x-36,38)
+	scroll.size = Vector2(panel.size.x-30,panel.size.y-172)
+	footer.position = Vector2(16,panel.size.y-38)
+	footer.size = Vector2(panel.size.x-36,28)
