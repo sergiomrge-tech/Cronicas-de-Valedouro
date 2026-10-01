@@ -125,7 +125,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_challenge_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032; do
+          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_challenge_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033; do
             echo "===== TEST: $t ====="
             timeout 70s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" 2>&1 | tee "/tmp/valedouro-test-$t.log"
             ! grep -Eq "SCRIPT ERROR|ERROR:|Assertion failed" "/tmp/valedouro-test-$t.log"
