@@ -682,6 +682,10 @@ func _unhandled_input(event: InputEvent) -> void:
 				get_viewport().set_input_as_handled()
 				return
 	if desktop_mode and event is InputEventKey and event.pressed and not event.echo:
+		if event.physical_keycode == KEY_E and not is_blocked():
+			host._interact()
+			get_viewport().set_input_as_handled()
+			return
 		if event.physical_keycode == KEY_M:
 			if host.map_open: host._toggle_map()
 			elif not is_blocked(): host._toggle_map()
