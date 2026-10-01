@@ -47,8 +47,8 @@ func _layout() -> void:
 			target.size = design_size
 			target.position = area.get_center()-design_size*factor*0.5
 		"status": target.position = area.position+Vector2(76,0)
-		"pause_zoom": target.position = Vector2(100,222)
-		"pause_forge": target.position = Vector2(24,222)
+		"pause_zoom": target.position = Vector2(100,276)
+		"pause_forge": target.position = Vector2(24,276)
 		"zoom": target.position = Vector2(area.get_center().x-design_size.x*0.5,area.end.y-design_size.y)
 		"forge", "bag": target.position = toolbar_rect(get_viewport(),0 if placement == "bag" else 2).position
 		"menu":
