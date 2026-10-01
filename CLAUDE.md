@@ -257,3 +257,13 @@ Regras adicionais que não devem regredir:
 - retrato do herói mostra `+N PT` quando há pontos de habilidade disponíveis;
 - gain_xp retorna previous_level, unlocks e skill_points;
 - save permanece v8.
+
+
+## Continuidade — candidata v0.36: troféus e crafts de chefes
+
+A v0.36 adiciona 11 materiais exclusivos de chefes e 11 receitas especiais que
+só aparecem após a primeira obtenção do troféu correspondente. Itens de boss
+não entram no DROP RARO comum, respeitam os níveis regionais e recebem paleta,
+brilho/emblema próprios no herói. Save permanece v8. Ler
+`docs/CARTOON_BOSS_CRAFTING_V0_36.md`. Só promover após o Godot Gate 4.7.2.
+APK continua sob demanda.
