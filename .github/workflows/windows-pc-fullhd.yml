@@ -77,7 +77,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for t in cartoon_hub save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033 cartoon_gathering_v034 cartoon_levelup_feedback_v035 cartoon_boss_crafting_v036 cartoon_boss_combat_v037 cartoon_radial_ui_v038 cartoon_pc_fullhd_v040 cartoon_pc_ui_v041; do
+          for t in cartoon_hub save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033 cartoon_gathering_v034 cartoon_levelup_feedback_v035 cartoon_boss_crafting_v036 cartoon_boss_combat_v037 cartoon_radial_ui_v038 cartoon_pc_fullhd_v040 cartoon_pc_ui_v041 cartoon_building_interactions_v042; do
             echo "===== TEST: $t ====="
             timeout 70s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" 2>&1 | tee "/tmp/valedouro-test-$t.log"
             ! grep -Eq "SCRIPT ERROR|ERROR:|Assertion failed" "/tmp/valedouro-test-$t.log"
@@ -89,19 +89,19 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p game/build/windows
-          /tmp/godot/godot --headless --path game --export-release "Windows Desktop Full HD" build/windows/Cronicas_de_Valedouro_PC_v0.41.exe
-          test -s game/build/windows/Cronicas_de_Valedouro_PC_v0.41.exe
-          sha256sum game/build/windows/Cronicas_de_Valedouro_PC_v0.41.exe | tee game/build/windows/SHA256.txt
-          file game/build/windows/Cronicas_de_Valedouro_PC_v0.41.exe
+          /tmp/godot/godot --headless --path game --export-release "Windows Desktop Full HD" build/windows/Cronicas_de_Valedouro_PC_v0.42.exe
+          test -s game/build/windows/Cronicas_de_Valedouro_PC_v0.42.exe
+          sha256sum game/build/windows/Cronicas_de_Valedouro_PC_v0.42.exe | tee game/build/windows/SHA256.txt
+          file game/build/windows/Cronicas_de_Valedouro_PC_v0.42.exe
           cd game/build/windows
-          zip -9 Cronicas_de_Valedouro_PC_v0.41_FullHD_DX12.zip Cronicas_de_Valedouro_PC_v0.41.exe SHA256.txt
-          test -s Cronicas_de_Valedouro_PC_v0.41_FullHD_DX12.zip
+          zip -9 Cronicas_de_Valedouro_PC_v0.42_FullHD_DX12.zip Cronicas_de_Valedouro_PC_v0.42.exe SHA256.txt
+          test -s Cronicas_de_Valedouro_PC_v0.42_FullHD_DX12.zip
 
       - name: Upload Windows build
         uses: actions/upload-artifact@v4
         with:
-          name: Cronicas-de-Valedouro-PC-v0.41-FullHD-DX12
-          path: game/build/windows/Cronicas_de_Valedouro_PC_v0.41_FullHD_DX12.zip
+          name: Cronicas-de-Valedouro-PC-v0.42-FullHD-DX12
+          path: game/build/windows/Cronicas_de_Valedouro_PC_v0.42_FullHD_DX12.zip
           if-no-files-found: error
           retention-days: 30
 
