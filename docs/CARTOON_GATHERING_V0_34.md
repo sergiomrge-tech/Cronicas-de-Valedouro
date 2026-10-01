@@ -1,4 +1,4 @@
-# Candidata v0.34 — coleta de materiais no mapa
+# v0.34 validada — coleta de materiais no mapa
 
 A v0.34 transforma materiais de crafting em parte real da exploração do mundo.
 
@@ -80,5 +80,18 @@ QA visual:
 Gera capturas reais do Godot do recurso disponível, recurso coletado,
 materiais na Bolsa e coleta na Floresta Ancestral.
 
-A v0.34 só deve ser promovida após o Godot Gate 4.7.2 concluir com sucesso.
+## Validação oficial
+
+A v0.34 foi validada no **Godot 4.7.2 oficial** no commit
+`ed2b1173ec8645a1165d12a0b595588da89f65bd`.
+
+O Gate oficial concluiu com sucesso no run `36883480977`, incluindo:
+- importação/parser;
+- **53 testes nativos**;
+- regressões de exploração, crafting, inventário, missões, combate e save;
+- QA visual completo das regiões;
+- QA v0.34 com quatro capturas reais da coleta no mapa.
+
+Artefato visual: `valedouro-gathering-v034-visual-qa`.
+
 APK continua sob demanda.
