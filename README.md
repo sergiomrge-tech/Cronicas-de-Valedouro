@@ -102,3 +102,12 @@ sem perder campanha; só a classe ativa aplica bônus. Leia
 workflow oficial 4.7.2 executa testes e novas capturas, e Android publica
 v0.27-test. Balanceamento PROPOSED, arte MODELED_PENDING_GATE e teste em
 aparelho real pendente; base oficial documentada continua v0.19.
+
+
+## Continuidade — candidata v0.31: loot e consumíveis
+
+Loot cadenciado nas oito regiões, dois consumíveis de cura, drops raros de
+equipamento por região e contador de piedade persistente para evitar azar
+extremo sem acelerar o power curve. Save v7 preserva a v0.30. A Bolsa recebe
+a aba ITENS. Teste e QA visual dedicados entram no Godot Gate 4.7.2.
+Leia `docs/CARTOON_LOOT_V0_31.md`. Nenhum APK automático.
