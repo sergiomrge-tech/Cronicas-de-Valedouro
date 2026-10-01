@@ -17,6 +17,7 @@ var chill_t: float = 0.0
 var burn_t: float = 0.0
 var chill_base_speed: float = 86.0
 var contact_damage: int = 7
+var base_contact_damage: int = 7
 var attack_cooldown: float = 0.0
 var hit_flash: float = 0.0
 var story_tag: String = ""
@@ -27,6 +28,10 @@ var windup_t: float = 0.0
 var windup_duration: float = 0.45
 var strike_radius: float = 64.0
 var strike_direction: Vector2 = Vector2.DOWN
+var boss_phase: int = 1
+var boss_attack_index: int = 0
+var strike_special: bool = false
+var strike_damage_multiplier: float = 1.0
 
 func setup(data: Dictionary) -> void:
 	level = clampi(int(data.get("level",1)),1,100)
@@ -36,6 +41,7 @@ func setup(data: Dictionary) -> void:
 	max_hp = hp
 	move_speed = float(data.get("speed",86.0))
 	contact_damage = int(data.get("damage",7))
+	base_contact_damage = contact_damage
 	story_tag = String(data.get("story_tag",""))
 	boss_id = String(data.get("boss_id",""))
 	position = data.get("pos",Vector2.ZERO)
@@ -69,6 +75,7 @@ func take_damage(amount: int) -> bool:
 	if hp <= 0: return true
 	FX.spawn(get_parent(),position+Vector2(0,-30),"hit",Vector2.UP,Color("ffdb82"),mini(amount,hp))
 	hp = maxi(0,hp-amount)
+	_update_boss_phase()
 	hit_flash = 0.12
 	queue_redraw()
 	if hp <= 0:
@@ -91,32 +98,89 @@ func advance_contact(hero, delta: float, contact_radius: float) -> bool:
 	if windup_t>0:
 		windup_t = maxf(0,windup_t-delta)
 		queue_redraw()
-		if windup_t>0: return false
+		if windup_t>0:
+			return false
 		mark_hit()
-		var pulse = FX.spawn(get_parent(),position,"enemy_strike",strike_direction,Color("ff654f") if boss_id!="" else Color("ffb45e"))
-		if pulse != null: pulse.strike_radius = strike_radius
+		var strike_color: Color = Color("ff4e8f") if strike_special else (Color("ff654f") if boss_id!="" else Color("ffb45e"))
+		var pulse = FX.spawn(get_parent(),position,"enemy_strike",strike_direction,strike_color)
+		if pulse != null:
+			pulse.strike_radius = strike_radius
 		return position.distance_to(hero.position)<=strike_radius and not hero.is_evading()
 	if position.distance_to(hero.position)<=contact_radius and can_hit():
-		windup_duration = 0.8 if boss_id!="" else 0.45
-		windup_t = windup_duration
-		strike_radius = contact_radius+(42 if boss_id!="" else 12)
-		strike_direction = (hero.position-position).normalized()
+		_prepare_strike(hero,contact_radius)
 		queue_redraw()
 	return false
 
+func _prepare_strike(hero, contact_radius: float) -> void:
+	strike_direction = (hero.position-position).normalized()
+	strike_special = false
+	strike_damage_multiplier = 1.0
+	if boss_id == "":
+		windup_duration = 0.45
+		strike_radius = contact_radius+12
+		windup_t = windup_duration
+		contact_damage = base_contact_damage
+		return
+	_update_boss_phase()
+	boss_attack_index += 1
+	var special_interval: int = 99
+	if boss_phase == 2:
+		special_interval = 3
+	elif boss_phase >= 3:
+		special_interval = 2
+	strike_special = boss_phase >= 2 and boss_attack_index%special_interval == 0
+	if boss_phase == 1:
+		windup_duration = 0.86
+		strike_radius = contact_radius+42
+		strike_damage_multiplier = 1.0
+	elif boss_phase == 2:
+		windup_duration = 1.02 if strike_special else 0.74
+		strike_radius = contact_radius+(86 if strike_special else 50)
+		strike_damage_multiplier = 1.45 if strike_special else 1.10
+	else:
+		windup_duration = 0.88 if strike_special else 0.62
+		strike_radius = contact_radius+(104 if strike_special else 58)
+		strike_damage_multiplier = 1.65 if strike_special else 1.20
+	contact_damage = maxi(1,roundi(float(base_contact_damage)*strike_damage_multiplier))
+	windup_t = windup_duration
+
+func _update_boss_phase() -> void:
+	if boss_id == "" or max_hp <= 0:
+		boss_phase = 1
+		return
+	var ratio: float = float(hp)/float(max_hp)
+	boss_phase = 1 if ratio > 0.66 else (2 if ratio > 0.33 else 3)
+
+func boss_phase_label() -> String:
+	match boss_phase:
+		2: return "FASE II • FÚRIA"
+		3: return "FASE III • RUPTURA"
+		_: return "FASE I • VIGÍLIA"
+
 func mark_hit() -> void:
-	attack_cooldown = 0.9
+	if boss_id == "":
+		attack_cooldown = 0.9
+	else:
+		attack_cooldown = 0.92 if boss_phase == 1 else (0.74 if boss_phase == 2 else 0.58)
 	lunge_t = 0.20
-	FX.spawn(get_parent(),position+Vector2(0,-22),"slash",strike_direction,Color("ff965c"))
+	FX.spawn(get_parent(),position+Vector2(0,-22),"slash",strike_direction,Color("ff4e8f") if strike_special else Color("ff965c"))
+	call_deferred("_restore_contact_damage")
+
+func _restore_contact_damage() -> void:
+	contact_damage = base_contact_damage
+	strike_damage_multiplier = 1.0
 
 func _draw() -> void:
 	if windup_t>0:
 		draw_set_transform(Vector2.ZERO,0,Vector2.ONE/scale)
 		var progress: float = 1-windup_t/windup_duration
-		var warning: Color = Color("ff654f") if boss_id!="" else Color("ffb45e")
+		var warning: Color = Color("ff4e8f") if strike_special else (Color("ff654f") if boss_id!="" else Color("ffb45e"))
 		draw_circle(Vector2.ZERO,strike_radius,Color(warning,0.10+progress*0.12))
 		draw_arc(Vector2.ZERO,strike_radius,0,TAU,64,Color(warning,0.8),2.5,true)
 		draw_arc(Vector2.ZERO,strike_radius-5,-PI/2,-PI/2+TAU*progress,64,Color("ffe4b4"),3.5,true)
+		if strike_special:
+			draw_arc(Vector2.ZERO,strike_radius-14,anim_t*2,anim_t*2+PI*1.5,48,Color("ffd27f"),2.0,true)
+			draw_string(ThemeDB.fallback_font,Vector2(-48,-strike_radius-10),"ATAQUE ESPECIAL",HORIZONTAL_ALIGNMENT_CENTER,96,11,Color("fff0c2"))
 		var tip: Vector2 = strike_direction*(strike_radius-12)
 		draw_line(tip-strike_direction.rotated(-0.65)*10,tip,warning,3,true)
 		draw_line(tip-strike_direction.rotated(0.65)*10,tip,warning,3,true)
@@ -147,6 +211,9 @@ func _draw() -> void:
 	draw_string(ThemeDB.fallback_font,Vector2(-23,-dimensions.y-15),"Nv %d" % level,HORIZONTAL_ALIGNMENT_LEFT,70,12,level_color)
 	if hp < max_hp:
 		DrawUtil.bar(self,Vector2(-25,-dimensions.y-1),Vector2(50,6),float(hp)/float(max_hp),Color(0.82,0.18,0.18))
+	if boss_id != "":
+		var phase_color: Color = Color("ffd27f") if boss_phase==1 else (Color("ff9a58") if boss_phase==2 else Color("ff4e8f"))
+		draw_string(ThemeDB.fallback_font,Vector2(-38,-dimensions.y+12),"F%d" % boss_phase,HORIZONTAL_ALIGNMENT_CENTER,76,11,phase_color)
 	if hit_flash > 0.0:
 		DrawUtil.ellipse(self,Vector2.ZERO,30,36,Color(1,1,1,0.25))
 
