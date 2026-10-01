@@ -95,7 +95,8 @@ func attack() -> bool:
 	var monster = host._nearest_monster(host.hero.combat_range(105))
 	if monster != null and monster.position.distance_to(host.hero.position) <= distance: return false
 	host.hero.trigger_attack()
-	nearest.take_damage(host.hero.attack_damage(18))
+	if host.hero.spell_mode: host.hero.launch_magic(host,nearest,18,self)
+	else: nearest.take_damage(host.hero.attack_damage(18))
 	return true
 func harvest(animal) -> void:
 	# A dead actor is removed immediately; its slot cooldown survives scene/load.

@@ -11,6 +11,9 @@ var monster_name: String = "Lobo do Vale"
 var hp: int = 34
 var max_hp: int = 34
 var move_speed: float = 86.0
+var chill_t: float = 0.0
+var burn_t: float = 0.0
+var chill_base_speed: float = 86.0
 var contact_damage: int = 7
 var attack_cooldown: float = 0.0
 var hit_flash: float = 0.0
@@ -32,7 +35,23 @@ func setup(data: Dictionary) -> void:
 	scale = Vector2.ONE * float(data.get("scale",1.0))
 	queue_redraw()
 
+func apply_chill(duration: float) -> void:
+	if chill_t<=0: chill_base_speed = move_speed
+	chill_t = maxf(chill_t,duration)
+	move_speed = chill_base_speed*(0.8 if boss_id!="" else 0.55)
+	queue_redraw()
+
 func _process(delta: float) -> void:
+	if chill_t>0:
+		var host = get_parent()
+		while host != null and not host.has_method("_damage_monster"): host = host.get_parent()
+		var blocked: bool = false
+		if host != null:
+			var layout = host.get_node_or_null("HUD/GameLayout")
+			blocked = layout != null and layout.is_blocked()
+		if not blocked:
+			chill_t = maxf(0,chill_t-delta)
+			if chill_t<=0: move_speed = chill_base_speed
 	lunge_t = maxf(0,lunge_t-delta)
 	anim_t += delta
 	attack_cooldown = maxf(0.0,attack_cooldown-delta)
@@ -74,8 +93,15 @@ func _draw() -> void:
 		draw_arc(Vector2(0,4),32,anim_t,anim_t+TAU*0.8,48,Color(rune_color,0.40),1.5,true)
 		for i in range(6): draw_circle(Vector2.from_angle(anim_t+i*TAU/6)*27+Vector2(0,-25),1.6,Color(rune_color,0.75))
 	draw_set_transform(Vector2.ZERO,0.0,Vector2.ONE)
+	if burn_t>0:
+		for point in [Vector2(-15,-12),Vector2(12,-34)]: DrawUtil.flame(self,point,20,7,anim_t)
+	if chill_t>0:
+		for i in range(6):
+			var center: Vector2 = Vector2.from_angle(anim_t+i*TAU/6)*26+Vector2(0,-27)
+			draw_line(center-Vector2(3,0),center+Vector2(3,0),Color("a3f0ff"),1.4,true)
+			draw_line(center-Vector2(0,3),center+Vector2(0,3),Color("a3f0ff"),1.4,true)
 	if hp < max_hp:
-		DrawUtil.bar(self,Vector2(-25,-62),Vector2(50,6),float(hp)/float(max_hp),Color(0.82,0.18,0.18))
+		DrawUtil.bar(self,Vector2(-25,-dimensions.y-1),Vector2(50,6),float(hp)/float(max_hp),Color(0.82,0.18,0.18))
 	if hit_flash > 0.0:
 		DrawUtil.ellipse(self,Vector2.ZERO,30,36,Color(1,1,1,0.25))
 

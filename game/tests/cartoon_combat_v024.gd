@@ -32,13 +32,18 @@ func run() -> void:
 	assert(hub.hero.combat_range(105)==105)
 	hub._attack()
 	assert(target.hp==20,"Sword unexpectedly gained magic reach")
+	hub.hero.spell_index = 2
 	assert(hub.hero.cast_spell(hub))
+	assert(target.hp==20,"Spell hit before projectile arrived")
+	var shots = get_nodes_in_group("cartoon_spell_projectiles")
+	assert(shots.size()==1)
+	shots[0]._process(0.65)
 	assert(target.hp==0,"Spell did not damage ranged target")
 	assert(hub.player_gold==gold+6,"Region reward path bypassed")
 	assert(not hub.hero.spell_mode and hub.hero.spell_cooldown>0)
 	assert(not hub.hero.cast_spell(hub),"Spell ignored cooldown")
 	for i in range(3): hub.hero.cycle_spell()
-	assert(hub.hero.spell_index==0)
+	assert(hub.hero.spell_index==2)
 	hub.hero.trigger_hurt()
 	assert(hub.hero.hurt_t>0)
 	var layout = hub.get_node("HUD/GameLayout")
@@ -77,6 +82,8 @@ func run() -> void:
 	forest.hero.position = boss.position+Vector2(190,0)
 	forest.wildlife.process_mode = Node.PROCESS_MODE_DISABLED
 	for a in forest.wildlife.active.values(): a.position = Vector2(-9000,-9000)
+	for other in forest.monsters:
+		if other!=boss: other.position = Vector2(-8000,-8000)
 	var hp: int = boss.hp
 	forest.hero.cast_spell(forest)
 	assert(boss.hp==hp,"Spell bypassed campaign gate")

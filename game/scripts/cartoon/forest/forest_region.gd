@@ -238,17 +238,29 @@ func _attack() -> void:
 	if target == null:
 		_show_toast("Nenhum inimigo ao alcance.")
 		return
+	if not _can_damage_monster(target): return
+	if hero.spell_mode:
+		hero.launch_magic(self,target,20)
+		return
+	_damage_monster(target,hero.attack_damage(20))
+
+func _can_damage_monster(target: Node2D, feedback: bool = true) -> bool:
+	if not is_instance_valid(target) or target.is_queued_for_deletion() or target.hp<=0 or not monsters.has(target): return false
 	var target_tag: String = String(target.story_tag)
 	var target_boss: String = String(target.boss_id)
 	if target_tag == "forest_defense" and story_runtime.current_id != "Q_MS02_RANGERS":
-		_show_toast("A corrupção recua entre as árvores. Esta luta pertence a outra etapa da história.")
-		return
+		if feedback: _show_toast("A corrupção recua entre as árvores. Esta luta pertence a outra etapa da história.")
+		return false
 	if target_boss == "BOSS_RAIZ_OCA_001" and story_runtime.current_id != "Q_MS02_HOLLOW_ROOT":
-		_show_toast("Raízes antigas protegem o Arauto. A história ainda não abriu esta batalha.")
-		return
-	var dead: bool = target.take_damage(hero.attack_damage(20))
+		if feedback: _show_toast("Raízes antigas protegem o Arauto. A história ainda não abriu esta batalha.")
+		return false
+	return true
+
+func _damage_monster(target: Node2D, amount: int) -> bool:
+	if not _can_damage_monster(target): return false
+	var dead: bool = target.take_damage(amount)
 	if not dead:
-		return
+		return true
 	var story_tag: String = String(target.story_tag)
 	var boss_id: String = String(target.boss_id)
 	monsters.erase(target)
@@ -267,6 +279,7 @@ func _attack() -> void:
 		_show_toast("Objetivo principal concluído. A trilha seguinte foi revelada.")
 	else:
 		_show_toast("Criatura derrotada. +8 ouro")
+	return true
 
 func _interact() -> void:
 	if hero == null:

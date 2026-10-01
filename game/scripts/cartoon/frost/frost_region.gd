@@ -200,16 +200,29 @@ func _attack() -> void:
 	if target == null:
 		_show_toast("Nenhum inimigo ao alcance.")
 		return
+	if not _can_damage_monster(target): return
+	if hero.spell_mode:
+		hero.launch_magic(self,target,26)
+		return
+	_damage_monster(target,hero.attack_damage(26))
+
+func _can_damage_monster(target: Node2D, feedback: bool = true) -> bool:
+	if not is_instance_valid(target) or target.is_queued_for_deletion() or target.hp<=0 or not monsters.has(target): return false
 	var boss_id: String = String(target.boss_id)
 	if boss_id == "BOSS_CAPITAO_GELO_001" and story_runtime.current_id != "Q_MS05_CAPTAIN":
-		_show_toast("A Geada Negra mantém o Capitão fora de alcance.")
-		return
+		if feedback: _show_toast("A Geada Negra mantém o Capitão fora de alcance.")
+		return false
 	if boss_id == "BOSS_GENERAL_GEADA_NEGRA_001" and story_runtime.current_id != "Q_MS05_BLACK_FROST":
-		_show_toast("A Cidadela ainda protege o General da Geada Negra.")
-		return
-	var dead: bool = target.take_damage(hero.attack_damage(26))
+		if feedback: _show_toast("A Cidadela ainda protege o General da Geada Negra.")
+		return false
+	return true
+
+func _damage_monster(target: Node2D, amount: int) -> bool:
+	if not _can_damage_monster(target): return false
+	var boss_id: String = String(target.boss_id)
+	var dead: bool = target.take_damage(amount)
 	if not dead:
-		return
+		return true
 	monsters.erase(target)
 	target.queue_free()
 	player_gold += 14
@@ -223,6 +236,7 @@ func _attack() -> void:
 		_show_toast("Objetivo principal concluído. A rota seguinte foi revelada.")
 	else:
 		_show_toast("Inimigo derrotado. +14 ouro")
+	return true
 
 func _interact() -> void:
 	if hero == null:

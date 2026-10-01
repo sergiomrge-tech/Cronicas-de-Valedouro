@@ -141,6 +141,13 @@ func is_walkable(p: Vector2) -> bool:
 					return false
 	return true
 
+func blocks_spell(p: Vector2) -> bool:
+	if not Region.in_region(p,0.0): return true
+	for blocker in blockers:
+		if blocker["type"]=="rect" and blocker["rect"].grow(2).has_point(p): return true
+		if blocker["type"]=="circle" and p.distance_to(blocker["pos"])<float(blocker["radius"])+2: return true
+	return false
+
 func nearest_poi(p: Vector2, radius: float = 145.0) -> Dictionary:
 	var best: Dictionary = {}
 	var best_d = radius

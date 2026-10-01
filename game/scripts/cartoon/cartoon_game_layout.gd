@@ -155,13 +155,13 @@ func _build(map_script, navigation_property: String) -> void:
 	spell_button = _button("MAGIA",Vector2(76,50),_cast_spell,24)
 	spell_button.name = "SpellButton"
 	spell_button.add_theme_font_size_override("font_size",12)
-	spell_button.tooltip_text = "Q: conjurar • alcance 220 • recarga 3 s"
+	spell_button.tooltip_text = "Q: conjurar • alcance 220 • recarga 3 s • exige linha de visão"
 	add_child(spell_button)
 	gameplay_nodes.append(spell_button)
 	spell_cycle_button = _button("TROCAR",Vector2(76,44),_cycle_spell,12)
 	spell_cycle_button.name = "SpellCycleButton"
 	spell_cycle_button.add_theme_font_size_override("font_size",10)
-	spell_cycle_button.tooltip_text = "R: trocar entre Brasa, Cristal e Arcana"
+	spell_cycle_button.tooltip_text = "R: trocar • Brasa queima • Cristal desacelera • Arcana salta entre inimigos"
 	add_child(spell_cycle_button)
 	gameplay_nodes.append(spell_cycle_button)
 	_build_pause()
@@ -288,7 +288,10 @@ func _cast_spell() -> void:
 	if not is_blocked() and host.hero != null: host.hero.cast_spell(host)
 
 func _cycle_spell() -> void:
-	if not is_blocked() and host.hero != null: host.hero.cycle_spell()
+	if not is_blocked() and host.hero != null:
+		host.hero.cycle_spell()
+		var tips = ["Brasa • queimadura em três pulsos","Cristal • lentidão por 2,5 s","Arcana • salta para um inimigo próximo"]
+		host._show_toast(tips[host.hero.spell_index])
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and not is_blocked():

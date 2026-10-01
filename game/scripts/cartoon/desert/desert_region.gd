@@ -213,13 +213,26 @@ func _attack() -> void:
 	if target == null:
 		_show_toast("Nenhum inimigo ao alcance.")
 		return
+	if not _can_damage_monster(target): return
+	if hero.spell_mode:
+		hero.launch_magic(self,target,22)
+		return
+	_damage_monster(target,hero.attack_damage(22))
+
+func _can_damage_monster(target: Node2D, feedback: bool = true) -> bool:
+	if not is_instance_valid(target) or target.is_queued_for_deletion() or target.hp<=0 or not monsters.has(target): return false
 	var boss_id: String = String(target.boss_id)
 	if boss_id == "BOSS_GENERAL_CINZA_001" and story_runtime.current_id != "Q_MS03_GENERAL_ASH":
-		_show_toast("A Cidadela ainda alimenta a proteção do General da Cinza.")
-		return
-	var dead: bool = target.take_damage(hero.attack_damage(22))
+		if feedback: _show_toast("A Cidadela ainda alimenta a proteção do General da Cinza.")
+		return false
+	return true
+
+func _damage_monster(target: Node2D, amount: int) -> bool:
+	if not _can_damage_monster(target): return false
+	var boss_id: String = String(target.boss_id)
+	var dead: bool = target.take_damage(amount)
 	if not dead:
-		return
+		return true
 	monsters.erase(target)
 	target.queue_free()
 	player_gold += 10
@@ -233,6 +246,7 @@ func _attack() -> void:
 		_show_toast("O General da Cinza caiu. A rota para os pântanos foi revelada.")
 	else:
 		_show_toast("Inimigo derrotado. +10 ouro")
+	return true
 
 func _interact() -> void:
 	if hero == null:

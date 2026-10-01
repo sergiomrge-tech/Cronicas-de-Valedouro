@@ -4,6 +4,7 @@ extends Node2D
 static var active_count: int = 0
 static var light_count: int = 0
 static var light_texture: Texture2D
+var travel_visual: bool = true
 var kind: String = "arcane"
 var age: float = 0.0
 var lifetime: float = 0.8
@@ -66,7 +67,7 @@ func _draw() -> void:
 	var p: float = clampf(age/lifetime,0,1)
 	var fade: float = 1-p
 	var bloom: float = sin(p*PI)
-	var center: Vector2 = direction*(p*90.0) if kind in ["ember","frost","arcane"] else Vector2.ZERO
+	var center: Vector2 = direction*(p*90.0) if travel_visual and kind in ["ember","frost","arcane"] else Vector2.ZERO
 	for i in range(6,0,-1):
 		draw_circle(center,float(i)*(4+8*bloom),Color(tint,fade*0.035))
 	if corpse_texture != null:

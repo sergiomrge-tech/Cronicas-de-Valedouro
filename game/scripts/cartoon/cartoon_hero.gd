@@ -3,6 +3,7 @@ extends Node2D
 
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
 const CombatArt = preload("res://scripts/cartoon/cartoon_combat_art.gd")
+const Projectile = preload("res://scripts/cartoon/cartoon_spell_projectile.gd")
 const FX = preload("res://scripts/cartoon/cartoon_combat_fx.gd")
 const SPELLS = ["ember","frost","arcane"]
 const SPELL_NAMES = ["Brasa","Cristal","Arcana"]
@@ -13,6 +14,7 @@ var move_vector: Vector2 = Vector2.ZERO
 var facing: Vector2 = Vector2.DOWN
 var anim_t: float = 0.0
 var attack_t: float = 0.0
+var cast_spell_index: int = 0
 var cast_t: float = 0.0
 var death_t: float = 0.0
 var hurt_t: float = 0.0
@@ -33,10 +35,18 @@ func apply_equipment_from_state() -> void:
 	armor_tier = int(state.equipped_armor.get("tier",0))
 	queue_redraw()
 
-func attack_damage(base_damage: int) -> int:
+func equipped_damage(base_damage: int) -> int:
 	var state = get_node_or_null("/root/CartoonPlayerState")
 	var amount: int = state.attack_damage(base_damage) if state != null else base_damage
+	return amount
+
+func attack_damage(base_damage: int) -> int:
+	var amount: int = equipped_damage(base_damage)
 	return roundi(amount*1.25) if spell_mode else amount
+
+func launch_magic(host, target: Node2D, base_damage: int, director = null):
+	facing = (target.global_position-global_position).normalized()
+	return Projectile.launch(host,self,target,base_damage,director)
 
 func reduce_incoming_damage(raw_damage: int) -> int:
 	var state = get_node_or_null("/root/CartoonPlayerState")
@@ -62,6 +72,7 @@ func cast_spell(host) -> bool:
 	if host.get("interiors") != null and host.interiors.active: return false
 	spell_cooldown = 3.0
 	cast_t = 0.65
+	cast_spell_index = spell_index
 	spell_mode = true
 	host._attack()
 	spell_mode = false
@@ -86,7 +97,7 @@ func trigger_attack() -> void:
 		var target = host._nearest_monster(combat_range(112.0))
 		if target != null: aim = (target.position-position).normalized()
 	if spell_mode: facing = aim
-	FX.spawn(get_parent(),position+Vector2(0,-25),SPELLS[spell_index] if spell_mode else "slash",aim,SPELL_COLORS[spell_index] if spell_mode else Color("ffe3a0"))
+	if not spell_mode: FX.spawn(get_parent(),position+Vector2(0,-25),"slash",aim,Color("ffe3a0"))
 	queue_redraw()
 
 func _process(delta: float) -> void:
@@ -127,7 +138,7 @@ func _draw() -> void:
 		frame = mini(7,int((1-death_t/0.7)*8))
 	CombatArt.hero_frame(self,direction,animation,frame,Rect2(-40,-94,80,100),Color(1,0.75,0.8) if hurt_t>0 else Color.WHITE)
 	if cast_t>0:
-		var glow: Color = SPELL_COLORS[spell_index]
+		var glow: Color = SPELL_COLORS[cast_spell_index]
 		for i in range(4,0,-1): draw_circle(Vector2(23,-43),float(i)*4,Color(glow,0.09))
 		draw_arc(Vector2(23,-43),10,anim_t*5,anim_t*5+PI*1.6,32,glow,2,true)
 	if death_t>0:

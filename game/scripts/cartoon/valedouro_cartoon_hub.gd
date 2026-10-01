@@ -223,7 +223,19 @@ func _attack() -> void:
 	if target == null:
 		_show_toast("Ataque — nenhum inimigo ao alcance.")
 		return
-	var dead: bool = target.take_damage(hero.attack_damage(18))
+	if not _can_damage_monster(target): return
+	if hero.spell_mode:
+		hero.launch_magic(self,target,18)
+		return
+	_damage_monster(target,hero.attack_damage(18))
+
+func _can_damage_monster(target: Node2D, feedback: bool = true) -> bool:
+	if not is_instance_valid(target) or target.is_queued_for_deletion() or target.hp<=0 or not monsters.has(target): return false
+	return true
+
+func _damage_monster(target: Node2D, amount: int) -> bool:
+	if not _can_damage_monster(target): return false
+	var dead: bool = target.take_damage(amount)
 	if dead:
 		var kind: String = String(target.kind)
 		var story_tag: String = String(target.story_tag)
@@ -251,6 +263,7 @@ func _attack() -> void:
 		else:
 			_show_toast("Inimigo derrotado. +6 ouro")
 		_refresh_stats()
+	return true
 
 func _interact() -> void:
 	if guild_board != null and guild_board.is_open(): return

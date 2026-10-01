@@ -14,6 +14,8 @@ var destination: Vector2
 var clock: float = 0.0
 var cooldown: float = 0.0
 var wander_time: float = 0.0
+var chill_t: float = 0.0
+var burn_t: float = 0.0
 var hit_flash: float = 0.0
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 func setup(manager, data: Dictionary) -> void:
@@ -27,10 +29,15 @@ func setup(manager, data: Dictionary) -> void:
 	hp = max_hp
 	rng.seed = hash(slot_id)
 	clock = rng.randf_range(0,10)
+func apply_chill(duration: float) -> void:
+	chill_t = maxf(chill_t,duration)
+	queue_redraw()
+
 func _process(delta: float) -> void:
 	if dead or director.blocked():
 		direction = Vector2.ZERO
 		return
+	chill_t = maxf(0,chill_t-delta)
 	clock += delta
 	cooldown = maxf(0,cooldown-delta)
 	hit_flash = maxf(0,hit_flash-delta)
@@ -52,6 +59,7 @@ func _process(delta: float) -> void:
 			wander_time = rng.randf_range(2.5,5)
 			destination = home+Vector2(rng.randf_range(-140,140),rng.randf_range(-140,140))
 		direction = (destination-position).normalized() if position.distance_to(destination)>12 else Vector2.ZERO
+	if chill_t>0: speed *= 0.55
 	var next: Vector2 = position+direction*speed*delta
 	if director.walkable(next): position = next
 	else:
@@ -78,5 +86,7 @@ func _draw() -> void:
 	draw_set_transform(Vector2(0,-bob),0,Vector2(-1,1) if direction.x < -0.1 else Vector2.ONE)
 	draw_texture_rect(Assets.texture(key),Rect2(Vector2(-size_v.x/2,-size_v.y+10),size_v),false)
 	draw_set_transform(Vector2.ZERO)
+	if burn_t>0: DrawUtil.flame(self,Vector2(0,-18),15,6,clock)
+	if chill_t>0: draw_arc(Vector2(0,-15),20,clock,clock+PI*1.7,32,Color("a3f0ff"),1.5,true)
 	if hp < max_hp: DrawUtil.bar(self,Vector2(-24,-size_v.y-3),Vector2(48,5),float(hp)/max_hp,Color("b97b5a"))
 	if hit_flash > 0: draw_circle(Vector2(0,-25),23,Color(1,0.95,0.8,0.28))

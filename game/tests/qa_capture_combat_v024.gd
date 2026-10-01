@@ -65,6 +65,7 @@ func run() -> void:
 	hero.move_vector = Vector2.ZERO
 	for spell in range(3):
 		hero.spell_index = spell
+		hero.cast_spell_index = spell
 		hero.facing = Vector2.RIGHT
 		var effect = FX.spawn(stage,Vector2(478,329),hero.SPELLS[spell],Vector2.RIGHT,hero.SPELL_COLORS[spell])
 		effect.scale = Vector2(1.8,1.8)

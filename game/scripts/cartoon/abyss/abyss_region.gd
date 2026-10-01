@@ -188,16 +188,29 @@ func _attack() -> void:
 	if target == null:
 		_show_toast("Nenhum inimigo ao alcance.")
 		return
+	if not _can_damage_monster(target): return
+	if hero.spell_mode:
+		hero.launch_magic(self,target,34)
+		return
+	_damage_monster(target,hero.attack_damage(34))
+
+func _can_damage_monster(target: Node2D, feedback: bool = true) -> bool:
+	if not is_instance_valid(target) or target.is_queued_for_deletion() or target.hp<=0 or not monsters.has(target): return false
 	var boss_id: String = String(target.boss_id)
 	if boss_id == "BOSS_CARTOGRAFO_VAZIO_001" and story_runtime.current_id != "Q_MS08_CARTOGRAPHER":
-		_show_toast("O Arquivo do Vazio ainda está fechado.")
-		return
+		if feedback: _show_toast("O Arquivo do Vazio ainda está fechado.")
+		return false
 	if boss_id == "BOSS_AZHAREL_001" and story_runtime.current_id != "Q_MS08_AZHAREL":
-		_show_toast("O Trono ainda não reconhece o Segundo Viajante.")
-		return
-	var dead: bool = target.take_damage(hero.attack_damage(34))
+		if feedback: _show_toast("O Trono ainda não reconhece o Segundo Viajante.")
+		return false
+	return true
+
+func _damage_monster(target: Node2D, amount: int) -> bool:
+	if not _can_damage_monster(target): return false
+	var boss_id: String = String(target.boss_id)
+	var dead: bool = target.take_damage(amount)
 	if not dead:
-		return
+		return true
 	monsters.erase(target)
 	target.queue_free()
 	player_gold += 25
@@ -211,6 +224,7 @@ func _attack() -> void:
 		_show_toast("A história avançou.")
 	else:
 		_show_toast("Inimigo derrotado. +25 ouro")
+	return true
 
 func _interact() -> void:
 	if hero == null:

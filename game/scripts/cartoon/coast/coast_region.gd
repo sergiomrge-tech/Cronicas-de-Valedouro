@@ -196,17 +196,31 @@ func _attack() -> void:
 	if target == null:
 		_show_toast("Nenhum inimigo ao alcance.")
 		return
+	if not _can_damage_monster(target): return
+	if hero.spell_mode:
+		hero.launch_magic(self,target,28)
+		return
+	_damage_monster(target,hero.attack_damage(28))
+
+func _can_damage_monster(target: Node2D, feedback: bool = true) -> bool:
+	if not is_instance_valid(target) or target.is_queued_for_deletion() or target.hp<=0 or not monsters.has(target): return false
 	var story_tag: String = String(target.story_tag)
 	var boss_id: String = String(target.boss_id)
 	if story_tag == "hollow_fleet" and story_runtime.current_id != "Q_MS06_HOLLOW_FLEET":
-		_show_toast("A Frota Oca ainda navega fora do alcance desta missão.")
-		return
+		if feedback: _show_toast("A Frota Oca ainda navega fora do alcance desta missão.")
+		return false
 	if boss_id == "BOSS_GENERAL_MARE_OCA_001" and story_runtime.current_id != "Q_MS06_GENERAL_TIDE":
-		_show_toast("O Observatório ainda protege o General da Maré Oca.")
-		return
-	var dead: bool = target.take_damage(hero.attack_damage(28))
+		if feedback: _show_toast("O Observatório ainda protege o General da Maré Oca.")
+		return false
+	return true
+
+func _damage_monster(target: Node2D, amount: int) -> bool:
+	if not _can_damage_monster(target): return false
+	var story_tag: String = String(target.story_tag)
+	var boss_id: String = String(target.boss_id)
+	var dead: bool = target.take_damage(amount)
 	if not dead:
-		return
+		return true
 	monsters.erase(target)
 	target.queue_free()
 	player_gold += 16
@@ -222,6 +236,7 @@ func _attack() -> void:
 		_show_toast("Objetivo principal concluído. A próxima rota foi revelada.")
 	else:
 		_show_toast("Inimigo derrotado. +16 ouro")
+	return true
 
 func _interact() -> void:
 	if hero == null:

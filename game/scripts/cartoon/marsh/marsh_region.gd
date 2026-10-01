@@ -212,13 +212,26 @@ func _attack() -> void:
 	if target == null:
 		_show_toast("Nenhum inimigo ao alcance.")
 		return
+	if not _can_damage_monster(target): return
+	if hero.spell_mode:
+		hero.launch_magic(self,target,24)
+		return
+	_damage_monster(target,hero.attack_damage(24))
+
+func _can_damage_monster(target: Node2D, feedback: bool = true) -> bool:
+	if not is_instance_valid(target) or target.is_queued_for_deletion() or target.hp<=0 or not monsters.has(target): return false
 	var boss_id: String = String(target.boss_id)
 	if boss_id == "BOSS_DAMA_JUNCOS_001" and story_runtime.current_id != "Q_MS04_LADY_REEDS":
-		_show_toast("O vínculo ritual ainda protege a Dama dos Juncos.")
-		return
-	var dead: bool = target.take_damage(hero.attack_damage(24))
+		if feedback: _show_toast("O vínculo ritual ainda protege a Dama dos Juncos.")
+		return false
+	return true
+
+func _damage_monster(target: Node2D, amount: int) -> bool:
+	if not _can_damage_monster(target): return false
+	var boss_id: String = String(target.boss_id)
+	var dead: bool = target.take_damage(amount)
 	if not dead:
-		return
+		return true
 	monsters.erase(target)
 	target.queue_free()
 	player_gold += 12
@@ -232,6 +245,7 @@ func _attack() -> void:
 		_show_toast("A Dama dos Juncos caiu. A Comporta dos Ecos pode ser fechada.")
 	else:
 		_show_toast("Criatura derrotada. +12 ouro")
+	return true
 
 func _interact() -> void:
 	if hero == null:

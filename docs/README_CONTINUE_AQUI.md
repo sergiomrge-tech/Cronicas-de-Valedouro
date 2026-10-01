@@ -90,3 +90,14 @@ Registro: `docs/CARTOON_COMBAT_V0_24.md`; GIFs/capturas:
 `docs/visual_qa/cartoon_v024/review.html`. Arte MODELED_PENDING_GATE;
 magias PROPOSED. Aprovação visual e testes no celular ainda pendentes.
 A base oficial documentada permanece v0.19, com candidatos até v0.24 em revisão.
+
+## Continuidade — candidata v0.25: combate elemental
+
+Projéteis com impacto real nas oito regiões; Brasa com três pulsos de queimadura,
+Cristal com lentidão e Arcana com um salto para outro monstro próximo. Mantém
+bloqueios da história, XP, loot e caça. Barra de vida acima do sprite e dicas de
+magia atualizadas. Leia `docs/CARTOON_ELEMENTAL_V0_25.md`; capturas reais e GIFs
+em `docs/visual_qa/cartoon_v025/review.html`. 25 testes passaram localmente no
+Godot 4.6.3; workflow Android executa a suíte em 4.7.2 e publica v0.25-test.
+Arte MODELED_PENDING_GATE; mecânicas PROPOSED; teste em aparelho real e
+aprovação visual pendentes. A base oficial documentada continua v0.19.
