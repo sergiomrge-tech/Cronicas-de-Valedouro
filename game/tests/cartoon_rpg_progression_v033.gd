@@ -44,6 +44,7 @@ func run() -> void:
 	var equipped: Dictionary = state.equip_item(dropped_id)
 	assert(bool(equipped.get("ok",false)))
 	assert(state.is_equipped(dropped_id))
+	assert(bool(state.equip_item("starter_blade").get("ok",false)))
 
 	state.player_level = 1
 	root.size = Vector2i(640,360)
