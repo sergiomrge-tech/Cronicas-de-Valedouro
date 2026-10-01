@@ -40,6 +40,10 @@ var joystick_center: Vector2
 var last_joystick: Vector2 = Vector2.INF
 var last_toast_text: String = ""
 var last_unlocked_spells: int = -1
+var last_player_level: int = -1
+var level_banner: PanelContainer
+var level_banner_label: Label
+var level_banner_timer: float = 0.0
 
 static func build(host_node, map_script, navigation_property: String) -> void:
 	var layer: CanvasLayer = CanvasLayer.new()
@@ -147,6 +151,20 @@ func _build(map_script, navigation_property: String) -> void:
 	host.toast_label.add_theme_constant_override("shadow_outline_size",4)
 	add_child(host.toast_label)
 	gameplay_nodes.append(host.toast_label)
+
+	level_banner = PanelContainer.new()
+	level_banner.name = "LevelUpBanner"
+	level_banner.visible = false
+	level_banner.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	level_banner.add_theme_stylebox_override("panel",UISkin.box(Color(0.08,0.16,0.12,0.96),UISkin.GOLD,10))
+	add_child(level_banner)
+	level_banner_label = UISkin.label("",13,UISkin.GOLD)
+	level_banner_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	level_banner_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	level_banner_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	level_banner_label.max_lines_visible = 2
+	level_banner_label.custom_minimum_size = Vector2(236,42)
+	level_banner.add_child(level_banner_label)
 	host.map_overlay = map_script.new()
 	host.map_overlay.size = Vector2(850,460)
 	host.map_overlay.visible = false
@@ -241,6 +259,8 @@ func _layout() -> void:
 	heal_button.size = Vector2(62,50)
 	heal_button.position = Vector2(area.end.x-222,area.end.y-142) if compact else Vector2(area.end.x-140,area.end.y-208)
 	contract_panel.position = area.position+Vector2(0,92)
+	level_banner.size = Vector2(244,46)
+	level_banner.position = Vector2(area.get_center().x-122,area.position.y+96)
 	joystick_center = Vector2(area.position.x+86,area.end.y-80)
 	var hint_width: float = minf(480,area.size.x-220)
 	host.poi_label.position = Vector2(area.get_center().x-hint_width/2,area.end.y-194)
@@ -292,10 +312,24 @@ func is_blocked() -> bool:
 func _process(_delta: float) -> void:
 	var blocked: bool = is_blocked()
 	host.toast_label.tooltip_text = host.toast_label.text
+	if level_banner_timer > 0.0:
+		level_banner_timer = maxf(0.0,level_banner_timer-_delta)
+		level_banner.visible = level_banner_timer > 0.0
+	elif level_banner != null:
+		level_banner.visible = false
 	if last_toast_text!=host.toast_label.text:
 		last_toast_text = host.toast_label.text
 		_layout()
 	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state != null:
+		var current_level: int = int(state.player_level)
+		if last_player_level < 0:
+			last_player_level = current_level
+		elif current_level > last_player_level:
+			_show_level_up(last_player_level,current_level,state)
+			last_player_level = current_level
+		elif current_level < last_player_level:
+			last_player_level = current_level
 	var count: int = 0
 	var ready_count: int = 0
 	var first: String = ""
@@ -309,7 +343,7 @@ func _process(_delta: float) -> void:
 			var detail: String = "%s  %d/%d" % [item.title,p,item.count]
 			if first == "": first = detail
 			descriptions.append(detail)
-	contract_panel.visible = count > 0 and not blocked
+	contract_panel.visible = count > 0 and not blocked and level_banner_timer <= 0.0
 	contract_copy.text = "GUILDA %d/%d • %s" % [ready_count,count,first]
 	contract_copy.tooltip_text = "\n".join(descriptions)
 	var current_unlocked_spells: int = state.unlocked_spell_count() if state != null else 1
@@ -366,6 +400,23 @@ func _process(_delta: float) -> void:
 	if last_joystick != host.joystick_vector:
 		last_joystick = host.joystick_vector
 	queue_redraw()
+
+func _show_level_up(from_level: int,to_level: int,state) -> void:
+	if level_banner == null or level_banner_label == null:
+		return
+	var gained: int = maxi(1,to_level-from_level)
+	var first_line: String = "NÍVEL %d • +%d %s" % [to_level,gained,"ponto" if gained==1 else "pontos"]
+	var unlocks: PackedStringArray = state.progression_unlocks(from_level,to_level)
+	var second_line: String = ""
+	if not unlocks.is_empty():
+		second_line = String(unlocks[unlocks.size()-1])
+		if unlocks.size() > 1:
+			second_line += " • +%d desbloqueio%s" % [unlocks.size()-1,"s" if unlocks.size()>2 else ""]
+	level_banner_label.text = first_line+("\n"+second_line if second_line!="" else "\nHabilidade pronta para evoluir")
+	level_banner.tooltip_text = "\n".join(unlocks) if not unlocks.is_empty() else "Você ganhou pontos de habilidade."
+	level_banner_timer = 4.0
+	level_banner.visible = true
+	_layout()
 
 func _draw() -> void:
 	if host == null or quest_panel == null or is_blocked(): return
