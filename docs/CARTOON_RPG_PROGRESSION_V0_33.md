@@ -1,4 +1,4 @@
-# Candidata v0.33 — cura rápida e progressão de equipamentos
+# v0.33 validada — cura rápida e progressão de equipamentos
 
 A v0.33 continua diretamente da v0.32 validada e aprofunda a progressão RPG
 sem aumentar artificialmente o poder do personagem.
@@ -79,5 +79,19 @@ Gera quatro capturas reais do Godot:
 3. mesmo equipamento desbloqueado no nível 8;
 4. HUD após uso rápido da cura.
 
-A v0.33 só deve ser promovida após o Godot Gate 4.7.2 concluir com sucesso.
+## Validação oficial
+
+A v0.33 foi validada no **Godot 4.7.2 oficial** sobre o commit
+`4cb032e2012ecfeeb2f0477fe0a158d4b51bb961`.
+
+O Gate oficial concluiu com sucesso no run `36878325954`, incluindo:
+- importação/parser;
+- **52 testes nativos**;
+- QA visual geral;
+- QA das oito regiões;
+- QA de interiores, castelo, classes, equipamentos, missões, magias e loot;
+- QA v0.33 com quatro capturas reais de cura rápida e equipamento bloqueado/desbloqueado.
+
+Artefato visual v0.33: `valedouro-rpg-v033-visual-qa`.
+
 APK continua sob demanda.
