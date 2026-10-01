@@ -12,6 +12,7 @@ var hp_bar: ProgressBar
 var hp_text: Label
 var xp_bar: ProgressBar
 var xp_text: Label
+var hero_button: Button
 var region_name: String = "VALEDOURO"
 var accent: Color = Color(0.91,0.69,0.27)
 
@@ -56,6 +57,21 @@ func _build() -> void:
 	portrait.size = Vector2(38,49)
 	portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	body.add_child(portrait)
+	hero_button = Button.new()
+	hero_button.name = "HeroClassButton"
+	hero_button.position = Vector2(8,26)
+	hero_button.size = Vector2(44,54)
+	hero_button.tooltip_text = "HERÓI • trocar classe e evoluir habilidades (C)"
+	UISkin.button(hero_button,Color.TRANSPARENT,UISkin.GOLD,5)
+	hero_button.pressed.connect(func():
+		var layout = get_parent().get_node_or_null("GameLayout")
+		if layout != null: layout.class_ui.open_panel())
+	body.add_child(hero_button)
+	var hero_hint = UISkin.label("HERÓI",8,UISkin.GOLD)
+	hero_hint.position = Vector2(0,44)
+	hero_hint.size = Vector2(44,10)
+	hero_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hero_button.add_child(hero_hint)
 	hp_bar = _make_bar(Vector2(62,31),Vector2(182,19),Color("b14e56"))
 	body.add_child(hp_bar)
 	hp_bar.size = Vector2(182,19)
@@ -123,6 +139,12 @@ func refresh(hp: int,max_hp: int,gold: int,level: int,xp: int,xp_next: int) -> v
 	hp_text.text = "VIDA  %d / %d" % [hp,safe_max]
 	hp_text.add_theme_color_override("font_color",Color("ffcebe") if hp <= safe_max/5 else Color.WHITE)
 	level_label.text = "Nv %d" % clampi(level,1,100)
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state != null:
+		var row: Dictionary = state.Classes.class_row(state.active_class)
+		region_label.text = "%s • %s" % [region_name,row.name]
+		region_label.tooltip_text = region_name+" • "+row.name
+		hero_button.tooltip_text = "%s • %d pontos de habilidade • toque para evoluir (C)" % [row.name,state.available_skill_points()]
 	gold_label.text = "%d ouro" % maxi(0,gold)
 	if level >= 100 or xp_next <= 0:
 		xp_bar.value = 100.0

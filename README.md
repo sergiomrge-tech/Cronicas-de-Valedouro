@@ -88,3 +88,17 @@ sobreposição, incluindo painel de missão expandido. Leia
 workflow Android executa a suíte oficial 4.7.2 e publica v0.26-test. Arte
 MODELED_PENDING_GATE, novas mecânicas PROPOSED; aprovação visual e teste em
 aparelho real pendentes. Base oficial documentada continua v0.19.
+
+## Continuidade — candidata v0.27: classes e habilidades
+
+Pedido explícito do Diretor: trocar de classe e evoluir habilidades. Substitui
+a restrição anterior de não utilizar classes. Um protagonista, três
+especializações trocáveis (Guerreiro, Mago, Caçador), nove habilidades de dez
+graus, um ponto inicial +1 por nível, requisitos de nível e reembolso por
+classe. Toque no retrato do herói ou pressione C. Save v4 migra os anteriores
+sem perder campanha; só a classe ativa aplica bônus. Leia
+`docs/CARTOON_CLASSES_V0_27.md`; revisão em
+`docs/visual_qa/cartoon_v027/review.html`. 27 testes passaram em Godot 4.6.3;
+workflow oficial 4.7.2 executa testes e novas capturas, e Android publica
+v0.27-test. Balanceamento PROPOSED, arte MODELED_PENDING_GATE e teste em
+aparelho real pendente; base oficial documentada continua v0.19.

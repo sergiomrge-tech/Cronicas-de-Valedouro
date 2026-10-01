@@ -3,6 +3,8 @@ extends Control
 ## Shared HUD shell for all eight campaign regions.
 
 const GuildContracts = preload("res://scripts/cartoon/cartoon_guild_contracts.gd")
+const ClassUI = preload("res://scripts/cartoon/cartoon_class_ui.gd")
+var class_ui
 
 const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
 const Placement = preload("res://scripts/cartoon/cartoon_ui_placement.gd")
@@ -172,6 +174,10 @@ func _build(map_script, navigation_property: String) -> void:
 	add_child(dodge_button)
 	gameplay_nodes.append(dodge_button)
 	_build_pause()
+	class_ui = ClassUI.new()
+	class_ui.name = "HeroClasses"
+	add_child(class_ui)
+	class_ui.setup(host)
 
 func _button(text: String, button_size: Vector2, callback: Callable, radius: int = 10) -> Button:
 	var button: Button = Button.new()
@@ -223,6 +229,7 @@ func _toggle_quest() -> void:
 	_layout()
 
 func is_blocked() -> bool:
+	if class_ui != null and class_ui.is_open(): return true
 	if host.map_open or pause_panel.visible: return true
 	if host.get("guild_board") != null and host.guild_board.is_open(): return true
 	for key: String in ["inventory_ui","crafting_ui"]:
@@ -324,6 +331,11 @@ func _cycle_spell() -> void:
 		host._show_toast(tips[host.hero.spell_index])
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_C:
+		if class_ui.is_open(): class_ui.close_panel()
+		elif not is_blocked(): class_ui.open_panel()
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventKey and event.pressed and not event.echo and not is_blocked():
 		if event.physical_keycode == KEY_SHIFT:
 			_dodge()
@@ -338,7 +350,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			return
 	if not event.is_action_pressed("ui_cancel"): return
-	if host.get("guild_board") != null and host.guild_board.is_open(): host.guild_board.close_panel()
+	if class_ui.is_open(): class_ui.close_panel()
+	elif host.get("guild_board") != null and host.guild_board.is_open(): host.guild_board.close_panel()
 	elif pause_panel.visible: close_pause()
 	elif host.map_open: host._toggle_map()
 	elif host.inventory_ui != null and host.inventory_ui.is_open(): host.inventory_ui.close_panel()

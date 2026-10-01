@@ -29,6 +29,8 @@ var dodge_cooldown: float = 0.0
 var dodge_direction: Vector2 = Vector2.DOWN
 var dodge_host: WeakRef
 var dodge_trail_t: float = 0.0
+var dodge_distance: float = 120.0
+var class_color: Color = Color("e9ba62")
 const DODGE_DURATION: float = 0.22
 const DODGE_DISTANCE: float = 120.0
 
@@ -50,7 +52,8 @@ func try_dodge(host) -> bool:
 	dodge_t = DODGE_DURATION
 	dodge_elapsed = 0
 	dodge_trail_t = 0
-	dodge_cooldown = 2.2
+	dodge_cooldown = maxf(1.6,2.2-0.06*_skill("footwork"))
+	dodge_distance = DODGE_DISTANCE+4*_skill("agility")
 	attack_t = 0
 	cast_t = 0
 	FX.spawn(get_parent(),position,"evade",dodge_direction,Color("7feaff"))
@@ -65,7 +68,7 @@ func _step_dodge(delta: float) -> void:
 		dodge_t = 0
 		return
 	var elapsed: float = minf(delta,dodge_t)
-	var distance: float = DODGE_DISTANCE*elapsed/DODGE_DURATION
+	var distance: float = dodge_distance*elapsed/DODGE_DURATION
 	var steps: int = maxi(1,ceili(distance/6))
 	for i in range(steps):
 		var next: Vector2 = position+dodge_direction*distance/steps
@@ -82,6 +85,26 @@ func _step_dodge(delta: float) -> void:
 
 func _ready() -> void:
 	apply_equipment_from_state()
+	apply_class_from_state()
+
+func _skill(id: String) -> int:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	return state.skill_rank(id) if state != null else 0
+
+func apply_class_from_state() -> void:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state != null:
+		var row: Dictionary = state.Classes.class_row(state.active_class)
+		if not row.is_empty(): class_color = Color(row.color)
+	queue_redraw()
+
+func magic_damage(base_damage: int, hunting: bool = false) -> int:
+	var amount: float = equipped_damage(base_damage)*(1+0.04*_skill("power"))
+	if hunting: amount *= 1+0.06*_skill("hunt")
+	return maxi(1,roundi(amount))
+
+func hunting_damage(base_damage: int) -> int:
+	return maxi(1,roundi(attack_damage(base_damage)*(1+0.06*_skill("hunt"))))
 
 func apply_equipment_from_state() -> void:
 	var state = get_node_or_null("/root/CartoonPlayerState")
@@ -97,7 +120,7 @@ func equipped_damage(base_damage: int) -> int:
 	return amount
 
 func attack_damage(base_damage: int) -> int:
-	var amount: int = equipped_damage(base_damage)
+	var amount: int = maxi(1,roundi(equipped_damage(base_damage)*(1+0.04*_skill("blade"))))
 	return roundi(amount*1.25) if spell_mode else amount
 
 func launch_magic(host, target: Node2D, base_damage: int, director = null):
@@ -115,7 +138,7 @@ func set_motion(v: Vector2) -> void:
 	queue_redraw()
 
 func combat_range(base_range: float) -> float:
-	return maxf(base_range,220.0) if spell_mode else base_range
+	return maxf(base_range,220.0+4*_skill("reach")) if spell_mode else base_range
 
 func cycle_spell() -> void:
 	spell_index = (spell_index+1)%SPELLS.size()
@@ -126,7 +149,7 @@ func cast_spell(host) -> bool:
 	var layout = host.get_node_or_null("HUD/GameLayout")
 	if layout != null and layout.is_blocked(): return false
 	if host.get("interiors") != null and host.interiors.active: return false
-	spell_cooldown = 3.0
+	spell_cooldown = maxf(2.2,3.0-0.08*_skill("focus"))
 	cast_t = 0.65
 	cast_spell_index = spell_index
 	spell_mode = true
@@ -168,6 +191,7 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 func _draw() -> void:
+	draw_arc(Vector2(0,7),22,0,TAU,40,Color(class_color,0.35),1.3,true)
 	var moving = move_vector.length() > 0.08 or dodge_t>0
 	var bob = absf(sin(anim_t * 9.0)) * 3.0 if moving else sin(anim_t * 2.0) * 1.0
 	DrawUtil.shadow(self, Vector2(0, 9), 19, 0.30)

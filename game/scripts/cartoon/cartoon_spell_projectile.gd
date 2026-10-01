@@ -18,6 +18,8 @@ var burn_time: float = 0.0
 var burn_tick: float = 0.0
 var ticks_left: int = 3
 var effect
+var chill_duration: float = 2.5
+var echo_radius: float = 110.0
 
 static func blocked(host) -> bool:
 	if not is_instance_valid(host) or not host.is_inside_tree(): return true
@@ -42,9 +44,12 @@ static func launch(host, hero, target: Node2D, base_damage: int, director = null
 	shot.target_ref = weakref(target)
 	if director != null: shot.director_ref = weakref(director)
 	shot.spell_kind = hero.SPELLS[hero.spell_index]
-	var equipped_damage: int = hero.equipped_damage(base_damage)
+	var equipped_damage: int = hero.magic_damage(base_damage,director != null)
 	shot.damage = roundi(equipped_damage*(1.25 if shot.spell_kind=="arcane" else 1.0))
-	shot.burn_damage = maxi(1,roundi(equipped_damage*0.10))
+	var mastery: int = hero._skill("elements")
+	shot.burn_damage = maxi(1,roundi(equipped_damage*(0.10+0.01*mastery)))
+	shot.chill_duration = 2.5+0.1*mastery
+	shot.echo_radius = 110.0+5*mastery
 	host.add_child(shot)
 	shot.global_position = hero.global_position+Vector2(0,-28)
 	return shot
@@ -120,7 +125,7 @@ func _process(delta: float) -> void:
 		cancel()
 		return
 	FX.spawn(host.objects,host.objects.to_local(global_position),"impact_"+spell_kind,Vector2.UP,COLORS[spell_kind])
-	if spell_kind=="frost" and alive(target): target.apply_chill(2.5)
+	if spell_kind=="frost" and alive(target): target.apply_chill(chill_duration)
 	elif spell_kind=="ember" and alive(target):
 		if target.has_meta("valedouro_burn"):
 			var previous = target.get_meta("valedouro_burn").get_ref()
@@ -146,7 +151,7 @@ func apply_hit(host, target, amount: int) -> bool:
 func launch_echo(host, original) -> void:
 	if active_count>=LIMIT: return
 	var nearest = null
-	var radius: float = 110.0
+	var radius: float = echo_radius
 	for candidate in host.monsters:
 		if candidate==original or not alive(candidate): continue
 		var d: float = candidate.global_position.distance_to(global_position+Vector2(0,28))

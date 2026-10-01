@@ -1,7 +1,63 @@
 extends Node
 
 const SAVE_PATH: String = "user://valedouro_cartoon_profile_v1.json"
-const SAVE_VERSION: int = 3
+const SAVE_VERSION: int = 4
+const Classes = preload("res://scripts/cartoon/cartoon_class_catalog.gd")
+var active_class: String = "warrior"
+var skill_ranks: Dictionary = {}
+
+func skill_rank(id: String, active_only: bool = true) -> int:
+	if not Classes.SKILLS.has(id): return 0
+	if active_only and Classes.SKILLS[id].class != active_class: return 0
+	return clampi(int(skill_ranks.get(id,0)),0,Classes.MAX_RANK)
+
+func available_skill_points() -> int:
+	var spent: int = 0
+	for id in Classes.SKILLS: spent += skill_rank(id,false)
+	return maxi(0,player_level-spent)
+
+func set_class(id: String) -> bool:
+	if Classes.class_row(id).is_empty() or id==active_class: return false
+	active_class = id
+	if is_instance_valid(_active_hero): _active_hero.apply_class_from_state()
+	save_profile()
+	return true
+
+func skill_upgrade_error(id: String) -> String:
+	if not Classes.SKILLS.has(id) or Classes.SKILLS[id].class != active_class: return "Escolha uma habilidade da classe ativa."
+	var rank: int = skill_rank(id,false)
+	if rank>=Classes.MAX_RANK: return "Grau máximo alcançado."
+	if player_level<Classes.required_level(rank+1): return "Requer nível %d." % Classes.required_level(rank+1)
+	if available_skill_points()<=0: return "Suba de nível para ganhar mais pontos."
+	return ""
+
+func upgrade_skill(id: String) -> bool:
+	if skill_upgrade_error(id)!="": return false
+	skill_ranks[id] = skill_rank(id,false)+1
+	save_profile()
+	return true
+
+func refund_class_skills() -> int:
+	var refunded: int = 0
+	for id in Classes.class_row(active_class).skills:
+		refunded += skill_rank(id,false)
+		skill_ranks.erase(id)
+	if refunded>0: save_profile()
+	return refunded
+
+func _normalize_class_progress(raw: Variant) -> void:
+	if Classes.class_row(active_class).is_empty(): active_class = "warrior"
+	skill_ranks.clear()
+	if not raw is Dictionary: return
+	var remaining: int = player_level
+	for row in Classes.CLASSES:
+		for id in row.skills:
+			var value: Variant = raw.get(id,0)
+			if not (value is int or value is float): continue
+			var rank: int = clampi(int(value),0,mini(Classes.MAX_RANK,remaining))
+			while rank>0 and player_level<Classes.required_level(rank): rank -= 1
+			if rank>0: skill_ranks[id] = rank
+			remaining -= rank
 const DEFAULT_SCENE: String = "res://scenes/cartoon/ValedouroCartoonHub.tscn"
 const VALID_SCENES: Array[String] = [
 	DEFAULT_SCENE,
@@ -434,7 +490,7 @@ func attack_damage(base_damage: int) -> int:
 	return maxi(1,base_damage+attack_bonus())
 
 func reduce_damage(raw_damage: int) -> int:
-	return maxi(1,raw_damage-defense_bonus())
+	return maxi(1,roundi(maxi(1,raw_damage-defense_bonus())*(1-0.02*skill_rank("guard"))))
 
 func equipment_summary() -> String:
 	return "⚔ %s  +%d ATQ\n🛡 %s  +%d DEF" % [
@@ -462,6 +518,8 @@ func save_profile() -> void:
 		return
 	var data: Dictionary = {
 		"version":SAVE_VERSION,
+		"active_class":active_class,
+		"skill_ranks":skill_ranks,
 		"materials":materials,
 		"guild_contracts":guild_contracts,
 		"wildlife_cooldowns":wildlife_cooldowns,
@@ -519,6 +577,8 @@ func load_profile() -> void:
 	player_gold = maxi(0,int(data.get("player_gold",35)))
 	player_level = clampi(int(data.get("player_level",1)),1,100)
 	player_xp = maxi(0,int(data.get("player_xp",0)))
+	active_class = String(data.get("active_class","warrior"))
+	_normalize_class_progress(data.get("skill_ranks",{}))
 	var story_value: Variant = data.get("story_progress",{})
 	story_progress = (story_value as Dictionary).duplicate(true) if story_value is Dictionary else {}
 	var extras_value: Variant = data.get("scene_extras",{})
@@ -526,6 +586,8 @@ func load_profile() -> void:
 
 func reset_progress(delete_save: bool = true) -> void:
 	_clear_active_binding()
+	active_class = "warrior"
+	skill_ranks.clear()
 	guild_contracts.clear()
 	wildlife_cooldowns.clear()
 	materials.clear()

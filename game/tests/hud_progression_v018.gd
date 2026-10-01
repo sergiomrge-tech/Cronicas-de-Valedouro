@@ -38,7 +38,7 @@ func run() -> void:
 	root.add_child(hud)
 	hud.setup("VALEDOURO")
 	hud.refresh(state.player_hp,state.player_max_hp,123,state.player_level,state.player_xp,state.xp_to_next())
-	assert(hud.region_label.text == "VALEDOURO")
+	assert(hud.region_label.text == "VALEDOURO • Guerreiro")
 	assert(hud.level_label.text == "Nv 3")
 	assert(hud.gold_label.text.contains("123"))
 	assert(hud.hp_text.text.contains("%d / %d" % [state.player_hp,state.player_max_hp]))
