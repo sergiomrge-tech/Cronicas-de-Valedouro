@@ -3,6 +3,7 @@ extends Node
 
 const PropScript = preload("res://scripts/cartoon/cartoon_prop.gd")
 const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
+const GATHER_RESPAWN_SECONDS: float = 300.0
 
 var host
 var objects: Node2D
@@ -15,6 +16,7 @@ var elite_count: int = 0
 var materials: Dictionary = {}
 var dungeon_state: Dictionary = {}
 var dungeon_mobs: Dictionary = {}
+var resource_sync_elapsed: float = 0.0
 
 func setup(host_node, objects_node: Node2D, hero_node: Node2D, target_region_id: String) -> void:
 	host = host_node
@@ -26,14 +28,20 @@ func setup(host_node, objects_node: Node2D, hero_node: Node2D, target_region_id:
 		materials = state.materials
 	sites = content_for(region_id)
 	sites.append_array(advanced_content_for(region_id))
+	sites.append_array(gathering_sites_for(region_id))
 	for site in sites:
 		_spawn_site(site)
 	for elite in elites_for(region_id):
 		if host != null and host.has_method("_spawn_monster"):
 			host.call("_spawn_monster",elite)
 			elite_count += 1
+	_sync_resource_nodes()
 
 func _process(_delta: float) -> void:
+	resource_sync_elapsed += _delta
+	if resource_sync_elapsed >= 1.0:
+		resource_sync_elapsed = 0.0
+		_sync_resource_nodes()
 	for id in dungeon_mobs.keys():
 		if String(dungeon_state.get(id,"")) != "active":
 			continue
@@ -67,7 +75,8 @@ func hint_text(radius: float = 190.0) -> String:
 	var site: Dictionary = _nearest_site(radius)
 	if site.is_empty():
 		return ""
-	return "✦ %s  •  EXPLORAR" % String(site.get("label","Segredo"))
+	var action: String = "COLETAR" if String(site.get("type","")) == "resource" else "EXPLORAR"
+	return "✦ %s  •  %s" % [String(site.get("label","Segredo")),action]
 
 func try_interact(radius: float = 195.0) -> bool:
 	var site: Dictionary = _nearest_site(radius)
@@ -77,9 +86,13 @@ func try_interact(radius: float = 195.0) -> bool:
 	var site_type: String = String(site.get("type","treasure"))
 	if site_type == "dungeon":
 		return _interact_dungeon(site)
-	if collected.has(id):
-		return false
-	collected[id] = true
+	if site_type == "resource":
+		if not _resource_ready(id):
+			return false
+	else:
+		if collected.has(id):
+			return false
+		collected[id] = true
 	var reward: int = int(site.get("reward",0))
 	var message: String = String(site.get("text",String(site.get("label","Local descoberto"))))
 	match site_type:
@@ -98,10 +111,10 @@ func try_interact(radius: float = 195.0) -> bool:
 			var amount: int = maxi(1,int(site.get("amount",1)))
 			_add_material(material_name,amount)
 			_add_gold(reward)
-			message += "  +%d %s" % [amount,material_name]
+			message = "Coletado: +%d %s." % [amount,material_name]
 			if reward > 0:
-				message += " e +%d ouro." % reward
-			_fade_site(id)
+				message += " +%d ouro." % reward
+			_start_resource_cooldown(id,float(site.get("respawn",GATHER_RESPAWN_SECONDS)))
 		"npc":
 			var material_name: String = String(site.get("material",_default_material()))
 			var amount: int = maxi(1,int(site.get("amount",1)))
@@ -166,6 +179,35 @@ func _interact_dungeon(site: Dictionary) -> bool:
 func _state():
 	return get_node_or_null("/root/CartoonPlayerState")
 
+func _resource_ready(id: String) -> bool:
+	var state = _state()
+	if state == null:
+		return true
+	return float(state.gathering_cooldowns.get(id,0.0)) <= Time.get_unix_time_from_system()
+
+func _start_resource_cooldown(id: String,seconds: float) -> void:
+	var state = _state()
+	if state != null:
+		state.gathering_cooldowns[id] = Time.get_unix_time_from_system()+maxf(1.0,seconds)
+		state.save_profile()
+	_sync_resource_node(id)
+
+func _sync_resource_nodes() -> void:
+	for site in sites:
+		if String(site.get("type","")) != "resource":
+			continue
+		_sync_resource_node(String(site.get("id","")))
+
+func _sync_resource_node(id: String) -> void:
+	if not site_nodes.has(id):
+		return
+	var node = site_nodes[id]
+	if not is_instance_valid(node):
+		return
+	var ready: bool = _resource_ready(id)
+	node.visible = ready
+	node.modulate = Color.WHITE if ready else Color(0.45,0.45,0.45,0.18)
+
 func _add_material(material_name: String, amount: int) -> void:
 	if material_name == "" or amount <= 0:
 		return
@@ -206,7 +248,11 @@ func _nearest_site(radius: float) -> Dictionary:
 	var best_d: float = radius
 	for site in sites:
 		var id: String = String(site.get("id",""))
-		if collected.has(id):
+		var site_type: String = String(site.get("type",""))
+		if site_type == "resource":
+			if not _resource_ready(id):
+				continue
+		elif collected.has(id):
 			continue
 		var pos: Vector2 = site.get("pos",Vector2.ZERO)
 		var d: float = hero.position.distance_to(pos)
@@ -216,7 +262,11 @@ func _nearest_site(radius: float) -> Dictionary:
 	return best
 
 func progress_text() -> String:
-	return "%d/%d locais • %d materiais" % [collected.size(),sites.size(),_material_total()]
+	var permanent_total: int = 0
+	for site in sites:
+		if String(site.get("type","")) != "resource":
+			permanent_total += 1
+	return "%d/%d locais • %d materiais" % [collected.size(),permanent_total,_material_total()]
 
 func _material_total() -> int:
 	var state = _state()
@@ -226,6 +276,71 @@ func _material_total() -> int:
 	for value in materials.values():
 		total += int(value)
 	return total
+
+static func gathering_sites_for(target_region_id: String) -> Array[Dictionary]:
+	match target_region_id:
+		"REG_001_BERCO_VALEDOURO":
+			return [
+				{"id":"GAT_V01_BONE_A","label":"Restos de Caça","type":"resource","prop":"rock","pos":Vector2(7700,10600),"material":"Osso de caça","amount":1,"scale":0.82},
+				{"id":"GAT_V01_HIDE_A","label":"Armadilha Abandonada","type":"resource","prop":"chest","pos":Vector2(8460,11480),"material":"Couro do Vale","amount":1,"scale":0.78},
+				{"id":"GAT_V01_BONE_B","label":"Ossada do Vale","type":"resource","prop":"rock","pos":Vector2(6740,12480),"material":"Osso de caça","amount":1,"scale":0.88},
+				{"id":"GAT_V01_HIDE_B","label":"Pele Curtida Esquecida","type":"resource","prop":"chest","pos":Vector2(9460,13350),"material":"Couro do Vale","amount":1,"scale":0.80},
+				{"id":"GAT_V01_BONE_C","label":"Restos do Acampamento","type":"resource","prop":"rock","pos":Vector2(5900,14500),"material":"Osso de caça","amount":2,"scale":0.92},
+				{"id":"GAT_V01_HIDE_C","label":"Reserva dos Caçadores","type":"resource","prop":"chest","pos":Vector2(10350,15100),"material":"Couro do Vale","amount":2,"scale":0.84}
+			]
+		"REG_002_FLORESTA_ANCESTRAL":
+			return _gather_rows("F02","Seiva Ancestral","Seiva Antiga","bush",[
+				Vector2(29600,25200),Vector2(31800,27800),Vector2(26200,33000),
+				Vector2(21400,36100),Vector2(14500,28600),Vector2(33800,22800)
+			])
+		"REG_003_DESERTO_RUINAS":
+			return _gather_rows("D03","Âmbar Negro","Veio de Âmbar","mine",[
+				Vector2(21800,15800),Vector2(24600,18100),Vector2(18800,24400),
+				Vector2(13100,27100),Vector2(28400,13700),Vector2(8200,22400)
+			])
+		"REG_004_PANTANOS_SOMBRIOS":
+			return _gather_rows("M04","Fibra de Junco","Junco de Eco","bush",[
+				Vector2(11900,13700),Vector2(14500,16200),Vector2(19200,22800),
+				Vector2(25800,26400),Vector2(8600,19800),Vector2(30200,17800)
+			])
+		"REG_005_MONTANHAS_NEVADAS":
+			return _gather_rows("I05","Cristal de Geada","Cristal de Geada","rock",[
+				Vector2(21100,14300),Vector2(23500,16700),Vector2(17400,21800),
+				Vector2(11500,26300),Vector2(27400,19700),Vector2(30600,11200)
+			])
+		"REG_006_COSTAS_ILHAS_PERDIDAS":
+			return _gather_rows("C06","Coral Luminoso","Coral Luminoso","flowers",[
+				Vector2(27600,22600),Vector2(30200,24900),Vector2(22400,30900),
+				Vector2(16700,34700),Vector2(33300,19100),Vector2(11600,28600)
+			])
+		"REG_007_TERRAS_CORROMPIDAS":
+			return _gather_rows("W07","Fragmento de Obelisco","Estilhaço de Obelisco","rock",[
+				Vector2(27200,20900),Vector2(29600,23300),Vector2(23100,28100),
+				Vector2(16400,33800),Vector2(32900,17800),Vector2(10900,29400)
+			])
+		"REG_008_CORACAO_ABISSAL":
+			return _gather_rows("A08","Fragmento do Último Mapa","Fragmento Instável","rock",[
+				Vector2(11200,6500),Vector2(12600,8300),Vector2(9700,10800),
+				Vector2(6500,12100),Vector2(8400,7300),Vector2(12300,12100)
+			])
+		_:
+			return []
+
+static func _gather_rows(prefix: String,material: String,label: String,prop: String,positions: Array) -> Array[Dictionary]:
+	var rows: Array[Dictionary] = []
+	for i in range(positions.size()):
+		rows.append({
+			"id":"GAT_%s_%02d" % [prefix,i+1],
+			"label":label,
+			"type":"resource",
+			"prop":prop,
+			"pos":positions[i],
+			"material":material,
+			"amount":2 if i == positions.size()-1 else 1,
+			"scale":1.15 if i == positions.size()-1 else 0.95,
+			"respawn":GATHER_RESPAWN_SECONDS
+		})
+	return rows
 
 static func content_for(target_region_id: String) -> Array[Dictionary]:
 	match target_region_id:
