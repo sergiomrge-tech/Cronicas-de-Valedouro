@@ -28,7 +28,7 @@ func run() -> void:
 	assert(inv.weapon_slot != null)
 	assert(inv.armor_slot != null)
 	assert(inv.detail_action != null)
-	assert(inv.count_label.text.contains("/30"))
+	assert(inv.count_label.text.contains("/66"))
 	assert(inv.list_box.get_child_count() == 6)
 
 	inv._set_tab("weapon")

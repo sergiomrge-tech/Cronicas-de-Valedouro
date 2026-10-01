@@ -3,7 +3,7 @@ extends Control
 
 const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
 
-const EQUIPMENT_CAPACITY: int = 30
+const EQUIPMENT_CAPACITY: int = 66
 
 var host
 var hero: Node2D
@@ -22,6 +22,7 @@ var equipment_filter: String = "all"
 var toggle_button: Button
 
 var weapon_slot: Button
+var piece_buttons: Dictionary = {}
 var armor_slot: Button
 var detail_name: Label
 var detail_meta: Label
@@ -178,9 +179,9 @@ func _build(show_toggle: bool) -> void:
 	content.add_child(equipment_label)
 
 	var hint: Label = Label.new()
-	hint.position = Vector2(24,382)
-	hint.size = Vector2(194,40)
-	hint.text = "Toque em um item para ver\ndetalhes e comparar."
+	hint.position = Vector2(24,412)
+	hint.size = Vector2(194,20)
+	hint.text = "Toque para comparar"
 	hint.add_theme_font_size_override("font_size",11)
 	hint.add_theme_color_override("font_color",Color(0.57,0.64,0.70))
 	content.add_child(hint)
@@ -321,6 +322,7 @@ func _refresh() -> void:
 		entry[0].add_theme_font_size_override("font_size",13)
 	_refresh_equipped_slots(state)
 	for child in list_box.get_children():
+		list_box.remove_child(child)
 		child.queue_free()
 	if current_tab == "materials":
 		_fill_materials(state)
@@ -329,17 +331,40 @@ func _refresh() -> void:
 	_refresh_detail(state)
 
 func _refresh_equipped_slots(state) -> void:
-	var weapon: Dictionary = state.equipped_weapon
-	var armor: Dictionary = state.equipped_armor
-	weapon_slot.text = "ARMA\n%s\n+%d ATQ" % [String(weapon.get("label","Espada de Viagem")),int(weapon.get("attack",0))]
-	armor_slot.text = "ARMADURA\n%s\n+%d DEF" % [String(armor.get("label","Túnica de Viagem")),int(armor.get("defense",0))]
+	weapon_slot.position.y = 90
+	weapon_slot.size.y = 44
+	armor_slot.position.y = 138
+	armor_slot.size.y = 44
+	weapon_slot.text = "Arma • "+String(state.equipped_weapon.get("label","Espada"))
+	armor_slot.text = "Peitoral • "+String(state.equipped_armor.get("label","Túnica"))
+	for i in range(5):
+		var slot: String = ["helmet","gloves","legs","boots","cape"][i]
+		if not piece_buttons.has(slot):
+			var button: Button = Button.new()
+			button.position = Vector2(24,186+i*45)
+			button.size = Vector2(194,44)
+			_style_button(button,UISkin.SURFACE,UISkin.GOLD)
+			button.add_theme_font_size_override("font_size",12)
+			button.pressed.connect(_select_equipped_slot.bind(slot))
+			content.add_child(button)
+			piece_buttons[slot] = button
+		var item: Dictionary = state.equipped_in_slot(slot)
+		piece_buttons[slot].text = "%s • +%d DEF" % [String(state.SLOT_NAMES[slot]),int(item.get("defense",0))] if not item.is_empty() else String(state.SLOT_NAMES[slot])+" • Vazio"
+		piece_buttons[slot].tooltip_text = String(item.get("label","Vazio"))
+	equipment_label.visible = true
+	equipment_label.position = Vector2(240,424)
+	equipment_label.size = Vector2(550,20)
+	equipment_label.add_theme_font_size_override("font_size",12)
+	var progress: Dictionary = state.set_progress()
+	equipment_label.text = "Conjunto %d/6 • ATQ +%d • DEF +%d%s" % [int(progress.count),state.attack_bonus(),state.defense_bonus()," • Bônus completo ativo" if progress.complete else ""]
+	armor_slot.tooltip_text = state.equipment_summary()
 
 func _select_equipped_slot(slot: String) -> void:
 	var state = _state()
 	if state == null:
 		return
-	var item: Dictionary = state.equipped_weapon if slot == "weapon" else state.equipped_armor
-	equipment_filter = slot
+	var item: Dictionary = state.equipped_in_slot(slot)
+	equipment_filter = "weapon" if slot=="weapon" else "armor"
 	_select_item(String(item.get("id","")))
 
 func _fill_equipment(state) -> void:
@@ -348,7 +373,7 @@ func _fill_equipment(state) -> void:
 	var visible_items: Array[Dictionary] = []
 	for item in items:
 		var slot: String = String(item.get("slot",""))
-		if equipment_filter != "all" and slot != equipment_filter:
+		if equipment_filter == "weapon" and slot != "weapon" or equipment_filter == "armor" and slot == "weapon":
 			continue
 		visible_items.append(item)
 		visible_ids.append(String(item.get("id","")))
@@ -459,13 +484,14 @@ func _refresh_detail(state) -> void:
 	var slot: String = String(item.get("slot",""))
 	var tier: int = int(item.get("tier",0))
 	var stat: int = _item_stat(item)
-	var equipped_item: Dictionary = state.equipped_weapon if slot == "weapon" else state.equipped_armor
+	var equipped_item: Dictionary = state.equipped_in_slot(slot)
 	var equipped_stat: int = _item_stat(equipped_item)
 	var diff: int = stat-equipped_stat
 	var stat_name: String = "ATQ" if slot == "weapon" else "DEF"
 	var equipped: bool = state.is_equipped(String(item.get("id","")))
 	detail_name.text = String(item.get("label","Equipamento"))
-	detail_meta.text = "%s • Tier %d\n%s  +%d %s" % [_rarity_name(tier),tier,"ARMA" if slot=="weapon" else "ARMADURA",stat,stat_name]
+	var progress: Dictionary = state.set_progress(item)
+	detail_meta.text = "%s • Tier %d\n%s +%d %s\n%s" % [_rarity_name(tier),tier,String(state.SLOT_NAMES.get(slot,slot)),stat,stat_name,("Conjunto %d/6 • bônus +%d ATQ/DEF" % [int(progress.count),int(progress.bonus)]) if item.has("set_id") else ("Arco • alcance 300 • flechas livres" if item.get("weapon_kind","")=="bow" else "Espada • corpo a corpo")]
 	if equipped:
 		detail_compare.text = "Item equipado atualmente."
 		detail_compare.add_theme_color_override("font_color",Color(0.50,0.85,0.55))

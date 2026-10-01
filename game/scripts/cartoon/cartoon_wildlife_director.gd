@@ -96,6 +96,7 @@ func attack() -> bool:
 	if monster != null and monster.position.distance_to(host.hero.position) <= distance: return false
 	host.hero.trigger_attack()
 	if host.hero.spell_mode: host.hero.launch_magic(host,nearest,18,self)
+	elif host.hero.bow_equipped: host.hero.launch_arrow(host,nearest,18,self)
 	else: nearest.take_damage(host.hero.hunting_damage(18))
 	return true
 func harvest(animal) -> void:

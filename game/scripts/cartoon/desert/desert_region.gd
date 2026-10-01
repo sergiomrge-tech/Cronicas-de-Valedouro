@@ -212,6 +212,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		joystick_vector = (event.position-joystick_origin).limit_length(80.0)/80.0
 
 func _attack() -> void:
+	if hero != null and hero.bow_equipped and not hero.spell_mode and hero.bow_cooldown>0: return
 	if hero != null and hero.dodge_t>0: return
 	if hero == null:
 		return
@@ -224,6 +225,9 @@ func _attack() -> void:
 	if not _can_damage_monster(target): return
 	if hero.spell_mode:
 		hero.launch_magic(self,target,22)
+		return
+	if hero.bow_equipped:
+		hero.launch_arrow(self,target,22)
 		return
 	_damage_monster(target,hero.attack_damage(22))
 

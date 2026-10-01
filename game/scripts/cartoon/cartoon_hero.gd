@@ -4,6 +4,8 @@ extends Node2D
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
 const CombatArt = preload("res://scripts/cartoon/cartoon_combat_art.gd")
 const Projectile = preload("res://scripts/cartoon/cartoon_spell_projectile.gd")
+const Arrow = preload("res://scripts/cartoon/cartoon_arrow_projectile.gd")
+const HeroArt = preload("res://scripts/cartoon/cartoon_hero_art_v028.gd")
 const FX = preload("res://scripts/cartoon/cartoon_combat_fx.gd")
 const SPELLS = ["ember","frost","arcane"]
 const SPELL_NAMES = ["Brasa","Cristal","Arcana"]
@@ -23,6 +25,9 @@ var spell_index: int = 0
 var spell_mode: bool = false
 var weapon_tier: int = 0
 var armor_tier: int = 0
+var bow_equipped: bool = false
+var bow_cooldown: float = 0.0
+var visible_pieces: Dictionary = {}
 var dodge_t: float = 0.0
 var dodge_elapsed: float = 0.0
 var dodge_cooldown: float = 0.0
@@ -112,6 +117,8 @@ func apply_equipment_from_state() -> void:
 		return
 	weapon_tier = int(state.equipped_weapon.get("tier",0))
 	armor_tier = int(state.equipped_armor.get("tier",0))
+	bow_equipped = state.equipped_weapon.get("weapon_kind", "sword")=="bow"
+	visible_pieces = state.equipped_pieces.duplicate(true)
 	queue_redraw()
 
 func equipped_damage(base_damage: int) -> int:
@@ -120,8 +127,11 @@ func equipped_damage(base_damage: int) -> int:
 	return amount
 
 func attack_damage(base_damage: int) -> int:
-	var amount: int = maxi(1,roundi(equipped_damage(base_damage)*(1+0.04*_skill("blade"))))
+	var amount: int = maxi(1,roundi(equipped_damage(base_damage)*(1+0.04*_skill("hunt" if bow_equipped else "blade"))))
 	return roundi(amount*1.25) if spell_mode else amount
+
+func launch_arrow(host, target: Node2D, base_damage: int, director = null):
+	return Arrow.launch(host,self,target,base_damage,director)
 
 func launch_magic(host, target: Node2D, base_damage: int, director = null):
 	facing = (target.global_position-global_position).normalized()
@@ -138,7 +148,7 @@ func set_motion(v: Vector2) -> void:
 	queue_redraw()
 
 func combat_range(base_range: float) -> float:
-	return maxf(base_range,220.0+4*_skill("reach")) if spell_mode else base_range
+	return maxf(base_range,220.0+4*_skill("reach")) if spell_mode else (300.0+4*_skill("reach") if bow_equipped else base_range)
 
 func cycle_spell() -> void:
 	spell_index = (spell_index+1)%SPELLS.size()
@@ -167,7 +177,7 @@ func trigger_hurt() -> void:
 
 func trigger_attack() -> void:
 	if spell_mode: cast_t = 0.65
-	else: attack_t = 0.28
+	else: attack_t = 0.65 if bow_equipped else 0.28
 	var aim: Vector2 = facing
 	var host = get_parent()
 	while host.get_parent() != null and not host.has_method("_nearest_monster"):
@@ -175,13 +185,14 @@ func trigger_attack() -> void:
 	if host.has_method("_nearest_monster"):
 		var target = host._nearest_monster(combat_range(112.0))
 		if target != null: aim = (target.position-position).normalized()
-	if spell_mode: facing = aim
-	if not spell_mode: FX.spawn(get_parent(),position+Vector2(0,-25),"slash",aim,Color("ffe3a0"))
+	if spell_mode or bow_equipped: facing = aim
+	if not spell_mode and not bow_equipped: FX.spawn(get_parent(),position+Vector2(0,-25),"slash",aim,Color("ffe3a0"))
 	queue_redraw()
 
 func _process(delta: float) -> void:
 	_step_dodge(delta)
 	dodge_cooldown = maxf(0,dodge_cooldown-delta)
+	bow_cooldown = maxf(0,bow_cooldown-delta)
 	anim_t += delta
 	death_t = maxf(0,death_t-delta)
 	cast_t = maxf(0,cast_t-delta)
@@ -204,16 +215,16 @@ func _draw() -> void:
 	if dodge_t>0:
 		for i in range(3,0,-1):
 			draw_set_transform(-dodge_direction*float(i)*17+Vector2(0,-bob),dodge_direction.x*0.16,Vector2.ONE)
-			CombatArt.hero_frame(self,direction,"walk",int(anim_t*20)%8,Rect2(-40,-94,80,100),Color(0.5,0.9,1,0.3/float(i)))
+			HeroArt.hero_frame(self,direction,"walk",int(anim_t*20)%8,Rect2(-40,-94,80,100),Color(0.5,0.9,1,0.3/float(i)))
 		draw_set_transform(Vector2(0,-bob),dodge_direction.x*0.16,Vector2.ONE)
 	var animation: String = "idle"
-	var frame: int = int(anim_t*4)%4
+	var frame: int = int(anim_t*8)%8
 	if moving:
 		animation = "walk"
-		frame = int(anim_t*12)%8
+		frame = int(anim_t*12)%12
 	if attack_t>0:
-		animation = "attack"
-		frame = mini(5,int((1-attack_t/0.28)*6))
+		animation = "shoot" if bow_equipped else "attack"
+		frame = mini(7,int((1-attack_t/0.65)*8)) if bow_equipped else mini(5,int((1-attack_t/0.28)*6))
 	if cast_t>0:
 		animation = "cast"
 		frame = mini(7,int((1-cast_t/0.65)*8))
@@ -223,7 +234,10 @@ func _draw() -> void:
 	if death_t>0:
 		animation = "death"
 		frame = mini(7,int((1-death_t/0.7)*8))
-	CombatArt.hero_frame(self,direction,animation,frame,Rect2(-40,-94,80,100),Color(1,0.75,0.8) if hurt_t>0 else Color.WHITE)
+	if dodge_t>0 and hurt_t<=0:
+		animation = "evade"
+		frame = mini(5,int(dodge_elapsed/DODGE_DURATION*6))
+	HeroArt.hero_frame(self,direction,animation,frame,Rect2(-40,-94,80,100),Color(1,0.75,0.8) if hurt_t>0 else Color.WHITE)
 	if cast_t>0:
 		var glow: Color = SPELL_COLORS[cast_spell_index]
 		for i in range(4,0,-1): draw_circle(Vector2(23,-43),float(i)*4,Color(glow,0.09))
@@ -234,6 +248,11 @@ func _draw() -> void:
 	# Equipment still has an in-world color cue; the sword keeps its attack motion.
 	var armor_colors: Array[Color] = [Color("d1b369"),Color("91b77a"),Color("dca569"),Color("89b999"),Color("b6deec"),Color("75c8d7"),Color("bd82af"),Color("a390d4")]
 	draw_circle(Vector2(-9,-34),2.4,armor_colors[clampi(armor_tier,0,7)])
+	_draw_equipment(direction,armor_colors[clampi(armor_tier,0,7)])
+	if bow_equipped:
+		_draw_bow(direction)
+		draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+		return
 	var sword_hand: Vector2 = Vector2(21,-27)
 	if facing.x < -0.5: sword_hand.x = -21.0
 	if direction == "back": sword_hand.y = -25.0
@@ -260,3 +279,53 @@ func _draw() -> void:
 	draw_line(sword_hand-dir.orthogonal()*7,sword_hand+dir.orthogonal()*7,Color("f5cc69"),3.5,true)
 	draw_line(sword_hand,sword_hand-dir*6,Color("987044"),4,true)
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+
+func _draw_equipment(direction: String, tint: Color) -> void:
+	# Distinct silhouettes for every forged slot; back view retains the cape emblem.
+	if visible_pieces.has("cape"):
+		draw_line(Vector2(-16,-39),Vector2(-20+sin(anim_t*5)*2,-12),tint,3,true)
+		draw_line(Vector2(16,-39),Vector2(20+sin(anim_t*5)*2,-12),tint,3,true)
+	if visible_pieces.has("legs"):
+		for x in [-8,9]: draw_line(Vector2(x,-28),Vector2(x,-17),tint,4,true)
+	if visible_pieces.has("boots"):
+		for x in [-8,9]:
+			draw_line(Vector2(x,-16),Vector2(x,-9),tint.lightened(0.3),4,true)
+			draw_line(Vector2(x-2,-8),Vector2(x+4,-8),Color("f4d38c"),2,true)
+	if visible_pieces.has("gloves"):
+		for x in [-17,19]: draw_circle(Vector2(x,-33),3.2,tint)
+	if direction!="back":
+		draw_line(Vector2(-8,-49),Vector2(-3,-45),tint,2,true)
+		draw_line(Vector2(8,-49),Vector2(3,-45),tint,2,true)
+	if visible_pieces.has("helmet"):
+		draw_arc(Vector2(0,-70),13,PI,TAU,24,tint.lightened(0.3),5,true)
+		draw_line(Vector2(-13,-68),Vector2(-12,-61),tint,3,true)
+		draw_line(Vector2(13,-68),Vector2(12,-61),tint,3,true)
+		draw_colored_polygon(PackedVector2Array([Vector2(-4,-81),Vector2(0,-89),Vector2(4,-81)]),Color("f9d482"))
+
+func _draw_bow(direction: String) -> void:
+	var angle: float = {"right":0.0,"left":PI,"front":PI/2,"back":-PI/2}[direction]
+	var aim: Vector2 = Vector2.RIGHT.rotated(angle)
+	var normal: Vector2 = aim.orthogonal()
+	var center: Vector2 = Vector2(0,-38)+aim*(12 if direction in ["front","back"] else 21)
+	var pull: float = sin(clampf(1-attack_t/0.65,0,1)*PI)*10 if attack_t>0 else 0
+	var color: Color = Color("f0c078").lerp(class_color,0.25)
+	var points: PackedVector2Array = PackedVector2Array()
+	for i in range(25):
+		var t: float = -PI/2+PI*i/24
+		points.append(center+aim*cos(t)*12+normal*sin(t)*27)
+	draw_polyline(points,Color("293346"),5,true)
+	draw_polyline(points,color,3,true)
+	var hand: Vector2 = center-aim*pull
+	draw_line(center-normal*27,hand,Color("eaf9e8"),1,true)
+	draw_line(hand,center+normal*27,Color("eaf9e8"),1,true)
+	draw_circle(hand,3,Color("e6bf95"))
+	if attack_t>0.2:
+		draw_line(hand-aim*12,center+aim*17,Color("ffe7b0"),1.8,true)
+		draw_line(hand-aim*10,hand-aim*14+normal*4,Color("79e9d1"),2,true)
+	# Quiver and individually feathered arrows remain visible while moving.
+	var side: float = -1 if direction=="left" else 1
+	draw_line(Vector2(-14*side,-51),Vector2(-19*side,-34),Color("78523f"),6,true)
+	for i in range(3):
+		var tip: Vector2 = Vector2((-15-i*3)*side,-59-i*2)
+		draw_line(tip,tip+Vector2(5*side,20),Color("e1c489"),1.5,true)
+		draw_line(tip,tip+Vector2(3*side,3),Color("66e3cc"),2,true)

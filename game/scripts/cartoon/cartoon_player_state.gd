@@ -1,7 +1,7 @@
 extends Node
 
 const SAVE_PATH: String = "user://valedouro_cartoon_profile_v1.json"
-const SAVE_VERSION: int = 4
+const SAVE_VERSION: int = 5
 const Classes = preload("res://scripts/cartoon/cartoon_class_catalog.gd")
 var active_class: String = "warrior"
 var skill_ranks: Dictionary = {}
@@ -123,7 +123,7 @@ func _process(delta: float) -> void:
 		_autosave_elapsed = 0.0
 		save_profile()
 
-func recipes_for(region_id: String) -> Array[Dictionary]:
+func _legacy_recipes_for(region_id: String) -> Array[Dictionary]:
 	match region_id:
 		"REG_001_BERCO_VALEDOURO":
 			return [
@@ -168,6 +168,83 @@ func recipes_for(region_id: String) -> Array[Dictionary]:
 		_:
 			return []
 
+const ARMOR_SLOTS = ["armor","helmet","gloves","legs","boots","cape"]
+const SLOT_NAMES = {"weapon":"Arma","armor":"Peitoral","helmet":"Elmo","gloves":"Luvas","legs":"Calças","boots":"Botas","cape":"Capa"}
+var equipped_pieces: Dictionary = {}
+
+func recipes_for(region_id: String) -> Array[Dictionary]:
+	var rows: Array[Dictionary] = _legacy_recipes_for(region_id)
+	if rows.is_empty(): return rows
+	var chest: Dictionary = rows[1]
+	var set_id: String = String(chest.id)
+	rows[0]["weapon_kind"] = "sword"
+	chest["set_id"] = set_id
+	chest["set_name"] = String(chest.label)
+	var bow: Dictionary = rows[0].duplicate(true)
+	bow.id = "BOW_"+set_id
+	bow.label = "Arco • "+String(chest.label)
+	bow.weapon_kind = "bow"
+	bow.attack = maxi(2,int(rows[0].attack)-1)
+	rows.append(bow)
+	for slot: String in ["helmet","gloves","legs","boots","cape"]:
+		var piece: Dictionary = chest.duplicate(true)
+		piece.id = set_id+"_"+slot
+		piece.slot = slot
+		piece.label = String(SLOT_NAMES[slot])+" • "+String(chest.label)
+		piece.defense = maxi(1,int(chest.defense)/3)
+		piece.cost = 2
+		rows.append(piece)
+	return rows
+
+func equipped_in_slot(slot: String) -> Dictionary:
+	if slot == "weapon": return equipped_weapon
+	if slot == "armor": return equipped_armor
+	return equipped_pieces.get(slot,{})
+
+func set_progress(item: Dictionary = {}) -> Dictionary:
+	var set_id: String = String(item.get("set_id",equipped_armor.get("set_id","")))
+	var count: int = 0
+	for slot: String in ARMOR_SLOTS:
+		if set_id != "" and String(equipped_in_slot(slot).get("set_id","")) == set_id: count += 1
+	return {"count":count,"complete":count==6,"bonus":int(item.get("tier",equipped_armor.get("tier",0)))+2}
+
+func craft_item(region_id: String, item_id: String) -> Dictionary:
+	for row in recipes_for(region_id):
+		if String(row.id) == item_id: return _craft_recipe(row)
+	return {"ok":false,"message":"Receita indisponível nesta região."}
+
+func _normalize_equipment() -> void:
+	# Canonical recipes enrich legacy items without changing IDs or quest progress.
+	var catalog: Dictionary = {}
+	for region in ["REG_001_BERCO_VALEDOURO","REG_002_FLORESTA_ANCESTRAL","REG_003_DESERTO_RUINAS","REG_004_PANTANOS_SOMBRIOS","REG_005_MONTANHAS_NEVADAS","REG_006_COSTAS_ILHAS_PERDIDAS","REG_007_TERRAS_CORROMPIDAS","REG_008_CORACAO_ABISSAL"]:
+		for row in recipes_for(region): catalog[String(row.id)] = row
+	for key in crafted.keys():
+		if catalog.has(key): crafted[key] = catalog[key].duplicate(true)
+		else: crafted.erase(key)
+	for slot: String in ["weapon","armor","helmet","gloves","legs","boots","cape"]:
+		var current: Dictionary = equipped_in_slot(slot)
+		var id: String = String(current.get("id",""))
+		if crafted.has(id) and String(crafted[id].slot)==slot:
+			if slot=="weapon": equipped_weapon = crafted[id].duplicate(true)
+			elif slot=="armor": equipped_armor = crafted[id].duplicate(true)
+			else: equipped_pieces[slot] = crafted[id].duplicate(true)
+		elif slot=="weapon": equipped_weapon = starter_equipment()[0].duplicate(true)
+		elif slot=="armor": equipped_armor = starter_equipment()[1].duplicate(true)
+		else: equipped_pieces.erase(slot)
+
+func buy_crafting_material(region_id: String) -> Dictionary:
+	var rows: Array[Dictionary] = recipes_for(region_id)
+	if rows.is_empty(): return {"ok":false,"message":"Fornecedor indisponível."}
+	_capture_active_memory()
+	if player_gold<10: return {"ok":false,"message":"São necessários 10 de ouro."}
+	var material: String = String(rows[1].material)
+	player_gold -= 10
+	if is_instance_valid(_active_host) and _has_property(_active_host,"player_gold"):
+		_active_host.set("player_gold",player_gold)
+	materials[material] = material_count(material)+1
+	save_profile()
+	return {"ok":true,"message":"Comprado: 1 %s por 10 de ouro." % material}
+
 func add_material(material_name: String, amount: int = 1) -> void:
 	if material_name == "" or amount <= 0:
 		return
@@ -178,14 +255,14 @@ func material_count(material_name: String) -> int:
 	return int(materials.get(material_name,0))
 
 func craft(region_id: String, slot: String) -> Dictionary:
-	var recipe: Dictionary = _recipe(region_id,slot)
+	return _craft_recipe(_recipe(region_id,slot))
+
+func _craft_recipe(recipe: Dictionary) -> Dictionary:
 	if recipe.is_empty():
 		return {"ok":false,"message":"Nenhuma receita disponível nesta região."}
 	var id: String = String(recipe.get("id",""))
 	if crafted.has(id):
-		_equip(recipe)
-		save_profile()
-		return {"ok":true,"message":"%s equipado." % String(recipe.get("label","Equipamento")),"recipe":recipe}
+		return equip_item(id)
 	var material_name: String = String(recipe.get("material",""))
 	var cost: int = int(recipe.get("cost",0))
 	var have: int = material_count(material_name)
@@ -211,6 +288,9 @@ func _equip(recipe: Dictionary) -> void:
 	elif slot == "armor":
 		if int(recipe.get("tier",0)) >= int(equipped_armor.get("tier",0)):
 			equipped_armor = recipe.duplicate(true)
+	elif slot in ARMOR_SLOTS:
+		if int(recipe.get("tier",0)) >= int(equipped_in_slot(slot).get("tier",0)):
+			equipped_pieces[slot] = recipe.duplicate(true)
 
 func starter_equipment() -> Array[Dictionary]:
 	return [
@@ -241,13 +321,17 @@ func equip_item(item_id: String) -> Dictionary:
 		equipped_weapon = found.duplicate(true)
 	elif slot == "armor":
 		equipped_armor = found.duplicate(true)
+	elif slot in ARMOR_SLOTS:
+		equipped_pieces[slot] = found.duplicate(true)
 	else:
 		return {"ok":false,"message":"Este item não pode ser equipado."}
 	save_profile()
 	return {"ok":true,"message":"Equipado: %s." % String(found.get("label","Item")),"item":found}
 
 func is_equipped(item_id: String) -> bool:
-	return String(equipped_weapon.get("id","")) == item_id or String(equipped_armor.get("id","")) == item_id
+	for slot: String in ["weapon","armor","helmet","gloves","legs","boots","cape"]:
+		if String(equipped_in_slot(slot).get("id","")) == item_id: return true
+	return false
 
 func material_total() -> int:
 	var total: int = 0
@@ -481,10 +565,14 @@ func set_camera_zoom(value: float) -> void:
 	save_profile()
 
 func attack_bonus() -> int:
-	return int(equipped_weapon.get("attack",0))
+	var progress: Dictionary = set_progress()
+	return int(equipped_weapon.get("attack",0))+(int(progress.bonus) if progress.complete else 0)
 
 func defense_bonus() -> int:
-	return int(equipped_armor.get("defense",0))
+	var total: int = 0
+	for slot: String in ARMOR_SLOTS: total += int(equipped_in_slot(slot).get("defense",0))
+	var progress: Dictionary = set_progress()
+	return total+(int(progress.bonus) if progress.complete else 0)
 
 func attack_damage(base_damage: int) -> int:
 	return maxi(1,base_damage+attack_bonus())
@@ -493,10 +581,8 @@ func reduce_damage(raw_damage: int) -> int:
 	return maxi(1,roundi(maxi(1,raw_damage-defense_bonus())*(1-0.02*skill_rank("guard"))))
 
 func equipment_summary() -> String:
-	return "⚔ %s  +%d ATQ\n🛡 %s  +%d DEF" % [
-		String(equipped_weapon.get("label","Espada de Viagem")),attack_bonus(),
-		String(equipped_armor.get("label","Túnica de Viagem")),defense_bonus()
-	]
+	var progress: Dictionary = set_progress()
+	return "%s • ATQ +%d\nDefesa total +%d • Conjunto %d/6%s" % [String(equipped_weapon.get("label","Espada")),attack_bonus(),defense_bonus(),int(progress.count)," • bônus ativo" if progress.complete else ""]
 
 func materials_summary() -> String:
 	if materials.is_empty():
@@ -526,6 +612,7 @@ func save_profile() -> void:
 		"crafted":crafted,
 		"equipped_weapon":equipped_weapon,
 		"equipped_armor":equipped_armor,
+		"equipped_pieces":equipped_pieces,
 		"camera_zoom":camera_zoom,
 		"campaign_started":campaign_started,
 		"current_scene":current_scene,
@@ -558,6 +645,9 @@ func load_profile() -> void:
 	crafted = data.get("crafted",{}) as Dictionary
 	equipped_weapon = (data.get("equipped_weapon",equipped_weapon) as Dictionary).duplicate(true)
 	equipped_armor = (data.get("equipped_armor",equipped_armor) as Dictionary).duplicate(true)
+	var pieces_value: Variant = data.get("equipped_pieces",{})
+	equipped_pieces = pieces_value.duplicate(true) if pieces_value is Dictionary else {}
+	_normalize_equipment()
 	camera_zoom = clampf(float(data.get("camera_zoom",1.0)),0.70,1.50)
 
 	var version: int = int(data.get("version",1))
@@ -592,6 +682,7 @@ func reset_progress(delete_save: bool = true) -> void:
 	wildlife_cooldowns.clear()
 	materials.clear()
 	crafted.clear()
+	equipped_pieces.clear()
 	equipped_weapon = {"id":"starter_blade","label":"Espada de Viagem","tier":0,"attack":0,"slot":"weapon"}
 	equipped_armor = {"id":"starter_armor","label":"Túnica de Viagem","tier":0,"defense":0,"slot":"armor"}
 	camera_zoom = 1.0

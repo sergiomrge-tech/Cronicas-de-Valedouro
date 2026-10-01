@@ -119,3 +119,13 @@ sem perder campanha; só a classe ativa aplica bônus. Leia
 workflow oficial 4.7.2 executa testes e novas capturas, e Android publica
 v0.27-test. Balanceamento PROPOSED, arte MODELED_PENDING_GATE e teste em
 aparelho real pendente; base oficial documentada continua v0.19.
+
+## Continuidade — 01/10/2026: candidata v0.28, itens/arco/herói
+
+A pedido do Diretor: 64 receitas, oito conjuntos de seis peças, sete posições
+persistentes, arco com flechas em voo nas oito regiões e na caça, forja rolável
+com compra de material e 32 folhas originais/240 quadros do herói. Save v5
+preserva progresso e IDs anteriores. Ler `docs/CARTOON_EQUIPMENT_V0_28.md` e
+`docs/visual_qa/cartoon_v028/review.html`. 28 testes Cartoon locais passaram;
+CI verifica engine oficial e captura UI/animações reais. Arte
+MODELED_PENDING_GATE, mecânicas PROPOSED. Não criar APK nesta atualização.

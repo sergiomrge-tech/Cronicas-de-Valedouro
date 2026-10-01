@@ -12,6 +12,8 @@ var material_label: Label
 var weapon_button: Button
 var armor_button: Button
 var toggle_button: Button
+var recipe_list: VBoxContainer
+var supply_button: Button
 var title_label: Label
 
 func setup(host_node, hero_node: Node2D, target_region_id: String) -> void:
@@ -80,10 +82,10 @@ func _build() -> void:
 	body.add_child(title_label)
 
 	summary_label = Label.new()
-	summary_label.position = Vector2(24,58)
+	summary_label.position = Vector2(24,54)
 	summary_label.size = Vector2(422,60)
 	summary_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	summary_label.add_theme_font_size_override("font_size",15)
+	summary_label.add_theme_font_size_override("font_size",13)
 	summary_label.add_theme_color_override("font_color",Color(0.93,0.91,0.87))
 	body.add_child(summary_label)
 
@@ -97,28 +99,40 @@ func _build() -> void:
 	material_label.add_theme_color_override("font_color",Color(0.77,0.91,0.88))
 	body.add_child(material_label)
 
-	weapon_button = Button.new()
-	weapon_button.position = Vector2(28,196)
-	weapon_button.size = Vector2(198,86)
-	weapon_button.mouse_filter = Control.MOUSE_FILTER_STOP
-	weapon_button.add_theme_font_size_override("font_size",14)
-	_style_button(weapon_button,Color(0.16,0.27,0.42),Color(0.39,0.72,0.96))
-	weapon_button.pressed.connect(func(): _craft("weapon"))
-	body.add_child(weapon_button)
+	var scroll: ScrollContainer = ScrollContainer.new()
+	scroll.position = Vector2(24,132)
+	scroll.size = Vector2(422,154)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	body.add_child(scroll)
+	recipe_list = VBoxContainer.new()
+	recipe_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	recipe_list.add_theme_constant_override("separation",6)
+	scroll.add_child(recipe_list)
+	for recipe in _state().recipes_for(region_id):
+		var button: Button = Button.new()
+		button.name = String(recipe.id)
+		button.custom_minimum_size = Vector2(390,64)
+		button.add_theme_font_size_override("font_size",14)
+		_style_button(button,UISkin.SURFACE,UISkin.GOLD)
+		button.pressed.connect(_craft_id.bind(String(recipe.id)))
+		recipe_list.add_child(button)
+		if recipe.slot=="weapon" and recipe.get("weapon_kind","")=="sword": weapon_button = button
+		if recipe.slot=="armor": armor_button = button
+	material_label.visible = false
 
-	armor_button = Button.new()
-	armor_button.position = Vector2(244,196)
-	armor_button.size = Vector2(198,86)
-	armor_button.mouse_filter = Control.MOUSE_FILTER_STOP
-	armor_button.add_theme_font_size_override("font_size",14)
-	_style_button(armor_button,Color(0.29,0.20,0.36),Color(0.74,0.52,0.92))
-	armor_button.pressed.connect(func(): _craft("armor"))
-	body.add_child(armor_button)
+	supply_button = Button.new()
+	supply_button.text = "MATERIAL • 10 OURO"
+	supply_button.position = Vector2(24,299)
+	supply_button.size = Vector2(240,44)
+	supply_button.add_theme_font_size_override("font_size",14)
+	_style_button(supply_button,UISkin.SURFACE,UISkin.GOLD)
+	supply_button.pressed.connect(_buy_material)
+	body.add_child(supply_button)
 
 	var close: Button = Button.new()
 	close.text = "FECHAR"
-	close.position = Vector2(145,299)
-	close.size = Vector2(180,44)
+	close.position = Vector2(278,299)
+	close.size = Vector2(164,44)
 	close.mouse_filter = Control.MOUSE_FILTER_STOP
 	_style_button(close,Color(0.18,0.16,0.19),Color(0.63,0.60,0.63))
 	close.pressed.connect(close_panel)
@@ -155,30 +169,28 @@ func _craft(slot: String) -> void:
 	if host != null and host.has_method("_show_toast"):
 		host.call("_show_toast",String(result.get("message","Forja atualizada.")))
 
+func _craft_id(id: String) -> void:
+	var result: Dictionary = _state().craft_item(region_id,id)
+	if hero != null: hero.apply_equipment_from_state()
+	_refresh()
+	if host != null and host.has_method("_show_toast"): host._show_toast(String(result.message))
+
+func _buy_material() -> void:
+	var result: Dictionary = _state().buy_crafting_material(region_id)
+	_refresh()
+	if host != null and host.has_method("_refresh_stats"): host._refresh_stats()
+	if host != null and host.has_method("_show_toast"): host._show_toast(String(result.message))
+
 func _refresh() -> void:
 	var state = _state()
-	if state == null:
-		return
-	summary_label.text = state.equipment_summary()
-	material_label.text = "MATERIAIS\n"+state.materials_summary()
-	var recipes: Array[Dictionary] = state.recipes_for(region_id)
-	if recipes.is_empty():
-		weapon_button.text = "ARMA\nReceitas encontradas a partir da Floresta Ancestral"
-		armor_button.text = "ARMADURA\nExplore as regiões para obter materiais"
-		weapon_button.disabled = true
-		armor_button.disabled = true
-		return
-	weapon_button.disabled = false
-	armor_button.disabled = false
-	for recipe in recipes:
-		var slot: String = String(recipe.get("slot",""))
-		var label: String = String(recipe.get("label","Equipamento"))
-		var material: String = String(recipe.get("material",""))
-		var cost: int = int(recipe.get("cost",0))
-		var have: int = state.material_count(material)
-		var crafted: bool = state.crafted.has(String(recipe.get("id","")))
-		var text_value: String = "%s\n%s" % [label,("EQUIPAR" if crafted else "%d/%d %s" % [have,cost,material])]
-		if slot == "weapon":
-			weapon_button.text = text_value+"\n+%d ATQ" % int(recipe.get("attack",0))
-		else:
-			armor_button.text = text_value+"\n+%d DEF" % int(recipe.get("defense",0))
+	if state == null: return
+	summary_label.text = state.equipment_summary()+"\nOuro: %d • Material extra: 10 ouro/unidade" % state.player_gold
+	var rows: Array[Dictionary] = state.recipes_for(region_id)
+	if not rows.is_empty(): supply_button.tooltip_text = "Comprar 1 "+String(rows[1].material)+" por 10 de ouro"
+	for row in state.recipes_for(region_id):
+		var button: Button = recipe_list.get_node_or_null(NodePath(String(row.id)))
+		if button == null: continue
+		var owned: bool = state.crafted.has(String(row.id))
+		var have: int = state.material_count(String(row.material))
+		button.text = "%s • +%d %s\n%s" % [String(row.label),int(row.get("attack",row.get("defense",0))),"ATQ" if row.slot=="weapon" else "DEF","EQUIPAR • já criado" if owned else "%d/%d %s • CRIAR" % [have,int(row.cost),String(row.material)]]
+		button.disabled = state.is_equipped(String(row.id)) or (not owned and have<int(row.cost))

@@ -1,0 +1,146 @@
+{
+  "version": "0.28",
+  "status": "MODELED_PENDING_GATE",
+  "directions": 4,
+  "states": {
+    "idle": 8,
+    "walk": 12,
+    "attack": 6,
+    "cast": 8,
+    "hurt": 4,
+    "death": 8,
+    "shoot": 8,
+    "evade": 6
+  },
+  "frames": 240,
+  "files": [
+    {
+      "file": "hero_back_attack.svg",
+      "sha256": "d665eb56c21aa3eb81cd8c4fb4c33ce2dc83906415047b74926aec894b2b4597"
+    },
+    {
+      "file": "hero_back_cast.svg",
+      "sha256": "2ab8371ab1a2ebcf74d00f24dc7499503782c9ee40b87051306f02091f120894"
+    },
+    {
+      "file": "hero_back_death.svg",
+      "sha256": "67294e36e7f7fb628513b387487217401a524bf0acb6676063740e01d3e75297"
+    },
+    {
+      "file": "hero_back_evade.svg",
+      "sha256": "31c591157e87081277653fe42b36da27f7fe8cf8f6db193e98959d2a2fbb6f92"
+    },
+    {
+      "file": "hero_back_hurt.svg",
+      "sha256": "97d1ae4ca0347bdb3b30170a33171a164fc27c6b0b2ff5aba3d13214be0fcbb8"
+    },
+    {
+      "file": "hero_back_idle.svg",
+      "sha256": "489e1ac50061b215bae8e2a8becd883c0b4ca98af16530893c45e001bfd9dba3"
+    },
+    {
+      "file": "hero_back_shoot.svg",
+      "sha256": "f820def81585febcab0d9763c3e83a6975a67e02192f7aaf0f7c57d3955afccc"
+    },
+    {
+      "file": "hero_back_walk.svg",
+      "sha256": "f24c1b783ef7de4ae5b613f19a95fceef189acd2e63ead466e3e57b13aa516d0"
+    },
+    {
+      "file": "hero_front_attack.svg",
+      "sha256": "ed9a15e1be2b57adab378f9c78b399b1b4e88514f3996f413537deebc6caad67"
+    },
+    {
+      "file": "hero_front_cast.svg",
+      "sha256": "4e68bcff2708d57ec1264172e48d824377c94270dc10ed324d0a6c3f7fd46cd3"
+    },
+    {
+      "file": "hero_front_death.svg",
+      "sha256": "9572a071fcbb8ee4781b19a501cc3d006f7afac8882ec4f279e52b2cedde8a61"
+    },
+    {
+      "file": "hero_front_evade.svg",
+      "sha256": "0ceae516104014504354d127e44b79d629ca6614c4bb61f006cf8cd219d90b61"
+    },
+    {
+      "file": "hero_front_hurt.svg",
+      "sha256": "387cf2990249c6144e1ae9459b8ecdaf7869ab123cf3683c8d3825d4d735121e"
+    },
+    {
+      "file": "hero_front_idle.svg",
+      "sha256": "701928fad29732e044e498b1a335a4813d83ee16eb9358d62fe19e990123f42b"
+    },
+    {
+      "file": "hero_front_shoot.svg",
+      "sha256": "1a21b14dd7d5ab2b15db49dbaa9f59172b3f7b940eba7d0ebbb335b919ca9311"
+    },
+    {
+      "file": "hero_front_walk.svg",
+      "sha256": "06173bffcfa3b5b147278f4727e8fffc7b392a091e3362730fc6ea97ac2ac5ac"
+    },
+    {
+      "file": "hero_left_attack.svg",
+      "sha256": "a19ebd751460671360dab5bca4f8da6055871e77c428b725f1bbb499547b1bf6"
+    },
+    {
+      "file": "hero_left_cast.svg",
+      "sha256": "b8cfe3202cbf1c0a1e1302c836ed7146f2698aef72eb5c47591d916fb2734df0"
+    },
+    {
+      "file": "hero_left_death.svg",
+      "sha256": "ebc9807d2987e9b90e01e68f6183fc23ef990a39671bfb93af2942fb9cf4d609"
+    },
+    {
+      "file": "hero_left_evade.svg",
+      "sha256": "dc38a452585d15efc2e62ef313348d0b3014dff0321d076c6956fd848b0b4ac5"
+    },
+    {
+      "file": "hero_left_hurt.svg",
+      "sha256": "3524e3172618564a87098ef6fdca5345c2c22532b5729229ed7a788939c61171"
+    },
+    {
+      "file": "hero_left_idle.svg",
+      "sha256": "5217d3f11cd4e27169389160f39b614a56ca282597f50097afabdaba04f95ae9"
+    },
+    {
+      "file": "hero_left_shoot.svg",
+      "sha256": "c0a191f94cb0ad808c8845c6a65a4481dd4bca12310be0e3d4c3b830ae9737eb"
+    },
+    {
+      "file": "hero_left_walk.svg",
+      "sha256": "71f8ddd7167252d3aede04f36586252e946bd82542d2d2edf52f7c10ac074d2e"
+    },
+    {
+      "file": "hero_right_attack.svg",
+      "sha256": "26f4d5e88d680b45eb90f9df5f6c3093ad4dcf304d2920a423cb58ef4b3e6158"
+    },
+    {
+      "file": "hero_right_cast.svg",
+      "sha256": "e37321c781846a81c25409f760a64c1c5a6799e06c7d68119be7378a9f98845f"
+    },
+    {
+      "file": "hero_right_death.svg",
+      "sha256": "78e5de2ec0bc5ea58a7615abd2b59de491406558480c69791213aec674abf9d4"
+    },
+    {
+      "file": "hero_right_evade.svg",
+      "sha256": "fc4966a63cf5afab023cf4ffb3babc4939df7c7743285b107f8499cf25f4df35"
+    },
+    {
+      "file": "hero_right_hurt.svg",
+      "sha256": "d8fa9f5fe901611082172b9bfb4ddddce27b413ff0d4cd5f9cd450451b9d2d08"
+    },
+    {
+      "file": "hero_right_idle.svg",
+      "sha256": "322b8cf8bd9425d5ca18276e17125a8d607f1dfb06f6462fed7b91ef0c4e78f6"
+    },
+    {
+      "file": "hero_right_shoot.svg",
+      "sha256": "401ca9e7cf02937e9f83076e2787b609ceebb4017dbe946b60117ca2d3523012"
+    },
+    {
+      "file": "hero_right_walk.svg",
+      "sha256": "2df2c47acfd0812e9a39fd359b4d667894d1acb47398b24331ea4b40e112e1f5"
+    }
+  ]
+}

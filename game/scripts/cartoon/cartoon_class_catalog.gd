@@ -6,7 +6,7 @@ const MAX_RANK = 10
 const CLASSES = [
 	{"id":"warrior","name":"Guerreiro","color":"e9ba62","description":"Espada, defesa e esquiva frequente.","skills":["blade","guard","footwork"]},
 	{"id":"mage","name":"Mago","color":"ce91ff","description":"Magias fortes, conjuração rápida e domínio elemental.","skills":["power","focus","elements"]},
-	{"id":"hunter","name":"Caçador","color":"92d58f","description":"Caça, mobilidade e alcance mágico.","skills":["hunt","agility","reach"]}
+	{"id":"hunter","name":"Caçador","color":"92d58f","description":"Arco, caça, mobilidade e alcance.","skills":["hunt","agility","reach"]}
 ]
 const SKILLS = {
 	"blade":{"class":"warrior","name":"Lâmina treinada","description":"+4% de dano da espada por grau."},
@@ -15,9 +15,9 @@ const SKILLS = {
 	"power":{"class":"mage","name":"Afinidade mágica","description":"+4% de dano mágico por grau."},
 	"focus":{"class":"mage","name":"Concentração","description":"Reduz a recarga das magias em 0,08 s por grau."},
 	"elements":{"class":"mage","name":"Domínio elemental","description":"Por grau: +1% de dano em cada pulso de Brasa, +0,1 s de lentidão e +5 de alcance do salto de Arcana."},
-	"hunt":{"class":"hunter","name":"Caça precisa","description":"+6% de dano contra animais de caça por grau."},
+	"hunt":{"class":"hunter","name":"Caça precisa","description":"+4% de dano com arco; +6% adicional contra animais de caça por grau."},
 	"agility":{"class":"hunter","name":"Instinto ágil","description":"+4 unidades de distância da esquiva por grau."},
-	"reach":{"class":"hunter","name":"Olhar atento","description":"+4 unidades de alcance das magias por grau."}
+	"reach":{"class":"hunter","name":"Olhar atento","description":"+4 unidades de alcance do arco e das magias por grau."}
 }
 static func class_row(id: String) -> Dictionary:
 	for row in CLASSES:
