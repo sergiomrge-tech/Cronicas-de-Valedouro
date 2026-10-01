@@ -279,11 +279,13 @@ func _damage_monster(target: Node2D, amount: int) -> bool:
 	if not dead:
 		return true
 	var story_tag: String = String(target.story_tag)
+	var kind: String = String(target.kind)
 	var boss_id: String = String(target.boss_id)
 	monsters.erase(target)
 	target.queue_free()
 	player_gold += 8
 	_grant_combat_xp(18,boss_id,target.level)
+	var loot_text: String = _award_combat_loot(kind,boss_id,int(target.level))
 	var advanced: bool = false
 	if story_runtime:
 		if story_tag == "forest_defense":
@@ -293,9 +295,9 @@ func _damage_monster(target: Node2D, amount: int) -> bool:
 	_refresh_stats()
 	_refresh_objective()
 	if advanced:
-		_show_toast("Objetivo principal concluído. A trilha seguinte foi revelada.")
+		_show_toast("Objetivo principal concluído. A trilha seguinte foi revelada."+("\n"+loot_text if loot_text!="" else ""))
 	else:
-		_show_toast("Criatura derrotada. +8 ouro")
+		_show_toast("Criatura derrotada. +8 ouro"+("\n"+loot_text if loot_text!="" else ""))
 	return true
 
 func _interact() -> void:
@@ -408,6 +410,13 @@ func _toggle_map() -> void:
 	joystick_id = -1
 	joystick_vector = Vector2.ZERO
 
+
+func _award_combat_loot(kind: String,boss_id: String,enemy_level: int) -> String:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state == null:
+		return ""
+	var result: Dictionary = state.award_enemy_loot("REG_002_FLORESTA_ANCESTRAL",kind,enemy_level,boss_id!="",false)
+	return String(result.get("summary",""))
 
 func _grant_combat_xp(base_amount: int,boss_id: String = "",enemy_level: int = 1) -> void:
 	var state = get_node_or_null("/root/CartoonPlayerState")
