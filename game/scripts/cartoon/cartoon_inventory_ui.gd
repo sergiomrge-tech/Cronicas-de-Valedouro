@@ -628,9 +628,11 @@ func _refresh_detail(state) -> void:
 	var diff: int = stat-equipped_stat
 	var stat_name: String = "ATQ" if slot == "weapon" else "DEF"
 	var equipped: bool = state.is_equipped(String(item.get("id","")))
+	var required_level: int = state.equipment_required_level(item)
+	var locked: bool = state.player_level < required_level
 	detail_name.text = String(item.get("label","Equipamento"))
 	var progress: Dictionary = state.set_progress(item)
-	detail_meta.text = "%s • Tier %d\n%s +%d %s\n%s" % [_rarity_name(tier),tier,String(state.SLOT_NAMES.get(slot,slot)),stat,stat_name,("Conjunto %d/6 • bônus +%d ATQ/DEF" % [int(progress.count),int(progress.bonus)]) if item.has("set_id") else ("Arco • alcance 300 • flechas livres" if item.get("weapon_kind","")=="bow" else "Espada • corpo a corpo")]
+	detail_meta.text = "%s • Tier %d • Requer Nv %d\n%s +%d %s\n%s" % [_rarity_name(tier),tier,required_level,String(state.SLOT_NAMES.get(slot,slot)),stat,stat_name,("Conjunto %d/6 • bônus +%d ATQ/DEF" % [int(progress.count),int(progress.bonus)]) if item.has("set_id") else ("Arco • alcance 300 • flechas livres" if item.get("weapon_kind","")=="bow" else "Espada • corpo a corpo")]
 	if locked:
 		detail_compare.text = "Disponível ao atingir o nível %d." % required_level
 		detail_compare.add_theme_color_override("font_color",Color(0.95,0.68,0.36))
