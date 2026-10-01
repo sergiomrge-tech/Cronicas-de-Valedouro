@@ -81,12 +81,12 @@ func _build(map_script, navigation_property: String) -> void:
 	contract_panel.add_theme_stylebox_override("panel",UISkin.box(Color(0.07,0.13,0.10,0.88),UISkin.GOLD.darkened(0.4),8))
 	add_child(contract_panel)
 	var contract_body: Control = Control.new()
-	contract_body.custom_minimum_size = Vector2(256,54)
+	contract_body.custom_minimum_size = Vector2(224,42)
 	contract_body.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	contract_panel.add_child(contract_body)
 	contract_copy = UISkin.label("",12,UISkin.GOLD.lightened(0.25))
-	contract_copy.position = Vector2(10,7)
-	contract_copy.size = Vector2(238,43)
+	contract_copy.position = Vector2(10,5)
+	contract_copy.size = Vector2(204,30)
 	contract_copy.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	contract_body.add_child(contract_copy)
 	# Existing scene methods can keep refreshing their public label references.
@@ -99,7 +99,7 @@ func _build(map_script, navigation_property: String) -> void:
 	add_child(quest_panel)
 	gameplay_nodes.append(quest_panel)
 	quest_body = Control.new()
-	quest_body.custom_minimum_size = Vector2(284,120)
+	quest_body.custom_minimum_size = Vector2(252,88)
 	quest_body.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	quest_panel.add_child(quest_body)
 	mission_button = _button("MISSÕES",Vector2(110,44),_open_missions)
@@ -108,19 +108,19 @@ func _build(map_script, navigation_property: String) -> void:
 	quest_body.add_child(mission_button)
 	collapse_button = _button("+",Vector2(44,44),_toggle_quest)
 	collapse_button.name = "ExpandQuestButton"
-	collapse_button.position = Vector2(239,0)
+	collapse_button.position = Vector2(207,0)
 	quest_body.add_child(collapse_button)
 	host.objective_label = UISkin.label("",14)
-	host.objective_label.position = Vector2(14,47)
-	host.objective_label.size = Vector2(258,43)
+	host.objective_label.position = Vector2(12,45)
+	host.objective_label.size = Vector2(228,26)
 	host.objective_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	host.objective_label.max_lines_visible = 2
+	host.objective_label.max_lines_visible = 1
 	host.objective_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	quest_body.add_child(host.objective_label)
 	var navigation: Label = UISkin.label("",12,UISkin.GOLD)
 	navigation.name = "ObjectiveNavigation"
-	navigation.position = Vector2(14,98)
-	navigation.size = Vector2(258,20)
+	navigation.position = Vector2(12,69)
+	navigation.size = Vector2(228,16)
 	navigation.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	quest_body.add_child(navigation)
 	host.set(navigation_property,navigation)
@@ -131,7 +131,7 @@ func _build(map_script, navigation_property: String) -> void:
 	host.poi_label.add_theme_constant_override("shadow_outline_size",3)
 	add_child(host.poi_label)
 	gameplay_nodes.append(host.poi_label)
-	host.toast_label = UISkin.label("",16,UISkin.TEXT)
+	host.toast_label = UISkin.label("",13,UISkin.TEXT)
 	host.toast_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	host.toast_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	host.toast_label.add_theme_color_override("font_shadow_color",UISkin.INK)
@@ -207,15 +207,19 @@ func _button(text: String, button_size: Vector2, callback: Callable, radius: int
 
 func _layout() -> void:
 	var area: Rect2 = UISkin.usable(get_viewport())
-	quest_panel.position = Vector2(area.end.x-288.0,area.position.y)
-	quest_panel.size = Vector2(288,218 if expanded else 124)
+	quest_panel.position = Vector2(area.end.x-256.0,area.position.y)
+	quest_panel.size = Vector2(256,186 if expanded else 92)
 	map_button.position = Placement.toolbar_rect(get_viewport(),0).position
 	pause_button.position = Placement.toolbar_rect(get_viewport(),3).position
 	attack_button.position = Vector2(area.end.x-86,area.end.y-94)
 	interact_button.position = Vector2(area.end.x-172,area.end.y-78)
 	var compact: bool = area.size.x<888
-	for i in range(3):
-		spell_buttons[i].position = Vector2(area.end.x-240+i*82,area.end.y-(204 if compact else 154))
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	var unlocked_spells: int = state.unlocked_spell_count() if state != null else 1
+	unlocked_spells = clampi(unlocked_spells,1,spell_buttons.size())
+	var spell_start_x: float = area.end.x-76-82*(unlocked_spells-1)
+	for i in range(spell_buttons.size()):
+		spell_buttons[i].position = Vector2(spell_start_x+i*82,area.end.y-(204 if compact else 154))
 	dodge_button.size = Vector2(62,50)
 	dodge_button.position = Vector2(area.end.x-152,area.end.y-142) if compact else Vector2(area.end.x-70,area.end.y-208)
 	contract_panel.position = area.position+Vector2(0,92)
@@ -223,31 +227,31 @@ func _layout() -> void:
 	var hint_width: float = minf(480,area.size.x-220)
 	host.poi_label.position = Vector2(area.get_center().x-hint_width/2,area.end.y-194)
 	host.poi_label.size = Vector2(hint_width,25)
-	host.toast_label.position = Vector2(area.get_center().x-225,area.end.y-245)
-	host.toast_label.size = Vector2(450,40)
-	host.poi_label.position.y = maxf(host.poi_label.position.y,host.toast_label.position.y+44)
+	host.toast_label.position = Vector2(area.get_center().x-170,area.end.y-224)
+	host.toast_label.size = Vector2(340,30)
+	host.poi_label.position.y = maxf(host.poi_label.position.y,host.toast_label.position.y+32)
 	if compact:
 		host.poi_label.position.x = area.position.x
 		host.poi_label.size.x = area.size.x-260
 	if area.size.y<380:
 		# Keep transient messages below the objective card and above the toolbar.
-		host.toast_label.position = area.position+Vector2(0,128)
-		host.toast_label.size = Vector2(area.size.x-260,34)
-		host.toast_label.add_theme_font_size_override("font_size",13)
-		host.poi_label.position = area.position+Vector2(0,163)
+		host.toast_label.position = area.position+Vector2(0,96)
+		host.toast_label.size = Vector2(area.size.x-230,28)
+		host.toast_label.add_theme_font_size_override("font_size",12)
+		host.poi_label.position = area.position+Vector2(0,128)
 		host.poi_label.size = Vector2(area.size.x-260,20)
 	else:
-		host.toast_label.add_theme_font_size_override("font_size",16)
+		host.toast_label.add_theme_font_size_override("font_size",13)
 	queue_redraw()
 
 func _toggle_quest() -> void:
 	expanded = not expanded
 	collapse_button.text = "−" if expanded else "+"
-	quest_body.custom_minimum_size.y = 214 if expanded else 120
-	host.objective_label.size.y = 136 if expanded else 43
-	host.objective_label.max_lines_visible = 6 if expanded else 2
+	quest_body.custom_minimum_size.y = 182 if expanded else 88
+	host.objective_label.size.y = 116 if expanded else 26
+	host.objective_label.max_lines_visible = 5 if expanded else 1
 	var nav: Control = quest_body.get_node("ObjectiveNavigation")
-	nav.position.y = 186 if expanded else 98
+	nav.position.y = 154 if expanded else 69
 	_layout()
 
 func is_blocked() -> bool:
@@ -279,7 +283,7 @@ func _process(_delta: float) -> void:
 			if first == "": first = detail
 			descriptions.append(detail)
 	contract_panel.visible = count > 0 and not blocked
-	contract_copy.text = "GUILDA • %d ativos • %d prontos\n%s" % [count,ready_count,first]
+	contract_copy.text = "GUILDA %d/%d • %s" % [ready_count,count,first]
 	contract_copy.tooltip_text = "\n".join(descriptions)
 	var inside_building: bool = host.get("interiors") != null and host.interiors.active
 	map_button.text = "SAIR" if inside_building else "MAPA"
@@ -289,10 +293,12 @@ func _process(_delta: float) -> void:
 		attack_button.text = "DISPARAR" if host.hero.bow_equipped else "ATACAR"
 		if attack_wait>0: attack_button.text += "\n%.1f s" % attack_wait
 		attack_button.disabled = attack_wait>0 or host.hero.death_t>0
-		for i in range(3):
+		for i in range(spell_buttons.size()):
+			var unlocked: bool = state == null or state.spell_unlocked(i)
 			var remaining: float = host.hero.spell_cooldown_remaining(i)
-			spell_buttons[i].text = "%s\n%.1f s" % [host.hero.SPELL_NAMES[i],remaining] if remaining>0 else host.hero.SPELL_NAMES[i]+"\nPRONTA"
-			spell_buttons[i].disabled = remaining>0 or host.hero.death_t>0 or host.hero.dodge_t>0
+			spell_buttons[i].visible = not blocked and unlocked
+			spell_buttons[i].text = "%s\n%.1f s" % [host.hero.SPELL_NAMES[i],remaining] if remaining>0 else host.hero.SPELL_NAMES[i]
+			spell_buttons[i].disabled = not unlocked or remaining>0 or host.hero.death_t>0 or host.hero.dodge_t>0
 		dodge_button.text = "ESQUIVA\n%.1f s" % host.hero.dodge_cooldown if host.hero.dodge_cooldown>0 else "ESQUIVA"
 		dodge_button.disabled = host.hero.dodge_cooldown>0 or host.hero.death_t>0
 	if inside_building:
