@@ -43,10 +43,16 @@ func run() -> void:
 	host.objects.add_child(target)
 	host.monsters.append(target)
 	target.set_process(false)
-	await shot("three_spells_desktop")
+	await shot("spell_progression_level_1_desktop")
 	root.size = Vector2i(640,360)
 	root.content_scale_size = root.size
-	await shot("three_spells_mobile_ready")
+	await shot("spell_progression_level_1_mobile")
+	state.player_level = 10
+	host.get_node("HUD/GameLayout")._process(0)
+	await shot("spell_progression_level_10_mobile")
+	state.player_level = 25
+	host.get_node("HUD/GameLayout")._process(0)
+	await shot("spell_progression_level_25_mobile")
 	assert(host.hero.cast_spell(host,0))
 	for p in get_nodes_in_group("cartoon_spell_projectiles"): p.set_process(false)
 	host.hero._process(0.8)
@@ -66,5 +72,5 @@ func run() -> void:
 	root.size = Vector2i(1280,720)
 	root.content_scale_size = root.size
 	await shot("three_spells_wide")
-	print("spell_slots_v030 QA: 8 actual Godot captures, 3 spell buttons and separate cooldown states")
+	print("spell_slots_v030 QA: progressive unlock at levels 1/10/25 plus independent cooldown states")
 	quit()
