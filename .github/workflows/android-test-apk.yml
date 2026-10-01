@@ -125,7 +125,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_challenge_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033; do
+          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_challenge_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033 cartoon_gathering_v034; do
             echo "===== TEST: $t ====="
             timeout 70s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" 2>&1 | tee "/tmp/valedouro-test-$t.log"
             ! grep -Eq "SCRIPT ERROR|ERROR:|Assertion failed" "/tmp/valedouro-test-$t.log"
@@ -141,18 +141,18 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p game/build
-          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.33_TEST.apk
-          test -s game/build/Cronicas_de_Valedouro_v0.33_TEST.apk
-          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.33_TEST.apk
-          sha256sum game/build/Cronicas_de_Valedouro_v0.33_TEST.apk | tee game/build/SHA256.txt
-          ls -lh game/build/Cronicas_de_Valedouro_v0.33_TEST.apk
+          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.34_TEST.apk
+          test -s game/build/Cronicas_de_Valedouro_v0.34_TEST.apk
+          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.34_TEST.apk
+          sha256sum game/build/Cronicas_de_Valedouro_v0.34_TEST.apk | tee game/build/SHA256.txt
+          ls -lh game/build/Cronicas_de_Valedouro_v0.34_TEST.apk
 
       - name: Upload installable APK
         uses: actions/upload-artifact@v4
         with:
-          name: Cronicas-de-Valedouro-Android-TEST-v0.33
+          name: Cronicas-de-Valedouro-Android-TEST-v0.34
           path: |
-            game/build/Cronicas_de_Valedouro_v0.33_TEST.apk
+            game/build/Cronicas_de_Valedouro_v0.34_TEST.apk
             game/build/SHA256.txt
           if-no-files-found: error
           retention-days: 30
@@ -166,14 +166,14 @@ jobs:
         run: |
           set -euo pipefail
           cat > /tmp/android-release.md <<'NOTES'
-          APK atualizado v0.33: botão CURA no HUD mobile, escolha inteligente entre Frasco e Elixir e equipamentos/Forja bloqueados pelo nível regional (1/8/18/28/40/55/70/85). Preserva Brasa no nível 1, Cristal no 10, Arcana no 25, loot/consumíveis, paper-doll, ouro na Bolsa, missões roláveis, classes, habilidades, arco, esquiva, interiores, caça e Castelo Real.
+          APK atualizado v0.34: 48 pontos renováveis de coleta de materiais distribuídos pelas oito regiões, interação COLETAR, respawn persistente de 5 minutos e integração direta com Bolsa/Forja. Preserva cura rápida, progressão de equipamentos, magias por nível, loot, paper-doll, missões roláveis, classes, arco, esquiva, interiores, caça e Castelo Real.
 
-          Toque em MISSÕES para escolher o objetivo, BOLSA para trocar equipamento, FORJA para fabricar e no retrato do herói para abrir Classes e Habilidades. Save v7 preserva a campanha anterior.
+          Toque em MISSÕES para escolher o objetivo, BOLSA para trocar equipamento, FORJA para fabricar e no retrato do herói para abrir Classes e Habilidades. Save v8 preserva a campanha anterior.
 
           Baixe o APK, abra no celular e permita a instalação pelo aplicativo usado para abrir o arquivo. Android 7.0 ou superior; ARM 32/64 bits.
 
-          Exportação assinada com Godot 4.7.2, 35 testes Android nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
+          Exportação assinada com Godot 4.7.2, 36 testes Android nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
           NOTES
-          gh release create v0.33-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.33 — Cura e Progressão de Equipamentos" --notes-file /tmp/android-release.md
-          gh release upload v0.33-test game/build/Cronicas_de_Valedouro_v0.33_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
-          gh release edit v0.33-test --repo "$REPOSITORY" --draft=false --prerelease
+          gh release create v0.34-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.34 — Coleta de Materiais" --notes-file /tmp/android-release.md
+          gh release upload v0.34-test game/build/Cronicas_de_Valedouro_v0.34_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
+          gh release edit v0.34-test --repo "$REPOSITORY" --draft=false --prerelease
