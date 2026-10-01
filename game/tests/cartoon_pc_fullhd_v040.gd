@@ -18,7 +18,7 @@ func _init() -> void:
 	if not bool(ProjectSettings.get_setting("rendering/rendering_device/fallback_to_opengl3",false)): errors.append("fallback OpenGL deve permanecer habilitado")
 	var preset_text: String = FileAccess.get_file_as_string("res://export_presets.cfg")
 	if not preset_text.contains("Windows Desktop Full HD"): errors.append("preset Windows Desktop Full HD ausente")
-	if not preset_text.contains("Cronicas_de_Valedouro_PC_v0.41.exe"): errors.append("caminho do EXE v0.41 ausente")
+	if not preset_text.contains("Cronicas_de_Valedouro_PC_v0.42.exe"): errors.append("caminho do EXE v0.42 ausente")
 	var layout = load("res://scripts/cartoon/cartoon_game_layout.gd")
 	if layout == null: errors.append("cartoon_game_layout.gd não carregou")
 	if errors.is_empty():
