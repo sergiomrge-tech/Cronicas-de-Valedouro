@@ -318,6 +318,7 @@ func best_heal_consumable() -> String:
 	return ""
 
 func quick_heal() -> Dictionary:
+	_capture_active_memory()
 	var id: String = best_heal_consumable()
 	if id == "":
 		if player_hp >= player_max_hp:
