@@ -12,10 +12,13 @@ func _point_pos(interiors, id: String) -> Vector2:
 			return point.get("pos",Vector2.INF)
 	return Vector2.INF
 
-func _press_interact() -> void:
-	Input.action_press("interact")
-	await process_frame
-	Input.action_release("interact")
+func _press_interact(hub) -> void:
+	var layout = hub.get_node("HUD/GameLayout")
+	layout.desktop_mode = true
+	var e_event: InputEventKey = InputEventKey.new()
+	e_event.physical_keycode = KEY_E
+	e_event.pressed = true
+	layout._unhandled_input(e_event)
 	await process_frame
 
 func _enter(hub, outside_pos: Vector2, expected_kind: String) -> void:
@@ -29,7 +32,7 @@ func _leave_via_exit(hub) -> void:
 	var exit_pos: Vector2 = _point_pos(hub.interiors,"exit")
 	assert(exit_pos != Vector2.INF)
 	hub.hero.position = exit_pos
-	await _press_interact()
+	await _press_interact(hub)
 	assert(not hub.interiors.active)
 
 func run() -> void:
@@ -52,7 +55,7 @@ func run() -> void:
 	hub.hero.position = board_pos
 	hub.interiors._refresh_hint()
 	assert(hub.poi_label.text.contains("E — CONTRATOS"))
-	await _press_interact()
+	await _press_interact(hub)
 	assert(hub.guild_board.is_open())
 	hub.guild_board.close_panel()
 	await _leave_via_exit(hub)
@@ -64,7 +67,7 @@ func run() -> void:
 	hub.hero.position = craft_pos
 	hub.interiors._refresh_hint()
 	assert(hub.poi_label.text.contains("E — FORJAR"))
-	await _press_interact()
+	await _press_interact(hub)
 	assert(hub.crafting_ui.is_open())
 	hub.crafting_ui.close_panel()
 	await _leave_via_exit(hub)
@@ -77,7 +80,7 @@ func run() -> void:
 	hub.hero.position = rest_pos
 	hub.interiors._refresh_hint()
 	assert(hub.poi_label.text.contains("E — DESCANSAR"))
-	await _press_interact()
+	await _press_interact(hub)
 	assert(hub.player_hp == hub.player_max_hp)
 	await _leave_via_exit(hub)
 
@@ -88,7 +91,7 @@ func run() -> void:
 	hub.hero.position = audience_pos
 	hub.interiors._refresh_hint()
 	assert(hub.poi_label.text.contains("E — FALAR"))
-	await _press_interact()
+	await _press_interact(hub)
 	await _leave_via_exit(hub)
 
 	# PC HUD must expose contextual interaction text instead of a generic hidden action.
