@@ -2,6 +2,7 @@ class_name ValedouroCartoonInventoryUI
 extends Control
 
 const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
+const HeroPreview = preload("res://scripts/cartoon/cartoon_hero.gd")
 
 const EQUIPMENT_CAPACITY: int = 66
 
@@ -13,6 +14,10 @@ var list_box: Container
 var title_label: Label
 var equipment_label: Label
 var count_label: Label
+var gold_label: Label
+var preview_container: SubViewportContainer
+var preview_viewport: SubViewport
+var preview_hero: Node2D
 var equipment_tab: Button
 var materials_tab: Button
 var consumables_tab: Button
@@ -129,12 +134,22 @@ func _build(show_toggle: bool) -> void:
 	content.add_child(title_label)
 
 	count_label = Label.new()
-	count_label.position = Vector2(438,18)
-	count_label.size = Vector2(310,26)
+	count_label.position = Vector2(300,18)
+	count_label.size = Vector2(330,26)
 	count_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	count_label.add_theme_font_size_override("font_size",12)
 	count_label.add_theme_color_override("font_color",Color(0.73,0.81,0.88))
 	content.add_child(count_label)
+
+	gold_label = Label.new()
+	gold_label.name = "InventoryGold"
+	gold_label.position = Vector2(640,16)
+	gold_label.size = Vector2(100,28)
+	gold_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	gold_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	gold_label.add_theme_font_size_override("font_size",14)
+	gold_label.add_theme_color_override("font_color",UISkin.GOLD)
+	content.add_child(gold_label)
 
 	var close: Button = Button.new()
 	close.text = "×"
@@ -148,16 +163,44 @@ func _build(show_toggle: bool) -> void:
 
 	var equipped_title: Label = Label.new()
 	equipped_title.position = Vector2(24,58)
-	equipped_title.size = Vector2(190,26)
-	equipped_title.text = "EQUIPADO"
+	equipped_title.size = Vector2(236,26)
+	equipped_title.text = "PERSONAGEM"
 	equipped_title.add_theme_font_size_override("font_size",16)
 	equipped_title.add_theme_color_override("font_color",Color(0.95,0.78,0.36))
 	content.add_child(equipped_title)
 
+	var preview_frame: PanelContainer = PanelContainer.new()
+	preview_frame.name = "CharacterPreviewFrame"
+	preview_frame.position = Vector2(66,104)
+	preview_frame.size = Vector2(128,214)
+	preview_frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	preview_frame.add_theme_stylebox_override("panel",UISkin.box(Color(0.055,0.07,0.09,0.95),Color("596f60"),14))
+	content.add_child(preview_frame)
+
+	preview_container = SubViewportContainer.new()
+	preview_container.name = "CharacterPreview"
+	preview_container.custom_minimum_size = Vector2(120,206)
+	preview_container.stretch = true
+	preview_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	preview_frame.add_child(preview_container)
+
+	preview_viewport = SubViewport.new()
+	preview_viewport.name = "CharacterViewport"
+	preview_viewport.size = Vector2i(120,206)
+	preview_viewport.transparent_bg = true
+	preview_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	preview_container.add_child(preview_viewport)
+
+	preview_hero = HeroPreview.new()
+	preview_hero.name = "PreviewHero"
+	preview_hero.position = Vector2(60,148)
+	preview_hero.scale = Vector2(1.55,1.55)
+	preview_viewport.add_child(preview_hero)
+
 	weapon_slot = Button.new()
 	weapon_slot.name = "WeaponSlot"
-	weapon_slot.position = Vector2(24,90)
-	weapon_slot.size = Vector2(194,88)
+	weapon_slot.position = Vector2(8,126)
+	weapon_slot.size = Vector2(82,44)
 	weapon_slot.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	weapon_slot.mouse_filter = Control.MOUSE_FILTER_STOP
 	_style_button(weapon_slot,Color(0.10,0.14,0.21),Color(0.78,0.58,0.24))
@@ -166,8 +209,8 @@ func _build(show_toggle: bool) -> void:
 
 	armor_slot = Button.new()
 	armor_slot.name = "ArmorSlot"
-	armor_slot.position = Vector2(24,188)
-	armor_slot.size = Vector2(194,88)
+	armor_slot.position = Vector2(8,180)
+	armor_slot.size = Vector2(82,44)
 	armor_slot.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	armor_slot.mouse_filter = Control.MOUSE_FILTER_STOP
 	_style_button(armor_slot,Color(0.10,0.14,0.21),Color(0.49,0.69,0.90))
@@ -175,64 +218,64 @@ func _build(show_toggle: bool) -> void:
 	content.add_child(armor_slot)
 
 	equipment_label = Label.new()
-	equipment_label.position = Vector2(24,292)
-	equipment_label.size = Vector2(194,78)
+	equipment_label.position = Vector2(14,342)
+	equipment_label.size = Vector2(230,58)
 	equipment_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	equipment_label.add_theme_font_size_override("font_size",13)
 	equipment_label.add_theme_color_override("font_color",Color(0.86,0.88,0.86))
 	content.add_child(equipment_label)
 
 	var hint: Label = Label.new()
-	hint.position = Vector2(24,412)
-	hint.size = Vector2(194,20)
-	hint.text = "Toque para comparar"
+	hint.position = Vector2(14,406)
+	hint.size = Vector2(230,20)
+	hint.text = "Toque em uma peça para comparar"
 	hint.add_theme_font_size_override("font_size",11)
 	hint.add_theme_color_override("font_color",Color(0.57,0.64,0.70))
 	content.add_child(hint)
 
-	equipment_tab = _tab_button("TODOS",Vector2(240,58),78)
+	equipment_tab = _tab_button("TODOS",Vector2(274,58),72)
 	equipment_tab.name = "AllItemsTab"
 	equipment_tab.pressed.connect(func(): _set_tab("equipment"))
 	content.add_child(equipment_tab)
 
-	weapons_tab = _tab_button("ARMAS",Vector2(324,58),76)
+	weapons_tab = _tab_button("ARMAS",Vector2(352,58),70)
 	weapons_tab.name = "WeaponsTab"
 	weapons_tab.pressed.connect(func(): _set_tab("weapon"))
 	content.add_child(weapons_tab)
 
-	armor_tab = _tab_button("ARMADURAS",Vector2(406,58),98)
+	armor_tab = _tab_button("ARMADURAS",Vector2(428,58),92)
 	armor_tab.name = "ArmorTab"
 	armor_tab.pressed.connect(func(): _set_tab("armor"))
 	content.add_child(armor_tab)
 
-	materials_tab = _tab_button("MATERIAIS",Vector2(510,58),96)
+	materials_tab = _tab_button("MATERIAIS",Vector2(526,58),90)
 	materials_tab.name = "MaterialsTab"
 	materials_tab.pressed.connect(func(): _set_tab("materials"))
 	content.add_child(materials_tab)
 
-	consumables_tab = _tab_button("ITENS",Vector2(612,58),74)
+	consumables_tab = _tab_button("ITENS",Vector2(622,58),68)
 	consumables_tab.name = "ConsumablesTab"
 	consumables_tab.pressed.connect(func(): _set_tab("consumables"))
 	content.add_child(consumables_tab)
 
 	var scroll: ScrollContainer = ScrollContainer.new()
-	scroll.position = Vector2(240,116)
-	scroll.size = Vector2(354,306)
+	scroll.position = Vector2(274,116)
+	scroll.size = Vector2(334,306)
 	scroll.mouse_filter = Control.MOUSE_FILTER_STOP
 	content.add_child(scroll)
 
 	var grid: GridContainer = GridContainer.new()
 	grid.name = "InventoryGrid"
 	grid.columns = 2
-	grid.custom_minimum_size = Vector2(334,0)
+	grid.custom_minimum_size = Vector2(314,0)
 	grid.add_theme_constant_override("h_separation",8)
 	grid.add_theme_constant_override("v_separation",8)
 	scroll.add_child(grid)
 	list_box = grid
 
 	var details: PanelContainer = PanelContainer.new()
-	details.position = Vector2(608,108)
-	details.size = Vector2(190,314)
+	details.position = Vector2(614,108)
+	details.size = Vector2(184,314)
 	var dstyle: StyleBoxFlat = StyleBoxFlat.new()
 	dstyle.bg_color = Color(0.055,0.067,0.09,0.97)
 	dstyle.border_color = Color(0.34,0.43,0.56)
@@ -245,12 +288,12 @@ func _build(show_toggle: bool) -> void:
 	content.add_child(details)
 
 	var detail_content: Control = Control.new()
-	detail_content.custom_minimum_size = Vector2(182,306)
+	detail_content.custom_minimum_size = Vector2(176,306)
 	details.add_child(detail_content)
 
 	var detail_title: Label = Label.new()
 	detail_title.position = Vector2(14,12)
-	detail_title.size = Vector2(154,24)
+	detail_title.size = Vector2(148,24)
 	detail_title.text = "DETALHES"
 	detail_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	detail_title.add_theme_font_size_override("font_size",14)
@@ -259,7 +302,7 @@ func _build(show_toggle: bool) -> void:
 
 	detail_name = Label.new()
 	detail_name.position = Vector2(14,46)
-	detail_name.size = Vector2(154,58)
+	detail_name.size = Vector2(148,58)
 	detail_name.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	detail_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	detail_name.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -269,7 +312,7 @@ func _build(show_toggle: bool) -> void:
 
 	detail_meta = Label.new()
 	detail_meta.position = Vector2(14,112)
-	detail_meta.size = Vector2(154,64)
+	detail_meta.size = Vector2(148,64)
 	detail_meta.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	detail_meta.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	detail_meta.add_theme_font_size_override("font_size",13)
@@ -278,7 +321,7 @@ func _build(show_toggle: bool) -> void:
 
 	detail_compare = Label.new()
 	detail_compare.position = Vector2(14,180)
-	detail_compare.size = Vector2(154,58)
+	detail_compare.size = Vector2(148,58)
 	detail_compare.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	detail_compare.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	detail_compare.add_theme_font_size_override("font_size",12)
@@ -288,7 +331,7 @@ func _build(show_toggle: bool) -> void:
 	detail_action.name = "EquipSelectedButton"
 	detail_action.text = "EQUIPAR"
 	detail_action.position = Vector2(16,250)
-	detail_action.size = Vector2(150,44)
+	detail_action.size = Vector2(144,44)
 	detail_action.mouse_filter = Control.MOUSE_FILTER_STOP
 	_style_button(detail_action,Color(0.15,0.29,0.20),Color(0.45,0.82,0.50))
 	detail_action.pressed.connect(_primary_action)
@@ -329,6 +372,10 @@ func _refresh() -> void:
 	var items: Array[Dictionary] = state.owned_equipment()
 	equipment_label.text = state.equipment_summary()
 	count_label.text = "Equip. %d/%d • Mat. %d • Itens %d" % [items.size(),EQUIPMENT_CAPACITY,state.material_total(),state.consumables_total()]
+	gold_label.text = "◉ %d" % state.player_gold
+	if preview_hero != null:
+		preview_hero.apply_equipment_from_state()
+		preview_hero.apply_class_from_state()
 	for entry: Array in [[equipment_tab,current_tab == "equipment" and equipment_filter == "all"],[weapons_tab,current_tab == "equipment" and equipment_filter == "weapon"],[armor_tab,current_tab == "equipment" and equipment_filter == "armor"],[materials_tab,current_tab == "materials"],[consumables_tab,current_tab == "consumables"]]:
 		UISkin.button(entry[0],Color("355344") if entry[1] else UISkin.SURFACE,UISkin.GOLD if entry[1] else Color("596f60"))
 		entry[0].add_theme_font_size_override("font_size",13)
@@ -345,33 +392,52 @@ func _refresh() -> void:
 	_refresh_detail(state)
 
 func _refresh_equipped_slots(state) -> void:
-	weapon_slot.position.y = 90
-	weapon_slot.size.y = 44
-	armor_slot.position.y = 138
-	armor_slot.size.y = 44
-	weapon_slot.text = "Arma • "+String(state.equipped_weapon.get("label","Espada"))
-	armor_slot.text = "Peitoral • "+String(state.equipped_armor.get("label","Túnica"))
-	for i in range(5):
-		var slot: String = ["helmet","gloves","legs","boots","cape"][i]
+	var layout: Dictionary = {
+		"weapon":{"pos":Vector2(8,126),"size":Vector2(82,44),"short":"ARMA"},
+		"armor":{"pos":Vector2(8,180),"size":Vector2(82,44),"short":"PEITO"},
+		"helmet":{"pos":Vector2(78,68),"size":Vector2(104,38),"short":"ELMO"},
+		"gloves":{"pos":Vector2(170,126),"size":Vector2(82,44),"short":"LUVAS"},
+		"cape":{"pos":Vector2(170,180),"size":Vector2(82,44),"short":"CAPA"},
+		"legs":{"pos":Vector2(8,250),"size":Vector2(82,44),"short":"CALÇAS"},
+		"boots":{"pos":Vector2(170,250),"size":Vector2(82,44),"short":"BOTAS"}
+	}
+	weapon_slot.position = layout.weapon.pos
+	weapon_slot.size = layout.weapon.size
+	armor_slot.position = layout.armor.pos
+	armor_slot.size = layout.armor.size
+	weapon_slot.text = _paper_doll_text("ARMA",state.equipped_weapon)
+	armor_slot.text = _paper_doll_text("PEITO",state.equipped_armor)
+	weapon_slot.tooltip_text = String(state.equipped_weapon.get("label","Espada de Viagem"))
+	armor_slot.tooltip_text = String(state.equipped_armor.get("label","Túnica de Viagem"))
+	for slot: String in ["helmet","gloves","cape","legs","boots"]:
 		if not piece_buttons.has(slot):
 			var button: Button = Button.new()
-			button.position = Vector2(24,186+i*45)
-			button.size = Vector2(194,44)
+			button.name = String(state.SLOT_NAMES[slot])+"Slot"
 			_style_button(button,UISkin.SURFACE,UISkin.GOLD)
-			button.add_theme_font_size_override("font_size",12)
+			button.add_theme_font_size_override("font_size",10)
+			button.alignment = HORIZONTAL_ALIGNMENT_CENTER
 			button.pressed.connect(_select_equipped_slot.bind(slot))
 			content.add_child(button)
 			piece_buttons[slot] = button
+		var button: Button = piece_buttons[slot]
+		button.position = layout[slot].pos
+		button.size = layout[slot].size
 		var item: Dictionary = state.equipped_in_slot(slot)
-		piece_buttons[slot].text = "%s • +%d DEF" % [String(state.SLOT_NAMES[slot]),int(item.get("defense",0))] if not item.is_empty() else String(state.SLOT_NAMES[slot])+" • Vazio"
-		piece_buttons[slot].tooltip_text = String(item.get("label","Vazio"))
+		button.text = _paper_doll_text(String(layout[slot].short),item)
+		button.tooltip_text = String(item.get("label","Vazio"))
 	equipment_label.visible = true
-	equipment_label.position = Vector2(240,424)
-	equipment_label.size = Vector2(550,20)
-	equipment_label.add_theme_font_size_override("font_size",12)
+	equipment_label.position = Vector2(14,342)
+	equipment_label.size = Vector2(238,58)
+	equipment_label.add_theme_font_size_override("font_size",11)
 	var progress: Dictionary = state.set_progress()
-	equipment_label.text = "Conjunto %d/6 • ATQ +%d • DEF +%d%s" % [int(progress.count),state.attack_bonus(),state.defense_bonus()," • Bônus completo ativo" if progress.complete else ""]
-	armor_slot.tooltip_text = state.equipment_summary()
+	equipment_label.text = "Conjunto %d/6  •  ATQ +%d  •  DEF +%d%s" % [int(progress.count),state.attack_bonus(),state.defense_bonus(),"\nBônus de conjunto ativo" if progress.complete else ""]
+
+func _paper_doll_text(slot_name: String,item: Dictionary) -> String:
+	if item.is_empty():
+		return slot_name+"\nVAZIO"
+	var stat: int = int(item.get("attack",0)) if String(item.get("slot",""))=="weapon" else int(item.get("defense",0))
+	var suffix: String = "ATQ" if String(item.get("slot",""))=="weapon" else "DEF"
+	return "%s\n+%d %s" % [slot_name,stat,suffix]
 
 func _select_equipped_slot(slot: String) -> void:
 	var state = _state()
