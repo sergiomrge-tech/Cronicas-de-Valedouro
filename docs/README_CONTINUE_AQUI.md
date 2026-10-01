@@ -20,6 +20,7 @@ Elyndor vive a Guerra da Coroa Oca há 23 anos. O protagonista é um humano da T
 - Áreas e construções do mapa devem corresponder às missões da história.
 - Regiões devem ter escala de exploração real, evitando mapas curtos demais.
 - Interface deve ser adequada para touch e manter boa leitura em tela pequena.
+- Não criar APK a cada atualização. Continuar desenvolvimento e salvamento no GitHub com validações; gerar APK apenas mediante pedido explícito do Diretor (orientação de 01/10/2026, após a v0.27).
 
 ## Estrutura Cartoon
 - Cenas: `game/scenes/cartoon/`

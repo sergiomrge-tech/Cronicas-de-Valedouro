@@ -8,6 +8,7 @@ A versão oficial e única base ativa de desenvolvimento é a **2D Cartoon**. A 
 ## Regras obrigatórias
 - Engine oficial: Godot 4.7.2; manter compatibilidade Godot 4.x quando possível.
 - Android/mobile-first, orientação horizontal, alvo de 60 FPS.
+- Não gerar APK a cada atualização: atualizar código/GitHub e executar validações; gerar/exportar/publicar APK somente quando o Diretor pedir explicitamente. Preferência registrada em 01/10/2026, após a build v0.27.
 - Cena inicial oficial: `res://scenes/cartoon/CartoonMainMenu.tscn`.
 - Código principal novo: `game/scripts/cartoon/`.
 - Cenas principais novas: `game/scenes/cartoon/`.
