@@ -295,11 +295,9 @@ func _interact() -> void:
 		interiors.interact()
 		return
 	if not hero or not environment: return
-	# The castle door must win interaction priority over nearby gatherables/POIs.
-	# A slightly wider radius also matches the large PC-scale royal entrance.
-	var priority_poi: Dictionary = environment.nearest_poi(hero.position,260.0)
-	if String(priority_poi.get("id","")) == "POI_REG001_CASTLE":
-		interiors.enter("castle")
+	# Buildings are primary interactions. They must never lose the E/USAR command
+	# to gathering, secrets, NPCs or other exploration content layered nearby.
+	if _try_enter_nearby_building(280.0):
 		return
 	if exploration_director != null and exploration_director.try_interact():
 		return
@@ -346,16 +344,53 @@ func _show_toast(text: String) -> void:
 
 func _update_poi_hint() -> void:
 	if not poi_label or not hero or not environment: return
+	var building_poi: Dictionary = _nearest_building_poi(280.0)
+	if not building_poi.is_empty():
+		var building_label: String = String(building_poi.get("label","Entrada"))
+		poi_label.text = "◆ %s  •  E — ENTRAR" % building_label if OS.get_name() == "Windows" else "◆ %s  •  USAR" % building_label
+		return
 	if exploration_director != null:
 		var gather_hint: String = exploration_director.hint_text()
 		if gather_hint != "":
 			poi_label.text = gather_hint
 			return
-	var poi = environment.nearest_poi(hero.position,260.0)
-	if not poi.is_empty() and String(poi.get("id","")) == "POI_REG001_CASTLE":
-		poi_label.text = "◆ Castelo Real de Valedouro  •  E — ENTRAR" if OS.get_name() == "Windows" else "◆ Castelo Real de Valedouro  •  USAR"
-	else:
-		poi_label.text=("◆ " + String(poi.get("label","")) + "  •  USAR") if not poi.is_empty() and hero.position.distance_to(poi.get("pos",hero.position)) <= 190.0 else ""
+	var poi = environment.nearest_poi(hero.position,190.0)
+	poi_label.text=("◆ " + String(poi.get("label","")) + "  •  USAR") if not poi.is_empty() else ""
+
+func _building_for_poi(poi_id: String) -> String:
+	match poi_id:
+		"POI_REG001_CASTLE": return "castle"
+		"POI_REG001_FORGE": return "forge"
+		"POI_REG001_TAVERN": return "tavern"
+		"POI_REG001_GUILD", "LOC_VAL_GUILD": return "guild"
+		_: return ""
+
+func _nearest_building_poi(radius: float = 280.0) -> Dictionary:
+	if hero == null or environment == null: return {}
+	var best: Dictionary = {}
+	var best_distance: float = radius
+	for candidate in environment.pois:
+		var candidate_id: String = String(candidate.get("id",""))
+		if _building_for_poi(candidate_id) == "": continue
+		var candidate_pos: Vector2 = candidate.get("pos",Vector2.ZERO)
+		var distance: float = hero.position.distance_to(candidate_pos)
+		if distance < best_distance:
+			best_distance = distance
+			best = candidate
+	return best
+
+func _try_enter_nearby_building(radius: float = 280.0) -> bool:
+	var poi: Dictionary = _nearest_building_poi(radius)
+	if poi.is_empty(): return false
+	var id: String = String(poi.get("id",""))
+	var building: String = _building_for_poi(id)
+	if building == "": return false
+	var canonical_id: String = _canonical_story_location(id)
+	if story_runtime and canonical_id != "" and story_runtime.try_location(canonical_id):
+		objective_label.text = story_runtime.hud_text()
+		_show_toast("História principal atualizada: " + String(poi.get("label","Local")))
+	interiors.enter(building)
+	return interiors.active and interiors.kind == building
 
 
 func _spawn_monsters() -> void:
