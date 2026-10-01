@@ -140,3 +140,12 @@ totalizando 55 pontos coletáveis. A interação usa o botão USAR e mostra
 COLETAR no HUD. O recurso entra diretamente na Bolsa/Forja e reaparece em
 5 minutos. O cooldown persiste no **save v8**. Ler
 `docs/CARTOON_GATHERING_V0_34.md`. Validada no Godot 4.7.2 oficial, run `36883480977`, com 53 testes nativos e QA visual dedicado. APK continua sob demanda.
+
+
+## Continuidade — candidata v0.35: level up e desbloqueios compactos
+
+A v0.35 adiciona banner curto de subida de nível, aviso automático de magia/tier
+liberado e contador de pontos de habilidade no retrato do herói. Não usa modal
+e não interrompe o combate. O save permanece v8. Ler
+`docs/CARTOON_LEVELUP_FEEDBACK_V0_35.md`. Só promover após o Godot Gate 4.7.2.
+APK continua sob demanda.
