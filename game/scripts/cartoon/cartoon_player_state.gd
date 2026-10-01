@@ -726,6 +726,7 @@ func gain_xp(amount: int) -> Dictionary:
 	if amount <= 0 or player_level >= 100:
 		return {"gained":0,"levels":0,"leveled_up":false,"level":player_level}
 	_capture_active_memory()
+	var previous_level: int = player_level
 	var gained_levels: int = 0
 	player_xp += amount
 	while player_level < 100:
@@ -750,7 +751,10 @@ func gain_xp(amount: int) -> Dictionary:
 		"gained":amount,
 		"levels":gained_levels,
 		"leveled_up":gained_levels > 0,
+		"previous_level":previous_level,
 		"level":player_level,
+		"unlocks":progression_unlocks(previous_level,player_level),
+		"skill_points":available_skill_points(),
 		"xp":player_xp,
 		"next":xp_to_next()
 	}
