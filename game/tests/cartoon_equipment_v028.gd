@@ -21,6 +21,7 @@ func run() -> void:
 	assert(unique.size()==64)
 	var forest: String = regions[1]
 	var rows = state.recipes_for(forest)
+	state.player_level = 8
 	assert(not state.craft_item(forest,rows[2].id).ok)
 	assert(state.crafted.is_empty() and state.material_total()==0)
 	state.add_material("Seiva Ancestral",40)
@@ -30,6 +31,7 @@ func run() -> void:
 	var before: int = state.material_total()
 	assert(state.craft_item(forest,rows[2].id).ok and state.material_total()==before)
 	assert(state.equipped_weapon.weapon_kind=="bow")
+	state.player_level = 18
 	state.add_material("Âmbar Negro",10)
 	var desert = state.recipes_for(regions[2])
 	assert(state.craft_item(regions[2],desert[3].id).ok)
@@ -118,6 +120,7 @@ func run() -> void:
 	root.add_child(forest_scene)
 	current_scene = forest_scene
 	await settle()
+	state.player_level = 8
 	state.add_material("Seiva Ancestral",3)
 	assert(state.craft_item(forest,rows[2].id).ok)
 	forest_scene.hero.apply_equipment_from_state()
