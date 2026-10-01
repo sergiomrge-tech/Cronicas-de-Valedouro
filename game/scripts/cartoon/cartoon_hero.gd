@@ -27,6 +27,7 @@ var spell_index: int = 0
 var spell_mode: bool = false
 var weapon_tier: int = 0
 var armor_tier: int = 0
+var weapon_item_id: String = ""
 var bow_equipped: bool = false
 var bow_cooldown: float = 0.0
 var visible_pieces: Dictionary = {}
@@ -38,6 +39,19 @@ var dodge_host: WeakRef
 var dodge_trail_t: float = 0.0
 var dodge_distance: float = 120.0
 var class_color: Color = Color("e9ba62")
+const BOSS_ITEM_COLORS: Dictionary = {
+	"BOSS_WPN_ALPHA_001":Color("f0d07a"),
+	"BOSS_CAPE_GUARDIAN_001":Color("9da8b2"),
+	"BOSS_HELM_ROOT_001":Color("7fcf73"),
+	"BOSS_WPN_ASH_001":Color("f07a45"),
+	"BOSS_CAPE_REEDS_001":Color("7bd6a5"),
+	"BOSS_GLOVES_ICE_001":Color("a9e8ff"),
+	"BOSS_WPN_BLACKFROST_001":Color("62b9ff"),
+	"BOSS_BOOTS_TIDE_001":Color("45d7e7"),
+	"BOSS_CAPE_VOID_001":Color("d26ee8"),
+	"BOSS_HELM_CARTOGRAPHER_001":Color("b69cff"),
+	"BOSS_WPN_AZHAREL_001":Color("ff6d9c")
+}
 const DODGE_DURATION: float = 0.22
 const DODGE_DISTANCE: float = 120.0
 
@@ -119,6 +133,7 @@ func apply_equipment_from_state() -> void:
 		return
 	weapon_tier = int(state.equipped_weapon.get("tier",0))
 	armor_tier = int(state.equipped_armor.get("tier",0))
+	weapon_item_id = String(state.equipped_weapon.get("id",""))
 	bow_equipped = state.equipped_weapon.get("weapon_kind", "sword")=="bow"
 	visible_pieces = state.equipped_pieces.duplicate(true)
 	queue_redraw()
@@ -284,39 +299,72 @@ func _draw() -> void:
 		Color(0.88,0.91,0.94),Color(0.55,0.87,0.56),Color(0.95,0.66,0.28),Color(0.55,0.83,0.65),
 		Color(0.72,0.91,1.0),Color(0.40,0.88,0.96),Color(0.84,0.34,0.62),Color(0.78,0.55,1.0)
 	]
-	var blade_color: Color = blade_colors[clampi(weapon_tier,0,blade_colors.size()-1)]
+	var blade_color: Color = _item_color(weapon_item_id,blade_colors[clampi(weapon_tier,0,blade_colors.size()-1)])
+	if BOSS_ITEM_COLORS.has(weapon_item_id):
+		blade_length += 3.0
+		blade_b = sword_hand + dir*blade_length
 	var edge: Vector2 = dir.orthogonal()*2.5
 	var outline: PackedVector2Array = PackedVector2Array([blade_a-edge,blade_b-dir*5-edge*0.65,blade_b+dir*3,blade_b-dir*5+edge*0.65,blade_a+edge,blade_a-edge])
 	draw_colored_polygon(outline,blade_color)
 	draw_polyline(outline,DrawUtil.OUTLINE,1.2,true)
 	draw_line(blade_a,blade_b,Color("f2fbff"),0.9,true)
-	if weapon_tier >= 4:
-		draw_line(blade_a,blade_b,Color(blade_color.r,blade_color.g,blade_color.b,0.32),7.0)
+	if weapon_tier >= 4 or BOSS_ITEM_COLORS.has(weapon_item_id):
+		draw_line(blade_a,blade_b,Color(blade_color.r,blade_color.g,blade_color.b,0.32),7.0 if not BOSS_ITEM_COLORS.has(weapon_item_id) else 10.0)
+	if BOSS_ITEM_COLORS.has(weapon_item_id):
+		draw_circle(sword_hand-dir*3,3.2,blade_color.lightened(0.28))
+		draw_arc(sword_hand-dir*3,5.2,0,TAU,18,Color(blade_color,0.7),1.2,true)
 	draw_line(sword_hand-dir.orthogonal()*7,sword_hand+dir.orthogonal()*7,Color("f5cc69"),3.5,true)
 	draw_line(sword_hand,sword_hand-dir*6,Color("987044"),4,true)
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 
+func _item_color(item_id: String,fallback: Color) -> Color:
+	return BOSS_ITEM_COLORS.get(item_id,fallback)
+
+func _piece_color(slot: String,fallback: Color) -> Color:
+	var item: Dictionary = visible_pieces.get(slot,{})
+	return _item_color(String(item.get("id","")),fallback)
+
+func _draw_boss_emblem(slot: String,position: Vector2,color: Color) -> void:
+	var item: Dictionary = visible_pieces.get(slot,{})
+	var id: String = String(item.get("id",""))
+	if not BOSS_ITEM_COLORS.has(id):
+		return
+	draw_colored_polygon(PackedVector2Array([
+		position+Vector2(0,-4),position+Vector2(4,0),
+		position+Vector2(0,4),position+Vector2(-4,0)
+	]),color.lightened(0.28))
+	draw_arc(position,6,0,TAU,18,Color(color,0.55),1.0,true)
+
 func _draw_equipment(direction: String, tint: Color) -> void:
-	# Distinct silhouettes for every forged slot; back view retains the cape emblem.
+	# Each boss-forged piece keeps the slot silhouette but gains its own palette/emblem.
 	if visible_pieces.has("cape"):
-		draw_line(Vector2(-16,-39),Vector2(-20+sin(anim_t*5)*2,-12),tint,3,true)
-		draw_line(Vector2(16,-39),Vector2(20+sin(anim_t*5)*2,-12),tint,3,true)
+		var cape_color: Color = _piece_color("cape",tint)
+		draw_line(Vector2(-16,-39),Vector2(-20+sin(anim_t*5)*2,-12),cape_color,3,true)
+		draw_line(Vector2(16,-39),Vector2(20+sin(anim_t*5)*2,-12),cape_color,3,true)
+		_draw_boss_emblem("cape",Vector2(0,-28),cape_color)
 	if visible_pieces.has("legs"):
-		for x in [-8,9]: draw_line(Vector2(x,-28),Vector2(x,-17),tint,4,true)
+		var leg_color: Color = _piece_color("legs",tint)
+		for x in [-8,9]: draw_line(Vector2(x,-28),Vector2(x,-17),leg_color,4,true)
 	if visible_pieces.has("boots"):
+		var boot_color: Color = _piece_color("boots",tint)
 		for x in [-8,9]:
-			draw_line(Vector2(x,-16),Vector2(x,-9),tint.lightened(0.3),4,true)
+			draw_line(Vector2(x,-16),Vector2(x,-9),boot_color.lightened(0.3),4,true)
 			draw_line(Vector2(x-2,-8),Vector2(x+4,-8),Color("f4d38c"),2,true)
+		_draw_boss_emblem("boots",Vector2(0,-10),boot_color)
 	if visible_pieces.has("gloves"):
-		for x in [-17,19]: draw_circle(Vector2(x,-33),3.2,tint)
+		var glove_color: Color = _piece_color("gloves",tint)
+		for x in [-17,19]: draw_circle(Vector2(x,-33),3.2,glove_color)
+		_draw_boss_emblem("gloves",Vector2(0,-34),glove_color)
 	if direction!="back":
 		draw_line(Vector2(-8,-49),Vector2(-3,-45),tint,2,true)
 		draw_line(Vector2(8,-49),Vector2(3,-45),tint,2,true)
 	if visible_pieces.has("helmet"):
-		draw_arc(Vector2(0,-70),13,PI,TAU,24,tint.lightened(0.3),5,true)
-		draw_line(Vector2(-13,-68),Vector2(-12,-61),tint,3,true)
-		draw_line(Vector2(13,-68),Vector2(12,-61),tint,3,true)
+		var helmet_color: Color = _piece_color("helmet",tint)
+		draw_arc(Vector2(0,-70),13,PI,TAU,24,helmet_color.lightened(0.3),5,true)
+		draw_line(Vector2(-13,-68),Vector2(-12,-61),helmet_color,3,true)
+		draw_line(Vector2(13,-68),Vector2(12,-61),helmet_color,3,true)
 		draw_colored_polygon(PackedVector2Array([Vector2(-4,-81),Vector2(0,-89),Vector2(4,-81)]),Color("f9d482"))
+		_draw_boss_emblem("helmet",Vector2(0,-70),helmet_color)
 
 func _draw_bow(direction: String) -> void:
 	var angle: float = {"right":0.0,"left":PI,"front":PI/2,"back":-PI/2}[direction]
