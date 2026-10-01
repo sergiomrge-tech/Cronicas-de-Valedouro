@@ -13,7 +13,7 @@ func set_tracked_mission(id: String) -> bool:
 	return true
 
 const SAVE_PATH: String = "user://valedouro_cartoon_profile_v1.json"
-const SAVE_VERSION: int = 7
+const SAVE_VERSION: int = 8
 const Classes = preload("res://scripts/cartoon/cartoon_class_catalog.gd")
 const Loot = preload("res://scripts/cartoon/cartoon_loot_catalog.gd")
 const SPELL_UNLOCK_LEVELS: Array[int] = [1,10,25]
@@ -133,6 +133,7 @@ const STORY_STATE_KEYS: Array[String] = [
 
 var guild_contracts: Dictionary = {}
 var wildlife_cooldowns: Dictionary = {}
+var gathering_cooldowns: Dictionary = {}
 var materials: Dictionary = {}
 var consumables: Dictionary = {}
 var loot_pity: int = 0
@@ -807,6 +808,7 @@ func save_profile() -> void:
 		"loot_pity":loot_pity,
 		"guild_contracts":guild_contracts,
 		"wildlife_cooldowns":wildlife_cooldowns,
+		"gathering_cooldowns":gathering_cooldowns,
 		"crafted":crafted,
 		"equipped_weapon":equipped_weapon,
 		"equipped_armor":equipped_armor,
@@ -843,6 +845,8 @@ func load_profile() -> void:
 	normalize_tracked_mission()
 	var wildlife_value: Variant = data.get("wildlife_cooldowns",{})
 	wildlife_cooldowns = wildlife_value.duplicate(true) if wildlife_value is Dictionary else {}
+	var gathering_value: Variant = data.get("gathering_cooldowns",{})
+	gathering_cooldowns = gathering_value.duplicate(true) if gathering_value is Dictionary else {}
 	materials = data.get("materials",{}) as Dictionary
 	var consumables_value: Variant = data.get("consumables",{})
 	consumables = consumables_value.duplicate(true) if consumables_value is Dictionary else {}
@@ -887,6 +891,7 @@ func reset_progress(delete_save: bool = true) -> void:
 	guild_contracts.clear()
 	tracked_mission = "main"
 	wildlife_cooldowns.clear()
+	gathering_cooldowns.clear()
 	materials.clear()
 	consumables.clear()
 	loot_pity = 0
