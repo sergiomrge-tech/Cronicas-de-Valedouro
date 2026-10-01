@@ -264,6 +264,7 @@ func _damage_monster(target: Node2D, amount: int) -> bool:
 			if state != null: GuildContracts.register_hunt(state,"wolf")
 		player_gold += 6
 		_grant_combat_xp(10,boss_id,target.level)
+		var loot_text: String = _award_combat_loot(kind,boss_id,int(target.level))
 		var story_advanced: bool = false
 		if story_runtime:
 			story_advanced = story_runtime.register_kill(story_tag,boss_id)
@@ -276,9 +277,9 @@ func _damage_monster(target: Node2D, amount: int) -> bool:
 			else:
 				_show_toast("Lobo derrotado — contrato dos Campos %d/3." % field_kills)
 		elif story_advanced:
-			_show_toast("Objetivo principal concluído. Próxima etapa atualizada.")
+			_show_toast("Objetivo principal concluído. Próxima etapa atualizada."+("\n"+loot_text if loot_text!="" else ""))
 		else:
-			_show_toast("Inimigo derrotado. +6 ouro")
+			_show_toast("Inimigo derrotado. +6 ouro"+("\n"+loot_text if loot_text!="" else ""))
 		_refresh_stats()
 	return true
 
@@ -390,6 +391,13 @@ func _nearest_monster(radius: float) -> Node2D:
 			best_d = d
 			best = monster
 	return best
+
+func _award_combat_loot(kind: String,boss_id: String,enemy_level: int) -> String:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state == null:
+		return ""
+	var result: Dictionary = state.award_enemy_loot("REG_001_BERCO_VALEDOURO",kind,enemy_level,boss_id!="",false)
+	return String(result.get("summary",""))
 
 func _grant_combat_xp(base_amount: int,boss_id: String = "",enemy_level: int = 1) -> void:
 	var state = get_node_or_null("/root/CartoonPlayerState")
