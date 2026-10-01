@@ -27,8 +27,8 @@ A versão oficial e única base ativa de desenvolvimento é a **2D Cartoon**. A 
 - Entrada do projeto: `CartoonMainMenu.tscn`.
 - Estado persistente: `CartoonPlayerState`.
 - Sistemas Cartoon já presentes incluem regiões, exploração, crafting, inventário, menu, mapa/story runtime e controles de zoom.
-- Base oficial: **v0.19 — polimento estrutural dos painéis mobile**.
-- Prioridade atual do Diretor: melhorar assets, sprites, mapa e level design.
+- Base oficial validada: **v0.32 — progressão de magias, loot/consumíveis, paper-doll, ouro na Bolsa, HUD compacto e Diário rolável**.
+- Prioridade atual: continuar exclusivamente sobre a v0.32 Cartoon validada; preservar as decisões de progressão e ergonomia mobile.
 - Candidata visual **v0.20**: ler `docs/CARTOON_VISUAL_V0_20.md`; arte permanece
   MODELED_PENDING_GATE e os gates 4.7.2/Android estão pendentes.
 
@@ -166,3 +166,18 @@ Corrigida a sobreposição de avisos com magias em 800×450 e com interação
 em textos de loot longos. 34 testes Cartoon locais passaram; CI verifica
 51 testes e QA oficial. Ler `docs/CARTOON_UI_PROGRESSION_V0_32.md` e
 `docs/visual_qa/cartoon_v032/review.html`. Não gerar APK nesta retomada.
+
+
+## Estado validado — v0.32
+
+Commit validado: `26108ab8bfc4d6376044852001aca0c6f11554bb`.
+Godot Gate oficial 4.7.2: run `36868571315`, conclusão success.
+Inclui parser/import, 51 testes nativos e QA visual completo.
+
+Regras que não devem regredir:
+- Brasa no nível 1, Cristal no 10 e Arcana no 25;
+- loot e consumíveis persistentes no save v7;
+- ouro explícito e paper-doll na Bolsa;
+- slots de arma, elmo, peitoral, luvas, capa, calças e botas;
+- Diário de Missões com rolagem vertical touch;
+- textos/HUD compactos e avisos sem cobrir controles mobile.
