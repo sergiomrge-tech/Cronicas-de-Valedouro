@@ -47,7 +47,7 @@ func run() -> void:
 		recipe_ids[recipe_id] = true
 
 	for script_path in REGION_SCRIPTS:
-		var file := FileAccess.open(script_path,FileAccess.READ)
+		var file: FileAccess = FileAccess.open(script_path,FileAccess.READ)
 		assert(file != null,"Missing region source "+script_path)
 		assert(file.get_as_text().contains("award_boss_trophy(boss_id)"),"Boss trophy hook missing in "+script_path)
 
