@@ -154,3 +154,20 @@ exigentes; viagens não concedem níveis/cura. Save v6 preserva a campanha.
 no Godot oficial 4.7.2. Leia `docs/CARTOON_MISSIONS_CHALLENGE_V0_29.md` e
 `docs/visual_qa/cartoon_v029/review.html`. Arte MODELED_PENDING_GATE;
 balanceamento PROPOSED. Não gerar APK sem pedido explícito.
+
+
+## Preferência de entrega de APK — 01/10/2026
+
+Gerar APK somente mediante pedido explícito. Quando solicitado, entregar um
+ZIP com APK atualizado e SHA256 como anexo nativo na conversa, para baixar
+neste ambiente. O link externo do GitHub não é a entrega principal: o download
+do APK ficou travado em 100% no navegador do celular. Salvar apenas em
+`/workspace` não envia o arquivo ao usuário. Só afirmar entrega depois de
+disponibilizar o anexo real; se a ferramenta de anexo estiver indisponível,
+informar a limitação. Instrução breve ao usuário: Meus Arquivos → Downloads →
+extrair ZIP → abrir APK.
+
+Neste ambiente, a ferramenta GitHub `download_workflow_artifact` baixa o
+artefato ZIP da build e retorna uma referência de arquivo nativa (`file_id`).
+Usar a referência retornada para o anexo; nunca inventar IDs nem reutilizar
+URLs temporárias expiradas. O artefato Android já inclui APK e SHA256.
