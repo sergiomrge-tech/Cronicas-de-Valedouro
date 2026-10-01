@@ -479,7 +479,14 @@ func _process(_delta: float) -> void:
 	if desktop_mode:
 		attack_button.visible = false
 		interact_button.visible = not blocked
-		interact_button.text = "E  USAR"
+		var context_action: String = "USAR"
+		if inside_building and host.interiors.has_method("action_text"):
+			var interior_action: String = String(host.interiors.action_text())
+			if interior_action != "": context_action = interior_action
+		elif not inside_building and host.has_method("_nearest_building_poi"):
+			var nearby_building: Dictionary = host._nearest_building_poi(280.0)
+			if not nearby_building.is_empty(): context_action = "ENTRAR"
+		interact_button.text = "E  "+context_action
 		dodge_button.visible = false
 		heal_button.visible = false
 		spell_bar.visible = not blocked and not inside_building
