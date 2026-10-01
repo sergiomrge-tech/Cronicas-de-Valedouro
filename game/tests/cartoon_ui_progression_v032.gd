@@ -1,0 +1,100 @@
+extends SceneTree
+
+const Hub = preload("res://scenes/cartoon/ValedouroCartoonHub.tscn")
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func settle() -> void:
+	for i in range(8):
+		await process_frame
+
+func run() -> void:
+	var state = root.get_node("CartoonPlayerState")
+	state.reset_progress(true)
+	state.start_new_game()
+
+	assert(state.player_level == 1)
+	assert(state.spell_unlocked(0))
+	assert(not state.spell_unlocked(1))
+	assert(not state.spell_unlocked(2))
+	assert(state.unlocked_spell_count() == 1)
+
+	root.size = Vector2i(640,360)
+	root.content_scale_size = root.size
+	var hub = Hub.instantiate()
+	root.add_child(hub)
+	current_scene = hub
+	await settle()
+
+	hub.set_process(false)
+	hub.hero.set_process(false)
+	var layout = hub.get_node("HUD/GameLayout")
+	if layout.demon_director != null:
+		layout.demon_director.set_process(false)
+	for mob in hub.monsters:
+		if is_instance_valid(mob):
+			mob.set_process(false)
+
+	layout._process(0.0)
+	assert(layout.spell_buttons[0].visible)
+	assert(not layout.spell_buttons[1].visible)
+	assert(not layout.spell_buttons[2].visible)
+	assert(hub.hero.cast_spell(hub,1) == false)
+
+	state.player_level = 10
+	layout._process(0.0)
+	await settle()
+	assert(layout.spell_buttons[0].visible)
+	assert(layout.spell_buttons[1].visible)
+	assert(not layout.spell_buttons[2].visible)
+	assert(state.unlocked_spell_count() == 2)
+
+	state.player_level = 25
+	layout._process(0.0)
+	await settle()
+	assert(layout.spell_buttons[2].visible)
+	assert(state.unlocked_spell_count() == 3)
+
+	state.player_gold = 432
+	hub.player_gold = 432
+	hub.inventory_ui.open_panel("equipment")
+	await settle()
+	assert(hub.inventory_ui.gold_label != null)
+	assert(hub.inventory_ui.gold_label.text.contains("432"))
+	assert(hub.inventory_ui.preview_container != null)
+	assert(hub.inventory_ui.preview_viewport != null)
+	assert(hub.inventory_ui.preview_hero != null)
+	assert(hub.inventory_ui.content.get_node_or_null("CharacterPreviewFrame") != null)
+	for slot in ["helmet","gloves","cape","legs","boots"]:
+		assert(hub.inventory_ui.piece_buttons.has(slot),"Missing paper-doll slot "+slot)
+		var button: Button = hub.inventory_ui.piece_buttons[slot]
+		assert(button.visible and button.size.x >= 44 and button.size.y >= 38)
+	hub.inventory_ui.close_panel()
+
+	layout.mission_ui.open_panel()
+	await settle()
+	layout.mission_ui.show_tab("available")
+	await settle()
+	var vbar: VScrollBar = layout.mission_ui.scroll.get_v_scroll_bar()
+	assert(vbar.visible)
+	assert(vbar.max_value > vbar.page)
+	var before: int = layout.mission_ui.scroll.scroll_vertical
+	var drag: InputEventScreenDrag = InputEventScreenDrag.new()
+	drag.index = 7
+	drag.relative = Vector2(0,-130)
+	layout.mission_ui._scroll_input(drag)
+	await settle()
+	assert(layout.mission_ui.scroll.scroll_vertical > before)
+	layout.mission_ui.close_panel()
+
+	assert(hub.objective_label.max_lines_visible == 1)
+	layout._toggle_quest()
+	assert(hub.objective_label.max_lines_visible == 6)
+	layout._toggle_quest()
+
+	hub.queue_free()
+	await settle()
+	state.reset_progress(true)
+	print("cartoon_ui_progression_v032: PASS — 1/2/3 spells by level, gold + paper-doll inventory, compact HUD and mission touch scroll")
+	quit(0)
