@@ -94,14 +94,14 @@ jobs:
           sha256sum game/build/windows/Cronicas_de_Valedouro_PC_v0.40.exe | tee game/build/windows/SHA256.txt
           file game/build/windows/Cronicas_de_Valedouro_PC_v0.40.exe
           cd game/build/windows
-          zip -9 Cronicas_de_Valedouro_PC_v0.40_FullHD.zip Cronicas_de_Valedouro_PC_v0.40.exe SHA256.txt
-          test -s Cronicas_de_Valedouro_PC_v0.40_FullHD.zip
+          zip -9 Cronicas_de_Valedouro_PC_v0.40_FullHD_DX12.zip Cronicas_de_Valedouro_PC_v0.40.exe SHA256.txt
+          test -s Cronicas_de_Valedouro_PC_v0.40_FullHD_DX12.zip
 
       - name: Upload Windows build
         uses: actions/upload-artifact@v4
         with:
-          name: Cronicas-de-Valedouro-PC-v0.40-FullHD
-          path: game/build/windows/Cronicas_de_Valedouro_PC_v0.40_FullHD.zip
+          name: Cronicas-de-Valedouro-PC-v0.40-FullHD-DX12
+          path: game/build/windows/Cronicas_de_Valedouro_PC_v0.40_FullHD_DX12.zip
           if-no-files-found: error
           retention-days: 30
 
