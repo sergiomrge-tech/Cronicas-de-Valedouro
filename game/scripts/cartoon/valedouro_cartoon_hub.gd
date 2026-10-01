@@ -295,6 +295,12 @@ func _interact() -> void:
 		interiors.interact()
 		return
 	if not hero or not environment: return
+	# The castle door must win interaction priority over nearby gatherables/POIs.
+	# A slightly wider radius also matches the large PC-scale royal entrance.
+	var priority_poi: Dictionary = environment.nearest_poi(hero.position,260.0)
+	if String(priority_poi.get("id","")) == "POI_REG001_CASTLE":
+		interiors.enter("castle")
+		return
 	if exploration_director != null and exploration_director.try_interact():
 		return
 	var poi = environment.nearest_poi(hero.position,170.0)
@@ -345,8 +351,11 @@ func _update_poi_hint() -> void:
 		if gather_hint != "":
 			poi_label.text = gather_hint
 			return
-	var poi = environment.nearest_poi(hero.position,190.0)
-	poi_label.text=("◆ " + String(poi.get("label","")) + "  •  USAR") if not poi.is_empty() else ""
+	var poi = environment.nearest_poi(hero.position,260.0)
+	if not poi.is_empty() and String(poi.get("id","")) == "POI_REG001_CASTLE":
+		poi_label.text = "◆ Castelo Real de Valedouro  •  E — ENTRAR" if OS.get_name() == "Windows" else "◆ Castelo Real de Valedouro  •  USAR"
+	else:
+		poi_label.text=("◆ " + String(poi.get("label","")) + "  •  USAR") if not poi.is_empty() and hero.position.distance_to(poi.get("pos",hero.position)) <= 190.0 else ""
 
 
 func _spawn_monsters() -> void:
