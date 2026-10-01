@@ -155,3 +155,14 @@ elementais preservados. 32 testes Cartoon locais passaram; CI inclui
 `docs/CARTOON_SPELL_SLOTS_V0_30.md` e
 `docs/visual_qa/cartoon_v030/review.html`. Mecânica PROPOSED. Sem novo APK;
 exportação somente mediante pedido, entrega em ZIP anexado à conversa.
+
+
+## Retomada — candidata v0.32, sem APK
+
+Retomada solicitada pelo Diretor a partir do GitHub, commit `f69405c`.
+Sincronizadas as v0.31/v0.32 já implementadas: loot e poções, save v7,
+magias em níveis 1/10/25, ouro e personagem na bolsa, missões roláveis.
+Corrigida a sobreposição de avisos com magias em 800×450 e com interação
+em textos de loot longos. 34 testes Cartoon locais passaram; CI verifica
+51 testes e QA oficial. Ler `docs/CARTOON_UI_PROGRESSION_V0_32.md` e
+`docs/visual_qa/cartoon_v032/review.html`. Não gerar APK nesta retomada.

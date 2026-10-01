@@ -37,6 +37,7 @@ var expanded: bool = false
 var gameplay_nodes: Array[Control] = []
 var joystick_center: Vector2
 var last_joystick: Vector2 = Vector2.INF
+var last_toast_text: String = ""
 var last_unlocked_spells: int = -1
 
 static func build(host_node, map_script, navigation_property: String) -> void:
@@ -82,12 +83,13 @@ func _build(map_script, navigation_property: String) -> void:
 	contract_panel.add_theme_stylebox_override("panel",UISkin.box(Color(0.07,0.13,0.10,0.88),UISkin.GOLD.darkened(0.4),8))
 	add_child(contract_panel)
 	var contract_body: Control = Control.new()
-	contract_body.custom_minimum_size = Vector2(224,42)
+	contract_body.custom_minimum_size = Vector2(224,24)
 	contract_body.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	contract_panel.add_child(contract_body)
 	contract_copy = UISkin.label("",12,UISkin.GOLD.lightened(0.25))
 	contract_copy.position = Vector2(10,5)
-	contract_copy.size = Vector2(204,30)
+	contract_copy.size = Vector2(204,18)
+	contract_copy.max_lines_visible = 1
 	contract_copy.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	contract_body.add_child(contract_copy)
 	# Existing scene methods can keep refreshing their public label references.
@@ -126,6 +128,8 @@ func _build(map_script, navigation_property: String) -> void:
 	quest_body.add_child(navigation)
 	host.set(navigation_property,navigation)
 	host.poi_label = UISkin.label("",14)
+	host.poi_label.name = "NearbyInteractionHint"
+	host.poi_label.max_lines_visible = 1
 	host.poi_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	host.poi_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	host.poi_label.add_theme_color_override("font_shadow_color",UISkin.INK)
@@ -133,6 +137,9 @@ func _build(map_script, navigation_property: String) -> void:
 	add_child(host.poi_label)
 	gameplay_nodes.append(host.poi_label)
 	host.toast_label = UISkin.label("",13,UISkin.TEXT)
+	host.toast_label.name = "CombatToast"
+	host.toast_label.max_lines_visible = 2
+	host.toast_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	host.toast_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	host.toast_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	host.toast_label.add_theme_color_override("font_shadow_color",UISkin.INK)
@@ -232,17 +239,22 @@ func _layout() -> void:
 	host.toast_label.size = Vector2(340,30)
 	host.poi_label.position.y = maxf(host.poi_label.position.y,host.toast_label.position.y+32)
 	if compact:
+		host.toast_label.position.x = area.position.x
+		host.toast_label.size.x = area.size.x-260
 		host.poi_label.position.x = area.position.x
 		host.poi_label.size.x = area.size.x-260
 	if area.size.y<380:
 		# Keep transient messages below the objective card and above the toolbar.
-		host.toast_label.position = area.position+Vector2(0,96)
-		host.toast_label.size = Vector2(area.size.x-230,28)
+		host.toast_label.position = area.position+Vector2(0,120)
+		host.toast_label.size = Vector2(area.size.x-260,28)
 		host.toast_label.add_theme_font_size_override("font_size",12)
-		host.poi_label.position = area.position+Vector2(0,128)
+		host.poi_label.position = area.position+Vector2(0,152)
 		host.poi_label.size = Vector2(area.size.x-260,20)
 	else:
 		host.toast_label.add_theme_font_size_override("font_size",13)
+	# Wrapped text can exceed the requested height; use the actual font minimum.
+	host.toast_label.size.y = maxf(28 if area.size.y<380 else 30,host.toast_label.get_combined_minimum_size().y)
+	host.poi_label.position.y = maxf(host.poi_label.position.y,host.toast_label.position.y+host.toast_label.size.y+3)
 	queue_redraw()
 
 func _toggle_quest() -> void:
@@ -269,6 +281,10 @@ func is_blocked() -> bool:
 
 func _process(_delta: float) -> void:
 	var blocked: bool = is_blocked()
+	host.toast_label.tooltip_text = host.toast_label.text
+	if last_toast_text!=host.toast_label.text:
+		last_toast_text = host.toast_label.text
+		_layout()
 	var state = get_node_or_null("/root/CartoonPlayerState")
 	var count: int = 0
 	var ready_count: int = 0

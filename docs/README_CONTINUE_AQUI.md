@@ -220,3 +220,14 @@ mostrar barra de scroll quando houver conteúdo abaixo.
 A v0.32 inclui a v0.31 de loot/consumíveis. Ler
 `CARTOON_UI_PROGRESSION_V0_32.md` e `CARTOON_LOOT_V0_31.md`.
 Somente considerar validada após Godot Gate 4.7.2. APK continua sob demanda.
+
+
+## Retomada — candidata v0.32, sem APK
+
+Retomada solicitada pelo Diretor a partir do GitHub, commit `f69405c`.
+Sincronizadas as v0.31/v0.32 já implementadas: loot e poções, save v7,
+magias em níveis 1/10/25, ouro e personagem na bolsa, missões roláveis.
+Corrigida a sobreposição de avisos com magias em 800×450 e com interação
+em textos de loot longos. 34 testes Cartoon locais passaram; CI verifica
+51 testes e QA oficial. Ler `docs/CARTOON_UI_PROGRESSION_V0_32.md` e
+`docs/visual_qa/cartoon_v032/review.html`. Não gerar APK nesta retomada.

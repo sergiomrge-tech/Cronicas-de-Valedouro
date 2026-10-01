@@ -68,6 +68,15 @@ func run() -> void:
 	layout._process(0.0)
 	await shot("single_spell_level_1_mobile")
 
+	state.player_level = 25
+	host._refresh_stats()
+	preload("res://scripts/cartoon/cartoon_guild_contracts.gd").accept(state,"GUILD_RABBITS")
+	host._show_toast("DROP RARO: Espada dos Ecos\n+1 Frasco de Cura e materiais\nTexto adicional para testar o limite visual")
+	layout._process(0.0)
+	await shot("three_spells_loot_guild_mobile")
+	root.size = Vector2i(800,450)
+	root.content_scale_size = root.size
+	await shot("three_spells_loot_800x450")
 	state.reset_progress(true)
 	print("ui_progression_v032 QA: paper-doll inventory, gold, mission scroll and one-spell start")
 	quit()

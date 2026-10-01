@@ -93,6 +93,26 @@ func run() -> void:
 	assert(hub.objective_label.max_lines_visible == 6)
 	layout._toggle_quest()
 
+	# Reproduce the interrupted gate: long loot feedback plus all three spells.
+	var contracts = preload("res://scripts/cartoon/cartoon_guild_contracts.gd")
+	assert(contracts.accept(state,"GUILD_RABBITS"))
+	state.player_level = 25
+	hub._show_toast("DROP RARO: Espada dos Ecos\n+1 Frasco de Cura e materiais\nDetalhe adicional para testar truncamento")
+	for dimensions: Vector2i in [Vector2i(640,360),Vector2i(800,450),Vector2i(960,540),Vector2i(1280,720)]:
+		root.size = dimensions
+		root.content_scale_size = dimensions
+		await settle()
+		layout._layout()
+		layout._process(0.0)
+		await settle()
+		assert(layout.contract_panel.visible)
+		assert(hub.toast_label.max_lines_visible==2 and hub.toast_label.tooltip_text==hub.toast_label.text)
+		for message in [hub.toast_label,hub.poi_label]:
+			var rect: Rect2 = message.get_global_rect()
+			assert(root.get_visible_rect().encloses(rect))
+			for control in layout.spell_buttons+[layout.quest_panel,layout.contract_panel,layout.dodge_button,layout.map_button,layout.pause_button,hub.zoom_controls.panel,hub.inventory_ui.toggle_button,hub.crafting_ui.toggle_button]:
+				assert(not rect.intersects(control.get_global_rect()),"Combat feedback overlaps %s at %s" % [control.name,dimensions])
+		assert(not hub.toast_label.get_global_rect().intersects(hub.poi_label.get_global_rect()),"Messages overlap at %s: %s / %s" % [dimensions,hub.toast_label.get_global_rect(),hub.poi_label.get_global_rect()])
 	hub.queue_free()
 	await settle()
 	state.reset_progress(true)

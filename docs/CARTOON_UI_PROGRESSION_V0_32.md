@@ -75,3 +75,27 @@ o jogador pode arrastar a lista e acessar todas as missões abaixo.
 
 A v0.32 só deve ser tratada como validada após o Godot Gate 4.7.2 concluir
 com sucesso. APK continua sob demanda.
+
+
+## Retomada a partir do GitHub — 01/10/2026
+
+O trabalho interrompido estava no commit `f69405c`. O gate falhava no teste
+`cartoon_spell_slots_v030`: em 800×450, o aviso de combate cobria um botão
+de magia. A retomada preserva loot/consumíveis v0.31, save v7, paper-doll,
+rolagem touch e a progressão de magias 1/10/25 da v0.32.
+
+Avisos agora ficam na área livre à esquerda em telas compactas, usam até
+duas linhas e preservam o texto completo no tooltip. O layout calcula a
+altura real da fonte para separar loot e indicação de interação. O resumo
+da guilda ocupa uma linha, sem sobrepor os avisos. Mudanças no texto
+reorganizam o espaço automaticamente.
+
+34 testes Cartoon locais passaram no Godot 4.6.3. A regressão v0.32 também
+verifica avisos longos, contrato ativo e três magias nos tamanhos 640×360,
+800×450, 960×540 e 1280×720. A CI executa 51 testes nativos em Godot 4.7.2;
+a captura v0.32 acrescenta as duas cenas que reproduzem a sobreposição,
+sete imagens ao todo, além das cinco capturas de loot v0.31.
+
+[Revisão visual real](visual_qa/cartoon_v032/review.html).
+Nenhum APK gerado. Balanceamento continua PROPOSED; avaliação visual do
+Diretor e medição em aparelho físico continuam pendentes.
