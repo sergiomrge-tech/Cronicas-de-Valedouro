@@ -28,6 +28,7 @@ var attack_button: Button
 var spell_buttons: Array[Button] = []
 var interact_button: Button
 var dodge_button: Button
+var heal_button: Button
 var map_button: Button
 var pause_button: Button
 var pause_panel: PanelContainer
@@ -66,7 +67,7 @@ static func can_start_movement(node: Node, p: Vector2) -> bool:
 	if layout == null or layout.is_blocked(): return false
 	# Native touch-to-mouse emulation may deliver the touch before the GUI mouse
 	# event. Never claim a finger over a toolbar/zoom hitbox in that interval.
-	var controls: Array[Control] = [layout.map_button,layout.pause_button,layout.attack_button,layout.interact_button,layout.dodge_button,layout.quest_panel]
+	var controls: Array[Control] = [layout.map_button,layout.pause_button,layout.attack_button,layout.interact_button,layout.dodge_button,layout.heal_button,layout.quest_panel]
 	controls.append_array(layout.spell_buttons)
 	for key: String in ["inventory_ui","crafting_ui"]:
 		var ui = node.get(key)
@@ -194,6 +195,13 @@ func _build(map_script, navigation_property: String) -> void:
 	dodge_button.tooltip_text = "Shift: esquiva na direção do movimento • recarga 2,2 s"
 	add_child(dodge_button)
 	gameplay_nodes.append(dodge_button)
+	heal_button = _button("CURA",Vector2(62,50),_quick_heal,10)
+	heal_button.name = "QuickHealButton"
+	heal_button.add_theme_font_size_override("font_size",11)
+	heal_button.tooltip_text = "Usa rapidamente um item de cura da Bolsa."
+	UISkin.button(heal_button,UISkin.SURFACE,Color("d86f87"),10)
+	add_child(heal_button)
+	gameplay_nodes.append(heal_button)
 	_build_pause()
 	class_ui = ClassUI.new()
 	class_ui.name = "HeroClasses"
@@ -230,6 +238,8 @@ func _layout() -> void:
 		spell_buttons[i].position = Vector2(spell_start_x+i*82,area.end.y-(204 if compact else 154))
 	dodge_button.size = Vector2(62,50)
 	dodge_button.position = Vector2(area.end.x-152,area.end.y-142) if compact else Vector2(area.end.x-70,area.end.y-208)
+	heal_button.size = Vector2(62,50)
+	heal_button.position = Vector2(area.end.x-222,area.end.y-142) if compact else Vector2(area.end.x-140,area.end.y-208)
 	contract_panel.position = area.position+Vector2(0,92)
 	joystick_center = Vector2(area.position.x+86,area.end.y-80)
 	var hint_width: float = minf(480,area.size.x-220)
@@ -322,12 +332,17 @@ func _process(_delta: float) -> void:
 			spell_buttons[i].disabled = not unlocked or remaining>0 or host.hero.death_t>0 or host.hero.dodge_t>0
 		dodge_button.text = "ESQUIVA\n%.1f s" % host.hero.dodge_cooldown if host.hero.dodge_cooldown>0 else "ESQUIVA"
 		dodge_button.disabled = host.hero.dodge_cooldown>0 or host.hero.death_t>0
+		var heal_count: int = state.healing_consumables_total() if state != null else 0
+		var current_hp: int = int(host.get("player_hp")) if host.get("player_hp") != null else (state.player_hp if state != null else 0)
+		var max_hp: int = int(host.get("player_max_hp")) if host.get("player_max_hp") != null else (state.player_max_hp if state != null else 0)
+		heal_button.text = "CURA\nx%d" % heal_count
+		heal_button.disabled = heal_count <= 0 or current_hp >= max_hp or host.hero.death_t>0
 	if inside_building:
 		attack_button.visible = false
 		for button in spell_buttons: button.visible = false
 		dodge_button.visible = false
 	if expanded:
-		for button: Button in spell_buttons+[dodge_button,attack_button,interact_button]:
+		for button: Button in spell_buttons+[dodge_button,heal_button,attack_button,interact_button]:
 			if quest_panel.get_global_rect().intersects(button.get_global_rect()): button.visible = false
 		for label: Label in [host.toast_label,host.poi_label]:
 			if quest_panel.get_global_rect().intersects(label.get_global_rect()): label.visible = false
@@ -376,6 +391,18 @@ func _input(event: InputEvent) -> void:
 
 func _cast_spell(index: int = -1) -> void:
 	if not is_blocked() and host.hero != null: host.hero.cast_spell(host,index)
+
+func _quick_heal() -> void:
+	if is_blocked():
+		return
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state == null:
+		return
+	var result: Dictionary = state.quick_heal()
+	if host != null and host.has_method("_refresh_stats"):
+		host.call("_refresh_stats")
+	if host != null and host.has_method("_show_toast"):
+		host.call("_show_toast",String(result.get("message","Cura atualizada.")))
 
 func _dodge() -> void:
 	if not is_blocked() and host.hero != null: host.hero.try_dodge(host)
