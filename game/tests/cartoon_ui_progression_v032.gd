@@ -94,6 +94,10 @@ func run() -> void:
 	layout._toggle_quest()
 
 	# Reproduce the interrupted gate: long loot feedback plus all three spells.
+	# v0.35 adds a temporary level-up banner that intentionally hides the guild
+	# summary in the same band; clear it so this legacy test isolates overlap.
+	layout.level_banner_timer = 0.0
+	layout.level_banner.visible = false
 	var contracts = preload("res://scripts/cartoon/cartoon_guild_contracts.gd")
 	assert(contracts.accept(state,"GUILD_RABBITS"))
 	state.player_level = 25
