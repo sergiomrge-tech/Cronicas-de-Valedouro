@@ -283,3 +283,12 @@ Regras adicionais que não devem regredir:
 - itens de chefe respeitam os níveis regionais existentes;
 - armas e peças de boss possuem paleta/acento/emblema próprios no herói;
 - save permanece v8.
+
+
+## Continuidade — candidata v0.37: combate de chefes em fases
+
+A v0.37 adiciona barra dedicada de boss no HUD, três fases automáticas por HP e
+golpes especiais periódicos com telegráfico ampliado e dano escalonado nas
+Fases II/III. Monstros comuns preservam o comportamento anterior. Save
+permanece v8. Ler `docs/CARTOON_BOSS_COMBAT_V0_37.md`. Só promover após o
+Godot Gate 4.7.2. APK continua sob demanda.
