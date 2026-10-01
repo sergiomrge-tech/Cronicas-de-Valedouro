@@ -291,7 +291,7 @@ func _build_options() -> void:
 	style.corner_radius_bottom_right = 18
 	options_panel.add_theme_stylebox_override("panel",UISkin.box(UISkin.INK,UISkin.GOLD))
 	ui.add_child(options_panel)
-	UISkin.bind(options_panel,Vector2(360,340),"center",true)
+	UISkin.bind(options_panel,Vector2(360,390),"center",true)
 
 	var options_body: Control = Control.new()
 	options_body.name = "OptionsContent"
