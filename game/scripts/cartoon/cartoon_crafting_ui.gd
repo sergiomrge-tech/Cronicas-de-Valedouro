@@ -138,6 +138,24 @@ func _build() -> void:
 	close.pressed.connect(close_panel)
 	body.add_child(close)
 
+func _ensure_recipe_buttons(rows: Array[Dictionary]) -> void:
+	for recipe in rows:
+		var id: String = String(recipe.get("id",""))
+		if id == "" or recipe_list.get_node_or_null(NodePath(id)) != null:
+			continue
+		var button: Button = Button.new()
+		button.name = id
+		button.custom_minimum_size = Vector2(390,64)
+		button.add_theme_font_size_override("font_size",14)
+		var border: Color = Color("e59a45") if bool(recipe.get("boss_unique",false)) else UISkin.GOLD
+		_style_button(button,UISkin.SURFACE,border)
+		button.pressed.connect(_craft_id.bind(id))
+		recipe_list.add_child(button)
+		if String(recipe.get("slot",""))=="weapon" and String(recipe.get("weapon_kind",""))=="sword" and weapon_button==null:
+			weapon_button = button
+		if String(recipe.get("slot",""))=="armor" and armor_button==null:
+			armor_button = button
+
 func _style_button(button: Button, bg: Color, border: Color) -> void:
 	UISkin.button(button,UISkin.SURFACE.lerp(bg,0.18),border.darkened(0.15))
 	button.clip_text = true
@@ -186,8 +204,9 @@ func _refresh() -> void:
 	if state == null: return
 	summary_label.text = state.equipment_summary()+"\nOuro: %d • Material extra: 10 ouro/unidade" % state.player_gold
 	var rows: Array[Dictionary] = state.recipes_for(region_id)
+	_ensure_recipe_buttons(rows)
 	if not rows.is_empty(): supply_button.tooltip_text = "Comprar 1 "+String(rows[1].material)+" por 10 de ouro"
-	for row in state.recipes_for(region_id):
+	for row in rows:
 		var button: Button = recipe_list.get_node_or_null(NodePath(String(row.id)))
 		if button == null: continue
 		var owned: bool = state.crafted.has(String(row.id))
@@ -197,6 +216,10 @@ func _refresh() -> void:
 		var action_text: String = "EQUIPAR • já criado" if owned else "%d/%d %s • CRIAR" % [have,int(row.cost),String(row.material)]
 		if locked:
 			action_text = "REQUER NÍVEL %d" % required_level
-		button.text = "%s • +%d %s • Nv %d\n%s" % [String(row.label),int(row.get("attack",row.get("defense",0))),"ATQ" if row.slot=="weapon" else "DEF",required_level,action_text]
+		var prefix: String = "CHEFE • " if bool(row.get("boss_unique",false)) else ""
+		button.text = "%s%s • +%d %s • Nv %d\n%s" % [prefix,String(row.label),int(row.get("attack",row.get("defense",0))),"ATQ" if row.slot=="weapon" else "DEF",required_level,action_text]
 		button.disabled = state.is_equipped(String(row.id)) or locked or (not owned and have<int(row.cost))
-		button.tooltip_text = "Disponível no nível %d." % required_level if locked else button.text
+		if bool(row.get("boss_unique",false)):
+			button.tooltip_text = "%s\nMaterial exclusivo de %s." % [button.text,String(row.get("boss_name","chefe"))]
+		else:
+			button.tooltip_text = "Disponível no nível %d." % required_level if locked else button.text
