@@ -618,7 +618,7 @@ func _cycle_spell() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if desktop_mode and event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_F11:
-		var current_mode: DisplayServer.WindowMode = DisplayServer.window_get_mode()
+		var current_mode := DisplayServer.window_get_mode()
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN)
 		get_viewport().set_input_as_handled()
 		return
