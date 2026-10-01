@@ -16,6 +16,7 @@ const SAVE_PATH: String = "user://valedouro_cartoon_profile_v1.json"
 const SAVE_VERSION: int = 8
 const Classes = preload("res://scripts/cartoon/cartoon_class_catalog.gd")
 const Loot = preload("res://scripts/cartoon/cartoon_loot_catalog.gd")
+const BossCrafting = preload("res://scripts/cartoon/cartoon_boss_crafting.gd")
 const SPELL_UNLOCK_LEVELS: Array[int] = [1,10,25]
 const SPELL_LABELS: Array[String] = ["Brasa","Cristal","Arcana"]
 const EQUIPMENT_LEVELS: Array[int] = [1,8,18,28,40,55,70,85]
@@ -247,6 +248,12 @@ func recipes_for(region_id: String) -> Array[Dictionary]:
 		piece.defense = maxi(1,int(chest.defense)/3)
 		piece.cost = 2
 		rows.append(piece)
+	for boss_recipe in BossCrafting.recipes_for_region(region_id):
+		var boss_id: String = String(boss_recipe.get("boss_id",""))
+		var material_name: String = String(boss_recipe.get("material",""))
+		var recipe_id: String = String(boss_recipe.get("id",""))
+		if material_count(material_name) > 0 or crafted.has(recipe_id):
+			rows.append(boss_recipe)
 	return rows
 
 func equipped_in_slot(slot: String) -> Dictionary:
@@ -303,6 +310,26 @@ func add_material(material_name: String, amount: int = 1) -> void:
 		return
 	materials[material_name] = int(materials.get(material_name,0))+amount
 	save_profile()
+
+func award_boss_trophy(boss_id: String) -> Dictionary:
+	var row: Dictionary = BossCrafting.row_for_boss(boss_id)
+	if row.is_empty():
+		return {"ok":false,"summary":"","boss_id":boss_id}
+	var material_name: String = String(row.get("material",""))
+	var recipe: Dictionary = row.get("recipe",{})
+	if material_name == "" or recipe.is_empty():
+		return {"ok":false,"summary":"","boss_id":boss_id}
+	materials[material_name] = material_count(material_name)+1
+	save_profile()
+	return {
+		"ok":true,
+		"boss_id":boss_id,
+		"boss_name":String(row.get("boss_name","Chefe")),
+		"material":material_name,
+		"recipe_id":String(recipe.get("id","")),
+		"recipe_label":String(recipe.get("label","Equipamento único")),
+		"summary":"TROFÉU DE CHEFE: +1 %s • receita %s" % [material_name,String(recipe.get("label","Equipamento único"))]
+	}
 
 func material_count(material_name: String) -> int:
 	return int(materials.get(material_name,0))
@@ -403,7 +430,7 @@ func award_enemy_loot(
 		var available: Array[Dictionary] = []
 		for recipe in recipes_for(region_id):
 			var id: String = String(recipe.get("id",""))
-			if id != "" and not crafted.has(id):
+			if id != "" and not crafted.has(id) and not bool(recipe.get("boss_unique",false)):
 				available.append(recipe)
 		if not available.is_empty():
 			var pick_index: int = int(forced.get("gear_index",-1))
