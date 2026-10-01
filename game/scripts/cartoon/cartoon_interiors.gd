@@ -229,7 +229,9 @@ func action_text(point: Dictionary = {}) -> String:
 func _refresh_hint() -> void:
 	var point: Dictionary = nearest_point()
 	if not point.is_empty():
-		var prefix: String = "E — " if OS.get_name() == "Windows" else ""
+		var layout = host.get_node_or_null("HUD/GameLayout")
+		var desktop_prompt: bool = OS.get_name() == "Windows" or (layout != null and bool(layout.desktop_mode))
+		var prefix: String = "E — " if desktop_prompt else ""
 		host.poi_label.text = "◆ %s • %s%s" % [String(point.label),prefix,action_text(point)]
 	else:
 		host.poi_label.text = "Explore o interior • procure os marcadores • saída ao sul"
