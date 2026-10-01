@@ -183,3 +183,14 @@ elementais preservados. 32 testes Cartoon locais passaram; CI inclui
 `docs/CARTOON_SPELL_SLOTS_V0_30.md` e
 `docs/visual_qa/cartoon_v030/review.html`. Mecânica PROPOSED. Sem novo APK;
 exportação somente mediante pedido, entrega em ZIP anexado à conversa.
+
+
+## APK solicitado — v0.30
+
+O Diretor pediu explicitamente a exportação da candidata v0.30, com três
+magias simultâneas no HUD e recargas independentes. Preset Android versão
+30 / 0.30-test; pipeline valida 32 testes Cartoon, assinatura e SHA256.
+Entregar o ZIP do artefato como anexo nativo. Se o navegador salvar o anexo
+como `content` sem extensão, orientar renomear para `Valedouro.zip` antes
+de extrair e abrir o APK. Isso foi observado no celular do Diretor.
+Continua proibido gerar APK automaticamente a cada alteração.
