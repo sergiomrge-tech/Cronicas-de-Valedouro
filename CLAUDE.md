@@ -234,10 +234,26 @@ Regras que não devem regredir:
 - recursos coletados somem temporariamente e reaparecem quando o cooldown expira.
 
 
-## Continuidade — candidata v0.35: level up e desbloqueios compactos
+## Continuidade — v0.35 validada: level up e desbloqueios compactos
 
 A v0.35 adiciona banner curto de subida de nível, aviso automático de magia/tier
 liberado e contador de pontos de habilidade no retrato do herói. Não usa modal
 e não interrompe o combate. O save permanece v8. Ler
 `docs/CARTOON_LEVELUP_FEEDBACK_V0_35.md`. Só promover após o Godot Gate 4.7.2.
 APK continua sob demanda.
+
+
+## Estado validado — v0.35
+
+Commit validado: `e90330ba708d5c5402158ffae5b346ff6c47f49f`.
+Godot Gate oficial 4.7.2: run `36885539172`, conclusão success.
+A suíte contém 54 testes nativos e QA visual dedicado v0.35.
+
+Regras adicionais que não devem regredir:
+- level up usa banner compacto, sem modal;
+- o aviso mostra pontos ganhos e magia/tier liberado;
+- nível 10 libera Cristal e nível 25 libera Arcana;
+- tiers regionais são informados quando o nível correspondente é atingido;
+- retrato do herói mostra `+N PT` quando há pontos de habilidade disponíveis;
+- gain_xp retorna previous_level, unlocks e skill_points;
+- save permanece v8.
