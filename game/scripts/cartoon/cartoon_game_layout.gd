@@ -300,7 +300,7 @@ func _layout() -> void:
 	level_banner.size = Vector2(244,46)
 	level_banner.position = Vector2(area.get_center().x-122,area.position.y+96)
 	boss_panel.size = Vector2(286,58)
-	boss_panel.position = Vector2(area.get_center().x-143,area.position.y+8)
+	boss_panel.position = Vector2(area.end.x-286,area.position.y+8) if compact else Vector2(area.get_center().x-143,area.position.y+8)
 	joystick_center = Vector2(area.position.x+86,area.end.y-80)
 	var hint_width: float = minf(480,area.size.x-220)
 	host.poi_label.position = Vector2(area.get_center().x-hint_width/2,area.end.y-194)
@@ -394,6 +394,8 @@ func _process(_delta: float) -> void:
 	var inside_building: bool = host.get("interiors") != null and host.interiors.active
 	map_button.text = "SAIR" if inside_building else "MAPA"
 	for control: Control in gameplay_nodes: control.visible = not blocked
+	if boss_panel.visible and UISkin.usable(get_viewport()).size.x < 888.0:
+		quest_panel.visible = false
 	if host.hero != null:
 		var attack_wait: float = host.hero.bow_cooldown if host.hero.bow_equipped else host.hero.melee_cooldown
 		attack_button.text = "DISPARAR" if host.hero.bow_equipped else "ATACAR"
