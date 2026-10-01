@@ -37,8 +37,8 @@ func run() -> void:
 	await process_frame
 	await process_frame
 	assert(forest.exploration_director != null)
-	assert(forest.exploration_director.sites.size() == 7)
-	assert(forest.exploration_director.site_nodes.size() == 7)
+	assert(forest.exploration_director.sites.size() == 13)
+	assert(forest.exploration_director.site_nodes.size() == 13)
 	assert(forest.exploration_director.elite_count == 1)
 
 	forest.player_hp = 50
@@ -53,5 +53,5 @@ func run() -> void:
 	assert(forest.player_gold > gold_before)
 	assert(forest.exploration_director.collected.size() == 2)
 
-	print("exploration_layer: PASS — 35 locais de exploração, 7 elites e recompensas interativas")
+	print("exploration_layer: PASS — 35 locais de exploração + coleta renovável, 7 elites e recompensas interativas")
 	quit(0)
