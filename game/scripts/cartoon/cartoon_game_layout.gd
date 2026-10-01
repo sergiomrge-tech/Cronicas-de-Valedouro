@@ -36,6 +36,9 @@ var heal_button: Button
 var map_button: Button
 var pause_button: Button
 var pause_panel: PanelContainer
+var spell_bar: PanelContainer
+var fullscreen_pause_button: Button
+var exit_game_button: Button
 var contract_panel: PanelContainer
 var contract_copy: Label
 var expanded: bool = false
@@ -247,6 +250,17 @@ func _build(map_script, navigation_property: String) -> void:
 	interact_button.name = "InteractButton"
 	add_child(interact_button)
 	gameplay_nodes.append(interact_button)
+	spell_bar = PanelContainer.new()
+	spell_bar.name = "PCSpellBar"
+	spell_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	spell_bar.visible = desktop_mode
+	spell_bar.add_theme_stylebox_override("panel",UISkin.box(Color(0.035,0.045,0.065,0.92),UISkin.GOLD.darkened(0.25),12))
+	add_child(spell_bar)
+	gameplay_nodes.append(spell_bar)
+	var spell_bar_body: Control = Control.new()
+	spell_bar_body.custom_minimum_size = Vector2(330,70)
+	spell_bar_body.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	spell_bar.add_child(spell_bar_body)
 	var tips = ["Brasa: queimadura em três pulsos","Cristal: lentidão por 2,5 s","Arcana: salta para um inimigo próximo"]
 	for i in range(3):
 		var button = _button("",Vector2(76,50),_cast_spell.bind(i),14)
@@ -324,11 +338,18 @@ func _layout() -> void:
 	attack_button.position = attack_center-attack_button.size*0.5
 	interact_button.size = Vector2(64,48)
 	interact_button.position = Vector2(area.end.x-258,area.end.y-182)
-	# Stable slots keep muscle memory as level 10/25 unlock new abilities.
-	var angles = [-102.0,-57.0,-9.0]
-	for i in range(spell_buttons.size()):
-		spell_buttons[i].size = Vector2(58,58)
-		spell_buttons[i].position = attack_center+Vector2.from_angle(deg_to_rad(angles[i]))*100-spell_buttons[i].size*0.5
+	# Mobile keeps the radial cluster; Windows gets a fixed bottom action bar.
+	if desktop_mode:
+		spell_bar.size = Vector2(330,70)
+		spell_bar.position = Vector2(area.get_center().x-165,area.end.y-78)
+		for i in range(spell_buttons.size()):
+			spell_buttons[i].size = Vector2(96,58)
+			spell_buttons[i].position = Vector2(spell_bar.position.x+12+float(i)*105.0,spell_bar.position.y+6)
+	else:
+		var angles = [-102.0,-57.0,-9.0]
+		for i in range(spell_buttons.size()):
+			spell_buttons[i].size = Vector2(58,58)
+			spell_buttons[i].position = attack_center+Vector2.from_angle(deg_to_rad(angles[i]))*100-spell_buttons[i].size*0.5
 	dodge_button.size = Vector2(64,64)
 	dodge_button.position = Vector2(area.end.x-248,area.end.y-64)
 	contract_panel.position = area.position+Vector2(76,106)
@@ -429,7 +450,10 @@ func _process(_delta: float) -> void:
 			var unlocked: bool = state == null or state.spell_unlocked(i)
 			var remaining: float = host.hero.spell_cooldown_remaining(i)
 			spell_buttons[i].visible = not blocked and unlocked
-			spell_buttons[i].text = "%s\n%.1f s" % [host.hero.SPELL_NAMES[i],remaining] if remaining>0 else host.hero.SPELL_NAMES[i]
+			var spell_name: String = String(host.hero.SPELL_NAMES[i])
+			if desktop_mode:
+				spell_name = "%d  %s" % [i+1,spell_name]
+			spell_buttons[i].text = "%s\n%.1f s" % [spell_name,remaining] if remaining>0 else spell_name
 			spell_buttons[i].disabled = not unlocked or remaining>0 or host.hero.death_t>0 or host.hero.dodge_t>0
 		dodge_button.text = "ESQUIVA\n%.1f s" % host.hero.dodge_cooldown if host.hero.dodge_cooldown>0 else "ESQUIVA"
 		dodge_button.disabled = host.hero.dodge_cooldown>0 or host.hero.death_t>0
@@ -452,8 +476,13 @@ func _process(_delta: float) -> void:
 		interact_button.visible = false
 		dodge_button.visible = false
 		heal_button.visible = false
-		for button in spell_buttons:
-			button.visible = false
+		spell_bar.visible = not blocked and not inside_building
+		for i in range(spell_buttons.size()):
+			var state_for_spell = get_node_or_null("/root/CartoonPlayerState")
+			var unlocked_for_pc: bool = state_for_spell == null or state_for_spell.spell_unlocked(i)
+			spell_buttons[i].visible = not blocked and not inside_building and unlocked_for_pc
+	else:
+		spell_bar.visible = false
 	var toolbar_clear: bool = not expanded or not quest_panel.get_global_rect().intersects(Placement.toolbar_rect(get_viewport(),3))
 	map_button.visible = not blocked and toolbar_clear
 	pause_button.visible = not blocked and toolbar_clear
@@ -618,8 +647,7 @@ func _cycle_spell() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if desktop_mode and event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_F11:
-		var current_mode := DisplayServer.window_get_mode()
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN)
+		_toggle_fullscreen()
 		get_viewport().set_input_as_handled()
 		return
 	if desktop_mode and event is InputEventMouseButton and event.pressed and not is_blocked():
@@ -705,42 +733,72 @@ func _unhandled_input(event: InputEvent) -> void:
 func _build_pause() -> void:
 	pause_panel = PanelContainer.new()
 	pause_panel.name = "PausePanel"
-	pause_panel.custom_minimum_size = Vector2(350,330)
+	pause_panel.custom_minimum_size = Vector2(350,440)
 	pause_panel.visible = false
 	pause_panel.z_index = 100
 	pause_panel.add_theme_stylebox_override("panel",UISkin.box())
 	add_child(pause_panel)
 	var body: Control = Control.new()
 	body.name = "PauseContent"
-	body.custom_minimum_size = Vector2(346,326)
+	body.custom_minimum_size = Vector2(346,436)
 	pause_panel.add_child(body)
 	var title: Label = UISkin.label("Uma pausa na jornada",22)
-	title.position = Vector2(24,22)
+	title.position = Vector2(24,16)
 	body.add_child(title)
-	var resume: Button = _button("CONTINUAR",Vector2(298,52),close_pause)
+	var resume: Button = _button("CONTINUAR",Vector2(298,46),close_pause)
 	resume.name = "ResumeButton"
-	resume.position = Vector2(24,80)
+	resume.position = Vector2(24,54)
 	body.add_child(resume)
-	var menu: Button = _button("SALVAR E VOLTAR AO MENU",Vector2(298,52),_return_to_menu)
+	var menu: Button = _button("SALVAR E VOLTAR AO MENU",Vector2(298,46),_return_to_menu)
 	menu.name = "SaveAndMenuButton"
-	menu.position = Vector2(24,146)
+	menu.position = Vector2(24,108)
 	body.add_child(menu)
-	var note_text: String = "PC: WASD mover • Mouse/Space atacar • E usar • Shift esquiva • 1/2/3 magias • I bolsa • M mapa • J missões • F forja • H cura • F11 tela cheia" if desktop_mode else "Seu progresso fica salvo neste aparelho."
-	var note: Label = UISkin.label(note_text,12,UISkin.MUTED)
-	note.position = Vector2(24,268)
-	note.size = Vector2(298,48)
+	fullscreen_pause_button = _button("TELA INTEIRA",Vector2(298,46),_toggle_fullscreen)
+	fullscreen_pause_button.name = "FullscreenButton"
+	fullscreen_pause_button.position = Vector2(24,162)
+	body.add_child(fullscreen_pause_button)
+	exit_game_button = _button("SAIR DO JOGO",Vector2(298,46),_quit_game)
+	exit_game_button.name = "ExitGameButton"
+	exit_game_button.position = Vector2(24,216)
+	UISkin.button(exit_game_button,Color("4b2028"),Color("d86a78"),10)
+	body.add_child(exit_game_button)
+	var note_text: String = "PC: WASD mover • Mouse/Space atacar • E usar/entrar • Shift esquiva • 1/2/3 magias • I bolsa • M mapa • J missões • F11 tela cheia" if desktop_mode else "Seu progresso fica salvo neste aparelho."
+	var note: Label = UISkin.label(note_text,11,UISkin.MUTED)
+	note.position = Vector2(24,350)
+	note.size = Vector2(298,70)
 	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	body.add_child(note)
-	UISkin.bind(pause_panel,Vector2(350,330),"center",true)
+	fullscreen_pause_button.visible = desktop_mode
+	exit_game_button.visible = desktop_mode
+	UISkin.bind(pause_panel,Vector2(350,440),"center",true)
 
 func open_pause() -> void:
 	if is_blocked(): return
+	_refresh_fullscreen_button()
 	pause_panel.visible = true
 	get_tree().paused = true
 
 func close_pause() -> void:
 	pause_panel.visible = false
 	get_tree().paused = false
+
+func _toggle_fullscreen() -> void:
+	if not desktop_mode: return
+	var current_mode := DisplayServer.window_get_mode()
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN)
+	call_deferred("_refresh_fullscreen_button")
+
+func _refresh_fullscreen_button() -> void:
+	if fullscreen_pause_button == null: return
+	var fullscreen: bool = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
+	fullscreen_pause_button.text = "TELA INTEIRA: LIGADA" if fullscreen else "TELA INTEIRA: DESLIGADA"
+
+func _quit_game() -> void:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state != null: state.save_profile()
+	if get_tree() != null:
+		get_tree().paused = false
+		get_tree().quit()
 
 func _return_to_menu() -> void:
 	var state = get_node_or_null("/root/CartoonPlayerState")
