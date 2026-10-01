@@ -285,10 +285,27 @@ Regras adicionais que não devem regredir:
 - save permanece v8.
 
 
-## Continuidade — candidata v0.37: combate de chefes em fases
+## Continuidade — v0.37 validada: combate de chefes em fases
 
 A v0.37 adiciona barra dedicada de boss no HUD, três fases automáticas por HP e
 golpes especiais periódicos com telegráfico ampliado e dano escalonado nas
 Fases II/III. Monstros comuns preservam o comportamento anterior. Save
 permanece v8. Ler `docs/CARTOON_BOSS_COMBAT_V0_37.md`. Só promover após o
 Godot Gate 4.7.2. APK continua sob demanda.
+
+
+## Estado validado — v0.37
+
+Commit validado: `4fb27216fb82b8c3defc79c457b069985e0d2ac1`.
+Godot Gate oficial 4.7.2: run `36891829409`, conclusão success.
+A suíte contém 56 testes nativos e QA visual dedicado v0.37.
+
+Regras adicionais que não devem regredir:
+- chefes exibem barra própria com nome, nível, HP e fase;
+- Fase I acima de 66%, Fase II entre 34–66%, Fase III em 33% ou menos;
+- Fase II intercala golpe especial a cada terceiro ataque;
+- Fase III intercala golpe especial a cada segundo ataque;
+- golpes especiais usam telegráfico maior e dano escalonado;
+- monstros comuns preservam windup, raio e dano anteriores;
+- em 640×360 a barra de boss não sobrepõe o HUD do herói; o cartão de objetivo cede espaço apenas durante a luta;
+- save permanece v8.
