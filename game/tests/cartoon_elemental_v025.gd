@@ -36,6 +36,7 @@ func run() -> void:
 	root.add_child(hub)
 	current_scene = hub
 	await settle()
+	state.player_level = 25 # Teste técnico: todas as magias já desbloqueadas.
 	hub.set_process(false)
 	hub.wildlife.process_mode = Node.PROCESS_MODE_DISABLED
 	for animal in hub.wildlife.active.values(): animal.queue_free()
