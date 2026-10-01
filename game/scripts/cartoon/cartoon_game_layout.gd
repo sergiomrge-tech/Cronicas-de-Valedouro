@@ -63,7 +63,7 @@ static func build(host_node, map_script, navigation_property: String) -> void:
 	var layout = ValedouroCartoonGameLayout.new()
 	layout.name = "GameLayout"
 	layout.host = host_node
-	layout.desktop_mode = not (OS.get_name() in ["Android","iOS"])
+	layout.desktop_mode = OS.get_name() == "Windows"
 	layer.add_child(layout)
 	layout.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	layout.mouse_filter = Control.MOUSE_FILTER_IGNORE
