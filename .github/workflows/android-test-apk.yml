@@ -148,7 +148,7 @@ jobs:
       - name: Upload installable APK
         uses: actions/upload-artifact@v4
         with:
-          name: Cronicas-de-Valedouro-Android-TEST-v0.19
+          name: Cronicas-de-Valedouro-Android-TEST-v0.23
           path: |
             game/build/Cronicas_de_Valedouro_TEST.apk
             game/build/SHA256.txt
