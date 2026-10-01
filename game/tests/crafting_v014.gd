@@ -12,6 +12,7 @@ func run() -> void:
 	state.reset_progress(false)
 	assert(state.attack_bonus() == 0)
 	assert(state.defense_bonus() == 0)
+	state.player_level = 8 # Floresta Ancestral: requisito de equipamento da v0.33.
 
 	state.add_material("Seiva Ancestral",5)
 	assert(state.material_count("Seiva Ancestral") == 5)
@@ -32,6 +33,7 @@ func run() -> void:
 	assert(hero.attack_damage(20) == 24)
 	assert(hero.reduce_incoming_damage(10) == 8)
 
+	state.player_level = 18 # Deserto: requisito de equipamento da v0.33.
 	state.add_material("Âmbar Negro",3)
 	var desert_weapon: Dictionary = state.craft("REG_003_DESERTO_RUINAS","weapon")
 	assert(bool(desert_weapon.get("ok",false)))
