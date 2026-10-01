@@ -17,6 +17,7 @@ const SAVE_VERSION: int = 7
 const Classes = preload("res://scripts/cartoon/cartoon_class_catalog.gd")
 const Loot = preload("res://scripts/cartoon/cartoon_loot_catalog.gd")
 const SPELL_UNLOCK_LEVELS: Array[int] = [1,10,25]
+const EQUIPMENT_LEVELS: Array[int] = [1,8,18,28,40,55,70,85]
 var active_class: String = "warrior"
 var skill_ranks: Dictionary = {}
 
@@ -301,6 +302,29 @@ func consumables_total() -> int:
 		total += maxi(0,int(value))
 	return total
 
+func healing_consumables_total() -> int:
+	return consumable_count("healing_flask")+consumable_count("greater_healing_flask")
+
+func best_heal_consumable() -> String:
+	if player_hp >= player_max_hp:
+		return ""
+	var missing: int = maxi(0,player_max_hp-player_hp)
+	if missing >= ceili(float(player_max_hp)*0.50) and consumable_count("greater_healing_flask") > 0:
+		return "greater_healing_flask"
+	if consumable_count("healing_flask") > 0:
+		return "healing_flask"
+	if consumable_count("greater_healing_flask") > 0:
+		return "greater_healing_flask"
+	return ""
+
+func quick_heal() -> Dictionary:
+	var id: String = best_heal_consumable()
+	if id == "":
+		if player_hp >= player_max_hp:
+			return {"ok":false,"message":"Vida cheia."}
+		return {"ok":false,"message":"Sem itens de cura."}
+	return use_consumable(id)
+
 func use_consumable(id: String) -> Dictionary:
 	var row: Dictionary = Loot.consumable(id)
 	if row.is_empty() or consumable_count(id) <= 0:
@@ -406,11 +430,14 @@ func _craft_recipe(recipe: Dictionary) -> Dictionary:
 	var have: int = material_count(material_name)
 	if have < cost:
 		return {"ok":false,"message":"Faltam %d %s." % [cost-have,material_name],"recipe":recipe}
+	var required_level: int = equipment_required_level(recipe)
+	if player_level < required_level:
+		return {"ok":false,"message":"Requer nível %d para fabricar." % required_level,"recipe":recipe,"required_level":required_level}
 	materials[material_name] = have-cost
 	crafted[id] = recipe.duplicate(true)
 	_equip(recipe)
 	save_profile()
-	return {"ok":true,"message":"Forjado: %s." % String(recipe.get("label","Equipamento")),"recipe":recipe}
+	return {"ok":true,"message":"Forjado e equipado: %s." % String(recipe.get("label","Equipamento")),"recipe":recipe}
 
 func _recipe(region_id: String, slot: String) -> Dictionary:
 	for recipe in recipes_for(region_id):
@@ -419,6 +446,8 @@ func _recipe(region_id: String, slot: String) -> Dictionary:
 	return {}
 
 func _equip(recipe: Dictionary) -> void:
+	if not can_equip_item(recipe):
+		return
 	var slot: String = String(recipe.get("slot",""))
 	if slot == "weapon":
 		if int(recipe.get("tier",0)) >= int(equipped_weapon.get("tier",0)):
@@ -429,6 +458,13 @@ func _equip(recipe: Dictionary) -> void:
 	elif slot in ARMOR_SLOTS:
 		if int(recipe.get("tier",0)) >= int(equipped_in_slot(slot).get("tier",0)):
 			equipped_pieces[slot] = recipe.duplicate(true)
+
+func equipment_required_level(item: Dictionary) -> int:
+	var tier: int = clampi(int(item.get("tier",0)),0,EQUIPMENT_LEVELS.size()-1)
+	return EQUIPMENT_LEVELS[tier]
+
+func can_equip_item(item: Dictionary) -> bool:
+	return player_level >= equipment_required_level(item)
 
 func starter_equipment() -> Array[Dictionary]:
 	return [
@@ -454,6 +490,9 @@ func equip_item(item_id: String) -> Dictionary:
 			break
 	if found.is_empty():
 		return {"ok":false,"message":"Item não encontrado no inventário."}
+	var required_level: int = equipment_required_level(found)
+	if player_level < required_level:
+		return {"ok":false,"message":"Requer nível %d para equipar." % required_level,"item":found,"required_level":required_level}
 	var slot: String = String(found.get("slot",""))
 	if slot == "weapon":
 		equipped_weapon = found.duplicate(true)
