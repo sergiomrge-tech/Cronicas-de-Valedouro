@@ -21,6 +21,7 @@ const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
 const Placement = preload("res://scripts/cartoon/cartoon_ui_placement.gd")
 
 var host
+var desktop_mode: bool = false
 var minimap: Control
 var rail_style: StyleBox
 var screen_frame: StyleBoxTexture
@@ -62,6 +63,7 @@ static func build(host_node, map_script, navigation_property: String) -> void:
 	var layout = ValedouroCartoonGameLayout.new()
 	layout.name = "GameLayout"
 	layout.host = host_node
+	layout.desktop_mode = not (OS.get_name() in ["Android","iOS"])
 	layer.add_child(layout)
 	layout.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	layout.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -445,6 +447,13 @@ func _process(_delta: float) -> void:
 			if quest_panel.get_global_rect().intersects(button.get_global_rect()): button.visible = false
 		for label: Label in [host.toast_label,host.poi_label]:
 			if quest_panel.get_global_rect().intersects(label.get_global_rect()): label.visible = false
+	if desktop_mode:
+		attack_button.visible = false
+		interact_button.visible = false
+		dodge_button.visible = false
+		heal_button.visible = false
+		for button in spell_buttons:
+			button.visible = false
 	var toolbar_clear: bool = not expanded or not quest_panel.get_global_rect().intersects(Placement.toolbar_rect(get_viewport(),3))
 	map_button.visible = not blocked and toolbar_clear
 	pause_button.visible = not blocked and toolbar_clear
@@ -547,6 +556,8 @@ func _draw() -> void:
 	var area: Rect2 = UISkin.usable(get_viewport())
 	draw_style_box(screen_frame,get_viewport().get_visible_rect().grow(-3))
 	draw_style_box(rail_style,Rect2(area.position+Vector2(-2,50),Vector2(68,212)))
+	if desktop_mode:
+		return
 	draw_circle(center,65,Color(0.05,0.16,0.15,0.57))
 	draw_arc(center,65,0,TAU,64,Color("c8c79b"),2,true)
 	var thumb: Vector2 = center+host.joystick_vector*34
@@ -606,6 +617,53 @@ func _cycle_spell() -> void:
 		host._show_toast(tips[host.hero.spell_index])
 
 func _unhandled_input(event: InputEvent) -> void:
+	if desktop_mode and event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_F11:
+		var current_mode: DisplayServer.WindowMode = DisplayServer.window_get_mode()
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN)
+		get_viewport().set_input_as_handled()
+		return
+	if desktop_mode and event is InputEventMouseButton and event.pressed and not is_blocked():
+		match event.button_index:
+			MOUSE_BUTTON_LEFT:
+				host._attack()
+				get_viewport().set_input_as_handled()
+				return
+			MOUSE_BUTTON_RIGHT:
+				_dodge()
+				get_viewport().set_input_as_handled()
+				return
+			MOUSE_BUTTON_WHEEL_UP:
+				if host.get("zoom_controls") != null: host.zoom_controls.zoom_in()
+				get_viewport().set_input_as_handled()
+				return
+			MOUSE_BUTTON_WHEEL_DOWN:
+				if host.get("zoom_controls") != null: host.zoom_controls.zoom_out()
+				get_viewport().set_input_as_handled()
+				return
+	if desktop_mode and event is InputEventKey and event.pressed and not event.echo:
+		if event.physical_keycode == KEY_M:
+			if host.map_open: host._toggle_map()
+			elif not is_blocked(): host._toggle_map()
+			get_viewport().set_input_as_handled()
+			return
+		if event.physical_keycode == KEY_I:
+			var bag = host.get("inventory_ui")
+			if bag != null:
+				if bag.is_open(): bag.close_panel()
+				elif not is_blocked(): bag.open_panel()
+			get_viewport().set_input_as_handled()
+			return
+		if event.physical_keycode == KEY_F:
+			var forge = host.get("crafting_ui")
+			if forge != null:
+				if forge.is_open(): forge.close_panel()
+				elif not is_blocked(): forge._toggle()
+			get_viewport().set_input_as_handled()
+			return
+		if event.physical_keycode == KEY_H and not is_blocked():
+			_quick_heal()
+			get_viewport().set_input_as_handled()
+			return
 	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_J:
 		if mission_ui.is_open(): mission_ui.close_panel()
 		elif not is_blocked(): _open_missions()
@@ -667,8 +725,11 @@ func _build_pause() -> void:
 	menu.name = "SaveAndMenuButton"
 	menu.position = Vector2(24,146)
 	body.add_child(menu)
-	var note: Label = UISkin.label("Seu progresso fica salvo neste aparelho.",12,UISkin.MUTED)
-	note.position = Vector2(24,294)
+	var note_text: String = "PC: WASD mover • Mouse/Space atacar • E usar • Shift esquiva • 1/2/3 magias • I bolsa • M mapa • J missões • F forja • H cura • F11 tela cheia" if desktop_mode else "Seu progresso fica salvo neste aparelho."
+	var note: Label = UISkin.label(note_text,12,UISkin.MUTED)
+	note.position = Vector2(24,268)
+	note.size = Vector2(298,48)
+	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	body.add_child(note)
 	UISkin.bind(pause_panel,Vector2(350,330),"center",true)
 
