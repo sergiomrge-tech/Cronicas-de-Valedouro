@@ -631,7 +631,10 @@ func _refresh_detail(state) -> void:
 	detail_name.text = String(item.get("label","Equipamento"))
 	var progress: Dictionary = state.set_progress(item)
 	detail_meta.text = "%s • Tier %d\n%s +%d %s\n%s" % [_rarity_name(tier),tier,String(state.SLOT_NAMES.get(slot,slot)),stat,stat_name,("Conjunto %d/6 • bônus +%d ATQ/DEF" % [int(progress.count),int(progress.bonus)]) if item.has("set_id") else ("Arco • alcance 300 • flechas livres" if item.get("weapon_kind","")=="bow" else "Espada • corpo a corpo")]
-	if equipped:
+	if locked:
+		detail_compare.text = "Disponível ao atingir o nível %d." % required_level
+		detail_compare.add_theme_color_override("font_color",Color(0.95,0.68,0.36))
+	elif equipped:
 		detail_compare.text = "Item equipado atualmente."
 		detail_compare.add_theme_color_override("font_color",Color(0.50,0.85,0.55))
 	elif diff > 0:
@@ -643,8 +646,8 @@ func _refresh_detail(state) -> void:
 	else:
 		detail_compare.text = "Mesmo valor de %s do equipado." % stat_name
 		detail_compare.add_theme_color_override("font_color",Color(0.78,0.78,0.74))
-	detail_action.disabled = equipped
-	detail_action.text = "EQUIPADO" if equipped else "EQUIPAR"
+	detail_action.disabled = equipped or locked
+	detail_action.text = "EQUIPADO" if equipped else ("NÍVEL %d" % required_level if locked else "EQUIPAR")
 
 func _primary_action() -> void:
 	if current_tab == "consumables":
