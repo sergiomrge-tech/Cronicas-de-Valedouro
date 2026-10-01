@@ -1,0 +1,74 @@
+name: Publish Android Test Download
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_run_id:
+        description: Successful v0.23 Android build run ID
+        required: true
+        default: '36797427890'
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: publish-android-test-v023
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Verify successful build and source revision
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BUILD_RUN_ID: ${{ inputs.build_run_id }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          [[ "$BUILD_RUN_ID" =~ ^[0-9]+$ ]]
+          gh api "repos/$REPOSITORY/actions/runs/$BUILD_RUN_ID" > /tmp/build-run.json
+          python3 - <<'PY'
+          import json
+          run = json.load(open('/tmp/build-run.json'))
+          assert run['conclusion'] == 'success', 'Build must succeed before publishing'
+          assert run['path'] == '.github/workflows/android-test-apk.yml', 'Unexpected workflow'
+          assert run['head_sha'] == '5f39e8d5e088c9ed9b267d06033095c97624a40c', 'Unexpected v0.23 source revision'
+          PY
+
+      - name: Download validated APK artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: Cronicas-de-Valedouro-Android-TEST-v0.23
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.build_run_id }}
+          path: apk
+
+      - name: Verify APK integrity
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, zipfile
+          apk = Path('apk/Cronicas_de_Valedouro_TEST.apk')
+          expected = Path('apk/SHA256.txt').read_text().split()[0]
+          actual = hashlib.sha256(apk.read_bytes()).hexdigest()
+          assert actual == expected == '4e5d0ec3f1a44dde676f0ce044a95fc3c9469f8349c746563a07a4bf8c4479e8'
+          with zipfile.ZipFile(apk) as archive:
+              assert archive.testzip() is None
+          apk.rename('apk/Cronicas_de_Valedouro_v0.23_TEST.apk')
+          Path('apk/SHA256.txt').write_text(actual + '  Cronicas_de_Valedouro_v0.23_TEST.apk\n')
+          PY
+
+      - name: Upload APK and publish test release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh release view v0.23-test --repo "$REPOSITORY" --json targetCommitish --jq .targetCommitish > /tmp/release-target
+          test "$(cat /tmp/release-target)" = '5f39e8d5e088c9ed9b267d06033095c97624a40c'
+          gh release upload v0.23-test apk/Cronicas_de_Valedouro_v0.23_TEST.apk apk/SHA256.txt --repo "$REPOSITORY" --clobber
+          gh release edit v0.23-test --repo "$REPOSITORY" --draft=false --prerelease
