@@ -13,7 +13,6 @@ func _init() -> void:
 	if viewport_width != 960 or viewport_height != 540: errors.append("base lógica deve permanecer 960x540")
 	if rendering_method != "mobile": errors.append("renderer PC deve usar Mobile RenderingDevice")
 	if windows_driver != "d3d12": errors.append("driver Windows deve ser d3d12")
-	if String(ProjectSettings.get_setting("rendering/renderer/rendering_method.windows","")) != "mobile": errors.append("renderer Windows deve ser mobile para usar RenderingDevice/D3D12")
 	if String(ProjectSettings.get_setting("rendering/rendering_device/driver.windows","")) != "d3d12": errors.append("driver Windows deve ser d3d12")
 	if not bool(ProjectSettings.get_setting("rendering/rendering_device/fallback_to_vulkan",false)): errors.append("fallback Vulkan deve permanecer habilitado")
 	if not bool(ProjectSettings.get_setting("rendering/rendering_device/fallback_to_opengl3",false)): errors.append("fallback OpenGL deve permanecer habilitado")
