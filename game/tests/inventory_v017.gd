@@ -9,10 +9,12 @@ func run() -> void:
 	var state = root.get_node_or_null("CartoonPlayerState")
 	assert(state != null)
 	state.reset_progress(true)
+	state.player_level = 8
 
 	state.add_material("Seiva Ancestral",5)
 	assert(bool(state.craft("REG_002_FLORESTA_ANCESTRAL","weapon").get("ok",false)))
 	assert(bool(state.craft("REG_002_FLORESTA_ANCESTRAL","armor").get("ok",false)))
+	state.player_level = 18
 	state.add_material("Âmbar Negro",5)
 	assert(bool(state.craft("REG_003_DESERTO_RUINAS","weapon").get("ok",false)))
 	assert(bool(state.craft("REG_003_DESERTO_RUINAS","armor").get("ok",false)))
