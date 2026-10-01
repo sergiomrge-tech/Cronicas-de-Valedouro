@@ -13,6 +13,7 @@ var hp_text: Label
 var xp_bar: ProgressBar
 var xp_text: Label
 var hero_button: Button
+var hero_hint: Label
 var region_name: String = "VALEDOURO"
 var accent: Color = Color(0.91,0.69,0.27)
 
@@ -67,7 +68,7 @@ func _build() -> void:
 		var layout = get_parent().get_node_or_null("GameLayout")
 		if layout != null: layout.class_ui.open_panel())
 	body.add_child(hero_button)
-	var hero_hint = UISkin.label("HERÓI",8,UISkin.GOLD)
+	hero_hint = UISkin.label("HERÓI",8,UISkin.GOLD)
 	hero_hint.position = Vector2(0,44)
 	hero_hint.size = Vector2(44,10)
 	hero_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -144,7 +145,10 @@ func refresh(hp: int,max_hp: int,gold: int,level: int,xp: int,xp_next: int) -> v
 		var row: Dictionary = state.Classes.class_row(state.active_class)
 		region_label.text = "%s • %s" % [region_name,row.name]
 		region_label.tooltip_text = region_name+" • "+row.name
-		hero_button.tooltip_text = "%s • %d pontos de habilidade • toque para evoluir (C)" % [row.name,state.available_skill_points()]
+		var points: int = state.available_skill_points()
+		hero_button.tooltip_text = "%s • %d pontos de habilidade • toque para evoluir (C)" % [row.name,points]
+		hero_hint.text = "+%d PT" % points if points > 0 else "HERÓI"
+		hero_hint.add_theme_color_override("font_color",Color("ffe07a") if points > 0 else UISkin.GOLD)
 	gold_label.text = "%d ouro" % maxi(0,gold)
 	if level >= 100 or xp_next <= 0:
 		xp_bar.value = 100.0
