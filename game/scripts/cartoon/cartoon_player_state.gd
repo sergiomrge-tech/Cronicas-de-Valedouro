@@ -13,8 +13,9 @@ func set_tracked_mission(id: String) -> bool:
 	return true
 
 const SAVE_PATH: String = "user://valedouro_cartoon_profile_v1.json"
-const SAVE_VERSION: int = 6
+const SAVE_VERSION: int = 7
 const Classes = preload("res://scripts/cartoon/cartoon_class_catalog.gd")
+const Loot = preload("res://scripts/cartoon/cartoon_loot_catalog.gd")
 var active_class: String = "warrior"
 var skill_ranks: Dictionary = {}
 
@@ -96,6 +97,8 @@ const STORY_STATE_KEYS: Array[String] = [
 var guild_contracts: Dictionary = {}
 var wildlife_cooldowns: Dictionary = {}
 var materials: Dictionary = {}
+var consumables: Dictionary = {}
+var loot_pity: int = 0
 var crafted: Dictionary = {}
 var equipped_weapon: Dictionary = {"id":"starter_blade","label":"Espada de Viagem","tier":0,"attack":0,"slot":"weapon"}
 var equipped_armor: Dictionary = {"id":"starter_armor","label":"Túnica de Viagem","tier":0,"defense":0,"slot":"armor"}
@@ -266,6 +269,113 @@ func add_material(material_name: String, amount: int = 1) -> void:
 func material_count(material_name: String) -> int:
 	return int(materials.get(material_name,0))
 
+func add_consumable(id: String, amount: int = 1) -> bool:
+	if amount <= 0 or Loot.consumable(id).is_empty():
+		return false
+	consumables[id] = int(consumables.get(id,0))+amount
+	save_profile()
+	return true
+
+func consumable_count(id: String) -> int:
+	return int(consumables.get(id,0))
+
+func consumables_total() -> int:
+	var total: int = 0
+	for value in consumables.values():
+		total += maxi(0,int(value))
+	return total
+
+func use_consumable(id: String) -> Dictionary:
+	var row: Dictionary = Loot.consumable(id)
+	if row.is_empty() or consumable_count(id) <= 0:
+		return {"ok":false,"message":"Consumível indisponível."}
+	_capture_active_memory()
+	if player_hp >= player_max_hp:
+		return {"ok":false,"message":"Sua vida já está cheia."}
+	var before: int = player_hp
+	var amount: int = maxi(1,roundi(float(player_max_hp)*float(row.get("heal_ratio",0.0))))
+	player_hp = mini(player_max_hp,player_hp+amount)
+	var left: int = consumable_count(id)-1
+	if left > 0:
+		consumables[id] = left
+	else:
+		consumables.erase(id)
+	if _active_host != null and is_instance_valid(_active_host) and _has_property(_active_host,"player_hp"):
+		_active_host.set("player_hp",player_hp)
+	save_profile()
+	return {
+		"ok":true,
+		"message":"%s usado • +%d vida" % [String(row.get("label","Consumível")),player_hp-before],
+		"healed":player_hp-before,
+		"id":id
+	}
+
+func award_enemy_loot(
+	region_id: String,
+	enemy_kind: String,
+	enemy_level: int,
+	is_boss: bool = false,
+	is_elite: bool = false,
+	forced: Dictionary = {}
+) -> Dictionary:
+	var eligible: bool = region_id != "" and not Loot.region(region_id).is_empty()
+	if not eligible:
+		return {"summary":"","gear_id":"","material_qty":0,"consumable_id":""}
+	var pity_after: int = loot_pity+1
+	var rolled: Dictionary = Loot.roll(region_id,pity_after,is_boss,is_elite,forced)
+	var parts: PackedStringArray = PackedStringArray()
+	var material_name: String = String(rolled.get("material",""))
+	var material_qty: int = int(rolled.get("material_qty",0))
+	if material_name != "" and material_qty > 0:
+		materials[material_name] = material_count(material_name)+material_qty
+		parts.append("+%d %s" % [material_qty,material_name])
+
+	var consumable_id: String = String(rolled.get("consumable_id",""))
+	if consumable_id != "":
+		consumables[consumable_id] = consumable_count(consumable_id)+1
+		var consumable_row: Dictionary = Loot.consumable(consumable_id)
+		parts.append("+1 %s" % String(consumable_row.get("label","Consumível")))
+
+	var gear_id: String = ""
+	if bool(rolled.get("gear",false)):
+		var available: Array[Dictionary] = []
+		for recipe in recipes_for(region_id):
+			var id: String = String(recipe.get("id",""))
+			if id != "" and not crafted.has(id):
+				available.append(recipe)
+		if not available.is_empty():
+			var pick_index: int = int(forced.get("gear_index",-1))
+			if pick_index < 0:
+				var picker: RandomNumberGenerator = RandomNumberGenerator.new()
+				picker.randomize()
+				pick_index = picker.randi_range(0,available.size()-1)
+			pick_index = clampi(pick_index,0,available.size()-1)
+			var item: Dictionary = available[pick_index].duplicate(true)
+			gear_id = String(item.get("id",""))
+			crafted[gear_id] = item
+			loot_pity = 0
+			parts.append("DROP RARO: %s" % String(item.get("label","Equipamento")))
+		else:
+			loot_pity = pity_after
+	else:
+		loot_pity = pity_after
+
+	# Chefes e elites não quebram a cadência: o pity continua se o drop raro não vier.
+	if is_boss or is_elite:
+		loot_pity = maxi(loot_pity,pity_after if gear_id == "" else 0)
+
+	save_profile()
+	return {
+		"summary":" • ".join(parts),
+		"gear_id":gear_id,
+		"material":material_name,
+		"material_qty":material_qty,
+		"consumable_id":consumable_id,
+		"pity":loot_pity,
+		"enemy_kind":enemy_kind,
+		"enemy_level":enemy_level
+	}
+
 func craft(region_id: String, slot: String) -> Dictionary:
 	return _craft_recipe(_recipe(region_id,slot))
 
@@ -353,7 +463,7 @@ func material_total() -> int:
 
 func profile_summary() -> String:
 	if campaign_started:
-		return "Nv %d • %d ouro • %d equipamentos • %d materiais" % [player_level,player_gold,owned_equipment().size(),material_total()]
+		return "Nv %d • %d ouro • %d equip. • %d mat. • %d itens" % [player_level,player_gold,owned_equipment().size(),material_total(),consumables_total()]
 	return "%d equipamentos • %d materiais" % [owned_equipment().size(),material_total()]
 
 func has_profile_progress() -> bool:
@@ -617,6 +727,8 @@ func save_profile() -> void:
 		"active_class":active_class,
 		"skill_ranks":skill_ranks,
 		"materials":materials,
+		"consumables":consumables,
+		"loot_pity":loot_pity,
 		"guild_contracts":guild_contracts,
 		"wildlife_cooldowns":wildlife_cooldowns,
 		"crafted":crafted,
@@ -656,6 +768,9 @@ func load_profile() -> void:
 	var wildlife_value: Variant = data.get("wildlife_cooldowns",{})
 	wildlife_cooldowns = wildlife_value.duplicate(true) if wildlife_value is Dictionary else {}
 	materials = data.get("materials",{}) as Dictionary
+	var consumables_value: Variant = data.get("consumables",{})
+	consumables = consumables_value.duplicate(true) if consumables_value is Dictionary else {}
+	loot_pity = clampi(int(data.get("loot_pity",0)),0,50)
 	crafted = data.get("crafted",{}) as Dictionary
 	equipped_weapon = (data.get("equipped_weapon",equipped_weapon) as Dictionary).duplicate(true)
 	equipped_armor = (data.get("equipped_armor",equipped_armor) as Dictionary).duplicate(true)
@@ -697,6 +812,8 @@ func reset_progress(delete_save: bool = true) -> void:
 	tracked_mission = "main"
 	wildlife_cooldowns.clear()
 	materials.clear()
+	consumables.clear()
+	loot_pity = 0
 	crafted.clear()
 	equipped_pieces.clear()
 	equipped_weapon = {"id":"starter_blade","label":"Espada de Viagem","tier":0,"attack":0,"slot":"weapon"}
