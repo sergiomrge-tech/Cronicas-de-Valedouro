@@ -1,4 +1,4 @@
-# Candidata v0.36 — troféus e crafts exclusivos de chefes
+# v0.36 validada — troféus e crafts exclusivos de chefes
 
 A v0.36 continua diretamente da v0.35 validada e transforma chefes principais
 em fontes de crafting único.
@@ -96,5 +96,19 @@ Gera quatro capturas reais do Godot em 640×360:
 3. item especial no paper-doll da Bolsa;
 4. item equipado no herói em mundo aberto.
 
-A v0.36 só deve ser promovida após o Godot Gate 4.7.2 concluir com sucesso.
+## Validação oficial
+
+A v0.36 foi validada no **Godot 4.7.2 oficial** no commit
+`5bca63331caf227e4e66ba9432ab75c7852075f5`.
+
+O Gate oficial concluiu com sucesso no run `36887979521`, incluindo:
+- validação estática;
+- importação/parser;
+- **55 testes nativos**;
+- regressões completas das versões anteriores;
+- QA visual geral de todas as regiões;
+- QA v0.36 com quatro capturas reais do ciclo troféu → Forja → paper-doll → mundo.
+
+Artefato visual: `valedouro-boss-v036-visual-qa`.
+
 APK continua sob demanda.
