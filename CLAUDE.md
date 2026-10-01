@@ -320,3 +320,11 @@ forja/zoom no MENU e inventário com controles maiores. 40 testes locais passara
 CI verifica 57 testes oficiais e 30 novas capturas. APK v0.38 explicitamente
 solicitado nesta sessão; gerar e entregar em ZIP nativo com SHA256 após os gates.
 A preferência geral continua sendo não gerar APK sem pedido explícito.
+
+## Continuidade — v0.39: correção de flutuação
+
+Diretor relatou herói e algumas casas flutuando. Apoio das botas compensado
+por quadro, sombra no contato com o terreno, fundações e sombras das casas
+alinhadas. Ler `docs/CARTOON_GROUNDING_V0_39.md`; seis capturas em
+`docs/visual_qa/cartoon_v039/review.html`. Verificação renderizada de 208 poses
+em pé aprovada localmente; CI repete em 4.7.2. Não gerar APK neste pedido.

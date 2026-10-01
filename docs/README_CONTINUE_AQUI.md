@@ -287,3 +287,11 @@ em [revisão visual](visual_qa/cartoon_v038/review.html).
 Android executa os 40 testes e exporta v0.38. A geração deste APK foi autorizada
 explicitamente. Entregar ZIP nativo contendo APK+SHA256, com a orientação de
 renomear `content` para `Valedouro.zip` caso o Android omita o nome do arquivo.
+
+## Continuidade — v0.39: correção de flutuação
+
+Diretor relatou herói e algumas casas flutuando. Apoio das botas compensado
+por quadro, sombra no contato com o terreno, fundações e sombras das casas
+alinhadas. Ler `docs/CARTOON_GROUNDING_V0_39.md`; seis capturas em
+`docs/visual_qa/cartoon_v039/review.html`. Verificação renderizada de 208 poses
+em pé aprovada localmente; CI repete em 4.7.2. Não gerar APK neste pedido.

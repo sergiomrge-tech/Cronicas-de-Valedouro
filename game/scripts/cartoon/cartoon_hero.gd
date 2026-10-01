@@ -233,21 +233,15 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	draw_arc(Vector2(0,7),22,0,TAU,40,Color(class_color,0.35),1.3,true)
+	draw_arc(Vector2.ZERO,22,0,TAU,40,Color(class_color,0.20),1.0,true)
 	var moving = move_vector.length() > 0.08 or dodge_t>0
-	var bob = absf(sin(anim_t * 9.0)) * 3.0 if moving else sin(anim_t * 2.0) * 1.0
-	DrawUtil.shadow(self, Vector2(0, 9), 19, 0.30)
-	draw_set_transform(Vector2(0,-bob),0,Vector2.ONE)
+	DrawUtil.shadow(self,Vector2.ZERO,19,0.22)
+	DrawUtil.ellipse(self,Vector2.ZERO,11,2.8,Color(0,0,0,0.32))
 	var direction: String = "front"
 	if absf(facing.x) > absf(facing.y):
 		direction = "left" if facing.x < 0.0 else "right"
 	elif facing.y < 0.0:
 		direction = "back"
-	if dodge_t>0:
-		for i in range(3,0,-1):
-			draw_set_transform(-dodge_direction*float(i)*17+Vector2(0,-bob),dodge_direction.x*0.16,Vector2.ONE)
-			HeroArt.hero_frame(self,direction,"walk",int(anim_t*20)%8,Rect2(-40,-94,80,100),Color(0.5,0.9,1,0.3/float(i)))
-		draw_set_transform(Vector2(0,-bob),dodge_direction.x*0.16,Vector2.ONE)
 	var animation: String = "idle"
 	var frame: int = int(anim_t*8)%8
 	if moving:
@@ -268,7 +262,14 @@ func _draw() -> void:
 	if dodge_t>0 and hurt_t<=0:
 		animation = "evade"
 		frame = mini(5,int(dodge_elapsed/DODGE_DURATION*6))
-	HeroArt.hero_frame(self,direction,animation,frame,Rect2(-40,-94,80,100),Color(1,0.75,0.8) if hurt_t>0 else Color.WHITE)
+	var grounded: Vector2 = Vector2(0,HeroArt.ground_offset(animation,frame))
+	var lean: float = dodge_direction.x*0.16 if dodge_t>0 else 0.0
+	if dodge_t>0:
+		for i in range(3,0,-1):
+			draw_set_transform(-dodge_direction*float(i)*17+grounded,lean,Vector2.ONE)
+			HeroArt.hero_frame(self,direction,animation,frame,HeroArt.GROUND_RECT,Color(0.5,0.9,1,0.3/float(i)))
+	draw_set_transform(grounded,lean,Vector2.ONE)
+	HeroArt.hero_frame(self,direction,animation,frame,HeroArt.GROUND_RECT,Color(1,0.75,0.8) if hurt_t>0 else Color.WHITE)
 	if cast_t>0:
 		var glow: Color = SPELL_COLORS[cast_spell_index]
 		for i in range(4,0,-1): draw_circle(Vector2(23,-43),float(i)*4,Color(glow,0.09))

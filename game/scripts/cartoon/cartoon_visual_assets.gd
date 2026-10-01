@@ -23,7 +23,13 @@ static func draw_prop(canvas: CanvasItem, kind: String, variant: int) -> bool:
 		"rock": rect = Rect2(-32,-41,64,51)
 		"house", "forge", "tavern", "guild", "alchemist", "archive":
 			if kind == "house": name = "house_%d" % posmod(variant,3)
-			rect = Rect2(-76,-147,152,163)
+			# Match the front foundation vertex (132,208) in the 210x225 SVG
+			# to the prop's ground/Y-sort origin, rather than the image bottom.
+			rect = building_rect()
+			var contact = PackedVector2Array()
+			for point in [Vector2(27,185),Vector2(132,208),Vector2(188,185),Vector2(190,190),Vector2(132,213),Vector2(26,191)]:
+				contact.append(rect.position+point*rect.size/Vector2(210,225))
+			canvas.draw_colored_polygon(contact,Color(0,0,0,0.27))
 		"castle":
 			canvas.draw_texture_rect(RoyalAssets.texture("royal_castle"),Rect2(-820,-1120,1640,1180),false)
 			return true
@@ -49,3 +55,6 @@ static func draw_prop(canvas: CanvasItem, kind: String, variant: int) -> bool:
 		_: return false
 	canvas.draw_texture_rect(texture(name),rect,false)
 	return true
+
+static func building_rect() -> Rect2:
+	return Rect2(-76,-208.0/225.0*163.0,152,163)

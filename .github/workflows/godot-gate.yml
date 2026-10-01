@@ -630,11 +630,28 @@ jobs:
           path: game/ci_output_radial_v038/*.png
           if-no-files-found: error
 
+      - name: Verify hero foot contact and building foundations
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p game/ci_output_grounding_v039
+          timeout 120s xvfb-run -a /tmp/godot/godot --path game --rendering-method gl_compatibility --audio-driver Dummy --script res://tests/qa_capture_grounding_v039.gd -- "$PWD/game/ci_output_grounding_v039" 2>&1 | tee /tmp/valedouro-grounding-v039.log
+          ! grep -Eq "SCRIPT ERROR|ERROR:|Assertion failed" /tmp/valedouro-grounding-v039.log
+          grep -q "grounding_v039: PASS" /tmp/valedouro-grounding-v039.log
+          test "$(find game/ci_output_grounding_v039 -maxdepth 1 -type f -name '*.png' | wc -l)" -eq 6
+
+      - name: Upload grounded hero and houses visual QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: valedouro-grounding-v039-visual-qa
+          path: game/ci_output_grounding_v039/*.png
+          if-no-files-found: error
+
       - name: Final CI cleanup
         shell: bash
         run: |
           set -e
           rm -rf game/.godot game/ci_output game/ci_output_reg001 game/ci_output_art_gate game/ci_output_cartoon game/ci_output_cartoon_ui game/ci_output_living_world game/ci_output_royal_castle game/ci_output_forest game/ci_output_desert game/ci_output_marsh game/ci_output_frost game/ci_output_coast game/ci_output_corrupted game/ci_output_abyss game/ci_art_reports game/tools/__pycache__ game/tools/reg001/__pycache__ game/tools/modeling/__pycache__ game/tools/art_pipeline/__pycache__
-          rm -rf game/ci_output_classes game/ci_output_equipment game/ci_output_missions_challenge game/ci_output_spell_slots game/ci_output_loot_v031 game/ci_output_ui_v032 game/ci_output_rpg_v033 game/ci_output_radial_v038 game/ci_output_gathering_v034 game/ci_output_levelup_v035 game/ci_output_boss_v036 game/ci_output_boss_v037
+          rm -rf game/ci_output_classes game/ci_output_equipment game/ci_output_missions_challenge game/ci_output_spell_slots game/ci_output_loot_v031 game/ci_output_ui_v032 game/ci_output_rpg_v033 game/ci_output_radial_v038 game/ci_output_grounding_v039 game/ci_output_gathering_v034 game/ci_output_levelup_v035 game/ci_output_boss_v036 game/ci_output_boss_v037
           rm -f game/tests/visual_capture.gd
           echo "CI is read-only: generated runtime assets and QA captures are not pushed back to main."

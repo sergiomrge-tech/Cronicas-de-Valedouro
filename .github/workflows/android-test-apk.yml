@@ -141,18 +141,18 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p game/build
-          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.38_TEST.apk
-          test -s game/build/Cronicas_de_Valedouro_v0.38_TEST.apk
-          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.38_TEST.apk
-          sha256sum game/build/Cronicas_de_Valedouro_v0.38_TEST.apk | tee game/build/SHA256.txt
-          ls -lh game/build/Cronicas_de_Valedouro_v0.38_TEST.apk
+          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.39_TEST.apk
+          test -s game/build/Cronicas_de_Valedouro_v0.39_TEST.apk
+          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.39_TEST.apk
+          sha256sum game/build/Cronicas_de_Valedouro_v0.39_TEST.apk | tee game/build/SHA256.txt
+          ls -lh game/build/Cronicas_de_Valedouro_v0.39_TEST.apk
 
       - name: Upload installable APK
         uses: actions/upload-artifact@v4
         with:
-          name: Cronicas-de-Valedouro-Android-TEST-v0.38
+          name: Cronicas-de-Valedouro-Android-TEST-v0.39
           path: |
-            game/build/Cronicas_de_Valedouro_v0.38_TEST.apk
+            game/build/Cronicas_de_Valedouro_v0.39_TEST.apk
             game/build/SHA256.txt
           if-no-files-found: error
           retention-days: 30
@@ -166,6 +166,8 @@ jobs:
         run: |
           set -euo pipefail
           cat > /tmp/android-release.md <<'NOTES'
+          v0.39 corrige o contato dos pés do herói com o chão em 208 quadros de animação, mantém a sombra junto às botas e alinha a fundação das casas, ferreiro, taverna, guilda, alquimista e arquivo.
+
           HUD e interfaces no estilo Combate Radial escolhido: molduras vermelho/dourado, retrato destacado, coluna Bolsa/Mapa/Missões/Menu, minimapa do cenário real e três magias em arco com recargas independentes. Menu, inventário, forja, missões, guilda, classes, mapa e pausa usam o mesmo acabamento. Inventário mantém personagem equipado, sete posições e comparação de itens.
 
           Forja e controles de zoom ficam no MENU. Toque no retrato para trocar classe e evoluir habilidades. Magias continuam desbloqueando nos níveis 1/10/25. Save v8, campanha e dificuldade preservados. A assinatura de teste é gerada pela execução; o Android pode exigir remover uma instalação anterior assinada com outra chave, o que apaga o progresso local.
@@ -175,6 +177,6 @@ jobs:
 
           Exportação assinada com Godot 4.7.2, 40 testes nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
           NOTES
-          gh release create v0.38-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.38 — Combate Radial" --notes-file /tmp/android-release.md
-          gh release upload v0.38-test game/build/Cronicas_de_Valedouro_v0.38_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
-          gh release edit v0.38-test --repo "$REPOSITORY" --draft=false --prerelease
+          gh release create v0.39-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.39 — Combate Radial" --notes-file /tmp/android-release.md
+          gh release upload v0.39-test game/build/Cronicas_de_Valedouro_v0.39_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
+          gh release edit v0.39-test --repo "$REPOSITORY" --draft=false --prerelease
