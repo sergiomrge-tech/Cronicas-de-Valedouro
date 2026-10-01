@@ -44,6 +44,11 @@ var last_player_level: int = -1
 var level_banner: PanelContainer
 var level_banner_label: Label
 var level_banner_timer: float = 0.0
+var boss_panel: PanelContainer
+var boss_name_label: Label
+var boss_phase_label: Label
+var boss_bar: ProgressBar
+var last_boss_phase: int = 0
 
 static func build(host_node, map_script, navigation_property: String) -> void:
 	var layer: CanvasLayer = CanvasLayer.new()
@@ -165,6 +170,39 @@ func _build(map_script, navigation_property: String) -> void:
 	level_banner_label.max_lines_visible = 2
 	level_banner_label.custom_minimum_size = Vector2(236,42)
 	level_banner.add_child(level_banner_label)
+
+	boss_panel = PanelContainer.new()
+	boss_panel.name = "BossHealthPanel"
+	boss_panel.visible = false
+	boss_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	boss_panel.add_theme_stylebox_override("panel",UISkin.box(Color(0.10,0.045,0.065,0.95),Color("c85d77"),10))
+	add_child(boss_panel)
+	var boss_body: Control = Control.new()
+	boss_body.custom_minimum_size = Vector2(286,58)
+	boss_body.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	boss_panel.add_child(boss_body)
+	boss_name_label = UISkin.label("",13,Color("ffe6c2"))
+	boss_name_label.position = Vector2(10,5)
+	boss_name_label.size = Vector2(266,18)
+	boss_name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	boss_name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	boss_body.add_child(boss_name_label)
+	boss_bar = ProgressBar.new()
+	boss_bar.position = Vector2(12,26)
+	boss_bar.size = Vector2(262,12)
+	boss_bar.min_value = 0
+	boss_bar.max_value = 100
+	boss_bar.value = 100
+	boss_bar.show_percentage = false
+	boss_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	boss_bar.add_theme_stylebox_override("background",UISkin.box(Color(0.08,0.03,0.04,0.95),Color("5b2734"),5))
+	boss_bar.add_theme_stylebox_override("fill",UISkin.box(Color("d86a78"),Color("ffb3b8"),5))
+	boss_body.add_child(boss_bar)
+	boss_phase_label = UISkin.label("",10,Color("ffd27f"))
+	boss_phase_label.position = Vector2(10,40)
+	boss_phase_label.size = Vector2(266,14)
+	boss_phase_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	boss_body.add_child(boss_phase_label)
 	host.map_overlay = map_script.new()
 	host.map_overlay.size = Vector2(850,460)
 	host.map_overlay.visible = false
@@ -261,6 +299,8 @@ func _layout() -> void:
 	contract_panel.position = area.position+Vector2(0,92)
 	level_banner.size = Vector2(244,46)
 	level_banner.position = Vector2(area.get_center().x-122,area.position.y+96)
+	boss_panel.size = Vector2(286,58)
+	boss_panel.position = Vector2(area.get_center().x-143,area.position.y+8)
 	joystick_center = Vector2(area.position.x+86,area.end.y-80)
 	var hint_width: float = minf(480,area.size.x-220)
 	host.poi_label.position = Vector2(area.get_center().x-hint_width/2,area.end.y-194)
@@ -321,6 +361,7 @@ func _process(_delta: float) -> void:
 		last_toast_text = host.toast_label.text
 		_layout()
 	var state = get_node_or_null("/root/CartoonPlayerState")
+	_update_boss_panel(blocked)
 	if state != null:
 		var current_level: int = int(state.player_level)
 		if last_player_level < 0:
@@ -400,6 +441,59 @@ func _process(_delta: float) -> void:
 	if last_joystick != host.joystick_vector:
 		last_joystick = host.joystick_vector
 	queue_redraw()
+
+func _active_boss():
+	if host == null or host.hero == null:
+		return null
+	var best = null
+	var best_distance: float = INF
+	var monsters_value = host.get("monsters")
+	if not (monsters_value is Array):
+		return null
+	for monster in monsters_value:
+		if not is_instance_valid(monster) or monster.is_queued_for_deletion():
+			continue
+		var boss_id_value = monster.get("boss_id")
+		if boss_id_value == null or String(boss_id_value) == "":
+			continue
+		var hp_value = monster.get("hp")
+		var max_hp_value = monster.get("max_hp")
+		if hp_value == null or max_hp_value == null or int(hp_value) <= 0:
+			continue
+		var distance: float = host.hero.position.distance_to(monster.position)
+		var engaged: bool = int(hp_value) < int(max_hp_value)
+		if distance > 650.0 and not engaged:
+			continue
+		if distance < best_distance:
+			best = monster
+			best_distance = distance
+	return best
+
+func _update_boss_panel(blocked: bool) -> void:
+	if boss_panel == null:
+		return
+	var boss = _active_boss()
+	if boss == null or blocked:
+		boss_panel.visible = false
+		last_boss_phase = 0
+		return
+	boss_panel.visible = true
+	var hp_value: int = maxi(0,int(boss.hp))
+	var max_hp_value: int = maxi(1,int(boss.max_hp))
+	var phase_value: int = clampi(int(boss.boss_phase),1,3)
+	boss_name_label.text = "%s • Nv %d" % [String(boss.monster_name),int(boss.level)]
+	boss_bar.max_value = max_hp_value
+	boss_bar.value = hp_value
+	boss_phase_label.text = "%s • %d/%d" % [String(boss.boss_phase_label()),hp_value,max_hp_value]
+	if phase_value != last_boss_phase:
+		last_boss_phase = phase_value
+		var fill_color: Color = Color("d86a78")
+		if phase_value == 2:
+			fill_color = Color("e67b4f")
+		elif phase_value >= 3:
+			fill_color = Color("db3f78")
+		boss_bar.add_theme_stylebox_override("fill",UISkin.box(fill_color,fill_color.lightened(0.25),5))
+	boss_panel.tooltip_text = "%s\n%s" % [boss_name_label.text,boss_phase_label.text]
 
 func _show_level_up(from_level: int,to_level: int,state) -> void:
 	if level_banner == null or level_banner_label == null:
