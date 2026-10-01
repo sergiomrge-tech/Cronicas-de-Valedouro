@@ -3,7 +3,7 @@
 **Diretor:** Sergio  
 **Mundo:** Elyndor  
 **Engine:** Godot 4.7.2  
-**Base oficial validada:** 2D Cartoon v0.36  
+**Base oficial validada:** 2D Cartoon v0.37  
 **Cena inicial:** `res://scenes/cartoon/CartoonMainMenu.tscn`
 
 ## ATENÇÃO
@@ -269,10 +269,9 @@ brilho/emblema próprios no herói. Save permanece v8. Ler
 `docs/CARTOON_BOSS_CRAFTING_V0_36.md`. Validada no Godot 4.7.2 oficial no commit `5bca6333`, run `36887979521`, com 55 testes nativos e QA visual. APK continua sob demanda.
 
 
-## Continuidade — candidata v0.37: combate de chefes em fases
+## Continuidade — v0.37 validada: combate de chefes em fases
 
 A v0.37 adiciona barra dedicada de boss no HUD, três fases automáticas por HP e
 golpes especiais periódicos com telegráfico ampliado e dano escalonado nas
 Fases II/III. Monstros comuns preservam o comportamento anterior. Save
-permanece v8. Ler `docs/CARTOON_BOSS_COMBAT_V0_37.md`. Só promover após o
-Godot Gate 4.7.2. APK continua sob demanda.
+permanece v8. Ler `docs/CARTOON_BOSS_COMBAT_V0_37.md`. Validada no Godot 4.7.2 oficial no commit `4fb27216`, run `36891829409`, com 56 testes nativos e QA visual. APK continua sob demanda.
