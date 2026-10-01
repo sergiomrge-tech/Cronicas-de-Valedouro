@@ -295,3 +295,15 @@ por quadro, sombra no contato com o terreno, fundações e sombras das casas
 alinhadas. Ler `docs/CARTOON_GROUNDING_V0_39.md`; seis capturas em
 `docs/visual_qa/cartoon_v039/review.html`. Verificação renderizada de 208 poses
 em pé aprovada localmente; CI repete em 4.7.2. Não gerar APK neste pedido.
+
+
+## Continuidade — candidata PC Full HD v0.40
+
+A pedido do Diretor, Crônicas de Valedouro passa a ter uma edição PC Windows
+separada da versão Android. A saída padrão é 1920×1080, mantendo a base lógica
+960×540 para escala 2× sem distorção. A edição desktop adiciona mouse/teclado,
+atalhos I/M/J/C/F/H, roda do mouse para zoom e F11 para tela cheia; joystick e
+grandes botões touch de combate ficam ocultos no Windows. Há preset
+`Windows Desktop Full HD`, teste `cartoon_pc_fullhd_v040.gd` e workflow de
+exportação Windows. Ler `docs/PC_FULLHD_V0_40.md`. Não substituir a linha
+Android até a build e o gate 4.7.2 concluírem com sucesso.
