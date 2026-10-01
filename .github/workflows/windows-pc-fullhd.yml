@@ -135,7 +135,7 @@ jobs:
         run: |
           $ErrorActionPreference = "Stop"
           $project = Get-Content "game/project.godot" -Raw
-          if ($project -notmatch 'renderer/rendering_method\.windows="mobile"') { throw "Renderer Windows mobile ausente" }
+          if ($project -notmatch 'renderer/rendering_method="mobile"') { throw "Renderer mobile ausente" }
           if ($project -notmatch 'rendering_device/driver\.windows="d3d12"') { throw "Driver Windows d3d12 ausente" }
 
       - name: Real DirectX 12 runtime gate
