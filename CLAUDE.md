@@ -143,3 +143,15 @@ exigentes; viagens não concedem níveis/cura. Save v6 preserva a campanha.
 no Godot oficial 4.7.2. Leia `docs/CARTOON_MISSIONS_CHALLENGE_V0_29.md` e
 `docs/visual_qa/cartoon_v029/review.html`. Arte MODELED_PENDING_GATE;
 balanceamento PROPOSED. Não gerar APK sem pedido explícito.
+
+
+## Continuidade — candidata v0.30: três magias independentes
+
+A pedido do Diretor: Brasa, Cristal e Arcana juntas no HUD, três botões
+coloridos, três recargas independentes (3 s, Foco reduz até 2,2 s), teclas
+1/2/3 e compatibilidade Q/R. HUD touch sem sobreposição. Save v6 e efeitos
+elementais preservados. 32 testes Cartoon locais passaram; CI inclui
+49 testes oficiais e oito capturas novas. Ler
+`docs/CARTOON_SPELL_SLOTS_V0_30.md` e
+`docs/visual_qa/cartoon_v030/review.html`. Mecânica PROPOSED. Sem novo APK;
+exportação somente mediante pedido, entrega em ZIP anexado à conversa.

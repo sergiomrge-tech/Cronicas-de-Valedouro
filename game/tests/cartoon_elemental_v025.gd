@@ -23,7 +23,7 @@ func clear_actors() -> void:
 	hub.monsters.clear()
 func cast(index: int):
 	hub.hero.spell_index = index
-	hub.hero.spell_cooldown = 0
+	hub.hero.spell_cooldowns[hub.hero.spell_index] = 0
 	assert(hub.hero.cast_spell(hub))
 	var shots = get_nodes_in_group("cartoon_spell_projectiles")
 	assert(shots.size()==1)

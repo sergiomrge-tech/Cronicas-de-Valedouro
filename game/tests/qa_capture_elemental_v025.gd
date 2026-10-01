@@ -57,7 +57,7 @@ func run() -> void:
 		dummy(Vector2(175,0))
 		if spell==2: dummy(Vector2(245,30))
 		hub.hero.spell_index = spell
-		hub.hero.spell_cooldown = 0
+		hub.hero.spell_cooldowns[hub.hero.spell_index] = 0
 		hub._show_toast(["Brasa • impacto e queimadura","Cristal • impacto e lentidão","Arcana • impacto e salto entre alvos"][spell])
 		assert(hub.hero.cast_spell(hub))
 		for frame in range(40):
@@ -71,7 +71,7 @@ func run() -> void:
 	root.content_scale_size = root.size
 	dummy(Vector2(175,0))
 	hub.hero.spell_index = 1
-	hub.hero.spell_cooldown = 0
+	hub.hero.spell_cooldowns[hub.hero.spell_index] = 0
 	assert(hub.hero.cast_spell(hub))
 	advance(0.45)
 	await settle()

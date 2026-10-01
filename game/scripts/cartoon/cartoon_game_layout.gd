@@ -25,8 +25,7 @@ var quest_panel: PanelContainer
 var quest_body: Control
 var collapse_button: Button
 var attack_button: Button
-var spell_button: Button
-var spell_cycle_button: Button
+var spell_buttons: Array[Button] = []
 var interact_button: Button
 var dodge_button: Button
 var map_button: Button
@@ -65,7 +64,8 @@ static func can_start_movement(node: Node, p: Vector2) -> bool:
 	if layout == null or layout.is_blocked(): return false
 	# Native touch-to-mouse emulation may deliver the touch before the GUI mouse
 	# event. Never claim a finger over a toolbar/zoom hitbox in that interval.
-	var controls: Array[Control] = [layout.map_button,layout.pause_button,layout.attack_button,layout.interact_button,layout.spell_button,layout.spell_cycle_button,layout.dodge_button,layout.quest_panel]
+	var controls: Array[Control] = [layout.map_button,layout.pause_button,layout.attack_button,layout.interact_button,layout.dodge_button,layout.quest_panel]
+	controls.append_array(layout.spell_buttons)
 	for key: String in ["inventory_ui","crafting_ui"]:
 		var ui = node.get(key)
 		if ui != null and ui.toggle_button != null: controls.append(ui.toggle_button)
@@ -170,18 +170,16 @@ func _build(map_script, navigation_property: String) -> void:
 	interact_button.name = "InteractButton"
 	add_child(interact_button)
 	gameplay_nodes.append(interact_button)
-	spell_button = _button("MAGIA",Vector2(76,50),_cast_spell,24)
-	spell_button.name = "SpellButton"
-	spell_button.add_theme_font_size_override("font_size",12)
-	spell_button.tooltip_text = "Q: conjurar • alcance 220 • recarga 3 s • exige linha de visão"
-	add_child(spell_button)
-	gameplay_nodes.append(spell_button)
-	spell_cycle_button = _button("TROCAR",Vector2(76,44),_cycle_spell,12)
-	spell_cycle_button.name = "SpellCycleButton"
-	spell_cycle_button.add_theme_font_size_override("font_size",10)
-	spell_cycle_button.tooltip_text = "R: trocar • Brasa queima • Cristal desacelera • Arcana salta entre inimigos"
-	add_child(spell_cycle_button)
-	gameplay_nodes.append(spell_cycle_button)
+	var tips = ["Brasa: queimadura em três pulsos","Cristal: lentidão por 2,5 s","Arcana: salta para um inimigo próximo"]
+	for i in range(3):
+		var button = _button("",Vector2(76,50),_cast_spell.bind(i),14)
+		button.name = ["EmberSpellButton","FrostSpellButton","ArcaneSpellButton"][i]
+		button.add_theme_font_size_override("font_size",12)
+		UISkin.button(button,UISkin.SURFACE,host.hero.SPELL_COLORS[i],14)
+		button.tooltip_text = "%d: %s • alcance 220 • recarga própria de 3 s • exige linha de visão" % [i+1,tips[i]]
+		add_child(button)
+		spell_buttons.append(button)
+		gameplay_nodes.append(button)
 	dodge_button = _button("ESQUIVA",Vector2(62,50),_dodge,10)
 	dodge_button.name = "DodgeButton"
 	dodge_button.add_theme_font_size_override("font_size",11)
@@ -215,10 +213,11 @@ func _layout() -> void:
 	pause_button.position = Placement.toolbar_rect(get_viewport(),3).position
 	attack_button.position = Vector2(area.end.x-86,area.end.y-94)
 	interact_button.position = Vector2(area.end.x-172,area.end.y-78)
-	spell_button.position = Vector2(area.end.x-86,area.end.y-154)
-	spell_cycle_button.position = Vector2(area.end.x-86,area.end.y-200)
+	var compact: bool = area.size.x<888
+	for i in range(3):
+		spell_buttons[i].position = Vector2(area.end.x-240+i*82,area.end.y-(204 if compact else 154))
 	dodge_button.size = Vector2(62,50)
-	dodge_button.position = Vector2(area.end.x-152,area.end.y-142)
+	dodge_button.position = Vector2(area.end.x-152,area.end.y-142) if compact else Vector2(area.end.x-70,area.end.y-208)
 	contract_panel.position = area.position+Vector2(0,92)
 	joystick_center = Vector2(area.position.x+86,area.end.y-80)
 	var hint_width: float = minf(480,area.size.x-220)
@@ -227,13 +226,16 @@ func _layout() -> void:
 	host.toast_label.position = Vector2(area.get_center().x-225,area.end.y-245)
 	host.toast_label.size = Vector2(450,40)
 	host.poi_label.position.y = maxf(host.poi_label.position.y,host.toast_label.position.y+44)
+	if compact:
+		host.poi_label.position.x = area.position.x
+		host.poi_label.size.x = area.size.x-260
 	if area.size.y<380:
 		# Keep transient messages below the objective card and above the toolbar.
 		host.toast_label.position = area.position+Vector2(0,128)
-		host.toast_label.size = Vector2(area.size.x-108,34)
+		host.toast_label.size = Vector2(area.size.x-260,34)
 		host.toast_label.add_theme_font_size_override("font_size",13)
 		host.poi_label.position = area.position+Vector2(0,163)
-		host.poi_label.size = Vector2(area.size.x-108,20)
+		host.poi_label.size = Vector2(area.size.x-260,20)
 	else:
 		host.toast_label.add_theme_font_size_override("font_size",16)
 	queue_redraw()
@@ -287,17 +289,18 @@ func _process(_delta: float) -> void:
 		attack_button.text = "DISPARAR" if host.hero.bow_equipped else "ATACAR"
 		if attack_wait>0: attack_button.text += "\n%.1f s" % attack_wait
 		attack_button.disabled = attack_wait>0 or host.hero.death_t>0
-		spell_button.text = "%s\n%.1f s" % [host.hero.SPELL_NAMES[host.hero.spell_index],host.hero.spell_cooldown] if host.hero.spell_cooldown>0 else "MAGIA\n"+host.hero.SPELL_NAMES[host.hero.spell_index]
-		spell_button.disabled = host.hero.spell_cooldown>0
+		for i in range(3):
+			var remaining: float = host.hero.spell_cooldown_remaining(i)
+			spell_buttons[i].text = "%s\n%.1f s" % [host.hero.SPELL_NAMES[i],remaining] if remaining>0 else host.hero.SPELL_NAMES[i]+"\nPRONTA"
+			spell_buttons[i].disabled = remaining>0 or host.hero.death_t>0 or host.hero.dodge_t>0
 		dodge_button.text = "ESQUIVA\n%.1f s" % host.hero.dodge_cooldown if host.hero.dodge_cooldown>0 else "ESQUIVA"
 		dodge_button.disabled = host.hero.dodge_cooldown>0 or host.hero.death_t>0
 	if inside_building:
 		attack_button.visible = false
-		spell_button.visible = false
-		spell_cycle_button.visible = false
+		for button in spell_buttons: button.visible = false
 		dodge_button.visible = false
 	if expanded:
-		for button: Button in [spell_button,spell_cycle_button,dodge_button,attack_button,interact_button]:
+		for button: Button in spell_buttons+[dodge_button,attack_button,interact_button]:
 			if quest_panel.get_global_rect().intersects(button.get_global_rect()): button.visible = false
 		for label: Label in [host.toast_label,host.poi_label]:
 			if quest_panel.get_global_rect().intersects(label.get_global_rect()): label.visible = false
@@ -344,8 +347,8 @@ func _input(event: InputEvent) -> void:
 		host.joystick_vector = (event.position-host.joystick_origin).limit_length(80.0)/80.0
 		get_viewport().set_input_as_handled()
 
-func _cast_spell() -> void:
-	if not is_blocked() and host.hero != null: host.hero.cast_spell(host)
+func _cast_spell(index: int = -1) -> void:
+	if not is_blocked() and host.hero != null: host.hero.cast_spell(host,index)
 
 func _dodge() -> void:
 	if not is_blocked() and host.hero != null: host.hero.try_dodge(host)
@@ -370,6 +373,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and not is_blocked():
 		if event.physical_keycode == KEY_SHIFT:
 			_dodge()
+			get_viewport().set_input_as_handled()
+			return
+		if event.physical_keycode in [KEY_1,KEY_2,KEY_3]:
+			_cast_spell(event.physical_keycode-KEY_1)
 			get_viewport().set_input_as_handled()
 			return
 		if event.physical_keycode == KEY_Q:

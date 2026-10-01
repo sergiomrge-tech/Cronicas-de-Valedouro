@@ -171,3 +171,15 @@ Neste ambiente, a ferramenta GitHub `download_workflow_artifact` baixa o
 artefato ZIP da build e retorna uma referência de arquivo nativa (`file_id`).
 Usar a referência retornada para o anexo; nunca inventar IDs nem reutilizar
 URLs temporárias expiradas. O artefato Android já inclui APK e SHA256.
+
+
+## Continuidade — candidata v0.30: três magias independentes
+
+A pedido do Diretor: Brasa, Cristal e Arcana juntas no HUD, três botões
+coloridos, três recargas independentes (3 s, Foco reduz até 2,2 s), teclas
+1/2/3 e compatibilidade Q/R. HUD touch sem sobreposição. Save v6 e efeitos
+elementais preservados. 32 testes Cartoon locais passaram; CI inclui
+49 testes oficiais e oito capturas novas. Ler
+`docs/CARTOON_SPELL_SLOTS_V0_30.md` e
+`docs/visual_qa/cartoon_v030/review.html`. Mecânica PROPOSED. Sem novo APK;
+exportação somente mediante pedido, entrega em ZIP anexado à conversa.

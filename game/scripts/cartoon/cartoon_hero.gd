@@ -22,7 +22,7 @@ var cast_spell_index: int = 0
 var cast_t: float = 0.0
 var death_t: float = 0.0
 var hurt_t: float = 0.0
-var spell_cooldown: float = 0.0
+var spell_cooldowns: Array[float] = [0.0,0.0,0.0]
 var spell_index: int = 0
 var spell_mode: bool = false
 var weapon_tier: int = 0
@@ -157,12 +157,18 @@ func cycle_spell() -> void:
 	spell_index = (spell_index+1)%SPELLS.size()
 	queue_redraw()
 
-func cast_spell(host) -> bool:
-	if spell_cooldown>0 or dodge_t>0 or death_t>0 or get_tree().paused: return false
+func spell_cooldown_remaining(index: int = -1) -> float:
+	return spell_cooldowns[spell_index if index<0 else index]
+
+func cast_spell(host, index: int = -1) -> bool:
+	var selected: int = spell_index if index<0 else index
+	if selected<0 or selected>=SPELLS.size(): return false
+	if spell_cooldowns[selected]>0 or dodge_t>0 or death_t>0 or get_tree().paused: return false
 	var layout = host.get_node_or_null("HUD/GameLayout")
 	if layout != null and layout.is_blocked(): return false
 	if host.get("interiors") != null and host.interiors.active: return false
-	spell_cooldown = maxf(2.2,3.0-0.08*_skill("focus"))
+	spell_index = selected
+	spell_cooldowns[selected] = maxf(2.2,3.0-0.08*_skill("focus"))
 	cast_t = 0.65
 	cast_spell_index = spell_index
 	spell_mode = true
@@ -202,7 +208,7 @@ func _process(delta: float) -> void:
 	death_t = maxf(0,death_t-delta)
 	cast_t = maxf(0,cast_t-delta)
 	hurt_t = maxf(0,hurt_t-delta)
-	spell_cooldown = maxf(0,spell_cooldown-delta)
+	for i in range(SPELLS.size()): spell_cooldowns[i] = maxf(0,spell_cooldowns[i]-delta)
 	attack_t = maxf(0.0, attack_t - delta)
 	queue_redraw()
 

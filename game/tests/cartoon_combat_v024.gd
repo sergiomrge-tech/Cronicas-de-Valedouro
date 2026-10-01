@@ -40,7 +40,7 @@ func run() -> void:
 	shots[0]._process(0.65)
 	assert(target.hp==0,"Spell did not damage ranged target")
 	assert(hub.player_gold==gold+6,"Region reward path bypassed")
-	assert(not hub.hero.spell_mode and hub.hero.spell_cooldown>0)
+	assert(not hub.hero.spell_mode and hub.hero.spell_cooldown_remaining()>0)
 	assert(not hub.hero.cast_spell(hub),"Spell ignored cooldown")
 	for i in range(3): hub.hero.cycle_spell()
 	assert(hub.hero.spell_index==2)
@@ -52,14 +52,14 @@ func run() -> void:
 		root.content_scale_size = dimensions
 		await settle()
 		layout._layout()
-		for button in [layout.spell_button,layout.spell_cycle_button]:
+		for button in layout.spell_buttons:
 			assert(Rect2(Vector2.ZERO,Vector2(dimensions)).encloses(button.get_global_rect()))
 			assert(not button.get_global_rect().intersects(layout.attack_button.get_global_rect()))
 			assert(not button.get_global_rect().intersects(layout.interact_button.get_global_rect()))
 			for other in [layout.map_button,layout.pause_button,layout.quest_panel,hub.zoom_controls.panel,hub.inventory_ui.toggle_button,hub.crafting_ui.toggle_button]:
 				assert(not button.get_global_rect().intersects(other.get_global_rect()),"Spell HUD overlaps existing controls")
 	layout.open_pause()
-	hub.hero.spell_cooldown = 0
+	hub.hero.spell_cooldowns[hub.hero.spell_index] = 0
 	assert(not hub.hero.cast_spell(hub),"Spell during pause")
 	layout.close_pause()
 	# Effects are bounded and clean up independently of defeated actors.

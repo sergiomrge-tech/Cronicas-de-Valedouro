@@ -75,11 +75,11 @@ func run() -> void:
 	assert(hub.hero.try_dodge(hub) and is_equal_approx(hub.hero.dodge_cooldown,1.6))
 	hub.hero.dodge_t = 0
 	hub.hero.dodge_cooldown = 0
-	hub.hero.spell_cooldown = 1.1
+	hub.hero.spell_cooldowns[hub.hero.spell_index] = 1.1
 	hub.player_hp = 73
 	var gold: int = hub.player_gold
 	assert(state.set_class("mage"))
-	assert(hub.player_hp==73 and hub.player_gold==gold and is_equal_approx(hub.hero.spell_cooldown,1.1))
+	assert(hub.player_hp==73 and hub.player_gold==gold and is_equal_approx(hub.hero.spell_cooldown_remaining(),1.1))
 	assert(hub.hero.attack_damage(100)==100 and hub.hero.magic_damage(100)==140)
 	assert(hub.hero.reduce_incoming_damage(100)==100)
 	var mob = Monster.new()
@@ -88,8 +88,8 @@ func run() -> void:
 	hub.monsters.append(mob)
 	mob.set_process(false)
 	hub.hero.spell_index = 1
-	hub.hero.spell_cooldown = 0
-	assert(hub.hero.cast_spell(hub) and is_equal_approx(hub.hero.spell_cooldown,2.2))
+	hub.hero.spell_cooldowns[hub.hero.spell_index] = 0
+	assert(hub.hero.cast_spell(hub) and is_equal_approx(hub.hero.spell_cooldown_remaining(),2.2))
 	var shot = get_nodes_in_group("cartoon_spell_projectiles")[0]
 	shot.set_process(false)
 	assert(shot.damage==25 and is_equal_approx(shot.chill_duration,3.5) and is_equal_approx(shot.echo_radius,160))

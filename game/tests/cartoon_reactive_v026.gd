@@ -115,17 +115,17 @@ func run() -> void:
 			layout._layout()
 			var rect: Rect2 = layout.dodge_button.get_global_rect()
 			assert(Rect2(Vector2.ZERO,Vector2(dimensions)).encloses(rect) and rect.size.y>=44)
-			for other in [layout.spell_button,layout.spell_cycle_button,layout.attack_button,layout.interact_button,layout.map_button,layout.pause_button,layout.quest_panel,host.zoom_controls.panel,host.inventory_ui.toggle_button,host.crafting_ui.toggle_button]:
+			for other in layout.spell_buttons+[layout.attack_button,layout.interact_button,layout.map_button,layout.pause_button,layout.quest_panel,host.zoom_controls.panel,host.inventory_ui.toggle_button,host.crafting_ui.toggle_button]:
 				assert(not rect.intersects(other.get_global_rect()),"Dodge "+str(rect)+" overlaps "+String(other.name)+" "+str(other.get_global_rect())+" at "+str(dimensions))
 			assert(not Layout.can_start_movement(host,rect.get_center()))
 			if dimensions.y==360:
 				for message in [host.toast_label,host.poi_label]:
-					for control in [layout.quest_panel,layout.spell_button,layout.spell_cycle_button,layout.dodge_button,layout.map_button,layout.pause_button]:
+					for control in layout.spell_buttons+[layout.quest_panel,layout.dodge_button,layout.map_button,layout.pause_button]:
 						assert(not message.get_global_rect().intersects(control.get_global_rect()),"Compact combat message overlaps HUD")
 				assert(not host.toast_label.get_global_rect().intersects(host.poi_label.get_global_rect()))
 			layout._toggle_quest()
 			await settle()
-			for button in [layout.dodge_button,layout.spell_button,layout.spell_cycle_button]:
+			for button in layout.spell_buttons+[layout.dodge_button]:
 				assert(not button.visible or not button.get_global_rect().intersects(layout.quest_panel.get_global_rect()))
 			layout._toggle_quest()
 		# Exercise native GUI touch routing, including touch-to-mouse emulation.
