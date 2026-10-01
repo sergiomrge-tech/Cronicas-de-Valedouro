@@ -4,6 +4,17 @@ extends Control
 
 const GuildContracts = preload("res://scripts/cartoon/cartoon_guild_contracts.gd")
 const ClassUI = preload("res://scripts/cartoon/cartoon_class_ui.gd")
+const DemonMapMarkers = preload("res://scripts/cartoon/cartoon_demon_map_markers.gd")
+const DemonDirector = preload("res://scripts/cartoon/cartoon_demon_director.gd")
+var demon_director
+const MissionUI = preload("res://scripts/cartoon/cartoon_mission_ui.gd")
+const MissionJournal = preload("res://scripts/cartoon/cartoon_mission_journal.gd")
+const MissionMarker = preload("res://scripts/cartoon/cartoon_mission_map_marker.gd")
+var mission_ui
+var mission_button: Button
+var mission_marker
+var tracking_elapsed: float = 0
+var tracked_target: Dictionary = {}
 var class_ui
 
 const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
@@ -91,9 +102,10 @@ func _build(map_script, navigation_property: String) -> void:
 	quest_body.custom_minimum_size = Vector2(284,120)
 	quest_body.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	quest_panel.add_child(quest_body)
-	var title: Label = UISkin.label("OBJETIVO",11,UISkin.MUTED)
-	title.position = Vector2(14,9)
-	quest_body.add_child(title)
+	mission_button = _button("MISSÕES",Vector2(110,44),_open_missions)
+	mission_button.name = "MissionsButton"
+	mission_button.position = Vector2(8,0)
+	quest_body.add_child(mission_button)
 	collapse_button = _button("+",Vector2(44,44),_toggle_quest)
 	collapse_button.name = "ExpandQuestButton"
 	collapse_button.position = Vector2(239,0)
@@ -131,6 +143,9 @@ func _build(map_script, navigation_property: String) -> void:
 	host.map_overlay.visible = false
 	add_child(host.map_overlay)
 	host.map_overlay.setup(host.hero)
+	mission_marker = MissionMarker.new()
+	mission_marker.name = "TrackedMissionMarker"
+	host.map_overlay.add_child(mission_marker)
 	host.map_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
 	host.map_overlay.z_index = 80
 	UISkin.bind(host.map_overlay,Vector2(850,460),"center",true)
@@ -178,6 +193,11 @@ func _build(map_script, navigation_property: String) -> void:
 	class_ui.name = "HeroClasses"
 	add_child(class_ui)
 	class_ui.setup(host)
+	mission_ui = MissionUI.new()
+	mission_ui.name = "MissionJournal"
+	add_child(mission_ui)
+	mission_ui.setup(host)
+	call_deferred("_setup_demons")
 
 func _button(text: String, button_size: Vector2, callback: Callable, radius: int = 10) -> Button:
 	var button: Button = Button.new()
@@ -229,6 +249,7 @@ func _toggle_quest() -> void:
 	_layout()
 
 func is_blocked() -> bool:
+	if mission_ui != null and mission_ui.is_open(): return true
 	if class_ui != null and class_ui.is_open(): return true
 	if host.map_open or pause_panel.visible: return true
 	if host.get("guild_board") != null and host.guild_board.is_open(): return true
@@ -262,6 +283,10 @@ func _process(_delta: float) -> void:
 	map_button.text = "SAIR" if inside_building else "MAPA"
 	for control: Control in gameplay_nodes: control.visible = not blocked
 	if host.hero != null:
+		var attack_wait: float = host.hero.bow_cooldown if host.hero.bow_equipped else host.hero.melee_cooldown
+		attack_button.text = "DISPARAR" if host.hero.bow_equipped else "ATACAR"
+		if attack_wait>0: attack_button.text += "\n%.1f s" % attack_wait
+		attack_button.disabled = attack_wait>0 or host.hero.death_t>0
 		spell_button.text = "%s\n%.1f s" % [host.hero.SPELL_NAMES[host.hero.spell_index],host.hero.spell_cooldown] if host.hero.spell_cooldown>0 else "MAGIA\n"+host.hero.SPELL_NAMES[host.hero.spell_index]
 		spell_button.disabled = host.hero.spell_cooldown>0
 		dodge_button.text = "ESQUIVA\n%.1f s" % host.hero.dodge_cooldown if host.hero.dodge_cooldown>0 else "ESQUIVA"
@@ -292,6 +317,7 @@ func _process(_delta: float) -> void:
 		var source: String = host.story_runtime.hud_text()
 		host.objective_label.text = source.trim_prefix("HISTÓRIA PRINCIPAL\n")
 		host.objective_label.tooltip_text = host.objective_label.text
+	_update_tracking(_delta)
 	if last_joystick != host.joystick_vector:
 		last_joystick = host.joystick_vector
 	queue_redraw()
@@ -331,6 +357,11 @@ func _cycle_spell() -> void:
 		host._show_toast(tips[host.hero.spell_index])
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_J:
+		if mission_ui.is_open(): mission_ui.close_panel()
+		elif not is_blocked(): _open_missions()
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_C:
 		if class_ui.is_open(): class_ui.close_panel()
 		elif not is_blocked(): class_ui.open_panel()
@@ -350,7 +381,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			return
 	if not event.is_action_pressed("ui_cancel"): return
-	if class_ui.is_open(): class_ui.close_panel()
+	if mission_ui.is_open(): mission_ui.close_panel()
+	elif class_ui.is_open(): class_ui.close_panel()
 	elif host.get("guild_board") != null and host.guild_board.is_open(): host.guild_board.close_panel()
 	elif pause_panel.visible: close_pause()
 	elif host.map_open: host._toggle_map()
@@ -405,3 +437,54 @@ func _return_to_menu() -> void:
 func _exit_tree() -> void:
 	if get_tree() != null and pause_panel != null and pause_panel.visible:
 		get_tree().paused = false
+
+func _open_missions() -> void:
+	tracking_elapsed = 0
+	mission_ui.open_panel()
+
+func _update_tracking(delta: float) -> void:
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state==null or host.story_runtime==null: return
+	state.normalize_tracked_mission()
+	if state.tracked_mission=="main":
+		if tracked_target.has("id"):
+			tracked_target.clear()
+			if host.has_method("_update_objective_navigation"): host._update_objective_navigation()
+			elif host.has_method("_update_navigation"): host._update_navigation()
+		mission_marker.enabled = false
+		mission_marker.queue_redraw()
+		if host.map_open: host.map_overlay.set_target(host.story_runtime.current_location())
+		return
+	var id: String = state.tracked_mission
+	var row: Dictionary = GuildContracts.row(id)
+	var progress: int = GuildContracts.progress(state,id)
+	host.objective_label.text = "%s • %d/%d\n%s" % [String(row.title),progress,int(row.count),"Volte à guilda para receber" if progress>=int(row.count) else String(row.description)]
+	host.objective_label.tooltip_text = host.objective_label.text
+	tracking_elapsed -= delta
+	# Habitats can number hundreds; refresh only twice per second or on selection.
+	if tracking_elapsed<=0 or tracked_target.get("id","")!=id or tracked_target.get("progress",-1)!=progress:
+		tracked_target = MissionJournal.target(host,state,id)
+		tracked_target.id = id
+		tracked_target.progress = progress
+		tracking_elapsed = 0.5
+	var nav: Label = quest_body.get_node("ObjectiveNavigation")
+	nav.text = String(tracked_target.get("hint",""))
+	if tracked_target.get("valid",false):
+		var diff: Vector2 = tracked_target.position-host.hero.position
+		var direction: String = "◆" if diff.length()<35 else ["→","↘","↓","↙","←","↖","↑","↗"][posmod(roundi(diff.angle()/(PI/4)),8)]
+		nav.text = "%s %dm • %s" % [direction,int(diff.length()),String(tracked_target.hint)]
+	mission_marker.enabled = bool(tracked_target.get("valid",false))
+	mission_marker.point = tracked_target.get("position",Vector2.ZERO)
+	mission_marker.caption = String(row.title)
+	mission_marker.queue_redraw()
+	if host.map_open: host.map_overlay.set_target("")
+
+func _setup_demons() -> void:
+	demon_director = DemonDirector.new()
+	demon_director.name = "EliteDemonDirector"
+	add_child(demon_director)
+	demon_director.setup(host)
+	var markers = DemonMapMarkers.new()
+	markers.name = "EliteDemonMapMarkers"
+	markers.director = demon_director
+	host.map_overlay.add_child(markers)

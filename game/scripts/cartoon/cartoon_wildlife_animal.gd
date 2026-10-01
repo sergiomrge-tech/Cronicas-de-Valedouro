@@ -1,4 +1,6 @@
 extends Node2D
+const Difficulty = preload("res://scripts/cartoon/cartoon_difficulty.gd")
+var level: int = 1
 const Assets = preload("res://scripts/cartoon/cartoon_living_assets.gd")
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
 var director
@@ -20,12 +22,13 @@ var hit_flash: float = 0.0
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 func setup(manager, data: Dictionary) -> void:
 	director = manager
+	level = clampi(int(data.get("level",Difficulty.region_level(manager.region_id))),1,100)
 	slot_id = data.id
 	kind = data.kind
 	home = data.pos
 	position = home
 	destination = home
-	max_hp = 22 if kind == "rabbit" else (38 if kind == "deer" else 58)
+	max_hp = 36 if kind == "rabbit" else (64 if kind == "deer" else 98)
 	hp = max_hp
 	rng.seed = hash(slot_id)
 	clock = rng.randf_range(0,10)
@@ -50,7 +53,7 @@ func _process(delta: float) -> void:
 		speed = 115
 		if distance < 48 and cooldown <= 0:
 			cooldown = 1.0
-			director.damage_player(8)
+			director.damage_player(14,level)
 	elif distance < (200.0 if provoked else 110.0):
 		direction = (position-hero.position).normalized()
 		speed = 185 if kind == "rabbit" else 170
@@ -68,6 +71,8 @@ func _process(delta: float) -> void:
 	queue_redraw()
 func take_damage(amount: int) -> bool:
 	if dead: return false
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	amount = Difficulty.outgoing(amount,state.player_level if state!=null else 1,level)
 	preload("res://scripts/cartoon/cartoon_combat_fx.gd").spawn(get_parent(),position+Vector2(0,-22),"hit",Vector2.UP,Color("ffd79a"),mini(amount,hp))
 	provoked = true
 	hit_flash = 0.15
@@ -88,5 +93,9 @@ func _draw() -> void:
 	draw_set_transform(Vector2.ZERO)
 	if burn_t>0: DrawUtil.flame(self,Vector2(0,-18),15,6,clock)
 	if chill_t>0: draw_arc(Vector2(0,-15),20,clock,clock+PI*1.7,32,Color("a3f0ff"),1.5,true)
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	var level_color: Color = Difficulty.level_color(state.player_level if state!=null else 1,level)
+	draw_string(ThemeDB.fallback_font,Vector2(-23,-size_v.y-13),"Nv %d" % level,HORIZONTAL_ALIGNMENT_LEFT,70,12,Color("152b2b"))
+	draw_string(ThemeDB.fallback_font,Vector2(-24,-size_v.y-14),"Nv %d" % level,HORIZONTAL_ALIGNMENT_LEFT,70,12,level_color)
 	if hp < max_hp: DrawUtil.bar(self,Vector2(-24,-size_v.y-3),Vector2(48,5),float(hp)/max_hp,Color("b97b5a"))
 	if hit_flash > 0: draw_circle(Vector2(0,-25),23,Color(1,0.95,0.8,0.28))

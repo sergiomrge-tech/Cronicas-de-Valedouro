@@ -30,7 +30,7 @@ func run() -> void:
 	assert(packed.get_node_or_null("WorldObjects") != null)
 	assert(packed.get_node_or_null("HUD") != null)
 	assert(packed.get_node_or_null("WorldObjects/Player") != null)
-	assert(packed.monsters.size() == 17)
+	assert(packed.monsters.filter(func(m): return not m.is_in_group("cartoon_elite_demons")).size() == 17)
 	assert(packed.environment.nearest_poi(Region.world_from_hub(Vector2(650,1935)),190.0).get("id","") == "POI_REG001_FARM")
 	assert(packed.world_stream != null)
 	assert(packed.story_zones != null)

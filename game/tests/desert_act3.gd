@@ -64,7 +64,7 @@ func run() -> void:
 	desert._toggle_map()
 	assert(not desert.map_open)
 	assert(desert.pois.size() == 14)
-	assert(desert.monsters.size() == 7)
+	assert(desert.monsters.filter(func(m): return not m.is_in_group("cartoon_elite_demons")).size() == 7)
 	assert(desert.world_stream.active_count() >= 9)
 	desert.hero.position = Vector2(16800,22200)
 	desert.world_stream._refresh(true)

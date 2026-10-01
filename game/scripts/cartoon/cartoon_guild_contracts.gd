@@ -39,6 +39,7 @@ static func claim(state, host, id: String) -> bool:
 	if item.is_empty() or status(state,id) != "active" or progress(state,id) < int(item.count): return false
 	# Mark consumed/claimed before any reward method can autosave.
 	state.guild_contracts[id]["status"] = "claimed"
+	state.normalize_tracked_mission()
 	if item.has("material"):
 		state.materials[item.material] = state.material_count(item.material)-int(item.count)
 	if id == "GUILD_WOLVES" and host.get("field_quest_active") != null: host.field_quest_active = false

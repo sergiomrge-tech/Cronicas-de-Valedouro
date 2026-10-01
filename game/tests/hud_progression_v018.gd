@@ -13,9 +13,9 @@ func run() -> void:
 
 	assert(state.player_level == 1)
 	assert(state.player_xp == 0)
-	assert(state.xp_to_next(1) == 63)
+	assert(state.xp_to_next(1) == 188)
 
-	var first: Dictionary = state.gain_xp(63)
+	var first: Dictionary = state.gain_xp(188)
 	assert(bool(first.get("leveled_up",false)))
 	assert(int(first.get("levels",0)) == 1)
 	assert(state.player_level == 2)

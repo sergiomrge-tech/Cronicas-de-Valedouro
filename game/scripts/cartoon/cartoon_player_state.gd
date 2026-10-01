@@ -1,7 +1,19 @@
 extends Node
 
+const GuildMissions = preload("res://scripts/cartoon/cartoon_guild_contracts.gd")
+var demon_cooldowns: Dictionary = {}
+var tracked_mission: String = "main"
+func normalize_tracked_mission() -> void:
+	if tracked_mission!="main" and (GuildMissions.row(tracked_mission).is_empty() or GuildMissions.status(self,tracked_mission)!="active"):
+		tracked_mission = "main"
+func set_tracked_mission(id: String) -> bool:
+	if id!="main" and (GuildMissions.row(id).is_empty() or GuildMissions.status(self,id)!="active"): return false
+	tracked_mission = id
+	save_profile()
+	return true
+
 const SAVE_PATH: String = "user://valedouro_cartoon_profile_v1.json"
-const SAVE_VERSION: int = 5
+const SAVE_VERSION: int = 6
 const Classes = preload("res://scripts/cartoon/cartoon_class_catalog.gd")
 var active_class: String = "warrior"
 var skill_ranks: Dictionary = {}
@@ -412,11 +424,7 @@ func bind_scene(
 		hero_node.position = player_position
 	else:
 		player_position = hero_node.position
-		if player_level < default_level:
-			player_level = default_level
-			player_xp = 0
-		player_max_hp = maxi(player_max_hp,default_max_hp)
-		player_hp = player_max_hp
+		# Campaign travel never awards free levels, stats or healing.
 
 	if _has_property(host_node,"player_max_hp"):
 		host_node.set("player_max_hp",player_max_hp)
@@ -519,7 +527,7 @@ func xp_to_next(level_value: int = -1) -> int:
 	var target_level: int = player_level if level_value < 0 else clampi(level_value,1,100)
 	if target_level >= 100:
 		return 0
-	return 45 + target_level * 18
+	return 120 + target_level*60 + target_level*target_level*8
 
 func xp_ratio() -> float:
 	if player_level >= 100:
@@ -604,6 +612,8 @@ func save_profile() -> void:
 		return
 	var data: Dictionary = {
 		"version":SAVE_VERSION,
+		"tracked_mission":tracked_mission,
+		"demon_cooldowns":demon_cooldowns,
 		"active_class":active_class,
 		"skill_ranks":skill_ranks,
 		"materials":materials,
@@ -639,6 +649,10 @@ func load_profile() -> void:
 	var data: Dictionary = parsed
 	var contracts_value: Variant = data.get("guild_contracts",{})
 	guild_contracts = contracts_value.duplicate(true) if contracts_value is Dictionary else {}
+	var demons_value: Variant = data.get("demon_cooldowns",{})
+	demon_cooldowns = demons_value.duplicate(true) if demons_value is Dictionary else {}
+	tracked_mission = String(data.get("tracked_mission","main"))
+	normalize_tracked_mission()
 	var wildlife_value: Variant = data.get("wildlife_cooldowns",{})
 	wildlife_cooldowns = wildlife_value.duplicate(true) if wildlife_value is Dictionary else {}
 	materials = data.get("materials",{}) as Dictionary
@@ -678,7 +692,9 @@ func reset_progress(delete_save: bool = true) -> void:
 	_clear_active_binding()
 	active_class = "warrior"
 	skill_ranks.clear()
+	demon_cooldowns.clear()
 	guild_contracts.clear()
+	tracked_mission = "main"
 	wildlife_cooldowns.clear()
 	materials.clear()
 	crafted.clear()

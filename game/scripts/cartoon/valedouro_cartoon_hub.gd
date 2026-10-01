@@ -4,6 +4,7 @@ extends Node2D
 const WildlifeScript = preload("res://scripts/cartoon/cartoon_wildlife_director.gd")
 var wildlife
 
+const Difficulty = preload("res://scripts/cartoon/cartoon_difficulty.gd")
 const GameLayout = preload("res://scripts/cartoon/cartoon_game_layout.gd")
 
 const EnvScript = preload("res://scripts/cartoon/hub_environment.gd")
@@ -221,6 +222,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		joystick_vector=(event.position-joystick_origin).limit_length(80.0)/80.0
 
 func _attack() -> void:
+	if hero != null and not hero.spell_mode and hero.melee_cooldown>0: return
 	if hero != null and hero.bow_equipped and not hero.spell_mode and hero.bow_cooldown>0: return
 	if hero != null and hero.dodge_t>0: return
 	if interiors != null and interiors.active: return
@@ -247,6 +249,9 @@ func _can_damage_monster(target: Node2D, feedback: bool = true) -> bool:
 
 func _damage_monster(target: Node2D, amount: int) -> bool:
 	if not _can_damage_monster(target): return false
+	var combat_state = get_node_or_null("/root/CartoonPlayerState")
+	amount = Difficulty.outgoing(amount,combat_state.player_level if combat_state!=null else 1,target.level)
+	if target.is_in_group("cartoon_elite_demons"): return target.receive_combat_damage(amount)
 	var dead: bool = target.take_damage(amount)
 	if dead:
 		var kind: String = String(target.kind)
@@ -258,7 +263,7 @@ func _damage_monster(target: Node2D, amount: int) -> bool:
 			var state = get_node_or_null("/root/CartoonPlayerState")
 			if state != null: GuildContracts.register_hunt(state,"wolf")
 		player_gold += 6
-		_grant_combat_xp(10,boss_id)
+		_grant_combat_xp(10,boss_id,target.level)
 		var story_advanced: bool = false
 		if story_runtime:
 			story_advanced = story_runtime.register_kill(story_tag,boss_id)
@@ -342,7 +347,7 @@ func _spawn_monsters() -> void:
 		var monster: Node2D = MonsterScript.new()
 		var world_data: Dictionary = data.duplicate(true)
 		world_data["pos"] = Region.world_from_hub(data["pos"] as Vector2)
-		monster.setup(world_data)
+		monster.setup(Difficulty.monster_data(world_data,"REG_001_BERCO_VALEDOURO"))
 		objects.add_child(monster)
 		monsters.append(monster)
 
@@ -363,7 +368,7 @@ func _update_monsters(delta: float) -> void:
 				monster.position = next
 		if monster.advance_contact(hero,delta,52.0):
 			hero.trigger_hurt()
-			player_hp = maxi(0, player_hp - int(hero.reduce_incoming_damage(int(monster.contact_damage))))
+			player_hp = maxi(0, player_hp - int(hero.reduce_incoming_damage(int(monster.contact_damage),monster.level)))
 			_refresh_stats()
 			if player_hp <= 0:
 				hero.trigger_fall()
@@ -386,11 +391,11 @@ func _nearest_monster(radius: float) -> Node2D:
 			best = monster
 	return best
 
-func _grant_combat_xp(base_amount: int,boss_id: String = "") -> void:
+func _grant_combat_xp(base_amount: int,boss_id: String = "",enemy_level: int = 1) -> void:
 	var state = get_node_or_null("/root/CartoonPlayerState")
 	if state == null:
 		return
-	var scaled: int = maxi(base_amount,int(round(float(state.player_level)*1.2)))
+	var scaled: int = base_amount+2*maxi(0,enemy_level-1)
 	var reward: int = scaled * (3 if boss_id != "" else 1)
 	state.gain_xp(reward)
 	player_hp = int(state.player_hp)
@@ -424,7 +429,7 @@ func _spawn_outer_landmarks() -> void:
 func _spawn_outer_encounters() -> void:
 	for data in ExplorationContent.encounters():
 		var monster: Node2D = MonsterScript.new()
-		monster.setup(data)
+		monster.setup(Difficulty.monster_data(data,"REG_001_BERCO_VALEDOURO"))
 		objects.add_child(monster)
 		monsters.append(monster)
 
@@ -478,7 +483,7 @@ func _canonical_story_location(poi_id: String) -> String:
 func _spawn_main_story_encounters() -> void:
 	for data in MainStoryMap.act1_encounters():
 		var monster: Node2D = MonsterScript.new()
-		monster.setup(data)
+		monster.setup(Difficulty.monster_data(data,"REG_001_BERCO_VALEDOURO"))
 		objects.add_child(monster)
 		monsters.append(monster)
 

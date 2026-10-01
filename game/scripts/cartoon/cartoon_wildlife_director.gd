@@ -109,16 +109,16 @@ func harvest(animal) -> void:
 		state.materials["Osso de caça"] = state.material_count("Osso de caça")+1
 		if animal.kind != "rabbit": state.materials["Couro do Vale"] = state.material_count("Couro do Vale")+(2 if animal.kind == "boar" else 1)
 		Contracts.register_hunt(state,animal.kind)
-		state.gain_xp(7 if animal.kind == "rabbit" else 12)
+		state.gain_xp((7 if animal.kind == "rabbit" else 12)+2*maxi(0,animal.level-1))
 		state.save_profile()
 	host._show_toast("Caça recolhida: carne, osso"+(" e couro." if animal.kind != "rabbit" else "."))
 	host._refresh_stats()
 	animal.queue_free()
 
-func damage_player(amount: int) -> void:
+func damage_player(amount: int, enemy_level: int = 1) -> void:
 	if host.hero.is_evading(): return
 	host.hero.trigger_hurt()
-	host.player_hp = maxi(0,host.player_hp-host.hero.reduce_incoming_damage(amount))
+	host.player_hp = maxi(0,host.player_hp-host.hero.reduce_incoming_damage(amount,enemy_level))
 	if host.player_hp <= 0:
 		host.hero.trigger_fall()
 		host.player_hp = host.player_max_hp

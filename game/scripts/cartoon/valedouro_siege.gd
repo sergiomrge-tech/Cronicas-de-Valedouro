@@ -1,6 +1,7 @@
 class_name ValedouroCartoonSiege
 extends Node2D
 
+const Difficulty = preload("res://scripts/cartoon/cartoon_difficulty.gd")
 const HubScene = preload("res://scenes/cartoon/ValedouroCartoonHub.tscn")
 const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
 const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
@@ -22,9 +23,9 @@ func _ready() -> void:
 		hub.hud_status.region_label.text = "CERCO DE VALEDOURO"
 		hub._refresh_stats()
 	for monster in hub.monsters.duplicate():
-		if is_instance_valid(monster):
+		if is_instance_valid(monster) and not monster.is_in_group("cartoon_elite_demons"):
+			hub.monsters.erase(monster)
 			monster.queue_free()
-	hub.monsters.clear()
 	_spawn_attackers()
 	hub.objective_label.text = runtime.hud_text()
 	hub._update_objective_navigation()
@@ -67,6 +68,6 @@ func _spawn_attackers() -> void:
 	]
 	for data in rows:
 		var monster: Node2D = MonsterScript.new()
-		monster.setup(data)
+		monster.setup(Difficulty.monster_data(data,"REG_005_SIEGE_VALEDOURO"))
 		hub.objects.add_child(monster)
 		hub.monsters.append(monster)

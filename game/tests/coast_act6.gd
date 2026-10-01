@@ -54,7 +54,7 @@ func run() -> void:
 	assert(coast.get_node_or_null("WorldObjects/Player") != null)
 	assert(coast.story_zones.get_child_count() == 5)
 	assert(coast.pois.size() == 12)
-	assert(coast.monsters.size() == 9)
+	assert(coast.monsters.filter(func(m): return not m.is_in_group("cartoon_elite_demons")).size() == 9)
 	assert(coast.map_overlay != null)
 	assert(coast.world_stream.active_count() >= 9)
 	coast._toggle_map()

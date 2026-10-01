@@ -55,7 +55,7 @@ func run() -> void:
 	assert(marsh.get_node_or_null("WorldObjects/Player") != null)
 	assert(marsh.story_zones.get_child_count() == 6)
 	assert(marsh.pois.size() == 13)
-	assert(marsh.monsters.size() == 6)
+	assert(marsh.monsters.filter(func(m): return not m.is_in_group("cartoon_elite_demons")).size() == 6)
 	assert(marsh.map_overlay != null)
 	assert(marsh.world_stream.active_count() >= 9)
 	marsh._toggle_map()

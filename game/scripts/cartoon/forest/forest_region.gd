@@ -4,6 +4,7 @@ extends Node2D
 const WildlifeScript = preload("res://scripts/cartoon/cartoon_wildlife_director.gd")
 var wildlife
 
+const Difficulty = preload("res://scripts/cartoon/cartoon_difficulty.gd")
 const GameLayout = preload("res://scripts/cartoon/cartoon_game_layout.gd")
 
 const Forest = preload("res://scripts/cartoon/forest/forest_region_config.gd")
@@ -183,7 +184,7 @@ func _spawn_defense_pack() -> void:
 
 func _spawn_monster(data: Dictionary) -> void:
 	var monster: Node2D = MonsterScript.new()
-	monster.setup(data)
+	monster.setup(Difficulty.monster_data(data,Forest.REGION_ID))
 	objects.add_child(monster)
 	monsters.append(monster)
 
@@ -237,6 +238,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		joystick_vector = (event.position-joystick_origin).limit_length(80.0)/80.0
 
 func _attack() -> void:
+	if hero != null and not hero.spell_mode and hero.melee_cooldown>0: return
 	if hero != null and hero.bow_equipped and not hero.spell_mode and hero.bow_cooldown>0: return
 	if hero != null and hero.dodge_t>0: return
 	if hero == null:
@@ -270,6 +272,9 @@ func _can_damage_monster(target: Node2D, feedback: bool = true) -> bool:
 
 func _damage_monster(target: Node2D, amount: int) -> bool:
 	if not _can_damage_monster(target): return false
+	var combat_state = get_node_or_null("/root/CartoonPlayerState")
+	amount = Difficulty.outgoing(amount,combat_state.player_level if combat_state!=null else 1,target.level)
+	if target.is_in_group("cartoon_elite_demons"): return target.receive_combat_damage(amount)
 	var dead: bool = target.take_damage(amount)
 	if not dead:
 		return true
@@ -278,7 +283,7 @@ func _damage_monster(target: Node2D, amount: int) -> bool:
 	monsters.erase(target)
 	target.queue_free()
 	player_gold += 8
-	_grant_combat_xp(18,boss_id)
+	_grant_combat_xp(18,boss_id,target.level)
 	var advanced: bool = false
 	if story_runtime:
 		if story_tag == "forest_defense":
@@ -354,7 +359,7 @@ func _update_monsters(delta: float) -> void:
 				monster.position = next
 		if monster.advance_contact(hero,delta,54.0):
 			hero.trigger_hurt()
-			player_hp = maxi(0,player_hp-int(hero.reduce_incoming_damage(int(monster.contact_damage))))
+			player_hp = maxi(0,player_hp-int(hero.reduce_incoming_damage(int(monster.contact_damage),monster.level)))
 			_refresh_stats()
 			if player_hp <= 0:
 				hero.trigger_fall()
@@ -404,11 +409,11 @@ func _toggle_map() -> void:
 	joystick_vector = Vector2.ZERO
 
 
-func _grant_combat_xp(base_amount: int,boss_id: String = "") -> void:
+func _grant_combat_xp(base_amount: int,boss_id: String = "",enemy_level: int = 1) -> void:
 	var state = get_node_or_null("/root/CartoonPlayerState")
 	if state == null:
 		return
-	var scaled: int = maxi(base_amount,int(round(float(state.player_level)*1.2)))
+	var scaled: int = base_amount+2*maxi(0,enemy_level-1)
 	var reward: int = scaled * (3 if boss_id != "" else 1)
 	state.gain_xp(reward)
 	player_hp = int(state.player_hp)

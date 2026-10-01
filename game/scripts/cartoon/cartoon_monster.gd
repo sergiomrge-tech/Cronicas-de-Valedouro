@@ -6,6 +6,8 @@ const CombatArt = preload("res://scripts/cartoon/cartoon_combat_art.gd")
 const FX = preload("res://scripts/cartoon/cartoon_combat_fx.gd")
 const Assets = preload("res://scripts/cartoon/cartoon_visual_assets.gd")
 
+const Difficulty = preload("res://scripts/cartoon/cartoon_difficulty.gd")
+var level: int = 1
 var kind: String = "wolf"
 var monster_name: String = "Lobo do Vale"
 var hp: int = 34
@@ -27,6 +29,7 @@ var strike_radius: float = 64.0
 var strike_direction: Vector2 = Vector2.DOWN
 
 func setup(data: Dictionary) -> void:
+	level = clampi(int(data.get("level",1)),1,100)
 	kind = String(data.get("kind","wolf"))
 	monster_name = String(data.get("name","Lobo do Vale"))
 	hp = int(data.get("hp",34))
@@ -138,6 +141,10 @@ func _draw() -> void:
 			var center: Vector2 = Vector2.from_angle(anim_t+i*TAU/6)*26+Vector2(0,-27)
 			draw_line(center-Vector2(3,0),center+Vector2(3,0),Color("a3f0ff"),1.4,true)
 			draw_line(center-Vector2(0,3),center+Vector2(0,3),Color("a3f0ff"),1.4,true)
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	var level_color: Color = Difficulty.level_color(state.player_level if state!=null else 1,level)
+	draw_string(ThemeDB.fallback_font,Vector2(-22,-dimensions.y-14),"Nv %d" % level,HORIZONTAL_ALIGNMENT_LEFT,70,12,Color("142b2b"))
+	draw_string(ThemeDB.fallback_font,Vector2(-23,-dimensions.y-15),"Nv %d" % level,HORIZONTAL_ALIGNMENT_LEFT,70,12,level_color)
 	if hp < max_hp:
 		DrawUtil.bar(self,Vector2(-25,-dimensions.y-1),Vector2(50,6),float(hp)/float(max_hp),Color(0.82,0.18,0.18))
 	if hit_flash > 0.0:

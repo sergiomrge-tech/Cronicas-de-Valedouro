@@ -56,7 +56,7 @@ func run() -> void:
 	assert(region.get_node_or_null("WorldObjects/Player") != null)
 	assert(region.story_zones.get_child_count() == 6)
 	assert(region.pois.size() == 12)
-	assert(region.monsters.size() == 6)
+	assert(region.monsters.filter(func(m): return not m.is_in_group("cartoon_elite_demons")).size() == 6)
 	assert(region.map_overlay != null)
 	assert(region.choice_panel != null)
 	assert(region.world_stream.active_count() >= 9)

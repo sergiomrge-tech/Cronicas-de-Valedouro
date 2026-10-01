@@ -141,3 +141,16 @@ Leia [o relatório](CARTOON_EQUIPMENT_V0_28.md) e
 [a revisão visual](visual_qa/cartoon_v028/review.html).
 Arte MODELED_PENDING_GATE; mecânicas adicionais PROPOSED.
 Não gerar APK sem pedido explícito do Diretor.
+
+
+## Continuidade — candidata v0.29: missões e desafio
+
+A pedido do Diretor: aba MISSÕES/J com Ativas, Disponíveis e Concluídas,
+escolha persistente do objetivo no HUD/mapa, 48 demônios de três visuais,
+avisos de magia e retorno de 600 s. Inimigos e fauna com níveis regionais
+fixos e penalidade forte contra níveis superiores. Combate e XP mais
+exigentes; viagens não concedem níveis/cura. Save v6 preserva a campanha.
+31 testes Cartoon locais passaram; CI acrescenta três testes e 21 capturas
+no Godot oficial 4.7.2. Leia `docs/CARTOON_MISSIONS_CHALLENGE_V0_29.md` e
+`docs/visual_qa/cartoon_v029/review.html`. Arte MODELED_PENDING_GATE;
+balanceamento PROPOSED. Não gerar APK sem pedido explícito.

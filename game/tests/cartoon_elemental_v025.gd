@@ -132,6 +132,7 @@ func run() -> void:
 	# Wildlife goes through harvest, material, contract and saved cooldown logic.
 	var animal = Animal.new()
 	animal.setup(hub.wildlife,{"id":"TEST_BURN_HUNT","kind":"rabbit","pos":hub.hero.position+Vector2(190,0)})
+	animal.hp = 22 # Wounded animal isolates lethal burn/harvest from the new full-health balance.
 	hub.objects.add_child(animal)
 	hub.wildlife.active[animal.slot_id] = animal
 	animal.process_mode = Node.PROCESS_MODE_DISABLED

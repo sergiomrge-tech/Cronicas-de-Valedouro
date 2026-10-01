@@ -22,7 +22,7 @@ func run() -> void:
 	await process_frame
 	assert(siege.hub != null)
 	assert(siege.runtime != null)
-	assert(siege.hub.monsters.size() == 6)
+	assert(siege.hub.monsters.filter(func(m): return not m.is_in_group("cartoon_elite_demons")).size() == 6)
 	assert(siege.hub.objective_label != null)
 	assert(siege.hub.hero != null)
 	print("siege_act5: PASS — defesa das Muralhas de Valedouro usa o LOC_VAL_GATE real")

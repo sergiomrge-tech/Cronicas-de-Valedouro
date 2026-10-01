@@ -13,6 +13,9 @@ func current_location() -> String:
 func title() -> String:
 	return "As Muralhas de Valedouro"
 
+func objective() -> String:
+	return "Valedouro resistiu — siga para o Porto da Névoa" if complete else "Defenda o Portão de Valedouro — %d/%d atacantes" % [kills,required_kills]
+
 func hud_text() -> String:
 	if complete:
 		return "HISTÓRIA PRINCIPAL\nValedouro resistiu — siga para o Porto da Névoa"

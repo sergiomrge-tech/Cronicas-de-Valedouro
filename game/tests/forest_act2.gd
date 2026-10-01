@@ -66,7 +66,7 @@ func run() -> void:
 	forest._toggle_map()
 	assert(not forest.map_open)
 	assert(forest.pois.size() == 16)
-	assert(forest.monsters.size() == 10)
+	assert(forest.monsters.filter(func(m): return not m.is_in_group("cartoon_elite_demons")).size() == 10)
 	forest.hero.position = Vector2(23000,23500)
 	forest.world_stream._refresh(true)
 	await process_frame

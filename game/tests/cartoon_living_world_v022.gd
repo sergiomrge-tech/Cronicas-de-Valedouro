@@ -109,7 +109,9 @@ func run() -> void:
 	actor._process(0.1)
 	assert(actor.position.distance_to(hub.hero.position)>initial_distance,"Rabbit did not flee")
 	var meat: int = state.material_count("Carne de caça")
-	for i in range(4): hub._attack()
+	for i in range(4):
+		hub.hero._process(0.4)
+		hub._attack()
 	assert(actor.dead)
 	assert(hub.story_runtime.wolf_kills == 0,"Wildlife advanced main story")
 	assert(state.material_count("Carne de caça")==meat+1)

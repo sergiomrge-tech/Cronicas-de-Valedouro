@@ -1,0 +1,19 @@
+{
+  "version": "0.29",
+  "status": "MODELED_PENDING_GATE",
+  "frames": 18,
+  "files": [
+    {
+      "file": "demon_ember.svg",
+      "sha256": "0977f1b5e5ed5a690aa986abec3a25e5ffc4f76aa1cda6803566a743277c416e"
+    },
+    {
+      "file": "demon_ruin.svg",
+      "sha256": "19591b8288d1a3664b24b80541114116ea8469fc01876e26088c2aa6e408c041"
+    },
+    {
+      "file": "demon_void.svg",
+      "sha256": "ad200a312447fe5e96634806b0e0061c3bbe2a4c0a6bbf473f4a86ab89b3df24"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ extends Node2D
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
 const CombatArt = preload("res://scripts/cartoon/cartoon_combat_art.gd")
 const Projectile = preload("res://scripts/cartoon/cartoon_spell_projectile.gd")
+const Difficulty = preload("res://scripts/cartoon/cartoon_difficulty.gd")
 const Arrow = preload("res://scripts/cartoon/cartoon_arrow_projectile.gd")
 const HeroArt = preload("res://scripts/cartoon/cartoon_hero_art_v028.gd")
 const FX = preload("res://scripts/cartoon/cartoon_combat_fx.gd")
@@ -15,6 +16,7 @@ const VisualAssets = preload("res://scripts/cartoon/cartoon_visual_assets.gd")
 var move_vector: Vector2 = Vector2.ZERO
 var facing: Vector2 = Vector2.DOWN
 var anim_t: float = 0.0
+var melee_cooldown: float = 0.0
 var attack_t: float = 0.0
 var cast_spell_index: int = 0
 var cast_t: float = 0.0
@@ -137,8 +139,9 @@ func launch_magic(host, target: Node2D, base_damage: int, director = null):
 	facing = (target.global_position-global_position).normalized()
 	return Projectile.launch(host,self,target,base_damage,director)
 
-func reduce_incoming_damage(raw_damage: int) -> int:
+func reduce_incoming_damage(raw_damage: int, enemy_level: int = 1) -> int:
 	var state = get_node_or_null("/root/CartoonPlayerState")
+	raw_damage = Difficulty.incoming(raw_damage,state.player_level if state!=null else 1,enemy_level)
 	return state.reduce_damage(raw_damage) if state != null else raw_damage
 
 func set_motion(v: Vector2) -> void:
@@ -176,6 +179,7 @@ func trigger_hurt() -> void:
 	FX.spawn(get_parent(),position+Vector2(0,-30),"hurt",facing,Color("ff7075"))
 
 func trigger_attack() -> void:
+	if not spell_mode and not bow_equipped: melee_cooldown = 0.38
 	if spell_mode: cast_t = 0.65
 	else: attack_t = 0.65 if bow_equipped else 0.28
 	var aim: Vector2 = facing
@@ -190,6 +194,7 @@ func trigger_attack() -> void:
 	queue_redraw()
 
 func _process(delta: float) -> void:
+	melee_cooldown = maxf(0,melee_cooldown-delta)
 	_step_dodge(delta)
 	dodge_cooldown = maxf(0,dodge_cooldown-delta)
 	bow_cooldown = maxf(0,bow_cooldown-delta)
