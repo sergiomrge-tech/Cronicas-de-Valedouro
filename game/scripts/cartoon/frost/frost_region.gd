@@ -237,6 +237,7 @@ func _damage_monster(target: Node2D, amount: int) -> bool:
 	var combat_state = get_node_or_null("/root/CartoonPlayerState")
 	amount = Difficulty.outgoing(amount,combat_state.player_level if combat_state!=null else 1,target.level)
 	if target.is_in_group("cartoon_elite_demons"): return target.receive_combat_damage(amount)
+	var kind: String = String(target.kind)
 	var boss_id: String = String(target.boss_id)
 	var dead: bool = target.take_damage(amount)
 	if not dead:
