@@ -30,7 +30,7 @@ func _build_ui() -> void:
 	panel = PanelContainer.new()
 	panel.name = "ZoomPanel"
 	panel.size = Vector2(216,48)
-	panel.add_theme_stylebox_override("panel",UISkin.box(Color(0.07,0.13,0.10,0.86),UISkin.GOLD.darkened(0.35)))
+	panel.add_theme_stylebox_override("panel",UISkin.box(UISkin.INK,UISkin.GOLD.darkened(0.35)))
 	add_child(panel)
 	var body: Control = Control.new()
 	body.name = "ZoomContent"

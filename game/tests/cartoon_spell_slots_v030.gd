@@ -87,7 +87,7 @@ func run() -> void:
 				assert(button.visible and rect.size.x>=44 and rect.size.y>=44)
 				assert(Rect2(Vector2.ZERO,Vector2(dimensions)).encloses(rect))
 				for other in layout.spell_buttons+[layout.quest_panel,layout.attack_button,layout.interact_button,layout.dodge_button,layout.map_button,layout.pause_button,host.zoom_controls.panel,host.inventory_ui.toggle_button,host.crafting_ui.toggle_button,host.poi_label,host.toast_label]:
-					if other!=button: assert(not rect.intersects(other.get_global_rect()),"Spell overlaps %s in %s" % [other.name,str(dimensions)])
+					if other!=button and other.is_visible_in_tree(): assert(not rect.intersects(other.get_global_rect()),"Spell overlaps %s in %s" % [other.name,str(dimensions)])
 				assert(not Layout.can_start_movement(host,rect.get_center()))
 		host.hero.spell_cooldowns.fill(0.0)
 		layout.open_pause()

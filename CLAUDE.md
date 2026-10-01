@@ -309,3 +309,14 @@ Regras adicionais que não devem regredir:
 - monstros comuns preservam windup, raio e dano anteriores;
 - em 640×360 a barra de boss não sobrepõe o HUD do herói; o cartão de objetivo cede espaço apenas durante a luta;
 - save permanece v8.
+
+## Continuidade — candidata v0.38: Combate Radial
+
+O Diretor escolheu a opção 3 da prancha de HUDs e pediu fidelidade visual em
+todas as interfaces, incluindo inventário. Ler `docs/CARTOON_RADIAL_UI_V0_38.md`
+e `docs/visual_qa/cartoon_v038/review.html`. HUD radial nas oito regiões,
+retratos/barras, minimapa do mundo real, skin vermelho/dourado em todas as telas,
+forja/zoom no MENU e inventário com controles maiores. 40 testes locais passaram;
+CI verifica 57 testes oficiais e 30 novas capturas. APK v0.38 explicitamente
+solicitado nesta sessão; gerar e entregar em ZIP nativo com SHA256 após os gates.
+A preferência geral continua sendo não gerar APK sem pedido explícito.

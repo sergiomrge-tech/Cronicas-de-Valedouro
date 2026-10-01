@@ -2,7 +2,7 @@ class_name ValedouroCartoonDesertMapOverlay
 extends Control
 
 const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
-var frame_style: StyleBoxFlat
+var frame_style: StyleBox
 
 const Desert = preload("res://scripts/cartoon/desert/desert_region_config.gd")
 const StoryMap = preload("res://scripts/cartoon/desert/desert_story_map.gd")

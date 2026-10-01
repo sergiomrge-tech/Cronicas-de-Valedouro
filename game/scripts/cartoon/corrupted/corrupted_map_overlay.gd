@@ -2,7 +2,7 @@ class_name ValedouroCartoonCorruptedMapOverlay
 extends Control
 
 const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
-var frame_style: StyleBoxFlat
+var frame_style: StyleBox
 
 const Corrupted = preload("res://scripts/cartoon/corrupted/corrupted_region_config.gd")
 const StoryMap = preload("res://scripts/cartoon/corrupted/corrupted_story_map.gd")

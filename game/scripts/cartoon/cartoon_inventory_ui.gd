@@ -98,6 +98,8 @@ func _build(show_toggle: bool) -> void:
 		_style_button(toggle_button,Color(0.22,0.18,0.32),Color(0.78,0.62,0.93))
 		toggle_button.pressed.connect(_toggle)
 		add_child(toggle_button)
+		UISkin.icon(toggle_button,"bag",26)
+		for key in ["normal","disabled"]: toggle_button.add_theme_stylebox_override(key,StyleBoxEmpty.new())
 		UISkin.bind(toggle_button,Vector2(68,48),"bag")
 
 	panel = PanelContainer.new()
@@ -127,8 +129,8 @@ func _build(show_toggle: bool) -> void:
 
 	title_label = Label.new()
 	title_label.position = Vector2(24,14)
-	title_label.size = Vector2(430,34)
-	title_label.text = "INVENTÁRIO DO VIAJANTE"
+	title_label.size = Vector2(270,34)
+	title_label.text = "BOLSA DO VIAJANTE"
 	title_label.add_theme_font_size_override("font_size",22)
 	title_label.add_theme_color_override("font_color",Color(1.0,0.85,0.42))
 	content.add_child(title_label)
@@ -138,7 +140,7 @@ func _build(show_toggle: bool) -> void:
 	count_label.size = Vector2(330,26)
 	count_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	count_label.add_theme_font_size_override("font_size",12)
-	count_label.add_theme_color_override("font_color",Color(0.73,0.81,0.88))
+	count_label.add_theme_color_override("font_color",UISkin.MUTED)
 	content.add_child(count_label)
 
 	gold_label = Label.new()
@@ -174,7 +176,7 @@ func _build(show_toggle: bool) -> void:
 	preview_frame.position = Vector2(66,104)
 	preview_frame.size = Vector2(128,214)
 	preview_frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	preview_frame.add_theme_stylebox_override("panel",UISkin.box(Color(0.055,0.07,0.09,0.95),Color("596f60"),14))
+	preview_frame.add_theme_stylebox_override("panel",UISkin.box(UISkin.INK,UISkin.GOLD.darkened(0.5),14))
 	content.add_child(preview_frame)
 
 	preview_container = SubViewportContainer.new()
@@ -203,17 +205,17 @@ func _build(show_toggle: bool) -> void:
 	weapon_slot.size = Vector2(82,44)
 	weapon_slot.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	weapon_slot.mouse_filter = Control.MOUSE_FILTER_STOP
-	_style_button(weapon_slot,Color(0.10,0.14,0.21),Color(0.78,0.58,0.24))
+	_style_button(weapon_slot,UISkin.SURFACE,Color(0.78,0.58,0.24))
 	weapon_slot.pressed.connect(_select_equipped_slot.bind("weapon"))
 	content.add_child(weapon_slot)
 
 	armor_slot = Button.new()
 	armor_slot.name = "ArmorSlot"
-	armor_slot.position = Vector2(8,180)
+	armor_slot.position = Vector2(8,198)
 	armor_slot.size = Vector2(82,44)
 	armor_slot.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	armor_slot.mouse_filter = Control.MOUSE_FILTER_STOP
-	_style_button(armor_slot,Color(0.10,0.14,0.21),Color(0.49,0.69,0.90))
+	_style_button(armor_slot,UISkin.SURFACE,Color(0.49,0.69,0.90))
 	armor_slot.pressed.connect(_select_equipped_slot.bind("armor"))
 	content.add_child(armor_slot)
 
@@ -230,7 +232,7 @@ func _build(show_toggle: bool) -> void:
 	hint.size = Vector2(230,20)
 	hint.text = "Toque em uma peça para comparar"
 	hint.add_theme_font_size_override("font_size",11)
-	hint.add_theme_color_override("font_color",Color(0.57,0.64,0.70))
+	hint.add_theme_color_override("font_color",UISkin.MUTED)
 	content.add_child(hint)
 
 	equipment_tab = _tab_button("TODOS",Vector2(274,58),72)
@@ -259,8 +261,8 @@ func _build(show_toggle: bool) -> void:
 	content.add_child(consumables_tab)
 
 	var scroll: ScrollContainer = ScrollContainer.new()
-	scroll.position = Vector2(274,116)
-	scroll.size = Vector2(334,306)
+	scroll.position = Vector2(274,128)
+	scroll.size = Vector2(334,294)
 	scroll.mouse_filter = Control.MOUSE_FILTER_STOP
 	content.add_child(scroll)
 
@@ -274,8 +276,8 @@ func _build(show_toggle: bool) -> void:
 	list_box = grid
 
 	var details: PanelContainer = PanelContainer.new()
-	details.position = Vector2(614,108)
-	details.size = Vector2(184,314)
+	details.position = Vector2(614,128)
+	details.size = Vector2(184,294)
 	var dstyle: StyleBoxFlat = StyleBoxFlat.new()
 	dstyle.bg_color = Color(0.055,0.067,0.09,0.97)
 	dstyle.border_color = Color(0.34,0.43,0.56)
@@ -284,11 +286,11 @@ func _build(show_toggle: bool) -> void:
 	dstyle.corner_radius_top_right = 14
 	dstyle.corner_radius_bottom_left = 14
 	dstyle.corner_radius_bottom_right = 14
-	details.add_theme_stylebox_override("panel",UISkin.box(UISkin.SURFACE,Color("4b6254")))
+	details.add_theme_stylebox_override("panel",UISkin.box(UISkin.SURFACE,UISkin.GOLD.darkened(0.4)))
 	content.add_child(details)
 
 	var detail_content: Control = Control.new()
-	detail_content.custom_minimum_size = Vector2(176,306)
+	detail_content.custom_minimum_size = Vector2(176,286)
 	details.add_child(detail_content)
 
 	var detail_title: Label = Label.new()
@@ -297,7 +299,7 @@ func _build(show_toggle: bool) -> void:
 	detail_title.text = "DETALHES"
 	detail_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	detail_title.add_theme_font_size_override("font_size",14)
-	detail_title.add_theme_color_override("font_color",Color(0.77,0.84,0.91))
+	detail_title.add_theme_color_override("font_color",UISkin.GOLD)
 	detail_content.add_child(detail_title)
 
 	detail_name = Label.new()
@@ -312,7 +314,7 @@ func _build(show_toggle: bool) -> void:
 
 	detail_meta = Label.new()
 	detail_meta.position = Vector2(14,112)
-	detail_meta.size = Vector2(148,64)
+	detail_meta.size = Vector2(148,52)
 	detail_meta.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	detail_meta.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	detail_meta.add_theme_font_size_override("font_size",13)
@@ -320,18 +322,33 @@ func _build(show_toggle: bool) -> void:
 	detail_content.add_child(detail_meta)
 
 	detail_compare = Label.new()
-	detail_compare.position = Vector2(14,180)
-	detail_compare.size = Vector2(148,58)
+	detail_compare.position = Vector2(14,168)
+	detail_compare.size = Vector2(148,42)
 	detail_compare.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	detail_compare.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	detail_compare.add_theme_font_size_override("font_size",12)
 	detail_content.add_child(detail_compare)
+	# Descriptions grow with required levels and set bonuses; scroll the copy
+	# independently so comparison text never intersects the fixed action button.
+	var detail_scroll = ScrollContainer.new()
+	detail_scroll.position = Vector2(12,44)
+	detail_scroll.size = Vector2(152,166)
+	detail_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	detail_content.add_child(detail_scroll)
+	var detail_stack = VBoxContainer.new()
+	detail_stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	detail_stack.add_theme_constant_override("separation",8)
+	detail_scroll.add_child(detail_stack)
+	for copy: Label in [detail_name,detail_meta,detail_compare]:
+		copy.reparent(detail_stack)
+		copy.custom_minimum_size = Vector2(0,48 if copy==detail_name else 0)
+		copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 
 	detail_action = Button.new()
 	detail_action.name = "EquipSelectedButton"
 	detail_action.text = "EQUIPAR"
-	detail_action.position = Vector2(16,250)
-	detail_action.size = Vector2(144,44)
+	detail_action.position = Vector2(16,218)
+	detail_action.size = Vector2(144,62)
 	detail_action.mouse_filter = Control.MOUSE_FILTER_STOP
 	_style_button(detail_action,Color(0.15,0.29,0.20),Color(0.45,0.82,0.50))
 	detail_action.pressed.connect(_primary_action)
@@ -341,10 +358,10 @@ func _tab_button(text_value: String,pos: Vector2,width: float) -> Button:
 	var button: Button = Button.new()
 	button.text = text_value
 	button.position = pos
-	button.size = Vector2(width,44)
+	button.size = Vector2(width,62)
 	button.mouse_filter = Control.MOUSE_FILTER_STOP
 	button.add_theme_font_size_override("font_size",12)
-	_style_button(button,Color(0.10,0.13,0.19),Color(0.38,0.49,0.62))
+	_style_button(button,UISkin.SURFACE,Color(0.38,0.49,0.62))
 	return button
 
 func _set_tab(tab: String) -> void:
@@ -377,7 +394,7 @@ func _refresh() -> void:
 		preview_hero.apply_equipment_from_state()
 		preview_hero.apply_class_from_state()
 	for entry: Array in [[equipment_tab,current_tab == "equipment" and equipment_filter == "all"],[weapons_tab,current_tab == "equipment" and equipment_filter == "weapon"],[armor_tab,current_tab == "equipment" and equipment_filter == "armor"],[materials_tab,current_tab == "materials"],[consumables_tab,current_tab == "consumables"]]:
-		UISkin.button(entry[0],Color("355344") if entry[1] else UISkin.SURFACE,UISkin.GOLD if entry[1] else Color("596f60"))
+		UISkin.button(entry[0],UISkin.SURFACE.lightened(0.18) if entry[1] else UISkin.SURFACE,UISkin.GOLD if entry[1] else UISkin.GOLD.darkened(0.5))
 		entry[0].add_theme_font_size_override("font_size",13)
 	_refresh_equipped_slots(state)
 	for child in list_box.get_children():
@@ -393,13 +410,13 @@ func _refresh() -> void:
 
 func _refresh_equipped_slots(state) -> void:
 	var layout: Dictionary = {
-		"weapon":{"pos":Vector2(8,126),"size":Vector2(82,44),"short":"ARMA"},
-		"armor":{"pos":Vector2(8,180),"size":Vector2(82,44),"short":"PEITO"},
-		"helmet":{"pos":Vector2(78,68),"size":Vector2(104,38),"short":"ELMO"},
-		"gloves":{"pos":Vector2(170,126),"size":Vector2(82,44),"short":"LUVAS"},
-		"cape":{"pos":Vector2(170,180),"size":Vector2(82,44),"short":"CAPA"},
-		"legs":{"pos":Vector2(8,250),"size":Vector2(82,44),"short":"CALÇAS"},
-		"boots":{"pos":Vector2(170,250),"size":Vector2(82,44),"short":"BOTAS"}
+		"weapon":{"pos":Vector2(8,126),"size":Vector2(82,62),"short":"ARMA"},
+		"armor":{"pos":Vector2(8,198),"size":Vector2(82,62),"short":"PEITO"},
+		"helmet":{"pos":Vector2(94,86),"size":Vector2(68,62),"short":"ELMO"},
+		"gloves":{"pos":Vector2(170,126),"size":Vector2(82,62),"short":"LUVAS"},
+		"cape":{"pos":Vector2(170,198),"size":Vector2(82,62),"short":"CAPA"},
+		"legs":{"pos":Vector2(8,270),"size":Vector2(82,62),"short":"CALÇAS"},
+		"boots":{"pos":Vector2(170,270),"size":Vector2(82,62),"short":"BOTAS"}
 	}
 	weapon_slot.position = layout.weapon.pos
 	weapon_slot.size = layout.weapon.size
@@ -414,7 +431,7 @@ func _refresh_equipped_slots(state) -> void:
 			var button: Button = Button.new()
 			button.name = String(state.SLOT_NAMES[slot])+"Slot"
 			_style_button(button,UISkin.SURFACE,UISkin.GOLD)
-			button.add_theme_font_size_override("font_size",10)
+			button.add_theme_font_size_override("font_size",12)
 			button.alignment = HORIZONTAL_ALIGNMENT_CENTER
 			button.pressed.connect(_select_equipped_slot.bind(slot))
 			content.add_child(button)
@@ -488,7 +505,7 @@ func _fill_equipment(state) -> void:
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.mouse_filter = Control.MOUSE_FILTER_STOP
 		_style_button(button,Color(0.085,0.105,0.15),_rarity_color(tier))
-		if id == selected_item_id: UISkin.button(button,Color("355344"),UISkin.GOLD)
+		if id == selected_item_id: UISkin.button(button,UISkin.SURFACE.lightened(0.18),UISkin.GOLD)
 		button.add_theme_font_size_override("font_size",12)
 		button.pressed.connect(_select_item.bind(id))
 		list_box.add_child(button)
@@ -516,7 +533,7 @@ func _fill_materials(state) -> void:
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.mouse_filter = Control.MOUSE_FILTER_STOP
 		_style_button(button,Color(0.08,0.14,0.12),Color(0.40,0.73,0.52))
-		if key == selected_material: UISkin.button(button,Color("355344"),UISkin.GOLD)
+		if key == selected_material: UISkin.button(button,UISkin.SURFACE.lightened(0.18),UISkin.GOLD)
 		button.add_theme_font_size_override("font_size",12)
 		button.pressed.connect(_select_material.bind(key))
 		list_box.add_child(button)
@@ -548,7 +565,7 @@ func _fill_consumables(state) -> void:
 		button.mouse_filter = Control.MOUSE_FILTER_STOP
 		_style_button(button,Color(0.12,0.10,0.16),Color(0.72,0.48,0.84))
 		if id == selected_consumable:
-			UISkin.button(button,Color("355344"),UISkin.GOLD)
+			UISkin.button(button,UISkin.SURFACE.lightened(0.18),UISkin.GOLD)
 		button.add_theme_font_size_override("font_size",12)
 		button.pressed.connect(_select_consumable.bind(id))
 		list_box.add_child(button)
@@ -723,6 +740,6 @@ func _rarity_color(tier: int) -> Color:
 	return Color(0.52,0.58,0.64)
 
 func _style_button(button: Button, bg: Color, border: Color) -> void:
-	UISkin.button(button,UISkin.SURFACE.lerp(bg,0.18),border.darkened(0.15))
+	UISkin.button(button,UISkin.SURFACE,UISkin.GOLD.darkened(0.35))
 	button.clip_text = true
 	button.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS

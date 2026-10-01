@@ -19,13 +19,14 @@ func setup(host_node) -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	z_index = 125
 	backdrop = ColorRect.new()
-	backdrop.color = Color(0.025,0.055,0.045,0.88)
+	backdrop.color = Color(0.08,0.015,0.03,0.88)
 	backdrop.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(backdrop)
 	panel = PanelContainer.new()
 	panel.name = "MissionPanel"
 	panel.add_theme_stylebox_override("panel",UISkin.box())
 	add_child(panel)
+	UISkin.decorate(panel)
 	body = Control.new()
 	panel.add_child(body)
 	var title = UISkin.label("DIÁRIO DE MISSÕES",22,UISkin.GOLD)
@@ -124,7 +125,7 @@ func _card(item: Dictionary) -> void:
 	var card = PanelContainer.new()
 	card.name = String(item.id)
 	card.custom_minimum_size.y = 92
-	card.add_theme_stylebox_override("panel",UISkin.box(Color("17352d"),UISkin.GOLD if _state().tracked_mission==item.id else Color("426956"),8))
+	card.add_theme_stylebox_override("panel",UISkin.box(UISkin.SURFACE,UISkin.GOLD if _state().tracked_mission==item.id else UISkin.GOLD.darkened(0.5),8))
 	rows.add_child(card)
 	card.mouse_filter = Control.MOUSE_FILTER_PASS
 	var margin = MarginContainer.new()

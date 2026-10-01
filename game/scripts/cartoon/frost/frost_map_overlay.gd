@@ -2,7 +2,7 @@ class_name ValedouroCartoonFrostMapOverlay
 extends Control
 
 const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
-var frame_style: StyleBoxFlat
+var frame_style: StyleBox
 
 const Frost = preload("res://scripts/cartoon/frost/frost_region_config.gd")
 const StoryMap = preload("res://scripts/cartoon/frost/frost_story_map.gd")

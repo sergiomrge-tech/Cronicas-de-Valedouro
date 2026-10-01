@@ -47,6 +47,7 @@ func _build() -> void:
 	toggle.pressed.connect(_toggle)
 	add_child(toggle)
 	toggle_button = toggle
+	UISkin.icon(toggle,"forge",18)
 	UISkin.bind(toggle,Vector2(68,48),"forge")
 
 	panel = PanelContainer.new()

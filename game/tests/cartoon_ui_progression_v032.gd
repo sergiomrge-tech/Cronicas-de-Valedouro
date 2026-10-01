@@ -115,7 +115,7 @@ func run() -> void:
 			var rect: Rect2 = message.get_global_rect()
 			assert(root.get_visible_rect().encloses(rect))
 			for control in layout.spell_buttons+[layout.quest_panel,layout.contract_panel,layout.dodge_button,layout.map_button,layout.pause_button,hub.zoom_controls.panel,hub.inventory_ui.toggle_button,hub.crafting_ui.toggle_button]:
-				assert(not rect.intersects(control.get_global_rect()),"Combat feedback overlaps %s at %s" % [control.name,dimensions])
+				if control.is_visible_in_tree(): assert(not rect.intersects(control.get_global_rect()),"Combat feedback overlaps %s at %s" % [control.name,dimensions])
 		assert(not hub.toast_label.get_global_rect().intersects(hub.poi_label.get_global_rect()),"Messages overlap at %s: %s / %s" % [dimensions,hub.toast_label.get_global_rect(),hub.poi_label.get_global_rect()])
 	hub.queue_free()
 	await settle()

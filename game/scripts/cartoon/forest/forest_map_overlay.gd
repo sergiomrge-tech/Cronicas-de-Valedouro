@@ -2,7 +2,7 @@ class_name ValedouroCartoonForestMapOverlay
 extends Control
 
 const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
-var frame_style: StyleBoxFlat
+var frame_style: StyleBox
 
 const Forest = preload("res://scripts/cartoon/forest/forest_region_config.gd")
 const StoryMap = preload("res://scripts/cartoon/forest/forest_story_map.gd")

@@ -125,7 +125,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_challenge_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033 cartoon_gathering_v034 cartoon_levelup_feedback_v035 cartoon_boss_crafting_v036 cartoon_boss_combat_v037; do
+          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_challenge_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033 cartoon_gathering_v034 cartoon_levelup_feedback_v035 cartoon_boss_crafting_v036 cartoon_boss_combat_v037 cartoon_radial_ui_v038; do
             echo "===== TEST: $t ====="
             timeout 70s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" 2>&1 | tee "/tmp/valedouro-test-$t.log"
             ! grep -Eq "SCRIPT ERROR|ERROR:|Assertion failed" "/tmp/valedouro-test-$t.log"
@@ -141,18 +141,18 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p game/build
-          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.37_TEST.apk
-          test -s game/build/Cronicas_de_Valedouro_v0.37_TEST.apk
-          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.37_TEST.apk
-          sha256sum game/build/Cronicas_de_Valedouro_v0.37_TEST.apk | tee game/build/SHA256.txt
-          ls -lh game/build/Cronicas_de_Valedouro_v0.37_TEST.apk
+          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.38_TEST.apk
+          test -s game/build/Cronicas_de_Valedouro_v0.38_TEST.apk
+          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.38_TEST.apk
+          sha256sum game/build/Cronicas_de_Valedouro_v0.38_TEST.apk | tee game/build/SHA256.txt
+          ls -lh game/build/Cronicas_de_Valedouro_v0.38_TEST.apk
 
       - name: Upload installable APK
         uses: actions/upload-artifact@v4
         with:
-          name: Cronicas-de-Valedouro-Android-TEST-v0.37
+          name: Cronicas-de-Valedouro-Android-TEST-v0.38
           path: |
-            game/build/Cronicas_de_Valedouro_v0.37_TEST.apk
+            game/build/Cronicas_de_Valedouro_v0.38_TEST.apk
             game/build/SHA256.txt
           if-no-files-found: error
           retention-days: 30
@@ -166,14 +166,15 @@ jobs:
         run: |
           set -euo pipefail
           cat > /tmp/android-release.md <<'NOTES'
-          APK atualizado v0.37: barra dedicada de boss no HUD, três fases por vida e golpes especiais periódicos com telegráfico ampliado e dano escalonado. Preserva troféus/crafts de chefes, coleta, cura rápida, equipamentos por nível, level up compacto, magias progressivas, loot, paper-doll, missões roláveis, classes, arco, esquiva, interiores, caça e Castelo Real.
+          HUD e interfaces no estilo Combate Radial escolhido: molduras vermelho/dourado, retrato destacado, coluna Bolsa/Mapa/Missões/Menu, minimapa do cenário real e três magias em arco com recargas independentes. Menu, inventário, forja, missões, guilda, classes, mapa e pausa usam o mesmo acabamento. Inventário mantém personagem equipado, sete posições e comparação de itens.
 
-          Toque em MISSÕES para escolher o objetivo, BOLSA para trocar equipamento, FORJA para fabricar e no retrato do herói para abrir Classes e Habilidades. Save v8 preserva a campanha anterior.
+          Forja e controles de zoom ficam no MENU. Toque no retrato para trocar classe e evoluir habilidades. Magias continuam desbloqueando nos níveis 1/10/25. Save v8, campanha e dificuldade preservados. A assinatura de teste é gerada pela execução; o Android pode exigir remover uma instalação anterior assinada com outra chave, o que apaga o progresso local.
+
 
           Baixe o APK, abra no celular e permita a instalação pelo aplicativo usado para abrir o arquivo. Android 7.0 ou superior; ARM 32/64 bits.
 
-          Exportação assinada com Godot 4.7.2, 39 testes Android nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
+          Exportação assinada com Godot 4.7.2, 40 testes nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
           NOTES
-          gh release create v0.37-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.37 — Combate de Chefes em Fases" --notes-file /tmp/android-release.md
-          gh release upload v0.37-test game/build/Cronicas_de_Valedouro_v0.37_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
-          gh release edit v0.37-test --repo "$REPOSITORY" --draft=false --prerelease
+          gh release create v0.38-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.38 — Combate Radial" --notes-file /tmp/android-release.md
+          gh release upload v0.38-test game/build/Cronicas_de_Valedouro_v0.38_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
+          gh release edit v0.38-test --repo "$REPOSITORY" --draft=false --prerelease

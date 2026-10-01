@@ -108,7 +108,7 @@ func _build_ui() -> void:
 	style.corner_radius_top_right = 22
 	style.corner_radius_bottom_left = 22
 	style.corner_radius_bottom_right = 22
-	menu_panel.add_theme_stylebox_override("panel",UISkin.box(Color(0.06,0.12,0.09,0.94),UISkin.GOLD))
+	menu_panel.add_theme_stylebox_override("panel",UISkin.box(UISkin.INK,UISkin.GOLD))
 	ui.add_child(menu_panel)
 	UISkin.bind(menu_panel,Vector2(320,424),"menu")
 

@@ -19,8 +19,7 @@ static func usable(viewport: Viewport) -> Rect2:
 
 static func toolbar_rect(viewport: Viewport, index: int) -> Rect2:
 	var area: Rect2 = usable(viewport)
-	var y: float = area.position.y if area.size.x >= 888.0 else area.end.y-144.0
-	return Rect2(Vector2(area.get_center().x-148.0+float(index)*76.0,y),Vector2(68,48))
+	return Rect2(area.position+Vector2(0,52+float(index)*52.0),Vector2(68,48))
 
 func _ready() -> void:
 	get_viewport().size_changed.connect(_layout)
@@ -47,9 +46,11 @@ func _layout() -> void:
 			target.scale = Vector2.ONE*factor
 			target.size = design_size
 			target.position = area.get_center()-design_size*factor*0.5
-		"status": target.position = area.position
+		"status": target.position = area.position+Vector2(76,0)
+		"pause_zoom": target.position = Vector2(100,222)
+		"pause_forge": target.position = Vector2(24,222)
 		"zoom": target.position = Vector2(area.get_center().x-design_size.x*0.5,area.end.y-design_size.y)
-		"forge", "bag": target.position = toolbar_rect(get_viewport(),1 if placement == "forge" else 2).position
+		"forge", "bag": target.position = toolbar_rect(get_viewport(),0 if placement == "bag" else 2).position
 		"menu":
 			var factor: float = minf(1.0,area.size.y/design_size.y)
 			target.scale = Vector2.ONE*factor

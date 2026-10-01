@@ -23,13 +23,14 @@ func setup(host_node) -> void:
 	z_index = 120
 	backdrop = ColorRect.new()
 	backdrop.name = "ClassBackdrop"
-	backdrop.color = Color(0.025,0.055,0.045,0.86)
+	backdrop.color = Color(0.08,0.015,0.03,0.86)
 	backdrop.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(backdrop)
 	panel = PanelContainer.new()
 	panel.name = "ClassPanel"
 	panel.add_theme_stylebox_override("panel",UISkin.box())
 	add_child(panel)
+	UISkin.decorate(panel)
 	body = Control.new()
 	body.name = "ClassContent"
 	panel.add_child(body)
@@ -99,7 +100,7 @@ func show_tab(tab: String) -> void:
 func _card(name_copy: String, description: String, action: String, callback: Callable, disabled: bool, color: Color, rank: int = -1) -> void:
 	var card = PanelContainer.new()
 	card.custom_minimum_size.y = 100 if rank<0 else 116
-	card.add_theme_stylebox_override("panel",UISkin.box(Color(0.08,0.17,0.14),color.darkened(0.4),8))
+	card.add_theme_stylebox_override("panel",UISkin.box(UISkin.SURFACE,color.darkened(0.4),8))
 	rows.add_child(card)
 	var margin = MarginContainer.new()
 	for side in ["left","right","top","bottom"]: margin.add_theme_constant_override("margin_"+side,12)

@@ -53,10 +53,14 @@ func run() -> void:
 	layout._process(0.01)
 	assert(layout.boss_panel.visible)
 	assert(not layout.quest_panel.visible)
+	assert(not layout.minimap.visible)
+	for button in layout.spell_buttons+[layout.heal_button,layout.attack_button,layout.dodge_button,layout.interact_button]:
+		if button.is_visible_in_tree(): assert(not layout.boss_panel.get_global_rect().intersects(button.get_global_rect()))
 	assert(not layout.boss_panel.get_global_rect().intersects(hub.hud_status.panel.get_global_rect()))
 	assert(layout.boss_name_label.text.contains("General da Cinza"))
 	assert(layout.boss_phase_label.text.contains("FASE I"))
 	assert(int(layout.boss_bar.value) == 100)
+	assert(not layout.boss_bar.get_global_rect().intersects(layout.boss_phase_label.get_global_rect()))
 
 	boss.take_damage(40)
 	layout._process(0.01)

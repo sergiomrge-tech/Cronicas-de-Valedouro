@@ -275,3 +275,15 @@ A v0.37 adiciona barra dedicada de boss no HUD, três fases automáticas por HP 
 golpes especiais periódicos com telegráfico ampliado e dano escalonado nas
 Fases II/III. Monstros comuns preservam o comportamento anterior. Save
 permanece v8. Ler `docs/CARTOON_BOSS_COMBAT_V0_37.md`. Validada no Godot 4.7.2 oficial no commit `4fb27216`, run `36891829409`, com 56 testes nativos e QA visual. APK continua sob demanda.
+
+## Continuidade — candidata v0.38: opção 3, Combate Radial
+
+Diretor escolheu o HUD 3, pediu comparação com a imagem e extensão do visual a
+todas as interfaces. Implementação e validação em
+[CARTOON_RADIAL_UI_V0_38.md](CARTOON_RADIAL_UI_V0_38.md); referência e capturas reais
+em [revisão visual](visual_qa/cartoon_v038/review.html).
+
+40 testes Cartoon locais passaram. CI executa 57 testes e 30 novas capturas;
+Android executa os 40 testes e exporta v0.38. A geração deste APK foi autorizada
+explicitamente. Entregar ZIP nativo contendo APK+SHA256, com a orientação de
+renomear `content` para `Valedouro.zip` caso o Android omita o nome do arquivo.

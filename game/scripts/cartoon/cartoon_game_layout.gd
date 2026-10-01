@@ -21,6 +21,9 @@ const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
 const Placement = preload("res://scripts/cartoon/cartoon_ui_placement.gd")
 
 var host
+var minimap: Control
+var rail_style: StyleBox
+var screen_frame: StyleBoxTexture
 var quest_panel: PanelContainer
 var quest_body: Control
 var collapse_button: Button
@@ -68,7 +71,7 @@ static func build(host_node, map_script, navigation_property: String) -> void:
 
 static func movement_zone(node: Node) -> Rect2:
 	var area: Rect2 = UISkin.usable(node.get_viewport())
-	return Rect2(Vector2(area.position.x,area.end.y-190.0),Vector2(230,190))
+	return Rect2(Vector2(area.position.x+76,area.end.y-190.0),Vector2(220,190))
 
 static func can_start_movement(node: Node, p: Vector2) -> bool:
 	if not movement_zone(node).has_point(p): return false
@@ -76,7 +79,7 @@ static func can_start_movement(node: Node, p: Vector2) -> bool:
 	if layout == null or layout.is_blocked(): return false
 	# Native touch-to-mouse emulation may deliver the touch before the GUI mouse
 	# event. Never claim a finger over a toolbar/zoom hitbox in that interval.
-	var controls: Array[Control] = [layout.map_button,layout.pause_button,layout.attack_button,layout.interact_button,layout.dodge_button,layout.heal_button,layout.quest_panel]
+	var controls: Array[Control] = [layout.map_button,layout.pause_button,layout.attack_button,layout.interact_button,layout.dodge_button,layout.heal_button,layout.quest_panel,layout.minimap,layout.mission_button]
 	controls.append_array(layout.spell_buttons)
 	for key: String in ["inventory_ui","crafting_ui"]:
 		var ui = node.get(key)
@@ -87,10 +90,13 @@ static func can_start_movement(node: Node, p: Vector2) -> bool:
 	return true
 
 func _build(map_script, navigation_property: String) -> void:
+	rail_style = UISkin.box()
+	screen_frame = UISkin.box() as StyleBoxTexture
+	screen_frame.draw_center = false
 	contract_panel = PanelContainer.new()
 	contract_panel.name = "ActiveGuildContracts"
 	contract_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	contract_panel.add_theme_stylebox_override("panel",UISkin.box(Color(0.07,0.13,0.10,0.88),UISkin.GOLD.darkened(0.4),8))
+	contract_panel.add_theme_stylebox_override("panel",UISkin.box(UISkin.INK,UISkin.GOLD.darkened(0.4),8))
 	add_child(contract_panel)
 	var contract_body: Control = Control.new()
 	contract_body.custom_minimum_size = Vector2(224,24)
@@ -108,32 +114,34 @@ func _build(map_script, navigation_property: String) -> void:
 	add_child(host.stats_label)
 	quest_panel = PanelContainer.new()
 	quest_panel.name = "QuestPanel"
-	quest_panel.add_theme_stylebox_override("panel",UISkin.box(Color(0.08,0.14,0.11,0.91),UISkin.GOLD.darkened(0.30)))
+	quest_panel.add_theme_stylebox_override("panel",UISkin.box(UISkin.INK,UISkin.GOLD.darkened(0.30)))
 	add_child(quest_panel)
 	gameplay_nodes.append(quest_panel)
 	quest_body = Control.new()
-	quest_body.custom_minimum_size = Vector2(252,88)
+	quest_body.custom_minimum_size = Vector2(184,54)
 	quest_body.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	quest_panel.add_child(quest_body)
 	mission_button = _button("MISSÕES",Vector2(110,44),_open_missions)
 	mission_button.name = "MissionsButton"
-	mission_button.position = Vector2(8,0)
-	quest_body.add_child(mission_button)
+	mission_button.size = Vector2(68,48)
+	add_child(mission_button)
+	gameplay_nodes.append(mission_button)
+	UISkin.icon(mission_button,"quest",26)
 	collapse_button = _button("+",Vector2(44,44),_toggle_quest)
 	collapse_button.name = "ExpandQuestButton"
-	collapse_button.position = Vector2(207,0)
+	collapse_button.position = Vector2(136,10)
 	quest_body.add_child(collapse_button)
-	host.objective_label = UISkin.label("",14)
-	host.objective_label.position = Vector2(12,45)
-	host.objective_label.size = Vector2(228,26)
+	host.objective_label = UISkin.label("",12)
+	host.objective_label.position = Vector2(12,12)
+	host.objective_label.size = Vector2(120,26)
 	host.objective_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	host.objective_label.max_lines_visible = 1
 	host.objective_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	quest_body.add_child(host.objective_label)
 	var navigation: Label = UISkin.label("",12,UISkin.GOLD)
 	navigation.name = "ObjectiveNavigation"
-	navigation.position = Vector2(12,69)
-	navigation.size = Vector2(228,16)
+	navigation.position = Vector2(12,35)
+	navigation.size = Vector2(160,16)
 	navigation.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	quest_body.add_child(navigation)
 	host.set(navigation_property,navigation)
@@ -195,8 +203,10 @@ func _build(map_script, navigation_property: String) -> void:
 	boss_bar.value = 100
 	boss_bar.show_percentage = false
 	boss_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	boss_bar.add_theme_stylebox_override("background",UISkin.box(Color(0.08,0.03,0.04,0.95),Color("5b2734"),5))
-	boss_bar.add_theme_stylebox_override("fill",UISkin.box(Color("d86a78"),Color("ffb3b8"),5))
+	boss_bar.add_theme_stylebox_override("background",UISkin.box(Color(0.08,0.03,0.04,0.95),Color("5b2734"),3))
+	boss_bar.add_theme_stylebox_override("fill",UISkin.box(Color("d86a78"),Color("ffb3b8"),3))
+	boss_bar.add_theme_font_size_override("font_size",1)
+	boss_bar.size = Vector2(262,12)
 	boss_body.add_child(boss_bar)
 	boss_phase_label = UISkin.label("",10,Color("ffd27f"))
 	boss_phase_label.position = Vector2(10,40)
@@ -222,7 +232,7 @@ func _build(map_script, navigation_property: String) -> void:
 	map_button.name = "MapButton"
 	add_child(map_button)
 	gameplay_nodes.append(map_button)
-	pause_button = _button("PAUSA",Vector2(68,48),open_pause)
+	pause_button = _button("MENU",Vector2(68,48),open_pause)
 	pause_button.name = "PauseButton"
 	add_child(pause_button)
 	gameplay_nodes.append(pause_button)
@@ -240,7 +250,10 @@ func _build(map_script, navigation_property: String) -> void:
 		var button = _button("",Vector2(76,50),_cast_spell.bind(i),14)
 		button.name = ["EmberSpellButton","FrostSpellButton","ArcaneSpellButton"][i]
 		button.add_theme_font_size_override("font_size",12)
-		UISkin.button(button,UISkin.SURFACE,host.hero.SPELL_COLORS[i],14)
+		UISkin.button(button,UISkin.INK,host.hero.SPELL_COLORS[i],28)
+		UISkin.icon(button,["fire","ice","arcane"][i],36)
+		button.vertical_icon_alignment = VERTICAL_ALIGNMENT_TOP
+		button.add_theme_font_size_override("font_size",10)
 		button.tooltip_text = "%d: %s • alcance 220 • recarga própria de 3 s • exige linha de visão" % [i+1,tips[i]]
 		add_child(button)
 		spell_buttons.append(button)
@@ -258,7 +271,24 @@ func _build(map_script, navigation_property: String) -> void:
 	UISkin.button(heal_button,UISkin.SURFACE,Color("d86f87"),10)
 	add_child(heal_button)
 	gameplay_nodes.append(heal_button)
+	UISkin.button(attack_button,Color("712c30"),UISkin.GOLD,42)
+	UISkin.icon(attack_button,"sword",52)
+	UISkin.button(dodge_button,UISkin.SURFACE,UISkin.GOLD,28)
+	UISkin.icon(dodge_button,"dodge",30)
+	UISkin.icon(interact_button,"hand",18)
+	UISkin.icon(map_button,"map",26)
+	UISkin.icon(pause_button,"menu",26)
+	for rail_button in [map_button,pause_button,mission_button]:
+		for key in ["normal","disabled"]: rail_button.add_theme_stylebox_override(key,StyleBoxEmpty.new())
+	minimap = preload("res://scripts/cartoon/cartoon_radial_minimap.gd").new()
+	minimap.name = "RadialMinimap"
+	minimap.host = host
+	minimap.gui_input.connect(func(event):
+		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT: host._toggle_map())
+	add_child(minimap)
+	gameplay_nodes.append(minimap)
 	_build_pause()
+	call_deferred("_move_zoom_into_pause")
 	class_ui = ClassUI.new()
 	class_ui.name = "HeroClasses"
 	add_child(class_ui)
@@ -279,62 +309,53 @@ func _button(text: String, button_size: Vector2, callback: Callable, radius: int
 
 func _layout() -> void:
 	var area: Rect2 = UISkin.usable(get_viewport())
-	quest_panel.position = Vector2(area.end.x-256.0,area.position.y)
-	quest_panel.size = Vector2(256,186 if expanded else 92)
-	map_button.position = Placement.toolbar_rect(get_viewport(),0).position
+	var compact: bool = area.size.x < 888.0
+	quest_panel.position = Vector2((area.position.x+304+area.end.x-116-188)*0.5,area.position.y)
+	quest_panel.size = Vector2(188,186 if expanded else 58)
+	map_button.position = Placement.toolbar_rect(get_viewport(),1).position
 	pause_button.position = Placement.toolbar_rect(get_viewport(),3).position
-	attack_button.position = Vector2(area.end.x-86,area.end.y-94)
-	interact_button.position = Vector2(area.end.x-172,area.end.y-78)
-	var compact: bool = area.size.x<888
-	var state = get_node_or_null("/root/CartoonPlayerState")
-	var unlocked_spells: int = state.unlocked_spell_count() if state != null else 1
-	unlocked_spells = clampi(unlocked_spells,1,spell_buttons.size())
-	var spell_start_x: float = area.end.x-76-82*(unlocked_spells-1)
+	mission_button.position = Placement.toolbar_rect(get_viewport(),2).position
+	minimap.position = Vector2(area.end.x-104,area.position.y)
+	minimap.size = Vector2(104,104)
+	var attack_center: Vector2 = Vector2(area.end.x-128,area.end.y-54)
+	attack_button.size = Vector2(104,104)
+	attack_button.position = attack_center-attack_button.size*0.5
+	interact_button.size = Vector2(64,48)
+	interact_button.position = Vector2(area.end.x-258,area.end.y-182)
+	# Stable slots keep muscle memory as level 10/25 unlock new abilities.
+	var angles = [-102.0,-57.0,-9.0]
 	for i in range(spell_buttons.size()):
-		spell_buttons[i].position = Vector2(spell_start_x+i*82,area.end.y-(204 if compact else 154))
-	dodge_button.size = Vector2(62,50)
-	dodge_button.position = Vector2(area.end.x-152,area.end.y-142) if compact else Vector2(area.end.x-70,area.end.y-208)
-	heal_button.size = Vector2(62,50)
-	heal_button.position = Vector2(area.end.x-222,area.end.y-142) if compact else Vector2(area.end.x-140,area.end.y-208)
-	contract_panel.position = area.position+Vector2(0,92)
+		spell_buttons[i].size = Vector2(58,58)
+		spell_buttons[i].position = attack_center+Vector2.from_angle(deg_to_rad(angles[i]))*100-spell_buttons[i].size*0.5
+	dodge_button.size = Vector2(64,64)
+	dodge_button.position = Vector2(area.end.x-248,area.end.y-64)
+	contract_panel.position = area.position+Vector2(76,106)
+	joystick_center = Vector2(area.position.x+142,area.end.y-66)
+	var message_width: float = minf(300,area.size.x-366)
+	host.toast_label.position = area.position+Vector2(78,158)
+	host.toast_label.size = Vector2(message_width,36)
+	host.toast_label.add_theme_font_size_override("font_size",12)
+	host.toast_label.size.y = maxf(36,host.toast_label.get_combined_minimum_size().y)
+	host.poi_label.position = area.position+Vector2(78,202)
+	host.poi_label.size = Vector2(message_width,20)
+	host.poi_label.add_theme_font_size_override("font_size",12)
+	host.poi_label.position.y = maxf(host.poi_label.position.y,host.toast_label.position.y+host.toast_label.size.y+4)
+	heal_button.size = Vector2(64,58)
+	heal_button.position = Vector2(area.end.x-320,area.end.y-64)
 	level_banner.size = Vector2(244,46)
-	level_banner.position = Vector2(area.get_center().x-122,area.position.y+96)
+	level_banner.position = area.position+Vector2(78,106)
 	boss_panel.size = Vector2(286,58)
-	boss_panel.position = Vector2(area.end.x-286,area.position.y+8) if compact else Vector2(area.get_center().x-143,area.position.y+8)
-	joystick_center = Vector2(area.position.x+86,area.end.y-80)
-	var hint_width: float = minf(480,area.size.x-220)
-	host.poi_label.position = Vector2(area.get_center().x-hint_width/2,area.end.y-194)
-	host.poi_label.size = Vector2(hint_width,25)
-	host.toast_label.position = Vector2(area.get_center().x-170,area.end.y-224)
-	host.toast_label.size = Vector2(340,30)
-	host.poi_label.position.y = maxf(host.poi_label.position.y,host.toast_label.position.y+32)
-	if compact:
-		host.toast_label.position.x = area.position.x
-		host.toast_label.size.x = area.size.x-260
-		host.poi_label.position.x = area.position.x
-		host.poi_label.size.x = area.size.x-260
-	if area.size.y<380:
-		# Keep transient messages below the objective card and above the toolbar.
-		host.toast_label.position = area.position+Vector2(0,120)
-		host.toast_label.size = Vector2(area.size.x-260,28)
-		host.toast_label.add_theme_font_size_override("font_size",12)
-		host.poi_label.position = area.position+Vector2(0,152)
-		host.poi_label.size = Vector2(area.size.x-260,20)
-	else:
-		host.toast_label.add_theme_font_size_override("font_size",13)
-	# Wrapped text can exceed the requested height; use the actual font minimum.
-	host.toast_label.size.y = maxf(28 if area.size.y<380 else 30,host.toast_label.get_combined_minimum_size().y)
-	host.poi_label.position.y = maxf(host.poi_label.position.y,host.toast_label.position.y+host.toast_label.size.y+3)
+	boss_panel.position = Vector2(area.end.x-296,area.position.y+8) if compact else Vector2(area.get_center().x-143,area.position.y+8)
 	queue_redraw()
 
 func _toggle_quest() -> void:
 	expanded = not expanded
 	collapse_button.text = "−" if expanded else "+"
-	quest_body.custom_minimum_size.y = 182 if expanded else 88
-	host.objective_label.size.y = 116 if expanded else 26
+	quest_body.custom_minimum_size.y = 182 if expanded else 54
+	host.objective_label.size.y = 126 if expanded else 26
 	host.objective_label.max_lines_visible = 6 if expanded else 1
 	var nav: Control = quest_body.get_node("ObjectiveNavigation")
-	nav.position.y = 154 if expanded else 69
+	nav.position.y = 154 if expanded else 35
 	_layout()
 
 func is_blocked() -> bool:
@@ -394,10 +415,11 @@ func _process(_delta: float) -> void:
 	var inside_building: bool = host.get("interiors") != null and host.interiors.active
 	map_button.text = "SAIR" if inside_building else "MAPA"
 	for control: Control in gameplay_nodes: control.visible = not blocked
-	if boss_panel.visible and UISkin.usable(get_viewport()).size.x < 888.0:
+	if boss_panel.visible:
 		quest_panel.visible = false
 	if host.hero != null:
 		var attack_wait: float = host.hero.bow_cooldown if host.hero.bow_equipped else host.hero.melee_cooldown
+		UISkin.icon(attack_button,"bow" if host.hero.bow_equipped else "sword",52)
 		attack_button.text = "DISPARAR" if host.hero.bow_equipped else "ATACAR"
 		if attack_wait>0: attack_button.text += "\n%.1f s" % attack_wait
 		attack_button.disabled = attack_wait>0 or host.hero.death_t>0
@@ -426,10 +448,11 @@ func _process(_delta: float) -> void:
 	var toolbar_clear: bool = not expanded or not quest_panel.get_global_rect().intersects(Placement.toolbar_rect(get_viewport(),3))
 	map_button.visible = not blocked and toolbar_clear
 	pause_button.visible = not blocked and toolbar_clear
-	for key: String in ["hud_status","zoom_controls"]:
+	minimap.visible = not blocked and not (boss_panel.visible and UISkin.usable(get_viewport()).size.x < 888.0) and not (expanded and quest_panel.get_global_rect().intersects(minimap.get_global_rect()))
+	for key: String in ["hud_status"]:
 		var control = host.get(key)
 		if control != null: control.visible = not blocked
-	for key: String in ["inventory_ui","crafting_ui"]:
+	for key: String in ["inventory_ui"]:
 		var control = host.get(key)
 		if control != null and control.toggle_button != null: control.toggle_button.visible = not blocked and toolbar_clear
 	if blocked:
@@ -494,7 +517,11 @@ func _update_boss_panel(blocked: bool) -> void:
 			fill_color = Color("e67b4f")
 		elif phase_value >= 3:
 			fill_color = Color("db3f78")
-		boss_bar.add_theme_stylebox_override("fill",UISkin.box(fill_color,fill_color.lightened(0.25),5))
+		boss_bar.add_theme_stylebox_override("fill",UISkin.box(fill_color,fill_color.lightened(0.25),3))
+	# Theme minimum sizes settle after construction; restore the compact geometry.
+	boss_bar.size = Vector2(262,12)
+	boss_phase_label.size = Vector2(266,14)
+	boss_name_label.size = Vector2(266,18)
 	boss_panel.tooltip_text = "%s\n%s" % [boss_name_label.text,boss_phase_label.text]
 
 func _show_level_up(from_level: int,to_level: int,state) -> void:
@@ -517,12 +544,30 @@ func _show_level_up(from_level: int,to_level: int,state) -> void:
 func _draw() -> void:
 	if host == null or quest_panel == null or is_blocked(): return
 	var center: Vector2 = joystick_center if host.joystick_id < 0 else host.joystick_origin
-	draw_circle(center,66,Color(0.05,0.12,0.09,0.26))
-	draw_arc(center,66,0,TAU,64,Color(0.75,0.69,0.47,0.46),2,true)
-	draw_circle(center+host.joystick_vector*42.0,25,Color(0.12,0.24,0.18,0.70))
-	draw_arc(center+host.joystick_vector*42.0,25,0,TAU,40,Color(0.80,0.76,0.54,0.65),1.5,true)
+	var area: Rect2 = UISkin.usable(get_viewport())
+	draw_style_box(screen_frame,get_viewport().get_visible_rect().grow(-3))
+	draw_style_box(rail_style,Rect2(area.position+Vector2(-2,50),Vector2(68,212)))
+	draw_circle(center,65,Color(0.05,0.16,0.15,0.57))
+	draw_arc(center,65,0,TAU,64,Color("c8c79b"),2,true)
+	var thumb: Vector2 = center+host.joystick_vector*34
+	draw_circle(thumb,23,Color("173d40"))
+	draw_arc(thumb,23,0,TAU,40,Color("d9d4a5"),2,true)
 	for d: Vector2 in [Vector2.LEFT,Vector2.RIGHT,Vector2.UP,Vector2.DOWN]:
-		draw_line(center+d*48,center+d*56,Color(0.83,0.82,0.66,0.65),2,true)
+		var c: Vector2 = center+d*51
+		var side: Vector2 = d.orthogonal()*4
+		draw_colored_polygon(PackedVector2Array([c+d*4,c-d*4+side,c-d*4-side]),Color("d9d4a5"))
+	if host.get("interiors") == null or not host.interiors.active:
+		var c: Vector2 = attack_button.position+attack_button.size*0.5
+		var wedge = PackedVector2Array([c])
+		for i in range(33): wedge.append(c+Vector2.from_angle(deg_to_rad(-125+140.0*i/32))*130)
+		draw_colored_polygon(wedge,Color(0.26,0.035,0.03,0.83))
+		draw_arc(c,130,deg_to_rad(-125),deg_to_rad(15),48,UISkin.GOLD,2,true)
+		draw_arc(c,122,deg_to_rad(-125),deg_to_rad(15),48,Color("b5522d"),1,true)
+		for angle in [-125.0,-81.0,-32.0,15.0]:
+			var d: Vector2 = Vector2.from_angle(deg_to_rad(angle))
+			draw_line(c+d*61,c+d*130,Color("a57535"),1.5,true)
+			var p: Vector2 = c+d*130
+			draw_colored_polygon(PackedVector2Array([p+Vector2(0,-3),p+Vector2(3,0),p+Vector2(0,3),p+Vector2(-3,0)]),UISkin.GOLD)
 
 func _input(event: InputEvent) -> void:
 	# Continue an owned finger even when it leaves the movement zone. A second
@@ -602,14 +647,14 @@ func _unhandled_input(event: InputEvent) -> void:
 func _build_pause() -> void:
 	pause_panel = PanelContainer.new()
 	pause_panel.name = "PausePanel"
-	pause_panel.custom_minimum_size = Vector2(350,270)
+	pause_panel.custom_minimum_size = Vector2(350,330)
 	pause_panel.visible = false
 	pause_panel.z_index = 100
 	pause_panel.add_theme_stylebox_override("panel",UISkin.box())
 	add_child(pause_panel)
 	var body: Control = Control.new()
 	body.name = "PauseContent"
-	body.custom_minimum_size = Vector2(346,266)
+	body.custom_minimum_size = Vector2(346,326)
 	pause_panel.add_child(body)
 	var title: Label = UISkin.label("Uma pausa na jornada",22)
 	title.position = Vector2(24,22)
@@ -623,9 +668,9 @@ func _build_pause() -> void:
 	menu.position = Vector2(24,146)
 	body.add_child(menu)
 	var note: Label = UISkin.label("Seu progresso fica salvo neste aparelho.",12,UISkin.MUTED)
-	note.position = Vector2(24,222)
+	note.position = Vector2(24,294)
 	body.add_child(note)
-	UISkin.bind(pause_panel,Vector2(350,270),"center",true)
+	UISkin.bind(pause_panel,Vector2(350,330),"center",true)
 
 func open_pause() -> void:
 	if is_blocked(): return
@@ -696,3 +741,25 @@ func _setup_demons() -> void:
 	markers.name = "EliteDemonMapMarkers"
 	markers.director = demon_director
 	host.map_overlay.add_child(markers)
+
+func _move_zoom_into_pause() -> void:
+	var zoom = host.get("zoom_controls")
+	if zoom == null: return
+	zoom.reparent(pause_panel.get_node("PauseContent"))
+	zoom.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+	for child in zoom.panel.get_children():
+		if child.get_script() == Placement:
+			child.placement = "pause_zoom"
+			child._layout()
+	zoom.visible = true
+	var forge = host.get("crafting_ui")
+	if forge != null and forge.toggle_button != null:
+		forge.toggle_button.pressed.disconnect(forge._toggle)
+		forge.toggle_button.pressed.connect(func():
+			close_pause()
+			forge._toggle())
+		forge.toggle_button.reparent(pause_panel.get_node("PauseContent"))
+		for child in forge.toggle_button.get_children():
+			if child.get_script() == Placement:
+				child.placement = "pause_forge"
+				child._layout()
