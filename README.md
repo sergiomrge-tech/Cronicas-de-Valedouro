@@ -6,7 +6,7 @@ Repositório oficial de desenvolvimento do jogo **Crônicas de Valedouro**.
 - Alvo principal: **Android / mobile-first**
 - Versão oficial atual: **2D Cartoon**
 - Cena inicial oficial: `res://scenes/cartoon/CartoonMainMenu.tscn`
-- Base validada mais recente: **v0.35**, com feedback compacto de level up e desbloqueios sobre a v0.34.
+- Base validada mais recente: **v0.36**, com troféus e crafts exclusivos de chefes sobre a v0.35.
 
 ## Regra de continuidade
 A antiga versão visual/pixel-art não é mais a base de desenvolvimento e não deve ser usada para novas alterações. Toda evolução do jogo deve partir da implementação em `game/scenes/cartoon/` e `game/scripts/cartoon/`, preservando história, missões e mecânicas canônicas quando compatíveis.
@@ -150,11 +150,10 @@ e não interrompe o combate. O save permanece v8. Ler
 `docs/CARTOON_LEVELUP_FEEDBACK_V0_35.md`. Validada no Godot 4.7.2 oficial, run `36885539172`, com 54 testes nativos e QA visual dedicado. APK continua sob demanda.
 
 
-## Continuidade — candidata v0.36: troféus e crafts de chefes
+## Continuidade — v0.36 validada: troféus e crafts de chefes
 
 A v0.36 adiciona 11 materiais exclusivos de chefes e 11 receitas especiais que
 só aparecem após a primeira obtenção do troféu correspondente. Itens de boss
 não entram no DROP RARO comum, respeitam os níveis regionais e recebem paleta,
 brilho/emblema próprios no herói. Save permanece v8. Ler
-`docs/CARTOON_BOSS_CRAFTING_V0_36.md`. Só promover após o Godot Gate 4.7.2.
-APK continua sob demanda.
+`docs/CARTOON_BOSS_CRAFTING_V0_36.md`. Validada no Godot 4.7.2 oficial, run `36887979521`, com 55 testes nativos e QA visual dedicado. APK continua sob demanda.
