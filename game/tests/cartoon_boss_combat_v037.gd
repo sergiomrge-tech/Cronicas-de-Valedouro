@@ -52,6 +52,8 @@ func run() -> void:
 
 	layout._process(0.01)
 	assert(layout.boss_panel.visible)
+	assert(not layout.quest_panel.visible)
+	assert(not layout.boss_panel.get_global_rect().intersects(hub.hud_status.panel.get_global_rect()))
 	assert(layout.boss_name_label.text.contains("General da Cinza"))
 	assert(layout.boss_phase_label.text.contains("FASE I"))
 	assert(int(layout.boss_bar.value) == 100)
@@ -109,6 +111,7 @@ func run() -> void:
 	boss.position = hub.hero.position+Vector2(900,0)
 	layout._process(0.01)
 	assert(not layout.boss_panel.visible)
+	assert(layout.quest_panel.visible)
 
 	normal.queue_free()
 	boss.queue_free()
