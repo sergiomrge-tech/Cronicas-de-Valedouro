@@ -1,4 +1,4 @@
-# Candidata v0.35 — level up e desbloqueios compactos
+# v0.35 validada — level up e desbloqueios compactos
 
 A v0.35 continua diretamente da v0.34 validada e melhora a sensação de
 progressão sem abrir modais ou cobrir a ação no celular.
@@ -76,5 +76,18 @@ Gera quatro capturas reais do Godot em 640×360:
 3. nível 10 com Cristal;
 4. nível 25 com Arcana.
 
-A v0.35 só deve ser promovida após o Godot Gate 4.7.2 concluir com sucesso.
+## Validação oficial
+
+A v0.35 foi validada no **Godot 4.7.2 oficial** no commit
+`e90330ba708d5c5402158ffae5b346ff6c47f49f`.
+
+O Gate oficial concluiu com sucesso no run `36885539172`, incluindo:
+- importação/parser;
+- **54 testes nativos**;
+- regressões completas das versões anteriores;
+- QA visual geral de todas as regiões;
+- QA v0.35 com quatro capturas reais de level up e desbloqueios.
+
+Artefato visual: `valedouro-levelup-v035-visual-qa`.
+
 APK continua sob demanda.
