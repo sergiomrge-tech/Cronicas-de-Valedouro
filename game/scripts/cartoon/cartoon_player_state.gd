@@ -17,7 +17,12 @@ const SAVE_VERSION: int = 7
 const Classes = preload("res://scripts/cartoon/cartoon_class_catalog.gd")
 const Loot = preload("res://scripts/cartoon/cartoon_loot_catalog.gd")
 const SPELL_UNLOCK_LEVELS: Array[int] = [1,10,25]
+const SPELL_LABELS: Array[String] = ["Brasa","Cristal","Arcana"]
 const EQUIPMENT_LEVELS: Array[int] = [1,8,18,28,40,55,70,85]
+const EQUIPMENT_REGION_LABELS: Array[String] = [
+	"Valedouro","Floresta Ancestral","Deserto e Ruínas","Pântanos Sombrios",
+	"Montanhas Nevadas","Costas e Ilhas","Terras Corrompidas","Coração Abissal"
+]
 var active_class: String = "warrior"
 var skill_ranks: Dictionary = {}
 
@@ -35,6 +40,21 @@ func unlocked_spell_count() -> int:
 		if spell_unlocked(i):
 			count += 1
 	return count
+
+func progression_unlocks(from_level: int,to_level: int) -> PackedStringArray:
+	var result: PackedStringArray = PackedStringArray()
+	var start_level: int = maxi(1,from_level+1)
+	var end_level: int = clampi(to_level,1,100)
+	if end_level < start_level:
+		return result
+	for level_value in range(start_level,end_level+1):
+		for i in range(SPELL_UNLOCK_LEVELS.size()):
+			if i > 0 and SPELL_UNLOCK_LEVELS[i] == level_value:
+				result.append("Magia liberada: "+SPELL_LABELS[i])
+		for tier in range(1,EQUIPMENT_LEVELS.size()):
+			if EQUIPMENT_LEVELS[tier] == level_value:
+				result.append("Equipamentos liberados: "+EQUIPMENT_REGION_LABELS[tier])
+	return result
 
 func skill_rank(id: String, active_only: bool = true) -> int:
 	if not Classes.SKILLS.has(id): return 0
