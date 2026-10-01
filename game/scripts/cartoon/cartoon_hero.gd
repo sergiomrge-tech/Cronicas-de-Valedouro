@@ -154,7 +154,10 @@ func combat_range(base_range: float) -> float:
 	return maxf(base_range,220.0+4*_skill("reach")) if spell_mode else (300.0+4*_skill("reach") if bow_equipped else base_range)
 
 func cycle_spell() -> void:
-	spell_index = (spell_index+1)%SPELLS.size()
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	var unlocked: int = state.unlocked_spell_count() if state != null else 1
+	unlocked = clampi(unlocked,1,SPELLS.size())
+	spell_index = (spell_index+1)%unlocked
 	queue_redraw()
 
 func spell_cooldown_remaining(index: int = -1) -> float:
@@ -163,6 +166,8 @@ func spell_cooldown_remaining(index: int = -1) -> float:
 func cast_spell(host, index: int = -1) -> bool:
 	var selected: int = spell_index if index<0 else index
 	if selected<0 or selected>=SPELLS.size(): return false
+	var state = get_node_or_null("/root/CartoonPlayerState")
+	if state != null and not state.spell_unlocked(selected): return false
 	if spell_cooldowns[selected]>0 or dodge_t>0 or death_t>0 or get_tree().paused: return false
 	var layout = host.get_node_or_null("HUD/GameLayout")
 	if layout != null and layout.is_blocked(): return false
