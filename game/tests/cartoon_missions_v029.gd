@@ -63,7 +63,18 @@ func run() -> void:
 		assert(layout.mission_ui.is_open() and layout.is_blocked())
 		assert(root.get_visible_rect().encloses(layout.mission_ui.panel.get_global_rect()))
 		layout.mission_ui.show_tab("available")
+		await settle()
 		assert(layout.mission_ui.rows.get_child_count()==5)
+		if size_v == Vector2i(640,360):
+			var vbar: VScrollBar = layout.mission_ui.scroll.get_v_scroll_bar()
+			assert(vbar.visible and vbar.max_value > vbar.page,"Mission list has no usable vertical scrollbar")
+			var before_scroll: int = layout.mission_ui.scroll.scroll_vertical
+			var drag: InputEventScreenDrag = InputEventScreenDrag.new()
+			drag.index = 29
+			drag.relative = Vector2(0,-120)
+			layout.mission_ui._scroll_input(drag)
+			await settle()
+			assert(layout.mission_ui.scroll.scroll_vertical > before_scroll,"Touch drag did not scroll mission list")
 		layout.mission_ui.show_tab("active")
 		layout.mission_ui._track("main")
 		assert(state.tracked_mission=="main")
