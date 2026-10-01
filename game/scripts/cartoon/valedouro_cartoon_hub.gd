@@ -3,6 +3,7 @@ extends Node2D
 
 const WildlifeScript = preload("res://scripts/cartoon/cartoon_wildlife_director.gd")
 var wildlife
+var exploration_director: Node
 
 const Difficulty = preload("res://scripts/cartoon/cartoon_difficulty.gd")
 const GameLayout = preload("res://scripts/cartoon/cartoon_game_layout.gd")
@@ -14,6 +15,7 @@ const MonsterScript = preload("res://scripts/cartoon/cartoon_monster.gd")
 const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
 const StreamScript = preload("res://scripts/cartoon/cartoon_world_stream.gd")
 const ExplorationContent = preload("res://scripts/cartoon/cartoon_exploration_content.gd")
+const ExplorationDirectorScript = preload("res://scripts/cartoon/cartoon_exploration_director.gd")
 const MainStoryMap = preload("res://scripts/cartoon/cartoon_main_story_map.gd")
 const StoryZoneScript = preload("res://scripts/cartoon/cartoon_story_zone.gd")
 const StoryRuntimeScript = preload("res://scripts/cartoon/cartoon_story_runtime.gd")
@@ -134,6 +136,10 @@ func _ready() -> void:
 	wildlife.name = "WildlifeDirector"
 	add_child(wildlife)
 	wildlife.setup(self,Region)
+	exploration_director = ExplorationDirectorScript.new()
+	exploration_director.name = "ExplorationDirector"
+	add_child(exploration_director)
+	exploration_director.setup(self,objects,hero,Region.REGION_ID)
 	_bind_campaign_save()
 	_update_poi_hint()
 
@@ -289,6 +295,8 @@ func _interact() -> void:
 		interiors.interact()
 		return
 	if not hero or not environment: return
+	if exploration_director != null and exploration_director.try_interact():
+		return
 	var poi = environment.nearest_poi(hero.position,170.0)
 	if poi.is_empty():
 		_show_toast("Nada para interagir aqui.")
@@ -332,6 +340,11 @@ func _show_toast(text: String) -> void:
 
 func _update_poi_hint() -> void:
 	if not poi_label or not hero or not environment: return
+	if exploration_director != null:
+		var gather_hint: String = exploration_director.hint_text()
+		if gather_hint != "":
+			poi_label.text = gather_hint
+			return
 	var poi = environment.nearest_poi(hero.position,190.0)
 	poi_label.text=("◆ " + String(poi.get("label","")) + "  •  USAR") if not poi.is_empty() else ""
 
