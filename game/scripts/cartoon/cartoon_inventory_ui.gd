@@ -15,6 +15,7 @@ var equipment_label: Label
 var count_label: Label
 var equipment_tab: Button
 var materials_tab: Button
+var consumables_tab: Button
 var weapons_tab: Button
 var armor_tab: Button
 var current_tab: String = "equipment"
@@ -30,6 +31,7 @@ var detail_compare: Label
 var detail_action: Button
 var selected_item_id: String = ""
 var selected_material: String = ""
+var selected_consumable: String = ""
 
 func setup(host_node = null, hero_node: Node2D = null, show_toggle: bool = true) -> void:
 	host = host_node
@@ -49,6 +51,8 @@ func is_open() -> bool:
 func open_panel(tab: String = "equipment") -> void:
 	if tab == "materials":
 		current_tab = "materials"
+	elif tab == "consumables":
+		current_tab = "consumables"
 	elif tab in ["weapon","armor"]:
 		current_tab = "equipment"
 		equipment_filter = tab
@@ -186,25 +190,30 @@ func _build(show_toggle: bool) -> void:
 	hint.add_theme_color_override("font_color",Color(0.57,0.64,0.70))
 	content.add_child(hint)
 
-	equipment_tab = _tab_button("TODOS",Vector2(240,58),94)
+	equipment_tab = _tab_button("TODOS",Vector2(240,58),78)
 	equipment_tab.name = "AllItemsTab"
 	equipment_tab.pressed.connect(func(): _set_tab("equipment"))
 	content.add_child(equipment_tab)
 
-	weapons_tab = _tab_button("ARMAS",Vector2(340,58),92)
+	weapons_tab = _tab_button("ARMAS",Vector2(324,58),76)
 	weapons_tab.name = "WeaponsTab"
 	weapons_tab.pressed.connect(func(): _set_tab("weapon"))
 	content.add_child(weapons_tab)
 
-	armor_tab = _tab_button("ARMADURAS",Vector2(438,58),112)
+	armor_tab = _tab_button("ARMADURAS",Vector2(406,58),98)
 	armor_tab.name = "ArmorTab"
 	armor_tab.pressed.connect(func(): _set_tab("armor"))
 	content.add_child(armor_tab)
 
-	materials_tab = _tab_button("MATERIAIS",Vector2(556,58),112)
+	materials_tab = _tab_button("MATERIAIS",Vector2(510,58),96)
 	materials_tab.name = "MaterialsTab"
 	materials_tab.pressed.connect(func(): _set_tab("materials"))
 	content.add_child(materials_tab)
+
+	consumables_tab = _tab_button("ITENS",Vector2(612,58),74)
+	consumables_tab.name = "ConsumablesTab"
+	consumables_tab.pressed.connect(func(): _set_tab("consumables"))
+	content.add_child(consumables_tab)
 
 	var scroll: ScrollContainer = ScrollContainer.new()
 	scroll.position = Vector2(240,116)
@@ -282,7 +291,7 @@ func _build(show_toggle: bool) -> void:
 	detail_action.size = Vector2(150,44)
 	detail_action.mouse_filter = Control.MOUSE_FILTER_STOP
 	_style_button(detail_action,Color(0.15,0.29,0.20),Color(0.45,0.82,0.50))
-	detail_action.pressed.connect(_equip_selected)
+	detail_action.pressed.connect(_primary_action)
 	detail_content.add_child(detail_action)
 
 func _tab_button(text_value: String,pos: Vector2,width: float) -> Button:
@@ -297,8 +306,11 @@ func _tab_button(text_value: String,pos: Vector2,width: float) -> Button:
 
 func _set_tab(tab: String) -> void:
 	selected_material = ""
+	selected_consumable = ""
 	if tab == "materials":
 		current_tab = "materials"
+	elif tab == "consumables":
+		current_tab = "consumables"
 	elif tab == "weapon":
 		current_tab = "equipment"
 		equipment_filter = "weapon"
@@ -316,8 +328,8 @@ func _refresh() -> void:
 		return
 	var items: Array[Dictionary] = state.owned_equipment()
 	equipment_label.text = state.equipment_summary()
-	count_label.text = "Equipamentos %d/%d   •   Materiais %d" % [items.size(),EQUIPMENT_CAPACITY,state.material_total()]
-	for entry: Array in [[equipment_tab,current_tab == "equipment" and equipment_filter == "all"],[weapons_tab,current_tab == "equipment" and equipment_filter == "weapon"],[armor_tab,current_tab == "equipment" and equipment_filter == "armor"],[materials_tab,current_tab == "materials"]]:
+	count_label.text = "Equip. %d/%d • Mat. %d • Itens %d" % [items.size(),EQUIPMENT_CAPACITY,state.material_total(),state.consumables_total()]
+	for entry: Array in [[equipment_tab,current_tab == "equipment" and equipment_filter == "all"],[weapons_tab,current_tab == "equipment" and equipment_filter == "weapon"],[armor_tab,current_tab == "equipment" and equipment_filter == "armor"],[materials_tab,current_tab == "materials"],[consumables_tab,current_tab == "consumables"]]:
 		UISkin.button(entry[0],Color("355344") if entry[1] else UISkin.SURFACE,UISkin.GOLD if entry[1] else Color("596f60"))
 		entry[0].add_theme_font_size_override("font_size",13)
 	_refresh_equipped_slots(state)
@@ -326,6 +338,8 @@ func _refresh() -> void:
 		child.queue_free()
 	if current_tab == "materials":
 		_fill_materials(state)
+	elif current_tab == "consumables":
+		_fill_consumables(state)
 	else:
 		_fill_equipment(state)
 	_refresh_detail(state)
@@ -438,6 +452,38 @@ func _fill_materials(state) -> void:
 		button.pressed.connect(_select_material.bind(key))
 		list_box.add_child(button)
 
+func _fill_consumables(state) -> void:
+	var active: Array[String] = []
+	for key_value in state.consumables.keys():
+		var key: String = String(key_value)
+		if state.consumable_count(key) > 0:
+			active.append(key)
+	active.sort()
+	if active.is_empty():
+		_add_empty("Nenhum consumível.\nAlguns inimigos podem derrubar itens.")
+		selected_consumable = ""
+		return
+	if selected_consumable == "" or selected_consumable not in active:
+		selected_consumable = active[0]
+	for id in active:
+		var row: Dictionary = state.Loot.consumable(id)
+		var button: Button = Button.new()
+		button.custom_minimum_size = Vector2(160,72)
+		button.text = "%s%s\nQuantidade: %d" % [
+			"◆ " if id == selected_consumable else "",
+			String(row.get("label","Consumível")),
+			state.consumable_count(id)
+		]
+		button.tooltip_text = String(row.get("description",""))
+		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		button.mouse_filter = Control.MOUSE_FILTER_STOP
+		_style_button(button,Color(0.12,0.10,0.16),Color(0.72,0.48,0.84))
+		if id == selected_consumable:
+			UISkin.button(button,Color("355344"),UISkin.GOLD)
+		button.add_theme_font_size_override("font_size",12)
+		button.pressed.connect(_select_consumable.bind(id))
+		list_box.add_child(button)
+
 func _add_empty(text_value: String) -> void:
 	var label: Label = Label.new()
 	label.custom_minimum_size = Vector2(330,100)
@@ -450,13 +496,22 @@ func _add_empty(text_value: String) -> void:
 func _select_item(item_id: String) -> void:
 	selected_item_id = item_id
 	selected_material = ""
+	selected_consumable = ""
 	current_tab = "equipment"
 	_refresh()
 
 func _select_material(material_name: String) -> void:
 	selected_material = material_name
 	selected_item_id = ""
+	selected_consumable = ""
 	current_tab = "materials"
+	_refresh()
+
+func _select_consumable(id: String) -> void:
+	selected_consumable = id
+	selected_item_id = ""
+	selected_material = ""
+	current_tab = "consumables"
 	_refresh()
 
 func _refresh_detail(state) -> void:
@@ -471,6 +526,24 @@ func _refresh_detail(state) -> void:
 		detail_meta.text = "Quantidade: %d\nMaterial de fabricação" % int(state.materials.get(selected_material,0))
 		detail_compare.text = "Usado na Forja para criar equipamentos das regiões de Elyndor."
 		detail_compare.add_theme_color_override("font_color",Color(0.56,0.82,0.64))
+		return
+
+	if current_tab == "consumables":
+		detail_action.visible = true
+		if selected_consumable == "":
+			detail_name.text = "Consumíveis"
+			detail_meta.text = "Nenhum item selecionado."
+			detail_compare.text = ""
+			detail_action.disabled = true
+			detail_action.text = "USAR"
+			return
+		var row: Dictionary = state.Loot.consumable(selected_consumable)
+		detail_name.text = String(row.get("label","Consumível"))
+		detail_meta.text = "%s\nQuantidade: %d" % [String(row.get("rarity","Comum")),state.consumable_count(selected_consumable)]
+		detail_compare.text = String(row.get("description",""))
+		detail_compare.add_theme_color_override("font_color",Color(0.72,0.82,0.95))
+		detail_action.text = "USAR"
+		detail_action.disabled = state.player_hp >= state.player_max_hp or state.consumable_count(selected_consumable) <= 0
 		return
 
 	detail_action.visible = true
@@ -506,6 +579,25 @@ func _refresh_detail(state) -> void:
 		detail_compare.add_theme_color_override("font_color",Color(0.78,0.78,0.74))
 	detail_action.disabled = equipped
 	detail_action.text = "EQUIPADO" if equipped else "EQUIPAR"
+
+func _primary_action() -> void:
+	if current_tab == "consumables":
+		_use_selected_consumable()
+	else:
+		_equip_selected()
+
+func _use_selected_consumable() -> void:
+	if selected_consumable == "":
+		return
+	var state = _state()
+	if state == null:
+		return
+	var result: Dictionary = state.use_consumable(selected_consumable)
+	if host != null and host.has_method("_refresh_stats"):
+		host.call("_refresh_stats")
+	if host != null and host.has_method("_show_toast"):
+		host.call("_show_toast",String(result.get("message","Consumível atualizado.")))
+	_refresh()
 
 func _equip_selected() -> void:
 	if selected_item_id == "":
