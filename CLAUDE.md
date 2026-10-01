@@ -259,7 +259,7 @@ Regras adicionais que não devem regredir:
 - save permanece v8.
 
 
-## Continuidade — candidata v0.36: troféus e crafts de chefes
+## Continuidade — v0.36 validada: troféus e crafts de chefes
 
 A v0.36 adiciona 11 materiais exclusivos de chefes e 11 receitas especiais que
 só aparecem após a primeira obtenção do troféu correspondente. Itens de boss
@@ -267,3 +267,19 @@ não entram no DROP RARO comum, respeitam os níveis regionais e recebem paleta,
 brilho/emblema próprios no herói. Save permanece v8. Ler
 `docs/CARTOON_BOSS_CRAFTING_V0_36.md`. Só promover após o Godot Gate 4.7.2.
 APK continua sob demanda.
+
+
+## Estado validado — v0.36
+
+Commit validado: `5bca63331caf227e4e66ba9432ab75c7852075f5`.
+Godot Gate oficial 4.7.2: run `36887979521`, conclusão success.
+A suíte contém 55 testes nativos e QA visual dedicado v0.36.
+
+Regras adicionais que não devem regredir:
+- 11 chefes da campanha possuem material exclusivo e receita própria;
+- receita de chefe só aparece depois que o troféu/material correspondente foi obtido;
+- item de chefe nunca entra no DROP RARO comum;
+- receitas especiais permanecem conhecidas depois do craft;
+- itens de chefe respeitam os níveis regionais existentes;
+- armas e peças de boss possuem paleta/acento/emblema próprios no herói;
+- save permanece v8.
