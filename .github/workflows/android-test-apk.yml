@@ -141,18 +141,18 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p game/build
-          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.32_TEST.apk
-          test -s game/build/Cronicas_de_Valedouro_v0.32_TEST.apk
-          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.32_TEST.apk
-          sha256sum game/build/Cronicas_de_Valedouro_v0.32_TEST.apk | tee game/build/SHA256.txt
-          ls -lh game/build/Cronicas_de_Valedouro_v0.32_TEST.apk
+          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.33_TEST.apk
+          test -s game/build/Cronicas_de_Valedouro_v0.33_TEST.apk
+          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.33_TEST.apk
+          sha256sum game/build/Cronicas_de_Valedouro_v0.33_TEST.apk | tee game/build/SHA256.txt
+          ls -lh game/build/Cronicas_de_Valedouro_v0.33_TEST.apk
 
       - name: Upload installable APK
         uses: actions/upload-artifact@v4
         with:
-          name: Cronicas-de-Valedouro-Android-TEST-v0.32
+          name: Cronicas-de-Valedouro-Android-TEST-v0.33
           path: |
-            game/build/Cronicas_de_Valedouro_v0.32_TEST.apk
+            game/build/Cronicas_de_Valedouro_v0.33_TEST.apk
             game/build/SHA256.txt
           if-no-files-found: error
           retention-days: 30
@@ -166,14 +166,14 @@ jobs:
         run: |
           set -euo pipefail
           cat > /tmp/android-release.md <<'NOTES'
-          APK atualizado v0.32: Brasa inicia sozinha; Cristal e Arcana desbloqueiam por nível. Inventário mostra ouro e paper-doll do personagem; diário de missões ganha rolagem touch. Inclui equipamentos completos, fabricação de armas e armaduras, arco com flechas em voo, herói refinado e animado, aba de missões com escolha do objetivo no HUD/mapa, 48 demônios de elite e níveis visíveis nos inimigos. Inimigos acima do nível do herói são muito mais difíceis, e a evolução exige mais XP. Inclui classes, habilidades, magias, esquiva, interiores, caça e Castelo Real.
+          APK atualizado v0.33: botão CURA no HUD mobile, escolha inteligente entre Frasco e Elixir e equipamentos/Forja bloqueados pelo nível regional (1/8/18/28/40/55/70/85). Preserva Brasa no nível 1, Cristal no 10, Arcana no 25, loot/consumíveis, paper-doll, ouro na Bolsa, missões roláveis, classes, habilidades, arco, esquiva, interiores, caça e Castelo Real.
 
           Toque em MISSÕES para escolher o objetivo, BOLSA para trocar equipamento, FORJA para fabricar e no retrato do herói para abrir Classes e Habilidades. Save v7 preserva a campanha anterior.
 
           Baixe o APK, abra no celular e permita a instalação pelo aplicativo usado para abrir o arquivo. Android 7.0 ou superior; ARM 32/64 bits.
 
-          Exportação assinada com Godot 4.7.2, 34 testes Android nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
+          Exportação assinada com Godot 4.7.2, 35 testes Android nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
           NOTES
-          gh release create v0.32-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.32 — Progressão e Inventário" --notes-file /tmp/android-release.md
-          gh release upload v0.32-test game/build/Cronicas_de_Valedouro_v0.32_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
-          gh release edit v0.32-test --repo "$REPOSITORY" --draft=false --prerelease
+          gh release create v0.33-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.33 — Cura e Progressão de Equipamentos" --notes-file /tmp/android-release.md
+          gh release upload v0.33-test game/build/Cronicas_de_Valedouro_v0.33_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
+          gh release edit v0.33-test --repo "$REPOSITORY" --draft=false --prerelease
