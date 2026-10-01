@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - pc-fullhd-v040
+      - pc-fullhd-v043-validate
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
