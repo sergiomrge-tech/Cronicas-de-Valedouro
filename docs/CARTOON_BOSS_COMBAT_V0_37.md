@@ -1,4 +1,4 @@
-# Candidata v0.37 — combate de chefes em fases
+# v0.37 validada — combate de chefes em fases
 
 A v0.37 continua diretamente da v0.36 validada e melhora o combate dos chefes
 sem alterar a história, os IDs ou as recompensas exclusivas já aprovadas.
@@ -106,5 +106,20 @@ Gera quatro capturas reais:
 3. telegráfico de ataque especial da Fase II;
 4. Fase III — Ruptura.
 
-A v0.37 só deve ser promovida após o Godot Gate 4.7.2 concluir com sucesso.
+## Validação oficial
+
+A v0.37 foi validada no **Godot 4.7.2 oficial** no commit
+`4fb27216fb82b8c3defc79c457b069985e0d2ac1`.
+
+O Gate oficial concluiu com sucesso no run `36891829409`, incluindo:
+- validação estática;
+- importação/parser;
+- **56 testes nativos**;
+- regressões completas das versões anteriores;
+- QA visual geral de todas as regiões;
+- QA v0.37 com quatro capturas reais das fases e do ataque especial;
+- teste de layout 640×360 sem sobreposição entre barra de boss e HUD do herói.
+
+Artefato visual: `valedouro-boss-v037-visual-qa`.
+
 APK continua sob demanda.
