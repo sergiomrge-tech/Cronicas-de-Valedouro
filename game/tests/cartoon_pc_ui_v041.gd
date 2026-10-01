@@ -22,8 +22,8 @@ func _init() -> void:
 		errors.append("botão de sair no menu principal ausente")
 	if not menu_source.contains('fullscreen_button.name = "FullscreenButton"'):
 		errors.append("opção visual de tela inteira no menu principal ausente")
-	if not hub_source.contains('var priority_poi: Dictionary = environment.nearest_poi(hero.position,260.0)'):
-		errors.append("prioridade ampliada da entrada do castelo ausente")
+	if not hub_source.contains('_try_enter_nearby_building(280.0)') or not hub_source.contains('_nearest_building_poi(280.0)'):
+		errors.append("prioridade ampliada das entradas de prédios ausente")
 	if not hub_source.contains('E — ENTRAR'):
 		errors.append("dica de entrada do castelo para PC ausente")
 
