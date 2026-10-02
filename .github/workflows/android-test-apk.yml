@@ -125,12 +125,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_challenge_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033 cartoon_gathering_v034 cartoon_levelup_feedback_v035 cartoon_boss_crafting_v036 cartoon_boss_combat_v037 cartoon_radial_ui_v038 cartoon_city_v040 cartoon_pilot_v041; do
+          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_challenge_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033 cartoon_gathering_v034 cartoon_levelup_feedback_v035 cartoon_boss_crafting_v036 cartoon_boss_combat_v037 cartoon_radial_ui_v038 cartoon_city_v040 cartoon_pilot_v041 cartoon_illustrated_v042; do
             echo "===== TEST: $t ====="
             timeout 70s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" 2>&1 | tee "/tmp/valedouro-test-$t.log"
             ! grep -Eq "SCRIPT ERROR|ERROR:|Assertion failed" "/tmp/valedouro-test-$t.log"
             grep -q ": PASS" "/tmp/valedouro-test-$t.log"
           done
+
+      - name: Validate original illustrated assets
+        run: python3 game/tools/cartoon/validate_illustrated_art_v042.py
 
       - name: Export Android debug APK
         shell: bash
@@ -147,6 +150,13 @@ jobs:
           sha256sum game/build/Cronicas_de_Valedouro_v0.42_TEST.apk | tee game/build/SHA256.txt
           ls -lh game/build/Cronicas_de_Valedouro_v0.42_TEST.apk
 
+      - name: Verify exported resources and prepare native ZIP delivery
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$ANDROID_HOME/build-tools/35.0.1/aapt2" dump badging game/build/Cronicas_de_Valedouro_v0.42_TEST.apk > game/build/ANDROID_MANIFEST.txt
+          python3 game/tools/cartoon/validate_android_package_v042.py game/build/Cronicas_de_Valedouro_v0.42_TEST.apk --source-sha "$GITHUB_SHA" --badging game/build/ANDROID_MANIFEST.txt
+
       - name: Upload installable APK
         uses: actions/upload-artifact@v4
         with:
@@ -154,6 +164,9 @@ jobs:
           path: |
             game/build/Cronicas_de_Valedouro_v0.42_TEST.apk
             game/build/SHA256.txt
+            game/build/EXPORT_CHECK.json
+            game/build/ANDROID_MANIFEST.txt
+            game/build/COMO_INSTALAR.txt
           if-no-files-found: error
           retention-days: 30
 
@@ -166,17 +179,14 @@ jobs:
         run: |
           set -euo pipefail
           cat > /tmp/android-release.md <<'NOTES'
-          v0.42 traz grama e piso ilustrados, oito moradores e criaturas com poses de caminhada. Corrige a vegetação ausente nos chunks junto à cidade e distribui encontros normais nos arredores, com limite de atores e retorno após cinco minutos. Cidade e jardins reais protegidos, HUD radial 3 e dificuldade por nível preservados.
+          v0.42 integra herói ilustrado com oito estados de animação, espada, arco e aljava pintados, foco de magia na palma e três magias coloridas com recargas independentes. Taverna, ferreiro e guilda receberam decoração e paredes próprias, preservando seus serviços e colisões. A área piloto v0.41 e as construções v0.40 foram preservadas.
 
-          HUD e interfaces no estilo Combate Radial escolhido: molduras vermelho/dourado, retrato destacado, coluna Bolsa/Mapa/Missões/Menu, minimapa do cenário real e três magias em arco com recargas independentes. Menu, inventário, forja, missões, guilda, classes, mapa e pausa usam o mesmo acabamento. Inventário mantém personagem equipado, sete posições e comparação de itens.
+          HUD radial opção 3, campanha, classes/equipamentos, save v8 e dificuldade por nível mantidos. Arte comparada em 960x540/640x360, zoom70/150 e animações, com 60 testes nativos aprovados no gate oficial Godot 4.7.2. A build Android repete 43 testes Cartoon, verifica assinatura, versões, ABIs ARM32/64, recursos exportados e SHA256.
 
-          Forja e controles de zoom ficam no MENU. Toque no retrato para trocar classe e evoluir habilidades. Magias continuam desbloqueando nos níveis 1/10/25. Save v8, campanha e dificuldade preservados. A assinatura de teste é gerada pela execução; o Android pode exigir remover uma instalação anterior assinada com outra chave, o que apaga o progresso local.
+          Entrega principal: ZIP nativo com APK, SHA256, metadados e instruções. Extraia o ZIP e abra o APK. Se o navegador salvar como content, renomeie para Valedouro_v0.42.zip. Android 7.0+. Desempenho e ergonomia em aparelho real ainda não foram medidos.
 
-
-          Baixe o APK, abra no celular e permita a instalação pelo aplicativo usado para abrir o arquivo. Android 7.0 ou superior; ARM 32/64 bits.
-
-          Exportação assinada com Godot 4.7.2, 41 testes nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
+          A assinatura de teste é gerada nesta execução; uma instalação anterior assinada com outra chave pode impedir atualizar. Desinstalar a anterior apaga o progresso local; preserve uma cópia antes de remover o app.
           NOTES
-          gh release create v0.42-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.42 — Área piloto viva e ilustrada" --notes-file /tmp/android-release.md
+          gh release create v0.42-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.42 — Herói e interiores ilustrados" --notes-file /tmp/android-release.md
           gh release upload v0.42-test game/build/Cronicas_de_Valedouro_v0.42_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
           gh release edit v0.42-test --repo "$REPOSITORY" --draft=false --prerelease
