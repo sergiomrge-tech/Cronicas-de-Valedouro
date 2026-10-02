@@ -1,0 +1,28 @@
+{
+  "source_commit": "da4ac140274797d553762414798f5980e48cb4f3",
+  "engine": "4.7.2",
+  "version": "0.42-test",
+  "version_code": 42,
+  "package": "com.sergiomrge.cronicasvaledouro.test",
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a"
+  ],
+  "apk_file": "Cronicas_de_Valedouro_v0.42_TEST.apk",
+  "apk_bytes": 141713625,
+  "sha256": "6966d993ec653a7fde5ce83fcb6e0e3c7593265f2401c308fe9844389b72b238",
+  "illustrated_textures": 15,
+  "compiled_illustrated_scripts": 6,
+  "archive_crc": "PASS",
+  "android_badging": "PASS",
+  "physical_device_test": "NOT_EXECUTED",
+  "run_id": 36984395781,
+  "conclusion": "success",
+  "native_tests": 43,
+  "zip_artifact_id": 11217021330,
+  "zip_bytes": 116700083,
+  "zip_name": "Valedouro_v0.42_Android.zip",
+  "delivery": "Native file reference prepared through GitHub connector; actual receipt on phone not verified",
+  "signing_certificate_sha256": "6d4c85d886c26f901c8593c5dcdedc890538cb08aee18464070924fc1712e014",
+  "previous_v038_signing_certificate_sha256": null
+}
