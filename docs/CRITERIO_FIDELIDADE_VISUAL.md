@@ -87,3 +87,14 @@ cor dos núcleos das magias, sombras, pés, móveis completos e paredes própria
 das três salas, em 960×540/640×360 e zoom70/150. PASS técnico não foi usado como
 substituto para essa inspeção; gate oficial e suas capturas ainda pendentes no
 checkpoint inicial. Aprovação do Diretor não é presumida.
+
+### Encerramento v0.42
+
+Gate 4.7.2 run 36979976422 SUCCESS e revisão oficial compacta baixada/conferida.
+O comparador acrescenta recorte direto do PNG original do herói em zoom70/150,
+com as mesmas regiões/âncoras, amostras oficiais e animações reais. Confirmados
+detalhes, proporções, perspectiva, cores, recortes de atlas, sombra e apoio.
+Diferenças menores de antialiasing entre motores locais/oficiais foram
+observadas; nenhuma regressão da pintura identificada. Os limites de
+enquadramento e do diagnóstico são explícitos no relatório. Escopo deste
+passe verificado; automação desativada. Aprovação pessoal não é presumida.

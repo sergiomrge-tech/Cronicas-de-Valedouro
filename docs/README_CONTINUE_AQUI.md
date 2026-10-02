@@ -1,21 +1,36 @@
 # CONTINUE AQUI — Crônicas de Valedouro 2D Cartoon
 
-## Checkpoint v0.42 — 02/10/2026
+## Conclusão verificada — v0.42 (02/10/2026)
 
-Herói, armas, foco e fases de magia, decoração e paredes da taverna/ferreiro/guilda
-integrados com originais pintados. Leia `docs/CARTOON_ILLUSTRATED_V0_42.md` e
-`docs/visual_qa/cartoon_v042/review.html`. Captura local final: 155 PNGs nas duas
-resoluções e zooms, 240 apoios de poses, máximo 492 draw calls; comparação visual
-com diferenças concretas corrigidas. Testes finais/pacote/gate oficial em execução.
-Não gerar APK. Não repetir v0.41. Próxima ação: verificar Godot Gate 4.7.2 do
-commit deste passe, comparar seu artifact e registrar resultado antes de encerrar
-a automação **Continuar Crônicas de Valedouro**.
+Passe concluído: herói/armas/efeitos ilustrados e decoração/paredes/piso dos
+interiores de taverna, ferreiro e guilda. Originais v0.41/v0.40 intactos.
+Código/assets: `740f06d66790e9bfb3e6fd7df8781ee0bbf6f893`.
+Ajuste de artifact compacto: `665fbf13626060de4c7b9448389ba600613f78ab`, com a
+mesma árvore `game` do runtime. Godot Gate oficial **4.7.2**:
+[run 36979976422](https://github.com/sergiomrge-tech/Cronicas-de-Valedouro/actions/runs/36979976422)
+**SUCCESS**, 60 testes nativos, 240 apoios de poses e 155 capturas. Gate anterior
+36978863902 também aprovado. Local: 43 testes, captura final e pacote de recursos PASS.
+
+Comparação visual executada com originais e cenas reais em 960×540/640×360,
+zoom70/150 e oito estados de animação. Diferenças concretas e correções no
+relatório; não foi encerrado só por PASS técnico. Revisão compacta oficial
+baixada (83 arquivos, 27.793.888 bytes) e conferida; amostras oficiais e hashes
+salvos em `docs/visual_qa/cartoon_v042`. Max draw calls 492. Pequenas diferenças
+de antialiasing de linhas entre 4.6.3/4.7.2 não alteraram a integração da pintura.
+
+Mantidos campanha/IDs, colisões, nível/dificuldade, classes/equipamentos/arco,
+HUD radial opção 3, save v8 e três recargas independentes. Nenhum APK.
+Automação **Continuar Crônicas de Valedouro desativada**, retorno da ferramenta
+confirmado por consulta. Não há pendência deste passe. Teste físico Android e
+aprovação pessoal do Diretor não foram alegados; próximo desenvolvimento deve
+seguir um novo pedido, sem repetir v0.41/v0.42.
+
 
 
 **Diretor:** Sergio  
 **Mundo:** Elyndor  
 **Engine:** Godot 4.7.2  
-**Base oficial validada:** 2D Cartoon v0.40<br>
+**Base oficial validada:** 2D Cartoon v0.42<br>
 **Cena inicial:** `res://scenes/cartoon/CartoonMainMenu.tscn`
 
 ## ATENÇÃO
@@ -332,11 +347,3 @@ Ler `docs/CARTOON_PILOT_V0_41.md`; comparação real em
 `docs/visual_qa/cartoon_v041/review.html`. 42 testes Cartoon locais e pacote de
 recursos verificados; CI oficial executa 59 testes e QA ao publicar. Não gerar
 APK neste pedido. Próximo passe visual: herói/efeitos e interiores.
-
-### Checkpoint de entrega de QA v0.42
-
-Runtime `740f06d`, gate 4.7.2 run `36978863902` SUCCESS (60 testes/240 apoios/155
-capturas). Arte e código do jogo concluídos; inspeção do artifact oficial
-aguarda pacote compacto, pois o completo excede a transferência de 32 MiB.
-Workflow ajustado para uma seleção menor, sem mudar o jogo ou gerar APK.
-Continuar dessa verificação e manter automação ativa até concluir a comparação.

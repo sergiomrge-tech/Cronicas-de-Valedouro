@@ -80,20 +80,39 @@ Linux com software rendering não demonstra FPS nem memória de um celular.
 classes/equipamentos, campanha, save v8, três recargas, colisões e novo teste
 de integração. Exportação de pacote de recursos ZIP: exit 0; carga em pasta
 vazia: PASS para JSON, atlas, shader e cache v0.41, sem o código-fonte. Esse
-pacote de recursos não é um APK nem valida a instalação Android. Gate oficial 4.7.2 e revisão de suas capturas pendentes neste
-checkpoint. Nenhum APK foi gerado. Aprovação pessoal do Diretor e teste em
+pacote de recursos não é um APK nem valida a instalação Android. Gate oficial 4.7.2 e revisão de suas capturas concluídos conforme registro abaixo. Nenhum APK foi gerado. Aprovação pessoal do Diretor e teste em
 aparelho não foram alegados. O escopo ilustrado do herói e das três salas foi
 comparado; o restante das regiões não recebe uma aprovação visual nova aqui.
 
-## Checkpoint após o primeiro gate oficial
 
-Código/assets: `740f06d66790e9bfb3e6fd7df8781ee0bbf6f893`. Godot Gate
-`36978863902`: SUCCESS, engine executada `4.7.2.stable.official.ed1daf0bf`,
-60 testes nativos, 240 apoios e 155 capturas aprovados. O download direto do
-artifact foi recusado (403); o conector retornou o arquivo de 91 MB, mas a
-transferência ao executor limita arquivos a 32 MiB. Não foi alegada inspeção
-dessas imagens oficiais. Capturas locais reais já foram comparadas.
+## Conclusão verificada — v0.42 (02/10/2026)
 
-Próxima ação: workflow publica também revisão compacta (<31 MiB), conservando
-a completa. Código/assets do jogo não mudaram nesta correção de entrega de QA.
-Comparar as imagens oficiais compactas e registrar conclusão. Automação ativa.
+Passe concluído: herói/armas/efeitos ilustrados e decoração/paredes/piso dos
+interiores de taverna, ferreiro e guilda. Originais v0.41/v0.40 intactos.
+Código/assets: `740f06d66790e9bfb3e6fd7df8781ee0bbf6f893`.
+Ajuste de artifact compacto: `665fbf13626060de4c7b9448389ba600613f78ab`, com a
+mesma árvore `game` do runtime. Godot Gate oficial **4.7.2**:
+[run 36979976422](https://github.com/sergiomrge-tech/Cronicas-de-Valedouro/actions/runs/36979976422)
+**SUCCESS**, 60 testes nativos, 240 apoios de poses e 155 capturas. Gate anterior
+36978863902 também aprovado. Local: 43 testes, captura final e pacote de recursos PASS.
+
+Comparação visual executada com originais e cenas reais em 960×540/640×360,
+zoom70/150 e oito estados de animação. Diferenças concretas e correções no
+relatório; não foi encerrado só por PASS técnico. Revisão compacta oficial
+baixada (83 arquivos, 27.793.888 bytes) e conferida; amostras oficiais e hashes
+salvos em `docs/visual_qa/cartoon_v042`. Max draw calls 492. Pequenas diferenças
+de antialiasing de linhas entre 4.6.3/4.7.2 não alteraram a integração da pintura.
+
+Mantidos campanha/IDs, colisões, nível/dificuldade, classes/equipamentos/arco,
+HUD radial opção 3, save v8 e três recargas independentes. Nenhum APK.
+Automação **Continuar Crônicas de Valedouro desativada**, retorno da ferramenta
+confirmado por consulta. Não há pendência deste passe. Teste físico Android e
+aprovação pessoal do Diretor não foram alegados; próximo desenvolvimento deve
+seguir um novo pedido, sem repetir v0.41/v0.42.
+
+A seleção compacta conserva o artifact completo. Ela foi necessária porque o
+completo de 91 MB excedia a transferência de 32 MiB; nenhuma restrição de
+franquia foi contornada. Na galeria, ponta de arma pode tocar a borda da tela;
+a forma original completa foi conferida no atlas e nas cenas centrais.
+A galeria de conjuração alterna o tipo de foco entre quadros para diagnóstico,
+enquanto a partida mantém a magia escolhida durante sua conjuração.

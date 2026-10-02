@@ -20,7 +20,7 @@ O Diretor pediu comparação contínua com as imagens apresentadas. Ler
 `docs/CRITERIO_FIDELIDADE_VISUAL.md` antes de criar ou integrar arte. Corrigir
 as diferenças de desenho, proporção, paleta, detalhe e animação antes de
 concluir cada etapa. PASS técnico não substitui a comparação visual na cena
-real. Herói e decoração dos interiores permanecem pendentes nesse critério.
+real. Herói e decoração dos três interiores foram verificados no passe v0.42; ver conclusão abaixo.
 
 ## Trabalho a concluir nas retomadas
 
@@ -51,32 +51,37 @@ em aparelho. Não substituir a campanha por um mapa procedural novo.
   ambiente. Não há mecanismo disponível para garantir recuperação da franquia
   nem para executar código enquanto a plataforma estiver bloqueada.
 
-Agendamento criado e habilitado: **Continuar Crônicas de Valedouro**.
+Agendamento concluído e desativado: **Continuar Crônicas de Valedouro**.
 A regra registrada é `FREQ=HOURLY;INTERVAL=5`, com início local às 02:24.
 
 ## Progresso
 
-- [ ] Herói e efeitos refinados e verificados.
-- [ ] Decoração dos três interiores refinada e verificada.
-- [ ] QA final, GitHub atualizado e automação desativada após a conclusão.
+- [x] Herói e efeitos refinados e verificados.
+- [x] Decoração dos três interiores refinada e verificada.
+- [x] QA final, GitHub atualizado e automação desativada após a conclusão.
 
-## Checkpoint v0.42 — 02/10/2026
 
-Herói, armas, foco e fases de magia, decoração e paredes da taverna/ferreiro/guilda
-integrados com originais pintados. Leia `docs/CARTOON_ILLUSTRATED_V0_42.md` e
-`docs/visual_qa/cartoon_v042/review.html`. Captura local final: 155 PNGs nas duas
-resoluções e zooms, 240 apoios de poses, máximo 492 draw calls; comparação visual
-com diferenças concretas corrigidas. Testes finais/pacote/gate oficial em execução.
-Não gerar APK. Não repetir v0.41. Próxima ação: verificar Godot Gate 4.7.2 do
-commit deste passe, comparar seu artifact e registrar resultado antes de encerrar
-a automação **Continuar Crônicas de Valedouro**.
+## Conclusão verificada — v0.42 (02/10/2026)
 
-A automação permanece habilitada enquanto o gate e seu artifact não forem verificados.
+Passe concluído: herói/armas/efeitos ilustrados e decoração/paredes/piso dos
+interiores de taverna, ferreiro e guilda. Originais v0.41/v0.40 intactos.
+Código/assets: `740f06d66790e9bfb3e6fd7df8781ee0bbf6f893`.
+Ajuste de artifact compacto: `665fbf13626060de4c7b9448389ba600613f78ab`, com a
+mesma árvore `game` do runtime. Godot Gate oficial **4.7.2**:
+[run 36979976422](https://github.com/sergiomrge-tech/Cronicas-de-Valedouro/actions/runs/36979976422)
+**SUCCESS**, 60 testes nativos, 240 apoios de poses e 155 capturas. Gate anterior
+36978863902 também aprovado. Local: 43 testes, captura final e pacote de recursos PASS.
 
-### Checkpoint de entrega de QA v0.42
+Comparação visual executada com originais e cenas reais em 960×540/640×360,
+zoom70/150 e oito estados de animação. Diferenças concretas e correções no
+relatório; não foi encerrado só por PASS técnico. Revisão compacta oficial
+baixada (83 arquivos, 27.793.888 bytes) e conferida; amostras oficiais e hashes
+salvos em `docs/visual_qa/cartoon_v042`. Max draw calls 492. Pequenas diferenças
+de antialiasing de linhas entre 4.6.3/4.7.2 não alteraram a integração da pintura.
 
-Runtime `740f06d`, gate 4.7.2 run `36978863902` SUCCESS (60 testes/240 apoios/155
-capturas). Arte e código do jogo concluídos; inspeção do artifact oficial
-aguarda pacote compacto, pois o completo excede a transferência de 32 MiB.
-Workflow ajustado para uma seleção menor, sem mudar o jogo ou gerar APK.
-Continuar dessa verificação e manter automação ativa até concluir a comparação.
+Mantidos campanha/IDs, colisões, nível/dificuldade, classes/equipamentos/arco,
+HUD radial opção 3, save v8 e três recargas independentes. Nenhum APK.
+Automação **Continuar Crônicas de Valedouro desativada**, retorno da ferramenta
+confirmado por consulta. Não há pendência deste passe. Teste físico Android e
+aprovação pessoal do Diretor não foram alegados; próximo desenvolvimento deve
+seguir um novo pedido, sem repetir v0.41/v0.42.
