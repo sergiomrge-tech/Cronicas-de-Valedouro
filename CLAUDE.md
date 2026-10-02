@@ -18,8 +18,8 @@ A entrega foi preparada; recebimento/instalação no celular não são presumido
 
 Instalação: Meus Arquivos → Downloads → extrair ZIP → abrir APK. Se o
 navegador salvar como `content`, renomear para `Valedouro_v0.42.zip`.
-Android 7.0+, ARM 32/64. A assinatura de teste muda por execução, e difere da
-v0.38: Android pode impedir atualização sobre a anterior. Remover a instalação
+Android 7.0+, ARM 32/64. A assinatura de teste é gerada por execução e pode diferir da versão já
+instalada; Android pode impedir a atualização sobre a anterior. Remover a instalação
 antiga apaga o progresso local. Não alegar que o save será transportado entre
 assinaturas diferentes. O formato v8 e os IDs continuam preservados.
 
