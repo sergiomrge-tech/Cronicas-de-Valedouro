@@ -6,7 +6,7 @@ Repositório oficial de desenvolvimento do jogo **Crônicas de Valedouro**.
 - Alvo principal: **Android / mobile-first**
 - Versão oficial atual: **2D Cartoon**
 - Cena inicial oficial: `res://scenes/cartoon/CartoonMainMenu.tscn`
-- Base validada mais recente: **v0.37**, com combate de chefes em três fases e HUD dedicado sobre a v0.36.
+- Base validada mais recente: **v0.40**, commit `f37719cd`, com arquitetura variada e cidade otimizada. Passe v0.41 de área piloto em validação; ver `docs/CARTOON_PILOT_V0_41.md`.
 
 ## Regra de continuidade
 A antiga versão visual/pixel-art não é mais a base de desenvolvimento e não deve ser usada para novas alterações. Toda evolução do jogo deve partir da implementação em `game/scenes/cartoon/` e `game/scripts/cartoon/`, preservando história, missões e mecânicas canônicas quando compatíveis.
@@ -165,3 +165,15 @@ A v0.37 adiciona barra dedicada de boss no HUD, três fases automáticas por HP 
 golpes especiais periódicos com telegráfico ampliado e dano escalonado nas
 Fases II/III. Monstros comuns preservam o comportamento anterior. Save
 permanece v8. Ler `docs/CARTOON_BOSS_COMBAT_V0_37.md`. Validada no Godot 4.7.2 oficial, run `36891829409`, com 56 testes nativos e QA visual dedicado. APK continua sob demanda.
+
+## Continuidade — v0.41: área piloto viva e ilustrada
+
+Diretor aceitou manter Godot e começar por praça, rua e saída norte. Novo
+terreno, oito elementos de natureza, oito moradores, 16 poses humanas e 18
+poses de criaturas. Vegetação restaurada nos chunks junto à cidade. Encontros
+determinísticos nos arredores (18 ativos, pool 24, retorno de cinco minutos
+persistido em save v8), preservando missões, dificuldade e HUD radial 3.
+Ler `docs/CARTOON_PILOT_V0_41.md`; comparação real em
+`docs/visual_qa/cartoon_v041/review.html`. 42 testes Cartoon locais e pacote de
+recursos verificados; CI oficial executa 59 testes e QA ao publicar. Não gerar
+APK neste pedido. Próximo passe visual: herói/efeitos e interiores.

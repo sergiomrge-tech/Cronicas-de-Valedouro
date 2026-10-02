@@ -125,7 +125,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_challenge_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033 cartoon_gathering_v034 cartoon_levelup_feedback_v035 cartoon_boss_crafting_v036 cartoon_boss_combat_v037 cartoon_radial_ui_v038 cartoon_city_v040; do
+          for t in cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_challenge_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033 cartoon_gathering_v034 cartoon_levelup_feedback_v035 cartoon_boss_crafting_v036 cartoon_boss_combat_v037 cartoon_radial_ui_v038 cartoon_city_v040 cartoon_pilot_v041; do
             echo "===== TEST: $t ====="
             timeout 70s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" 2>&1 | tee "/tmp/valedouro-test-$t.log"
             ! grep -Eq "SCRIPT ERROR|ERROR:|Assertion failed" "/tmp/valedouro-test-$t.log"
@@ -141,18 +141,18 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p game/build
-          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.40_TEST.apk
-          test -s game/build/Cronicas_de_Valedouro_v0.40_TEST.apk
-          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.40_TEST.apk
-          sha256sum game/build/Cronicas_de_Valedouro_v0.40_TEST.apk | tee game/build/SHA256.txt
-          ls -lh game/build/Cronicas_de_Valedouro_v0.40_TEST.apk
+          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.41_TEST.apk
+          test -s game/build/Cronicas_de_Valedouro_v0.41_TEST.apk
+          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.41_TEST.apk
+          sha256sum game/build/Cronicas_de_Valedouro_v0.41_TEST.apk | tee game/build/SHA256.txt
+          ls -lh game/build/Cronicas_de_Valedouro_v0.41_TEST.apk
 
       - name: Upload installable APK
         uses: actions/upload-artifact@v4
         with:
-          name: Cronicas-de-Valedouro-Android-TEST-v0.40
+          name: Cronicas-de-Valedouro-Android-TEST-v0.41
           path: |
-            game/build/Cronicas_de_Valedouro_v0.40_TEST.apk
+            game/build/Cronicas_de_Valedouro_v0.41_TEST.apk
             game/build/SHA256.txt
           if-no-files-found: error
           retention-days: 30
@@ -166,7 +166,7 @@ jobs:
         run: |
           set -euo pipefail
           cat > /tmp/android-release.md <<'NOTES'
-          v0.40 adiciona 12 arquiteturas distintas: seis moradias, ferreiro, taverna, guilda, alquimista, arquivo e mercado. O piso da cidade e jardins reais usam um atlas estático para reduzir chamadas de desenho; o retrato do inventário só anima quando a Bolsa está aberta. Contato das botas e fundações preservado.
+          v0.41 traz grama e piso ilustrados, oito moradores e criaturas com poses de caminhada. Corrige a vegetação ausente nos chunks junto à cidade e distribui encontros normais nos arredores, com limite de atores e retorno após cinco minutos. Cidade e jardins reais protegidos, HUD radial 3 e dificuldade por nível preservados.
 
           HUD e interfaces no estilo Combate Radial escolhido: molduras vermelho/dourado, retrato destacado, coluna Bolsa/Mapa/Missões/Menu, minimapa do cenário real e três magias em arco com recargas independentes. Menu, inventário, forja, missões, guilda, classes, mapa e pausa usam o mesmo acabamento. Inventário mantém personagem equipado, sete posições e comparação de itens.
 
@@ -177,6 +177,6 @@ jobs:
 
           Exportação assinada com Godot 4.7.2, 41 testes nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
           NOTES
-          gh release create v0.40-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.40 — Arquitetura e cidade otimizada" --notes-file /tmp/android-release.md
-          gh release upload v0.40-test game/build/Cronicas_de_Valedouro_v0.40_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
-          gh release edit v0.40-test --repo "$REPOSITORY" --draft=false --prerelease
+          gh release create v0.41-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.41 — Área piloto viva e ilustrada" --notes-file /tmp/android-release.md
+          gh release upload v0.41-test game/build/Cronicas_de_Valedouro_v0.41_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
+          gh release edit v0.41-test --repo "$REPOSITORY" --draft=false --prerelease

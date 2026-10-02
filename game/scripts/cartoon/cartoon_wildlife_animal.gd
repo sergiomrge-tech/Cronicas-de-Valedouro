@@ -1,4 +1,6 @@
 extends Node2D
+const PilotArt = preload("res://scripts/cartoon/cartoon_pilot_art_v041.gd")
+const Region = preload("res://scripts/cartoon/cartoon_region_config.gd")
 const Difficulty = preload("res://scripts/cartoon/cartoon_difficulty.gd")
 var level: int = 1
 const Assets = preload("res://scripts/cartoon/cartoon_living_assets.gd")
@@ -89,7 +91,12 @@ func _draw() -> void:
 	var bob: float = absf(sin(clock*9))*2 if moving else sin(clock*2)*0.7
 	var size_v: Vector2 = Vector2(54,42) if kind == "rabbit" else (Vector2(100,77) if kind == "deer" else Vector2(105,81))
 	draw_set_transform(Vector2(0,-bob),0,Vector2(-1,1) if direction.x < -0.1 else Vector2.ONE)
-	draw_texture_rect(Assets.texture(key),Rect2(Vector2(-size_v.x/2,-size_v.y+10),size_v),false)
+	if director.region_id==Region.REGION_ID:
+		draw_set_transform(Vector2.ZERO,0,Vector2(-1,1) if direction.x < -0.1 else Vector2.ONE)
+		PilotArt.draw_creature(self,kind,[0,1,0,2][int(clock*5)%4] if moving else 0)
+		size_v = PilotArt.creature_rect(kind,0).size
+	else:
+		draw_texture_rect(Assets.texture(key),Rect2(Vector2(-size_v.x/2,-size_v.y+10),size_v),false)
 	draw_set_transform(Vector2.ZERO)
 	if burn_t>0: DrawUtil.flame(self,Vector2(0,-18),15,6,clock)
 	if chill_t>0: draw_arc(Vector2(0,-15),20,clock,clock+PI*1.7,32,Color("a3f0ff"),1.5,true)

@@ -2,6 +2,7 @@
 from pathlib import Path
 from hashlib import sha256
 import json
+import re
 from PIL import Image
 
 GAME = Path(__file__).resolve().parents[2]
@@ -16,8 +17,10 @@ def check() -> None:
         assert list(image.size) == manifest["atlas_size"]
         assert image.mode == "RGBA"
     assert len(manifest["assets"]) == 12
-    provenance = json.loads((ART / "ground_provenance.json").read_text())
-    floor = ART / "city_ground.png"
+    source = (GAME / "scripts/cartoon/hub_environment.gd").read_text()
+    active = re.search(r'const CITY_GROUND = preload\("res://([^"]+)"\)', source).group(1)
+    floor = GAME / active
+    provenance = json.loads((floor.parent / "ground_provenance.json").read_text())
     assert sha256(floor.read_bytes()).hexdigest() == provenance["sha256"]
     with Image.open(floor) as image:
         assert list(image.size) == provenance["texture_size"]

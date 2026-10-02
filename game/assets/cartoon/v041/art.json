@@ -1,0 +1,637 @@
+{
+  "schema": 1,
+  "source": "Original generated illustrated Cartoon art; PNGs preserved; reviewed custom atlas regions.",
+  "art_status": "MODELED_PENDING_VISUAL_APPROVAL",
+  "files": {
+    "foliage": {
+      "file": "foliage.png",
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "0ac375d0fd4b165f9fdeb325ad70e162be1dcf4cf4a990ae647766e959267d75"
+    },
+    "people": {
+      "file": "people.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "a4bcaa3a61950afb764ae6cee689d7cf5f36e5e0463fde9e437e29b83845ae6c"
+    },
+    "grass": {
+      "file": "grass.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "953ccbcf7b93c54e6aab5fefd5623b4ced0e1e434514ef3c7b2cedf70dff1f46"
+    },
+    "stone": {
+      "file": "stone.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "7547b042e22b8cbc982877a474306d6cc43324adebe0e09d4b9dffd437f5f41d"
+    },
+    "creatures": {
+      "file": "creatures.png",
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "25964fd29d76ed02e800eaeda08954bbcd5412573b40d9fa9094896f776c1fb7"
+    }
+  },
+  "nature": {
+    "oak": {
+      "region": [
+        26,
+        83,
+        429,
+        435
+      ],
+      "anchor": [
+        214.5,
+        430
+      ],
+      "world_width": 170
+    },
+    "birch": {
+      "region": [
+        496,
+        53,
+        389,
+        470
+      ],
+      "anchor": [
+        194.5,
+        465
+      ],
+      "world_width": 136
+    },
+    "maple": {
+      "region": [
+        910,
+        92,
+        436,
+        431
+      ],
+      "anchor": [
+        218.0,
+        426
+      ],
+      "world_width": 160
+    },
+    "pine": {
+      "region": [
+        1406,
+        72,
+        329,
+        451
+      ],
+      "anchor": [
+        164.5,
+        446
+      ],
+      "world_width": 118
+    },
+    "bush": {
+      "region": [
+        35,
+        574,
+        396,
+        277
+      ],
+      "anchor": [
+        198.0,
+        272
+      ],
+      "world_width": 90
+    },
+    "rock": {
+      "region": [
+        491,
+        603,
+        396,
+        247
+      ],
+      "anchor": [
+        198.0,
+        242
+      ],
+      "world_width": 64
+    },
+    "tuft": {
+      "region": [
+        943,
+        572,
+        391,
+        282
+      ],
+      "anchor": [
+        195.5,
+        277
+      ],
+      "world_width": 36
+    },
+    "flowers": {
+      "region": [
+        1388,
+        556,
+        356,
+        297
+      ],
+      "anchor": [
+        178.0,
+        292
+      ],
+      "world_width": 50
+    }
+  },
+  "people": {
+    "smith": {
+      "frames": [
+        {
+          "region": [
+            63,
+            17,
+            201,
+            297
+          ],
+          "anchor": [
+            94.0,
+            292
+          ]
+        },
+        {
+          "region": [
+            56,
+            324,
+            215,
+            303
+          ],
+          "anchor": [
+            101.0,
+            298
+          ]
+        },
+        {
+          "region": [
+            59,
+            633,
+            213,
+            303
+          ],
+          "anchor": [
+            98.0,
+            298
+          ]
+        }
+      ],
+      "world_height": 84,
+      "scale": 0.2828282828282828
+    },
+    "innkeeper": {
+      "frames": [
+        {
+          "region": [
+            396,
+            14,
+            154,
+            300
+          ],
+          "anchor": [
+            74.5,
+            295
+          ]
+        },
+        {
+          "region": [
+            386,
+            322,
+            175,
+            305
+          ],
+          "anchor": [
+            84.5,
+            300
+          ]
+        },
+        {
+          "region": [
+            391,
+            630,
+            171,
+            306
+          ],
+          "anchor": [
+            79.5,
+            301
+          ]
+        }
+      ],
+      "world_height": 84,
+      "scale": 0.28
+    },
+    "patron": {
+      "frames": [
+        {
+          "region": [
+            697,
+            16,
+            167,
+            298
+          ],
+          "anchor": [
+            86.5,
+            293
+          ]
+        },
+        {
+          "region": [
+            700,
+            322,
+            172,
+            305
+          ],
+          "anchor": [
+            83.5,
+            300
+          ]
+        },
+        {
+          "region": [
+            695,
+            632,
+            177,
+            304
+          ],
+          "anchor": [
+            88.5,
+            299
+          ]
+        }
+      ],
+      "world_height": 84,
+      "scale": 0.28187919463087246
+    },
+    "ranger": {
+      "frames": [
+        {
+          "region": [
+            983,
+            23,
+            198,
+            291
+          ],
+          "anchor": [
+            114.0,
+            286
+          ]
+        },
+        {
+          "region": [
+            975,
+            327,
+            227,
+            300
+          ],
+          "anchor": [
+            122.0,
+            295
+          ]
+        },
+        {
+          "region": [
+            980,
+            637,
+            206,
+            298
+          ],
+          "anchor": [
+            117.0,
+            293
+          ]
+        }
+      ],
+      "world_height": 84,
+      "scale": 0.28865979381443296
+    },
+    "clerk": {
+      "frames": [
+        {
+          "region": [
+            77,
+            941,
+            161,
+            301
+          ],
+          "anchor": [
+            80.0,
+            296
+          ]
+        },
+        {
+          "region": [
+            379,
+            942,
+            172,
+            300
+          ],
+          "anchor": [
+            91.5,
+            295
+          ]
+        },
+        {
+          "region": [
+            695,
+            942,
+            182,
+            301
+          ],
+          "anchor": [
+            88.5,
+            296
+          ]
+        }
+      ],
+      "world_height": 84,
+      "scale": 0.27906976744186046
+    },
+    "merchant": {
+      "frames": [
+        {
+          "region": [
+            996,
+            941,
+            193,
+            302
+          ],
+          "anchor": [
+            101.0,
+            297
+          ]
+        }
+      ],
+      "world_height": 84,
+      "scale": 0.2781456953642384
+    }
+  },
+  "creatures": {
+    "wolf": {
+      "frames": [
+        {
+          "region": [
+            27,
+            67,
+            274,
+            253
+          ],
+          "anchor": [
+            125.0,
+            248
+          ]
+        },
+        {
+          "region": [
+            308,
+            67,
+            285,
+            253
+          ],
+          "anchor": [
+            145.5,
+            248
+          ]
+        },
+        {
+          "region": [
+            607,
+            66,
+            275,
+            253
+          ],
+          "anchor": [
+            144.0,
+            248
+          ]
+        }
+      ],
+      "world_width": 90,
+      "scale": 0.3284671532846715
+    },
+    "slime": {
+      "frames": [
+        {
+          "region": [
+            918,
+            161,
+            235,
+            159
+          ],
+          "anchor": [
+            125.5,
+            154
+          ]
+        },
+        {
+          "region": [
+            1203,
+            172,
+            263,
+            149
+          ],
+          "anchor": [
+            136.5,
+            144
+          ]
+        },
+        {
+          "region": [
+            1499,
+            166,
+            247,
+            154
+          ],
+          "anchor": [
+            133.5,
+            149
+          ]
+        }
+      ],
+      "world_width": 64,
+      "scale": 0.2723404255319149
+    },
+    "goblin": {
+      "frames": [
+        {
+          "region": [
+            57,
+            349,
+            227,
+            240
+          ],
+          "anchor": [
+            95.0,
+            235
+          ]
+        },
+        {
+          "region": [
+            347,
+            349,
+            239,
+            240
+          ],
+          "anchor": [
+            106.5,
+            235
+          ]
+        },
+        {
+          "region": [
+            633,
+            347,
+            244,
+            242
+          ],
+          "anchor": [
+            118.0,
+            237
+          ]
+        }
+      ],
+      "world_width": 64,
+      "scale": 0.28193832599118945
+    },
+    "rabbit": {
+      "frames": [
+        {
+          "region": [
+            939,
+            359,
+            194,
+            230
+          ],
+          "anchor": [
+            104.5,
+            225
+          ]
+        },
+        {
+          "region": [
+            1230,
+            351,
+            193,
+            238
+          ],
+          "anchor": [
+            109.5,
+            233
+          ]
+        },
+        {
+          "region": [
+            1522,
+            353,
+            202,
+            236
+          ],
+          "anchor": [
+            110.5,
+            231
+          ]
+        }
+      ],
+      "world_width": 47,
+      "scale": 0.2422680412371134
+    },
+    "deer": {
+      "frames": [
+        {
+          "region": [
+            44,
+            589,
+            229,
+            267
+          ],
+          "anchor": [
+            108.0,
+            262
+          ]
+        },
+        {
+          "region": [
+            330,
+            589,
+            241,
+            266
+          ],
+          "anchor": [
+            123.5,
+            261
+          ]
+        },
+        {
+          "region": [
+            623,
+            589,
+            239,
+            267
+          ],
+          "anchor": [
+            128.0,
+            262
+          ]
+        }
+      ],
+      "world_width": 100,
+      "scale": 0.4366812227074236
+    },
+    "boar": {
+      "frames": [
+        {
+          "region": [
+            903,
+            626,
+            270,
+            231
+          ],
+          "anchor": [
+            140.5,
+            226
+          ]
+        },
+        {
+          "region": [
+            1203,
+            628,
+            263,
+            229
+          ],
+          "anchor": [
+            136.5,
+            224
+          ]
+        },
+        {
+          "region": [
+            1491,
+            629,
+            259,
+            228
+          ],
+          "anchor": [
+            141.5,
+            223
+          ]
+        }
+      ],
+      "world_width": 100,
+      "scale": 0.37037037037037035
+    }
+  }
+}

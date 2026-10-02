@@ -1,0 +1,27 @@
+{
+  "artifact": "city_ground.png",
+  "engine": "4.6.3-stable (official)",
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "seed": 20260930,
+  "sha256": "245b4aa81a3b1eb1e05b716805778931d991175866a9dabf6609f782659b7c2f",
+  "source_sha256": {
+    "assets/cartoon/v041/grass.png": "953ccbcf7b93c54e6aab5fefd5623b4ced0e1e434514ef3c7b2cedf70dff1f46",
+    "assets/cartoon/v041/stone.png": "7547b042e22b8cbc982877a474306d6cc43324adebe0e09d4b9dffd437f5f41d",
+    "scripts/cartoon/cartoon_draw.gd": "93fec9180b675397f5bd993a627ee50d56096ca964017fbfef148b329e049f3f",
+    "scripts/cartoon/cartoon_pilot_art_v041.gd": "cecfeb78d822f95c59fb08d5f3cbd88b7dc8b7d1478720fcd850fff74dd7f41c",
+    "scripts/cartoon/cartoon_region_config.gd": "abd9faf0fe4ecd19a02ae6e35f3df88436eefbff4eed0c79804f56d477e25604",
+    "scripts/cartoon/cartoon_terrain_art.gd": "e25880c6d6bc02b3ae57e4f97464a62ad1a6716f08f02a7d6ace52d4a850e948",
+    "scripts/cartoon/hub_environment.gd": "988a33aa59c1e6ad3f1aa18855f9f407ecb4d33a3854cc672e1093d479c6ffb5",
+    "tools/cartoon/bake_city_ground_v040.gd": "32690bbb3d03e88fe4aa309e4567b42a145f6de065f576df6bff8717c28c3495"
+  },
+  "texture_size": [
+    2048,
+    2048
+  ],
+  "world_rect": [
+    0,
+    -1740,
+    4096,
+    4096
+  ]
+}

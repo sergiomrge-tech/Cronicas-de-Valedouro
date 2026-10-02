@@ -3,6 +3,7 @@ extends Node2D
 
 const WildlifeScript = preload("res://scripts/cartoon/cartoon_wildlife_director.gd")
 var wildlife
+var ambient_encounters
 var exploration_director: Node
 
 const Difficulty = preload("res://scripts/cartoon/cartoon_difficulty.gd")
@@ -78,6 +79,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	for data in environment.props:
 		var prop = PropScript.new()
+		data["pilot_art"] = true
 		prop.setup(data)
 		objects.add_child(prop)
 	_spawn_outer_landmarks()
@@ -141,6 +143,10 @@ func _ready() -> void:
 	add_child(exploration_director)
 	exploration_director.setup(self,objects,hero,Region.REGION_ID)
 	_bind_campaign_save()
+	ambient_encounters = preload("res://scripts/cartoon/cartoon_ambient_encounters_v041.gd").new()
+	ambient_encounters.name = "AmbientEncounters"
+	add_child(ambient_encounters)
+	ambient_encounters.setup(self)
 	_update_poi_hint()
 
 func _bind_campaign_save() -> void:
@@ -264,7 +270,8 @@ func _damage_monster(target: Node2D, amount: int) -> bool:
 		var story_tag: String = String(target.story_tag)
 		var boss_id: String = String(target.boss_id)
 		monsters.erase(target)
-		target.queue_free()
+		if target.has_meta("ambient_slot") and ambient_encounters!=null: ambient_encounters.defeated(target)
+		else: target.queue_free()
 		if kind == "wolf" and story_tag == "":
 			var state = get_node_or_null("/root/CartoonPlayerState")
 			if state != null: GuildContracts.register_hunt(state,"wolf")
@@ -361,6 +368,7 @@ func _spawn_monsters() -> void:
 		var monster: Node2D = MonsterScript.new()
 		var world_data: Dictionary = data.duplicate(true)
 		world_data["pos"] = Region.world_from_hub(data["pos"] as Vector2)
+		world_data["pilot_art"] = true
 		monster.setup(Difficulty.monster_data(world_data,"REG_001_BERCO_VALEDOURO"))
 		objects.add_child(monster)
 		monsters.append(monster)
@@ -374,11 +382,14 @@ func _update_monsters(delta: float) -> void:
 		if not is_instance_valid(monster):
 			monsters.erase(monster)
 			continue
+		if monster.has_meta("ambient_slot") and ambient_encounters.safe(hero.position):
+			monster.windup_t = 0
+			continue
 		var dist: float = monster.position.distance_to(hero.position)
 		if dist < 270.0 and dist > 50.0 and monster.can_chase():
 			var dir: Vector2 = (hero.position - monster.position).normalized()
 			var next: Vector2 = monster.position + dir * float(monster.move_speed) * delta
-			if environment.is_walkable(next):
+			if environment.is_walkable(next) and (not monster.has_meta("ambient_slot") or not ambient_encounters.safe(next)):
 				monster.position = next
 		if monster.advance_contact(hero,delta,52.0):
 			hero.trigger_hurt()
@@ -448,6 +459,7 @@ func _refresh_stats() -> void:
 func _spawn_outer_landmarks() -> void:
 	for data in ExplorationContent.landmarks():
 		var prop: Node2D = PropScript.new()
+		data["pilot_art"] = true
 		prop.setup(data)
 		objects.add_child(prop)
 		environment.pois.append({
@@ -459,6 +471,7 @@ func _spawn_outer_landmarks() -> void:
 func _spawn_outer_encounters() -> void:
 	for data in ExplorationContent.encounters():
 		var monster: Node2D = MonsterScript.new()
+		data["pilot_art"] = true
 		monster.setup(Difficulty.monster_data(data,"REG_001_BERCO_VALEDOURO"))
 		objects.add_child(monster)
 		monsters.append(monster)
@@ -473,6 +486,7 @@ func _spawn_main_story_locations() -> void:
 			environment.pois.append({"id":id,"label":label,"pos":pos,"quest":String(data.get("quest",""))})
 			continue
 		var prop: Node2D = PropScript.new()
+		data["pilot_art"] = true
 		prop.setup(data)
 		objects.add_child(prop)
 		environment.pois.append({
@@ -499,7 +513,7 @@ func _spawn_main_story_zones() -> void:
 			if absf(offset.y) < 85.0 or absf(offset.x) < 90.0: continue
 			var prop: Node2D = PropScript.new()
 			var kind: String = "rock" if String(data["zone_kind"]) == "mine" else "tree"
-			prop.setup({"kind":kind,"pos":center+offset,"variant":i%2,"scale":1.0+float(i%3)*0.12})
+			prop.setup({"pilot_art":true,"kind":kind,"pos":center+offset,"variant":i%2,"scale":1.0+float(i%3)*0.12})
 			objects.add_child(prop)
 
 
@@ -513,6 +527,7 @@ func _canonical_story_location(poi_id: String) -> String:
 func _spawn_main_story_encounters() -> void:
 	for data in MainStoryMap.act1_encounters():
 		var monster: Node2D = MonsterScript.new()
+		data["pilot_art"] = true
 		monster.setup(Difficulty.monster_data(data,"REG_001_BERCO_VALEDOURO"))
 		objects.add_child(monster)
 		monsters.append(monster)
@@ -566,6 +581,7 @@ func _direction_arrow(v: Vector2) -> String:
 func _spawn_region_transitions() -> void:
 	for data in MainStoryMap.region_transitions():
 		var prop: Node2D = PropScript.new()
+		data["pilot_art"] = true
 		prop.setup(data)
 		objects.add_child(prop)
 		environment.pois.append({

@@ -4,6 +4,7 @@ extends Node2D
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
 const VisualAssets = preload("res://scripts/cartoon/cartoon_visual_assets.gd")
 
+var pilot_art: bool = false
 var kind: String = "tree"
 var variant: int = 0
 var label: String = ""
@@ -12,6 +13,7 @@ var base_scale: float = 1.0
 var anim_t: float = 0.0
 
 func setup(data: Dictionary) -> void:
+	pilot_art = bool(data.get("pilot_art",false))
 	kind = String(data.get("kind", "tree"))
 	variant = int(data.get("variant", 0))
 	label = String(data.get("label", ""))
@@ -29,7 +31,7 @@ func _process(delta: float) -> void:
 		queue_redraw()
 
 func _draw() -> void:
-	if VisualAssets.draw_prop(self,kind,variant):
+	if VisualAssets.draw_prop(self,kind,variant,pilot_art):
 		return
 	match kind:
 		"tree": _draw_tree()

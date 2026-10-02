@@ -3,7 +3,7 @@
 **Diretor:** Sergio  
 **Mundo:** Elyndor  
 **Engine:** Godot 4.7.2  
-**Base oficial validada:** 2D Cartoon v0.37  
+**Base oficial validada:** 2D Cartoon v0.40<br>
 **Cena inicial:** `res://scenes/cartoon/CartoonMainMenu.tscn`
 
 ## ATENÇÃO
@@ -308,3 +308,15 @@ Android futuro v0.40 sob demanda; não gerar APK neste pedido. Save permanece v8
 Pesquisa de skills procedurais em `docs/PROCEDURAL_2D_SKILL_RESEARCH.md`: recomendar
 `godot-procedural-generation`, com `godot-procedural-worlds` como complemento;
 nenhuma skill externa instalada e nenhuma migração do mapa nesta pesquisa.
+
+## Continuidade — v0.41: área piloto viva e ilustrada
+
+Diretor aceitou manter Godot e começar por praça, rua e saída norte. Novo
+terreno, oito elementos de natureza, oito moradores, 16 poses humanas e 18
+poses de criaturas. Vegetação restaurada nos chunks junto à cidade. Encontros
+determinísticos nos arredores (18 ativos, pool 24, retorno de cinco minutos
+persistido em save v8), preservando missões, dificuldade e HUD radial 3.
+Ler `docs/CARTOON_PILOT_V0_41.md`; comparação real em
+`docs/visual_qa/cartoon_v041/review.html`. 42 testes Cartoon locais e pacote de
+recursos verificados; CI oficial executa 59 testes e QA ao publicar. Não gerar
+APK neste pedido. Próximo passe visual: herói/efeitos e interiores.

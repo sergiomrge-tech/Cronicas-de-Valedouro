@@ -18,7 +18,7 @@ var owned_props: Array[Node2D] = []
 
 func setup(coord: Vector2i, sorted_root: Node2D = null) -> void:
 	visual_root = sorted_root
-	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+	texture_repeat = CanvasItem.TEXTURE_REPEAT_MIRROR
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	chunk_coord = coord
 	position = Vector2(coord.x * Region.CHUNK_SIZE, coord.y * Region.CHUNK_SIZE)
@@ -37,8 +37,8 @@ func _generate() -> void:
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	rng.seed = chunk_seed
 	var chunk_world_rect: Rect2 = Rect2(position, Vector2(Region.CHUNK_SIZE, Region.CHUNK_SIZE))
-	if chunk_world_rect.intersects(Region.HUB_RECT.grow(120.0)):
-		return
+	# Reserve individual positions, not whole chunks intersecting the city.
+	# Otherwise up to a full kilometre of countryside disappears at its edge.
 	var density: int = 45
 	var center_dist: float = chunk_world_rect.get_center().distance_to(Region.REGION_SIZE * 0.5)
 	var biome: String = _biome_kind()
@@ -52,18 +52,26 @@ func _generate() -> void:
 		density = 54
 	elif biome == "archive_highlands":
 		density = 46
+	var accepted: Array[Vector2] = []
 	var groves: Array[Vector2] = []
 	for i in range(7):
 		groves.append(Vector2(rng.randf_range(150,Region.CHUNK_SIZE-150),rng.randf_range(150,Region.CHUNK_SIZE-150)))
 	for i in range(density):
 		var local_pos: Vector2 = groves[i % groves.size()]+Vector2(rng.randf_range(-130,130),rng.randf_range(-110,110))
+		local_pos = local_pos.clamp(Vector2(85,95),Vector2(Region.CHUNK_SIZE-85,Region.CHUNK_SIZE-65))
 		var world_pos: Vector2 = position + local_pos
+		var crowded: bool = false
+		for previous: Vector2 in accepted:
+			if previous.distance_to(local_pos)<68: crowded = true; break
+		if crowded: continue
 		if _near_main_road(world_pos,125.0) or _reserved_clearing(world_pos):
 			continue
+		accepted.append(local_pos)
 		var roll: float = rng.randf()
 		var kind: String = _pick_prop_kind(biome,roll)
 		var prop: Node2D = PropScript.new()
 		prop.setup({
+			"pilot_art":true,
 			"kind":kind,
 			"pos":local_pos,
 			"scale":rng.randf_range(0.62,1.08),
@@ -74,6 +82,7 @@ func _generate() -> void:
 		for i in range(8):
 			var hay: Node2D = PropScript.new()
 			hay.setup({
+				"pilot_art":true,
 				"kind":"hay",
 				"pos":Vector2(rng.randf_range(110.0,Region.CHUNK_SIZE-110.0),rng.randf_range(120.0,Region.CHUNK_SIZE-80.0)),
 				"scale":rng.randf_range(0.65,0.9),
@@ -184,18 +193,22 @@ func _draw() -> void:
 	elif biome == "wind_woods": tint = Color(0.91,0.98,0.92)
 	elif biome == "echo_hills": tint = Color(0.92,0.95,0.95)
 	elif biome == "archive_highlands": tint = Color(1.04,1.02,0.97)
-	Terrain.grass(self,Rect2(Vector2.ZERO,Vector2(Region.CHUNK_SIZE,Region.CHUNK_SIZE)),tint)
+	Terrain.grass(self,Rect2(Vector2.ZERO,Vector2(Region.CHUNK_SIZE,Region.CHUNK_SIZE)),tint,position)
 	_draw_grass_texture()
 	_draw_roads()
 	_draw_field_rows()
 
 func _draw_grass_texture() -> void:
-	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	rng.seed = chunk_seed + 991
+	var rng = RandomNumberGenerator.new()
+	rng.seed = chunk_seed+991
+	var art = preload("res://scripts/cartoon/cartoon_pilot_art_v041.gd")
 	for i in range(70):
-		var p: Vector2 = Vector2(rng.randf_range(12.0,Region.CHUNK_SIZE-12.0),rng.randf_range(16.0,Region.CHUNK_SIZE-12.0))
-		var col: Color = Color(0.32,0.61,0.24,0.32) if i % 2 == 0 else Color(0.56,0.79,0.34,0.22)
-		draw_line(p,p+Vector2(rng.randf_range(-2.0,2.0),rng.randf_range(-8.0,-4.0)),col,1.5)
+		var p = Vector2(rng.randf_range(24,Region.CHUNK_SIZE-24),rng.randf_range(28,Region.CHUNK_SIZE-24))
+		if Region.in_authored_hub(position+p) or _near_main_road(position+p,48): continue
+		var key: String = "flowers" if i%8==0 else "tuft"
+		var rect: Rect2 = art.nature_rect(key)
+		rect.position += p
+		draw_texture_rect(art.nature_texture(key),rect,false)
 
 func _draw_roads() -> void:
 	for road: Dictionary in Landscape.roads():

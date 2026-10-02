@@ -3,10 +3,14 @@ extends RefCounted
 ## Static ground commands, issued once per chunk/redraw; no per-frame noise.
 
 const DrawUtil = preload("res://scripts/cartoon/cartoon_draw.gd")
+const PilotArt = preload("res://scripts/cartoon/cartoon_pilot_art_v041.gd")
 const Assets = preload("res://scripts/cartoon/cartoon_visual_assets.gd")
 
-static func grass(canvas: CanvasItem, rect: Rect2, tint: Color = Color.WHITE) -> void:
-	canvas.draw_texture_rect(Assets.texture("grass"),rect,true,tint)
+static func grass(canvas: CanvasItem, rect: Rect2, tint: Color = Color.WHITE, world_origin: Vector2 = Vector2.ZERO) -> void:
+	var points = PackedVector2Array([rect.position,Vector2(rect.end.x,rect.position.y),rect.end,Vector2(rect.position.x,rect.end.y)])
+	var uv = PackedVector2Array()
+	for point in points: uv.append((point+world_origin)/512.0)
+	canvas.draw_polygon(points,PackedColorArray([tint]),uv,PilotArt.GRASS)
 
 static func stone(canvas: CanvasItem, p: Vector2, size: Vector2, color: Color) -> void:
 	var points: PackedVector2Array = PackedVector2Array([
@@ -25,6 +29,14 @@ static func path(canvas: CanvasItem, points: PackedVector2Array, width: float, p
 	canvas.draw_polyline(points,fill,width,true)
 	for p: Vector2 in points:
 		canvas.draw_circle(p,width*0.5,fill)
+	if paved:
+		for i in range(points.size()-1):
+			var side: Vector2 = (points[i+1]-points[i]).normalized().orthogonal()*(width*0.5-3)
+			var corners = PackedVector2Array([points[i]-side,points[i]+side,points[i+1]+side,points[i+1]-side])
+			var uv = PackedVector2Array()
+			for point in corners: uv.append(point/256.0)
+			canvas.draw_polygon(corners,PackedColorArray([Color.WHITE]),uv,PilotArt.STONE)
+		return
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	rng.seed = seed_value
 	for i in range(points.size()-1):
@@ -44,13 +56,10 @@ static func path(canvas: CanvasItem, points: PackedVector2Array, width: float, p
 				DrawUtil.ellipse(canvas,p,3.5,2.0,Color("8e835f"))
 				canvas.draw_line(center+perpendicular*width*0.28,center+d*15+perpendicular*width*0.29,Color(0.48,0.40,0.28,0.16),1.2,true)
 
-static func courtyard(canvas: CanvasItem, center: Vector2, size: Vector2, seed_value: int) -> void:
-	DrawUtil.ellipse(canvas,center,size.x,size.y,Color("7b8659"),40)
-	DrawUtil.ellipse(canvas,center,size.x-6,size.y-4,Color("a19d7a"),40)
-	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-	rng.seed = seed_value
-	for y in range(int(-size.y)+12,int(size.y)-8,14):
-		for x in range(int(-size.x)+12,int(size.x)-12,22):
-			var p: Vector2 = Vector2(x+7*(posmod(y,28)/14),y)
-			if pow(p.x/(size.x-14),2)+pow(p.y/(size.y-10),2) > 1.0: continue
-			stone(canvas,center+p,Vector2(18,10),Color("b3ad91").darkened(rng.randf_range(0,0.16)))
+static func courtyard(canvas: CanvasItem, center: Vector2, size: Vector2, _seed_value: int) -> void:
+	DrawUtil.ellipse(canvas,center,size.x,size.y,Color("657b43"),48)
+	DrawUtil.ellipse(canvas,center,size.x-3,size.y-2,Color("bfa36b"),48)
+	var points: PackedVector2Array = DrawUtil.ellipse_points(center,size.x-7,size.y-5,48)
+	var uv = PackedVector2Array()
+	for point in points: uv.append(point/256.0)
+	canvas.draw_polygon(points,PackedColorArray([Color.WHITE]),uv,PilotArt.STONE)

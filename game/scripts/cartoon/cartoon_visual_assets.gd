@@ -2,6 +2,7 @@ class_name ValedouroCartoonVisualAssets
 extends RefCounted
 ## Shared rasterized SVG textures: original Cartoon art, pending visual review.
 
+const PilotArt = preload("res://scripts/cartoon/cartoon_pilot_art_v041.gd")
 const Buildings = preload("res://scripts/cartoon/cartoon_building_assets_v040.gd")
 const RoyalAssets = preload("res://scripts/cartoon/cartoon_royal_assets.gd")
 const ROOT: String = "res://assets/cartoon/v020/"
@@ -12,7 +13,8 @@ static func texture(name: String) -> Texture2D:
 		textures[name] = load(ROOT + name + ".svg")
 	return textures[name] as Texture2D
 
-static func draw_prop(canvas: CanvasItem, kind: String, variant: int) -> bool:
+static func draw_prop(canvas: CanvasItem, kind: String, variant: int, pilot_art: bool = false) -> bool:
+	if pilot_art and PilotArt.draw_prop(canvas,kind,variant): return true
 	if Buildings.draw_prop(canvas,kind,variant): return true
 	var name: String = kind
 	var rect: Rect2

@@ -27,8 +27,8 @@ A versão oficial e única base ativa de desenvolvimento é a **2D Cartoon**. A 
 - Entrada do projeto: `CartoonMainMenu.tscn`.
 - Estado persistente: `CartoonPlayerState`.
 - Sistemas Cartoon já presentes incluem regiões, exploração, crafting, inventário, menu, mapa/story runtime e controles de zoom.
-- Último checkpoint oficial validado antes deste passe: **v0.39 — correção de flutuação**, commit `3907624b`, Godot Gate 4.7.2 run `36914565195`. Último APK: v0.38-test; v0.39 não gerou APK.
-- Trabalho atual: **v0.40 — 12 arquiteturas e otimização da cidade**, em `docs/CARTOON_CITY_V0_40.md`. Validar o gate oficial antes de promover; preservar a interface Combate Radial (opção 3), progressão e save v8.
+- Último checkpoint oficial validado antes deste passe: **v0.40 — arquitetura e cidade otimizada**, commit `f37719cd`, Godot Gate 4.7.2 run `36948283483`. Último APK: v0.38-test; v0.39/v0.40 não geraram APK.
+- Trabalho atual: **v0.41 — área piloto viva e ilustrada**, em `docs/CARTOON_PILOT_V0_41.md`. Validar o gate oficial antes de promover; preservar a interface Combate Radial (opção 3), progressão e save v8.
 - Candidata visual **v0.20**: ler `docs/CARTOON_VISUAL_V0_20.md`; arte permanece
   MODELED_PENDING_GATE e os gates 4.7.2/Android estão pendentes.
 
@@ -341,3 +341,15 @@ Android futuro v0.40 sob demanda; não gerar APK neste pedido. Save permanece v8
 Pesquisa de skills procedurais em `docs/PROCEDURAL_2D_SKILL_RESEARCH.md`: recomendar
 `godot-procedural-generation`, com `godot-procedural-worlds` como complemento;
 nenhuma skill externa instalada e nenhuma migração do mapa nesta pesquisa.
+
+## Continuidade — v0.41: área piloto viva e ilustrada
+
+Diretor aceitou manter Godot e começar por praça, rua e saída norte. Novo
+terreno, oito elementos de natureza, oito moradores, 16 poses humanas e 18
+poses de criaturas. Vegetação restaurada nos chunks junto à cidade. Encontros
+determinísticos nos arredores (18 ativos, pool 24, retorno de cinco minutos
+persistido em save v8), preservando missões, dificuldade e HUD radial 3.
+Ler `docs/CARTOON_PILOT_V0_41.md`; comparação real em
+`docs/visual_qa/cartoon_v041/review.html`. 42 testes Cartoon locais e pacote de
+recursos verificados; CI oficial executa 59 testes e QA ao publicar. Não gerar
+APK neste pedido. Próximo passe visual: herói/efeitos e interiores.

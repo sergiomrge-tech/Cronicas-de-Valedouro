@@ -14,6 +14,7 @@ var damage: int = 0
 var owns_light: bool = false
 var light: PointLight2D
 var corpse_texture: Texture2D
+var corpse_rect: Rect2 = Rect2(-44,-88,88,98)
 var corpse_region: Rect2
 var strike_radius: float = 64.0
 static func spawn(parent: Node, origin: Vector2, effect: String, aim: Vector2 = Vector2.RIGHT, color: Color = Color("a287ff"), amount: int = 0):
@@ -72,7 +73,7 @@ func _draw() -> void:
 	for i in range(6,0,-1):
 		draw_circle(center,float(i)*(4+8*bloom),Color(tint,fade*0.035))
 	if corpse_texture != null:
-		draw_texture_rect_region(corpse_texture,Rect2(-44,-88,88,98),corpse_region,Color(tint,fade*0.7))
+		draw_texture_rect_region(corpse_texture,corpse_rect,corpse_region,Color(tint,fade*0.7))
 	match kind:
 		"enemy_strike":
 			draw_arc(Vector2.ZERO,strike_radius,0,TAU,64,Color(tint,fade),3.5,true)

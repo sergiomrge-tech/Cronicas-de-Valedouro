@@ -7,6 +7,11 @@ const FX = preload("res://scripts/cartoon/cartoon_combat_fx.gd")
 const Assets = preload("res://scripts/cartoon/cartoon_visual_assets.gd")
 
 const Difficulty = preload("res://scripts/cartoon/cartoon_difficulty.gd")
+const PilotArt = preload("res://scripts/cartoon/cartoon_pilot_art_v041.gd")
+var pilot_art: bool = false
+var moving: bool = false
+var facing_left: bool = false
+var previous_position: Vector2
 var level: int = 1
 var kind: String = "wolf"
 var monster_name: String = "Lobo do Vale"
@@ -34,6 +39,8 @@ var strike_special: bool = false
 var strike_damage_multiplier: float = 1.0
 
 func setup(data: Dictionary) -> void:
+	pilot_art = bool(data.get("pilot_art",false))
+	moving = false; facing_left = false
 	level = clampi(int(data.get("level",1)),1,100)
 	kind = String(data.get("kind","wolf"))
 	monster_name = String(data.get("name","Lobo do Vale"))
@@ -45,6 +52,7 @@ func setup(data: Dictionary) -> void:
 	story_tag = String(data.get("story_tag",""))
 	boss_id = String(data.get("boss_id",""))
 	position = data.get("pos",Vector2.ZERO)
+	previous_position = position
 	scale = Vector2.ONE * float(data.get("scale",1.0))
 	queue_redraw()
 
@@ -55,6 +63,10 @@ func apply_chill(duration: float) -> void:
 	queue_redraw()
 
 func _process(delta: float) -> void:
+	var movement: Vector2 = position-previous_position
+	moving = movement.length()>0.1
+	if absf(movement.x)>0.1: facing_left = movement.x<0
+	previous_position = position
 	if chill_t>0:
 		var host = get_parent()
 		while host != null and not host.has_method("_damage_monster"): host = host.get_parent()
@@ -83,6 +95,10 @@ func take_damage(amount: int) -> bool:
 		if death != null:
 			death.corpse_texture = CombatArt.texture("mob_"+kind)
 			death.corpse_region = Rect2((int(anim_t*8)%6)*144,0,144,160)
+			if pilot_art and kind in PilotArt.manifest.creatures:
+				death.corpse_texture = PilotArt.creature_texture(kind,0)
+				death.corpse_region = Rect2(Vector2.ZERO,death.corpse_texture.get_size())
+				death.corpse_rect = PilotArt.creature_rect(kind,0)
 	return hp <= 0
 
 func can_hit() -> bool:
@@ -186,10 +202,17 @@ func _draw() -> void:
 		draw_line(tip-strike_direction.rotated(0.65)*10,tip,warning,3,true)
 		draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
 	var bob: float = absf(sin(anim_t*7.0))*2.0
-	DrawUtil.shadow(self,Vector2(0,10),24,0.26)
+	var painted: bool = pilot_art and kind in PilotArt.manifest.creatures
+	DrawUtil.shadow(self,Vector2(0,2) if painted else Vector2(0,10),24,0.26)
 	draw_set_transform(Vector2(sin(lunge_t*PI/0.2)*5,-bob),sin(lunge_t*PI/0.2)*0.10,Vector2.ONE)
 	var dimensions: Vector2 = Vector2(88,98) if kind in ["wolf","goblin","slime"] else Vector2(106,118)
-	CombatArt.monster_frame(self,kind,int(anim_t*8)%6,Rect2(-dimensions.x/2,-dimensions.y+10,dimensions.x,dimensions.y),Color(1,0.8,0.65) if hit_flash>0 else Color.WHITE)
+	if painted:
+		draw_set_transform(Vector2(sin(lunge_t*PI/0.2)*5,0),0,Vector2(-1,1) if facing_left else Vector2.ONE)
+		var pose: int = [0,1,0,2][int(anim_t*5)%4] if moving else 0
+		PilotArt.draw_creature(self,kind,pose,Color(1,0.8,0.65) if hit_flash>0 else Color.WHITE)
+		dimensions = PilotArt.creature_rect(kind,0).size
+	else:
+		CombatArt.monster_frame(self,kind,int(anim_t*8)%6,Rect2(-dimensions.x/2,-dimensions.y+10,dimensions.x,dimensions.y),Color(1,0.8,0.65) if hit_flash>0 else Color.WHITE)
 	if kind not in ["wolf","goblin","slime"]:
 		var rune_color: Color = Color("9ceccf")
 		if "frost" in kind: rune_color = Color("86daff")

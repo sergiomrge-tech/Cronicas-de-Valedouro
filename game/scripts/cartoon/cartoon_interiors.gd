@@ -162,11 +162,9 @@ func _prop(key: String, p: Vector2, dimensions: Vector2, solid: bool = true, gro
 	room_objects.add_child(sprite)
 	if solid: blockers.append(Rect2(p+Vector2(-dimensions.x*0.32,-dimensions.y*0.27),Vector2(dimensions.x*0.64,dimensions.y*0.30)))
 func _npc(key: String, p: Vector2) -> void:
-	var sprite: Sprite2D = Sprite2D.new()
-	sprite.texture = Assets.texture("npc_"+key)
+	var sprite = preload("res://scripts/cartoon/cartoon_town_person_v041.gd").new()
+	sprite.setup(key)
 	sprite.position = p
-	sprite.scale = Vector2(0.7,0.7)
-	sprite.offset.y = -52
 	room_objects.add_child(sprite)
 	patrons.append(sprite)
 	blockers.append(Rect2(p+Vector2(-15,-14),Vector2(30,24)))
@@ -235,7 +233,7 @@ func _process(delta: float) -> void:
 	host.hero.position = next
 	host.hero.set_motion(motion)
 	_refresh_hint()
-	for i in range(patrons.size()): patrons[i].rotation = sin(clock*1.4+i)*0.012
+	for person in patrons: person.rotation = 0.0 # Boots remain on the room floor.
 	if Input.is_action_just_pressed("interact"): interact()
 	queue_redraw()
 func _draw() -> void:

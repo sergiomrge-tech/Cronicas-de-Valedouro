@@ -6,6 +6,7 @@ const FX = preload("res://scripts/cartoon/cartoon_combat_fx.gd")
 static var active_count: int = 0
 const LIMIT: int = 24
 var host_ref: WeakRef
+var target_epoch: int = 0
 var target_ref: WeakRef
 var director_ref: WeakRef
 var damage: int = 0
@@ -23,6 +24,7 @@ static func launch(host, hero, target: Node2D, base_damage: int, director = null
 	var arrow = ValedouroCartoonArrowProjectile.new()
 	arrow.host_ref = weakref(host)
 	arrow.target_ref = weakref(target)
+	arrow.target_epoch = int(target.get_meta("spawn_epoch",0))
 	if director != null: arrow.director_ref = weakref(director)
 	arrow.damage = hero.hunting_damage(base_damage) if director != null else hero.attack_damage(base_damage)
 	hero.bow_cooldown = 0.65
@@ -41,7 +43,7 @@ func _exit_tree() -> void: active_count -= 1
 func _process(delta: float) -> void:
 	var host = host_ref.get_ref()
 	var target = target_ref.get_ref()
-	if not is_instance_valid(host) or not is_instance_valid(target) or target.is_queued_for_deletion() or target.hp<=0:
+	if not is_instance_valid(host) or not is_instance_valid(target) or target.is_queued_for_deletion() or target.hp<=0 or int(target.get_meta("spawn_epoch",0))!=target_epoch:
 		queue_free()
 		return
 	if host.hero.death_t>0 or (host.get("interiors") != null and host.interiors.active):

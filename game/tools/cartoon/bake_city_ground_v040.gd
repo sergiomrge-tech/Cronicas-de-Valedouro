@@ -19,7 +19,7 @@ func run() -> void:
 	var output = OS.get_cmdline_user_args()[0]
 	assert(root.get_texture().get_image().save_png(output)==OK)
 	var inputs: Dictionary = {}
-	for source: String in ["scripts/cartoon/hub_environment.gd","scripts/cartoon/cartoon_terrain_art.gd","scripts/cartoon/cartoon_draw.gd","scripts/cartoon/cartoon_region_config.gd","assets/cartoon/v020/grass.svg","tools/cartoon/bake_city_ground_v040.gd"]:
+	for source: String in ["scripts/cartoon/hub_environment.gd","scripts/cartoon/cartoon_terrain_art.gd","scripts/cartoon/cartoon_draw.gd","scripts/cartoon/cartoon_region_config.gd","assets/cartoon/v041/grass.png","assets/cartoon/v041/stone.png","scripts/cartoon/cartoon_pilot_art_v041.gd","tools/cartoon/bake_city_ground_v040.gd"]:
 		inputs[source] = FileAccess.get_sha256("res://"+source)
 	var provenance = {"artifact":output.get_file(),"sha256":FileAccess.get_sha256(output),"texture_size":[2048,2048],"world_rect":[0,-1740,4096,4096],"seed":20260930,"engine":Engine.get_version_info().string,"renderer":RenderingServer.get_video_adapter_name(),"source_sha256":inputs}
 	var file = FileAccess.open(output.get_base_dir().path_join("ground_provenance.json"),FileAccess.WRITE)

@@ -10,7 +10,7 @@ const WORLD_SIZE = Region.REGION_SIZE
 const CENTER = Vector2(1150,860)
 
 var use_baked_ground: bool = true
-const CITY_GROUND = preload("res://assets/cartoon/v040/city_ground.png")
+const CITY_GROUND = preload("res://assets/cartoon/v041/city_ground.png")
 const CITY_GROUND_RECT = Rect2(0,-1740,4096,4096)
 
 var rng = RandomNumberGenerator.new()
@@ -21,7 +21,7 @@ var river_polylines: Array[PackedVector2Array] = []
 
 func _ready() -> void:
 	z_index = -20
-	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+	texture_repeat = CanvasItem.TEXTURE_REPEAT_MIRROR
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	rng.seed = 20260930
 	_build_layout()
@@ -88,7 +88,7 @@ func _build_layout() -> void:
 
 func _add(kind: String, pos: Vector2, scale_v: float = 1.0, label: String = "", poi_id: String = "", rect: Rect2 = Rect2(), variant: int = 0, radius: float = 0.0) -> void:
 	var world_pos: Vector2 = Region.world_from_hub(pos)
-	props.append({"kind":kind,"pos":world_pos,"scale":scale_v,"label":label,"poi_id":poi_id,"variant":variant})
+	props.append({"pilot_art":true,"kind":kind,"pos":world_pos,"scale":scale_v,"label":label,"poi_id":poi_id,"variant":variant})
 	if rect.size != Vector2.ZERO:
 		var world_rect: Rect2 = Rect2(Region.world_from_hub(rect.position),rect.size)
 		blockers.append({"type":"rect","rect":world_rect,"kind":kind})
@@ -176,7 +176,7 @@ func _draw() -> void:
 	draw_set_transform(Vector2.ZERO,0.0,Vector2.ONE)
 
 func _draw_ground() -> void:
-	Terrain.grass(self,Rect2(Vector2.ZERO,LOCAL_SIZE))
+	Terrain.grass(self,Rect2(Vector2.ZERO,LOCAL_SIZE),Color.WHITE,Region.HUB_ORIGIN)
 	# Three readable spaces: civic stone, residential gardens, cultivated outskirts.
 	for center: Vector2 in [Vector2(720,817),Vector2(1580,835),Vector2(760,1145),Vector2(1540,1150)]:
 		Terrain.courtyard(self,center,Vector2(115,76),int(center.x))
@@ -252,7 +252,7 @@ func _draw_city_border() -> void:
 
 func _draw_royal_grounds() -> void:
 	var estate: Rect2 = Rect2(Vector2(1480,-1680),Vector2(2040,1840))
-	Terrain.grass(self,estate)
+	Terrain.grass(self,estate,Color.WHITE,Region.HUB_ORIGIN)
 	Terrain.courtyard(self,Vector2(2500,-70),Vector2(645,225),23)
 	Terrain.path(self,PackedVector2Array([Vector2(1150,310),Vector2(1150,120),Vector2(2500,120),Vector2(2500,-250)]),146.0,true,23)
 	# Gardens frame the ceremonial approach, keeping the main axis open.

@@ -6,6 +6,7 @@ const COLORS = {"ember":Color("ff9a47"),"frost":Color("7feaff"),"arcane":Color("
 static var active_count: int = 0
 const LIMIT = 16
 var host_ref: WeakRef
+var target_epoch: int = 0
 var target_ref: WeakRef
 var director_ref: WeakRef
 var spell_kind: String = "ember"
@@ -42,6 +43,7 @@ static func launch(host, hero, target: Node2D, base_damage: int, director = null
 	var shot = ValedouroCartoonSpellProjectile.new()
 	shot.host_ref = weakref(host)
 	shot.target_ref = weakref(target)
+	shot.target_epoch = int(target.get_meta("spawn_epoch",0))
 	if director != null: shot.director_ref = weakref(director)
 	shot.spell_kind = hero.SPELLS[hero.spell_index]
 	var equipped_damage: int = hero.magic_damage(base_damage,director != null)
@@ -82,7 +84,7 @@ func _process(delta: float) -> void:
 	if is_queued_for_deletion(): return
 	var host = host_ref.get_ref()
 	var target = target_ref.get_ref()
-	if not is_instance_valid(host) or not alive(target):
+	if not is_instance_valid(host) or not alive(target) or int(target.get_meta("spawn_epoch",0))!=target_epoch:
 		cancel()
 		return
 	if host.get("interiors") != null and host.interiors.active:
@@ -162,6 +164,7 @@ func launch_echo(host, original) -> void:
 	var echo = ValedouroCartoonSpellProjectile.new()
 	echo.host_ref = weakref(host)
 	echo.target_ref = weakref(nearest)
+	echo.target_epoch = int(nearest.get_meta("spawn_epoch",0))
 	echo.spell_kind = "arcane"
 	echo.damage = maxi(1,roundi(damage*0.5))
 	echo.is_echo = true
