@@ -64,12 +64,14 @@ func open_panel(tab: String = "equipment") -> void:
 	else:
 		current_tab = "equipment"
 	panel.visible = true
+	_set_preview_active(true)
 	_close_other_panels()
 	_refresh()
 
 func close_panel() -> void:
 	if panel != null:
 		panel.visible = false
+	_set_preview_active(false)
 
 func _toggle() -> void:
 	if panel.visible:
@@ -190,7 +192,7 @@ func _build(show_toggle: bool) -> void:
 	preview_viewport.name = "CharacterViewport"
 	preview_viewport.size = Vector2i(120,206)
 	preview_viewport.transparent_bg = true
-	preview_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	preview_viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
 	preview_container.add_child(preview_viewport)
 
 	preview_hero = HeroPreview.new()
@@ -198,6 +200,7 @@ func _build(show_toggle: bool) -> void:
 	preview_hero.position = Vector2(60,148)
 	preview_hero.scale = Vector2(1.55,1.55)
 	preview_viewport.add_child(preview_hero)
+	preview_hero.set_process(false)
 
 	weapon_slot = Button.new()
 	weapon_slot.name = "WeaponSlot"
@@ -743,3 +746,8 @@ func _style_button(button: Button, bg: Color, border: Color) -> void:
 	UISkin.button(button,UISkin.SURFACE,UISkin.GOLD.darkened(0.35))
 	button.clip_text = true
 	button.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+
+func _set_preview_active(active: bool) -> void:
+	if preview_viewport != null:
+		preview_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS if active else SubViewport.UPDATE_DISABLED
+	if preview_hero != null: preview_hero.set_process(active)

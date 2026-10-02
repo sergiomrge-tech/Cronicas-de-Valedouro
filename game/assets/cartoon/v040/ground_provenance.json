@@ -1,0 +1,25 @@
+{
+  "artifact": "city_ground.png",
+  "engine": "4.6.3-stable (official)",
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "seed": 20260930,
+  "sha256": "52fb89e56ab27de48397a739b56a43994947086a3a65548e16a7c15476331b63",
+  "source_sha256": {
+    "assets/cartoon/v020/grass.svg": "2b487dc6e2717a2cd7a276b970567966caac806d9c31438a908ec7b48b5949a5",
+    "scripts/cartoon/cartoon_draw.gd": "93fec9180b675397f5bd993a627ee50d56096ca964017fbfef148b329e049f3f",
+    "scripts/cartoon/cartoon_region_config.gd": "abd9faf0fe4ecd19a02ae6e35f3df88436eefbff4eed0c79804f56d477e25604",
+    "scripts/cartoon/cartoon_terrain_art.gd": "f20bb5964efb9488798407db5b9f78f14f4a4e01250b40d2322dab95de88e1de",
+    "scripts/cartoon/hub_environment.gd": "076901b53cb90cd7ad1d2d3a311eaa4b2fdf1c372cb6de8df7b23c6a1c7b19e2",
+    "tools/cartoon/bake_city_ground_v040.gd": "2b48de8521a9c473647a1725a277f82f3254256a3756bbcbef5e371ed106f129"
+  },
+  "texture_size": [
+    2048,
+    2048
+  ],
+  "world_rect": [
+    0,
+    -1740,
+    4096,
+    4096
+  ]
+}

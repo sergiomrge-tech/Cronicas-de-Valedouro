@@ -295,3 +295,16 @@ por quadro, sombra no contato com o terreno, fundações e sombras das casas
 alinhadas. Ler `docs/CARTOON_GROUNDING_V0_39.md`; seis capturas em
 `docs/visual_qa/cartoon_v039/review.html`. Verificação renderizada de 208 poses
 em pé aprovada localmente; CI repete em 4.7.2. Não gerar APK neste pedido.
+
+## Continuidade — v0.40: arquitetura e cidade otimizada
+
+Diretor pediu construções variadas e melhor desempenho na cidade. Atlas de 12
+modelos com fundações ancoradas, piso estático em cache e retrato da Bolsa
+suspenso quando fechado. Ler `docs/CARTOON_CITY_V0_40.md`; galeria e capturas
+em `docs/visual_qa/cartoon_v040/review.html`. Medição local na praça: 24910 → 308
+chamadas e 189,4 → 19,2 ms por quadro (Godot 4.6.3 / llvmpipe, não celular).
+CI executa 58 testes oficiais, 12 contatos renderizados e orçamento de desenho.
+Android futuro v0.40 sob demanda; não gerar APK neste pedido. Save permanece v8.
+Pesquisa de skills procedurais em `docs/PROCEDURAL_2D_SKILL_RESEARCH.md`: recomendar
+`godot-procedural-generation`, com `godot-procedural-worlds` como complemento;
+nenhuma skill externa instalada e nenhuma migração do mapa nesta pesquisa.

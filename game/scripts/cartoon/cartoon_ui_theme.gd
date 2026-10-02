@@ -94,6 +94,7 @@ static func icon(button_node: Button, kind: String, width: int = 24) -> void:
 		art.name = "RadialButtonArt"
 		button_node.add_child(art)
 		art.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	if art.kind==kind and art.icon_width==width: return
 	if art.kind != kind:
 		art.kind = kind
 		art.texture = load("res://assets/ui/radial/"+kind+(".png" if kind in ["fire","ice","arcane"] else ".svg"))

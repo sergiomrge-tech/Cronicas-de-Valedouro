@@ -22,13 +22,13 @@ A versão oficial e única base ativa de desenvolvimento é a **2D Cartoon**. A 
 - Mapas devem ser grandes o suficiente para exploração real e construídos considerando as missões.
 - Antes de liberar ZIP/APK/AAB: validar referências, parser/runtime Godot 4.7.2, fluxo crítico e higiene do pacote.
 
-## Estado atual — 30/09/2026
+## Estado atual — 02/10/2026
 - Base ativa: 2D Cartoon.
 - Entrada do projeto: `CartoonMainMenu.tscn`.
 - Estado persistente: `CartoonPlayerState`.
 - Sistemas Cartoon já presentes incluem regiões, exploração, crafting, inventário, menu, mapa/story runtime e controles de zoom.
-- Base oficial validada: **v0.32 — progressão de magias, loot/consumíveis, paper-doll, ouro na Bolsa, HUD compacto e Diário rolável**.
-- Prioridade atual: continuar exclusivamente sobre a v0.32 Cartoon validada; preservar as decisões de progressão e ergonomia mobile.
+- Último checkpoint oficial validado antes deste passe: **v0.39 — correção de flutuação**, commit `3907624b`, Godot Gate 4.7.2 run `36914565195`. Último APK: v0.38-test; v0.39 não gerou APK.
+- Trabalho atual: **v0.40 — 12 arquiteturas e otimização da cidade**, em `docs/CARTOON_CITY_V0_40.md`. Validar o gate oficial antes de promover; preservar a interface Combate Radial (opção 3), progressão e save v8.
 - Candidata visual **v0.20**: ler `docs/CARTOON_VISUAL_V0_20.md`; arte permanece
   MODELED_PENDING_GATE e os gates 4.7.2/Android estão pendentes.
 
@@ -328,3 +328,16 @@ por quadro, sombra no contato com o terreno, fundações e sombras das casas
 alinhadas. Ler `docs/CARTOON_GROUNDING_V0_39.md`; seis capturas em
 `docs/visual_qa/cartoon_v039/review.html`. Verificação renderizada de 208 poses
 em pé aprovada localmente; CI repete em 4.7.2. Não gerar APK neste pedido.
+
+## Continuidade — v0.40: arquitetura e cidade otimizada
+
+Diretor pediu construções variadas e melhor desempenho na cidade. Atlas de 12
+modelos com fundações ancoradas, piso estático em cache e retrato da Bolsa
+suspenso quando fechado. Ler `docs/CARTOON_CITY_V0_40.md`; galeria e capturas
+em `docs/visual_qa/cartoon_v040/review.html`. Medição local na praça: 24910 → 308
+chamadas e 189,4 → 19,2 ms por quadro (Godot 4.6.3 / llvmpipe, não celular).
+CI executa 58 testes oficiais, 12 contatos renderizados e orçamento de desenho.
+Android futuro v0.40 sob demanda; não gerar APK neste pedido. Save permanece v8.
+Pesquisa de skills procedurais em `docs/PROCEDURAL_2D_SKILL_RESEARCH.md`: recomendar
+`godot-procedural-generation`, com `godot-procedural-worlds` como complemento;
+nenhuma skill externa instalada e nenhuma migração do mapa nesta pesquisa.

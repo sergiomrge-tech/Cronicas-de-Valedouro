@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "source": "Original generated Cartoon building art; reviewed custom atlas regions, no external asset pack.",
+  "art_status": "MODELED_PENDING_VISUAL_APPROVAL",
+  "atlas": "buildings.png",
+  "atlas_size": [
+    1448,
+    1086
+  ],
+  "sha256": "d4fe2cc71081e387e4a93547ee943ca38599236a0e1b62a7bdbe162190944200",
+  "assets": {
+    "cottage": {
+      "region": [
+        29,
+        85,
+        322,
+        268
+      ],
+      "anchor": [
+        161.0,
+        262
+      ],
+      "world_width": 152
+    },
+    "townhouse": {
+      "region": [
+        383,
+        18,
+        312,
+        339
+      ],
+      "anchor": [
+        156.0,
+        333
+      ],
+      "world_width": 152
+    },
+    "fisher_home": {
+      "region": [
+        734,
+        46,
+        324,
+        312
+      ],
+      "anchor": [
+        162.0,
+        306
+      ],
+      "world_width": 152
+    },
+    "villa": {
+      "region": [
+        1094,
+        36,
+        323,
+        333
+      ],
+      "anchor": [
+        161.5,
+        327
+      ],
+      "world_width": 152
+    },
+    "farmhouse": {
+      "region": [
+        16,
+        402,
+        374,
+        286
+      ],
+      "anchor": [
+        187.0,
+        280
+      ],
+      "world_width": 164
+    },
+    "garden_cabin": {
+      "region": [
+        434,
+        396,
+        259,
+        291
+      ],
+      "anchor": [
+        129.5,
+        285
+      ],
+      "world_width": 152
+    },
+    "forge": {
+      "region": [
+        733,
+        388,
+        336,
+        312
+      ],
+      "anchor": [
+        168.0,
+        306
+      ],
+      "world_width": 164
+    },
+    "tavern": {
+      "region": [
+        1094,
+        390,
+        341,
+        319
+      ],
+      "anchor": [
+        170.5,
+        313
+      ],
+      "world_width": 172
+    },
+    "guild": {
+      "region": [
+        20,
+        699,
+        377,
+        354
+      ],
+      "anchor": [
+        188.5,
+        348
+      ],
+      "world_width": 174
+    },
+    "alchemist": {
+      "region": [
+        420,
+        712,
+        294,
+        340
+      ],
+      "anchor": [
+        147.0,
+        334
+      ],
+      "world_width": 152
+    },
+    "archive": {
+      "region": [
+        739,
+        702,
+        329,
+        343
+      ],
+      "anchor": [
+        164.5,
+        337
+      ],
+      "world_width": 172
+    },
+    "market": {
+      "region": [
+        1091,
+        757,
+        339,
+        295
+      ],
+      "anchor": [
+        169.5,
+        289
+      ],
+      "world_width": 126
+    }
+  }
+}

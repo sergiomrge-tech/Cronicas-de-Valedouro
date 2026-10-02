@@ -9,6 +9,10 @@ const LOCAL_SIZE = Vector2(2300,2350)
 const WORLD_SIZE = Region.REGION_SIZE
 const CENTER = Vector2(1150,860)
 
+var use_baked_ground: bool = true
+const CITY_GROUND = preload("res://assets/cartoon/v040/city_ground.png")
+const CITY_GROUND_RECT = Rect2(0,-1740,4096,4096)
+
 var rng = RandomNumberGenerator.new()
 var props: Array[Dictionary] = []
 var blockers: Array[Dictionary] = []
@@ -55,8 +59,8 @@ func _build_layout() -> void:
 	_add("sign",Vector2(1150,1340),0.95,"Portão Sul","POI_REG001_GATE_SOUTH")
 	_add("sign",Vector2(1150,1740),0.95,"Campos do Vale","POI_REG001_FIELDS")
 	_add("windmill",Vector2(650,1935),1.12,"Fazenda do Sol","POI_REG001_FARM",Rect2(575,1805,150,155))
-	_add("house",Vector2(815,1985),0.95,"Casa da Fazenda","",Rect2(755,1885,120,120),2)
-	_add("house",Vector2(1760,2020),0.92,"Casa do Campo","",Rect2(1700,1920,120,118),1)
+	_add("house",Vector2(815,1985),0.95,"Casa da Fazenda","",Rect2(755,1885,120,120),4)
+	_add("house",Vector2(1760,2020),0.92,"Casa do Campo","",Rect2(1700,1920,120,118),5)
 	for p in [Vector2(540,2050),Vector2(725,2100),Vector2(900,2070),Vector2(1570,2110),Vector2(1720,2150),Vector2(1875,2080)]: _add("hay",p,0.82)
 	_add("chest",Vector2(1510,1900),0.9,"Baú Abandonado","POI_REG001_FIELD_CHEST",Rect2(1475,1870,70,48))
 	_add("sign",Vector2(1150,290),0.85,"Estrada Norte","POI_REG001_GATE_NORTH")
@@ -158,6 +162,9 @@ func nearest_poi(p: Vector2, radius: float = 145.0) -> Dictionary:
 	return best
 
 func _draw() -> void:
+	if use_baked_ground:
+		draw_texture_rect(CITY_GROUND,Rect2(Region.HUB_ORIGIN+CITY_GROUND_RECT.position,CITY_GROUND_RECT.size),false)
+		return
 	draw_set_transform(Region.HUB_ORIGIN,0.0,Vector2.ONE)
 	_draw_ground()
 	_draw_rivers()
