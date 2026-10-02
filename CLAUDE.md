@@ -353,3 +353,11 @@ Ler `docs/CARTOON_PILOT_V0_41.md`; comparação real em
 `docs/visual_qa/cartoon_v041/review.html`. 42 testes Cartoon locais e pacote de
 recursos verificados; CI oficial executa 59 testes e QA ao publicar. Não gerar
 APK neste pedido. Próximo passe visual: herói/efeitos e interiores.
+
+## Retomada automática solicitada pelo Diretor
+
+Ler `docs/TAREFA_RETOMADA_AUTOMATICA.md` antes de uma execução agendada.
+A v0.41 passou no Godot Gate oficial run `36953786483`, commit `b0a34a1`.
+Continuar herói/efeitos e decoração dos interiores, registrar checkpoints,
+preservar HUD 3 e save v8 e não gerar APK. Ao concluir o passe descrito,
+desativar a automação de retomada.
