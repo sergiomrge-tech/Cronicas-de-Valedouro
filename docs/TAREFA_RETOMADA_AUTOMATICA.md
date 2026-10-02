@@ -72,3 +72,11 @@ commit deste passe, comparar seu artifact e registrar resultado antes de encerra
 a automação **Continuar Crônicas de Valedouro**.
 
 A automação permanece habilitada enquanto o gate e seu artifact não forem verificados.
+
+### Checkpoint de entrega de QA v0.42
+
+Runtime `740f06d`, gate 4.7.2 run `36978863902` SUCCESS (60 testes/240 apoios/155
+capturas). Arte e código do jogo concluídos; inspeção do artifact oficial
+aguarda pacote compacto, pois o completo excede a transferência de 32 MiB.
+Workflow ajustado para uma seleção menor, sem mudar o jogo ou gerar APK.
+Continuar dessa verificação e manter automação ativa até concluir a comparação.

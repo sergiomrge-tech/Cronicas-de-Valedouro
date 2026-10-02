@@ -332,3 +332,11 @@ Ler `docs/CARTOON_PILOT_V0_41.md`; comparação real em
 `docs/visual_qa/cartoon_v041/review.html`. 42 testes Cartoon locais e pacote de
 recursos verificados; CI oficial executa 59 testes e QA ao publicar. Não gerar
 APK neste pedido. Próximo passe visual: herói/efeitos e interiores.
+
+### Checkpoint de entrega de QA v0.42
+
+Runtime `740f06d`, gate 4.7.2 run `36978863902` SUCCESS (60 testes/240 apoios/155
+capturas). Arte e código do jogo concluídos; inspeção do artifact oficial
+aguarda pacote compacto, pois o completo excede a transferência de 32 MiB.
+Workflow ajustado para uma seleção menor, sem mudar o jogo ou gerar APK.
+Continuar dessa verificação e manter automação ativa até concluir a comparação.

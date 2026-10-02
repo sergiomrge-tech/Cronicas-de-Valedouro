@@ -706,12 +706,38 @@ jobs:
           path: game/ci_output_illustrated_v042/
           if-no-files-found: error
 
+      - name: Assemble compact official visual review
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY_REVIEW'
+          from pathlib import Path
+          import shutil
+          src=Path('game/ci_output_illustrated_v042')
+          dest=Path('game/ci_output_illustrated_v042_review'); dest.mkdir()
+          names=list(src.glob('animation_*.png'))
+          names += list(src.glob('tavern_*.png')) + list(src.glob('forge_*.png')) + list(src.glob('guild_*.png'))
+          names += list(src.glob('hero_world_*.png'))
+          names += list(src.glob('spell_*_640x360_z150.png'))
+          names += [src/'furniture_gallery.png',src/'report.json']
+          assert sum(p.stat().st_size for p in names)<31*1024*1024
+          for p in names: shutil.copy2(p,dest/p.name)
+          print('Compact review:',len(names),'files; original complete artifact preserved')
+          PY_REVIEW
+
+      - name: Upload compact official illustrated visual review
+        uses: actions/upload-artifact@v4
+        with:
+          name: valedouro-illustrated-v042-review-small
+          path: game/ci_output_illustrated_v042_review/
+          if-no-files-found: error
+
       - name: Final CI cleanup
         shell: bash
         run: |
           set -e
           rm -rf game/.godot game/ci_output game/ci_output_reg001 game/ci_output_art_gate game/ci_output_cartoon game/ci_output_cartoon_ui game/ci_output_living_world game/ci_output_royal_castle game/ci_output_forest game/ci_output_desert game/ci_output_marsh game/ci_output_frost game/ci_output_coast game/ci_output_corrupted game/ci_output_abyss game/ci_art_reports game/tools/__pycache__ game/tools/reg001/__pycache__ game/tools/modeling/__pycache__ game/tools/art_pipeline/__pycache__
           rm -rf game/ci_output_classes game/ci_output_equipment game/ci_output_missions_challenge game/ci_output_spell_slots game/ci_output_loot_v031 game/ci_output_ui_v032 game/ci_output_rpg_v033 game/ci_output_radial_v038 game/ci_output_grounding_v039 game/ci_output_gathering_v034 game/ci_output_levelup_v035 game/ci_output_boss_v036 game/ci_output_boss_v037
-          rm -rf game/ci_output_city_v040 game/ci_output_pilot_v041 game/ci_output_illustrated_v042
+          rm -rf game/ci_output_city_v040 game/ci_output_pilot_v041 game/ci_output_illustrated_v042 game/ci_output_illustrated_v042_review
           rm -f game/tests/visual_capture.gd
           echo "CI is read-only: generated runtime assets and QA captures are not pushed back to main."

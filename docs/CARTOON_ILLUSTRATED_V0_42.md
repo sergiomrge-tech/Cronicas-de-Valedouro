@@ -84,3 +84,16 @@ pacote de recursos não é um APK nem valida a instalação Android. Gate oficia
 checkpoint. Nenhum APK foi gerado. Aprovação pessoal do Diretor e teste em
 aparelho não foram alegados. O escopo ilustrado do herói e das três salas foi
 comparado; o restante das regiões não recebe uma aprovação visual nova aqui.
+
+## Checkpoint após o primeiro gate oficial
+
+Código/assets: `740f06d66790e9bfb3e6fd7df8781ee0bbf6f893`. Godot Gate
+`36978863902`: SUCCESS, engine executada `4.7.2.stable.official.ed1daf0bf`,
+60 testes nativos, 240 apoios e 155 capturas aprovados. O download direto do
+artifact foi recusado (403); o conector retornou o arquivo de 91 MB, mas a
+transferência ao executor limita arquivos a 32 MiB. Não foi alegada inspeção
+dessas imagens oficiais. Capturas locais reais já foram comparadas.
+
+Próxima ação: workflow publica também revisão compacta (<31 MiB), conservando
+a completa. Código/assets do jogo não mudaram nesta correção de entrega de QA.
+Comparar as imagens oficiais compactas e registrar conclusão. Automação ativa.
