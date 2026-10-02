@@ -1,6 +1,9 @@
 class_name ValedouroCartoonCombatFX
 extends Node2D
 ## Short lived additive effects: shared radial light, bounded actors, no external assets.
+const PaintedSpell = preload("res://scripts/cartoon/cartoon_spell_art_v042.gd")
+var spell_sprite: Sprite2D
+var painted_kind: String = ""
 static var active_count: int = 0
 static var light_count: int = 0
 static var light_texture: Texture2D
@@ -55,6 +58,17 @@ func _ready() -> void:
 		add_child(light)
 		light_count += 1
 		owns_light = true
+	painted_kind = kind.trim_prefix("impact_")
+	if PaintedSpell.TEXTURES.has(painted_kind):
+		spell_sprite = Sprite2D.new()
+		# MIX preserves the saturated painted core while the parent adds its small light.
+		var painted_material = CanvasItemMaterial.new()
+		painted_material.blend_mode = CanvasItemMaterial.BLEND_MODE_MIX
+		painted_material.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
+		spell_sprite.material = painted_material
+		spell_sprite.texture = PaintedSpell.texture(painted_kind,3 if kind.begins_with("impact_") else 0)
+		spell_sprite.scale = Vector2.ONE*PaintedSpell.scale_factor(painted_kind)
+		add_child(spell_sprite)
 func _exit_tree() -> void:
 	active_count -= 1
 	if owns_light: light_count -= 1
@@ -64,6 +78,14 @@ func _process(delta: float) -> void:
 		queue_free()
 		return
 	if light != null: light.energy = (1.0-age/lifetime)*0.55
+	if spell_sprite != null:
+		var p: float = clampf(age/lifetime,0,1)
+		var frame: int = 3 if kind.begins_with("impact_") else (0 if p<0.12 else (1 if p<0.26 else 2))
+		spell_sprite.texture = PaintedSpell.texture(painted_kind,frame)
+		spell_sprite.position = direction*(p*90.0) if travel_visual and not kind.begins_with("impact_") else Vector2.ZERO
+		spell_sprite.rotation = direction.angle() if frame==2 else 0.0
+		spell_sprite.modulate.a = (1.0-p) if frame==3 else minf(1.0,(1.0-p)*2.0)
+		if frame==3: spell_sprite.scale = Vector2.ONE*PaintedSpell.scale_factor(painted_kind)*(0.85+p*0.35)
 	queue_redraw()
 func _draw() -> void:
 	var p: float = clampf(age/lifetime,0,1)
@@ -72,6 +94,13 @@ func _draw() -> void:
 	var center: Vector2 = direction*(p*90.0) if travel_visual and kind in ["ember","frost","arcane"] else Vector2.ZERO
 	for i in range(6,0,-1):
 		draw_circle(center,float(i)*(4+8*bloom),Color(tint,fade*0.035))
+	if spell_sprite != null:
+		# Small sparks retain motion between key poses; the original art defines the spell.
+		for i in range(8):
+			var a: float = i*2.39996+age*0.7
+			var q: Vector2 = spell_sprite.position+Vector2.from_angle(a)*(8+p*(25+i*5))
+			draw_circle(q,0.8+fade,Color(tint,fade*0.7))
+		return
 	if corpse_texture != null:
 		draw_texture_rect_region(corpse_texture,corpse_rect,corpse_region,Color(tint,fade*0.7))
 	match kind:

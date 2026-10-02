@@ -1,0 +1,217 @@
+[
+  {
+    "test": "cartoon_hub",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "forest_act2",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "desert_act3",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "marsh_act4",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "frost_act5",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "siege_act5",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "coast_act6",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "corrupted_act7",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "abyss_act8",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "campaign_world",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "exploration_layer",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "exploration_v013",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "crafting_v014",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "zoom_controls",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "menu_inventory_layout",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "save_menu_v016",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "inventory_v017",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "hud_progression_v018",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "ui_layout_v019",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_visual_v020",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_ui_v021",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_living_world_v022",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_royal_castle_v023",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_combat_v024",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_elemental_v025",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_reactive_v026",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_classes_v027",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_equipment_v028",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_missions_v029",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_challenge_v029",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_enemy_levels_v029",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_spell_slots_v030",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_loot_v031",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_ui_progression_v032",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_rpg_progression_v033",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_gathering_v034",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_levelup_feedback_v035",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_boss_crafting_v036",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_boss_combat_v037",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_radial_ui_v038",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_city_v040",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_pilot_v041",
+    "passed": true,
+    "returncode": 0
+  },
+  {
+    "test": "cartoon_illustrated_v042",
+    "passed": true,
+    "returncode": 0
+  }
+]

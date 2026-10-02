@@ -17,6 +17,7 @@ func setup(camera_node: Camera2D) -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_build_ui()
+	get_viewport().size_changed.connect(_update_hero_framing)
 	var state = _state()
 	var saved_zoom: float = DEFAULT_ZOOM
 	if state != null:
@@ -87,9 +88,18 @@ func _apply_zoom(value: float, persist: bool) -> void:
 	var clamped: float = clampf(value,MIN_ZOOM,MAX_ZOOM)
 	if camera != null:
 		camera.zoom = Vector2(clamped,clamped)
+		_update_hero_framing()
 	if percent_label != null:
 		percent_label.text = "%d%%" % int(round(clamped*100.0))
 	if persist:
 		var state = _state()
 		if state != null:
 			state.set_camera_zoom(clamped)
+
+func _update_hero_framing() -> void:
+	if camera == null: return
+	# Feet are the hero root. Reserve his raised hand/weapon above the top HUD at mobile zoom.
+	var height: float = get_viewport_rect().size.y
+	var required: float = maxf(0.0,116.0*camera.zoom.y+112.0-height*0.5)
+	var pixels: float = minf(required,maxf(0.0,height*0.5-68.0))
+	camera.offset = Vector2(0,-pixels/camera.zoom.y)

@@ -1,5 +1,17 @@
 # CONTINUE AQUI — Crônicas de Valedouro 2D Cartoon
 
+## Checkpoint v0.42 — 02/10/2026
+
+Herói, armas, foco e fases de magia, decoração e paredes da taverna/ferreiro/guilda
+integrados com originais pintados. Leia `docs/CARTOON_ILLUSTRATED_V0_42.md` e
+`docs/visual_qa/cartoon_v042/review.html`. Captura local final: 155 PNGs nas duas
+resoluções e zooms, 240 apoios de poses, máximo 492 draw calls; comparação visual
+com diferenças concretas corrigidas. Testes finais/pacote/gate oficial em execução.
+Não gerar APK. Não repetir v0.41. Próxima ação: verificar Godot Gate 4.7.2 do
+commit deste passe, comparar seu artifact e registrar resultado antes de encerrar
+a automação **Continuar Crônicas de Valedouro**.
+
+
 **Diretor:** Sergio  
 **Mundo:** Elyndor  
 **Engine:** Godot 4.7.2  

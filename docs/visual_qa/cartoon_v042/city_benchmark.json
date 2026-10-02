@@ -1,0 +1,37 @@
+{
+  "engine": "4.6.3-stable (official)",
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "samples": [
+    {
+      "cpu_median_ms": 39.972,
+      "draw_calls_median": 263.0,
+      "frame_median_ms": 21.474,
+      "frame_p95_ms": 36.274,
+      "name": "plaza",
+      "nodes": 969.0,
+      "primitives_median": 7663.0,
+      "video_memory": 103680689.0
+    },
+    {
+      "cpu_median_ms": 39.581,
+      "draw_calls_median": 192.0,
+      "frame_median_ms": 22.842,
+      "frame_p95_ms": 39.427,
+      "name": "residential",
+      "nodes": 969.0,
+      "primitives_median": 6425.0,
+      "video_memory": 103634407.0
+    },
+    {
+      "cpu_median_ms": 44.31,
+      "draw_calls_median": 356.0,
+      "frame_median_ms": 25.852,
+      "frame_p95_ms": 43.509,
+      "name": "castle",
+      "nodes": 992.0,
+      "primitives_median": 8880.0,
+      "video_memory": 103653415.0
+    }
+  ],
+  "viewport": "960x540"
+}

@@ -122,7 +122,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog approved_visuals vertical_slice boss_patterns mobile_input modeled_assets reg001_world reg001_gameplay character_art cast_shadow guardian_state act02_compositions cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_challenge_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033 cartoon_gathering_v034 cartoon_levelup_feedback_v035 cartoon_boss_crafting_v036 cartoon_boss_combat_v037 cartoon_radial_ui_v038 cartoon_city_v040 cartoon_pilot_v041; do
+          for t in smoke world_travel hero_animation monster_animation loot_progression asset_catalog approved_visuals vertical_slice boss_patterns mobile_input modeled_assets reg001_world reg001_gameplay character_art cast_shadow guardian_state act02_compositions cartoon_hub forest_act2 desert_act3 marsh_act4 frost_act5 siege_act5 coast_act6 corrupted_act7 abyss_act8 campaign_world exploration_layer exploration_v013 crafting_v014 zoom_controls menu_inventory_layout save_menu_v016 inventory_v017 hud_progression_v018 ui_layout_v019 cartoon_visual_v020 cartoon_ui_v021 cartoon_living_world_v022 cartoon_royal_castle_v023 cartoon_combat_v024 cartoon_elemental_v025 cartoon_reactive_v026 cartoon_classes_v027 cartoon_equipment_v028 cartoon_missions_v029 cartoon_challenge_v029 cartoon_enemy_levels_v029 cartoon_spell_slots_v030 cartoon_loot_v031 cartoon_ui_progression_v032 cartoon_rpg_progression_v033 cartoon_gathering_v034 cartoon_levelup_feedback_v035 cartoon_boss_crafting_v036 cartoon_boss_combat_v037 cartoon_radial_ui_v038 cartoon_city_v040 cartoon_pilot_v041 cartoon_illustrated_v042; do
             echo "===== TEST: $t ====="
             log="/tmp/godot-test-$t.log"
             if ! timeout 60s /tmp/godot/godot --headless --path game --script "res://tests/$t.gd" >"$log" 2>&1; then
@@ -688,12 +688,30 @@ jobs:
           path: game/ci_output_pilot_v041/
           if-no-files-found: error
 
+      - name: Validate and capture illustrated hero effects and interiors
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 game/tools/cartoon/validate_illustrated_art_v042.py
+          mkdir -p game/ci_output_illustrated_v042
+          timeout 150s xvfb-run -a /tmp/godot/godot --path game --rendering-method gl_compatibility --audio-driver Dummy --script res://tests/qa_capture_illustrated_v042.gd -- "$PWD/game/ci_output_illustrated_v042" 2>&1 | tee /tmp/valedouro-illustrated-v042.log
+          ! grep -Eq "SCRIPT ERROR|ERROR:|Assertion failed" /tmp/valedouro-illustrated-v042.log
+          grep -q "illustrated_v042: PASS" /tmp/valedouro-illustrated-v042.log
+          test "$(find game/ci_output_illustrated_v042 -maxdepth 1 -type f -name '*.png' | wc -l)" -eq 155
+
+      - name: Upload illustrated hero effects and interiors visual QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: valedouro-illustrated-v042-visual-qa
+          path: game/ci_output_illustrated_v042/
+          if-no-files-found: error
+
       - name: Final CI cleanup
         shell: bash
         run: |
           set -e
           rm -rf game/.godot game/ci_output game/ci_output_reg001 game/ci_output_art_gate game/ci_output_cartoon game/ci_output_cartoon_ui game/ci_output_living_world game/ci_output_royal_castle game/ci_output_forest game/ci_output_desert game/ci_output_marsh game/ci_output_frost game/ci_output_coast game/ci_output_corrupted game/ci_output_abyss game/ci_art_reports game/tools/__pycache__ game/tools/reg001/__pycache__ game/tools/modeling/__pycache__ game/tools/art_pipeline/__pycache__
           rm -rf game/ci_output_classes game/ci_output_equipment game/ci_output_missions_challenge game/ci_output_spell_slots game/ci_output_loot_v031 game/ci_output_ui_v032 game/ci_output_rpg_v033 game/ci_output_radial_v038 game/ci_output_grounding_v039 game/ci_output_gathering_v034 game/ci_output_levelup_v035 game/ci_output_boss_v036 game/ci_output_boss_v037
-          rm -rf game/ci_output_city_v040 game/ci_output_pilot_v041
+          rm -rf game/ci_output_city_v040 game/ci_output_pilot_v041 game/ci_output_illustrated_v042
           rm -f game/tests/visual_capture.gd
           echo "CI is read-only: generated runtime assets and QA captures are not pushed back to main."

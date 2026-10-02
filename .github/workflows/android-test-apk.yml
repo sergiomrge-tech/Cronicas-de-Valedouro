@@ -141,18 +141,18 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p game/build
-          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.41_TEST.apk
-          test -s game/build/Cronicas_de_Valedouro_v0.41_TEST.apk
-          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.41_TEST.apk
-          sha256sum game/build/Cronicas_de_Valedouro_v0.41_TEST.apk | tee game/build/SHA256.txt
-          ls -lh game/build/Cronicas_de_Valedouro_v0.41_TEST.apk
+          /tmp/godot/godot --headless --path game --export-debug "Android Test" build/Cronicas_de_Valedouro_v0.42_TEST.apk
+          test -s game/build/Cronicas_de_Valedouro_v0.42_TEST.apk
+          "$ANDROID_HOME/build-tools/35.0.1/apksigner" verify --verbose --print-certs game/build/Cronicas_de_Valedouro_v0.42_TEST.apk
+          sha256sum game/build/Cronicas_de_Valedouro_v0.42_TEST.apk | tee game/build/SHA256.txt
+          ls -lh game/build/Cronicas_de_Valedouro_v0.42_TEST.apk
 
       - name: Upload installable APK
         uses: actions/upload-artifact@v4
         with:
-          name: Cronicas-de-Valedouro-Android-TEST-v0.41
+          name: Cronicas-de-Valedouro-Android-TEST-v0.42
           path: |
-            game/build/Cronicas_de_Valedouro_v0.41_TEST.apk
+            game/build/Cronicas_de_Valedouro_v0.42_TEST.apk
             game/build/SHA256.txt
           if-no-files-found: error
           retention-days: 30
@@ -166,7 +166,7 @@ jobs:
         run: |
           set -euo pipefail
           cat > /tmp/android-release.md <<'NOTES'
-          v0.41 traz grama e piso ilustrados, oito moradores e criaturas com poses de caminhada. Corrige a vegetação ausente nos chunks junto à cidade e distribui encontros normais nos arredores, com limite de atores e retorno após cinco minutos. Cidade e jardins reais protegidos, HUD radial 3 e dificuldade por nível preservados.
+          v0.42 traz grama e piso ilustrados, oito moradores e criaturas com poses de caminhada. Corrige a vegetação ausente nos chunks junto à cidade e distribui encontros normais nos arredores, com limite de atores e retorno após cinco minutos. Cidade e jardins reais protegidos, HUD radial 3 e dificuldade por nível preservados.
 
           HUD e interfaces no estilo Combate Radial escolhido: molduras vermelho/dourado, retrato destacado, coluna Bolsa/Mapa/Missões/Menu, minimapa do cenário real e três magias em arco com recargas independentes. Menu, inventário, forja, missões, guilda, classes, mapa e pausa usam o mesmo acabamento. Inventário mantém personagem equipado, sete posições e comparação de itens.
 
@@ -177,6 +177,6 @@ jobs:
 
           Exportação assinada com Godot 4.7.2, 41 testes nativos e integridade verificados. Testes de desempenho e ergonomia em celular real e aprovação visual permanecem pendentes.
           NOTES
-          gh release create v0.41-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.41 — Área piloto viva e ilustrada" --notes-file /tmp/android-release.md
-          gh release upload v0.41-test game/build/Cronicas_de_Valedouro_v0.41_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
-          gh release edit v0.41-test --repo "$REPOSITORY" --draft=false --prerelease
+          gh release create v0.42-test --repo "$REPOSITORY" --target "$SOURCE_SHA" --draft --prerelease --title "Crônicas de Valedouro v0.42 — Área piloto viva e ilustrada" --notes-file /tmp/android-release.md
+          gh release upload v0.42-test game/build/Cronicas_de_Valedouro_v0.42_TEST.apk game/build/SHA256.txt --repo "$REPOSITORY"
+          gh release edit v0.42-test --repo "$REPOSITORY" --draft=false --prerelease

@@ -76,3 +76,14 @@ Pendências visuais conhecidas para a tarefa de retomada:
 
 Nenhum APK foi solicitado neste pedido. Preservar HUD radial opção 3, história,
 missões, dificuldade, save v8 e magias com recargas independentes.
+
+## Comparação executada no passe v0.42
+
+Veja `CARTOON_ILLUSTRATED_V0_42.md` para as diferenças e correções concretas e
+`visual_qa/cartoon_v042/review.html` para originais, capturas e sequências reais.
+Pessoas/vegetação v0.41 e construções v0.40 permanecem bloqueadas por SHA256.
+Verificados corpo, rosto, capa, placas, perspectiva de arco, foco na palma,
+cor dos núcleos das magias, sombras, pés, móveis completos e paredes próprias
+das três salas, em 960×540/640×360 e zoom70/150. PASS técnico não foi usado como
+substituto para essa inspeção; gate oficial e suas capturas ainda pendentes no
+checkpoint inicial. Aprovação do Diretor não é presumida.

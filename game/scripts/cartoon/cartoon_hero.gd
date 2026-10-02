@@ -6,7 +6,10 @@ const CombatArt = preload("res://scripts/cartoon/cartoon_combat_art.gd")
 const Projectile = preload("res://scripts/cartoon/cartoon_spell_projectile.gd")
 const Difficulty = preload("res://scripts/cartoon/cartoon_difficulty.gd")
 const Arrow = preload("res://scripts/cartoon/cartoon_arrow_projectile.gd")
-const HeroArt = preload("res://scripts/cartoon/cartoon_hero_art_v028.gd")
+const SpellArt = preload("res://scripts/cartoon/cartoon_spell_art_v042.gd")
+var spell_focus: Sprite2D
+const WeaponArt = preload("res://scripts/cartoon/cartoon_weapon_art_v042.gd")
+const HeroArt = preload("res://scripts/cartoon/cartoon_hero_art_v042.gd")
 const FX = preload("res://scripts/cartoon/cartoon_combat_fx.gd")
 const SPELLS = ["ember","frost","arcane"]
 const SPELL_NAMES = ["Brasa","Cristal","Arcana"]
@@ -105,6 +108,17 @@ func _step_dodge(delta: float) -> void:
 		FX.spawn(get_parent(),position,"evade",dodge_direction,Color("7feaff"))
 
 func _ready() -> void:
+	spell_focus = Sprite2D.new()
+	spell_focus.name = "HeroSpellFocus"
+	spell_focus.z_index = 1
+	var focus_material = CanvasItemMaterial.new()
+	focus_material.light_mode = CanvasItemMaterial.LIGHT_MODE_UNSHADED
+	spell_focus.material = focus_material
+	spell_focus.visible = false
+	add_child(spell_focus)
+	var painted_material = ShaderMaterial.new()
+	painted_material.shader = preload("res://scripts/cartoon/cartoon_hero_palette_v042.gdshader")
+	material = painted_material
 	apply_equipment_from_state()
 	apply_class_from_state()
 
@@ -136,6 +150,10 @@ func apply_equipment_from_state() -> void:
 	weapon_item_id = String(state.equipped_weapon.get("id",""))
 	bow_equipped = state.equipped_weapon.get("weapon_kind", "sword")=="bow"
 	visible_pieces = state.equipped_pieces.duplicate(true)
+	if material is ShaderMaterial:
+		var palette: Color = _item_color(String(state.equipped_armor.get("id","")),[Color("508bce"),Color("91b77a"),Color("dca569"),Color("89b999"),Color("b6deec"),Color("75c8d7"),Color("bd82af"),Color("a390d4")][clampi(armor_tier,0,7)])
+		material.set_shader_parameter("armor_palette",palette)
+		material.set_shader_parameter("armor_strength",0.70 if armor_tier>0 or BOSS_ITEM_COLORS.has(String(state.equipped_armor.get("id",""))) else 0.0)
 	queue_redraw()
 
 func equipped_damage(base_damage: int) -> int:
@@ -230,6 +248,7 @@ func _process(delta: float) -> void:
 	hurt_t = maxf(0,hurt_t-delta)
 	for i in range(SPELLS.size()): spell_cooldowns[i] = maxf(0,spell_cooldowns[i]-delta)
 	attack_t = maxf(0.0, attack_t - delta)
+	refresh_spell_focus()
 	queue_redraw()
 
 func _draw() -> void:
@@ -237,6 +256,125 @@ func _draw() -> void:
 	var moving = move_vector.length() > 0.08 or dodge_t>0
 	DrawUtil.shadow(self,Vector2.ZERO,19,0.22)
 	DrawUtil.ellipse(self,Vector2.ZERO,11,2.8,Color(0,0,0,0.32))
+	var pose: Dictionary = visual_pose()
+	var direction: String = pose.direction
+	var animation: String = pose.animation
+	var frame: int = pose.frame
+	var grounded: Vector2 = Vector2(0,HeroArt.ground_offset(animation,frame))
+	var lean: float = dodge_direction.x*0.16 if dodge_t>0 else 0.0
+	if dodge_t>0:
+		for i in range(3,0,-1):
+			draw_set_transform(-dodge_direction*float(i)*17+grounded,lean,Vector2.ONE)
+			HeroArt.hero_frame(self,direction,animation,frame,HeroArt.GROUND_RECT,Color(0.5,0.9,1,0.3/float(i)))
+	draw_set_transform(grounded,lean,Vector2.ONE)
+	if bow_equipped and animation!="death" and direction!="back": _draw_quiver(direction,animation,frame,grounded,lean)
+	HeroArt.hero_frame(self,direction,animation,frame,HeroArt.GROUND_RECT,Color(1,0.75,0.8) if hurt_t>0 else Color.WHITE)
+	if bow_equipped and animation!="death" and direction=="back": _draw_quiver(direction,animation,frame,grounded,lean)
+	if animation in ["death","cast","hurt","evade"]:
+		draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+		return
+	# Equipment still has an in-world color cue; the sword keeps its attack motion.
+	var armor_colors: Array[Color] = [Color("d1b369"),Color("91b77a"),Color("dca569"),Color("89b999"),Color("b6deec"),Color("75c8d7"),Color("bd82af"),Color("a390d4")]
+	draw_circle(Vector2(-9,-34),2.4,armor_colors[clampi(armor_tier,0,7)])
+	_draw_equipment(direction,armor_colors[clampi(armor_tier,0,7)],animation,frame)
+	if bow_equipped:
+		_draw_bow(direction,HeroArt.hand_position(direction,animation,frame),grounded,lean,animation,frame)
+		draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+		return
+	var sword_hand: Vector2 = HeroArt.hand_position(direction,animation,frame)
+	# sword
+	var dir: Vector2 = Vector2.UP
+	if animation=="attack" and frame in [2,3]: dir = facing.normalized()
+	if direction=="back" and animation=="idle": dir = Vector2.UP
+	var blade_a = sword_hand
+	var blade_length: float = 27.0+float(weapon_tier)*1.4
+	var blade_b = sword_hand + dir*blade_length
+	var blade_colors: Array[Color] = [
+		Color(0.88,0.91,0.94),Color(0.55,0.87,0.56),Color(0.95,0.66,0.28),Color(0.55,0.83,0.65),
+		Color(0.72,0.91,1.0),Color(0.40,0.88,0.96),Color(0.84,0.34,0.62),Color(0.78,0.55,1.0)
+	]
+	var blade_color: Color = _item_color(weapon_item_id,blade_colors[clampi(weapon_tier,0,blade_colors.size()-1)])
+	if BOSS_ITEM_COLORS.has(weapon_item_id):
+		blade_length += 3.0
+		blade_b = sword_hand + dir*blade_length
+	draw_set_transform(grounded+sword_hand.rotated(lean),lean+dir.angle()+PI/2,Vector2.ONE)
+	WeaponArt.draw_weapon(self,"sword",WeaponArt.sword_factor(blade_length),Color.WHITE.lerp(blade_color,0.35))
+	if weapon_tier>=4 or BOSS_ITEM_COLORS.has(weapon_item_id):
+		draw_line(Vector2.ZERO,Vector2(0,-blade_length),Color(blade_color,0.28),4.0,true)
+	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+
+func _item_color(item_id: String,fallback: Color) -> Color:
+	return BOSS_ITEM_COLORS.get(item_id,fallback)
+
+func _piece_color(slot: String,fallback: Color) -> Color:
+	var item: Dictionary = visible_pieces.get(slot,{})
+	return _item_color(String(item.get("id","")),fallback)
+
+func _draw_boss_emblem(slot: String,position: Vector2,color: Color) -> void:
+	var item: Dictionary = visible_pieces.get(slot,{})
+	var id: String = String(item.get("id",""))
+	if not BOSS_ITEM_COLORS.has(id):
+		return
+	draw_colored_polygon(PackedVector2Array([
+		position+Vector2(0,-4),position+Vector2(4,0),
+		position+Vector2(0,4),position+Vector2(-4,0)
+	]),color.lightened(0.28))
+	draw_arc(position,6,0,TAU,18,Color(color,0.55),1.0,true)
+
+func _draw_equipment(direction: String,tint: Color,animation: String,frame: int) -> void:
+	# Painted cloth keeps its shading; equipped pieces add small fitted metal/gem accents.
+	var head: Vector2 = HeroArt.head_position(direction,animation,frame)
+	var hand: Vector2 = HeroArt.hand_position(direction,animation,frame)
+	if visible_pieces.has("helmet"):
+		var color: Color = _piece_color("helmet",tint)
+		draw_arc(head+Vector2(0,1),7,PI,TAU,24,color,1.2,true)
+		draw_circle(head+Vector2(0,-5),1.6,color.lightened(0.35))
+		_draw_boss_emblem("helmet",head+Vector2(0,-3),color)
+	if visible_pieces.has("gloves"):
+		var color: Color = _piece_color("gloves",tint)
+		draw_arc(hand,2.3,0,PI,12,color,1.1,true)
+		_draw_boss_emblem("gloves",hand,color)
+	if visible_pieces.has("cape"):
+		var color: Color = _piece_color("cape",tint)
+		draw_circle(head+Vector2(-8,13),1.4,color)
+		draw_circle(head+Vector2(8,13),1.4,color)
+		_draw_boss_emblem("cape",head+Vector2(0,20),color)
+	if visible_pieces.has("legs"):
+		var color: Color = _piece_color("legs",tint)
+		draw_circle(head+Vector2(0,39),1.5,color)
+		_draw_boss_emblem("legs",head+Vector2(0,39),color)
+	if visible_pieces.has("boots"):
+		# A grounded enchantment cue avoids drawing a second pair of rigid feet over the stride.
+		var color: Color = _piece_color("boots",tint)
+		draw_arc(Vector2(0,-1),7,0,PI,16,Color(color,0.55),1.0,true)
+		_draw_boss_emblem("boots",Vector2(0,-3),color)
+
+func _draw_bow(direction: String,grip: Vector2,grounded: Vector2,lean: float,animation: String,frame: int) -> void:
+	var angle: float = {"right":0.0,"left":PI,"front":PI/2,"back":-PI/2}[direction]
+	var aim: Vector2 = Vector2.RIGHT.rotated(angle)
+	var normal: Vector2 = aim.orthogonal()
+	var center: Vector2 = grip
+	var tint: Color = _item_color(weapon_item_id,Color.WHITE)
+	draw_set_transform(grounded+grip.rotated(lean),lean+angle,Vector2.ONE)
+	WeaponArt.draw_weapon(self,"bow",WeaponArt.bow_factor(),Color.WHITE.lerp(tint,0.30))
+	draw_set_transform(grounded,lean,Vector2.ONE)
+	var tips: Array[Vector2] = WeaponArt.bow_tips()
+	var hand: Vector2 = HeroArt.pull_hand_position(direction,frame) if animation=="shoot" and frame<4 else center-aim*17.7
+	draw_line(center+tips[0].rotated(angle),hand,Color("e9d9a9"),0.8,true)
+	draw_line(hand,center+tips[1].rotated(angle),Color("e9d9a9"),0.8,true)
+	if animation=="shoot" and frame<4:
+		draw_line(hand-aim*8,center+aim*17,Color("ffe7b0"),0.9,true)
+		draw_line(hand-aim*10,hand-aim*14+normal*4,Color("79e9d1"),1.2,true)
+
+func _draw_quiver(direction: String,animation: String,frame: int,grounded: Vector2,lean: float) -> void:
+	var side: float = -1 if direction=="left" else 1
+	var point: Vector2 = HeroArt.head_position(direction,animation,frame)+Vector2(-11*side,24)
+	draw_set_transform(grounded+point.rotated(lean),lean-0.20*side,Vector2.ONE)
+	WeaponArt.draw_weapon(self,"quiver",WeaponArt.quiver_factor())
+	draw_set_transform(grounded,lean,Vector2.ONE)
+
+func visual_pose() -> Dictionary:
+	var moving: bool = move_vector.length()>0.08 or dodge_t>0
 	var direction: String = "front"
 	if absf(facing.x) > absf(facing.y):
 		direction = "left" if facing.x < 0.0 else "right"
@@ -262,135 +400,14 @@ func _draw() -> void:
 	if dodge_t>0 and hurt_t<=0:
 		animation = "evade"
 		frame = mini(5,int(dodge_elapsed/DODGE_DURATION*6))
-	var grounded: Vector2 = Vector2(0,HeroArt.ground_offset(animation,frame))
-	var lean: float = dodge_direction.x*0.16 if dodge_t>0 else 0.0
-	if dodge_t>0:
-		for i in range(3,0,-1):
-			draw_set_transform(-dodge_direction*float(i)*17+grounded,lean,Vector2.ONE)
-			HeroArt.hero_frame(self,direction,animation,frame,HeroArt.GROUND_RECT,Color(0.5,0.9,1,0.3/float(i)))
-	draw_set_transform(grounded,lean,Vector2.ONE)
-	HeroArt.hero_frame(self,direction,animation,frame,HeroArt.GROUND_RECT,Color(1,0.75,0.8) if hurt_t>0 else Color.WHITE)
-	if cast_t>0:
-		var glow: Color = SPELL_COLORS[cast_spell_index]
-		for i in range(4,0,-1): draw_circle(Vector2(23,-43),float(i)*4,Color(glow,0.09))
-		draw_arc(Vector2(23,-43),10,anim_t*5,anim_t*5+PI*1.6,32,glow,2,true)
-	if death_t>0:
-		draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
-		return
-	# Equipment still has an in-world color cue; the sword keeps its attack motion.
-	var armor_colors: Array[Color] = [Color("d1b369"),Color("91b77a"),Color("dca569"),Color("89b999"),Color("b6deec"),Color("75c8d7"),Color("bd82af"),Color("a390d4")]
-	draw_circle(Vector2(-9,-34),2.4,armor_colors[clampi(armor_tier,0,7)])
-	_draw_equipment(direction,armor_colors[clampi(armor_tier,0,7)])
-	if bow_equipped:
-		_draw_bow(direction)
-		draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
-		return
-	var sword_hand: Vector2 = Vector2(21,-27)
-	if facing.x < -0.5: sword_hand.x = -21.0
-	if direction == "back": sword_hand.y = -25.0
-	if attack_t > 0.0:
-		var k: float = 1.0 - attack_t / 0.28
-		sword_hand += Vector2(10,-10).rotated(k*PI*1.2)
-	# sword
-	var dir = Vector2(0,-1) if attack_t <= 0.0 else (sword_hand-Vector2(15,-29)).normalized().rotated(-0.7)
-	var blade_a = sword_hand
-	var blade_length: float = 27.0+float(weapon_tier)*1.4
-	var blade_b = sword_hand + dir*blade_length
-	var blade_colors: Array[Color] = [
-		Color(0.88,0.91,0.94),Color(0.55,0.87,0.56),Color(0.95,0.66,0.28),Color(0.55,0.83,0.65),
-		Color(0.72,0.91,1.0),Color(0.40,0.88,0.96),Color(0.84,0.34,0.62),Color(0.78,0.55,1.0)
-	]
-	var blade_color: Color = _item_color(weapon_item_id,blade_colors[clampi(weapon_tier,0,blade_colors.size()-1)])
-	if BOSS_ITEM_COLORS.has(weapon_item_id):
-		blade_length += 3.0
-		blade_b = sword_hand + dir*blade_length
-	var edge: Vector2 = dir.orthogonal()*2.5
-	var outline: PackedVector2Array = PackedVector2Array([blade_a-edge,blade_b-dir*5-edge*0.65,blade_b+dir*3,blade_b-dir*5+edge*0.65,blade_a+edge,blade_a-edge])
-	draw_colored_polygon(outline,blade_color)
-	draw_polyline(outline,DrawUtil.OUTLINE,1.2,true)
-	draw_line(blade_a,blade_b,Color("f2fbff"),0.9,true)
-	if weapon_tier >= 4 or BOSS_ITEM_COLORS.has(weapon_item_id):
-		draw_line(blade_a,blade_b,Color(blade_color.r,blade_color.g,blade_color.b,0.32),7.0 if not BOSS_ITEM_COLORS.has(weapon_item_id) else 10.0)
-	if BOSS_ITEM_COLORS.has(weapon_item_id):
-		draw_circle(sword_hand-dir*3,3.2,blade_color.lightened(0.28))
-		draw_arc(sword_hand-dir*3,5.2,0,TAU,18,Color(blade_color,0.7),1.2,true)
-	draw_line(sword_hand-dir.orthogonal()*7,sword_hand+dir.orthogonal()*7,Color("f5cc69"),3.5,true)
-	draw_line(sword_hand,sword_hand-dir*6,Color("987044"),4,true)
-	draw_set_transform(Vector2.ZERO,0,Vector2.ONE)
+	return {"direction":direction,"animation":animation,"frame":frame}
 
-func _item_color(item_id: String,fallback: Color) -> Color:
-	return BOSS_ITEM_COLORS.get(item_id,fallback)
-
-func _piece_color(slot: String,fallback: Color) -> Color:
-	var item: Dictionary = visible_pieces.get(slot,{})
-	return _item_color(String(item.get("id","")),fallback)
-
-func _draw_boss_emblem(slot: String,position: Vector2,color: Color) -> void:
-	var item: Dictionary = visible_pieces.get(slot,{})
-	var id: String = String(item.get("id",""))
-	if not BOSS_ITEM_COLORS.has(id):
-		return
-	draw_colored_polygon(PackedVector2Array([
-		position+Vector2(0,-4),position+Vector2(4,0),
-		position+Vector2(0,4),position+Vector2(-4,0)
-	]),color.lightened(0.28))
-	draw_arc(position,6,0,TAU,18,Color(color,0.55),1.0,true)
-
-func _draw_equipment(direction: String, tint: Color) -> void:
-	# Each boss-forged piece keeps the slot silhouette but gains its own palette/emblem.
-	if visible_pieces.has("cape"):
-		var cape_color: Color = _piece_color("cape",tint)
-		draw_line(Vector2(-16,-39),Vector2(-20+sin(anim_t*5)*2,-12),cape_color,3,true)
-		draw_line(Vector2(16,-39),Vector2(20+sin(anim_t*5)*2,-12),cape_color,3,true)
-		_draw_boss_emblem("cape",Vector2(0,-28),cape_color)
-	if visible_pieces.has("legs"):
-		var leg_color: Color = _piece_color("legs",tint)
-		for x in [-8,9]: draw_line(Vector2(x,-28),Vector2(x,-17),leg_color,4,true)
-	if visible_pieces.has("boots"):
-		var boot_color: Color = _piece_color("boots",tint)
-		for x in [-8,9]:
-			draw_line(Vector2(x,-16),Vector2(x,-9),boot_color.lightened(0.3),4,true)
-			draw_line(Vector2(x-2,-8),Vector2(x+4,-8),Color("f4d38c"),2,true)
-		_draw_boss_emblem("boots",Vector2(0,-10),boot_color)
-	if visible_pieces.has("gloves"):
-		var glove_color: Color = _piece_color("gloves",tint)
-		for x in [-17,19]: draw_circle(Vector2(x,-33),3.2,glove_color)
-		_draw_boss_emblem("gloves",Vector2(0,-34),glove_color)
-	if direction!="back":
-		draw_line(Vector2(-8,-49),Vector2(-3,-45),tint,2,true)
-		draw_line(Vector2(8,-49),Vector2(3,-45),tint,2,true)
-	if visible_pieces.has("helmet"):
-		var helmet_color: Color = _piece_color("helmet",tint)
-		draw_arc(Vector2(0,-70),13,PI,TAU,24,helmet_color.lightened(0.3),5,true)
-		draw_line(Vector2(-13,-68),Vector2(-12,-61),helmet_color,3,true)
-		draw_line(Vector2(13,-68),Vector2(12,-61),helmet_color,3,true)
-		draw_colored_polygon(PackedVector2Array([Vector2(-4,-81),Vector2(0,-89),Vector2(4,-81)]),Color("f9d482"))
-		_draw_boss_emblem("helmet",Vector2(0,-70),helmet_color)
-
-func _draw_bow(direction: String) -> void:
-	var angle: float = {"right":0.0,"left":PI,"front":PI/2,"back":-PI/2}[direction]
-	var aim: Vector2 = Vector2.RIGHT.rotated(angle)
-	var normal: Vector2 = aim.orthogonal()
-	var center: Vector2 = Vector2(0,-38)+aim*(12 if direction in ["front","back"] else 21)
-	var pull: float = sin(clampf(1-attack_t/0.65,0,1)*PI)*10 if attack_t>0 else 0
-	var color: Color = Color("f0c078").lerp(class_color,0.25)
-	var points: PackedVector2Array = PackedVector2Array()
-	for i in range(25):
-		var t: float = -PI/2+PI*i/24
-		points.append(center+aim*cos(t)*12+normal*sin(t)*27)
-	draw_polyline(points,Color("293346"),5,true)
-	draw_polyline(points,color,3,true)
-	var hand: Vector2 = center-aim*pull
-	draw_line(center-normal*27,hand,Color("eaf9e8"),1,true)
-	draw_line(hand,center+normal*27,Color("eaf9e8"),1,true)
-	draw_circle(hand,3,Color("e6bf95"))
-	if attack_t>0.2:
-		draw_line(hand-aim*12,center+aim*17,Color("ffe7b0"),1.8,true)
-		draw_line(hand-aim*10,hand-aim*14+normal*4,Color("79e9d1"),2,true)
-	# Quiver and individually feathered arrows remain visible while moving.
-	var side: float = -1 if direction=="left" else 1
-	draw_line(Vector2(-14*side,-51),Vector2(-19*side,-34),Color("78523f"),6,true)
-	for i in range(3):
-		var tip: Vector2 = Vector2((-15-i*3)*side,-59-i*2)
-		draw_line(tip,tip+Vector2(5*side,20),Color("e1c489"),1.5,true)
-		draw_line(tip,tip+Vector2(3*side,3),Color("66e3cc"),2,true)
+func refresh_spell_focus() -> void:
+	if spell_focus == null: return
+	var pose: Dictionary = visual_pose()
+	spell_focus.visible = pose.animation=="cast"
+	if not spell_focus.visible: return
+	var kind: String = SPELLS[cast_spell_index]
+	spell_focus.texture = SpellArt.texture(kind,0 if pose.frame<4 else 1)
+	spell_focus.scale = Vector2.ONE*SpellArt.scale_factor(kind)*0.32
+	spell_focus.position = HeroArt.hand_position(pose.direction,pose.animation,pose.frame)

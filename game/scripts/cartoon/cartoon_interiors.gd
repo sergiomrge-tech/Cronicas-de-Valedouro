@@ -1,6 +1,9 @@
 extends Node2D
 const RoyalPalace = preload("res://scripts/cartoon/cartoon_royal_palace.gd")
 const Assets = preload("res://scripts/cartoon/cartoon_living_assets.gd")
+const PaintedFurniture = preload("res://scripts/cartoon/cartoon_interior_art_v042.gd")
+const PaintedWall = preload("res://scripts/cartoon/cartoon_interior_wall_v042.gd")
+const PaintedFloor = preload("res://scripts/cartoon/cartoon_interior_floor_v042.gd")
 const UISkin = preload("res://scripts/cartoon/cartoon_ui_theme.gd")
 const WALK_AREA: Rect2 = Rect2(-610,-325,1220,750)
 const SERVICES: Dictionary = {"tavern":"TAVERNA DE VALEDOURO","forge":"OFICINA DO FERREIRO","guild":"SALÃO DA GUILDA","castle":"CASTELO REAL"}
@@ -85,6 +88,13 @@ func _build_room() -> void:
 	floor.texture = Assets.texture("room_"+kind)
 	floor.z_index = -20
 	add_child(floor)
+	var painted_floor = PaintedFloor.new()
+	painted_floor.kind = kind
+	painted_floor.z_index = -19
+	add_child(painted_floor)
+	var wall = PaintedWall.new()
+	wall.kind = kind; wall.z_index = -18
+	add_child(wall)
 	room_objects = Node2D.new()
 	room_objects.y_sort_enabled = true
 	room_objects.name = "InteriorFurniture"
@@ -152,12 +162,12 @@ func _build_room() -> void:
 	exit_label.position = Vector2(-40,367)
 	add_child(exit_label)
 func _prop(key: String, p: Vector2, dimensions: Vector2, solid: bool = true, ground: bool = false) -> void:
-	var sprite: Sprite2D = Sprite2D.new()
+	var sprite = PaintedFurniture.new()
 	sprite.name = key
-	sprite.texture = Assets.texture(key)
+	sprite.key = "guild_"+key if kind=="guild" and key in ["counter","table"] else key
+	sprite.dimensions = dimensions
+	sprite.ground = ground
 	sprite.position = p
-	sprite.scale = dimensions/Vector2(sprite.texture.get_size())
-	sprite.offset = Vector2(0,-sprite.texture.get_height()*0.5+10/sprite.scale.y)
 	if ground: sprite.z_index = -10
 	room_objects.add_child(sprite)
 	if solid: blockers.append(Rect2(p+Vector2(-dimensions.x*0.32,-dimensions.y*0.27),Vector2(dimensions.x*0.64,dimensions.y*0.30)))

@@ -1,0 +1,1246 @@
+{
+	"captures": [
+		{
+			"draw_calls": 72,
+			"name": "animation_idle_00",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_idle_01",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_idle_02",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_idle_03",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_idle_04",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_idle_05",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_idle_06",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_idle_07",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_walk_00",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_walk_01",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_walk_02",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_walk_03",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_walk_04",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_walk_05",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_walk_06",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_walk_07",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_walk_08",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_walk_09",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_walk_10",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 72,
+			"name": "animation_walk_11",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 64,
+			"name": "animation_attack_00",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 64,
+			"name": "animation_attack_01",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 64,
+			"name": "animation_attack_02",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 64,
+			"name": "animation_attack_03",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 64,
+			"name": "animation_attack_04",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 64,
+			"name": "animation_attack_05",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 56,
+			"name": "animation_cast_00",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 56,
+			"name": "animation_cast_01",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 56,
+			"name": "animation_cast_02",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 56,
+			"name": "animation_cast_03",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 56,
+			"name": "animation_cast_04",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 56,
+			"name": "animation_cast_05",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 56,
+			"name": "animation_cast_06",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 56,
+			"name": "animation_cast_07",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 48,
+			"name": "animation_hurt_00",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 48,
+			"name": "animation_hurt_01",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 48,
+			"name": "animation_hurt_02",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 48,
+			"name": "animation_hurt_03",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 48,
+			"name": "animation_death_00",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 48,
+			"name": "animation_death_01",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 48,
+			"name": "animation_death_02",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 48,
+			"name": "animation_death_03",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 48,
+			"name": "animation_death_04",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 48,
+			"name": "animation_death_05",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 48,
+			"name": "animation_death_06",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 48,
+			"name": "animation_death_07",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 80,
+			"name": "animation_shoot_00",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 80,
+			"name": "animation_shoot_01",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 80,
+			"name": "animation_shoot_02",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 80,
+			"name": "animation_shoot_03",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 80,
+			"name": "animation_shoot_04",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 80,
+			"name": "animation_shoot_05",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 80,
+			"name": "animation_shoot_06",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 80,
+			"name": "animation_shoot_07",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 62,
+			"name": "animation_evade_00",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 62,
+			"name": "animation_evade_01",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 62,
+			"name": "animation_evade_02",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 62,
+			"name": "animation_evade_03",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 62,
+			"name": "animation_evade_04",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 62,
+			"name": "animation_evade_05",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 38,
+			"name": "furniture_gallery",
+			"size": [
+				960,
+				840
+			]
+		},
+		{
+			"draw_calls": 120,
+			"name": "tavern_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 116,
+			"name": "forge_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 136,
+			"name": "guild_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 137,
+			"name": "hero_world_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 360,
+			"name": "world_idle_0_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 137,
+			"name": "world_idle_1_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 137,
+			"name": "world_walk_0_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 137,
+			"name": "world_walk_1_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 137,
+			"name": "world_attack_0_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 137,
+			"name": "world_attack_1_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 136,
+			"name": "world_cast_0_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 136,
+			"name": "world_cast_1_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 135,
+			"name": "world_hurt_0_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 135,
+			"name": "world_hurt_1_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 138,
+			"name": "world_death_0_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 138,
+			"name": "world_death_1_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 139,
+			"name": "world_shoot_0_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 363,
+			"name": "world_shoot_1_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 138,
+			"name": "world_evade_0_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 138,
+			"name": "world_evade_1_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 492,
+			"name": "spell_ember_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 204,
+			"name": "spell_frost_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 204,
+			"name": "spell_arcane_960x540_z70",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 97,
+			"name": "tavern_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 97,
+			"name": "forge_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 126,
+			"name": "guild_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 123,
+			"name": "guild_board_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "hero_world_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "world_idle_0_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "world_idle_1_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "world_walk_0_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "world_walk_1_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "world_attack_0_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "world_attack_1_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 112,
+			"name": "world_cast_0_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 112,
+			"name": "world_cast_1_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 111,
+			"name": "world_hurt_0_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 111,
+			"name": "world_hurt_1_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 114,
+			"name": "world_death_0_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 332,
+			"name": "world_death_1_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 115,
+			"name": "world_shoot_0_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 115,
+			"name": "world_shoot_1_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 114,
+			"name": "world_evade_0_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 114,
+			"name": "world_evade_1_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 176,
+			"name": "spell_ember_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 465,
+			"name": "spell_frost_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 465,
+			"name": "spell_arcane_960x540_z150",
+			"size": [
+				960,
+				540
+			]
+		},
+		{
+			"draw_calls": 111,
+			"name": "tavern_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 107,
+			"name": "forge_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 94,
+			"name": "guild_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 115,
+			"name": "hero_world_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 115,
+			"name": "world_idle_0_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 115,
+			"name": "world_idle_1_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 115,
+			"name": "world_walk_0_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 115,
+			"name": "world_walk_1_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 115,
+			"name": "world_attack_0_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 115,
+			"name": "world_attack_1_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 114,
+			"name": "world_cast_0_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 114,
+			"name": "world_cast_1_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "world_hurt_0_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "world_hurt_1_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 116,
+			"name": "world_death_0_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 116,
+			"name": "world_death_1_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 117,
+			"name": "world_shoot_0_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 117,
+			"name": "world_shoot_1_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 116,
+			"name": "world_evade_0_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 116,
+			"name": "world_evade_1_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 180,
+			"name": "spell_ember_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 180,
+			"name": "spell_frost_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 180,
+			"name": "spell_arcane_640x360_z70",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 89,
+			"name": "tavern_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 94,
+			"name": "forge_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 88,
+			"name": "guild_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 85,
+			"name": "guild_board_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 112,
+			"name": "hero_world_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 112,
+			"name": "world_idle_0_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 112,
+			"name": "world_idle_1_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 112,
+			"name": "world_walk_0_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 112,
+			"name": "world_walk_1_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 112,
+			"name": "world_attack_0_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 112,
+			"name": "world_attack_1_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 111,
+			"name": "world_cast_0_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 111,
+			"name": "world_cast_1_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 110,
+			"name": "world_hurt_0_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 110,
+			"name": "world_hurt_1_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "world_death_0_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "world_death_1_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 114,
+			"name": "world_shoot_0_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 114,
+			"name": "world_shoot_1_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "world_evade_0_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 113,
+			"name": "world_evade_1_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 173,
+			"name": "spell_ember_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 463,
+			"name": "spell_frost_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		},
+		{
+			"draw_calls": 173,
+			"name": "spell_arcane_640x360_z150",
+			"size": [
+				640,
+				360
+			]
+		}
+	],
+	"grounded_frames": 240,
+	"max_draw_calls": 492
+}
