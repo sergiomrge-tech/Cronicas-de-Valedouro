@@ -361,3 +361,12 @@ A v0.41 passou no Godot Gate oficial run `36953786483`, commit `b0a34a1`.
 Continuar herói/efeitos e decoração dos interiores, registrar checkpoints,
 preservar HUD 3 e save v8 e não gerar APK. Ao concluir o passe descrito,
 desativar a automação de retomada.
+
+## Fidelidade visual solicitada pelo Diretor
+
+As imagens apresentadas são a referência visual a seguir. Ler
+`docs/CRITERIO_FIDELIDADE_VISUAL.md`; comparar sempre referência e capturas
+reais no tamanho de uso, refinar diferenças e registrar pendências. Aprovação
+da referência não significa aprovação de toda a integração. Não encerrar
+pelo PASS técnico enquanto herói/interiores ou outros elementos do passe
+divergirem visualmente. Esta regra também integra a tarefa agendada.

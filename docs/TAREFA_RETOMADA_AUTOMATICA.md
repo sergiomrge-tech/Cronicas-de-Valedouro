@@ -14,6 +14,14 @@ já registrado nas automações: `America/Sao_Paulo` (Brasília).
 - A tarefa anterior está concluída; continuar o passe visual seguinte a partir
   do estado real mais recente do GitHub, sem repetir o que já foi integrado.
 
+## Fidelidade visual obrigatória
+
+O Diretor pediu comparação contínua com as imagens apresentadas. Ler
+`docs/CRITERIO_FIDELIDADE_VISUAL.md` antes de criar ou integrar arte. Corrigir
+as diferenças de desenho, proporção, paleta, detalhe e animação antes de
+concluir cada etapa. PASS técnico não substitui a comparação visual na cena
+real. Herói e decoração dos interiores permanecem pendentes nesse critério.
+
 ## Trabalho a concluir nas retomadas
 
 1. Refinar herói e efeitos de combate para acompanhar a nova referência

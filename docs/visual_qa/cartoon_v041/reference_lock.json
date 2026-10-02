@@ -1,0 +1,13 @@
+{
+  "reference_commit": "b0a34a1cf54d70f2c43d13a63146434f469719d5",
+  "user_instruction_date": "2026-10-02",
+  "acceptance": "Direção visual das imagens aceita como referência. Integração completa, herói e interiores ainda exigem revisão.",
+  "files": {
+    "game/assets/cartoon/v041/foliage.png": "0ac375d0fd4b165f9fdeb325ad70e162be1dcf4cf4a990ae647766e959267d75",
+    "game/assets/cartoon/v041/people.png": "a4bcaa3a61950afb764ae6cee689d7cf5f36e5e0463fde9e437e29b83845ae6c",
+    "game/assets/cartoon/v041/creatures.png": "25964fd29d76ed02e800eaeda08954bbcd5412573b40d9fa9094896f776c1fb7",
+    "game/assets/cartoon/v041/grass.png": "953ccbcf7b93c54e6aab5fefd5623b4ced0e1e434514ef3c7b2cedf70dff1f46",
+    "game/assets/cartoon/v041/stone.png": "7547b042e22b8cbc982877a474306d6cc43324adebe0e09d4b9dffd437f5f41d",
+    "game/assets/cartoon/v040/buildings.png": "d4fe2cc71081e387e4a93547ee943ca38599236a0e1b62a7bdbe162190944200"
+  }
+}
